@@ -1,0 +1,209 @@
+body {
+	font-family: "Courier New", serif;
+	background-color: #150DF7;
+	background-image: url('/graphix/bg/bluescreen-glitch.jpg');
+	color: black;
+	text-align: left;
+}
+
+/* make unselectable */
+body {
+	-webkit-user-select: none; /* Safari */
+	-ms-user-select: none; /* IE 10 and IE 11 */
+	user-select: none; /* Standard syntax */
+}
+
+.container {
+	position: relative;
+	margin: auto;
+	margin-top: 5vh;
+	width: 90vw;
+	max-width: 50rem; /* default 800px */
+}
+
+.leftimg {
+	position: relative;
+	width: 60%; /* default 480px */
+}
+@media screen and (max-width:40rem) { /* default 640px */
+	.leftimg { width: 75%; margin-left: 8vw; }
+}
+.leftimg svg {
+	position: absolute; top: 0; left: 0; /*top: -10%; left: 0;*/
+	width: 100%;
+	height: 100%;
+	fill-opacity:0;
+	stroke:none;
+}
+.leftimg img {
+	width: 100%;
+	pointer-events: none;
+}
+.leftimg a.credit, .leftimg a.credit:visited {
+	z-index: 10;
+	position: absolute; bottom:10%; left: 18%;
+	display: block;
+	color: #000;
+	font-weight: bold;
+	font-size: min(35px, 6vw);
+	text-decoration: none;
+}
+
+.backimg {
+	z-index: -3;
+	position: absolute;
+	top: 0;
+	left: -5%;
+	width: auto;
+	max-width: 80%; /* default 640px */
+	border-radius: 25%;
+	pointer-events: none;
+}
+@media screen and (max-width:40rem) { /* default 640px */
+	.backimg { max-width: 100%; left: 0; }
+}
+.backimg .monitor {
+	object-fit: contain;
+	width: 100%;
+}
+.backimg .screen {
+	z-index: -1;
+	position: absolute;
+	top: 10%;
+	left: 18%;
+	width: 65%;
+	height: 45%;
+}
+
+/* scan lines over entire screen */
+.scanlines {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	width: 100%;
+	height: 100%;
+	background-image: url('/graphix/bg/scanlines.jpg');
+	pointer-events: none;
+}
+.overlay { opacity: .1; mix-blend-mode: overlay; }
+.multiply { opacity: .1; mix-blend-mode: multiply; }
+
+/* flashing element off state */
+@media (prefers-reduced-motion: no-preference) { .flashing.off { visibility: hidden; } }
+
+/********** DRAGGABLE WINDOW *********/
+.errorbox {
+	width: min(350px, 50vw);
+	height: auto;
+	text-align: left;
+}
+@media screen and (max-width:640px) {
+	.errorbox { width: 90vw; }
+}
+
+.adbox img.ad {
+	width: auto;
+	max-width: 100%;
+}
+
+.dragbox {
+	z-index: 1;
+	top: 30%;
+	right: 0;
+	position: absolute;
+	background-color: #E2FAFF;
+	border: 2px #000000 solid;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding: 3px; padding-bottom: 0px;
+	box-shadow: inset 3px 3px rgba(255,255,255,0.5), inset -3px -3px rgba(0,0,0,0.5);
+	font-family: "Tahoma", sans-serif;
+	font-size: 16px;
+}
+@media screen and (max-width:40rem) { /* default 640px */
+	.dragbox { top: 80vw; }
+}
+
+.dragbox .header {
+	background-color: #3AEBFF;
+	background-image: linear-gradient(to right, #AA00FF, #3AEBFF, #3AEBFF);
+	padding: 5px 0 5px 10px;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+.dragbox .header .title img { max-height: 1em; }
+.dragbox .x {
+	display: inline-block;
+	float: right;
+	margin: -2px 2px 0 0.5em;
+	font-size: 1em;
+	width: 1.5em;
+	height: 1.5em;
+	line-height: 0.8em;
+	text-align: center;
+	background-color: #FF0055;
+	padding: 5px;
+	color: #FFFFFF;
+	box-shadow: inset 2px 2px rgba(255,255,255,0.5), inset -2px -2px rgba(0,0,0,0.5);
+}
+.dragbox .x:focus {
+	box-shadow: inset 1px 1px rgba(0,0,0,0.5), inset -1px -1px rgba(255,255,255,0.5);
+	border-width: 1px;
+}
+.dragbox .content {
+	background-color: #E2FAFF;
+	padding:15px;
+	line-height: 1.5em;
+	display: grid;
+	gap: 1em;
+	grid-template-columns: 15% 1fr;
+	grid-template-rows: 1fr auto;
+	grid-template-areas:
+		'left right'
+		'footer footer';
+}
+.dragbox .content .left {
+	grid-area: left;
+	padding: 0 5% 0 0;
+}
+.dragbox .content .left img { width: auto; max-width: 100%; }
+.dragbox .content .right {
+	grid-area: right;
+	display: flex;
+	align-items: center;
+	text-align: left;
+}
+.dragbox .content .footer {
+	grid-area: footer;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.dragbox .content button {
+	width: auto;
+	min-width: 40%;
+	padding: 3px;
+	background-color: #E2FAFF;
+	border-width: 1px 2px 2px 1px;
+	border-color: #000;
+	box-shadow: inset 1px 1px rgba(255,255,255,0.5), inset -1px -1px rgba(0,0,0,0.5);
+	font-family: "Tahoma", sans-serif;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+.dragbox .content button:active {
+	box-shadow: inset 1px 1px rgba(0,0,0,0.5), inset -1px -1px rgba(255,255,255,0.5);
+	border-width: 1px;
+}
+.dragbox .content button span {
+	display: block;
+	padding: 3px 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	border: 1px #000 dotted;
+}
+/******** END DRAGGABLE WINDOW *******/

@@ -1,0 +1,9 @@
+/*
+<link href="/fonts/Unown/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Unown"; font-display: swap; src: local('Unown'), url('/fonts/Unown/Unown.otf'); }
+.txt-unown { font-family: "Unown", sans-serif; text-transform: uppercase; letter-spacing: .1em; }
+
+@font-face { font-family: "Unown Light"; font-display: swap; src: local('Unown'), url('/fonts/Unown/UnownLight.ttf'); }
+.txt-unown-light { font-family: "Unown Light", sans-serif; text-transform: uppercase; }

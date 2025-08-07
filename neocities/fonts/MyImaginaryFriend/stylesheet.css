@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/MyImaginaryFriend/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "My Imaginary Friend"; font-display: swap; src: url('/fonts/MyImaginaryFriend/MyImaginaryFriend.ttf'); }
+.txt-imaginaryfriend { font-family: 'My Imaginary Friend', sans-serif; letter-spacing: 0.1em; }

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!-- fonts -->
+		<link href="/fonts/ComicSans/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/SuperComic/stylesheet.css" rel="stylesheet" type="text/css">
+		
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet-->
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<style>
+			body {
+				background-color:#000;
+				text-align:center;
+			}
+			.container {
+				margin-top:50px;
+			}
+			.header {
+				letter-spacing: .1em;
+				margin-bottom: 25px;
+			}
+		</style>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="/js/jquery.lettering.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".txt-rainbow").lettering(); /* automatically put each letter in a <span> */
+			});
+		</script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<div class="container">
+			<h1 class="header txt-rainbow">
+				CONTAINMENT FACILITY
+			</h1>
+			this is where i store my creatures!!
+			<br>
+			<br>
+			<a class="txt-red" href="/ocs/vex">vex &#8605;</a>
+			<br>
+			<br>
+			full oc list and galleries on <a href="https://toyhou.se/praxis/characters">toyhou.se</a>
+			<br>
+			<br>
+			<button class="btn btn-green" onclick="window.location.href='/home';">home</button>
+		</div>
+	</body>
+	<!--------------END BODY------------->
+</html>

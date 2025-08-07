@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/GhoulishFright/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Ghoulish Fright"; font-display: swap; src: url('/fonts/GhoulishFright/GhoulishFright.ttf'); }
+.txt-ghoulishfright { font-family: "Ghoulish Fright", sans-serif; }

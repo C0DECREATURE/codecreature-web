@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/YetR/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Yet R"; font-display: swap; src: local('Yet R'), url('/fonts/YetR/YetR.ttf'); }
+.txt-yetr { font-family: "Yet R", sans-serif; }

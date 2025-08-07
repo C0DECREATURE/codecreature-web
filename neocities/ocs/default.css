@@ -1,0 +1,116 @@
+:root {
+	/* header height */
+	--hh: 200px;
+}
+
+body, html { margin: 0; }
+
+body {
+	background-color: var(--d-purple);
+	color: var(--white);
+	text-align:center;
+	width: 100%; height: auto; min-height: 100vh;
+	display: flex; flex-direction: column;
+}
+
+.header {
+	position: relative;
+	width: 100%;
+	height: var(--hh);
+	padding: calc(var(--hh) * .08) 0;
+	/* put the border/padding inside instead of outside */
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	background-color: var(--dd-blue);
+	color: var(--blue); /* for bits outside the h1/h2 tags */
+	font-size: calc(var(--hh) * .15); /* for bits outside the h1/h2 tags */
+	font-weight: normal;
+}
+.header h1 { font-size: calc(var(--hh) * .35); }
+.header h2 { font-size: calc(var(--hh) * .25); }
+
+/* main content container */
+.container {
+	width: 100%;
+	flex: 1; /* fill remaining vertical space */
+	display: flex; flex-wrap: wrap; gap: 1em;
+	justify-content: center;
+	padding: 1em 2em;
+	/* put the border/padding inside instead of outside */
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+}
+/* main center content in main container */
+.container-content { height: 100%; flex: 1; display: flex; flex-wrap: wrap; justify-content: center; }
+.container-content > * { margin-bottom: 1rem; }
+.container-content > :last-child { margin-bottom: 0; }
+	
+.left-image { height: 65vh; width: max(auto, 45vw); }
+.left-image > * { display: block; max-width: 100%; max-height: 100%; }
+
+.summary { min-width: 100%; }
+
+.list-block { width: 45%; min-width: 14em; max-width: 20em; }
+ul {
+	text-align: left;
+	list-style-type: '\002726'; /* black four pointed star */
+}
+
+.stamps { width: 100%; }
+
+.blinkies { height: 100%; }
+.blinkies > * { display: block; margin: 0 auto 0.25em auto; max-width: 150px; }
+.blinkies > button, blinkies > a { width: 100%; }
+.blinkies > *:last-child { margin-bottom: 0; }
+
+.footer {
+	position: fixed;
+	left: 0; bottom: 0;
+	width: 100%;
+	padding: 1rem 0;
+	/* put the border/padding inside instead of outside */
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	background-color: var(--dd-blue);
+	color: var(--blue);
+	display: flex; justify-content: center; gap: 1em;
+}
+.footer-spacer { position: relative; visibility: hidden; }
+
+/***** TEXT STYLING *****/
+h1 {
+	color: var(--green);
+	font-size: 5rem;
+	line-height: 0.85em;
+	margin: 0;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+}
+h2 {
+	color: var(--l-green);
+	font-size: 3.5rem;
+	line-height: 0.9em;
+	margin: 0;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+}
+h3 {
+	color: var(--d-blue);
+	font-size: 1.5em;
+	line-height: 1.25em;
+	margin: 0;
+	letter-spacing: 0.1em;
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.15em;
+	line-height: 1.25em;
+	margin: 0;
+	font-weight: normal;
+	font-style: italic;
+}
+
+/***********/

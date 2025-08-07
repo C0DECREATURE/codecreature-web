@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>graphix collection!!</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!-- fonts -->
+		<link href="/fonts/DS-Digital/stylesheet.css" rel="stylesheet" type="text/css">
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<!--full image view-->
+		<script src="/js/full-image.js"></script>
+		
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!-- masonry package for image grid layout -->
+		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+		<!-- image loader package -->
+		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				
+				// init Masonry
+				var $grid = $('.img-grid').masonry({
+					// options
+					itemSelector: '.m-item',
+					columnWidth: 5
+				});
+				// layout Masonry after each image loads
+				$grid.imagesLoaded().progress( function() {
+				  $grid.masonry('layout');
+				});
+				
+			});
+		</script>
+		
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.js?fileversion=9"></script>
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
+		
+		<!--hexagon stamps css-->
+		<link href="/graphix/stamps/hexagon/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- this page's stylesheet -->
+		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's javascript -->
+		<script src="script.js?fileversion=9"></script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<!-- title -->
+		<header>
+			<!-- for screenreaders/keyboard navigation -->
+			<a class="skip-to-content" href="#summary" tabindex="1">skip to content</a>
+			
+			<h1 class="txt-dsdigital">
+				<img src="/graphix/deco/spinning-disc.gif" alt="">
+				graphix collection
+				<img src="/graphix/deco/spinning-disc.gif" alt="">
+			</h1>
+			<nav class="nav">
+				<button class="btn-strip dropdown-btn">navigation</button>
+				<div class="navlinks">
+					<a href="/home">home</a>
+					<a href="#summary">top</a>
+				</div>
+			</nav>
+		</header>
+		
+		<div class="summary tq-format" id="summary">
+			
+			some of these <u class="tq" data-txt="r"><span class="sr-only">are</span><span aria-hidden="true">r</span></u> old web media or have <u class="tq-nep tq" data-txt="b33n"><span class="sr-only">been</span><span aria-hidden="true">b33n</span></u> passed around so much the source is difficult <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> find. sources <u class="tq" data-txt="r"><span class="sr-only">are</span><span aria-hidden="true">r</span></u> linked when <u class="tq" data-a="possible" data-txt="pawssible"><span class="sr-only">possible</span><span aria-hidden="true">pawssible</span></u>!!
+			
+			<p>
+				images on this page <u class="tq" data-txt="r"><span class="sr-only">are</span><span aria-hidden="true">r</span></u> not mine unless stated otherwise
+			</p>
+			
+			<p>
+				ok <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> borrow any of these <u class="tq" data-txt="4"><span class="sr-only">for</span><span aria-hidden="true">4</span></u> <u class="tq" data-txt="ur"><span class="sr-only">your</span><span aria-hidden="true">ur</span></u> own use!! <u class="tq" data-txt="pls"><span class="sr-only">please</span><span aria-hidden="true">pls</span></u> rehost, no hotlinking
+				<br>if <u class="tq" data-txt="u"><span class="sr-only">you</span><span aria-hidden="true">u</span></u> want <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> use something on my site that is NOT on this page, <u class="tq" data-a="please" data-txt="pls"><span class="sr-only">please</span><span aria-hidden="true">pls</span></u> ask <u class="tq" data-a="first" data-txt="1st"><span class="sr-only">first</span><span aria-hidden="true">1st</span></u> <u class="tq" data-a="because" data-txt="bc"><span class="sr-only">because</span><span aria-hidden="true">bc</span></u> <u class="tq" data-a="it's" data-txt="its"><span class="sr-only">it's</span><span aria-hidden="true">its</span></u> <u class="tq" data-a="probably" data-txt="purrobably"><span class="sr-only">probably</span><span aria-hidden="true">purrobably</span></u> something <u class="tq" data-txt="i"><span class="sr-only">i</span><span aria-hidden="true">i</span></u> made custom <u class="tq" data-txt="4"><span class="sr-only">for</span><span aria-hidden="true">4</span></u> myself <u class="tq-e tq" data-txt=":33"><span class="sr-only">smiling kitty emoji</span><span aria-hidden="true">:33</span></u>
+			</p>
+		</div>
+		
+		<!-- main content container -->
+		<div class="main-container">
+			
+			<div class="section-wrapper">
+				<section class="section" id="stamps">
+					<header>
+						<h3 class="txt-dsdigital">stamps</h3>
+					</header>
+					<div class="gallery block-grid">
+						<img src="/graphix/stamps/autistic_endeavors.gif" alt="'good luck in your autistic endeavors' stamp in black text on wood grain background">
+						<img src="/graphix/stamps/borgor.gif" alt="stamp of a shark with a burger body. small text above reads 'borgor'">
+						<img src="/graphix/stamps/cat_pupils.gif" alt="stamp of a black cat with its pupils expanding and contracting">
+						<img src="/graphix/stamps/cat_typist.gif" alt="animated stamp of a photorealistic tabby cat typing on an old computer">
+						<img src="/graphix/stamps/fury_devils.png" alt="intentionally misspelled stamp that says 'furys are the devels pets' (furries are the devil's pets) in black and red text with upside-down crosses">
+						
+						<div class="img-wrapper center">
+							<img src="/graphix/stamps/game_over.gif" alt="stamp of a PC error window that glitches and then says 'game over' in red text on black background">
+						</div>
+						<img src="/graphix/stamps/internet_cool.png" alt="'The Internet is cool because' stamp with the end of the sentence trailing off the edge. it has a black background and rainbow border">
+						<img src="/graphix/stamps/latias_support.gif" alt="'I support Latias going nutz' stamp with pixel art of the pokemon latias saying 'yay' on blue background">
+						<img src="/graphix/stamps/make_bad_art.gif" alt="'make bad art' stamp in a fun font with a smiley face. every part of the stamp is flashing different neon colors">
+						
+						
+						<img src="/graphix/stamps/beads.png" alt="rainbow pony beads stamp"
+							data-credit="https://www.deviantart.com/crypticgoth/art/059-696478286">
+						<img src="/graphix/stamps/blue-red-squiggles.png" alt="blue and red squiggle pattern stamp"
+							data-credit="https://www.deviantart.com/bunsona/art/5-599984670">
+						<img src="/graphix/stamps/depressed-pizza-cat-kin.png" alt="'depressed pizza cat kin' stamp with picture of cat with watery eyes holding a slice of pizza in its mouth"
+							data-credit="https://www.deviantart.com/darkishweb/art/depressed-pizza-cat-kin-f2u-stamp-721465846">
+						<img src="/graphix/stamps/giant-rat.png" alt="'giant rat' stamp with low-poly 3D model of a rat">
+						<img src="/graphix/stamps/hands-you-a-very-small-cat.gif" alt="'*hands you a very small cat*' stamp with background rapidly flashing solid primary colors"
+							data-credit="https://www.deviantart.com/murderawrz/art/stamp-again-so-sorry-omfgggggggggggggggggggggggggg-814331176">
+						<img src="/graphix/stamps/heck-yea-worm-on-string.gif" alt="'heck yea worm on string' stamp with picture of worm on string flashing rapidly in bright colors"
+							data-credit="https://www.deviantart.com/100ghosts/art/Heck-Yea-Worm-On-String-793381668">
+						<div class="img-wrapper center vcenter">
+							<img src="/graphix/stamps/i-am-an-alien-swirl.gif" alt="'i am an alien' stamp with slowly swirling blue, purple, and pink background"
+								data-credit="https://www.deviantart.com/majikkanbeingsunite/art/Alien-stamp-603875316">
+						</div>
+						<img src="/graphix/stamps/i-drink-glitter-glue.png" alt="'i drink glitter glue' stamp with glitter rainbow background"
+							data-credit="https://www.deviantart.com/goatglam/art/Glitter-glue-connoisseur-FTU-810633546">
+						<img src="/graphix/stamps/im-lov-sanic.gif" alt="badly made 'im lov ssanic hedghag' stamp (misspelling of 'i love sonic hedgehog') with animated sonic sticking his tongue out and blushing"
+							data-credit="https://www.deviantart.com/requiemblanchett/art/sonic-stamp-ftu-790356091">
+						<img src="/graphix/stamps/minecraft-is-gay-culture.png" alt="'minecraft is gay culture' stamp with dirt block background"
+							data-credit="https://www.deviantart.com/iceofwaterflock/art/minecraft-is-gay-culture-765560485">
+						<img src="/graphix/stamps/nepeta-caramelldansen.gif" alt="sparkly caramelldansen nepeta leijon stamp"
+							data-credit="https://www.deviantart.com/stu-pixels/art/619-823529114">
+						<img src="/graphix/stamps/not-immune-to-propoganda-garf.png" alt="'you are not immune to propoganda' stamp written over garfield's face">
+						<img src="/graphix/stamps/owo-red-green.png" alt="clashing neon owo face stamp in red, yellow, and green"
+							data-credit="https://www.deviantart.com/rosegoldscrub/art/FINNA-HIT-THAT-OWO-811130191">
+						<img src="/graphix/stamps/pikachu-nyancat.gif" alt="running pikachu as nyancat stamp">
+						<img src="/graphix/stamps/porygon2.png" alt="porygon Z pokemon stamp with purple and pink computer code background"
+							data-credit="https://www.deviantart.com/greenimagination/art/porygon-Z-stamp-671255881">
+						<div class="img-wrapper center vcenter">
+							<img src="/graphix/stamps/queer-bouncy-rainbow.gif" alt="colorful leopard print 'queer' stamp">
+						</div>
+						<img src="/graphix/stamps/sillybands-rainbow.png" alt="rainbow sillybands on a person's arm stamp"
+							data-credit="https://www.deviantart.com/heirl00m/art/aesthetic-stamp-50-810912374">
+						<img src="/graphix/stamps/this-cat-thinks-ure-12-10.png" alt="'this cat thinks you're 12 out of 10' stamp with badly drawn cat showing its butt on white background"
+							data-credit="https://www.deviantart.com/toxicstamps/art/best-motivational-stamp-611918626">
+						<img src="/graphix/stamps/totally-rad-flash.gif" alt="retro flickering 'totally rad' stamp on black background">
+						<img src="/graphix/stamps/tubular.gif" alt="flashing triangles 'tubular' stamp on hot pink background"
+							data-credit="https://www.deviantart.com/rosegoldscrub/art/wanna-be-80s-cool-kid-811141061">
+						<img src="/graphix/stamps/tuna-juice-is-delicious.gif" alt="'tuna juice is delicious' stamp with green checkmark over image of canned tuna"
+							data-credit="https://www.deviantart.com/azrael-legna/art/Stamp-Tuna-juice-is-delicious-708563514">
+						<img src="/graphix/stamps/weird-spiral.webp" alt="stamp with the word 'weird' spinning around on a yellow background"
+							data-credit="https://www.deviantart.com/rogue-ranger/art/Weird-Stamp-611849893">
+						<img src="/graphix/stamps/worm-gay-flag.png" alt="green worm on a string over the gay flag stamp">
+						<img src="/graphix/stamps/centipede-rave.gif" alt="centipede dancing on flashing rainbow stamp"
+							data-credit="https://www.deviantart.com/nano7e2/art/centipede-stamp-651178332">
+						<img src="/graphix/stamps/do-what-you-want-forever.png" alt="do what you want forever stamp"
+							data-credit="https://www.deviantart.com/toxicyuri/art/dwywf-stamp-986424367">
+						<img src="/graphix/stamps/porygon.gif" alt="vaporwave porygon stamp"
+							data-credit="https://www.deviantart.com/greenimagination/art/Porygon-Stamp-671319645">
+						<img src="/graphix/stamps/want-to-believe-mms.gif" alt="i want to believe m&ms mascot stamp"
+							data-credit="https://www.deviantart.com/skeletonnekogems12/art/The-Truth-Is-Out-There-643187330">
+						<img src="/graphix/stamps/my-sanctuary-is-a-biohazard.jpg" alt="my sanctuary is a biohazard stamp"
+							data-credit="https://www.deviantart.com/big-argonian/art/Bio-hazard-stamp-72460858">
+						<img src="/graphix/stamps/gay-clown.png" alt="gay clown stamp"
+							data-credit="https://www.deviantart.com/clairskiller/art/Stamp1-817887117">
+						<img src="/graphix/stamps/fruit.png" alt="assorted fruits stamp"
+							data-credit="https://www.deviantart.com/bunsona/art/fruit-599986503">
+						<img src="/graphix/stamps/clown-license.gif" alt="clown license stamp"
+							data-credit="https://www.deviantart.com/xxalienat7elevenxx/art/F2U-ANIMATED-CLOWN-LICENSE-STAMP-948655264">
+						<img src="/graphix/stamps/snorunt.png" alt="snorunt stamp"
+							data-credit="https://www.deviantart.com/captain-chompers/art/Snorunt-Stamp-726653693">
+						<div class="img-wrapper center">
+							<img src="/graphix/stamps/anti-internet.gif" alt="anti internet, fuck the internet hate it so much stamp">
+						</div>
+						<img src="/graphix/stamps/theyll-be-sorry.png" alt="they'll all be sorry once i get my life together stamp">
+						<div class="img-wrapper center vcenter">
+							<img src="/graphix/stamps/cat-irl.gif" alt="cat irl stamp">
+						</div>
+						<img src="/graphix/stamps/garf-yknow.png" alt="garfield limp wristing gayly"
+							data-credit="https://killing-machine.neocities.org/">
+						<img src="/graphix/stamps/radiodontids.png" alt="radiodontids heart stamp">
+						<img src="/graphix/stamps/vampires-will-never-hurt-you.png" alt="vampires will never hurt you stamp">
+						<div class="img-wrapper center vcenter">
+							<img src="/graphix/stamps/lisa-frank-aliens.gif" alt="lisa frank aliens stamp">
+						</div>
+						<img src="/graphix/stamps/so-far-so-good.gif" alt="so far so good smiley face cat stamp">
+						<img src="/graphix/stamps/toy-centipede.png" alt="toy centipede on leaves stamp">
+						<img src="/graphix/stamps/aesthetic.gif" alt="neon rapid shifting aesthetic stamp"
+							data-credit="https://ninacti0n.neocities.org/graphics">
+						<img src="/graphix/stamps/garfsplat.png" alt="stamp of garfield flattened like roadkill"
+							data-credit="https://killing-machine.neocities.org/">
+						<img src="/graphix/stamps/pc-question.gif" alt="old pc stamp with brightly flashing question mark on screen and colorful zigzags emerging from monitor"
+							data-credit="https://killing-machine.neocities.org/">
+						<img src="/graphix/stamps/cassette.png" alt="red casette tape with light blue label stamp">
+						<img src="/graphix/stamps/cat_bw.png" alt="black stamp with thin white horizontal line that is shaped like a cat's head in the middle">
+						<img src="/graphix/stamps/glitchy.png" alt="blue and pink glitchy scan lines stamp">
+						<img src="/graphix/stamps/glow_stars.png" alt="green glow-in-the-dark stars on purple background stamp">
+						<img src="/graphix/stamps/gnarp.png" alt="stamp of gnarp the photoshopped green alien cat on black background">
+						<img src="/graphix/stamps/going_online_to_act_silly.png" alt="'going online to act silly' stamp with low resolution emoji sitting behind PC monitor on light blue background">
+						<img src="/graphix/stamps/neon_glitch_swirls.png" alt="glitchy pixelated neon color swirls stamp with neon green border">
+						<img src="/graphix/stamps/neon_glitch_swirls_2.png" alt="glitchy pixelated neon color swirls stamp with hot pink border">
+						<img src="/graphix/stamps/stuff_on_computer.png" alt="'i love to do stuff on the computer' stamp in plain black text on white background">
+						<img src="/graphix/stamps/anime_gateway.png" alt="'anime is a gateway to cannibalism' stamp in plain black text on neon green background">
+					</div>
+					
+					<h4 class="txt-dsdigital">mine</h4>
+					<div class="gallery block-grid">
+						<img src="/graphix/stamps/sunningrocks_thunderclan.png" alt="'sunning-rocks belongs to thunderclan' stamp over the map art from the original warriors books in black and white"
+							data-caption="stamp by me, art taken from warriors">
+					</div>
+				</section>
+				<!-- bumper stickers -->
+				<section class="section" id="bumper stickers">
+					<header>
+						<h3 class="txt-dsdigital">bumper stickers</h3>
+					</header>
+					<div class="gallery block-grid">
+						<img src="/graphix/bumperstickers/can-open.gif" alt="'can open, worms everywhere' in green 3D text on pink background">
+						<img src="/graphix/bumperstickers/stress-based-life-form.gif" alt="'stress based life form' in pink and green text on blue background">
+						<img src="/graphix/bumperstickers/tested-on-animals.gif" alt="'this website tested on laboratory animals' on yellow background">
+						<img src="/graphix/bumperstickers/warning-hazardous.gif" alt="'warning: may be hazardous to humans and domestic animals' on light yellow background">
+						<img src="/graphix/bumperstickers/aroma_of_trouble.png" alt="'the aroma of trouble has entered the vicinity' in green text on purple background">
+					</div>
+					
+					<h4>extra tall</h4>
+					<div class="gallery block-grid">
+						<img src="/graphix/bumperstickers/worshipped_the_void.png" alt="'i worshipped the void today! and that's why your barn has been engulfed in darkness!' with an ominous black swirl hovering over a barn on a gray background"
+							data-credit="https://arcanebullshit.com/">
+						<img src="/graphix/bumperstickers/worshipped_the_sun.png" alt="'i worshipped the sun today! and that's why our corn hasn't floated into space!' with a smiling sun and corn surrounded by stars on a red background"
+							data-credit="https://arcanebullshit.com/">
+					</div>
+					
+					<h4 class="txt-dsdigital">mine</h4>
+					<div class="gallery block-grid">
+						<img src="/graphix/bumperstickers/sunningrocks_thunderclan.png" alt="'sunning-rocks belongs to thunderclan' over the thunderclan symbol and map art from the original warriors books"
+							data-caption="sticker by me, art taken from warriors">
+					</div>
+				</section>
+			</div>
+			
+			<!-- blinkies -->
+			<section class="section" id="blinkies">
+				<header>
+					<h3 class="txt-dsdigital">blinkies</h3>
+					<p>resources:<br>
+						<a href="https://blinkies.cafe/" target="_blank">blinkies.cafe</a>
+					</p>
+				</header>
+				<div class="gallery block-grid">
+					<!-- rainbow/multicolor -->
+					<div class="img-wrapper vcenter">
+						<img style="top:60%;" src="/graphix/blinkies/glitch.gif" alt="glitched out blinkie that extends far beyond the borders">
+					</div>
+					<img src="/graphix/blinkies/bad-website-design.gif" alt="'bad website design' blinkie that cycles between several bad fonts on rainbow background">
+					<img src="/graphix/blinkies/neon-beast.gif" alt="'neon beast' blinkie with teal text on black and rainbow arcade carpet patterned background">
+					<img src="/graphix/blinkies/scene-welcome-2-my-blog.gif" alt="'welcome 2 my blog' blinkie in leetspeak on a bright rainbow background and checkered border">
+					<img src="/graphix/blinkies/get-silly.gif" alt="'get silly!' blinkie with rainbow text and background">
+					<img src="/graphix/blinkies/who_needs_drugs.gif" alt="'who needs drugs when you've got blinkies' on wild rainbow background">
+					<div class="img-wrapper center" style="padding-right: 2px;">
+						<img src="/graphix/blinkies/AAAAAAAAAAAA.gif" alt="rainbow blinkie with capital 'A's covering it in a curved pattern that goes outside the borders">
+					</div>
+					<img src="/graphix/blinkies/i-eat-glowsticks.gif" alt="I EAT GLOW STICKS' blinkie with rainbow background">
+					<img src="/graphix/blinkies/im-not-human-rainbow.gif" alt="'i'm not human' blinkie with purple text on rainbow background">
+					<img src="/graphix/blinkies/im-really-a-sparkledog.gif" alt="'i'm Really A Sparkledog' blinkie with rainbow border on blue background">
+					<img src="/graphix/blinkies/nya-rainbow.gif" alt="'nya' blinkie with black hearts on flashing rainbow background">
+					<img src="/graphix/blinkies/i-love-eyestrain.gif" alt="'i love eye strain' blinkie with groovy font on rainbow background">
+					<img src="/graphix/blinkies/nyan_cat.gif" alt="nyan cat blinkie with transparent background">
+					<img src="/graphix/blinkies/worm-line.gif" alt="blinkie with line of rainbow fluffy worms and transparent background">
+					<img src="/graphix/blinkies/wonder_bread.gif" alt="wonder bread blinkie showing the classic wonder bread packaging with red text and large primary-colored dots">
+					<img src="/graphix/blinkies/chronically-ill-static.gif" alt="'chronically ill' blinkie with flashing rainbow text on black TV static background">
+					<img src="/graphix/blinkies/get-blinked.gif" alt="'get blinked' blinkie with colorful blinking eyes on black background">
+					<!-- red -->
+					<img src="/graphix/blinkies/red-bats.webp" alt="black bats on red background blinkie">
+					<img src="/graphix/blinkies/cant-sleep-clowns.gif" alt="'can't sleep clowns will eat me' blinkie on red background">
+					<img src="/graphix/blinkies/i-bite-bat.gif" alt="'i bite' blinkie with bats on flashing black and red background">
+					<img src="/graphix/blinkies/crayon-devilish-red.gif" alt="crayon-shaped blinkie labeled 'devilish red'">
+					<img src="/graphix/blinkies/red-eyes.webp" alt="line of eyes with red borders on black background blinkie">
+					<img src="/graphix/blinkies/red-meow.webp" alt="'meow' with red cat eyes on black background blinkie">
+					<img src="/graphix/blinkies/deadly-kitty.gif" alt="'deadly kitty' blinkie with cat head skull and crossbones">
+					<img src="/graphix/blinkies/blood-teeth.gif" alt="bloody vampire teeth blinkie">
+					<img src="/graphix/blinkies/brand-new-species.gif" alt="'brand new species' blinkie with red text and black background" data-credit="https://cardinalphlox.tumblr.com/post/758300367650947072/">
+					<!-- orange -->
+					<img src="/graphix/blinkies/garf-is-genderqueer.gif" alt="'garfield is genderqueer' blinkie with nonbinary flag border">
+					<img src="/graphix/blinkies/figment_of_your_imagination.gif" alt="'this blinkie is a figment of your imagination' blinkie with orange background">
+					<img src="/graphix/blinkies/rowr.gif" alt="'rowr' blinkie with scratching paw and orange background">
+					<img src="/graphix/blinkies/cheez-its.gif" alt="'cheez-itz' blinkie with spinning cheez-it crackers"
+						data-credit="https://www.tumblr.com/resourcesiero/757735681357479936">
+					<!-- cream/pale yellow -->
+					<img src="/graphix/blinkies/blinkies_2_go.gif" alt="'blinkies 2 go' blinkie with colorful flashing dots and cream background">
+					<img src="/graphix/blinkies/help-im-online.gif" alt="'help! i'm online & i can't get off' blinkie with red and blue border on tan background">
+					<img src="/graphix/blinkies/moon-bat.gif" alt="black bat in front of huge yellow moon blinkie">
+					<!-- yellow -->
+					<img src="/graphix/blinkies/gay-vampire-rights.gif" alt="'gay vampire rights' blinkie with yellow text and crosses">
+					<img src="/graphix/blinkies/be-cool.webp" alt="'be cool' blinkie with sunglasses emoji and yellow background">
+					<img src="/graphix/blinkies/site-in-progress.gif" alt="'site in progress' blinkie with caution tape background">
+					<img src="/graphix/blinkies/demon-core-apologist.gif" alt="'demon core apologist' blinkie on yellow background">
+					<img src="/graphix/blinkies/blinkies-rule.webp" alt="'blinkies rule' blinkie with thumbs up sunglasses emoji and yellow background">
+					<img src="/graphix/blinkies/crayon_dandelion.gif" alt="dandelion yellow crayon shaped blinkie">
+					<img src="/graphix/blinkies/i-heart-pokemon.gif" alt="'i heart pokemon' blinkie in pokemon font with pokeball and pikachu on yellow background">
+					<img src="/graphix/blinkies/splatoon-i-eat-ink.gif" alt="'i eat ink! yum' blinkie with splatoon squids on yellow and purple background">
+					<!-- green -->
+					<img src="/graphix/blinkies/radioactive.gif" alt="'radioactive' blinkie with flashing hazard symbols and yellow font on green background">
+					<img src="/graphix/blinkies/nepeta-rawrr.gif" alt="homestuck ':33 < rawrrr' blinkie with leo signs and dark blue border on oliveblood colored background">
+					<img src="/graphix/blinkies/otherworldy-creature-space.gif" alt="'otherworldly creature' blinkie with small neon green text and nebula background">
+					<img src="/graphix/blinkies/install-gender-virus.gif" alt="'install gender virus =>' blinkie with green text on black background">
+					<img src="/graphix/blinkies/i_think_in_html_tags.gif" alt="'i think in html tags' blinkie with green text in html tag brackets on black background">
+					<img src="/graphix/blinkies/homestuck_disease.webp" alt="'homestuck disease' blinkie in bright green on black background">
+					<img src="/graphix/blinkies/buggn.gif" alt="'bugg'n' blinkie with ants on green background">
+					<!-- blue-green/teal -->
+					<img src="/graphix/blinkies/glitch-oh-no.gif" alt="'oh no...' blinkie that looks like it's glitching. it has distressed yellow emojis on a light green background">
+					<img src="/graphix/blinkies/neon-power.gif" alt="'neon power' blinkie with blue and yellow text on striped teal background">
+					<!-- blue -->
+					<img src="/graphix/blinkies/dishwasher-safe.gif" alt="'dishwasher safe' blinkie with blue text and smiley faces on black background">
+					<img src="/graphix/blinkies/piracy_is_fun.gif" alt="'piracy is fun and free' blinkie with waving pirate flag and rippling ocean background">
+					<img src="/graphix/blinkies/giant_isopods.gif" alt="'giant isopods' blinkie with isopod in a heart and blue background">
+					<img src="/graphix/blinkies/i-heart-shrimp.gif" alt="'i heart shrimp' blinkie with realistic cooked shrimp on blue background">
+					<img src="/graphix/blinkies/blinkie_bug.gif" alt="'bitten by the blinkie bug' blinkie with a bite out of the corner and blue background">
+					<img src="/graphix/blinkies/howdy_cyberfriends.png" alt="'howdy cyberfriends' blinkie in poorly rendered colorful comic sans font on blue background">
+					<img src="/graphix/blinkies/steal-this-blinkie.gif" alt="'steal this blinkie' blinkie yellow text and blue background">
+					<!-- green and purple -->
+					<img src="/graphix/blinkies/boo-forest.gif" alt="'boo' blinkie with dripping green text, skulls for the O's, and purple forest background">
+					<img src="/graphix/blinkies/nerdy-weirdo.gif" alt="'nerdy weirdo' blinkie with green text and blinking eyes on purple background">
+					<!-- purple -->
+					<img src="/graphix/blinkies/rainbow-artist.gif" alt="'rainbow artist' blinkie with rainbow star and purple background">
+					<img src="/graphix/blinkies/replace-my-batteries.gif" alt="'please replace my batteries' blinkie with purple border"
+						data-credit="https://www.tumblr.com/engravedlives/747172631771561985/">
+					<img src="/graphix/blinkies/were_a_system.gif" alt="'we're a system' blinkie with ampersands and purple text on black background">
+					<img src="/graphix/blinkies/hehe-just-kitten.gif" alt="'hehe just kitten!! :3' blinkie with calico cat and brown cat faces on lilac background">
+					<img src="/graphix/blinkies/im-the-reason-4-the-litterboxes.gif" alt="'i'm the reason 4 the litterboxes in schools' blinkie with calico cat and brown cat faces on lilac background">
+					<img src="/graphix/blinkies/i-purr-for-hugs.gif" alt="'i purr for hugs' blinkie with  realistic orange cat face on purple background">
+					<img src="/graphix/blinkies/strange-creature.gif" alt="'strange creature' blinkie with bold sunset-colored text">
+					<!-- pink -->
+					<img src="/graphix/blinkies/im_just_pixels.webp" alt="'i'm just pixels' blinkie with pink text and computer screen on black background">
+					<img src="/graphix/blinkies/hello_lgbt_community.gif" alt="'hello lgbt community' with pastel rainbow stripes and pink background">
+					<img src="/graphix/blinkies/autism-creature.gif" alt="'autism creature' blinkie with the large-eyed round-headed autism creature drawing and pink border">
+					<!-- white -->
+					<img src="/graphix/blinkies/oh-worm.gif" alt="'oh worm' blinkie with wiggling rainbow beanie baby worm on white background">
+					<img src="/graphix/blinkies/possums.gif" alt="'possums' blinkie with sketch of possum on lined white paper background">
+					<img src="/graphix/blinkies/women-want-me-fish-fear-me.gif" alt="'women want me fish fear me' blinkie in black and white with glitter border">
+					<!-- gray -->
+					<img src="/graphix/blinkies/im-approaching.gif" alt="'i'm approaching' blinkie with yellow warning signs on gray background">
+					<img src="/graphix/blinkies/mspaint_palette.gif" alt="blinkie showing the old default microsoft paint palette">
+					<!-- black -->
+					<img src="/graphix/blinkies/crows.gif" alt="blinkie with line of sitting crows on gray background">
+					<img src="/graphix/blinkies/send-me-your-teeth.gif" alt="'send me your teeth' blinkie with white teeth and text on black background">
+					<img src="/graphix/blinkies/night-owl.gif" alt="'night owl' blinkie with large white stars and black background">
+				</div>
+				<!-- pride blinkies -->
+				<section>
+					<header><h4 class="txt-dsdigital">pride</h4></header>
+					<div class="gallery block-grid">
+						<img src="/graphix/blinkies/this-user-is-trains.gif" alt="'this user is trains' blinkie (intentionally misspelled) with trans flag background">
+						<img src="/graphix/blinkies/on-testosterone.gif" alt="'on testosterone' blinkie with syringe and purple background">
+						<img src="/graphix/blinkies/testosterone_kibble.webp" alt="'testosterone-infused kibble' blinkie with pastel striped background">
+						<img src="/graphix/blinkies/hrt_paws.webp" alt="'hrt gave me paws' blinkie with pink paw and pastel blue, pink, and white background">
+						<img src="/graphix/blinkies/aromantic-no-heart.gif" alt="'no <3' blinkie with aromantic flag background">
+						<img src="/graphix/blinkies/asexual.gif" alt="'asexual' blinkie with ace flag background">
+						<img src="/graphix/blinkies/catgender-meow-meow-purr-purr.gif" alt="'meow meow purr purr' blinkie with catgender flag background">
+					</div>
+				</section>
+				<section>
+					<header><h4 class="txt-dsdigital">mine</h4></header>
+					<div class="gallery block-grid">
+						<img src="/graphix/blinkies/davepetasprite.gif" alt="davepetasprite blinkie"
+							data-caption="blinkie by me, art from homestuck">
+						<img src="/graphix/blinkies/snorunt-enjoyer.gif" alt="snorunt enjoyer blinkie"
+							data-caption="blinkie by me, art from pokemon. <u class='tq'>pls</u> tell me <u class='tq'>im</u> not
+							the only one obsessed with snorunt?? <u class='tq' data-a='they're'>theyre</u> triangle">
+						<img src="/graphix/blinkies/fruit4god.gif" alt="animal crossing tangy 'fruit 4 the fruit god' blinkie"
+							data-caption="made these <u class='tq'>4</u> my beloved tang.
+							quote from <a href='https://twitter.com/batshaped/status/1262901513267052544'>this twitter post</a>">
+						<img src="/graphix/blinkies/tang4tangy.gif" alt="animal crossing 'tang 4 the tangy one' blinkie"
+							data-caption="made these <u class='tq'>4</u> my beloved tang.
+							quote from <a href='https://twitter.com/batshaped/status/1262901513267052544'>this twitter post</a>">
+					</div>
+				</section>
+			</section>
+			<!-- end of blinkies -->
+			
+			<section class="section" id="dividers">
+				<header>
+					<h3 class="txt-dsdigital">dividers</h3>
+				</header>
+				<div class="gallery img-stack">
+					<div class="image-divider" >
+						<img src="/graphix/dividers/bouncy-smilies.gif" alt="bouncing yellow smiley faces divider"
+							data-credit="https://www.tumblr.com/animatedglittergraphics-n-more/634343628904497153/webcore-dividers">
+					</div>
+					
+					<div class="image-divider">
+						<img src="/graphix/dividers/fire.gif" alt="orange realistic animated fire divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/fishies.gif" alt="tiny, multicolored cartoon fish divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/fruits.png" alt="divider with a row of colorful fruits"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/oil_drips.gif" alt="dripping blue-black liquid divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/rainbow_drips.gif" alt="dripping rainbow liquid divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/sixpoint_stars.gif" alt="pulsing yellow six-pointed stars divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/red_sparkles.gif" alt="glowing, animated red sparkles"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/rainbow-squiggle.gif" alt="rainbow squiggle divider"></div>
+					<div class="image-divider" style="max-height:35px;background-size:contain;">
+						<img src="/graphix/dividers/crosses.gif" alt="bouncing rainbow X's divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/rainbow-beat.gif" alt="rainbow heartbeat divider"
+							data-credit="https://www.deviantart.com/kouenli/art/Rainbow-beat-Divider-734347515"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/rainbow-paws.gif" alt="rainbow paws divider"
+							data-credit="https://www.deviantart.com/xxalienat7elevenxx/art/F2U-RAINBOW-PAW-DIVIDER-948181924"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/construction-tape.gif" alt="construction tape divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/multicolor-lights.gif" alt="multicolor lights divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/rainbow-warp.gif" alt="rainbow warp divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/square-faces.gif" alt="spinning square smilies divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/chains.gif" alt="chains divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/motherboard-1.gif" alt="sparkly motherboard divider"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/motherboard-2.gif" alt="sparkly motherboard divider 2"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/blue-star-stripe.gif" alt="yellow stars on blue stripe"></div>
+					<div class="image-divider">
+						<img src="/graphix/dividers/dinosaurs.gif" alt="multicolored bouncing dinosaurs"
+							data-credit="https://roomwithavoid.tumblr.com/post/769257134226653184"></div>
+				</div>
+				
+				<h4 class="txt-dsdigital">non repeating</h4>
+				<div class="gallery img-stack">
+					<img src="/graphix/dividers/cat_erpillar.png" alt="long, caterpillar-like white cat with black stripes in a cartoon style. it is smiling with its belly lifted up over an apple"
+						style="max-height:62px;">
+					<img src="/graphix/dividers/big_fire.gif" alt="bright yellow and orange realistic animated fire divider">
+					<img src="/graphix/dividers/rainbow-stars.gif" alt="rainbow stars divider">
+				</div>
+			</section>
+			
+			<!-- buttons -->
+			<div class="section" id="buttons">
+				<h3 class="txt-dsdigital">buttons</h3>
+				<div class="gallery img-stack">
+					<img src="/graphix/buttons/palestine-ceasefire-now.gif" alt="palestine flag ceasefire now button">
+					<img src="/graphix/buttons/neocities.gif" alt="neon neocities.org button">
+					<img src="/graphix/buttons/neocities-web-design.gif" alt="web design is my passion neocities mascot button">
+					<img src="/graphix/buttons/queercoded.png" alt="'you're telling me a queer coded this' button">
+					<img src="/graphix/buttons/my-own-two-paws.png" alt="'made with my own two paws' button">
+					<img src="/graphix/buttons/best_viewed_with_cat.png" alt="'best viewed with a cat' button with green cat on gray background">
+					<img src="/graphix/buttons/crecher.gif" alt="low quality button with a drawing of a creature misspelled as 'crecher'">
+					<img src="/graphix/buttons/arcade-virus.gif" alt="arcade virus button">
+					<img src="/graphix/buttons/nekko-scape-98.gif" alt="nekko scape 98 nyan! button">
+					<img src="/graphix/buttons/nekkoscape-2020.gif" alt="nekko scape 2020 button">
+					<img src="/graphix/buttons/dont-click-here.gif" alt="don't click here! no! button">
+					<img src="/graphix/buttons/pro-death.gif" alt="pro death / death positive / deathcare / death approved! button">
+					<img src="/graphix/buttons/download-sburb.gif" alt="download sburb button">
+					<img src="/graphix/buttons/encounter-alien.gif" alt="encounter an alien button">
+					<img src="/graphix/buttons/internet-exploiter.gif" alt="free microsoff internet exploiter button"
+						data-credit="https://boodlebox.neocities.org/award">
+					<img src="/graphix/buttons/ban-time-travel.png" alt="ban time travel now button">
+					<img src="/graphix/buttons/graphic-design.png" alt="graphic design is my passion meme button">
+					<img src="/graphix/buttons/tangy-now.png" alt="TANGY NOW 2.0 button with tangy the cat from animal crossing">
+				</div>
+			</div>
+			<!-- end of buttons -->
+			
+			<div class="section-wrapper">
+				<!-- backgrounds -->
+				<section class="section" id="bgs">
+					<header>
+						<h3 class="txt-dsdigital">bgs</h3>
+						<p>want more backgrounds? try these:<br>
+							<a href="https://sadgrl.online/webmastery/downloads/tiledbgs" target="_blank">sadgrl</a> /
+							<a href="https://background-tiles.com/" target="_blank">background-tiles.com</a>
+						</p>
+					</header>
+					<div class="gallery block-grid">
+						<div class="bg-image"><img src="/graphix/bg/black-star-flash.gif" alt="realistic stars flashing in a black sky"></div>
+						<div class="bg-image"><img src="/graphix/bg/tv-static.gif" alt="rapidly flickering black and white TV static"
+							data-credit="https://www.deviantart.com/tbh-1138/art/TV-Static-214352630"></div>
+						<div class="bg-image"><img src="/graphix/bg/arcade_flash.png" alt="arcade carpet pattern covered in misshapen colorful starbursts. the background is medium blue with small black spirals"></div>
+						<div class="bg-image"><img src="/graphix/bg/arcade-circles.png" alt="arcade carpet pattern made up of overlapping colorful circle and oval outlines and confetti on a black background"></div>
+						<div class="bg-image"><img src="/graphix/bg/black-binary.gif" alt="dark gray binary numbers shifting on a black screen"></div>
+					</div>
+				</section>
+				<!-- end of backgrounds -->
+				<!-- random images that don't fit in other categories -->
+				<section class="section" id="deco">
+					<header>
+						<h3 class="txt-dsdigital">decor</h3>
+					</header>
+					<div class="gallery img-grid">
+						<div class="m-item">
+							<img src="/graphix/deco/smiley-spin-yellow.gif" alt="spinning yellow smiley face"
+								data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
+								style="width: 70px">
+							<img src="/graphix/deco/smiley-spin-green.gif" alt="spinning green smiley face"
+								data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
+								style="width: 70px"></a>
+							<img src="/graphix/deco/smiley-spin-pink.gif" alt="spinning pink smiley face"
+								data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
+								style="width: 70px">
+						</div>
+						<img class="m-item" src="/graphix/deco/new-cat.gif" alt="tuxedo cat with 'new' flashing over its head">
+						<img class="m-item" src="/graphix/deco/tiny-cat.webp" alt="tiny low poly anthropomorphic cat">
+						<img class="m-item" src="/graphix/deco/spinning-disc.gif" alt="spinning CD disc">
+						<img class="m-item" src="/graphix/deco/checking-in-on-my-friends.gif" alt="black cat typing on a computer, captioned 'checking in on my friends'">
+						<img class="m-item" src="/graphix/deco/kitty-ball.gif" alt="brown and white cat playing with a rainbow ball">
+						<img class="m-item" src="/graphix/deco/green-3d-spin-star.gif" alt="spinning green 3D model of a many-pointed star">
+						<img class="m-item" src="/graphix/deco/neil-tunes-pixel.gif" alt="pixel art of a rat playing a toy xylophone, based on the 'Neil banging out the tunes' meme">
+						<img class="m-item" src="/graphix/deco/skater-kitty.gif" alt="spinning cartoon cat wearing overalls and rollerskates">
+						<img class="m-item" src="/graphix/deco/sparkle-owo.gif" alt="glittery sparkling 'owo'">
+						<img class="m-item" src="/graphix/deco/lava-lamp.gif" alt="small blue lava lamp">
+						<img class="m-item" src="/graphix/deco/binary-pc-monitor.gif" alt="old IBM computer with green binary numbers scrolling on a black screen">
+						<img class="m-item" src="/graphix/deco/spinning-star.gif" alt="spinning rainbow 5-point star">
+						<img class="m-item" src="/graphix/deco/cat-snack.png" alt="photo of 3 stuffed cat toys: a cat food can, a light blue fish, and a fish skeleton">
+						<img class="m-item" src="/graphix/deco/whitecat-walk.gif" alt="realistic white cat walking gif">
+						<img class="m-item" src="/graphix/deco/3d-kitty-headflop.gif" alt="small 3d cat wobbling its head">
+						<img class="m-item" src="/graphix/deco/3d-kitty-walk.gif" alt="small 3d cat walking">
+						<img class="m-item" src="/graphix/deco/blue-curve-star.gif" alt="slowly spinning 3d star">
+						<img class="m-item" src="/graphix/deco/gray-tabby-walk.gif" alt="realistic gray tabby cat walking with its tail up">
+						<img class="m-item" src="/graphix/deco/color-earth.gif" alt="digital rainbow globe made up of horizontal scan lines">
+						<img class="m-item" src="/graphix/deco/flying-fish-spin.gif" alt="spinning metallic model of a winged fish">
+						<img class="m-item" src="/graphix/deco/gif.gif" alt="colorful 3d text that says 'GIFS'">
+						<img class="m-item" src="/graphix/deco/neon-starry-cats.gif" alt="2 cat silhouettes in a neon green and purple starry window">
+						<img class="m-item" src="/graphix/deco/mail.gif" alt="blue mailbox with envelopes flying in">
+						<img class="m-item" src="/graphix/deco/new-black-paws.gif" alt="black paws holding a 'NEW' sign">
+						<img class="m-item" src="/graphix/deco/metally-ill.png" alt="text in multiple colors and fonts that says 'i am not mentally ill but oh fucking boy I AM METALLY ILL'">
+						<img class="m-item" src="/graphix/deco/pc-melt.gif" alt="gif of a pc monitor rapidly melting onto the keyboard">
+						<img class="m-item" src="/graphix/ads/popup/place-him-on-your-site.gif"
+							style="max-width: 130px;"
+							alt="crayon style drawing of a very round calico cat, captioned 'place him on your site immediately'">
+						<img class="m-item" src="/graphix/deco/maxwell.gif" alt="spinning realistic 3d model of maxwell the tuxedo cat">
+						<img class="m-item" src="/graphix/deco/pikachu-under-construction.gif" alt="under construction sign over pikachu with a jackhammer">
+						<img class="m-item" src="/graphix/deco/floppy-nonbinary.png" alt="floppy disk with nonbinary flag sticker"
+							style="max-width: 120px;"
+							data-credit="https://killing-machine.neocities.org/">
+						<img class="m-item" src="/graphix/deco/floppy-xenogender.png" alt="floppy disk with xenogender flag sticker"
+							style="max-width: 120px;"
+							data-credit="https://killing-machine.neocities.org/">
+						<img class="m-item" src="/graphix/deco/floppy-aroace.png" alt="floppy disk with aroace flag sticker"
+							style="max-width: 120px;"
+							data-credit="https://killing-machine.neocities.org/">
+						<img class="m-item" src="/graphix/deco/circus-tent.gif" alt="tiny circus tent pixel art">
+						<img class="m-item" src="/graphix/deco/wizard-orb.gif" alt="a blue orb on a gold stand. inside is a bearded wizard pondering an even smaller orb while sparkles and bats fly around his head.">
+						<img class="m-item" src="/graphix/deco/pokemon-browser.gif" alt="free pokemon internet browser button, featuring marill">
+						<img class="m-item" src="/graphix/deco/kelpeater_isopod_rainbow.png" alt="drawing of a bright rainbow isopod"
+							data-credit="https://kelpeater.neocities.org/collections/isopods.html">
+						<img class="m-item" src="/graphix/deco/kelpeater_isopod_trans.png" alt="drawing of a transgender-flag-patterned isopod in pink, blue, and white"
+							data-credit="https://kelpeater.neocities.org/collections/isopods.html">
+						<img class="m-item" src="/graphix/deco/flesh-machine-sign.png" alt="sign reading 'Warning: This machine does not know the difference between metal and flesh, nor does it care.'">
+						<img class="m-item" src="/graphix/deco/orange-drink.gif" alt="orange drink with orange slice">
+						<img class="m-item" src="/graphix/deco/rainbow-eevee.gif" alt="shimmering rainbow eevee pixel art">
+						<img class="m-item" src="/graphix/deco/jesus-ps2.gif" alt="'accept jesus and get a free ps2' ad with a picture of white jesus and a PS2 under a flashing 'click here!'">
+						<img class="m-item" src="/graphix/deco/silly-cat.gif" alt="silly orange cat drawing spinning and waving its arms">
+						<img class="m-item" src="/graphix/deco/tiny-robot.gif" alt="tiny blue toy robot">
+						<img class="m-item" src="/graphix/deco/strawberries.gif" alt="realistic 3d strawberries wiggling">
+						<img class="m-item" src="/graphix/deco/garfspin.gif" alt="photorealistic garfield plushie spinning rapidly">
+						<img class="m-item" src="/graphix/deco/porygon-peck.gif" alt="a porygon2 pecking the ground">
+						<img class="m-item" src="/graphix/deco/beetledance.gif" alt="a pixel art stag beetle waving its head up and down">
+						<img class="m-item" src="/graphix/deco/bat-kitten.gif" alt="a realistic orange kitten with animated bat wings">
+					</div>
+				</section>
+				<!-- end of random images -->
+			</div>
+			
+			<section class="section" id="stickers">
+				<header>
+					<h3 class="txt-dsdigital">stickers</h3>
+					<p>want more stickers? try these:<br>
+						<a href="https://transparentstickers.tumblr.com/" target="_blank">transparentstickers</a> /
+						<a href="https://fairytrash.neocities.org/portal/stickers" target="_blank">fairytrash</a> /
+						<a href="https://keysklubhouse.com/stickers" target="_blank">keysklubhouse</a> /
+						<a href="https://lu.tiny-universes.net/stickers-sets.html" target="_blank">lu</a>
+					</p>
+				</header>
+				<div class="gallery img-grid">
+					<img class="m-item" src="/graphix/deco/sleeping-glitter-kitty-sticker.gif" alt="sticker of a glittery rainbow striped white cat sleeping on a blue pillow"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/alien.png" alt="green alien head">
+					<img class="m-item" src="/graphix/stickers/astronaut.png" alt="glittery astronaut">
+					<img class="m-item" src="/graphix/stickers/planet.png" alt="red planet with rings">
+					<img class="m-item" src="/graphix/stickers/rocket.png" alt="green rocket with star">
+					<img class="m-item" src="/graphix/stickers/caterpillar.png" alt="green caterpillar with black stripes">
+					<img class="m-item" src="/graphix/stickers/floppy-disc-rat.png" alt="cream colored rodent carrying pastel floppy discs">
+					<img class="m-item" src="/graphix/stickers/pastel-pc-keyboard.png" alt="pink pc keyboard with pastel green keys">
+					<img class="m-item" src="/graphix/stickers/pastel-pc-monitor.png" alt="green and blue pc monitor with heart buttons. the screen displays a rainbow cat">
+					<img class="m-item" src="/graphix/stickers/pastel-pc-tower.png" alt="pastel blue and purple pc tower with heart buttons">
+					<img class="m-item" src="/graphix/stickers/ghost.png" alt="glittery green ghost with open mouth and red eyes">
+					<img class="m-item" src="/graphix/stickers/bat1.png" alt="pink glittery bat"
+						data-credit="https://transparentstickers.tumblr.com/post/632694275958882304/vintage-glittery-halloween-stickers-by-hallmark"
+						data-caption="design by hallmark">
+					<img class="m-item" src="/graphix/stickers/cat1.png" alt="simple stylized blue cat">
+					<img class="m-item" src="/graphix/stickers/cat2.png" alt="simple stylized  blue cat on its hind legs facing right">
+					<img class="m-item" src="/graphix/stickers/cat3.png" alt="blue sparkly tuxedo cat on its hind legs facing forwards">
+					<img class="m-item" src="/graphix/stickers/cat4.png" alt="yellow sparkly tuxedo cat on its hind legs facing left">
+					<img class="m-item" src="/graphix/stickers/cat5.png" alt="pink tabby cat lying down with its paws tucked in">
+					<img class="m-item" src="/graphix/stickers/cat6.png" alt="tiny sparkly pink tuxedo cat">
+					<img class="m-item" src="/graphix/stickers/cat7.png" alt="tiny sparkly purple tuxedo cat">
+					<img class="m-item" src="/graphix/stickers/cat8.png" alt="blue tabby cat sitting neatly">
+					<img class="m-item" src="/graphix/stickers/cat9.png" alt="purple tabby cat sitting neatly">
+					<img class="m-item" src="/graphix/stickers/cat10.png" alt="gray cat sleeping on its back">
+					<img class="m-item" src="/graphix/stickers/cat11.png" alt="sitting calico cat grooming its back">
+					<img class="m-item" src="/graphix/stickers/cat12.png" alt="calico cat curled up asleep">
+					<img class="m-item" src="/graphix/stickers/cat13.png" alt="black and white tuxedo cat sleeping with its paws stretched out">
+					<img class="m-item" src="/graphix/stickers/cat14.png" alt="simple stylized sitting yellow tabby cat"
+						data-caption="design by great 7 inc">
+					<img class="m-item" src="/graphix/stickers/cat15.png" alt="simple stylized sitting blue tabby cat"
+						data-caption="design by great 7 inc">
+					<img class="m-item" src="/graphix/stickers/cat16.png" alt="simple stylized sitting dark green cat"
+						data-caption="design by great 7 inc">
+					<img class="m-item" src="/graphix/stickers/cat17.png" alt="purple halloween cat puffed up with wide eyes">
+					<img class="m-item" src="/graphix/stickers/cat18.png" alt="pink fluffy cat">
+					<img class="m-item" src="/graphix/stickers/cat19.png" alt="sleeping pink calico cat">
+					<img class="m-item" src="/graphix/stickers/sandylion-clown-1.png" alt="simple stylized clown with light skin and a large red nose, dressed in green polka dots"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/sandylion-clown-2.png" alt="simple stylized clown with light skin and a large red nose, dressed in rainbow stripes"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/sandylion-clown-3.png" alt="simple stylized clown with light skin and a large red nose, dressed in blue and pink"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/hedgehog.png" alt="happy blue and green hedgehog">
+					<img class="m-item" src="/graphix/stickers/hellhound.png" alt="grinning red hellhound wearing a spiked collar and shades">
+					<img class="m-item" src="/graphix/stickers/stego-bass.png" alt="sparkly stegosaurus playing a purple flying v guitar">
+					<img class="m-item" src="/graphix/stickers/tiger1.png" alt="pink and blue tiger">
+					
+					<!--sandylion ocean-->
+					<img class="m-item" src="/graphix/stickers/sandylion-shark-2.png" alt="blue grinning shark"
+						data-credit="https://transparentstickers.tumblr.com/post/185404486978/80s-transparent-shark-stickers-by-sandylion"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/sandylion-coral.png" alt="green and yellow ocean coral"
+						data-credit="https://transparentstickers.tumblr.com/post/185404486978/80s-transparent-shark-stickers-by-sandylion"
+						data-caption="design by the sandylion sticker company">
+					<img class="m-item" src="/graphix/stickers/sandylion-shark-1.png" alt="purple hammerhead shark"
+						data-credit="https://transparentstickers.tumblr.com/post/185404486978/80s-transparent-shark-stickers-by-sandylion"
+						data-caption="design by the sandylion sticker company">
+					
+					<!--small muted rainbows-->
+					<img class="m-item" src="/graphix/stickers/tiny-rainbow.png" alt="tiny muted color rainbow"
+						data-credit="https://transparentstickers.tumblr.com">
+					<img class="m-item" src="/graphix/stickers/music-note-rainbow.png" alt="music notes over a muted rainbow"
+						data-credit="https://transparentstickers.tumblr.com">
+					
+					<!--mrs grossman computer parts-->
+					<img class="m-item" src="/graphix/stickers/mrs-grossman-monitor.png" alt="computer monitor and keyboard"
+						data-credit="https://transparentstickers.tumblr.com/post/713576924804415488/computer-stickers-produced-by-mrs-grossman-likely"
+						data-caption="design by the mrs grossman sticker company">
+					<img class="m-item" src="/graphix/stickers/mrs-grossman-mouse.png" alt="small gray mouse"
+						data-credit="https://transparentstickers.tumblr.com/post/713576924804415488/computer-stickers-produced-by-mrs-grossman-likely"
+						data-caption="design by the mrs grossman sticker company">
+					<img class="m-item" src="/graphix/stickers/mrs-grossman-floppy-blue.png" alt="blue floppy disk"
+						data-credit="https://transparentstickers.tumblr.com/post/713576924804415488/computer-stickers-produced-by-mrs-grossman-likely"
+						data-caption="design by the mrs grossman sticker company">
+					<img class="m-item" src="/graphix/stickers/mrs-grossman-floppy-red.png" alt="red floppy disk"
+						data-credit="https://transparentstickers.tumblr.com/post/713576924804415488/computer-stickers-produced-by-mrs-grossman-likely"
+						data-caption="design by the mrs grossman sticker company">
+					<img class="m-item" src="/graphix/stickers/mrs-grossman-floppy-yellow.png" alt="yellow floppy disk"
+						data-credit="https://transparentstickers.tumblr.com/post/713576924804415488/computer-stickers-produced-by-mrs-grossman-likely"
+						data-caption="design by the mrs grossman sticker company">
+
+					<!-- sandylion stars -->
+					<img class="m-item" src="/graphix/stickers/sandylion-glitter-star-1.png" alt="blue glitter shooting star"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-glitter-star-2.png" alt="small gold glitter star"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-glitter-star-3.png" alt="gold glitter shooting star"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-glitter-star-4.png" alt="small silver glitter star"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					
+					<!--sandylion fuzzy hats-->
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-1.png" alt="green dragon tail shaped fuzzy hat"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-2.png" alt="fuzzy orange hat with bells and red spirals"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-3.png" alt="rainbow fuzzy top hat"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-4.png" alt="fuzzy green and blue striped pointy hat with a star on the end"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-5.png" alt="fuzzy red bowler hat"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-fuzzy-hat-6.png" alt="fuzzy blue, pink, and orange jester hat with bells"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					
+					<!--sandylion bubble bunnies-->
+					<img class="m-item" src="/graphix/stickers/sandylion-bubble-bunny-1.png" alt="light brown bunny in a yellow jumper, using a bubble wand to blow a large pink bubble"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					<img class="m-item" src="/graphix/stickers/sandylion-bubble-bunny-2.png" alt="light brown bunny in a frilly pink dress holding a bubble wand with a large yellow bubble"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					
+					<img class="m-item" src="/graphix/stickers/sandylion-kite-tiger.png" alt="smiling orange tiger standing on its hind legs holding a brightly colored starry kite"
+						data-caption="design by the sandylion sticker company<p>transparent png by me">
+					
+					<!--american greetings halloween-->
+					<img class="m-item" src="/graphix/stickers/american-greetings-halloween-worm.png" alt="stylized long purple bug with orange spots. it has many legs and its tail is curled in a spiral"
+						data-credit="https://transparentstickers.tumblr.com/post/730106037298937856/halloween-stickers-made-by-american-greetings"
+						data-caption="design by the american greetings company">
+					<img class="m-item" src="/graphix/stickers/american-greetings-halloween-pumpkin.png" alt="large smiling jack-o-lantern"
+						data-credit="https://transparentstickers.tumblr.com/post/730106037298937856/halloween-stickers-made-by-american-greetings"
+						data-caption="design by the american greetings company">
+					<img class="m-item" src="/graphix/stickers/american-greetings-halloween-bug.png" alt="tiny green bug with round eyes"
+						data-credit="https://transparentstickers.tumblr.com/post/730106037298937856/halloween-stickers-made-by-american-greetings"
+						data-caption="design by the american greetings company">
+					<img class="m-item" src="/graphix/stickers/american-greetings-halloween-snake.png" alt="stylized green snake with jagged teeth and pink eyes"
+						data-credit="https://transparentstickers.tumblr.com/post/730106037298937856/halloween-stickers-made-by-american-greetings"
+						data-caption="design by the american greetings company">
+					<img class="m-item" src="/graphix/stickers/american-greetings-halloween-spider-web.png" alt="stylized black spider with yellow eyes at the center of a small web"
+						data-credit="https://transparentstickers.tumblr.com/post/730106037298937856/halloween-stickers-made-by-american-greetings"
+						data-caption="design by the american greetings company">
+					
+				</div>
+			</section>
+			<!-- end of stickers -->
+			
+			
+			<!-- hexagon stamps -->
+			<div class="section" id="hexagon-stamps">
+				<header>
+					<h3 class="txt-dsdigital">hexagon stamps</h3>
+					<p>original template and code by
+						<a href="https://mooeena.neocities.org/honeycomb" target="_blank">mooeena</a>
+					</p>
+				</header>
+				<div class="gallery">
+					<div class="honeycomb hc-7">
+						<div><img src="/graphix/stamps/hexagon/autism.png" alt="autism hexagon stamp with neurodiversity infinity symbol"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_01.png" alt="colorful arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_02.png" alt="confetti on black background arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_03.png" alt="colorful arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_04.png" alt="colorful arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_05.png" alt="neon planets arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_06.png" alt="colorful arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_07.png" alt="bright starbursts on black background arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/arcade_carpet_08.png" alt="colorful arcade carpet hexagon stamp"
+							data-credit="https://mooeena.neocities.org/honeycomb"></div>
+						<div><img src="/graphix/stamps/hexagon/clown_peek.png" alt=""
+							data-credit="https://www.deviantart.com/sparkle-garden"></div>
+						<div><img src="/graphix/stamps/hexagon/balloons.png" alt=""
+							data-credit="https://www.deviantart.com/sparkle-garden"></div>
+						<div><img src="/graphix/stamps/hexagon/catgender.png" alt=""
+							data-credit="https://www.deviantart.com/sparkle-garden"></div>
+						<div><img src="/graphix/stamps/hexagon/candy_corn.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/limes.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/oranges.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/corn.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/worm.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/purple_stars.png" alt=""
+							data-credit="https://linktr.ee/doutarina"></div>
+						<div><img src="/graphix/stamps/hexagon/evil.png" alt=""
+							data-credit="https://kryxyo.carrd.co/"></div>
+						<div><img src="/graphix/stamps/hexagon/eww.gif" alt=""
+							data-credit="https://kryxyo.carrd.co/"></div>
+						<div><img src="/graphix/stamps/hexagon/biblically_accurate.gif" alt=""
+							data-credit="https://kryxyo.carrd.co/"></div>
+					</div>
+				</div>
+			</div>
+			<!-- end of hexagon stamps -->
+			
+			<section class="section" id="links">
+				<header>
+					<h3 class="txt-dsdigital">more links</h3>
+				</header>
+				
+				<a href="https://web.archive.org/web/19980711000616/http://www.baywell.or.jp/users/niiro/art.html" target="_blank">baywell art folders</a>
+			</section>
+		
+		</div>
+		
+		<script>
+			graphixPageInit();
+		</script>
+	</body>
+	<!--------------END BODY------------->
+</html>

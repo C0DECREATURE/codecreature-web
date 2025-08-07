@@ -1,0 +1,33 @@
+.toy { position: absolute; }
+.accessory { position: static; }
+
+/* MAIN LAYOUT */
+body {
+	height: 100vh;
+	padding: 0; margin: 0;
+	background: blue;
+}
+main {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+#accessories, #toyzone {
+	height: 100%;
+}
+#accessories {
+	width: min(350px,30%);
+	background: green;
+	z-index: 5000;
+}
+#toyzone {
+	/* fill remaining horizontal area */
+	flex-grow: 1;
+}
+
+/* SMALL SCREENS */
+main {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}

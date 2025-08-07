@@ -1,0 +1,27 @@
+/* all .svg-icon elements */
+i.svg-icon svg {
+	height: .85em;
+}
+
+/* solid icon style */
+i.svg-icon.svg-icon-solid svg {
+	stroke-opacity: 1;
+	stroke-width: 16;
+	fill-opacity: 1;
+}
+
+/* outline icon style */
+i.svg-icon.svg-icon-outline svg {
+	stroke-opacity: 1;
+	stroke-width: 16;
+	fill-opacity: 0;
+}
+
+/* bold style */
+b i.svg-icon.svg-icon-outline svg,
+strong i.svg-icon.svg-icon-outline svg,
+i.svg-icon-outline.svg-icon-bold svg {
+	stroke-opacity: 1;
+	stroke-width: 24;
+	fill-opacity: 0;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>codecreature upd8 log</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!--detect whether url contains iframe parameter-->
+		<script src="/js/iframe-detector.js?fileversion=9"></script>
+		
+		<!-- fonts -->
+		<link href="/fonts/ComicSans/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		
+		<!--base stylesheet-->
+		<link href="/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		
+		<!--full image view-->
+		<link href="/js/full-image.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		<script src="/js/full-image.js?fileversion=9"></script>
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
+		
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.js?fileversion=9"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		
+		<!--this page's javascript-->
+		<script src="updateLog.js?fileversion=9"></script>
+		<!--runs on page load-->
+		<script defer src="updates.js?fileversion=9"></script>
+		
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<script>tqInitMenu();</script>
+		<!--main content container -->
+		<div class="main-container">
+			<base target="_parent">
+			
+			<a class="title" id="title"></a>
+			<a class="subtitle" id="subtitle"></a>
+			
+			<div id="links">
+				<a href="/">home</a> /
+				<button id="all-tags-button" class="txt-green" onclick="document.getElementById('all-tags').classList.toggle('hidden');">sort by tags</button>
+				<div id="all-tags" class="all-tags hidden"></div>
+			</div>
+			
+			<ul class="updatelist" id="updatelist"><!-- updates inserted here --></ul>
+			
+			<div class="footer" id="footer"></div>
+		</div>
+		
+		
+	</body>
+	<!--------------END BODY------------->
+</html>

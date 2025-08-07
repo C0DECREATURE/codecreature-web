@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/Halogen/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Halogen"; font-display: swap; src: url('/fonts/Halogen/Halogen.otf'); }
+.txt-halogen { font-family: "Halogen", "Comic Sans MS", "Comic Sans", sans-serif; }

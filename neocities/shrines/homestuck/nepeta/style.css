@@ -1,0 +1,137 @@
+:root {
+	--black: #000;
+	--green: #416600;
+	--l-green: rgb(139,169,71);
+	--hh: 120px;
+}
+
+html, body { margin: 0; }
+
+body {
+	background-color: var(--black);
+	color: var(--l-green);
+	font-family: "Courier New", serif;
+	text-align: center;
+	font-size: 1rem;
+	line-height: 1.25;
+}
+
+h3 { font-weight: normal; font-size: 2.25em; margin: 0 0 10px 0; }
+h4 { font-weight: normal; font-size: 1.75em; margin: 15px 0 5px 0; }
+
+header {
+	z-index: 2;
+	position: fixed;
+	width: 100%; height: var(--hh);
+	background: black;
+}
+header h1 { font-weight: normal; font-size: min(3em, 8vw); line-height: 0.5; }
+header h1 img { margin-bottom: -5px; max-height: 0.85em; }
+
+/* navigation bar */
+nav {
+	display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; 
+	position: absolute; bottom: 0;
+	width: 100%;
+	background: var(--green);
+}
+.navlinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; }
+nav a, nav a:link, nav a:visited, nav button { display: block; color: var(--black); text-transform: uppercase; font-size: 1.25em; font-weight: bold; }
+nav a:hover, nav button:hover, nav a:focus-visible, nav button:focus-visible { color: var(--white); }
+
+nav .dropdown-btn { display: none; }
+.navlinks-dropdown { display: none; position: absolute; top: calc(1.3em); width: 100%; background: var(--green); padding: 0.5em 1em 0 1em; }
+.navlinks-dropdown a:hover, .navlinks-dropdown button:hover, .navlinks-dropdown a:focus, .navlinks-dropdown button:focus {
+	background: var(--d-green); }
+.navlinks-dropdown > :last-child { padding-bottom: 0.15em; }
+
+/* summary text at the top */
+.summary { padding-top: calc(var(--hh) + 1em); width: min(1000px, 100%); margin: 0px auto 1em auto; }
+
+/* standard button style */
+.btn {
+	font-family: 'DS Digital', 'Courier New', sans-serif;
+	font-size: 2em;
+	border-radius: 0px;
+	text-shadow: none;
+	font-weight: bold;
+	color: var(--black);
+}
+
+/* full image view style ovverrides */
+.full-image-view button { color: var(--green) !important; }
+
+/* main content container */
+.main-container {
+	margin: 0 auto;
+	padding-left: 5px;
+	display: flex; flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
+section:has(> .gallery) {
+	scroll-margin-top: var(--hh);
+	border: 1px var(--green) dashed;
+	padding: 15px;
+	/* put the border/padding inside instead of outside */
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+}
+
+#fanart { min-width: min(100%, 700px); }
+
+.full-viewable { scroll-margin-top: var(--hh); }
+
+/********* IMAGE GALLERIES *********/
+.gallery {
+	width: 100%;
+	border-top: 1px var(--green) dashed;
+	padding-top: 15px;
+	justify-content: center;
+	font-size: 0px;  /* make images default to having no space between them */
+	line-height: 1em; /* makes it possible to set even spacing for inline elements using font-size */
+}
+/* images in gallery */
+.gallery img { max-width: 100%; }
+
+/* grid where all items are the same size */
+.block-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+
+/* masonry image gallery */
+.img-grid {  }
+/* masonry grid item */
+.m-item { padding: 5px; }
+
+/* image in masonry grid */
+.img-grid img {
+	width: calc(25% - 15px);
+	height: auto;
+	margin: auto;
+}
+@media screen and (width < 600px) { .img-grid img { width: calc(33% - 10px); } }
+@media screen and (width < 400px) { .img-grid img { width: calc(50% - 15px); } }
+
+/*********** PAGE SETTINGS ***********/
+.page-settings-contents { color: var(--l-green); }
+button.open-page-settings svg { fill: var(--green); stroke: var(--green); }
+
+/***** scrollbar *****/
+/* width */
+::-webkit-scrollbar {
+	width: 18px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: none;
+	border-left: 3px var(--black) solid;
+	background-color: var(--green);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--l-green);
+	border-left: 3px var(--black) solid;
+	border-radius: 0;
+}
+/***** end scrollbar *****/

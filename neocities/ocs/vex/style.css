@@ -1,0 +1,275 @@
+:root {
+	--black: #000000;
+	--red: #FF0F33;
+	--d-red: #930020;
+	--dd-red: #640614;
+	--ddd-red: #3C0000;
+	--l-gray: #B2ADAE;
+	--gray: #665F60;
+	--d-gray: #3B3637;
+	--yellow: #FFFB00;
+	
+	--box-border: 4px var(--black) solid;
+}
+
+body {
+	background-color: var(--ddd-red);
+	width: calc(100vw - (100vw - 100%)); /* width = 100% view width minus scrollbar width */
+	height: 100vh;
+	margin: 0px;
+	color: var(--red);
+	font-size: 1.1rem;
+	font-family: "Halogen", sans-serif;
+}
+
+h2 { font-weight: normal; }
+h3 {
+	margin-bottom: .25em;
+	font-family: 'Ghoulish Fright', sans-serif;
+	font-size: 1.4em; letter-spacing: 1px;
+	color: var(--yellow);
+}
+p { margin: .35em 0; }
+
+body a { font-family: 'Ghoulish Fright', sans-serif; letter-spacing: 1px; color: var(--yellow); }
+body a:is(:hover,:focus-visible) { color: var(--l-gray); }
+
+::selection { background: var(--yellow); color: var(--black); }
+img {
+	user-drag: none;
+	-webkit-user-drag: none;
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+ul { margin: 0px; list-style-type: '\002726'; }
+li { padding-left: .5em; }
+li::marker { color: var(--yellow); }
+
+main {
+	width: 100%; height: 100%;
+	display: flex;
+}
+main > * header {
+	font-family: 'Crimes Times Six', sans-serif;
+	line-height: 0.1em;
+	text-align: center;
+	background-color: var(--black);
+	padding: .4em;
+	font-size: 2em;
+}
+@media screen and (max-width: 800px) {
+	body { height: auto; min-height: 100vh; }
+	
+	main { flex-direction: column; } /* stack vertically on small screens */
+	/* main area flex children */
+	main > * { max-width: 100%; }
+	
+	/* show main image in center on large screens */
+	#main-image { order: 1; }
+	#about { order: 2; }
+	#gallery { order: 3 }
+}
+@media screen and (min-width: 800px) {
+	body { overflow: hidden; }
+	/* main area flex children */
+	main > * { width: calc(100%/3); max-height: 100%; }
+	#main-image { flex-grow: 1; /* expand to fill remaining horizontal space */ }
+}
+
+/************** MAIN IMAGE SECTION **************/
+
+#main-image {
+	position: relative; z-index: 2;
+	display: flex; flex-direction: column; align-content: space-between;
+	background: var(--red);
+	background-image: url('images/red-diamonds.png');
+	background-size: 15%;
+	border: var(--box-border);
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
+	border-top:none; border-bottom: none;
+}
+#main-image img {
+	max-width: 170%; max-height: 70vh;
+	position: relative;
+	left: 50%; transform: translate(-50%,0); /* center horizontally */
+}
+
+/* coffin stuff */
+#coffin {
+	padding-top: 1em;
+}
+@media screen and (min-width: 800px) { #coffin { flex-grow: 1; } }
+@media screen and (max-width: 800px) { #coffin { overflow: hidden; } }
+@media (prefers-reduced-motion: no-preference) {
+	/* closed coffin shake on hover */
+	#coffin.closed img:hover {
+		animation: shake .3s;
+		/* loop */
+		animation-iteration-count: infinite;
+	}
+	@keyframes shake {
+		0% { transform: translate(-50%,0); }
+		25% { transform: translate(-50%,0) rotate(-1deg); }
+		50% { transform: translate(-50%,0); }
+		75% { transform: translate(-50%,0) rotate(1deg); }
+		100% { transform: translate(-50%,0); }
+	}
+	/*@keyframes shake {
+		0% { transform: translate(1px, 1px) rotate(0deg); }
+		10% { transform: translate(-1px, -2px) rotate(-1deg); }
+		20% { transform: translate(-2px, 0px) rotate(1deg); }
+		30% { transform: translate(2px, 2px) rotate(0deg); }
+		40% { transform: translate(1px, -1px) rotate(1deg); }
+		50% { transform: translate(-1px, 2px) rotate(-1deg); }
+		60% { transform: translate(-2px, 1px) rotate(0deg); }
+		70% { transform: translate(2px, 1px) rotate(-1deg); }
+		80% { transform: translate(-1px, -1px) rotate(1deg); }
+		90% { transform: translate(1px, 2px) rotate(0deg); }
+		100% { transform: translate(1px, -2px) rotate(-1deg); }
+	}*/
+}
+
+#coffin-key { position: absolute; z-index: 3; right: 0%; bottom: 0; rotate: 54deg; }
+@media screen and (min-width: 800px) { #coffin-key { position: fixed; transform: translate(-30%,-20%); } }
+@media screen and (max-width: 800px) { #coffin-key { bottom: 10%; } }
+#coffin-key img { width: min(35vw,max(9vw,150px)); }
+/* cursor */
+body.customCursor {
+	cursor: url(images/cursor-blood.png), auto;
+	/* links cursor */
+	*, a, a:hover, button, button:hover {
+		cursor: inherit;
+	}
+}
+body.hasKey, body.hasKey * {
+	cursor: url(images/cursor-coffin-key.png), auto !important;
+}
+
+/******** NAVIGATION ********/
+nav {
+	position: relative;
+	display: flex; flex-wrap: wrap; justify-content: center; align-content: center;
+	padding: .25em; gap: .55em;
+	background: var(--black);
+	font-size: max(1rem,min(15vw,2.25em));
+}
+@media screen and (max-width: 800px) { nav { order: -1; } }
+nav :is(a,button) {
+	display: block;
+	font-size: inherit;
+	color: var(--red);
+	text-align: center;
+}
+nav :is(a,button):is(:hover,:focus-visible) { color: var(--yellow); }
+/* page settings icon button */
+.open-page-settings { font-size: .8em; margin-top: -.2em; padding: 0px; }
+.open-page-settings:hover { --open-button-fill: var(--yellow); }
+#page-settings-contents {
+	font-size: 1.25rem;
+	position: absolute;
+	left: 50%; transform: translate(-50%,0);
+	z-index: 1000;
+	background: var(--dd-red);
+	padding: 1em 1.25em 1em 0.75em;
+	border: var(--box-border);
+	outline: 0px;
+	border-radius: 0px;
+	min-width: 90%;
+	flex-direction: column; gap: 0.5em; align-items: flex-end; 
+	text-align: right;
+}
+@media screen and (min-width: 800px) { #page-settings-contents { bottom: 100%; } }
+@media screen and (max-width: 800px) { #page-settings-contents { top: 120%; } }
+#page-settings-close-button { display: inline-block; }
+
+/************** ABOUT SECTION **************/
+
+#about { display: flex; flex-direction: column; }
+
+/* name and species */
+#about header {
+	font-size: 2.5em;
+	line-height: 0.8em;
+}
+#about header :is(h1,.subheader,.subheader-mini) { margin: 0px; }
+#about header h1 {
+	font-family: 'Crimes Times Six', sans-serif;
+	line-height: 0.85em;
+	color: var(--yellow);
+}
+#about header .subheader {
+	font-family: 'My Imaginary Friend', sans-serif;
+	font-size: .9em;
+	color: var(--red);
+}
+#about header .subheader-mini {
+	font-family: 'My Imaginary Friend', sans-serif;
+	font-weight: normal;
+	font-size: .75em;
+	color: var(--gray);
+}
+
+#about .content {
+	overflow: auto;
+	padding: 1em 2em;
+	flex-grow: 1; /* fill remaining vertical space */
+}
+
+@media screen and (min-width: 800px) { #about { overflow: auto; } }
+
+/************** GALLERY SECTION **************/
+
+#gallery { position: relative; text-align: center; display: flex; flex-direction: column; }
+
+#gallery a { color: var(--yellow); font-size: 1.4em; }
+#gallery a:is(:hover,:focus-visible) { color: var(--l-gray); }
+
+/* container for things that aren't the header/footer */
+#gallery .content { overflow-y: auto; flex-grow: 1; }
+
+#balloon-animal {
+	position: absolute; right: 0; top: 0;
+	max-height: 100%; max-width: 30%;
+}
+#balloon-animal img { max-height: 100%; max-width: 100%; }
+
+#gallery-images {
+	padding: 1em;
+	background: var(--dd-red);
+	display: flex; flex-wrap: wrap; justify-content: center;
+	border-bottom: var(--box-border);
+}
+#gallery-images footer { width: 100%; }
+#gallery-images .img-container { width: calc(100%/2); height: max(20vh,100px); display: block; align-content: center; }
+#gallery-images .img-container img { max-width: 100%; max-height: 100%; } 
+
+#gallery .bottom-area {
+	padding: 1em;
+	display: flex; flex-wrap: wrap; justify-content: center; gap: .5em;
+}
+#blinkies, #stamps {
+	background: var(--black);
+	padding: .5em;
+	display: flex; flex-direction: column; gap: .25em;
+	justify-content: center; /* vertically center contents */
+}
+#blinkies img, #stamps img { margin-left: auto; margin-right: auto; }
+
+/************** SCROLLBAR **************/
+/* Firefox settings */
+* { scrollbar-color: var(--red) var(--black); }
+/* width */
+::-webkit-scrollbar { width: 15px; }
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--black);
+	background-color: var(--d-gray);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--red);
+	border-radius: 0;
+}

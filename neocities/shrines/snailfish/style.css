@@ -1,0 +1,357 @@
+#preview-guide { opacity: 0.2; padding-top:10px; z-index: 1000; position: absolute; top: 0; left: 50%; transform: translate(-50%,0); width: min(1200px,100%); }
+
+
+
+:root {
+	--border: 4px black solid;
+	--border-radius: 1.5rem;
+	--section-padding-h: min(2em,4%);
+	
+	--text: #fff;
+	--text-dark: #000;
+	
+	--accent-light-1: #d2c1e3;
+	--accent-light-2: #938ec8;
+	
+	--water-1: #c9ccd4;
+	--water-2: #36435e;
+	--water-3: #2b3251;
+	--water-4: #1e1c3d;
+	--water-5: #0d0526;
+}
+
+html { margin: 0; width: 100%; height: 100%; overflow-x: hidden; }
+
+body {
+	margin: 0;
+	font-family: 'Comic Sans MS';
+	color: var(--text);
+	background: var(--water-5);
+}
+@media screen and (width < 1200px) { body { overflow-x: hidden; } }
+
+/* header text */
+h1, h2, h3, h4 { margin: 0; }
+h1 { font-size: 9em; line-height: 0; text-align: center; }
+
+img {
+	max-width: 100%;
+	-webkit-user-select: none; user-select: none;
+	pointer-events: none; user-select: none;
+}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+button { margin: 0; padding: 0; background: none; font-size: inherit; font-weight: inherit; border: none; }
+
+/************************** FULL SCREEN PAGES **************************/
+.full-page { margin: 0 auto; width: min(1200px,100%); }
+.full-page button.back { padding: .25em .5em; margin-top: .5em; background: white; border: var(--border); border-radius: .5em; }
+
+#main { 
+	background: var(--water-5);
+}
+#equipment, #hadal-zone { padding: 1em var(--section-padding-h); }
+
+#equipment .polaroid { float: left; margin: 1em 1em 1em 0; rotate: -4deg; width: min(90%,300px); }
+
+/************************** GROWING BUTTONS **************************/
+.button-wrapper button { position: relative; }
+.button-wrapper button:is(:hover, :focus-visible) { width: 104%; margin: -2%; }
+
+/************************** YOUTUBE IFRAME **************************/
+iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
+
+/************************** POLAROID PHOTOS **************************/
+.polaroid { max-width: 100%; background: white; }
+.polaroid > .wrapper { width: 100%; padding: calc(4% + 4px); }
+.polaroid p { font-family: 'Comic Sans MS', sans-serif; color: var(--text-dark); text-align: center; margin: 0; }
+.polaroid, .polaroid .photo { border: var(--border); }
+
+/************************************************************************/
+/************************** AQUARIUM SECTION **************************/
+/************************************************************************/
+
+#aquarium-section {
+	padding-top: 1em;
+	display: flex; flex-direction: column; gap: 0;
+	background: linear-gradient(to bottom, var(--water-1), var(--water-2), var(--water-3), var(--water-4));
+	
+	> header {
+		margin: 0 auto -2vw auto;
+		z-index: 1;
+		width: 90%;
+		img { max-height: 1em; }
+	}
+	
+	> main {
+		position: relative;
+		width: 100%;
+		aspect-ratio: 2/1; /* height: min(50vw,600px);*/
+	}
+	
+	#aquarium-wall {
+		background: linear-gradient(to bottom, var(--water-4), var(--water-5));
+		width: 69%;
+		height: 66%;
+		position: absolute;
+		top: 43%; left: 50%;
+		transform: translate(-50%,-50%);
+		border: var(--border);
+	}
+}
+
+#aquarium-wrapper {
+	z-index: 2; position: absolute; bottom: 3%; left: 51%; transform: translate(-50%,0); width: 54%;
+	> div {
+		position: relative;
+		width: 100%;
+		height: 100%;
+}
+}
+.button-wrapper:has(#aquarium-snailfish) {
+	position: absolute;
+	z-index: 3;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	width: 80%;
+}
+
+.button-wrapper:has(#trench-poster) { position: absolute; bottom: 21%; right: 0; width: 29%; rotate: 10deg; }
+.button-wrapper:has(#snail-poster) { position: absolute; bottom: 63%; left: 8%; width: 20%; rotate: -15deg; }
+.button-wrapper:has(#sub-model) { position: absolute; bottom: 7%; left: -8%; width: 30%; }
+.button-wrapper:has(#krab-flakes) { position: absolute; bottom: 2%; left: 10%; width: 12%; }
+
+/************************************************************************/
+/************************** BASIC INFO SECTION **************************/
+/************************************************************************/
+
+#basic-info {
+	background: var(--water-2);
+	width: 100%;
+	display: flex; gap: 2.5rem; flex-wrap: wrap;
+	justify-content: center; align-items: start;
+	padding: 3rem var(--section-padding-h) 8rem var(--section-padding-h);
+}
+
+/************************** TRIVIA BOX **************************/
+
+/* black borders */
+#trivia, #trivia > div > .main { border: var(--border); }
+
+#trivia {
+	--header-fontsize: max(1rem, min(3rem,10vw));
+	flex: 1;
+	min-width: min(25rem,95vw); max-width: 40rem;
+	border-radius: var(--border-radius);
+	background: var(--accent-light-2);
+	padding: .5rem;
+}
+
+/* inner container */
+#trivia > div { width: 100%; display: flex; flex-direction: column; }
+
+/* facts area */
+#trivia > div > .main {
+	padding: var(--header-fontsize) 0 3rem 0; margin: calc(var(--header-fontsize)*-1) 0 -3rem 0;
+	border-top: none; border-bottom: none;
+	background: var(--water-4);
+	
+	/* individual fact */
+	p {
+		width: 100%;
+		padding: .5em; margin: 0;
+		border-bottom: var(--border);
+		text-align: center;
+		/* no bottom divider on last item */
+		&:last-child { border-bottom: none; }
+	}
+}
+
+/* header/footer positioning */
+#trivia > div > header, #trivia > div > footer { position: relative; z-index: 1; width: 100%; }
+/* curved edge images */
+#trivia > div .bg-wrapper {
+	position: absolute;
+	width: 100%; height: 100%;
+	z-index: -1;
+	overflow: hidden;
+}
+#trivia > div .bg { position: absolute; height: 100%; width: 100%; }
+
+/* header */
+#trivia > div > header {
+	padding-bottom: 1rem;
+	margin-bottom: -.5rem;
+	.bg { bottom: 0; }
+	h3 {
+		width: 100%;
+		padding: 0 .2em;
+		font-size: var(--header-fontsize);
+		color: var(--text-dark);
+	}
+	.deco { position: absolute; right: 0; top: 0; height: 2.5rem; }
+}
+
+/* footer */
+#trivia > div > footer { padding-top: .5rem; margin-top: -.5rem; margin-bottom: .5rem; }
+#trivia > div > footer .bg { top: 0; }
+#trivia > div > footer .deco { margin-top: 1rem; margin-bottom: -1rem; height: 3rem;  }
+#trivia-lobster { position: absolute; width: min(60%,13rem); top: 0; right: -3rem; }
+
+/************************** MAIN TEXT **************************/
+#basic-info > .main {
+	flex: 3;
+	min-width: min(calc(17em + 1em + 300px),100%);
+	max-width: 50rem;
+	display: flex; flex-wrap: wrap; gap: 1em;
+	justify-content: center;
+}
+
+/************************** PHOTO **************************/
+#basic-info > .main { margin-bottom: 2.5rem; }
+#basic-info > .main > p { flex: 2; min-width: min(16em,100%); }
+#basic-info > .main div:has(.polaroid) {
+	position: relative;
+	flex: 1; min-width: min(300px,90%); max-width: min(400px,90%);
+	rotate: 2deg;
+}
+#basic-info .polaroid .top-left { position: absolute; top: 5%; left: -8%; width: 30%; rotate: -25deg; }
+
+/************************************************************************/
+/************************** SPECIES SECTION **************************/
+/************************************************************************/
+
+#species {
+	width: 100%; display: flex;
+	flex-direction: column;
+	background: var(--water-4);
+}
+#species > header {
+	z-index: 1;
+	position: relative; width: 100%;
+	margin-top: 3px;
+	padding: 0 var(--section-padding-h);
+	text-align: right;
+	
+	/* top curve border */
+	.bg-wrapper { left: 0; position: absolute; width: 100%; z-index: -1; }
+	
+	.bg {
+		position: absolute;
+		top: 0; left: 0;
+		transform: translateY(-100%);
+		height: auto; width: 100%;
+	}
+	
+	h2 {
+		margin-left: auto;
+		margin-top: max(-5vw, -60px);
+		max-width: 60%;
+		font-size: max(1rem, min(5rem,10vw));
+		line-height: 1;
+	}
+	
+	p { margin: 0 0 0 auto; max-width: 70%; font-size: max(1rem, min(1.75rem,3.5vw)); }
+}
+
+/************************** BUTTONS **************************/
+#species-selection {
+	z-index: 2;
+	display: flex;
+	justify-content: center; align-items: start;
+	padding: 0;
+	> .button-wrapper {
+		margin: 1.75%;
+		--r-abs: min(var(--r), calc(var(--r)*-1));
+		padding-top: calc((var(--n) - 1 + (var(--r-abs) * .02)) * 2%);
+		rotate: calc(var(--r) * 1deg);
+		flex-shrink: 1;
+	}
+	img { max-width: 100%; }
+}
+
+@media screen and (width >= 900px) {
+	#species-selection > .button-wrapper { margin-bottom: 0; }
+	
+	#species-selection > :nth-child(1) { --n: 1; --r: 10; }
+	#species-selection > :nth-child(2) { --n: 2; --r: 0; }
+	#species-selection > :nth-child(3) { --n: 3; --r: 8; }
+	#species-selection > :nth-child(4) { --n: 3.5; --r: -2; }
+	#species-selection > :nth-child(5) { --n: 2.5; --r: -8; }
+	#species-selection > :nth-child(6) { --n: 1.5; --r: -4; }
+}
+@media screen and (width < 900px) {
+	#species-selection { flex-wrap: wrap; }
+	#species-selection > .button-wrapper { max-width: max(125px, min(200px,35%)); }
+}
+
+/************************** SPECIES DETAILS **************************/
+#species-details {
+	z-index: 2; 
+	--icon-width: min(45%, max(27%,15rem));
+	width: 100%;
+	
+	/* left/right padding */
+	header, .main, footer {
+		padding: 0 var(--section-padding-h);
+	}
+	
+	header {
+		display: flex; align-items: start;
+	}
+
+	/* header icon */
+	.icon {
+		z-index: 1;
+		margin-bottom: calc(-.3 * var(--icon-width));
+		width: var(--icon-width);
+		border-radius: 100%; border: var(--border);
+	}
+	
+	/* header names */
+	.names {
+		z-index: 0;
+		margin: 4% 0 1rem max(-4em,-8vw);
+		padding: min(1em,2vw) min(3em,6vw) min(1em,2vw) min(5em,10vw);
+		border-radius: 0 var(--border-radius) var(--border-radius) 0;
+		border: var(--border);
+		background: linear-gradient(to right, var(--accent-light-2), var(--accent-light-1));
+		color: var(--text-dark);
+	}
+	.common-name { font-size: max(1rem, min(3rem, 6vw)); line-height: 1em; }
+	.scientific-name { font-size: max(1rem, min(2rem, 4vw)); line-height: 1em; margin-bottom: .33em; }
+	
+	/* main area */
+	.main {
+		display: flex; flex-wrap: wrap; gap: 1rem;
+		margin-left: calc(var(--icon-width) - 1em);
+		padding-bottom: 2rem;
+		
+		.info {
+			flex: 1; min-width: min(100%,15rem);
+			p:first-child { margin-top: 0; }
+		}
+		
+		/* polaroid image */
+		.wrapper:has(> .polaroid) { min-width: min(50%, 300px); max-width: 300px; }
+	}
+		
+	/* footer with videos */
+	footer {
+		background: var(--water-5);
+		padding-top: 1rem;
+		padding-bottom: 10rem;
+		width: 100%;
+		
+		.videos {
+			display: flex; gap: 1rem;
+			overflow-x: scroll;
+			padding: 1rem 0 1.5rem 0;
+			
+			.video {
+				width: max( min( calc(100vw - (var(--section-padding-h) * 2)), 300px ), 33% );
+			}
+		}
+	}
+}

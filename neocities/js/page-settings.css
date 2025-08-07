@@ -1,0 +1,88 @@
+/* section to copy if you want to change the settings appearance on another page */
+.page-settings {
+	--open-button-fill: var(--white);
+	--open-button-background: var(--black);
+	--open-button-border: none;
+	--background: var(--black);
+	--border: none;
+	--outline: 0px;
+	--color: var(--green);
+	--accent: var(--white);
+}
+
+/* the settings area */
+.page-settings {
+	z-index: 1000;
+	position: fixed;
+	top: 0; right: 0;
+	text-align: right;
+	font-family: 'Courier New', serif;
+	color: var(--color);
+}
+/* small screens */
+@media screen and (width < 350px) {
+	.page-settings:not(:has(.page-settings-contents.hidden)) {  }
+}
+/* if the page is in an iframe */
+.iframe .page-settings { display: none; }
+
+/* button that opens the settings */
+button.open-page-settings {
+	position: relative;
+	top: 5px; right: 5px;
+	color: var(--open-button-fill); background: var(--open-button-background);
+	border: var(--open-button-border);
+	padding: 0.3em;
+	font-size: 2rem; line-height: 0;
+	border-radius: 50%;
+	/* svg icon */
+	svg { fill: var(--open-button-fill); stroke: var(--open-button-fill); }
+}
+
+#page-settings-contents {
+	position: relative;
+	z-index: -1;
+	background: var(--background);
+	padding: 1em 1.25em 1em 0.75em;
+	margin: -1em 1em 0 0;
+	border: var(--border);
+	outline: var(--outline);
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
+	border-radius: 0.5em;
+	max-width: min(90vw, 16em);
+	flex-direction: column; gap: 0.5em; align-items: flex-end; 
+}
+/* small screens */
+@media screen and (width < 350px) {
+	/* settings contents fill width of screen */
+	#page-settings-contents {
+		width: 100vw;
+		max-width: 100vw;
+		max-height: 90vh;
+		overflow-y: scroll;
+		margin-right: 0px;
+		margin-top: -.5em;
+	}
+}
+
+/* close button */
+#page-settings-close-button {
+	padding: .25em;
+	font-size: 1.1em; font-weight: bold; font-family: inherit;
+	svg {
+		&:hover, &:focus-visible {
+			fill: var(--accent); stroke: var(--accent);
+		}
+	}
+}
+
+/* buttons inside the settings */
+#page-settings-contents label { color: var(--accent); }
+/* checkbox inside button */
+#page-settings-contents input { margin-left: 0.75em; margin-bottom: .75em; }
+/* description for setting */
+#page-settings-contents span {
+	display: block;
+	width: 100%;
+	margin-bottom: .75em;
+}

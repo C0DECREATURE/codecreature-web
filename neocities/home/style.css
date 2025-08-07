@@ -1,0 +1,241 @@
+body, html { padding: 0; margin: 0; }
+
+body {
+	font-size: 1.125rem;
+	color: var(--blue);
+	background-color: var(--d-purple);
+	background-image: url('/graphix/bg/rainbow-paw-stars.png');
+	background-size: min(400px, 50vw, 50vh);
+	text-align: center;
+}
+
+img { max-width: 100%; }
+
+.container {
+	position: relative;
+	width: 90%;
+	max-width: 1000px;
+	height: auto; min-height: 100vh;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: var(--dd-purple);
+}
+@media screen and (max-width:800px) {
+	.container {
+		/* spacing for the bottom fixed image at small sizes */
+		padding-bottom: 50px;
+	}
+}
+
+.header {
+	display: block;
+	width: 100%;
+	margin-bottom: 25px;
+	padding: 0;
+	background-color: var(--black);
+	background-image: url('/graphix/bg/black-binary.gif');
+	background-blend-mode: screen;
+}
+.header .title { --text-shadow-color: var(--d-purple); }
+.header .title h1 {
+	font-size: min(4rem, 8vw);
+	letter-spacing: .1em;
+	margin: 0;
+}
+.header .subtitle {
+	font-size: min(2rem, 4vw);
+	letter-spacing: .3em;
+	background-color: var(--yellow);
+	color: var(--red);
+}
+.header .divider {
+	display: flex;
+	width: 100%;
+	overflow: hidden;
+}
+
+.skip-to-content {
+	left: -5%;
+	position: absolute;
+	z-index: 5000;
+	transform: translateY(-1000%);
+	background: var(--yellow);
+	border: var(--green) 2px solid;
+	padding: .1em .25em;
+}
+.skip-to-content:focus {
+	transform: translate(50%);
+	color: var(--d-purple);
+	outline: 0px;
+}
+
+main {
+	position: relative;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	padding: 0 5%;
+}
+@media screen and (max-width:800px) { main { display: block; } }
+
+/* updates iframe */
+.updates {
+	height: max(50vh,350px);
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; /* border on inside of box */
+	border: 2px var(--green) dashed;
+	background: var(--d-purple);
+}
+/* screens over 1500px wide */
+@media screen and (min-width:1600px) {
+	.updates {
+		position: absolute; left: 0; transform: translate(-105%, 0);
+		width: min(300px, calc((100vw - 1000px)/2 * .9));
+		background: var(--dd-purple);
+	}
+}
+/* screens under 800px wide */
+@media screen and (max-width:800px) { .updates { width: min(100%, 390px); margin-bottom: 1em; } }
+
+#about { max-width: 55%; }
+@media screen and (max-width:800px) { #about { max-width: 100%; } }
+
+.links {
+	width: 100%;
+	padding: 2rem 5%;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; /* border on inside of box */
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+}
+
+/************** FIXED ELEMENTS **************/
+
+/* image at bottom right */
+.bottom-right-fixed {
+	z-index: 100;
+	position: fixed;
+	bottom: -5px;
+	right: 0;
+	width: max(25%, 200px);
+	-webkit-user-select: none; user-select: none; /* make unselectable */
+	padding: 0;
+	pointer-events: none;
+}
+.bottom-right-fixed img { width: auto; max-width: 100%; }
+.bottom-right-fixed svg { position: absolute; bottom: 3px; right: 0; width: 100%; opacity: 0; }
+.bottom-right-fixed path { pointer-events: fill; }
+
+.bottom-left-fixed {
+	z-index: 100;
+	position: fixed;
+	bottom: -5px; left: 0;
+	-webkit-user-select: none; user-select: none; /* make unselectable */
+}
+
+/************** TV PLAYER **************/
+.tv {
+	z-index: 2;
+	position: relative;
+	float: right;
+	margin-right: -25%;
+	width: max(260px, 70%);
+}
+@media screen and (max-width:800px) { .tv { float: none; width: 90%; margin-left: 20%; } }
+
+.tv img { -webkit-user-select: none; user-select: none; pointer-events: none; }
+
+.tv .screen {
+	z-index: -2;
+	position: absolute; left: 8%; top: 15%;
+	width: 51% !important; height: 58% !important;
+	rotate: 2deg;
+	background: var(--black);
+	overflow: hidden;
+	color: var(--white);
+}
+
+/* scanlines on top of screen */
+.tv .scanlines { z-index: -1; background: url('/graphix/bg/scanlines.jpg'); }
+.tv .lighten { opacity: .15; mix-blend-mode: screen; }
+.tv .multiply { opacity: .2; mix-blend-mode: multiply; }
+
+.tv .screen video {
+	width: 160%;
+	height: 100%;
+	margin-left: -25%;
+	display: none;
+	/* background to show when video doesn't load */
+	background-image: url('/graphix/bg/tv-static.gif');
+}
+/* buttons on front of tv */
+.tv .buttons {
+	position: absolute;
+	left: 20.5%; bottom: 18%;
+	width: 21%; height: 9%;
+	rotate: 5deg;
+}
+.tv button {
+	padding: none; margin: none; background: none; border: none;
+	font-size: 1px;
+	line-height: 0;
+	width: 33%; height: 100%;
+}
+/* play button on tv */
+.tv .play { border-radius: 50%; }
+
+.tv button.credit {
+	z-index: 10;
+	position: absolute; bottom:5%; left: 67%;
+	display: block;
+	color: var(--blue);
+	font-weight: bold;
+	font-size: min(30px, 5.5vw);
+	width: min(30px, 5.5vw);
+	height: min(30px, 5.5vw);
+	border-radius: 50%;
+	background: none; border: 0; padding: 0; line-height: 1.05em;
+}
+.tv button.credit:hover { color: var(--l-blue); }
+.tvcredit {
+	display: none;
+	z-index: 500;
+	position: fixed;
+	top: 20vh; left: 35%;
+	width: 30%;
+	height: auto; max-height: 60vh;
+	color: var(--yellow);
+}
+@media screen and (max-width:800px) { .tvcredit { left: 10%; width: 80%; } }
+.tvcredit .close {
+	position: absolute;
+	top: -.5rem; right: -.75rem;
+	width: 2.75rem; height: 2.75rem;
+	font-size: 2rem; line-height: 1.25em;
+	background: var(--red);
+	color: var(--yellow);
+	border: none;
+	border-radius: 50%;
+}
+.tvcredit .header {
+	width: 100%;
+	margin: 0;
+	font-size: 1.5em;
+	line-height: 2em;
+	background: var(--dd-blue);
+	border-radius: 2rem 2rem 0 0;
+	border: .5rem var(--yellow) solid;
+	border-bottom: none;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* border on inside of box */
+}
+.tvcredit .content { 
+	width: 100%; padding: .5em 10% 1em 8%;
+	background: var(--d-blue);
+	border-radius: 0 0 2rem 2rem;
+	border: .5rem var(--yellow) solid;
+	border-top: none;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* border on inside of box */
+}
+.tvcredit h3 { line-height: 1em; }
+.tvcredit ol { text-align: left; }
+.tvcredit li { margin-bottom: .75em; }

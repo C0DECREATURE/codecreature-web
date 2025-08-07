@@ -1,0 +1,46 @@
+/*********************************
+* Honeycomb Stamp Layouts v. 1.2 *
+* CSS by Mooeena                *
+* Free to use/modify w/ credit   *
+* http://mooeena.neocities.org   *
+* 15 widths and 2 preset layouts *
+* To use: include the classes    *
+* "honeycomb hc-[PICK LAYOUT]"   *
+* to your images' container div. *
+*********************************/
+.honeycomb { display: grid;
+             grid-auto-rows: 28px;
+             gap: 30px 18px;
+             padding: 0 32px 56px 0; }
+.hc-2 { grid-template-columns: repeat(2, 32px); } /*Infinite-length section 2 stamps wide*/
+.hc-3 { grid-template-columns: repeat(3, 32px); } /*Infinite-length section 3 stamps wide*/
+.hc-4 { grid-template-columns: repeat(4, 32px); } /*Infinite-length section 4 stamps wide*/
+.hc-5 { grid-template-columns: repeat(5, 32px); } /*Infinite-length section 5 stamps wide*/
+.hc-6 { grid-template-columns: repeat(6, 32px); } /*Infinite-length section 6 stamps wide*/
+.hc-7 { grid-template-columns: repeat(7, 32px); } /*Infinite-length section 7 stamps wide*/
+.hc-8 { grid-template-columns: repeat(8, 32px); } /*Infinite-length section 8 stamps wide*/
+.hc-9 { grid-template-columns: repeat(9, 32px); } /*Infinite-length section 9 stamps wide*/
+.hc-10 { grid-template-columns: repeat(10, 32px); } /*Infinite-length section 10 stamps wide*/
+.hc-11 { grid-template-columns: repeat(11, 32px); } /*Infinite-length section 11 stamps wide*/
+.hc-12 { grid-template-columns: repeat(12, 32px); } /*Infinite-length section 12 stamps wide*/
+.hc-14 { grid-template-columns: repeat(14, 32px); } /*Infinite-length section 14 stamps wide*/
+.hc-16 { grid-template-columns: repeat(16, 32px); } /*Infinite-length section 16 stamps wide*/
+.hc-18 { grid-template-columns: repeat(18, 32px); } /*Infinite-length section 18 stamps wide*/
+.hc-20 { grid-template-columns: repeat(20, 32px); } /*Infinite-length section 20 stamps wide*/
+.hc-mini { grid-template-columns: repeat(3, 32px); padding-bottom:28px;} /*Hexagonal group of max 7 stamps*/
+.hc-hive { grid-template-columns: repeat(7, 32px); padding-bottom:28px;} /*Oval-shaped group of max 17 stamps*/
+/*The following concern the interlocking pattern of the grids:*/
+.hc-2 > :nth-child(2n+1), .hc-4 > :nth-child(2n+1), .hc-6 > :nth-child(2n+1), .hc-8 > :nth-child(2n+1), .hc-10 > :nth-child(2n+1), .hc-12 > :nth-child(2n+1), .hc-14 > :nth-child(2n+1), .hc-16 > :nth-child(2n+1), .hc-18 > :nth-child(2n+1), .hc-20 > :nth-child(2n+1) { margin-top: 28px; }
+.hc-3 > :nth-child(6n+1), .hc-3 > :nth-child(6n+3), .hc-3 > :nth-child(6n+4), .hc-3 > :nth-child(6n) { margin-top: 28px; }
+.hc-5 > :nth-child(10n+1), .hc-5 > :nth-child(10n+3), .hc-5 > :nth-child(10n+5), .hc-5 > :nth-child(10n+6), .hc-5 > :nth-child(10n+8), .hc-5 > :nth-child(10n) { margin-top: 28px; }
+.hc-7 > :nth-child(14n+1), .hc-7 > :nth-child(14n+3), .hc-7 > :nth-child(14n+5), .hc-7 > :nth-child(14n+7), .hc-7 > :nth-child(14n+8), .hc-7 > :nth-child(14n+10), .hc-7 > :nth-child(14n+12), .hc-7 > :nth-child(14n) { margin-top: 28px; }
+.hc-9 > :nth-child(18n+1), .hc-9 > :nth-child(18n+3), .hc-9 > :nth-child(18n+5), .hc-9 > :nth-child(18n+7), .hc-9 > :nth-child(18n+9), .hc-9 > :nth-child(18n+10), .hc-9 > :nth-child(18n+12), .hc-9 > :nth-child(18n+14), .hc-9 > :nth-child(18n+16), .hc-9 > :nth-child(18n) { margin-top: 28px; }
+.hc-11 > :nth-child(22n+1), .hc-11 > :nth-child(22n+3), .hc-11 > :nth-child(22n+5), .hc-11 > :nth-child(22n+7), .hc-11 > :nth-child(22n+9), .hc-11 > :nth-child(22n+11), .hc-11 > :nth-child(22n+12), .hc-11 > :nth-child(22n+14), .hc-11 > :nth-child(22n+16), .hc-11 > :nth-child(22n+18), .hc-11 > :nth-child(22n+20), .hc-11 > :nth-child(22n) { margin-top: 28px; }
+.hc-mini > :nth-child(1), .hc-mini > :nth-child(3), .hc-mini > :nth-child(4), .hc-mini > :nth-child(6) { margin-top: 28px; }
+.hc-mini > :nth-child(7) { grid-area: 3/2; }
+.hc-hive > :nth-child(1), .hc-hive > :nth-child(3), .hc-hive > :nth-child(5), .hc-hive > :nth-child(7), .hc-hive > :nth-child(8), .hc-hive > :nth-child(10), .hc-hive > :nth-child(12), .hc-hive > :nth-child(14) { margin-top: 28px; }
+.hc-hive > :nth-child(15) { grid-area: 3/2; }
+.hc-hive > :nth-child(16) { grid-area: 3/4; }
+.hc-hive > :nth-child(17) { grid-area: 3/6; }
+.hc-center {margin: auto; width:min-content;} /* Add this class to center a group of stamps. */
+.hc-center > * {margin-left: -16px;}

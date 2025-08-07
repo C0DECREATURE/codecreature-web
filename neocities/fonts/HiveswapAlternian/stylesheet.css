@@ -1,0 +1,7 @@
+/*
+<link href="/fonts/HiveswapAlternian/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Alternian"; font-display: swap; src: url('/fonts/HiveswapAlternian/HiveswapAlternian.ttf'); }
+.txt-alternian { font-family: "Alternian", "Courier New", serif; }
+.txt-alternian:hover { font-family: "Courier New", serif; font-style: italic; }

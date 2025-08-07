@@ -1,0 +1,280 @@
+:root {
+	--white: #FFF;
+	--black: #000;
+	--blood: #a1a100;
+	--dark-blood: #666600;
+	--red: #f20000;
+	--dark-red: #b30000;
+	--blue: #003bff;
+	--dark-blue: #001e82;
+}
+
+/* cursor */
+body.customCursor {
+	cursor: url("images/bee_cursor.png"), auto;
+	/* links cursor */
+	*, a, a:hover, button, button:hover {
+		cursor: inherit;
+	}
+}
+
+/* buttons */
+#audio-player .player button, #page-settings {
+	background: var(--red);
+	box-shadow: 2px 2px 0 var(--blue);
+	&:active, &:focus-visible {
+		transform: translate(2px, 2px);
+		box-shadow: none;
+	}
+}
+
+/* main content */
+html, body {
+	margin: 0;
+	min-height: 100vh;
+}
+
+body {
+	background: var(--black);
+	font-family: Courier, monospace;
+	font-size: 1.125rem;
+	color:var(--blood);
+	display: flex; flex-direction: column;
+	
+	#top-section {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		> header, main { width: 100%; }
+		/* large screens */
+		@media screen and (width >= 550px) {
+			height: calc(441px + 2.1rem);
+			width: min(650px,70vw);
+			margin: .5rem auto -.35rem auto;
+			padding-left: calc(0.6 * var(--header-image-width));
+		}
+		/* small screens */
+		@media screen and (width < 550px) {
+			height: auto;
+			margin-bottom: .5rem;
+		}
+		
+		--header-image-width: min(50vw,408px);
+		> header {
+			margin-bottom: 1rem;
+			h1 {
+				background: var(--blood);
+				color: var(--black);
+				@media screen and (width >= 550px) { text-align: right; }
+				font-weight: bold;
+				line-height: 1;
+				margin: 0;
+				padding: .2rem 8%;
+			}
+			#header-image {
+				display: block;
+				position: absolute;
+				z-index: 2;
+				left: 0;
+				bottom: 0;
+				user-select: none;
+				pointer-events: none;
+				.wrapper { position: relative; }
+				img {
+					image-rendering: pixelated;
+					width: var(--header-image-width);
+				}
+				svg {
+					display: block;
+					position: absolute;
+					width: 100%; height: 100%;
+					top: 0; left: 0;
+					fill-opacity: 0;
+					path { pointer-events: auto; }
+					&.passthrough { display: none; pointer-events: none; }
+				}
+			}
+			/* small screens */
+			@media screen and (width < 550px) {
+				border-bottom: 3px var(--blood) solid;
+				--header-image-width: min(80vw,408px);
+				#header-image {
+					position: static;
+					width: auto;
+					max-width: 100%;
+					margin-top: .5rem;
+					text-align: center;
+				}
+			}
+		}
+	}
+	
+	#info-section {
+		background: var(--blood);
+		color: var(--black);
+		flex-grow: 1;
+		/* padding on bottom accounts for music player */
+		padding: .8rem 1rem 3rem 1rem;
+	}
+}
+
+/************************* HEXAGON GRID *************************/
+.hex-container-wrapper {
+	/* medium/small screens */
+	@media screen and (width < 820px) { width: 95%; }
+	/* large screens */
+	@media screen and (width >= 900px) { width: 85%; margin: 0 auto; }
+	padding-right: calc(var(--m)*2);
+	padding-bottom: calc(var(--s)*0.2885);
+  display: flex;
+	text-align: right;
+	/* hexagon variables */
+  --s: min(50vw, 100px);  /* size  */
+	--h: calc(var(--s)*1.1547);
+  --m: 4px;    /* margin */
+  --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);
+}
+
+.hex-container {
+  font-size: 0; /*disable white space between inline block element */
+	> * {
+		/* colors */
+		&:not(:nth-child(3n)) {
+			--bg: var(--blue);
+			--shadow: var(--dark-blue);
+		}
+		&:nth-child(3n) {
+			--bg: var(--red);
+			--shadow: var(--dark-red);
+		}
+		width: var(--s);
+		margin: var(--m) calc(var(--m) * 1.25);
+		margin-bottom: calc(var(--m) - var(--s)*0.2885);
+		height: var(--h); 
+		display: inline-block;
+		font-size:initial;
+		position: relative;
+		
+		/* main hexagon and shadow shared properties*/
+		> *, &::after {
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+			clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+		}
+		/* main hexagon */
+		> * {
+			color: var(--black);
+			font-weight: bold;
+			font-size: 1.25rem;
+			background: var(--bg);
+			&:active {
+				transform: translate(var(--m), calc(var(--m) * 0.5));
+			}
+			&:focus-visible { background: var(--white); }
+			/* image in main hexagon */
+			.img {
+				position: absolute;
+				width: 90%; height: 90%;
+        top: 5%; left: 5%;
+				clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+				background-size: cover;
+				background-position: center;
+			}
+		}
+		/* special styling for <a> link hexagons */
+		> a {
+			line-height: var(--h);
+			text-align: center;
+			> span {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: normal;
+			}
+		}
+		/* hexagon shadow */
+		&::after {
+			content: '';
+			background: var(--shadow);
+			z-index: -1;
+			left: var(--m);
+			top: calc(var(--m) * 0.5);
+		}
+	}
+	&::before {
+		content: '';
+		width: calc(var(--s)/2 + var(--m));
+		float: right;
+		height: 175%;
+		/*shape-outside: repeating-linear-gradient(     
+										 #0000 0 calc(var(--f) - 3px),      
+										 #000  0 var(--f));*/
+		shape-outside: repeating-linear-gradient(
+										#0000 0 calc(var(--f) - 20px),
+										#fff 0 calc(var(--f) - 18px)
+								)
+	}
+}
+
+/************************* MUSIC PLAYER *************************/
+#audio-player {
+	position: fixed;
+	z-index: 1000;
+	bottom: 1rem; right: 0;
+	padding: 0 1rem;
+	text-align: right;
+	color: var(--black);
+	/* play/pause button, open playlist button */
+	.player button {
+		padding: .2rem .4rem;
+		line-height: 1;
+		font-weight: bold;
+	}
+	/* playlist dropdown */
+	#audio-player-playlist {
+		padding: .5rem;
+		margin-bottom: .5rem;
+		background: var(--dark-blood);
+		button { display: block; }
+	}
+}
+
+/************************* PAGE SETTINGS *************************/
+.page-settings {
+	--open-button-fill: var(--black);
+	--open-button-background: var(--blood);
+	--border: 2px var(--blood) solid;
+	--color: var(--blood);
+	--accent: var(--white);
+	.page-settings-contents {
+		border-radius: 0;
+	}
+}
+
+
+/************************* FULL IMAGE VIEW *************************/
+.full-image-view {
+	.fiv-next, .fiv-prev { color: var(--blood); }
+}
+
+/************************* SCROLLBAR *************************/
+/* Firefox settings */
+* { scrollbar-color: var(--blue) var(--red); }
+/* width */
+::-webkit-scrollbar { width: 15px; }
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--dark-red);
+	background-color: var(--red);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 5px var(--dark-blue);
+	background: var(--blue);
+}
+/***** end scrollbar *****/
+
+/** reduced motion locked elements **/
+@media (prefers-reduced-motion: no-preference) {
+}

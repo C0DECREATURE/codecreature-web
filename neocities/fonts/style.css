@@ -1,0 +1,51 @@
+/* page settings button */
+button.open-page-settings :is(i,svg) { fill: var(--l-green); stroke: var(--l-green); }
+
+body {
+	width: min(800px, 100%);
+	margin-left: auto;
+	margin-right: auto;
+	padding: 3rem 0 3em 0;
+	background-color: var(--black);
+	color: var(--green);
+	font-family: "Courier New", serif;
+	text-align: center;
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+.btn {
+	font-family: 'DS Digital', 'Courier New', sans-serif;
+	font-size: 1em;
+	border-radius: 0px;
+	text-shadow: none;
+	font-weight: bold;
+	color: var(--black);
+}
+
+main {
+	font-size: max(1em,min(2rem,3.5vw));
+}
+
+h2 { font-weight: normal; margin-bottom: 0.4em; }
+h2 img { height: auto; max-height: .8em; margin-bottom: -.02em; }
+
+h3.fontname { color: var(--l-green); margin: .5em; }
+.fontname:hover { color: var(--l-blue); }
+a:hover .fontname { color: var(--l-blue); }
+
+p.credit {
+	display: block;
+	font-size: 1.5rem;
+	color: var(--green);
+	line-height: 1em;
+	margin: 0px; margin-bottom: 1.5em;
+}
+a:hover p.credit { color: var(--blue); }
+
+.txt-alternian { font-size: 3rem; }
+.txt-alternian:hover { font-size: 2.5rem; line-height: 165%; }
+
+.txt-unown:hover, .txt-unown-light:hover  { font-family: sans-serif; }
+.txt-unown:hover { font-size:1.2em; }
+.txt-unown-light:hover { font-size:.9em; }

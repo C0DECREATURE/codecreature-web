@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>hyperfixation central</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- fonts -->
+		<link href="/fonts/ComicSans/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/SuperComic/stylesheet.css" rel="stylesheet" type="text/css">
+		
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet--
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">-->
+		
+		<style>
+			body {
+				background-color:#000;
+				text-align:center;
+				font-size: 1.5rem;
+			}
+			body > header { margin: 2em 0 25px 0; }
+			h1 { letter-spacing: .1em; margin: 0; }
+			body > header p { margin: 0; }
+			
+			h3 { margin-bottom: 0; }
+			
+			#home-button { margin-top: 1em; }
+		</style>
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="/js/jquery.lettering.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".txt-rainbow").lettering(); /* automatically put each letter in a <span> */
+			});
+		</script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header>
+			<h1 class="txt-rainbow">SHRINES</h1>
+			<p class="txt-yellow"><u class="tq" data-a="hyperfixation">hyperfix8ion</u> central!!</p>
+		</header>
+		
+		<h3 class="txt-rainbow">in <u class="tq" data-a="progress">purrogress</u></h3>
+		<div><a class="txt-green" href="/shrines/snailfish">snailfish &#8605;</a></div>
+		<div><a class="txt-yellow" href="/shrines/homestuck/sollux">sollux &#8605;</a></div>
+		
+		<h3 class="txt-rainbow">planned</h3>
+		<div><a class="txt-blue">brown roger</a></div>
+		<div><a class="txt-purple">davepeta</a></div>
+		<div><a class="txt-pink">pokemon/snorunt</a></div>
+		<div><a class="txt-orange">golden moles</a></div>
+		
+		<a id="home-button" class="btn btn-green" href="/home">home</a>
+	</body>
+	<!--------------END BODY------------->
+</html>

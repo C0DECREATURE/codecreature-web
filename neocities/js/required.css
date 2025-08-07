@@ -1,0 +1,44 @@
+.hidden { display: none; }
+
+/**** SCREENREADER ONLY CONTENT ****/
+.sr-only {
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+
+  /* Fix for positioned table caption that could become anonymous cells */
+  &:not(caption) {
+    position: absolute !important;
+  }
+}
+
+/**** KEYBOARD NAVIGATION SKIP TO CONTENT BUTTON ****/
+.skip-to-content {
+  left: 5%;
+  position: absolute;
+	z-index: 5000;
+  transform: translateY(-100%);
+}
+.skip-to-content:focus {
+  transform: translateY(5%);
+	outline: 0px;
+}
+
+/* element whose contents expand when hovered */
+.hover-grow:is(:hover,:focus) { transform: translate(110%,110%) }
+
+/* remove all default variables from buttons */
+button {
+	background: none; border: 0; padding: 0; margin: 0;
+	font-size: inherit; font-family: inherit; font-weight: inherit; color: inherit;
+}
+
+/* remove underline from links */
+a, a:link, a:visited {
+	text-decoration: none;
+}

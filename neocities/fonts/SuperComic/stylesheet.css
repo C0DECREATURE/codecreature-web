@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/SuperComic/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Super Comic"; font-display: swap; src: url('/fonts/SuperComic/SuperComic.ttf'); }
+.txt-supercomic { font-family: "Super Comic", "Comic Sans MS", "Comic Sans", 'Chalkboard SE', 'Comic Neue', sans-serif; }

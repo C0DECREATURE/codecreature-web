@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>:33 &lt; MEOW!!</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<!--full image view-->
+		<script src="/js/full-image.js"></script>
+		
+		<!-- jQuery -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<!-- masonry package for image grid layout -->
+		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+		<!-- image loader package -->
+		<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				
+				// init Masonry
+				var $grid = $('.img-grid').masonry({
+					// options
+					itemSelector: '.m-item',
+					columnWidth: 5
+				});
+				// layout Masonry after each image loads
+				$grid.imagesLoaded().progress( function() {
+				  $grid.masonry('layout');
+				});
+				
+			});
+		</script>
+		
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.js"></script>
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<!-- title -->
+		<header>
+			<h1>
+				nepeta
+			</h1>
+			
+			<nav>
+				<button class="btn-strip dropdown-btn">navigation</button>
+				<div class="navlinks">
+					<a href="/home">home</a>
+					<a href="/shrines">shrines</a>
+					<a href="#summary">top</a>
+				</div>
+			</nav>
+		</header>
+		
+		<section class="summary">
+			wip!
+		</section>
+		
+		<!-- main content container -->
+		<div class="main-container">
+			
+			<section id="fanart">
+				<h3>featured fanart</h3>
+				<p>art in this section is not by me, click <u class="tq">2</u> view fullsize + sources!</p>
+				<div class="gallery img-grid">
+					<a href="https://dykeyaoi.tumblr.com/post/649538684853551104" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/e0764173bcacf467c56ceeb8b913cf2e/3e16d7659cc355ee-2c/s1280x1920/2eaa0544c94a6216694aac478eb9d1eaff016afd.png" alt="">
+					</a>
+					<a href="https://agottwha.tumblr.com/post/715082712421203968" target="_blank">
+						<img class="m-item" src="fanart/agottwha-tumblr.png" alt="">
+					</a>
+					<a href="https://boiledcaprisun.tumblr.com/post/711232491383619584" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/3d7c298446d8f065f6abccc793c4dfb2/9ff51da121001700-84/s1280x1920/6f847cae496a29995a8adf5bd9f99469c4bd4724.png" alt="">
+					</a>
+					<a href="https://boiledcaprisun.tumblr.com/post/666359280921968640" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/65b7c303219f4bef4df8d78af08cbeaa/ab8fe4b8232b6c40-0b/s1280x1920/6ee6182591c6077a80aa4bded72297a73584a6d5.png" alt="">
+					</a>
+					<a href="https://heirofnepeta.tumblr.com/post/721235279734784000" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/3ecc8492d5791edf5f7088951128512c/205ecc858906723c-37/s1280x1920/e43cd15b4fb7056dee45cd070b114c7a874904de.png" alt="">
+					</a>
+					<a href="https://zillyhoooo.tumblr.com/post/717603399799013376" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/80ef06219334cb4d6d87751c65b8dc77/b4b6fa1e244c533b-a4/s1280x1920/27ccd3162006b2b296d95f6aa547e4195867b7bf.png" alt="">
+					</a>
+					<a href="https://fleabag-15.tumblr.com/post/714530895686713344" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/7efa2808432ce12af7c1897c99f31229/c465c1d919c2b5fb-b2/s1280x1920/285371c4f0166c4c3013e0890fea97363c7d0f1e.png" alt="">
+					</a>
+					<a href="https://kociakarma.tumblr.com/post/706707410715312129" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/f0f466c18e407bf4cc5d9611eea14f0e/9d25e1bb24d6bb00-04/s1280x1920/3cd7cd917b646585c7139546572813d70137d821.png" alt="">
+					</a>
+					<a href="https://archnemossis.tumblr.com/post/658700603831336960" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/ff85642c8717cb765d7916f97b042cf1/926fb8b2a675268e-1c/s1280x1920/4fdaf4d144fc6d4dce1bdff2186f77335aa3f906.png" alt="">
+					</a>
+					<a href="https://conjunx.tumblr.com/post/628105587069239296" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/c05e80140282cbcacd1682ddbbe95f17/2c9be610015c384b-67/s2048x3072/53cca24effc68af9442e2aa480e75c15b2a4be5f.png" alt="">
+					</a>
+					<a href="https://heartaspects.tumblr.com/post/690946338619359232" target="_blank">
+						<img class="m-item" src="https://64.media.tumblr.com/cb704d183a2b4f8833a34bd44a3195fc/6433fa205eb69768-b7/s500x750/f4f6320b0a3e9e02549ddd8b161deace84f12ba6.png" alt="">
+					</a>
+					<a href="https://twitter.com/GR3MBOX/status/1763176462356721768" target="_blank">
+						<img class="m-item" src="https://pbs.twimg.com/media/GHgPpVWa8AAVmam?format=jpg" alt="">
+					</a>
+					<a href="https://twitter.com/VILLAIN_D1E/status/1763560290556473440" target="_blank">
+						<img class="m-item" src="https://pbs.twimg.com/media/GHlsp67a0AA_C3v?format=jpg" alt="">
+					</a>
+					<a href="https://twitter.com/safomeART/status/1643966448547627008" target="_blank">
+						<img class="m-item" src="https://pbs.twimg.com/media/FtCKtS9XsAAea6E?format=png&name=small" alt="">
+					</a>
+					<a href="https://twitter.com/_Night_Milk/status/1528363332402614272" target="_blank">
+						<img class="m-item" src="https://pbs.twimg.com/media/FTXWWPEWYAArgdk?format=jpg&name=small" alt="">
+					</a>
+				</div>
+			</section>
+			
+		</div>
+			
+		
+		<script>
+			// add full-viewable class to all gallery images
+			for ( let gallery of Array.from(document.getElementsByClassName('gallery')) ) {
+				if (gallery.parentNode.id == 'fanart') {
+					for ( let image of Array.from(gallery.getElementsByTagName('img')) ) {
+						console.log(image.parentNode.tagName);
+						if (image.parentNode.tagName.toLowerCase() != 'a') image.classList.add('full-viewable');
+					}
+				}
+			}
+			
+			// set up image full view
+			initFullImage();
+			
+			// set up nav
+			var sections = document.querySelectorAll('section');
+			for ( let i = 0; i < sections.length; i++ ) {
+				var s = sections[i];
+				// for any sections with defined id
+				if ( s.id ) {
+					document.querySelector('.navlinks').innerHTML +=
+						'<a href="#' + s.id + '">' + s.id + '</a>';
+				}
+			}
+			// variables
+			var nav = document.querySelector('nav');
+			var nl = document.querySelector('.navlinks');
+			var db = nav.querySelector('.dropdown-btn');
+			// adjust nav width when window is resized
+			document.querySelector('body').onresize = function(){ navResize(); };
+			// adjust nav width immediately on page load
+			navResize();
+			// adjust nav if window is too narrow
+			function navResize() {
+				// make sure nav is in large mode
+				db.style.display = 'none';
+				nl.classList.remove('navlinks-dropdown');
+				nl.style.display = 'flex';
+				// if the nav links are being forced to wrap, set to dropdown mode
+				if ( nl.lastElementChild.offsetTop > 0 ) {
+					nl.classList.add('navlinks-dropdown');
+					closeNavDropdown();
+					db.style.display = 'block';
+				}
+			}
+			function toggleNavDropdown() { 
+				if (nl.classList.contains('navlinks-dropdown') && nl.style.display == 'none' ) openNavDropdown();
+				else if (nl.classList.contains('navlinks-dropdown') && nl.style.display == 'block' ) closeNavDropdown();
+			}
+			function openNavDropdown() { if (nl.classList.contains('navlinks-dropdown') && nl.style.display == 'none' ) nl.style.display = 'block'; }
+			function closeNavDropdown() { if (nl.classList.contains('navlinks-dropdown') && nl.style.display != 'none' ) nl.style.display = 'none'; }
+			db.addEventListener('click', toggleNavDropdown);
+			nl.querySelectorAll('a, button').forEach((a) => a.addEventListener('click', closeNavDropdown) );
+			nav.addEventListener('mouseleave', (event) => { closeNavDropdown() });
+			
+			// put the correct svg in each .svg-icon element
+			loadSvgIcons();
+		</script>
+	</body>
+	<!--------------END BODY------------->
+</html>

@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/JandaCloserToFree/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Janda Closer To Free"; font-display: swap; src: url('/fonts/JandaCloserToFree/JandaCloserToFree.ttf'); }
+.txt-closertofree { font-family: 'Janda Closer To Free',  'Georgia', sans-serif; }

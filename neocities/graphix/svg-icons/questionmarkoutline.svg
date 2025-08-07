@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg viewBox="0 0 132.29201 132.29201" xmlns="http://www.w3.org/2000/svg">
+	<ellipse style="stroke-linejoin:round;" cx="66.145973" cy="66.145996" rx="59.674671" ry="59.674694" />
+	<path style="stroke-linecap:round;stroke-endcap:round;"
+		d="M 44.227109,46.582009 C 54.813686,23.533922 89.960267,31.452607 91.575698,48.281806 93.19113,65.111004 74.982343,66.479805 66.131087,65.763229 v 8.586484" />
+	<ellipse style="stroke-linejoin:round;fill-opacity:1;" cx="66.146004" cy="97.309227" rx="2.9854517" ry="2.9854758" />
+</svg>

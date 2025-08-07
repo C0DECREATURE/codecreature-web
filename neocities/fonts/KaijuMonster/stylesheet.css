@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/KaijuMonster/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Kaiju Monster"; font-display: swap; src: url('/fonts/KaijuMonster/KaijuMonster.ttf'); }
+.txt-kaijumonster { font-family: "Kaiju Monster", sans-serif; }

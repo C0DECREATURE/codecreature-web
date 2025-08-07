@@ -1,0 +1,229 @@
+:root {
+	--black: #000;
+	--hh: min(120px,21vw); /* top header height */
+	--section-gap: 10px; /* spacing between .section elements */
+}
+
+html, body { margin: 0; }
+
+body {
+	background-color: var(--black);
+	color: var(--green);
+	font-family: "Courier New", serif;
+	text-align: center;
+	font-size: 1rem;
+	line-height: 1.25;
+	
+	> header {
+		z-index: 2;
+		position: fixed;
+		width: 100%; height: var(--hh);
+		background: black;
+		h1 { font-weight: normal; font-size: min(3em, 8vw); line-height: 0.5; }
+		h1 img { margin-bottom: -.12em; max-height: 0.85em; }
+	}
+}
+@media (prefers-reduced-motion: no-preference) {
+	body { background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/graphix/bg/black-star-flash.gif'); }
+}
+
+h3 { font-weight: normal; font-size: 2.25em; margin: 0 0 10px 0; }
+h4 { font-weight: normal; font-size: 1.75em; margin: 12px 0 2px 0; }
+
+/* skip to content button */
+a.skip-to-content { padding: .5em; background: var(--green); color: var(--black); font-weight: bold; font-size: 1.75em; }
+
+/* page settings button */
+button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); } }
+
+/* navigation bar */
+.nav {
+	display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; 
+	position: absolute; bottom: 0;
+	width: 100%;
+	background: var(--green);
+}
+.navlinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; }
+.nav a, .nav button { display: block; color: var(--black); text-transform: uppercase; font-size: 1.25em; font-weight: bold; }
+.nav a:hover, .nav button:hover, .nav a:focus-visible, .nav button:focus-visible { color: var(--white); }
+
+.nav .dropdown-btn { display: none; }
+.navlinks-dropdown { display: none; position: absolute; top: calc(1.3em); width: 100%; background: var(--green); padding: 0.5em 1em 0 1em; }
+.navlinks-dropdown a:hover, .navlinks-dropdown button:hover, .navlinks-dropdown a:focus, .navlinks-dropdown button:focus {
+	background: var(--d-green); }
+.navlinks-dropdown > :last-child { padding-bottom: 0.15em; }
+
+/* summary text at the top */
+.summary { padding-top: calc(var(--hh) + 1em); width: min(1000px, 100%); margin: 0px auto; }
+
+/* standard button style */
+.btn {
+	font-family: 'DS Digital', 'Courier New', sans-serif;
+	font-size: 2em;
+	border-radius: 0px;
+	text-shadow: none;
+	font-weight: bold;
+	color: var(--black);
+}
+
+/* full image view style ovverrides */
+.full-image-view button { color: var(--green) !important; }
+
+/* main content container */
+.main-container {
+	margin: 0 auto;
+	padding: 0 10px 0 5px;
+	display: flex; flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--section-gap);
+}
+
+.section {
+	scroll-margin-top: var(--hh);
+	border: 1px var(--green) dashed;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+	padding: 15px;
+	/* put the border/padding inside instead of outside */
+	box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+	&.transparent { background: none; }
+}
+/* optional wrapper to contain vertical stacks of sections */
+.section-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: var(--section-gap);
+	/* last element of column fills remaining space */
+	> :last-child {
+		flex-grow: 1;
+	}
+}
+
+/* specific section styling */
+:has(> #stamps) {
+	min-width: min(100%, 550px); flex: 2;
+	#stamps {
+		.img-wrapper { width: 99px; height: 56px; }
+	}
+}
+#dividers { min-width: min(100%, 550px); flex: 3; }
+#blinkies {
+	min-width: min(100%, 350px); flex: 1;
+	.img-wrapper { width: 150px; height: 20px; }
+}
+:has(>#deco) { flex: 4 }
+/* OLD - add back in if backgrounds/deco removed from wrapper
+#bgs { min-width: min(100%, 400px); flex: 3; }
+#deco { min-width: min(100%, 450px); flex: 4; }*/
+#stickers { min-width: min(100%, 550px); flex: 4; }
+#hexagon-stamps {
+	text-align: center;
+	min-width: min(100%, 395px); flex: 1;
+}
+
+/* compensate for header height when scrolling to images from full view */
+.full-viewable { scroll-margin-top: var(--hh); }
+
+/********* IMAGE GALLERIES *********/
+.gallery {
+	border-top: 1px var(--green) dashed;
+	padding-top: 15px;
+	justify-content: center;
+	font-size: 0px;  /* make images default to having no space between them */
+	line-height: 1em; /* makes it possible to set even spacing for inline elements using font-size */
+	/* images in gallery */
+	> img, > .img-wrapper { max-width: 100%; }
+	> .img-wrapper {
+			position: relative;
+			img {
+				max-width: 100vw;
+				position: absolute;
+			}
+			&.center img { left: 50%; top: 0; transform: translateX(-50%); }
+			&.vcenter img { top: 50%; left: 0; transform: translateY(-50%); }
+			&.center.vcenter img { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+	}
+	/* background image samples */
+	.bg-image {
+		width: min(48vw, 220px);
+		border: 1px var(--green) solid;
+		.inner {
+			width: 100%;
+			padding-top: min(48vw, 220px);
+		}
+	}
+}
+
+/* set page background buttons */
+.set-background {
+	background: black;
+	border: 1px var(--green) solid;
+	padding: 4px 3px;
+	font-size: initial;
+}
+.bg-image .set-background {
+	border-width: 1px 0 0 0;
+	width: 100%;
+}
+
+/* grid where all items are the same size */
+.block-grid {
+	display: flex; flex-wrap: wrap; gap: 5px;
+	/* prevent items from being stretched */
+	> * { flex-grow: 0; }
+}
+
+/* masonry image gallery */
+.img-grid {
+	/* image in masonry grid */
+	img {
+		width: auto;
+		max-height: 150px;
+		max-width: 25%;
+		height: auto;
+		margin: auto;
+	}
+}
+/* masonry grid item */
+.m-item { padding: 5px; }
+
+/* for galleries with images stacked on top of each other */
+.img-stack {
+	img, a {
+		display: block;
+		margin: 0 auto; /* center */
+		padding-bottom: 10px; /* vertical spacing */
+	}
+	/* remove styling if image is inside anchor tag */
+	a img { margin: 0; padding: 0; }
+	/* don't put vertical space after last item */
+	> :last-child { padding-bottom: 0; }
+	/* if multiple images are together in one div or anchor tag, display them next to each other */
+	a img, div img { display: inline-block; }
+}
+
+/* prevent repeat items in dividers from wrapping */
+.image-divider {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/***** scrollbar *****/
+/* width */
+::-webkit-scrollbar {
+	width: 18px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: none;
+	border-left: 3px var(--black) solid;
+	background-color: var(--black);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--green);
+	border-left: 3px var(--black) solid;
+	border-radius: 0;
+}
+/***** end scrollbar *****/

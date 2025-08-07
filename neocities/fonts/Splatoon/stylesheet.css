@@ -1,0 +1,9 @@
+/*
+<link href="/fonts/Splatoon/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Splatoon 1"; font-display: swap; src: url('/fonts/Splatoon/Splatoon1.otf'); }
+.txt-splatoon1 { font-family: "Splatoon 1", sans-serif; }
+
+@font-face { font-family: "Splatoon 2"; font-display: swap; src: url('/fonts/Splatoon/Splatoon2.otf'); }
+.txt-splatoon2 { font-family: "Splatoon 2", sans-serif; }

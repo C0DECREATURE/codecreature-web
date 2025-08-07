@@ -1,0 +1,239 @@
+:root {
+	--white: #FFFFFF;
+	--black: #0C0022;
+	--orange: #FF8E00;
+	--d-orange: rgb(255,110,1);
+	--yellow: #FFE300;
+	--l-green: #E7FF43;
+	--green: #8DF01F;
+	--d-green: #00C93E;
+	--dd-green: #008E40;
+	--teal: #00E49C;
+	--l-blue: #3AEBFF;
+	--blue: #007FFF;
+	--d-blue: #6723FE;
+	--dd-blue: #5911B4;
+	--ll-pink: rgb(255,189,226);
+	--l-pink: #FF84C8;
+	--pink: #FF54A0;
+	--d-pink: #C10243;
+	--red: #F60455;
+	--l-purple: #D788FE;
+	--purple: #BB68E1;
+	--d-purple: rgb(62,0,111);
+	--dd-purple: rgb(36,0,77);	
+}
+
+body {
+	font-family:'Comic Sans MS', 'Comic Sans',
+	'Chalkboard SE', 'Comic Neue', sans-serif;
+	font-size: 1.125rem;
+	color:var(--blue);
+	.scrollbar-color:
+}
+
+/* cursor */
+body.customCursor, .customCursor * {
+	cursor: url("/graphix/cursors/paw.png"), auto;
+	/* links cursor */
+	a, a:hover, button, button:hover {
+		cursor: url("/graphix/cursors/paw-pointer.png"), auto;
+	}
+}
+
+/* u elements not underlined by default */
+u { text-decoration: inherit; }
+
+iframe { border: none; padding: 0; margin: 0; }
+
+/******* BUTTONS *******/
+
+.btn, .btn:link, .btn:visited {
+	position: relative;
+	display: inline-block;
+	padding: .307em .615em;
+	border-radius: 20px;
+	border: none;
+	color: var(--white);
+	font-size: min(1.55em, 6vw);
+	text-decoration: none;
+	letter-spacing: 0.15em;
+	line-height: 1em;
+	font-family: "Super Comic", "Comic Sans MS", "Comic Sans", 'Chalkboard SE', 'Comic Neue', sans-serif;
+}
+.btn:active {
+	top: .123em;
+	left: .123em;
+	box-shadow: none;
+}
+
+/* button colors */
+.btn-red {
+	background-color: var(--red);
+	box-shadow: .123em .123em var(--d-blue);
+	text-shadow: -.07em -.03em var(--d-blue);
+}
+.btn-red:hover { background-color: var(--pink); }
+
+.btn-orange {
+	background-color: var(--orange);
+	box-shadow: .123em .123em var(--red);
+	text-shadow: -.07em -.03em var(--red);
+}
+.btn-orange:hover { background-color: var(--yellow); }
+
+.btn-yellow {
+	background-color: var(--yellow);
+	box-shadow: .123em .123em var(--red);
+	text-shadow: -.07em -.03em var(--red);
+}
+.btn-yellow:hover { background-color: var(--l-green); }
+
+.btn-green {
+	background-color: var(--green);
+	box-shadow: .123em .123em var(--blue);
+	text-shadow: -.07em -.03em var(--blue);
+}
+.btn-green:hover { background-color: var(--l-blue); }
+
+.btn-blue {
+	background-color: var(--blue);
+	box-shadow: .123em .123em var(--dd-blue);
+	text-shadow: -.07em -.03em var(--dd-blue);
+}
+.btn-blue:hover { background-color: var(--l-blue); }
+
+.btn-purple {
+	background-color: var(--purple);
+	box-shadow: .123em .123em var(--dd-blue);
+	text-shadow: -.07em -.03em var(--dd-blue);
+}
+.btn-purple:hover { background-color: var(--pink); }
+
+.btn-pink {
+	background-color: var(--pink);
+	box-shadow: .123em .123em var(--blue);
+	text-shadow: -.07em -.03em var(--blue);
+}
+.btn-pink:hover { background-color: var(--l-pink); }
+
+/******* END BUTTONS *******/
+
+/***** TEXT STYLING *****/
+
+/* font colors */
+.txt-purple, a.txt-purple { color: var(--purple); }
+.txt-blue, a.txt-blue { color: var(--blue); }
+.txt-green, a.txt-green { color: var(--green); }
+.txt-yellow, a.txt-yellow { color: var(--yellow); }
+.txt-orange, a.txt-orange { color: var(--orange); }
+.txt-pink, a.txt-pink { color: var(--pink); }
+.txt-red, a.txt-red { color: var(--red); }
+
+/* rainbow letters:
+note: each letter needs its own span tag
+put this in head:
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="/js/jquery.lettering.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".txt-rainbow").lettering();
+	});
+</script>
+*/
+.txt-rainbow span:nth-child(6n + 1) { color: var(--red); }
+.txt-rainbow span:nth-child(6n + 2) { color: var(--orange); }
+.txt-rainbow span:nth-child(6n + 3) { color: var(--yellow); }
+.txt-rainbow span:nth-child(6n + 4) { color: var(--green); }
+.txt-rainbow span:nth-child(6n + 5) { color: var(--blue); }
+.txt-rainbow span:nth-child(6n + 6) { color: var(--purple); }
+
+/* links */
+a:is(:link, :visited) {
+	text-decoration: none;
+	color: var(--green);
+}
+a:is(:hover, :active) {
+	color: var(--l-blue);
+}
+/* link colors */
+a.txt-purple:is(:link, :visited), button.txt-purple { color: var(--purple); }
+a.txt-purple:is(:hover, :active), button.txt-purple:is(:hover, :active) { color: var(--pink); }
+
+a.txt-blue:is(:link, :visited), button.txt-blue { color: var(--blue); }
+a.txt-blue:is(:hover, :active), button.txt-blue:is(:hover, :active) { color: var(--l-blue); }
+
+a.txt-green:is(:link, :visited), button.txt-green { color: var(--green); }
+a.txt-green:is(:hover, :active), button.txt-green:is(:hover, :active) { color: var(--l-blue); }
+
+a.txt-yellow:is(:link, :visited), button.txt-yellow { color: var(--yellow); }
+a.txt-yellow:is(:hover, :active), button.txt-yellow:is(:hover, :active) { color: var(--orange); }
+
+a.txt-orange:is(:link, :visited), button.txt-orange { color: var(--orange); }
+a.txt-orange:is(:hover, :active), button.txt-orange:is(:hover, :active) { color: var(--yellow); }
+
+a.txt-pink:is(:link, :visited), button.txt-pink { color: var(--pink); }
+a.txt-pink:is(:hover, :active), button.txt-pink:is(:hover, :active) { color: var(--yellow); }
+
+a.txt-red:is(:link, :visited), button.txt-red { color: var(--red); }
+a.txt-red:is(:hover, :active), button.txt-red:is(:hover, :active) { color: var(--orange); }
+
+/***** TEXT OUTLINES *****/
+.text-outline-1px {
+	--text-shadow-color: var(--white);
+	text-shadow:
+		-1px -1px 0 var(--text-shadow-color), 1px -1px 0 var(--text-shadow-color),
+		-1px 0 0 var(--text-shadow-color), 1px 0 0 var(--text-shadow-color),
+		-1px 1px 0 var(--text-shadow-color), 1px 1px 0 var(--text-shadow-color),
+		-0 1px 0 var(--text-shadow-color), 0 1px 0 var(--text-shadow-color);
+}
+.text-outline-2px {
+	--text-shadow-color: var(--white);
+	text-shadow:
+		-1px -1px 0 var(--text-shadow-color), 1px -1px 0 var(--text-shadow-color), -1px 1px 0 var(--text-shadow-color), 1px 1px 0 var(--text-shadow-color),
+		-2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color), -2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color),
+		0 -2px 0 var(--text-shadow-color), 0 -2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color),
+		-2px -1px 0 var(--text-shadow-color), 2px -1px 0 var(--text-shadow-color), -2px 1px 0 var(--text-shadow-color), 2px 1px 0 var(--text-shadow-color),
+		-1px -2px 0 var(--text-shadow-color), 1px -2px 0 var(--text-shadow-color), -1px 2px 0 var(--text-shadow-color), 1px 2px 0 var(--text-shadow-color),
+		-2px -2px 0 var(--text-shadow-color), 2px -2px 0 var(--text-shadow-color), -2px 2px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color);
+}
+
+/***** scrollbar *****/
+/* Firefox settings */
+* { scrollbar-color: var(--l-green) var(--pink); }
+/* width */
+::-webkit-scrollbar { width: 15px; }
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--green);
+	background-color: var(--l-green);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--pink);
+	border-radius: 10px;
+}
+/***** end scrollbar *****/
+
+@media (prefers-reduced-motion: no-preference) {
+	/* image shake on hover */
+	.shake:hover {
+		/* Start the shake animation, lasts for 0.5 seconds */
+		animation: shake 0.25s;
+		/* When the animation is finished, start again */
+		animation-iteration-count: infinite;
+	}
+	@keyframes shake {
+		0% { transform: translate(1px, 1px) rotate(0deg); }
+		10% { transform: translate(-1px, -2px) rotate(-1deg); }
+		20% { transform: translate(-3px, 0px) rotate(1deg); }
+		30% { transform: translate(3px, 2px) rotate(0deg); }
+		40% { transform: translate(1px, -1px) rotate(1deg); }
+		50% { transform: translate(-1px, 2px) rotate(-1deg); }
+		60% { transform: translate(-3px, 1px) rotate(0deg); }
+		70% { transform: translate(3px, 1px) rotate(-1deg); }
+		80% { transform: translate(-1px, -1px) rotate(1deg); }
+		90% { transform: translate(1px, 2px) rotate(0deg); }
+		100% { transform: translate(1px, -2px) rotate(-1deg); }
+	}
+}

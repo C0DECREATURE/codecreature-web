@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>C0D3CR34TUR3!!</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=4"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=4" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!-- fonts -->
+		<link href="/fonts/CrimesTimesSix/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/MyImaginaryFriend/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/GhoulishFright/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/Halogen/stylesheet.css" rel="stylesheet" type="text/css">
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js"></script>
+		
+		<!--full image view-->
+		<script src="/js/full-image.js"></script>
+		
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.js?fileversion=4"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=4" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's javascript -->
+		<script src="vex.js?fileversion=4"></script>
+	</head>
+	
+	<body>
+		<main>
+			<section id="about">
+				<header>
+					<h1>VEX</h1>
+					<p class="subheader-mini">the</p>
+					<p class="subheader">vampire clown</p>
+				</header>
+				
+				<div class="content tq-format">
+					<section id="basics">
+						<p>carnival worker</p>
+						<p>actual vampire, questionable clown</p>
+					</section>
+					
+					<section id="identity">
+						<p>pronouns: he/it</p>
+						<p>gender: agender</p>
+						<p>orientation: gay</p>
+					</section>
+					
+					<h3>personality</h3>
+					<ul>
+						<li>silly in a slightly sinister way</li>
+						<li>likes %%2% play up classic vampire tropes</li>
+						<li>chaotic neutral</li>
+						<li>%A%hasn't\\hasnt% killed anybody on purpose (yet)</li>
+					</ul>
+					
+					<h3>vampire traits</h3>
+					<p>trickster god of sorts. not undead, just immortal and impossible %%2% kill</p>
+					<ul>
+						<li>only consumes blood</li>
+						<li>sleeps in a coffin</li>
+						<li>can turn %A%into\\in2% a bat</li>
+						<li>hypnotic abilities</li>
+						<li>burns in the sun</li>
+						<li>%A%can't\\cant% make other vampires</li>
+						<li>has been alive a long time but %A%forgets\\4gets% things quickly</li>
+					</ul>
+				</div> <!-- end .content -->
+				
+			</section>
+			
+			<section id="main-image">
+				<button id="coffin" class="closed" onclick="coffinClick();"><img id="coffin-img" src="images/coffin-closed.png" alt="a dark coffin, wrapped in gold chain and locked with a padlock"></button>
+				<button id="coffin-key" onclick="getKey();"><img src="images/coffin-key.png" alt="an ornate gold key"></button>
+				
+				<nav>
+					<a href="/">home</a>
+					<a href="/ocs">ocs</a>
+					<button id="page-settings" class="open-page-settings" aria-label="page settings"
+					onclick="togglePageSettings();" onfocusvisible="togglePageSettings();">
+						<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
+							<svg viewBox="0 0 132.29201 132.29201" xmlns="http://www.w3.org/2000/svg">
+								<path style="stroke-linejoin:round;stroke-linecap:butt;" d="M 58.475469,8.2100704 V 25.772997 A 41.184249,41.184253 0 0 0 35.106834,39.084493 L 20.308319,30.540394 12.64347,43.816052 27.439039,52.358188 a 41.184249,41.184253 0 0 0 -2.48311,13.787695 41.184249,41.184253 0 0 0 2.392781,13.545669 l -14.70524,8.490098 7.155267,13.56973 15.138236,-8.739987 a 41.184249,41.184253 0 0 0 23.538496,13.507377 v 16.9748 l 15.329698,0.58813 V 106.51877 A 41.184249,41.184253 0 0 0 97.497322,92.806186 l 15.493668,8.945194 7.15527,-13.56973 -15.124,-8.732125 A 41.184249,41.184253 0 0 0 107.3247,66.145883 41.184249,41.184253 0 0 0 105.01048,52.554559 L 120.14626,43.816052 112.4819,30.540394 97.340717,39.282337 A 41.184249,41.184253 0 0 0 73.805167,25.688558 V 8.2100704 Z m 7.664849,31.9490626 a 25.987005,25.986999 0 0 1 25.98724,25.98675 25.987005,25.986999 0 0 1 -25.98724,25.987241 25.987005,25.986999 0 0 1 -25.98675,-25.987241 25.987005,25.986999 0 0 1 25.98675,-25.98675 z" />
+							</svg>
+						</i>
+					</button>
+					<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
+						<!--page settings go here-->
+					</div>
+				</nav>
+			</section>
+			
+			<section id="gallery">
+				<header>
+					<h2>gallery</h2>
+					<a id="balloon-animal" href="https://www.youtube.com/watch?v=GKnk13xkubU">
+						<img src="images/balloon-animal-red.png" alt="balloon cat tutorial"
+							onmouseover="this.src='images/balloon-animal-yellow.png'" onmouseout="this.src='images/balloon-animal-red.png'">
+					</a>
+				</header>
+				
+				<div class="content">
+					
+					<section id="gallery-images">
+						<div class="img-container">
+							<img src="/ocs/vex/images/fullbody-01.png"
+								alt="a well-dressed vampire clown. its catlike face is painted white with red teardrops on each cheek. its clothing is a blend of jester and classic vampire themes with bat wing shapes, and it is wearing a blood drop pendant."
+								data-caption="art by me">
+						</div>
+						<div class="img-container">
+						<img src="/ocs/vex/images/ref-sheet.png"
+							alt="character reference sheet"
+							data-caption="art by me">
+						</div>
+						
+						<footer>
+							<a href="https://toyhou.se/22284867">more art on toyhouse...</a>
+						</footer>
+					</section>
+					
+					<div class="bottom-area">
+						<section id="blinkies">
+							<!-- blinkies -->
+							<img src="/graphix/blinkies/brand-new-species.gif" alt="brand new species blinkie">
+							<img src="/graphix/blinkies/gay-vampire-rights.gif" alt="gay vampire rights blinkie">
+							<img src="/graphix/blinkies/i-bite-bat.gif" alt="red bats 'i bite' blinkie">
+							<img src="/graphix/blinkies/red-eyes.webp" alt="red eyes on black background blinkie">
+							<img src="/graphix/blinkies/deadly-kitty.gif" alt="deadly kitty blinkie">
+							<img src="/graphix/blinkies/moon-bat.gif" alt="bat in front of a huge moon blinkie">
+							<img src="/graphix/blinkies/cant-sleep-clowns.gif" alt="can't sleep clowns will eat me blinkie">
+							<img src="/graphix/blinkies/night-owl.gif" alt="night owl blinkie">
+							<img src="/graphix/blinkies/blood-teeth.gif" alt="bloody teeth blinkie"
+								data-credit="https://cardinalphlox.tumblr.com/post/758300367650947072/">
+						</section>
+						
+						<section id="stamps">
+							<img src="/graphix/stamps/vampires-will-never-hurt-you.png" alt="'vampires will never hurt you' stamp">
+							<img src="/graphix/stamps/gay-clown.jpg" alt="'gay clown' stamp">
+						</section>
+					</div>
+					
+				</div> <!-- end content div -->
+			</section>
+		</main>
+	</body>
+</html>

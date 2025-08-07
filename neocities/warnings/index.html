@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>C0D3CR34TUR3!!</title>
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!-- fonts -->
+		<link href="/fonts/ComicSans/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/JandaCloserToFree/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/DS-Digital/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		
+		<!--base stylesheet-->
+		<link href="/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.js?fileversion=9"></script>
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="warnings.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- this page's javascript -->
+		<script src="warnings.js"></script>
+	</head>
+	
+	<body>
+		<div class="container tq-format">
+			<!-- WARNING banner -->
+			<header class="banner">
+				<div class="front"><h1>WARNING!</h1></div>
+			</header>
+			<div class="banner back"></div>
+			
+			<!-- main box -->
+			<main id="content-box" class="content-box">
+				<!-- top right buttons -->
+				<div class="topbar">
+					<div class="circle grn"></div> <div class="circle ylw"></div> <div class="circle pnk"></div>
+				</div>
+				
+				<!-- shadows -->
+				<div class="banner shadow"></div>
+				
+				<!-- inner content box -->
+				<div class="inner">
+					
+					<!-- shadows -->
+					<div class="banner shadow"></div>
+					
+					<!-- actual content -->
+					<div id="main-content" class="content">
+						<header>this site contains:</header>
+						
+						<section class="warning-list">
+							<!-- flashing button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('flashing')">
+								<img src="/graphix/icons/flashing.png" alt="colors radiating from white stars">
+								<br>flashing
+							</button>
+							
+							<!-- unreality button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('unreality')">
+								<img src="/graphix/icons/unreality.png" alt="a cat with spirals for eyes">
+								<br>unreality
+							</button>
+							
+							<!-- gore button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('gore')">
+								<img src="/graphix/icons/gore.png" alt="a bone and drop of blood">
+								<br>gore
+							</button>
+						</section>
+						
+						<section id="accessibility">
+							<button onclick="showBigInfo('accessibility')"><h2>more accessibility options...</h2></button>
+						</section>
+						
+						<footer>
+							<div class="left">
+								proceed at <u class="tq">ur</u> own risk!!
+							</div>
+							
+							<!-- home button -->
+							<div>
+								<button class="btn btn-green"
+								onmouseover="showMiniInfo(this);" onmouseout="hideMiniInfo();"
+								onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+								onclick="okButton();"
+								aria-label="accept warnings">
+									OK!
+								</button>
+							</div>
+						</footer>
+					</div>
+					
+					<div id="big-info" class="content hide">
+						<header><h2></h2></header>
+						<div id="gore" class="info">
+							depictions of <b>cartoon injury</b> with stylized flesh, bones, or blood.
+							this also includes <b>candy gore</b>, in which body parts are made of
+							unnatural materials like fruit or candy
+						</div>
+						<div id="flashing" class="info hide">
+							rapidly <b>flickering</b> images, <b>gifs</b>, and extremely <b>saturated colors</b>, which may affect %%ppl% with <b>sensory processing</b> issues, <b>migraines</b> or <b>seizures</b>. large <b>moving elements</b> generally respect %%ur% device's <a target="_blank" href="https://prefers-reduced-motion.com/">reduced motion settings</a>
+						</div>
+						<div id="unreality" class="info hide">
+							unlabeled fake or misleading content, like <b>conspiracy theories</b>, simulated <b>ads</b>,
+							and <b>glitches</b>. these %%r% not designed %%2% %%b% upsetting or malicious, but %%pls% %%b% aware!!
+						</div>
+						<div id="accessibility" class="info hide">
+							<p>
+								i'm not a professional, but i do my best to make the site accessible where i can. it's an art site first and foremost, but i want it to be enjoyable for as many folks as possible!!
+							</p>
+							<section>
+								<header><h3>typing quirks</h3></header>
+								<p>
+									<b>typing quirks</b> (numbers in place of letters, abbreviations, puns, etc) can be disabled in the <a onclick="showPageSettings();">page settings</a> menu at the top of the page. it is <b>disabled for screenreaders</b> by default. this setting is <b>saved</b> in your browser across all pages!!
+								</p>
+							</section>
+							<section>
+								<header><h3>custom cursors</h3></header>
+								<p>
+									many pages have <b>custom cursors</b>. if you want the default cursors instead, check the box in the <a onclick="showPageSettings();">page settings</a> menu at the top of the page.
+								</p>
+							</section>
+							<section>
+								<header><h3>keyboard navigation</h3></header>
+								<p>
+									i have made an effort to test keyboard navigation as much as possible. work in progress pages may not work as well.
+								</p>
+							</section>
+							<section>
+								<p>
+									if you notice a screenreader or keyboard nav problem, please send me a message on neocities or any of my <a href="/about">other contact links</a> and i'll do my best to correct it if i can!!
+								</p>
+							</section>
+							</ul>
+						</div>
+						<div id="javascript" class="info hide">
+							all pages on this site require <b>javascript</b> to run correctly - %%u% %%wont% %%b% able %%2% access <b>games</b> or other <b>interactive content</b> without it, and many pages <b>may not load</b>
+						</div>
+						<div id="mobile" class="info hide">
+							%%i% try %%2% make pages mobile-%A%friendly\\furiendly% when %%i% have the time, but this site is always
+							going %%2% look best on a <b>large %N%scr33n%</b>. some features may not work correctly without a
+							<b>mouse</b>!!
+						</div>
+						<footer>
+							<div>
+								<button class="btn btn-pink" type="button" onclick="showMainContent()">back</button>
+							</div>
+						</footer>
+					</div>
+					
+				</div>
+				
+				<!--corner character outline-->
+				<div id="cornerimg-overlap" class="cornerimg cornerimg-overlap">
+					<img src="/ocs/catnip/images/sitting-chib-outline-light.png" alt="">
+				</div>
+				
+			</main>
+			
+			<!-- character in corner -->
+			<div id="cornerimg" class="cornerimg">
+				<div class="textbox" id="mini-info"><div class="text"></div></div>
+				<img src="/ocs/catnip/images/sitting-chib.png" alt="a little robot cat with a screen for a face">
+			</div>
+			<div id="cornerimg-back" class="cornerimg back">
+				<img src="/ocs/catnip/images/sitting-chib-outline-dark.png" alt="">
+			</div>
+			
+			<footer class="content-box">
+				<button class="javascript"
+				onmouseover="showMiniInfo('javascript required');" onmouseout="hideMiniInfo();"
+				onfocus="showMiniInfo('javascript required');" onblur="hideMiniInfo()"
+				onclick="showBigInfo('javascript')">
+					<img src="/graphix/icons/javascript-check.png" alt="javascript required">
+				</button>
+				
+				<button class="mobile"
+				onmouseover="showMiniInfo('some pages r not mobile friendly!');" onmouseout="hideMiniInfo();"
+				onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+				onclick="showBigInfo('mobile')">
+					<img src="/graphix/icons/mobile-x.png" alt="mobile friendliness">
+				</button>
+			</footer>
+			
+		</div>
+
+	</body>
+</html>

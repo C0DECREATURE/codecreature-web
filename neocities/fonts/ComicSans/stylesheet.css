@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/ComicSans/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Comic Sans MS"; font-display: swap; src: local('Comic Sans MS'), local('Comic Sans'), url('/fonts/ComicSans/ComicSansMS.ttf'); }
+.txt-comicsans { font-family: "Comic Sans MS", "Comic Sans", 'Chalkboard SE', 'Comic Neue', sans-serif; }

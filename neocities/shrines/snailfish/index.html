@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>snailfish!!</title>
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
+		
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet-->
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js"></script>
+		
+		<!-- this page's script -->
+		<script src="snailfish.js"></script>
+	</head>
+	
+	<body>
+		<img class="hidden" id="preview-guide" src="images/preview.png">
+		
+		<main id="main" class="full-page">
+			<section id="aquarium-section">
+				<header><h1><img src="images/title.png" alt="SNAILFISH"></h1></header>
+				
+				<main>
+					<div class="button-wrapper"><button class="btn-strip" id="snail-poster"><img src="images/snail-poster.png" alt="A poster of a snail."></button></div>
+					
+					<!-- submarine model -->
+					<div class="button-wrapper"><button class="btn-strip" id="sub-model" onclick="showPage('equipment');">
+						<img src="images/sub-model.png" alt="A model submarine.">
+					</button></div>
+					
+					<div class="button-wrapper"><button class="btn-strip" id="krab-flakes" onclick="showPage('amphipods');"><img src="images/krab-flakes.png" alt="A bottle of fish food."></button></div>
+					
+					<div id="aquarium-wrapper">
+						<div>
+							<div class="button-wrapper">
+								<button class="btn-strip" id="aquarium-snailfish">
+									<img src="photos/mhs_01_2x.png" alt="A smiling snailfish in an aquarium.">
+								</button>
+							</div>
+							<div id="aquarium-wall"></div>
+							<img id="aquarium-base" src="images/aquarium.png" alt="">
+						</div>
+					</div>
+					
+					<!-- trench poster -->
+					<div class="button-wrapper"><button class="btn-strip" id="trench-poster" onclick="showPage('hadal-zone');">
+						<img src="images/trench-poster.png" alt="A poster about trenches.">
+					</button></div>
+				</main>
+			</section>
+			
+			<section id="basic-info">
+				<section id="trivia">
+					<div>
+						<header>
+							<div class="bg-wrapper"><img class="bg" src="images/trivia-header.png" alt=""></div>
+							<h3 class="text-outline-2px">TRIVIA</h3>
+							<img class="deco" src="images/trivia-deco-top.png" alt="">
+						</header>
+						<div class="main">
+							<p>There are over 400 known snailfish species, ranging from shallow waters to the hadal zone.</p>
+							<p>These silly little guys are the apex predators of the trenches!</p>
+							<p>An unknown snailfish species holds the deepest fish record at over 8300 meters.</p>
+							<p>Hadal snailfish have jelly-like bones and an unfused skull, which lets them survive immense water pressure.</p>
+						</div>
+						<footer>
+							<div class="bg-wrapper"><img class="bg" src="images/trivia-footer.png" alt=""></div>
+							<img class="deco" src="images/trivia-deco-bottom.png" alt="">
+							<img id="trivia-lobster" src="images/lobster.png" alt="">
+						</footer>
+					</div>
+				</section>
+				
+				<section class="main">
+					<p>Most snailfish have a specially adapted suction cup disc on the underside of their heads, formed from modified pelvic fins. This allows them to attach to the bottom of their environment.</p>
+					
+					<div>
+						<div class="polaroid"><div class="wrapper">
+							<img class="top-left" src="images/tiny-fish.png" alt="">
+							<img class="photo" src="photos/polaroids/snailfish_01.png" alt="">
+							<p>Lorem ipsum dolor sit amet.</p>
+						</div></div>
+					</div>
+				</section>
+				
+			</section>
+			
+			<section id="species">
+				<header>
+					<div class="bg-wrapper"><img class="bg" src="images/species-header.png" alt=""></div>
+					<h2>meet the family</h2>
+					<p>these are some of my favorite deep sea snailfish species, including several undescribed specimens!</p>
+				</header>
+				
+				<section id="species-selection">
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('mariana')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/mariana_snailfish_01.png" alt="">
+							<p>Mariana</p>
+						</div></div>
+					<button></div>
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('blue')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/blue_snailfish_01.jpg" alt="">
+							<p>Blue</p>
+						</div></div>
+					<button></div>
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('threadfin')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/threadfin_snailfish_01.png" alt="">
+							<p>Threadfin</p>
+						</div></div>
+					<button></div>
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/default.png" alt="">
+							<p>??</p>
+						</div></div>
+					<button></div>
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/default.png" alt="">
+							<p>??</p>
+						</div></div>
+					<button></div>
+					
+					<div class="button-wrapper"><button onclick="loadSpecies('')">
+						<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="photos/polaroids/default.png" alt="">
+							<p>??</p>
+						</div></div>
+					<button></div>
+					
+				</section>
+				
+				<section id="species-details">
+					<header>
+						<img class="icon" src="photos/icons/snailfish_01.png" alt="">
+						<div class="names">
+							<h3 class="common-name"><!-- info inserted here --></h3>
+							<h4 class="scientific-name"><!-- info inserted here --></h4>
+						</div>
+					</header>
+					
+					<section class="main">
+						<div class="info"><!-- info inserted here --></div>
+						
+						<div class="wrapper">
+							<div class="polaroid"><div class="wrapper">
+							<img class="photo" src="" alt="">
+							<p class="caption"><!-- info inserted here --></p>
+							</div></div>
+						</div>
+					</section>
+					
+					<footer>
+						<header><h3>Videos</h3></header>
+						<div class="videos">
+							<iframe class="video hidden yt-video" src="" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+						</div>
+					</footer>
+					
+				</section>
+			</section>
+		</main>
+		
+		<section id="equipment" class="full-page hidden">
+			<div class="polaroid"><div class="wrapper">
+				<img class="photo" src="photos/polaroids/lander-tianya.png" alt="">
+				<p class="caption">The 'Tianya' lander</p>
+			</div></div>
+			
+			<p>Many different tools have been used to study the trenches since the first sampling expeditions in the 1950's. Most recent snailfish studies have been done using <b>deep-sea landers</b>, sturdy frames equipped with cameras and other equipment that can be dropped to the seafloor and recovered later.</p>
+			
+			<button class="back" onclick="showPage('main');">BACK</button>
+		</section>
+		
+		<section id="amphipods" class="full-page hidden">
+			
+			<img src="images/amphipod.png" style="float: left" alt="A pale orange, shrimp-like crustacean.">
+			
+			<h2>AMPHIPODS</h2>
+			<p>
+				are among the most common <b>invertebrates</b> in the hadal zone. They are also the primary prey for snailfish!
+			</p>
+			<p>
+				Much like snailfish, these little crustaceans have undergone special adaptations to thrive in the extreme deep. They are opportunistic <b>scavengers</b> that can withstand <b>long periods of starvation</b> between meals.
+			</p>
+			<p>
+			Amphipods are found throughout hadal snailfish habitats, and even beyond into waters too deep for any fish! There are <b>over 9,000 species</b> of aphipods described so far, found in a wide range of habitats including <b>oceans</b>, <b>rivers</b>, <b>lakes</b>, <b>beaches</b>, and even in <b>moist areas of land</b>.
+			</p>
+			<p>
+				Hadal amphipods are up to <b>20 times larger</b> than those found anywhere else in the world! This phenomenon, known as <b>abyssal gigantism</b>, is common across many types of animals in the deep sea.
+			</p>
+			
+			<button class="back" onclick="showPage('main');">BACK</button>
+		</section>
+		
+		<section id="hadal-zone" class="full-page hidden">
+			<h2>the hadal zone</h2>
+			<p>Named after Hades, the ancient Greek underworld, the hadal zone is the <b>deepest</b> part of the ocean. At nearly 11,000 meters, the deepest parts of the hadal zone are almost twice as far from the ocean surface as the average sea floor. This means the hadal zone has as much depth variation as every other ocean zone combined.</p>
+			<p>There are 47 separate hadal habitats in the world. 27 of them are <b>trenches</b>, which are created by <b>tectonic subduction</b>: when one tectonic plate slides underneath another as they come togther. The other 13 are <b>abyssal basins</b>, troughs unrelated to tectonic plates.</p>
+			<p>Most trenches are found in the western Pacific on the <b>Ring of Fire</b>. This belt of tectonic plate boundaries is best known for its <b>volcanoes</b> and <b>earthquakes</b>, but the activity in this region has also created some of the most extreme and unique ocean habitats on Earth.</p>
+			<p>Although these hadal environments have a lot in common, they're separated from one another by large stretches of comparatively high-elevation seafloor. This elevation difference would be challenging to survive for any species accustomed to much higher water pressure and a total lack of large predators. Despite this, we've found unique, highly-specialized snailfish species in ocean trenches around the world!</p>
+			
+			<button class="back" onclick="showPage('main');">BACK</button>
+		</section>
+		
+		<script>initSnailfish();</script>
+	</body>
+</html>

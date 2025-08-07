@@ -1,0 +1,44 @@
+:root { --black: #000; }
+
+html, body { margin: 0 }
+body {
+	background-color: var(--dd-blue);
+	background-image: url('/graphix/bg/arcade_flash.png');
+	background-size: min(25%, 400px);
+	text-align: center;
+}
+
+a { margin-top: 0.75em; display: block; }
+
+.header {
+	width: min(800px, 100%);
+	padding: 1em 2em; background: var(--black);
+	border: 3px var(--orange) solid;
+	margin: 1em auto;
+}
+
+main { display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; }
+main > * { margin-bottom: 0.25em; }
+main > :last-child { margin-bottom: 0 }
+
+main > section > header {
+	padding: 0.5em;
+	font-size: 1.5em; font-weight: bold;
+	color: white;
+	background: var(--d-blue);
+	border: 3px var(--orange) solid;
+	border-bottom: none;
+}
+main > section >  .content {
+	justify-content: center;
+	padding: 1em 2em; background: var(--black);
+	border: 3px var(--orange) solid;
+	border-top: none;
+}
+
+#webrings > div { margin: 0 auto; }
+#transring a { margin: 0; }
+#transring br { display: none; }
+#transring .webring-prev, #transring .webring-next { padding-top: 0%; }
+
+iframe { border: 3px var(--orange) solid; }
