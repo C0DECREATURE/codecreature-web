@@ -1,20 +1,36 @@
-            - name: Deploy to Neocities
-  # You may pin to the exact commit or the version.
-  # uses: bcomnes/deploy-to-neocities@08817e531c05b03d934a7edbcd6185ce146cad27
-  uses: bcomnes/deploy-to-neocities@v3.0.4
-  with:
-    # Neocities API key for site to deploy to
-    api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
-    # Local folder to deploy to neocities
-    dist_dir: /neocities
-    # Set to true if you are a Neocities supporter to bypass file type upload restrictions
-    neocities_supporter: false
-    # Delete orphaned files on neocities that don't exist in distDir
-    cleanup: false
-    # Set to true if you want to print deploy preview stats prior to deploying.
-    preview_before_deploy: true
-    # A glob string that prevents matched files from ever being deleted.
-    # protected_files: # optional
-    # Neocities API key for site to deploy to
-    # api_token: # optional
-          
+name: Deploy to neocities
+
+# only run on changes to main. Use main or master depending on whatever your default branch is called.
+on:
+  push:
+    branches:
+      - main
+
+concurrency: # prevent concurrent deploys doing strange things
+  group: deploy-to-neocities
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # The checkout step copies your repo into the action runner. Important!
+    - uses: actions/checkout@v4
+    # Set up any tools and build steps here
+    
+    # If you have a different build process, replace this with your own build steps
+    - name: Install deps and build
+      run: |
+        npm i
+        npm run build
+    # When the dist_dir is ready, deploy it to neocities
+    # Here we deploy the folder named `public`
+    - name: Deploy to neocities
+      uses: bcomnes/deploy-to-neocities@v3
+      with:
+        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
+        cleanup: true
+        neocities_supporter: false # set this to true if you have a supporter account and want to bypass unsuported files filter.
+        preview_before_deploy: true # print a deployment plan prior to waiting for files to upload.
+        dist_dir: neocities
