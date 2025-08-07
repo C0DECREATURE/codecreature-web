@@ -10,7 +10,7 @@
     # Set to true if you are a Neocities supporter to bypass file type upload restrictions
     neocities_supporter: false
     # Delete orphaned files on neocities that don't exist in distDir
-    cleanup: true
+    cleanup: false
     # Set to true if you want to print deploy preview stats prior to deploying.
     preview_before_deploy: true
     # A glob string that prevents matched files from ever being deleted.
