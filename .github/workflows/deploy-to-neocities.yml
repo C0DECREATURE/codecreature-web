@@ -14,7 +14,7 @@
     # Set to true if you want to print deploy preview stats prior to deploying.
     preview_before_deploy: true
     # A glob string that prevents matched files from ever being deleted.
-    ## protected_files: # optional
+    # protected_files: # optional
     # Neocities API key for site to deploy to
-    ## api_token: # optional
+    # api_token: # optional
           
