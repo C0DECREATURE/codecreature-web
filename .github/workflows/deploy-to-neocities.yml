@@ -4,7 +4,7 @@
   uses: bcomnes/deploy-to-neocities@v3.0.4
   with:
     # Neocities API key for site to deploy to
-    api_key: ede09f97b5359e273b6c630b601aa1aa
+    api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
     # Local folder to deploy to neocities
     dist_dir: neocities
     # Set to true if you are a Neocities supporter to bypass file type upload restrictions
