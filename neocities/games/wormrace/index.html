@@ -2,8 +2,11 @@
 <html lang="en">
 	<head>
 		<script>
-			// redirect to heliohost immediately
-			window.location.href = window.location.href.replace('https://codecreature.neocities.org','http://codecreature.helioho.st');
+			// if on neocities, redirect immediately
+			if (window.location.href.includes("neocities.org") {
+				window.location.href = window.location.href.replace('https://codecreature.neocities.org','http://codecreature.helioho.st'
+				);
+			}
 		</script>
 		
 		<meta charset="utf-8">
@@ -11,29 +14,26 @@
 		
 		<title>ultim8 worm sport</title>
 		
-		<!-- page settings -->
-		<script src="/js/page-settings.js?fileversion=9"></script>
-		
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		
 		<!--fonts-->
-		<link href="/fonts/YetR/stylesheet.css" rel="stylesheet" type="text/css" media="all">
-		<link href="/fonts/SuperComic/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="/fonts/YetR/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
 		
 		<!--base stylesheet-->
-		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js"></script>
 
 		<!-- game status -->
-		<script src="status.js"></script>
+		<script src="status.js?fileversion=9"></script>
 		<!-- this game's javascript -->
-		<script src="wormrace.js"></script>
-		<script src="chatbox.js"></script>
+		<script src="wormrace.js?fileversion=9"></script>
+		<script src="chatbox.js?fileversion=9"></script>
 	</head>
 	<body>
 		<!-- navigation -->
@@ -252,13 +252,13 @@
 			<iframe title="updates" id="updates" src="/updates/?iframe=true&includeTags=worm%20race&tqOn=false"></iframe>
 			<script>
 				let updateCSS = document.createElement('link');
-				updateCSS.href = '/games/wormrace/updates.css';
+				updateCSS.href = '/games/wormrace/updates.css?fileversion=5';
 				updateCSS.rel = 'stylesheet';
 				updateCSS.type = 'text/css';
 				updateCSS.media = 'all';
 				
 				let updateFonts = document.createElement('link');
-				updateFonts.href = '/fonts/YetR/stylesheet.css';
+				updateFonts.href = '/fonts/YetR/stylesheet.css?fileversion=5';
 				updateFonts.rel = 'stylesheet';
 				updateFonts.type = 'text/css';
 				updateFonts.media = 'all';
