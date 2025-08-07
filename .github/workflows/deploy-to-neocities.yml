@@ -6,7 +6,7 @@
     # Neocities API key for site to deploy to
     api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
     # Local folder to deploy to neocities
-    dist_dir: /neocities
+    dist_dir: neocities
     # Set to true if you are a Neocities supporter to bypass file type upload restrictions
     neocities_supporter: false
     # Delete orphaned files on neocities that don't exist in distDir
