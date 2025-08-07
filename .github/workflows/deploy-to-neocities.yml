@@ -1,0 +1,20 @@
+            - name: Deploy to Neocities
+  # You may pin to the exact commit or the version.
+  # uses: bcomnes/deploy-to-neocities@08817e531c05b03d934a7edbcd6185ce146cad27
+  uses: bcomnes/deploy-to-neocities@v3.0.4
+  with:
+    # Neocities API key for site to deploy to
+    api_key: ede09f97b5359e273b6c630b601aa1aa
+    # Local folder to deploy to neocities
+    dist_dir: neocities
+    # Set to true if you are a Neocities supporter to bypass file type upload restrictions
+    neocities_supporter: false
+    # Delete orphaned files on neocities that don't exist in distDir
+    cleanup: true
+    # Set to true if you want to print deploy preview stats prior to deploying.
+    preview_before_deploy: true
+    # A glob string that prevents matched files from ever being deleted.
+    ## protected_files: # optional
+    # Neocities API key for site to deploy to
+    ## api_token: # optional
+          
