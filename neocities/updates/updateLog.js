@@ -18,10 +18,10 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['new page','shrines','raptor red'],
 		summary: `
-			new <a href="/shrines/raptor-red">raptor red</a> shrine!
+			new <a href="/shrines/raptor-red/">raptor red</a> shrine!
 		`,
 		details: `
-			<p>Set up a shrine for <a href="/shrines/raptor-red">Raptor Red</a>, one of my all-time favorite books! Visuals aren't very exciting for the moment, but there's some info about the book and in-browser embeds to read it as a PDF or audiobook. It's short and good, if you like dinosaurs I very much recommend it.</p>
+			<p>Set up a shrine for <a href="/shrines/raptor-red/">Raptor Red</a>, one of my all-time favorite books! Visuals aren't very exciting for the moment, but there's some info about the book and in-browser embeds to read it as a PDF or audiobook. It's short and good, if you like dinosaurs I very much recommend it.</p>
 		`
 	},
 	{
