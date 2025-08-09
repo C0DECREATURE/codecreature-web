@@ -31,14 +31,19 @@ body.customCursor {
 /* main content */
 html, body {
 	margin: 0;
-	min-height: 100vh;
+	height: 100%;
 }
 
 body {
-	background: var(--black);
+	background-color: var(--black);
+	background-image: url('/graphix/bg/black-binary.gif');
 	font-family: Courier, monospace;
 	font-size: 1.125rem;
-	color:var(--blood);
+	color: var(--blood);
+}
+
+main {
+	min-height: 100%;
 	display: flex; flex-direction: column;
 	
 	#top-section {
@@ -91,8 +96,8 @@ body {
 					top: 0; left: 0;
 					fill-opacity: 0;
 					path { pointer-events: auto; }
-					&.passthrough { display: none; pointer-events: none; }
 				}
+				button:focus-visible path { fill-opacity: .7; fill: var(--white); }
 			}
 			/* small screens */
 			@media screen and (width < 550px) {
@@ -110,12 +115,107 @@ body {
 	}
 	
 	#info-section {
+		z-index: 2;
 		background: var(--blood);
 		color: var(--black);
 		flex-grow: 1;
 		/* padding on bottom accounts for music player */
 		padding: .8rem 1rem 3rem 1rem;
 	}
+}
+
+/* main area appear animations (only play if reduced motion not on) */
+@media (prefers-reduced-motion: no-preference) {
+	main:not(.hidden) {
+		--appear-speed: .25s;
+		
+		#header-image {
+			animation-name: headerPopup;
+			animation-duration: calc(var(--appear-speed));
+		}
+
+		#hexgrid .hex-container div {
+			animation-name: growIn;
+			animation-duration: var(--appear-speed);
+			animation-delay: var(--appear-speed);
+			animation-fill-mode: forwards;
+			transform: scale(0);
+		}
+	}
+}
+/* appear animation definitions */
+@keyframes headerPopup {
+	0% { transform: translateY(10%); }
+	100% { transform: translateY(0%); }
+}
+@keyframes growIn {
+	0% { transform: scale(0); opacity: .75; }
+	100% { transform: scale(1); opacity: 1; }
+}
+
+
+/************************* ~ATH CODE DISPLAY WINDOW *************************/
+#loading {
+	padding-top: 2rem;
+	--border: 8px;
+	
+	> button:not(.hidden) {
+		display: block;
+		padding: calc(var(--border)/2) .5em;
+		border-radius: calc(var(--border)/2);
+		background: var(--blood);
+		color: var(--black);
+		font-weight: bold;
+		font-size: 2rem;
+		margin: 1rem auto;
+	}
+}
+
+.codebox {
+	margin: 0 auto;
+	background: var(--blood);
+	color: var(--black);
+	width: min(500px,90%);
+	border: var(--border) var(--blood) solid;
+	border-radius: var(--border);
+	
+	header {
+		padding: 0 var(--border) var(--border) var(--border);
+		h2 {
+			font-size: inherit;
+			line-height: 1;
+			margin: 0;
+		}
+	}
+	
+	pre {
+		color: white;
+		background: black;
+		width: 100%;
+		white-space: pre-wrap;
+		padding: var(--border); padding-top: calc(var(--border)*2); padding-bottom: 1.5em;
+		margin: 0;
+		box-sizing: border-box;
+		border-radius: calc(var(--border) * .7);
+		tab-size: 2em;
+	}
+}
+
+/* features for typing animation areas */
+.typing {
+	.text-cursor { display: inline; }
+	.blinking { 
+		animation-name: blinker;
+		animation-duration: 1.5s;
+		animation-iteration-count: infinite;
+	}
+	span { display: none; } /* hide spans until ready to be typed */
+}
+@keyframes blinker {
+	0% { opacity: 1; }
+  50% { opacity: 1; }
+	50.001% { opacity: 0; }
+	100% { opacity: 0; }
 }
 
 /************************* HEXAGON GRID *************************/

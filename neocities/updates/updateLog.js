@@ -13,6 +13,23 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-08T23:58'),
+		authors: ['emery'],
+		tags: ['shrines','sollux'],
+		summary: `
+			<a href="/shrines/homestuck/sollux">mobius double reacharound virus</a> installed
+		`,
+		details: `
+			<p align="center"><img src="images/sollux-2025-08-08.jpg" alt="screenshot of a simulated code window titled "check this shit out dot ~ATH." it has white, red, and blue code written inside. there is a yellow-green arrow button at the bottom."></p>
+			<p>
+				<a href="/shrines/homestuck/sollux">sollux</a> page has a new loading animation, and the glasses light up on hover (the hover bit was, embarrassingly, a bit difficult to sort out).
+			</p>
+			<p>
+				also, took a minute, but I figured out how to push to Neocities from a Github repository! going to work on moving the site over to another host now. and maybe.... custom domain?
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-07-31T21:45'),
 		tags: ['games','toybox'],
 		summary: `
@@ -55,7 +72,7 @@ const updateLog = [
 	},
 	{
 		date: new Date('2025-07-19T09:01'),
-		tags: ['new page','shrines'],
+		tags: ['new page','shrines','sollux'],
 		summary: `
 			lil wip page %%4% <a href="/shrines/homestuck/sollux">sollux</a> plus boring code stuff
 		`,

@@ -1,7 +1,8 @@
 /*
 // put at top of html document
 		<!--full image view-->
-		<script src="/js/full-image.js"></script>
+		<script src="/js/full-image.js?fileversion=9"></script>
+		<link href="/js/full-image.css?fileversion=9" rel="stylesheet" type="text/css"></link>
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js"></script>
 */
@@ -19,8 +20,9 @@ var curFullImage = '';
 var initFullImageCalled = false;
 
 window.addEventListener('load', () => {
+	if (typeof dontAutoInitFIV !== 'undefined' && dontAutoInitFIV) {}
 	// if another script hasn't disabled this script's auto init
-	if (!dontAutoInitFIV) {
+	else {
 		// set up image full view
 		initFullImage();
 	}
@@ -34,7 +36,7 @@ function initFullImage() {
 		let css = document.createElement('link');
 		css.rel = 'stylesheet';
 		css.type = 'text/css';
-		css.href = '/js/full-image.css?fileversion=7';
+		css.href = "/js/full-image.css?fileversion=9";
 		document.querySelector('HEAD').appendChild(css);
 		
 		// add overlay element to body of html document if one doesn't exist
