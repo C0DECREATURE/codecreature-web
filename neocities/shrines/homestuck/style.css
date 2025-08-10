@@ -1,0 +1,57 @@
+:root {
+	--green: #628A29;
+	--black: black;
+	--white: white;
+}
+
+body {
+	margin: 0;
+	font-family: Courier, monospace;
+	font-weight: bold;
+	text-align: center;
+	background: var(--green);
+	
+	header h1 {
+		font-size: 2.5rem;
+	}
+}
+
+img { image-rendering: pixelated; }
+
+/* main navigation */
+nav {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 1rem .5rem;
+	background: var(--black);
+	color: var(--white);
+	font-size: 1.5rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	gap: 1.5em;
+	a {
+		&:visited, &:link {
+			color: inherit;
+		}
+		&:hover {
+			color: var(--green);
+		}
+	}
+}
+
+/* links to characters */
+#character-nav a {
+	display: inline-block;
+}
+
+#shipping-nav {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	width: fit-content;
+	margin: 0 auto;
+	img { max-width: min(5rem,20vw); }
+}

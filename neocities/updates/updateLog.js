@@ -14,6 +14,25 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-10T02:27'),
+		authors: ['emery','prax'],
+		tags: ['new page','minor','homestuck'],
+		summary: `
+			minor adjustments, simple placeholder pages
+		`,
+		details: `
+			<p>
+				page settings css behaves better and doesn't misuse the nav tag
+			</p>
+			<p>
+				sollux page accessibility %A%improvements\\impurrovements% - better keyboard %A%navigation\\navig8ion% and supports reduced motion settings!!
+			</p>
+			<p>
+				also made placeholder pages for some other <a href="/shrines/homestuck">homestuck</a> shrines (<a href="/shrines/homestuck/nepeta">nepeta</a> and <a href="/shrines/homestuck/shipping">shipping wall</a>). did a lil bit of code for the sprite animations but otherwise not much fancy going on there
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-09T02:34'),
 		authors: ['emery'],
 		tags: ['new page','shrines','raptor red'],

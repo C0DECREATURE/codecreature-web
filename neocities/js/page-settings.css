@@ -76,13 +76,15 @@ button.open-page-settings {
 	}
 }
 
-/* buttons inside the settings */
-#page-settings-contents label { color: var(--accent); }
-/* checkbox inside button */
-#page-settings-contents input { margin-left: 0.75em; margin-bottom: .75em; }
-/* description for setting */
-#page-settings-contents span {
-	display: block;
-	width: 100%;
-	margin-bottom: .75em;
+#page-settings-contents {
+	/* buttons inside the settings */
+	label, button { color: var(--accent); }
+	/* checkbox inside button */
+	input { margin-left: 0.75em; margin-bottom: .75em; }
+	/* description for setting */
+	span {
+		display: block;
+		width: 100%;
+		margin-bottom: .75em;
+	}
 }

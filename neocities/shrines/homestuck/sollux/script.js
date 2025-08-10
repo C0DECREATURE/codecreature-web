@@ -30,33 +30,46 @@ function typeWriter(el) {
 	textCursor.classList.add('text-cursor');
 	el.appendChild(textCursor);
 	
-	let children = el.children;
-	let curChild = 0;
+	// all children of the specified element
+	let children = el.getElementsByTagName('span');
 	
-	function writeNextChild() {
-		let child = children[curChild];
-		let i = 0;
-		let txt = child.innerHTML;
-		child.innerHTML = "";
-		child.style.display = "inline";
-		// function to loop through the child's contents adding one character at a time
-		function loop() {
-			child.innerHTML += txt[i];
-			if (i < txt.length - 1) {
-				i++;
-				setTimeout(loop, typeWriterSpeed);
+	// if the user hasn't requested reduced motion settings
+	if (!isReducedMotion) {
+		let curChild = 0;
+		
+		function writeNextChild() {
+			let child = children[curChild];
+			let i = 0;
+			let txt = child.innerHTML;
+			child.innerHTML = "";
+			child.style.display = "inline";
+			// function to loop through the child's contents adding one character at a time
+			function loop() {
+				child.innerHTML += txt[i];
+				if (i < txt.length - 1) {
+					i++;
+					setTimeout(loop, typeWriterSpeed);
+				}
+				else if (curChild < children.length - 1) {
+					curChild++;
+					writeNextChild();
+				}
+				else { finishedTypeWriter(el); }
 			}
-			else if (curChild < children.length - 1) {
-				curChild++;
-				writeNextChild();
-			}
-			else { finishedTypeWriter(el); }
+			// start the loop
+			loop();
 		}
-		// start the loop
-		loop();
+		// start writing children
+		writeNextChild();
 	}
-	// start writing children
-	writeNextChild();
+	// if the user has requested reduced motion
+	else {
+		for (let i = 0; i < children.length; i++) {
+			children[i].style.display = "inline";
+		}
+		// finish immediately
+		finishedTypeWriter(el);
+	}
 }
 // called when typeWriter finishes writing an element
 function finishedTypeWriter(el) {
@@ -65,8 +78,7 @@ function finishedTypeWriter(el) {
 	function textCursorBlinkStop() { textCursor.classList.remove('blinking'); }
 	// start text cursor blinking
 	textCursorBlink();
-	
-	// when loading box finishes typing
+	// when loading box finishes typing, show enter button
 	if (el.id == "loading-typebox") { enterButton.classList.remove('hidden'); }
 }
 

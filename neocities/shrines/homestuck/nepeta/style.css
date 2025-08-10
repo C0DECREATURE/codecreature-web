@@ -46,7 +46,7 @@ nav .dropdown-btn { display: none; }
 .navlinks-dropdown > :last-child { padding-bottom: 0.15em; }
 
 /* summary text at the top */
-.summary { padding-top: calc(var(--hh) + 1em); width: min(1000px, 100%); margin: 0px auto 1em auto; }
+#summary { padding-top: calc(var(--hh) + 1em); width: min(1000px, 100%); margin: 0px auto 1em auto; }
 
 /* standard button style */
 .btn {

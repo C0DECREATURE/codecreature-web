@@ -64,7 +64,7 @@ function makePageSettingsElement(psParent) {
 	pageSettingsContents = document.getElementById('page-settings-contents');
 	if (!pageSettingsContents) {
 		// make the settings content dropdown
-		pageSettingsContents = document.createElement('nav');
+		pageSettingsContents = document.createElement('div');
 		pageSettingsContents.classList.add("page-settings-contents","hidden");
 		pageSettingsContents.id = "page-settings-contents";
 		pageSettingsContents.ariaLabel = "page settings";

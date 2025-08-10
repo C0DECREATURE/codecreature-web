@@ -41,6 +41,8 @@
 			});
 		</script>
 		
+		<!-- page settings -->
+		<script src="/js/page-settings.js?fileversion=9"></script>
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.js"></script>
 		<!-- svg icons -->
@@ -63,19 +65,20 @@
 				<div class="navlinks">
 					<a href="/home">home</a>
 					<a href="/shrines">shrines</a>
+					<a href="/shrines/homestuck">homestuck</a>
 					<a href="#summary">top</a>
 				</div>
 			</nav>
 		</header>
 		
-		<section class="summary">
-			wip!
+		<section id="summary">
+			placeholder page!
 		</section>
 		
 		<!-- main content container -->
 		<div class="main-container">
 			
-			<section id="fanart">
+			<section class=".section" id="fanart">
 				<h3>featured fanart</h3>
 				<p>art in this section is not by me, click <u class="tq">2</u> view fullsize + sources!</p>
 				<div class="gallery img-grid">
@@ -145,7 +148,7 @@
 			initFullImage();
 			
 			// set up nav
-			var sections = document.querySelectorAll('section');
+			var sections = document.getElementsByClassName('section');
 			for ( let i = 0; i < sections.length; i++ ) {
 				var s = sections[i];
 				// for any sections with defined id

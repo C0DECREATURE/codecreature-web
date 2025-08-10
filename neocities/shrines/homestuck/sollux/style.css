@@ -37,7 +37,7 @@ html, body {
 
 body {
 	background-color: var(--black);
-	background-image: url('/graphix/bg/black-binary.gif');
+	@media (prefers-reduced-motion: no-preference) { background-image: url('/graphix/bg/black-binary.gif'); }
 	font-family: Courier, monospace;
 	font-size: 1.125rem;
 	color: var(--blood);
@@ -53,14 +53,14 @@ main {
 		flex-direction: column;
 		> header, main { width: 100%; }
 		/* large screens */
-		@media screen and (width >= 550px) {
+		@media screen and (width >= 670px) {
 			height: calc(441px + 2.1rem);
 			width: min(650px,70vw);
 			margin: .5rem auto -.35rem auto;
 			padding-left: calc(0.6 * var(--header-image-width));
 		}
 		/* small screens */
-		@media screen and (width < 550px) {
+		@media screen and (width < 670px) {
 			height: auto;
 			margin-bottom: .5rem;
 		}
@@ -71,7 +71,7 @@ main {
 			h1 {
 				background: var(--blood);
 				color: var(--black);
-				@media screen and (width >= 550px) { text-align: right; }
+				@media screen and (width >= 670px) { text-align: right; }
 				font-weight: bold;
 				line-height: 1;
 				margin: 0;
@@ -101,7 +101,7 @@ main {
 				button:focus-visible path { fill-opacity: .7; fill: var(--white); }
 			}
 			/* small screens */
-			@media screen and (width < 550px) {
+			@media screen and (width < 670px) {
 				border-bottom: 3px var(--blood) solid;
 				--header-image-width: min(80vw,408px);
 				#header-image {
@@ -128,7 +128,7 @@ main {
 /* main area appear animations (only play if reduced motion not on) */
 @media (prefers-reduced-motion: no-preference) {
 	main:not(.hidden) {
-		--appear-speed: .25s;
+		--appear-speed: .3s;
 		
 		#header-image {
 			animation-name: headerPopup;
@@ -146,7 +146,7 @@ main {
 }
 /* appear animation definitions */
 @keyframes headerPopup {
-	0% { transform: translateY(10%); }
+	0% { transform: translateY(12%); }
 	100% { transform: translateY(0%); }
 }
 @keyframes growIn {
@@ -205,10 +205,12 @@ main {
 /* features for typing animation areas */
 .typing {
 	.text-cursor { display: inline; }
-	.blinking { 
-		animation-name: blinker;
-		animation-duration: 1.5s;
-		animation-iteration-count: infinite;
+	@media (prefers-reduced-motion: no-preference) {
+		.blinking { 
+			animation-name: blinker;
+			animation-duration: 1.5s;
+			animation-iteration-count: infinite;
+		}
 	}
 	span { display: none; } /* hide spans until ready to be typed */
 }
@@ -270,7 +272,7 @@ main {
 			font-weight: bold;
 			font-size: 1.25rem;
 			background: var(--bg);
-			&:active {
+			&:active, &:focus-visible {
 				transform: translate(var(--m), calc(var(--m) * 0.5));
 			}
 			&:focus-visible { background: var(--white); }
