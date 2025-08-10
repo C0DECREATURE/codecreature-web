@@ -7,6 +7,7 @@
 	--blue: #363959;
 	--yellow: #bf0000;
 	--gray: #703b3b;
+	--l-gray: #e6dcdc;
 	--pink: #c39797;
 	
 	--border: 5px var(--lines) solid;
@@ -35,26 +36,85 @@ section#ship-squares {
 	gap: 10px;
 	justify-content: center;
 	
-	.quadrant {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		justify-content: center;
+	.ship {
+		margin-top: 1.25rem;
+		position: relative;
+		--size: max(100px,min(175px,calc(24vw - 15px)));
+		width: var(--size);
+		height: var(--size);
+		border: var(--border);
+		padding: 0;
 		
-		.ship {
-			position: relative;
-			--size: max(100px,min(175px,calc(24vw - 15px)));
-			width: var(--size);
-			height: var(--size);
-			border: var(--border);
-			
-			/* icon at top of square */
-			.icon {
-				position: absolute;
-				top: 0; left: 50%;
-				transform: translate(-50%,-60%);
-				width: 25%;
-			}
+		&:hover { outline: 2px var(--pink) solid; }
+		&:focus-visible {
+			outline: 1px var(--white) solid;
+      box-shadow: 0 0 0 4px var(--pink);
+		}
+		
+		/* icon at top of square */
+		.icons {
+			position: absolute;
+			width: 100%;
+			top: 0; transform: translateY(-55%);
+			user-select: none;
+			img { width: 25%; }
+		}
+		
+		.content {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+/* ship description popup */
+section#ship-description {
+	position: fixed;
+	z-index: 100;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	width: min(90vw,500px);
+	height: auto;
+	min-height: min(8em,80vh);
+	background: var(--l-gray);
+	border: var(--border);
+	padding: 1em;
+	
+	pre.description {
+		font-family: inherit; font-weight: inherit; color: inherit; font-size: inherit;
+		text-align: center;
+		width: 100%;
+		tab-size: 0px;
+		white-space: pre-wrap;
+		word-break: break-word;
+		line-height: 1.25;
+		margin: 0;
+		
+		a, a:link, a:visited { color: var(--red); }
+		a:hover { color: var(--pink); }
+	}
+	
+	.icon {
+		max-height: 1em;
+    max-width: 1em;
+    margin-bottom: -.2em;
+		padding: 0 .15em;
+	}
+	
+	button.close {
+		background: var(--black);
+		color: var(--red);
+		font-size: 1.25rem;
+		padding: .25em .5em;
+		margin-top: 1em;
+		
+		&:hover, &:focus-visible { background: var(--red); color: var(--black); }
+		&:focus-visible {
+			outline: 3px var(--black) solid;
+			box-shadow: 0 0 0 5px var(--wall);
 		}
 	}
 }

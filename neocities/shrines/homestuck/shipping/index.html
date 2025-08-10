@@ -20,49 +20,141 @@
 		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
-		<!-- this page's javascript --
-		<script src="script.js?fileversion=9"></script>-->
+		<!-- this page's javascript -->
+		<script src="script.js?fileversion=9"></script>
 	</head>
 	
 	<!-----------BODY------------------->
 	<body>
 		<main>
-			<img src="images/quadrants.png">
+			<img src="images/quadrants.png" alt="diagram showing the four troll romance quadrants: red (heart), pale (diamond), black (spades), and ashen (clubs)">
 			
-			<p>wip!
+			<p>click a ship for a mini-manifesto!<br>in no particular order, i will sort them when i'm done</p>
 			
 			<section id="ship-squares">
-				<section id="red-quadrant" class="quadrant">
-					<div class="ship">
-						<img class="icon" src="images/quadrants_red.png">
-						<div class="content"></div>
+				<!--davekat-->
+				<button class="ship" id="davekat">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+					<div class="content">dave/karkat</div>
+					<div class="description hidden">
+						dave<img class="icon" src="images/quadrants_red.png" alt="heart">karkat
+						
+						a classic, for good reason! their insecurities pair so well together and their dynamic is a lot of fun. the hand holding on the couch in act 7 had an effect on my underdeveloped little gay brain. we've all been there.
 					</div>
-				</section>
-				
-				<section id="pale-quadrant" class="quadrant">
-					<div class="ship">
-						<img class="icon" src="images/quadrants_pale.png">
-						<div class="content"></div>
+				</button>
+				<!--johndavekat-->
+				<button class="ship" id="johndavekat">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"><img src="images/quadrants_black.png" alt="diamond"><img src="images/quadrants_ashen.png" alt="clubs"></div>
+					<div class="content">dave/john/karkat</div>
+					<div class="description hidden">
+						dave<img class="icon" src="images/quadrants_red.png" alt="heart">john
+						dave<img class="icon" src="images/quadrants_red.png" alt="heart">karkat
+						karkat<img class="icon" src="images/quadrants_black.png" alt="spades">john
+						karkat<img class="icon" src="images/quadrants_ashen.png" alt="clubs">dave<img class="icon" src="images/quadrants_ashen.png" alt="clubs">john
+						
+						davekat meets johndave with a little black romance in the middle. really love the idea of these three in a household together, it would be such a mess (positive.) also dave would not be a good auspistice but i still want to see him try
 					</div>
-				</section>
-				
-				
-				<section id="black-quadrant" class="quadrant">
-					<div class="ship">
-						<img class="icon" src="images/quadrants_black.png">
-						<div class="content"></div>
+				</button>
+				<!--equius/dirk-->
+				<button class="ship" id="dirkquius">
+					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"><img src="images/quadrants_black.png" alt="heart"></div>
+					<div class="content">equius/dirk</div>
+					<div class="description hidden">
+						equius<img class="icon" src="images/quadrants_pale.png" alt="diamond"><img class="icon" src="images/quadrants_black.png" alt="spades">dirk
+						
+						fascinated by the dynamic, afraid to know what goes on in the bedroom. also i am confident dave would hate it in a way that is funny to me
 					</div>
-				</section>
-				
-				
-				<section id="ashen-quadrant" class="quadrant">
-					<div class="ship">
-						<img class="icon" src="images/quadrants_ashen.png">
-						<div class="content"></div>
+				</button>
+				<!--solkat-->
+				<button class="ship" id="solkat">
+					<div class="icons"><img src="images/quadrants_black.png" alt="diamond"></div>
+					<div class="content">sollux/karkat</div>
+					<div class="description hidden">
+						sollux<img class="icon" src="images/quadrants_black.png" alt="spades">karkat
+						
+						concerningly loud in public, very chill behind closed doors. sniping at each other over co-op games and aggressively bullying each other into self care during mental health slumps. you can't convince me sollux blowing up karkat's computer wasn't a thing, we all saw it
 					</div>
-				</section>
+				</button>
+				<!--eridave-->
+				<button class="ship" id="eridave">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+					<div class="content">dave/eridan</div>
+					<div class="description hidden">
+						eridan<img class="icon" src="images/quadrants_red.png" alt="heart">dave
+						
+						i'm afraid <a href="https://archiveofourown.org/works/477779/chapters/829436">lee shore</a> did something irreparable to my brain chemistry
+					</div>
+				</button>
+				<!--solradia-->
+				<button class="ship" id="solradia">
+					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"><img src="images/quadrants_red.png" alt="heart"></div>
+					<div class="content">sollux/aradia</div>
+					<div class="description hidden">
+						sollux<img class="icon" src="images/quadrants_pale.png" alt="diamond"><img class="icon" src="images/quadrants_red.png" alt="heart">aradia
+						
+						mostly pale with a little red on the side. they're cute and i love them
+					</div>
+				</button>
+				<!--jadenep-->
+				<button class="ship" id="jadenep">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+					<div class="content">jade/nepeta</div>
+					<div class="description hidden">
+						jade<img class="icon" src="images/quadrants_red.png" alt="heart">nepeta
+						
+						a couple of silly furries who are also really weird girls who grew up isolated. i think they could both struggle with integrating into the world and find understanding in each other
+					</div>
+				</button>
+				<!--jadepeta-->
+				<button class="ship" id="jadenep">
+					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
+					<div class="content">jade/davepeta</div>
+					<div class="description hidden">
+						jade<img class="icon" src="images/quadrants_pale.png" alt="diamond">davepeta
+						
+						dog girl x catbird creature!! their bubbly energy goes so well together. they already know parts of each other really well because of dave, and i also think dp would be great for helping jade embrace her animal side
+					</div>
+				</button>
+				<!--aradia/tavros-->
+				<button class="ship" id="aratav">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+					<div class="content">aradia/tavros</div>
+					<div class="description hidden">
+						aradia<img class="icon" src="images/quadrants_red.png" alt="heart">tavros
+						
+						let those FLARP nerds kiss
+					</div>
+				</button>
+				<!--erikarsol-->
+				<button class="ship" id="erikarsol">
+					<div class="icons"><img src="images/quadrants_ashen.png" alt="clubs"></div>
+					<div class="content">eridan/karkat/sollux</div>
+					<div class="description hidden">
+						eridan<img class="icon" src="images/quadrants_ashen.png" alt="clubs">karkat<img class="icon" src="images/quadrants_ashen.png" alt="clubs">sollux
+						
+						i just think it would be really funny to make karkat manage this clusterfuck of a situation. he'd either be really good at it or really bad, there's no in between. i also think eridan and sollux could chill slightly just by petty bonding over watching karkat's drama about the whole thing, which is an auspisticism trope i like a lot
+					</div>
+				</button>
+				<!--junevrisrezi-->
+				<button class="ship" id="junevrisrezi">
+					<div class="icons"><img src="images/quadrants_red.png" alt="heart"><img src="images/quadrants_pale.png" alt="diamond"></div>
+					<div class="content">june/vriska/terezi</div>
+					<div class="description hidden">
+						june<img class="icon" src="images/quadrants_red.png" alt="heart">terezi
+						june<img class="icon" src="images/quadrants_red.png" alt="heart">vriska
+						vriska<img class="icon" src="images/quadrants_pale.png" alt="diamond">terezi
+						
+						another classic. transgender lesbians doing hormones together and they're all slightly awful. making each other better and also worse
+					</div>
+				</button>
 			</section>
 		</main>
+		
+		<section id="ship-description" class="hidden">
+			<a id="ship-description-anchor" href="" aria-label="ship info"></a>
+			<pre class="description"></pre>
+			<button class="close" onclick="closeShipDescription();">close</button>
+		</section>
 		
 		<nav>
 			<a href="/shrines/homestuck">homestuck</a>

@@ -14,6 +14,18 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-10T02:20'),
+		authors: ['prax'],
+		tags: ['minor','homestuck'],
+		summary: `
+			filling in the hs <a href="/shrines/homestuck/shipping">ship wall</a>
+		`,
+		details: `
+			<p>many <a href="/shrines/homestuck/shipping">ships</a> to record, very serious work %E%B33c%</p>
+			<p>%A%there's\\theres% some basic %A%new\\mew% code in there as well!! clickable %A%popups\\pawpups%</p>
+		`
+	},
+	{
 		date: new Date('2025-08-10T02:27'),
 		authors: ['emery','prax'],
 		tags: ['new page','minor','homestuck'],

@@ -11,8 +11,13 @@ body {
 	text-align: center;
 	background: var(--green);
 	
-	header h1 {
-		font-size: 2.5rem;
+	> header {
+		background: var(--white);
+		padding: .25rem;
+		margin-bottom: .75rem;
+		h1 { font-size: 2.5rem; margin: .25em 0 0 0; line-height: 1; }
+		img { max-width: min(650px,90vw); }
+		p { margin: .25em 0 .5em 0; }
 	}
 }
 
@@ -24,8 +29,8 @@ nav {
 	bottom: 0;
 	width: 100%;
 	padding: 1rem .5rem;
-	background: var(--black);
-	color: var(--white);
+	background: var(--white);
+	color: var(--black);
 	font-size: 1.5rem;
 	font-weight: bold;
 	display: flex;
@@ -42,16 +47,19 @@ nav {
 }
 
 /* links to characters */
-#character-nav a {
-	display: inline-block;
+#character-nav {
+	a { display: inline-block; }
+	img { max-width: 90vw; }
 }
 
 #shipping-nav {
+	width: fit-content;
+	max-width: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-wrap: wrap;
 	gap: 1rem;
-	width: fit-content;
 	margin: 0 auto;
 	img { max-width: min(5rem,20vw); }
 }
