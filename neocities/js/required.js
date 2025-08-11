@@ -1,7 +1,8 @@
-// redirect immediately if warnings not shown yet
+// redirect immediately if warnings not shown yet and user is not Neocities screenshotter
 if (
 localStorage.getItem("showWarnings") != "false" &&
-!window.location.pathname.includes("/warnings")
+!window.location.pathname.includes("/warnings") &&
+navigator.userAgent.toLowerCase() != 'screenjesus'
 ) {
 	window.location.href = "/warnings?redirect="+window.location.href;
 }
