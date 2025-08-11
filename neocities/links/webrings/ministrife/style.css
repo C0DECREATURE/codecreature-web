@@ -1,0 +1,28 @@
+#ministrife-club {
+	a.ministrife-button {
+		display: block;
+		margin-bottom: 0;
+		margin-top: 5px;
+	}
+	.sprites {
+		background: var(--white);
+		padding: 5px 25px 0 25px;
+		height: 110px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		
+		a {
+			display: inline-block;
+			margin: 0;
+			&:hover {
+				transform: scale(2);
+			}
+		}
+		a:not(:hover) img {
+			image-rendering: pixelated;
+			-webkit-filter: drop-shadow(1px 1px 0px black);
+			filter: drop-shadow(1px 1px 0px black);
+		}
+	}
+}

@@ -2,7 +2,7 @@
 if (
 localStorage.getItem("showWarnings") != "false" &&
 !window.location.pathname.includes("/warnings") &&
-navigator.userAgent.toLowerCase() != 'screenjesus'
+(navigator.userAgent.toLowerCase() != 'screenjesus' || window.location.href == "")
 ) {
 	window.location.href = "/warnings?redirect="+window.location.href;
 }

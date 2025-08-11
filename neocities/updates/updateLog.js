@@ -12,28 +12,28 @@ const updateLog = [
 			
 		`
 	},
+*/
 	{
-		date: new Date('YYYY-MM-DDTHH:mm'),
+		date: new Date('2025-08-11T05:52'),
 		authors: ['emery'],
 		tags: ['general','sollux'],
 		summary: `
-			music player!!
+			music player!
 		`,
 		details: `
-			<p>got a music player running, as implemented on the <a href="/shrines/homestuck/sollux">sollux</a> page! i'm using <a href="https://github.com/wiserim/WMPlayer">WMPlayer</a>, which is a nice little open source player that i've found to be pretty easy to customize and modify.</p>
+			<p>got a music player running, as implemented on the <a href="/shrines/homestuck/sollux">sollux</a> page! i'm using <a href="https://github.com/wiserim/WMPlayer">WMPlayer</a>, which is a nice little open source player that's easy to heavily customize and implement locally.</p>
 			<p>during this process i did forget i set the youtube links to default to rick astley. rickrolled myself. got distracted by fixing something else. rickrolled myself a second time, this time with the pause button broken. in summary: many self-inflicted agonies</p>
 		`
 	},
-*/
 	{
 		date: new Date('2025-08-10T23:32'),
 		authors: ['emery'],
 		tags: ['minor','bug fix'],
 		summary: `
-			neocities screenshots fixed, thanks <a href="neocities.org/site/barndoors>barndoors</a> & <a href="neocities.org/site/juneish">juneish</a>!
+			neocities screenshots fixed, thanks <a href="neocities.org/site/barndoors">barndoors</a> & <a href="neocities.org/site/juneish">juneish</a>!
 		`,
 		details: `
-			no longer have to suffer with all the previews on neocities being of the warnings page. i love you neocities community (in this case, especially <a href="neocities.org/site/barndoors>barndoors</a> and <a href="neocities.org/site/juneish">juneish</a>, who both quickly provided the needed info!)
+			<p>no longer have to suffer with all the previews on neocities being of the warnings page. i love you neocities community (in this case, especially <a href="neocities.org/site/barndoors">barndoors</a> and <a href="neocities.org/site/juneish">juneish</a>!) i do need to fix the post-warnings redirect system at some point</p>
 		`
 	},
 	{
