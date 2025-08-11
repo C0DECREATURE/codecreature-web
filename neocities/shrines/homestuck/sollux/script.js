@@ -151,25 +151,61 @@ function setGlassesImage() {
 // AUDIO PLAYER
 
 // playlist for audio player
-const audioPlayerPlaylist = [
-	{ title:"5-4-3-2-1 Lisp Off", artist:"Modest Mouse" },
-	{ title:"Hacking Machine", artist:"Guerilla Toss" }
+const playlist = [
+	{
+		title: `5-4-3-2-1 Lisp Off`,
+		artist: `Modest Mouse`,
+		url: 'https://www.youtube.com/watch?v=Z2lNFYpi--M'
+	},
+	{
+		title: `Hacking Machine`,
+		artist: `Guerilla Toss`,
+		url: 'https://www.youtube.com/watch?v=5fthfDlCVv4'
+	},
+	{
+		title: `We're All Gonna Die`,
+		artist: `Jesse From The Future`,
+		url: 'https://www.youtube.com/watch?v=GOHa3pJhLuo'
+	},
+	{
+		title: `Heimdalsgate Like a Promethean Curse`,
+		artist: `of Montreal`,
+		url: 'https://www.youtube.com/watch?v=ZFt_c4wYpvQ'
+	},
+	{
+		title: `Two Fingers`,
+		artist: `Jake Bugg`,
+		url: 'https://www.youtube.com/watch?v=GG4f2bKjlYc'
+	}
 ];
 
-// when page loads, set up play/pause button
-window.addEventListener("load", () => {
-	const playlistEl = document.getElementById("audio-player-playlist");
-	// put song buttons in playlist
-	for (let i = 0; i < audioPlayerPlaylist.length; i++) {
-		let song = document.createElement("button");
-		song.innerHTML = audioPlayerPlaylist[i].title + " by " + audioPlayerPlaylist[i].artist;
-		playlistEl.appendChild(song);
+
+// converts given number to binary string
+// takes positive numbers or strings of positive numbers
+function numberToBinary(num,length) {
+	if (typeof(num) == "string") {
+		num = num.replaceAll(/[^0-9]/g, "")
+		num = Number(num);
 	}
+	if ((typeof num).toLowerCase() == "number") {
+		num = num.toString(2);
+		while (length > num.length) num = "0" + num;
+		return num;
+	}
+	else console.log('invalid number input');
+}
+// give playlist items binary numbering, change spaces to underscores
+for (let i = 0; i < playlist.length; i++) {
+	playlist[i].title = '<span class="index">[' + numberToBinary(i,playlist.length.toString(2).length) + "] = [</span>" + playlist[i].title.replaceAll(" ","_");
+	playlist[i].artist = playlist[i].artist.replaceAll(" ","_");
+}
+
+const playlistPattern = `<div class="$status">S<span class="title">$title</span>, <span class="artist">$artist</span>];</div>`;
+
+// when page loads, set up playlist buttons not handled by WMPlayer
+window.addEventListener("load", () => {
 	// button to open playlist dropdown
-	const playlistButton = document.getElementById("audio-player-open-playlist");
-	playlistButton.addEventListener('click', () => {
-		playlistEl.classList.toggle('hidden');
-		if (playlistButton.innerHTML == "+") { playlistButton.innerHTML = "-" }
-		else { playlistButton.innerHTML = "+" };
-	});
+	const playlistButton = document.getElementById("music-player").querySelector('.open-playlist');
+	const playlistContainer = document.getElementById("music-player").querySelector('.wmp-playlist-container');
+	playlistButton.addEventListener('click', () => { playlistContainer.classList.toggle('hidden'); });
 });

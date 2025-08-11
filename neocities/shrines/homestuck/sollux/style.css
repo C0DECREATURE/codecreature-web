@@ -5,6 +5,7 @@
 	--dark-blood: #666600;
 	--red: #f20000;
 	--dark-red: #b30000;
+	--l-blue: #3161ff;
 	--blue: #003bff;
 	--dark-blue: #001e82;
 }
@@ -18,8 +19,13 @@ body.customCursor {
 	}
 }
 
+::-moz-selection, ::selection {
+  color: var(--white);
+  background: var(--blue);
+}
+
 /* buttons */
-#audio-player .player button, #page-settings {
+#page-settings {
 	background: var(--red);
 	box-shadow: 2px 2px 0 var(--blue);
 	&:active, &:focus-visible {
@@ -85,7 +91,10 @@ main {
 				bottom: 0;
 				user-select: none;
 				pointer-events: none;
-				.wrapper { position: relative; }
+				.wrapper {
+					position: relative;
+					line-height: 0; /* prevent button spacing issues */
+				}
 				img {
 					image-rendering: pixelated;
 					width: var(--header-image-width);
@@ -117,7 +126,7 @@ main {
 	
 	#info-section {
 		z-index: 2;
-		background: var(--blood);
+		background: var(--dark-blood);
 		color: var(--black);
 		flex-grow: 1;
 		/* padding on bottom accounts for music player */
@@ -130,9 +139,12 @@ main {
 	main:not(.hidden) {
 		--appear-speed: .3s;
 		
-		#header-image {
-			animation-name: headerPopup;
-			animation-duration: calc(var(--appear-speed));
+		/* header image pop up on larger screens */
+		@media screen and (width >= 670px) {
+			#header-image {
+				animation-name: headerPopup;
+				animation-duration: calc(var(--appear-speed));
+			}
 		}
 
 		#hexgrid .hex-container div {
@@ -173,11 +185,12 @@ main {
 }
 
 .codebox {
+	--border-color: var(--blood);
 	margin: 0 auto;
-	background: var(--blood);
+	background: var(--border-color);
 	color: var(--black);
 	width: min(500px,90%);
-	border: var(--border) var(--blood) solid;
+	border: var(--border) var(--border-color) solid;
 	border-radius: var(--border);
 	
 	header {
@@ -189,15 +202,18 @@ main {
 		}
 	}
 	
-	pre {
+	.contents {
 		color: white;
 		background: black;
 		width: 100%;
-		white-space: pre-wrap;
-		padding: var(--border); padding-top: calc(var(--border)*2); padding-bottom: 1.5em;
 		margin: 0;
-		box-sizing: border-box;
+		padding: var(--border); padding-top: calc(var(--border)*2); padding-bottom: 1.5em;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 		border-radius: calc(var(--border) * .7);
+	}
+	
+	pre {
+		white-space: pre-wrap;
 		tab-size: 2em;
 	}
 }
@@ -321,25 +337,102 @@ main {
 }
 
 /************************* MUSIC PLAYER *************************/
-#audio-player {
+#music-player {
 	position: fixed;
 	z-index: 1000;
-	bottom: 1rem; right: 0;
-	padding: 0 1rem;
-	text-align: right;
-	color: var(--black);
-	/* play/pause button, open playlist button */
-	.player button {
-		padding: .2rem .4rem;
-		line-height: 1;
-		font-weight: bold;
+	width: 100%;
+	bottom: 0; right: 0;
+	/* player panel */
+	.wmp-panel {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .5em;
+		background: var(--black);
+		color: var(--blood);
+		text-align: right;
+		justify-content: right;
+		align-items: center;
+		width: 100%;
+		padding: 1rem;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+		
+		.wmp-current-track {
+			max-width: 100%;
+			flex-shrink: 1;
+			display: flex;
+			gap: .5em;
+			@media screen and (width < 500px) { .before { display: none; } }
+			@media screen and (width < 400px) { .wmp-timer { display: none; } }
+			.wmp-current-track-title {
+				flex-shrink: 1;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				.index { display: none; }
+			}
+		}
+		
+		.wmp-controls { display: flex; gap: 12px; }
+		
+		/* player control buttons */
+		button.wmp-button {
+			background: var(--red);
+			box-shadow: 2px 2px 0 var(--blue);
+			&:active, &:focus-visible {
+				transform: translate(2px, 2px);
+				box-shadow: none;
+			}
+			padding: .2rem .4rem;
+			line-height: 1;
+			font-weight: bold;
+		}
+		
+		/* hiding volume until I can get it sorted */
+		.wmp-volume-bar-container { display: none; }
 	}
-	/* playlist dropdown */
-	#audio-player-playlist {
-		padding: .5rem;
-		margin-bottom: .5rem;
-		background: var(--dark-blood);
-		button { display: block; }
+	button.wmp-button:active {
+		transform: translate(2px,2px);
+		box-shadow: none;
+	}
+	/* dance sprite */
+	.sprite {
+		user-select: none;
+		position: absolute;
+		left: 10px; bottom: 2px;
+	}
+	/* play/pause button */
+	.wmplayer.playing {
+		.battlesprite { display: none; }
+		.wmp-symbol-play { display: none; }
+	}
+	.wmplayer:not(.playing) {
+		.dancesprite { display: none; }
+		.wmp-symbol-pause { display: none; }
+	}
+	/* playlist popup */
+	.wmp-playlist-container {
+		position: fixed;
+		top: 50%; left: 50%;
+		transform: translate(-50%,-50%);
+		--border: 8px;
+		--border-color: var(--blood);
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+		
+		.wmp-playlist {
+			font-size: 1rem;
+			line-height: 1.5;
+		}
+		
+		.wmp-playlist-item {
+			.index { color: var(--white); }
+			.title { color: var(--l-blue); }
+			.artist { color: var(--red); }
+		}
+		.wmp-playlist-item:nth-child(2n) {
+			.index { color: var(--white); }
+			.title { color: var(--red); }
+			.artist { color: var(--l-blue); }
+		}
 	}
 }
 

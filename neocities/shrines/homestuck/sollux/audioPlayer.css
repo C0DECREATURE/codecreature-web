@@ -1,8 +1,0 @@
-#audio-player {
-	user-select: none;
-	/* play/pause button */
-	.player button {
-		line-height: 1;
-		padding: .2em .4em;
-	}
-}

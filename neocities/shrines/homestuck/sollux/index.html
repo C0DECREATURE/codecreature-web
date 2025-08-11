@@ -12,18 +12,17 @@
 		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
 		
 		<!-- audio player -->
-		<script src="audioPlayer.js?fileversion=9"></script>
-		<link href="audioPlayer.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		<script src="/js/WMPlayer/WMPlayer.min.js"></script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
 		<!-- page settings -->
-		<script src="/js/page-settings.js?fileversion=9"></script>
+		<script src="/js/page-settings.min.js?fileversion=9"></script>
 		<!-- typing quirk alt text -->
-		<script src="/js/typing-quirks.js?fileversion=9"></script>
+		<script src="/js/typing-quirks.min.js?fileversion=9"></script>
 		
 		<!--full image view-->
-		<script src="/js/full-image.js?fileversion=9"></script>
+		<script src="/js/full-image.min.js?fileversion=9"></script>
 		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
@@ -42,7 +41,7 @@
 				</header>
 					
 				<!--code section to animate typing out-->
-				<pre id="loading-typebox" class="typing" aria-hidden="true">
+				<pre id="loading-typebox" class="contents typing" aria-hidden="true">
 <span>bifurcate THIS[</span><span style="color:red">THIS</span><span>, </span><span style="color:blue">THIS</span><span>];
 import </span><span style="color:red">universe U1;</span><span>
 import </span><span style="color:blue">universe U2;</span><span>
@@ -162,18 +161,104 @@ import </span><span style="color:blue">universe U2;</span><span>
 			<!---END TOP CONTAINER--->
 			<section id="info-section">
 				<p>lorem ipsum or whatever</p>
-				<p>the audio player isn't working yet</p>
 			</section>
+			
 			<!---AUDIO PLAYER--->
-			<div id="audio-player">
-				<section id="audio-player-playlist" class="hidden"></section>
-				<div class="player">
-					<span>[S] ==></span>
-					<button id="audio-player-playbutton">play</button>
-					<button id="audio-player-open-playlist">+</button>
+			<div id="music-player-template" style="display: none;">
+				<div class="wmp-playlist-container codebox hidden">
+					<header>
+						<span aria-hidden="true">chiill_tune2.~ATH</span>
+						<span class="sr-only">File name "chill tunes dot ATH"</span>
+					</header>
+					<div class="wmp-playlist contents"></div>
+				</div>
+				<div class="wmp-panel">
+					<!--dancing sprite-->
+					<div class="sprite">
+						<img class="dancesprite" src="images/dancesprite.webp" alt="">
+						<img class="battlesprite" src="images/battlesprite.webp" alt="">
+					</div>
+					
+					<div class="wmp-current-track">
+						<span class="before">[S] ==></span>
+						<span class="wmp-current-track-title"></span>
+						<span class="wmp-timer">
+							[<span class="wmp-current-track-time">0:00</span>/<span class="wmp-current-track-duration">N/A</span>]
+						</span>
+					</div>
+					<div class="wmp-controls">
+						<button class="wmp-play wmp-button">
+							<svg class="wmp-button-play" width="18" height="18">
+								<polygon class="wmp-symbol-play" points="2,2 16,9 2,16"/>
+								<g class="wmp-symbol-pause">
+									<rect x="2" y="2" width="4" height="14" />
+									<rect x="11" y="2" width="4" height="14" />
+									<rect x="2" y="2" width="14" height="14" fill="transparent" stroke="transparent"/>
+								</g>
+							</svg>
+						</button>
+						<button class="wmp-stop wmp-button">
+							<svg class="wmp-button-stop" width="18" height="18">
+								<rect class="wmp-symbol-stop" x="2" y="2" width="14" height="14"/>
+							</svg>
+						</button>
+						<button class="wmp-rewind wmp-button">
+							<svg class="wmp-button-rewind" width="18" height="18">
+								<polygon class="wmp-symbol-rewind" points="2,9 9,2 9,9 16,2 16,16 9,9 9,16"/>
+							</svg>
+						</button>
+						<button class="wmp-fast-forward wmp-button">
+							<svg class="wmp-button-fast-forward" width="18" height="18">
+								<polygon class="wmp-symbol-fast-forward" points="2,2 9,9 9,2 16,9 9,16 9,8 2,16"/>
+							</svg>
+						</button>
+						<button class="wmp-button open-playlist">
+							<svg width="18" height="18">
+								<g class="wmp-symbol-playlist">
+									<rect x="2" y="2" width="14" height="3" />
+									<rect x="2" y="7" width="14" height="3" />
+									<rect x="2" y="12" width="14" height="3" />
+								</g>
+							</svg>
+						</button>
+					</div>
+					<div class="wmp-volume-bar-container">
+						<div class="wmp-button wmp-mute">
+							<svg width="18" height="18">
+								<g class="wmp-button-volume">
+									<polygon points="2,6 5,6 10,2 10,16 5,12 2,12 " />
+									<g class="wmp-symbol-muted">
+										<path d="M12,4 Q18,9 12,14" fill="transparent" />
+										<path d="M12,7 Q14,9 12,11" fill="transparent" />
+									</g>
+								</g>
+							</svg>
+						</div>
+						<div class="wmp-volume-bar"></div>
+					</div>
+					<div class="wmp-progress-bar-container">
+						<div class="wmp-progress-bar"></div>
+					</div>
 				</div>
 			</div>
+			
+			<div id="music-player"></div>
+			<!-- audio player player init -->
+			<script>
+				var WMPlayersContainer = document.getElementById('music-player');
+				var WMPlayerTemplate = document.getElementById('music-player-template');
+				var WMPlayer = new WMPlayer({
+					parent: WMPlayersContainer, //Set player's container,
+					template: WMPlayerTemplate, //Set player template
+					playlistPattern: playlistPattern, //Set playlist song pattern
+					loop: true,
+					YTApiKey: "AIzaSyBknQarg1E4Ux-3d6Ddyz5mR9iF9ZpgZuA", //YouTube API Key to fetch duration
+					//Set playlist
+					playlist: playlist
+				});
+			</script>
 			<!---END AUDIO PLAYER--->
+			
 		</main>
 	</body>
 	<!--------------END BODY------------->
