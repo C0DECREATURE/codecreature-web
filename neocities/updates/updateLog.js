@@ -14,6 +14,27 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-11T10:34'),
+		authors: ['emery','prax'],
+		tags: ['minor','art'],
+		summary: `
+			favicons and site button!
+		`,
+		details: `
+			<p align="center">
+				<img src="/graphix/icons/favicon-16.png" alt="">
+				<img src="/graphix/icons/favicon-32.png" alt="">
+				<img src="/graphix/icons/favicon-48.png" alt="">
+				<img src="/graphix/site-buttons/codecreature.png" alt="codecreature pixel button">
+				<br>finally in a pixel art mood, so we made some favicons and a site button!! if you wanna use the button, please save your own copy (the hosting is fine but the directory is likely to change depending on my impulse control)
+			</p>
+			<p align="center">
+				also a small personal edit of the homestuck <a href="https://mspaintadventures.fandom.com/wiki/Ministrife" target="_blank">ministrife</a> pixel art
+				<br><img src="/graphix/prax/prax_ministrife.png" alt="">
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-11T05:52'),
 		authors: ['emery'],
 		tags: ['general','sollux'],
