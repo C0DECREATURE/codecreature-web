@@ -1,0 +1,70 @@
+:root {
+	--vwToPx: .0583;
+	--parchment: #b3ac92;
+}
+
+#ui-glass {
+	position: fixed;
+	z-index: 5000;
+	left: 0; top: 0;
+	width: 100%; height: 100%;
+	background: linear-gradient(to top, rgba(33,45,33,.3), rgba(33,45,33,.3)), linear-gradient(to top, rgba(0,0,0,.3), rgba(0,0,0,.1));
+	mix-blend-mode: multiply;
+	opacity: .75;
+	pointer-events: none; user-select: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	user-select: none;
+	background-image: url('black_damask.jpg');
+	background-size: 35%;
+}
+
+#wall, #foreground, #desk {
+	position: absolute;
+	width: 100%; height: 100%;
+	pointer-events: none;
+	> * { pointer-events: auto; }
+	img { position: relative; }
+}
+
+.screen-wrapper {
+	position: absolute;
+	left: 50%; top: 45%;
+	transform: translate(-50%,-50%);
+	--width: max(600px,600vw*var(--vwToPx));
+	width: var(--width);
+	height: calc(.75 * var(--width));
+	
+	background-image: url('screen_frame.png');
+	background-repeat: round;
+	background-size: cover;
+	padding: calc(.14 * var(--width)) calc(.12 * var(--width));
+	
+	#screen {
+		position: relative;
+		background-image: url('gold_green_stars.png');
+		background-size: 45%;
+		width: 100%; height: 100%;
+		overflow: hidden;
+		
+		/* individual screen window */
+		.window {
+			background: var(--parchment);
+			padding: 1em;
+			width: 30%;
+			height: 50%;
+			position: absolute;
+			top: 50%; left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+}
+
+#desk {
+	align-content: end;
+	img { position: relative; }
+}
