@@ -1,15 +1,20 @@
 #ministrife-club {
+	width: min(100%,400px);
+	margin: 0 auto;
+	
 	a.ministrife-button {
-		display: block;
 		margin-bottom: 0;
-		margin-top: 5px;
+		margin-top: 0;
+		text-align: center;
 	}
+	
 	.sprites {
 		background: var(--yellow);
 		background-image: url('/shrines/homestuck/nepeta/images/lolcat.png');
-		border: 3px var(--yellow) solid;
 		background-position: bottom;
 		background-size: cover;
+		border: 3px var(--yellow) solid;
+		margin-bottom: 10px;
 		padding: 5px 25px 0 25px;
 		height: 110px;
 		display: flex;
