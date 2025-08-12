@@ -16,15 +16,18 @@
 		<!--this page's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		
+		<!-- load jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=9"></script>
+		<!-- load ministrife club -->
+		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
+		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.html"); }); </script> 
+		
 		<!-- page settings -->
 		<script src="/js/page-settings.min.js?fileversion=9"></script>
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js"></script>
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.min.js"></script>
-		
-		<!--WEBRINGS/CLUBS-->
-		<link href="webrings/ministrife/style.css" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
 	<body>
@@ -35,37 +38,40 @@
 			
 			<h3>my button</h3>
 			click <u class="tq">2</u> download! if you add me to <u class="tq">ur</u> site, let me know so i can add <u class="tq">u</u> back <u class="tq-e">:33</u>
-			<a href="/graphix/site-buttons/codecreature.png" download><img src="/graphix/site-buttons/codecreature.png"></a>
+			<br><a href="/graphix/site-buttons/codecreature.png" download><img src="/graphix/site-buttons/codecreature.png"></a>
 		</div>
 		
 		<main>
-			<section id="webrings">
-				<header>clubs/webrings</header>
-				<div class="content">
-					
-					<!--<div id="transring" class="hidden">
-						<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
-						<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
-						<script type="text/javascript" src="/links/webrings/transring-catgender.js"></script>
-					</div>-->
-					
-					<div id="ministrife-club" class="hidden">
-						<div class="sprites">
-							<a href="https://www.keysklubhouse.com/" target="_blank"><img src="webrings/ministrife/haarka.png" alt="haarka"></a>
-							<a href="https://honeyedcharlatan.neocities.org/index.html" target="_blank"><img src="webrings/ministrife/serebi.png" alt="serebi"></a>
-							<a href="https://honeyedcharlatan.neocities.org/LOCK_KEY/index.html" target="_blank"><img src="webrings/ministrife/lanwei.png" alt="lanwei"></a>
-							<a href="https://waterloggedsoliloquy.tumblr.com/" target="_blank"><img src="webrings/ministrife/anthea.png" alt="anthea"></a>
-							<a href="https://juglone.neocities.org/" target="_blank"><img src="webrings/ministrife/juglone.png" alt="juglone"></a>
-							<a href="/about#prax" target="_blank"><img src="/graphix/prax/prax_ministrife.png" alt="prax"></a>
-						</div>
-						<a class="ministrife-button" href="https://honeyedcharlatan.neocities.org/ministrife" target="_blank"><img src="webrings/ministrife/button.png" alt="ministrife pixel club"></a>
+			<div class="wrapper">
+				<section id="webrings">
+					<header>clubs/webrings</header>
+					<div class="content">
+						
+						<!--<div id="transring" class="hidden">
+							<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
+							<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
+							<script type="text/javascript" src="/links/webrings/transring-catgender.js"></script>
+						</div>-->
+						
+						<div id="ministrife-wrapper"></div>
+						
 					</div>
-					
-				</div>
-			</section>
+				</section>
+				
+				<section id="neighbors">
+					<header>neighbors</header>
+					<div class="content">
+						<a href="https://ttaxyy.neocities.org" target="_blank">
+							<img src="/graphix/site-buttons/ttaxyy.gif" alt="ttaxyy"></a>
+					</div>
+				</section>
+			</div>
 			
 			<section id="code-resources">
 				<header>coding & web design</header>
+				<div class="summary">
+					<p>looking <u class="tq">4</u> ways <u class="tq">2</u> spice up <u class="tq">ur</u> site, or not sure where <u class="tq">2</u> start? check these out!</p>
+				</div>
 				<div class="content">
 					includes any <u class="tq" data-a="tutorials">2torials</u> or code i used on this site,
 						<br>plus whatever else seemed useful!!

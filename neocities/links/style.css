@@ -9,6 +9,7 @@ body {
 }
 
 a { margin-top: 0.75em; display: block; }
+.header a:has(img) { display: inline-block; }
 
 .header {
 	width: min(800px, 100%);
@@ -19,24 +20,45 @@ a { margin-top: 0.75em; display: block; }
 
 main { display: flex; flex-wrap: wrap; gap: 1.5em; justify-content: center; }
 main > * { margin-bottom: 0.25em; }
-main > :last-child { margin-bottom: 0 }
+main > .wrapper > * { margin-bottom: 1em; }
+main > :last-child, main > .wrapper > :last-child { margin-bottom: 0 }
 
-main > section > header {
-	padding: 0.5em;
-	font-size: 1.5em; font-weight: bold;
-	color: white;
-	background: var(--d-blue);
-	border: 3px var(--orange) solid;
-	border-bottom: none;
+main > .wrapper {
 }
-main > section >  .content {
-	justify-content: center;
-	padding: 1em 2em; background: var(--black);
-	border: 3px var(--orange) solid;
-	border-top: none;
+
+main > section, main > .wrapper > section {
+	> header {
+		padding: 0.5em;
+		font-size: 1.5em; font-weight: bold;
+		color: white;
+		background: var(--d-blue);
+		border: 3px var(--orange) solid;
+		border-bottom: none;
+	}
+	> .summary {
+		background: var(--green);
+		color: var(--black);
+		border: 3px var(--orange) solid;
+		border-top: none; border-bottom: none;
+		padding: .15em 2em;
+	}
+	> .content {
+		justify-content: center;
+		padding: 1em 2em; background: var(--black);
+		border: 3px var(--orange) solid;
+		border-top: none;
+	}
 }
+
+@media screen and (width > 1300px) { .wrapper:has(#webrings) { max-width: 350px; } }
+@media screen and (width <= 1300px) { .wrapper:has(#webrings) { 
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+} }
 
 #webrings > div { margin: 0 auto; }
+@media screen and (width > 1300px) { .wrapper:has(#webrings) > section { width: 100%; } }
 #transring a { margin: 0; }
 #transring br { display: none; }
 #transring .webring-prev, #transring .webring-next { padding-top: 0%; }
