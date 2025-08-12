@@ -5,11 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<title>homestuck</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/homestuck/images/favicon.ico">
 		
 		<!-- universal base javascript -->
 		<script src="/js/required.js?fileversion=9"></script>
 		<!-- universal base css -->
 		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- load jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=9"></script>
+		<!-- ministrife club setup -->
+		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
+		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.html"); }); </script> 
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
@@ -28,32 +36,46 @@
 	<body>
 		<header>
 			<h1><img src="images/logo.webp" alt="homestuck"></h1>
-			<p>(placeholder page to hold other shrines)</p>
 		</header>
 		
-		<section id="character-nav">
-			<a href="nepeta">
-				<div class="img-wrapper">
-				<img class="sprite"
-					data-src="nepeta/images/alterniabound_sprite"
-					data-hover-state="blush"
-					src="nepeta/images/alterniabound_sprite.gif" alt="nepeta">
-				</div>
+		<main>
+			<section id="character-nav">
+				<a href="nepeta">
+					<div class="img-wrapper">
+					<img class="sprite"
+						data-src="nepeta/images/alterniabound_sprite"
+						data-hover-state="blush"
+						src="nepeta/images/alterniabound_sprite.gif" alt="nepeta">
+					</div>
+				</a>
+				<a href="sollux">
+					<img class="sprite"
+						data-src="sollux/images/alterniabound_sprite"
+						data-hover-state="shrug"
+						src="sollux/images/alterniabound_sprite.gif" alt="sollux">
+				</a>
+			</section>
+			
+			<a id="shipping-nav" href="shipping">
+				<img src="shipping/images/quadrants_red.png">
+				<img src="shipping/images/quadrants_pale.png">
+				<img src="shipping/images/quadrants_black.png">
+				<img src="shipping/images/quadrants_ashen.png">
 			</a>
-			<a href="sollux">
-				<img class="sprite"
-					data-src="sollux/images/alterniabound_sprite"
-					data-hover-state="shrug"
-					src="sollux/images/alterniabound_sprite.gif" alt="sollux">
-			</a>
-		</section>
-		
-		<a id="shipping-nav" href="shipping">
-			<img src="shipping/images/quadrants_red.png">
-			<img src="shipping/images/quadrants_pale.png">
-			<img src="shipping/images/quadrants_black.png">
-			<img src="shipping/images/quadrants_ashen.png">
-		</a>
+			
+			<section class="text-section" class="tq-format">
+				<h4><span class="prompt">why??</span></h4>
+				<p>homestuck is weird <u class="tq">bc</u> it is often bad, but it is also really good. most fans <u class="tq" data-a="don't">dont</u> even read the whole thing start <u class="tq">2</u> finish ONCE <u class="tq">bc</u> <u class="tq">its</u> so long and <u class="tq" data-a="complicated">complic8d</u>?? but <u class="tq">4</u> a lot of us it had a <u class="tq">rly</u> big impact (and obviously <u class="tq">4</u> some of us still does!!)</p>
+				<p>i think <u class="tq" data-a="that's">thats</u> <u class="tq">bc</u> it shows online friendships in a genuine, serious, caring way <u class="tq">ive</u> never <u class="tq-nep">s33n</u> <u class="tq" data-a="before">b4</u> or since. it captures so much of the weird silly awkward experience of growing up, and going <u class="tq" data-a="through">thru</u> so much trauma but STILL being a weird silly awkward kid who just wants to hang out <u class="tq">w</u> their friends. and i think a lot of us have <u class="tq-nep">b33n</u> there.<p>
+				<p>also the fandom has <u class="tq" data-a="created">cre8d</u> so much cool stuff, it has become its own beast <u class="tq">w</u> a life of its own and thats beautiful</p>
+				
+				<h4><span class="prompt">prophecy/curse</span></h4>
+				<p>after years of meaning <u class="tq">2</u> do it i officially started work on these. 1 day <u class="tq" data-a="later">l8r</u> the animated trailer dropped. <u class="tq" data-a="I don't know">idk</u> what that means but i just <u class="tq-nep">n33d</u> you all <u class="tq">2</u> know that</p>
+			</section>
+			
+			<div id="ministrife-wrapper"></div>
+
+		</main>
 		
 		<nav>
 			<a href="/shrines">shrines</a>
