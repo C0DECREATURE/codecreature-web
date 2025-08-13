@@ -13,12 +13,15 @@
 
 let enterButton;
 
+let skipLoadScreen = true;
+
 // assign elements to variables on window load
 window.addEventListener("load", () => {
 	enterButton = document.getElementById("enter-button");
 	enterButton.addEventListener("click", loadMain);
 	
-	typeWriter(document.getElementById('loading').querySelector('pre'));
+	if (skipLoadScreen) loadMain();
+	else typeWriter(document.getElementById('loading').querySelector('pre'));
 });
 
 /* speed each letter is typed, in milliseconds */
