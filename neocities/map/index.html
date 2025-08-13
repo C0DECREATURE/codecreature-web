@@ -1,92 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>C0D3CR34TUR3 MAP</title>
+		<title>codecreature map</title>
 		
 		<!-- universal base javascript -->
 		<script src="/js/required.js?fileversion=9"></script>
 		<!-- universal base css -->
 		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
 		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
 		<!-- page settings -->
 		<script src="/js/page-settings.min.js?fileversion=9"></script>
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.min.js?fileversion=9"></script>
 		
-		<!-- fonts -->
-		<link href="/fonts/ComicSans/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
-		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
-		<link href="/fonts/JandaCloserToFree/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
-		
-		<!--base stylesheet-->
-		<link href="/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
-		<!--this page's stylesheet-->
+		<!--this page's stylesheet--
 		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
-		
-		<!-- this page's javascript -->
-		<script src="map.js"></script>
+		<!-- this page's javascript --
+		<script src="script.js?fileversion=9"></script>-->
 	</head>
 	
+	<!-----------BODY------------------->
 	<body>
-		<a class="skip-to-content" href="#map">Skip to content</a>
+		<header>
+			<h1>site map</h1>
+		</header>
 		
-		<nav id="nav">
-			<header></header>
-			<div class="container"><div class="content">
-				<header><h1>map</h1></header>
-				<div class="page">
-					<div id="pointer" class="pointer"></div>
-					<button class="jump-link" data-name="home" data-properties="under-construction mobile-friendly"></button>
-				</div>
-				<div class="page">
-					<a href="/warnings" data-properties="complete mobile-friendly keyboard-friendly screen-reader-friendly">warnings</a>
-				</div>
-				<div class="page">
-					<button class="jump-link" data-name="about" data-properties="under-construction"></button>
-				</div>
-				<div class="page">
-					<a href="/404" data-properties="under-construction mobile-friendly game-elements"
-					>404 error</a>
-				</div>
-				<div class="page">
-					<a href="/games/wormrace"
-					data-properties="under-construction mobile-friendly keyboard-friendly screen-reader-friendly game-elements"
-					>worm race</a>
-				</div>
-				<div class="page">
-					<button class="jump-link" data-name="shrines" data-properties="under-construction mobile-friendly"></button>
-				</div>
-				<div class="page">
-					<button class="jump-link" data-name="snailfish" data-properties="under-construction"></button>
-				</div>
-				<div class="page">
-					<a href="/links"
-					data-properties="under-construction"
-					>links</a>
-				</div>
-				<div class="page">
-					<a href="/graphix"
-					data-properties="under-construction"
-					>graphics</a>
-				</div>
-				<div class="page">
-					<a href="/fonts"
-					data-properties="under-construction"
-					>fonts</a>
-				</div>
-			</div></div>
-			<footer></footer>
+		<p>sorry this is... not pretty at the moment</p>
+		
+		<nav>
+			<h3>basics</h3>
+			<a href="/home">home</a>
+			<a href="/warnings">warnings</a>
+			<a href="/about" class="wip">about</a>
+			<a href="/updates" class="wip">updates</a>
+			
+			<h3>games & interactive</h3>
+			<a href="/games/wormrace">worm race</a>
+			<a href="/games/toybox" class="wip">toybox</a>
+			<a href="/404" class="wip">404 error</a>
+			
+			<h3>shrines</h3>
+			<a href="/shrines/homestuck" class="wip">homestuck</a>
+			<a href="/shrines/homestuck/sollux" class="wip">sollux</a>
+			<a href="/shrines/homestuck/nepeta" class="wip">nepeta</a>
+			<a href="/shrines/snailfish" class="wip">snailfish</a>
+			<a href="/shrines/raptor-red" class="wip">raptor red</a>
+			
+			<h3>characters</h3>
+			<a href="/ocs/vex" class="wip" data-warnings="blood">vex</a>
+			
+			<h3>resources</h3>
+			<a href="/fonts" class="wip">fonts</a>
+			<a href="/graphix"><u class="tq" data-a="graphics">graphix</u></a>
+			<a href="/links" class="wip">links</a>
 		</nav>
 		
-		<main id="map" class="map">
-			<a class="island link" id="home" href="/"><img src="home.png" alt=""></a>
-			<a class="island link" id="about" href="/about"><img src="about.png" alt=""></a>
-			<button class="island link" id="shrines" href="/shrines">
-				<a class="link" id="snailfish" href="/shrines/snailfish"><img src="snailfish-shrine.png"></a>
-				<img src="shrines.png" alt="">
-			</button>
-		</main>
+		
 	</body>
+	<!--------------END BODY------------->
 </html>
