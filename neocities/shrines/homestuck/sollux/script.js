@@ -13,7 +13,7 @@
 
 let enterButton;
 
-let skipLoadScreen = true;
+let skipLoadScreen = false;
 
 // assign elements to variables on window load
 window.addEventListener("load", () => {
