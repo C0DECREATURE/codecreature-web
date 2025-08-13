@@ -257,7 +257,7 @@ const updateLog = [
 		date: new Date('2024-12-05T07:41'),
 		tags: ['new page','map'],
 		summary: `
-			new wip <a href="/map">site map</a>!!
+			new wip <a href="/experimental/map">site map</a>!!
 		`,
 		details: `
 			<p align="center">
