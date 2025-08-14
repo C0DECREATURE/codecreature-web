@@ -16,6 +16,15 @@ body {
 	background: var(--black);
 	font-family: 'Terminax Regular';
 	letter-spacing: .165em;
+	
+	h1, h2, h3, h4, h5, h6 { font-weight: normal; text-transform: uppercase; }
+	
+	h1 {
+		width: 100%;
+		text-align: center;
+		color: var(--white);
+		margin: 2rem 0;
+	}
 }
 
 nav {
@@ -40,8 +49,6 @@ nav {
 	max-width: min(100vw,650px);
   color: var(--d-gray);
 	
-	h1, h2, h3, h4, h5, h6 { font-weight: normal; text-transform: uppercase; }
-	
 	.cover img { width: 100%; image-rendering: pixelated; }
 }
 
@@ -64,13 +71,14 @@ nav {
 	> header {
 		color: var(--m-gray);
 		text-align: center;
-		h1 {
+		p {
+			text-transform: uppercase;
 			font-size: 1.15rem;
 			letter-spacing: .165em;
 		}
 		h2 {
 			height: 180px;
-			background: url('/shrines/homestuck/images/~ATH_handbook_page_header.png');
+			background: url('/shrines/homestuck/images/~ATH_handbook_page_header.jpg');
 			font-size: 2.75rem;
 			letter-spacing: .17em;
 			line-height: 1;
@@ -99,6 +107,9 @@ nav {
 	}
 	
 	.codebox {
+		width: fit-content;
+		max-width: 100%;
+		margin: 0 auto;
 		font-family: inherit;
 		font-weight: bold;
 		color: var(--l-gray);
@@ -133,6 +144,8 @@ nav {
 			color: var(--white);
 			font-size: .75rem;
 			font-weight: bold;
+			
+			p { margin-bottom: 0; }
 		}
 		
 		.author { text-align: right; margin-top: .15rem; }
