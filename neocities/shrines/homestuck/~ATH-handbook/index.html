@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>~ATH Handbook</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/homestuck/images/favicon.ico">
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- load fonts -->
+		<script>loadFonts(['Terminax','Letter-O-Matic']);</script>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
+		<!-- page settings -->
+		<script src="/js/page-settings.min.js?fileversion=9"></script>
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.min.js?fileversion=9"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's script --
+		<script src="script.js?fileversion=9"></script>-->
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<div class="handbook">
+			<section class="page cover">
+				<img class="cover" src="/shrines/homestuck/images/~ATH_handbook_cover.png" alt="~ATH Handbook">
+			</section>
+			
+			<section class="page">
+				<header>
+					<h1>~ATH - A handbook for the imminently deceased</h1>
+					<h2>Chapter One</h2>
+				</header>
+				<div class="main">
+					<div class="columns">
+						<section>
+							<h3>Prepare your ~ATH file:<br>"Dig Your Grave"</h3>
+							<pre class="codebox">
+~ATH(THIS) {
+	// additional graves...
+} EXECUTE(NULL);
+THIS.DIE();</pre>
+						</section>
+						<section>
+							<div class="quote">
+								<header><h4>A bone to pick!</h4></header>
+								<div class="body">
+									"For death begins with life's first breath And life begins at touch of death"
+									<div class="author">- Troll Will Smith</div>
+								</div>
+							</div>
+							<p class="reaper"><img src="/shrines/homestuck/images/~ATH_handbook_reaper.png" alt=""></p>
+						</section>
+					</div>
+					
+					<p>~ATH is an insufferable language to work with. Its logic is composed of nothing but infinite loops, or at best, loops of effectively interminable construction. The code sample above documents the simplest possible ~ATH code structure. Any code deviating from this basic structure will not compile.</p>
+					
+					<div class="quote">
+						<header><h4>Tip:</h4></header>
+						<div class="body">
+							Follow along in the <a href="https://sourceforge.net/projects/athinterpreter/" target="_blank">~ATH Interpreter</a>!
+							<br>(We accept no liability for any viruses, curses, or explosions which may befall the user or their devices)
+						</div>
+					</div>
+					
+					<h3>~ATH</h3>
+					The ~ATH statement introduces a loop that terminates only when the concept it is bound to dies.
+					
+					<h3>THIS</h3>
+					THIS refers to the program itself. In the sample structure above, the program's execution is tautologically bound to its own lifetime.
+					
+					<h3>EXECUTE</h3>
+					The EXECUTE statement executes whatever program is tied to it. In the simple structure documented above, it does nothing (NULL). Unfortunately, an EXECUTE may only be placed after a ~ATH loop.
+					<p>By modifying the code as shown below, the EXECUTE function can be used to execute example_file.~ATH.</p>
+					
+					<pre class="codebox">
+~ATH(THIS) {}
+EXECUTE(example_file.~ATH);
+THIS.DIE();</pre>
+					
+					<h3>DIE</h3>
+					The DIE method takes no arguments. It can be used to cease programs, as well as subroutines or individual loops within a program.
+					<p>To stop something, it is formatted as X.DIE(); where X is the name of the loop or subroutine to be stopped. 'THIS' may be used as X to halt the entire program. THIS.DIE() is mandatory at the end of each program, even ones which are trivially non-halting.
+				</div>
+			</section>
+		</div>
+		
+		<nav>
+			<a href="/">home</a>
+			<a href="/shrines/homestuck">homestuck</a>
+		</nav>
+	</body>
+	<!--------------END BODY------------->
+</html>

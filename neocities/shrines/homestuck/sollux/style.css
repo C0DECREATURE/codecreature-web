@@ -24,13 +24,41 @@ body.customCursor {
   background: var(--blue);
 }
 
-/* buttons */
+/* page settings button */
+div:has(> #page-settings) {
+	position: relative;
+	margin-left: auto;
+  --s: min(2.5rem, 10vw);  /* size  */
+	--h: calc(var(--s)*1.1547);
+	width: var(--s); height: var(--h);
+}
+#page-settings, div:has(> #page-settings)::after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+}
+/* hexagon shadow */
+div:has(> #page-settings)::after {
+	width: 100%;
+	height: 100%;
+	content: '';
+	background: var(--blue);
+	z-index: -1;
+	left: -2px; top: 7px;
+}
 #page-settings {
 	background: var(--red);
-	box-shadow: 2px 2px 0 var(--blue);
+	border-radius: 0;
+	padding: .5rem;
+	
+	svg {
+		max-width: 100%;
+		max-height: 100%;
+	}
+	
 	&:active, &:focus-visible {
 		transform: translate(2px, 2px);
-		box-shadow: none;
 	}
 }
 
@@ -38,7 +66,8 @@ body.customCursor {
 html, body {
 	margin: 0;
 	height: 100%;
-	overflow-x: hidden;
+	width: 100%;
+	overflow: hidden;
 }
 
 body {
@@ -50,8 +79,15 @@ body {
 }
 
 main {
-	min-height: 100%;
+	height: 100%;
 	display: flex; flex-direction: column;
+	
+	> .wrapper {
+		display: flex; flex-direction: column;
+		flex-grow: 1;
+		min-height: 0;
+		overflow-y: scroll;
+	}
 	
 	#top-section {
 		position: relative;
@@ -64,6 +100,10 @@ main {
 			width: min(650px,70vw);
 			margin: .5rem auto -.35rem auto;
 			padding-left: calc(0.6 * var(--header-image-width));
+		}
+		/* prevent header image from being too high on medium screens */
+		@media screen and (width >= 820px) {
+			min-height: 450px;
 		}
 		/* small screens */
 		@media screen and (width < 670px) {
@@ -125,13 +165,51 @@ main {
 	}
 	
 	#info-section {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
 		z-index: 2;
 		background: var(--dark-blood);
 		color: var(--black);
 		flex-grow: 1;
-		/* padding on bottom accounts for music player */
-		padding: .8rem 1rem 3rem 1rem;
+		padding: .8rem 1rem 0 1rem;
+		
+		.text {
+			flex-grow: 1;
+		}
 	}
+	
+	/* coding books */
+	.book-container {
+		display: flex;
+		align-items: center;
+		max-width: 80vw;
+		padding: 1rem;
+		.book {
+			max-width: 100%;
+			display: inline-block;
+			position: relative;
+			img { max-width: 90%; }
+			&:hover {
+				z-index: 2;
+				img { transform: scale(110%); }
+			}
+		}
+	}
+	#ath-book {
+		width: 160px;
+		rotate: -4deg;
+		margin-right: -10px;
+		img { padding-bottom: 1.75rem; }
+	}
+	#ath-for-dummies {
+		width: 180px;
+		rotate: 10deg;
+	}
+	
+	/* aspect symbol */
+	#doom { position: absolute; }
 }
 
 /* main area appear animations (only play if reduced motion not on) */
@@ -338,11 +416,9 @@ main {
 }
 
 /************************* MUSIC PLAYER *************************/
+footer { z-index: 3; }
 #music-player {
-	position: fixed;
-	z-index: 1000;
 	width: 100%;
-	bottom: 0; right: 0;
 	/* player panel */
 	.wmp-panel {
 		display: flex;
@@ -354,7 +430,7 @@ main {
 		justify-content: right;
 		align-items: center;
 		width: 100%;
-		padding: 1rem;
+		padding: .5rem 1rem;
 		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 		
 		.wmp-current-track {
@@ -377,22 +453,44 @@ main {
 		
 		/* player control buttons */
 		button.wmp-button {
-			background: var(--red);
-			box-shadow: 2px 2px 0 var(--blue);
-			&:active, &:focus-visible {
-				transform: translate(2px, 2px);
-				box-shadow: none;
-			}
-			padding: .2rem .4rem;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 2;
+			--s: 1.8em;  /* size  */
+			--h: calc(var(--s)*1.1547);
+			width: var(--s); height: var(--h);
 			line-height: 1;
 			font-weight: bold;
+			
+			svg {
+				padding: .2rem .4rem;
+			}
+			&::before, &::after {
+				content: '';
+				position: absolute;
+				top: 0; left: 0;
+				width: 100%; height: 100%;
+				clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+			}
+			&::after {
+				background: var(--blue);
+				z-index: -2;
+				transform: translate(3px,3px);
+			}
+			&:active&::after { transform: none; }
+			&::before {
+				background: var(--red);
+				z-index: -1;
+			}
 		}
 		
 		/* hiding volume until I can get it sorted */
 		.wmp-volume-bar-container { display: none; }
 	}
 	button.wmp-button:active {
-		transform: translate(2px,2px);
+		transform: translate(3px,3px);
 		box-shadow: none;
 	}
 	/* dance sprite */

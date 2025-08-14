@@ -1,0 +1,144 @@
+:root {
+	--white: #FFF;
+	--black: #000;
+	--l-gray: #a7a7a7;
+	--m-gray: #949494;
+	--d-gray: #6e6e6e;
+}
+
+::-moz-selection, ::selection {
+  color: var(--white);
+  background: var(--d-gray);
+}
+
+body {
+	margin: 0;
+	background: var(--black);
+	font-family: 'Terminax Regular';
+	letter-spacing: .165em;
+}
+
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	justify-content: center;
+	padding: 1rem; padding-bottom: 1.5rem;
+	
+	a, a:link, a:visited {
+		display: inline-block;
+		color: var(--m-gray);
+		font-weight: bold;
+		font-size: 2rem;
+	}
+	a:hover { color: var(--white); }
+}
+
+.handbook {
+	position: relative;
+	margin: 0 auto;
+	max-width: min(100vw,650px);
+  color: var(--d-gray);
+	
+	h1, h2, h3, h4, h5, h6 { font-weight: normal; text-transform: uppercase; }
+	
+	.cover img { width: 100%; image-rendering: pixelated; }
+}
+
+.handbook > .page {
+	width: 100%;
+	&:not(.cover) {
+		background: var(--white);
+		padding: 1rem 0;
+	}
+	
+	a {
+		font-weight: bold;
+		font-style: italic;
+		text-transform: uppercase;
+		text-decoration: underline;
+		color: inherit;
+		&:link, &:visited { color: inherit; }
+	}
+	
+	> header {
+		color: var(--m-gray);
+		text-align: center;
+		h1 {
+			font-size: 1.15rem;
+			letter-spacing: .165em;
+		}
+		h2 {
+			height: 180px;
+			background: url('/shrines/homestuck/images/~ATH_handbook_page_header.png');
+			font-size: 2.75rem;
+			letter-spacing: .17em;
+			line-height: 1;
+			margin: 0;
+			border-bottom: 3px var(--m-gray) solid;
+			align-content: end;
+		}
+	}
+	
+	> .main {
+		padding: .6rem 2rem;
+	}
+	
+	.columns {
+		display: flex;
+		justify-content: center;
+		@media screen and (width < 650px) { flex-wrap: wrap; gap: 1em; }
+		gap: 2.75rem;
+		
+		> * > :last-child { margin-bottom: 0; }
+	}
+	
+	h3 {
+		color: var(--m-gray);
+		margin-bottom: 1em;
+	}
+	
+	.codebox {
+		font-family: inherit;
+		font-weight: bold;
+		color: var(--l-gray);
+		padding: 2.75rem 2.4rem;
+		font-size: .8rem;
+		line-height: 2.75;
+		tab-size: 2.5em;
+		border: 3px var(--m-gray) solid;
+		border-radius: .5rem;
+	}
+	
+	.quote {
+		width: min(100%, 370px);
+		margin: 0 auto;
+		
+		h4 {
+			margin-bottom: -.6em;
+			margin-top: .5rem;
+			font-family: 'Letter-O-Matic', sans-serif;
+			font-size: 1.15rem;
+			color: var(--d-gray);
+			letter-spacing: 0;
+			font-style: italic;
+			font-weight: bold;
+			text-align: center;
+		}
+		
+		.body {
+			background: var(--l-gray);
+			border-radius: .75rem;
+			padding: 1rem 1.75rem;
+			color: var(--white);
+			font-size: .75rem;
+			font-weight: bold;
+		}
+		
+		.author { text-align: right; margin-top: .15rem; }
+	}
+	
+	@media screen and (width < 650px) {
+		.reaper { display: none; }
+	}
+}
