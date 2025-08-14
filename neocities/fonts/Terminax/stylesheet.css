@@ -1,0 +1,16 @@
+/*
+<link href="/fonts/Terminax/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+.txt-terminax { font-family: "Terminax Regular", monospace; }
+
+@font-face{
+	font-family: "Terminax Regular";
+	src: url("82403999bfc93275231a15d0cb4fe75f.eot");
+	src: url("82403999bfc93275231a15d0cb4fe75f.eot?#iefix")format("embedded-opentype"),
+			url("82403999bfc93275231a15d0cb4fe75f.woff")format("woff"),
+			url("82403999bfc93275231a15d0cb4fe75f.woff2")format("woff2"),
+			url("82403999bfc93275231a15d0cb4fe75f.ttf")format("truetype");
+	font-weight:normal;
+	font-style:normal;
+	font-display:swap;
+}

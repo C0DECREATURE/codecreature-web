@@ -1,0 +1,28 @@
+/*
+<link href="/fonts/Letter-O-Matic/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+.txt-letteromatic { font-family: "Letter-O-Matic", monospace; }
+
+@font-face{
+	font-family: "Letter-O-Matic";
+	src: url("Letter-O-Matic.ttf");
+	font-weight:normal;
+	font-style:normal;
+	font-display:swap;
+}
+
+@font-face{
+	font-family: "Letter-O-Matic";
+	src: url("Letter-O-Matic Italic.ttf");
+	font-weight:normal;
+	font-style:italic;
+	font-display:swap;
+}
+
+@font-face{
+	font-family: "Letter-O-Matic";
+	src: url("Letter-O-Matic Bold.ttf");
+	font-weight:bold;
+	font-style:normal;
+	font-display:swap;
+}
