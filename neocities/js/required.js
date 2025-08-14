@@ -15,3 +15,19 @@ function isTrue(v) {
 	if (v == "true" || v == true) { return true }
 	else { return false }
 }
+
+// load fonts in given array of font names
+function loadFonts(array) {
+	if (typeof array == "string") array = array.split(',');
+	for (let i = 0; i < array.length; i++) loadFont(array[i]);
+}
+// load font with given name
+function loadFont(name) {
+	name = name.replaceAll(' ','');
+	// add the font style sheet to the document that loaded this
+	let css = document.createElement('link');
+	css.rel = 'stylesheet';
+	css.type = 'text/css';
+	css.href = '/fonts/' + name + '/stylesheet.css';
+	document.querySelector('HEAD').appendChild(css);
+}
