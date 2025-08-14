@@ -194,7 +194,8 @@ function addComplaint() {
 var popupAds = [
 	{img:"send-me-your-teeth.jpg", title:"PLEASE", url:"mailto:iactuallywantyourteeth@gmail.com?subject=I will send you my teeth"},
 	{img:"send-me-your-teeth.jpg", title:"PLEASE", url:"mailto:iactuallywantyourteeth@gmail.com?subject=I will send you my teeth"},
-	{img:"send-me-your-teeth.jpg", title:"PLEASE", url:"mailto:iactuallywantyourteeth@gmail.com?subject=I will send you my teeth"},
+	{img:"/shrines/homestuck/images/~ATH_for_dummies.jpg", title:"Learn Code!", url:"/shrines/homestuck/~ATH-handbook"},
+	{img:"/shrines/homestuck/images/~ATH_for_dummies.jpg", title:"Learn Code!", url:"/shrines/homestuck/~ATH-handbook"},
 	{img:"piracy-crime.gif", url:"https://fmhy.net/beginners-guide", title:"<img src='/graphix/icons/warning.png'> REPORT NOW"},
 	{img:"report-piracy.gif", url:"https://fmhy.net/beginners-guide", title:"<img src='/graphix/icons/warning.png'> REPORT NOW"},
 	{img:"fbi-warning.gif", url:"https://fmhy.net/beginners-guide", title:"<img src='/graphix/icons/warning.png'> REPORT NOW"},
@@ -206,6 +207,7 @@ var popupAds = [
 	{img:"shape-delivery.jpg"},
 	{img:"the-zone.jpg", title:"ENTER!!"},
 	{img:"place-him-on-your-site.gif", title:"DO IT", download:"img"},
+	{title:"NEW SITES",html:'<iframe width="180" height="180" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>',width:"190px"},
 	{title:"NEW SITES",html:'<iframe width="180" height="180" src="https://dimden.neocities.org/navlink/" name="neolink"></iframe>',width:"190px"}
 ];
 var unusedAds = []
@@ -223,7 +225,7 @@ function newAd() {
 	else { title = "<img src='/graphix/deco/smiley-spin-green.gif'> URGENT MESSAGE"}
 	
 	var icon = unusedAds[adIndex].img;
-	if (icon) icon = "/graphix/ads/popup/"+icon;
+	if (icon && icon[0] != '/') icon = "/graphix/ads/popup/" + icon;
 	
 	newDragBox({
 		type:"adbox",
