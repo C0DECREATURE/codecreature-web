@@ -10,21 +10,27 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-	&.dark-mode { background: black; color: white; }
+	background-image: url('images/cretaceous.webp');
+	background-size: cover;
+	background-attachment: fixed;
 	
-	margin: 0; margin-bottom: 1rem;
+	margin: 0;
 	color: var(--dd-red);
 	
-	> header h1 {
-		text-align: center;
-		font-size: 3rem;
-		margin: 0;
-		margin-top: .25em;
-	}
+	
+	&.dark-mode { > .container { background: black; color: white; } }
 	> .container {
+		background: white;
 		max-width: 800px;
 		margin: 0px auto;
-		padding: 0 1em;
+		padding: 0 1em 1em 1em;
+		
+		> header h1 {
+			text-align: center;
+			font-size: 3rem;
+			margin: 0;
+			padding-top: .2em;
+		}
 		
 		a {
 			color: var(--d-red);
@@ -40,7 +46,7 @@ body {
 	}
 }
 
-body > nav {
+nav {
 	border: var(--border);
 	border-left: none; border-right: none;
 	padding: .5em 1em .35em 1em;
