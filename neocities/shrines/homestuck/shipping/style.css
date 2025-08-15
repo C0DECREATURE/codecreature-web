@@ -9,6 +9,7 @@
 	--gray: #703b3b;
 	--l-gray: #e6dcdc;
 	--pink: #c39797;
+	--nepeta: #416600;
 	
 	--border: 5px var(--lines) solid;
 }
@@ -122,6 +123,7 @@ section#ship-description {
 	height: auto;
 	min-height: min(8em,80vh);
 	background: var(--l-gray);
+	color: var(--nepeta);
 	border: var(--border);
 	padding: 1em;
 	
