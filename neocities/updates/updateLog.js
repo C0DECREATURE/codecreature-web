@@ -14,6 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-15'),
+		authors: ['emery'],
+		tags: ['links'],
+		summary: `
+			new <a href="/links">links</a> layout!
+		`,
+		details: `
+			<p align="center">
+				<img src="images/links-2025-08-15.jpg" alt="screenshot of the new links page. the content appears in rounded windows with black borders and light green outlines. the headers are underlined with a thick blue line ending in a four-pointed star. it has sections for other sites, coding resources, and webrings and clubs, as well as a small window with my site button.">
+			</p>
+			<p>
+				finally working on the <a href="/links">links</a> page layout! got some plans to expand it later, but for now at least it's a lot better than before :)
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-14T04:56'),
 		authors: ['emery'],
 		tags: ['minor','new page','homestuck'],
