@@ -77,7 +77,7 @@ section#ship-squares {
 			width: 215px;
 			height: 207px;
 			top: 50%; left: 50%; transform: translate(-50%,-50%);
-			z-index: 3;
+			z-index: 5;
 			background-repeat: no-repeat;
 			background-image: url('images/ship_square_circle.png');
 		} }
@@ -85,7 +85,7 @@ section#ship-squares {
 		/* icon at top of square */
 		.icons {
 			position: absolute;
-			z-index: 5;
+			z-index: 6;
 			width: 100%;
 			top: 0; transform: translateY(-48%);
 			user-select: none;
