@@ -24,6 +24,13 @@ body.customCursor {
   background: var(--blue);
 }
 
+.ui-glass {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+
 /* page settings button */
 div:has(> #page-settings) {
 	position: relative;
@@ -416,7 +423,7 @@ main {
 }
 
 /************************* MUSIC PLAYER *************************/
-footer { z-index: 3; }
+footer { z-index: 1001; }
 #music-player {
 	width: 100%;
 	/* player panel */
@@ -511,6 +518,7 @@ footer { z-index: 3; }
 	/* playlist popup */
 	.wmp-playlist-container {
 		position: fixed;
+		z-index: 1001;
 		top: 50%; left: 50%;
 		transform: translate(-50%,-50%);
 		--border: 8px;
@@ -523,6 +531,7 @@ footer { z-index: 3; }
 		}
 		
 		.wmp-playlist-item {
+			text-align: left;
 			.index { color: var(--white); }
 			.title { color: var(--l-blue); }
 			.artist { color: var(--red); }

@@ -203,12 +203,23 @@ for (let i = 0; i < playlist.length; i++) {
 	playlist[i].artist = playlist[i].artist.replaceAll(" ","_");
 }
 
-const playlistPattern = `<div class="$status">S<span class="title">$title</span>, <span class="artist">$artist</span>];</div>`;
+const playlistPattern = `<button class="$status">S<span class="title">$title</span>, <span class="artist">$artist</span>];</button>`;
 
+let playlistButton, playlistContainer, uiGlass;
 // when page loads, set up playlist buttons not handled by WMPlayer
 window.addEventListener("load", () => {
+	
 	// button to open playlist dropdown
-	const playlistButton = document.getElementById("music-player").querySelector('.open-playlist');
-	const playlistContainer = document.getElementById("music-player").querySelector('.wmp-playlist-container');
-	playlistButton.addEventListener('click', () => { playlistContainer.classList.toggle('hidden'); });
+	playlistButton = document.getElementById("music-player").querySelector('.open-playlist');
+	playlistContainer = document.getElementById("music-player").querySelector('.wmp-playlist-container');
+	uiGlass = document.getElementById("ui-glass");
+	playlistButton.addEventListener('click', () => {
+		togglePlaylistHidden();
+		window.location.hash = "music-player";
+	});
 });
+	
+function togglePlaylistHidden() {
+	playlistContainer.classList.toggle('hidden');
+	uiGlass.classList.toggle('hidden');
+}
