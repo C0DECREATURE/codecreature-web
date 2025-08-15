@@ -6,6 +6,19 @@
 	--d-gray: #6e6e6e;
 }
 
+.page-settings {
+  --open-button-fill: var(--black);
+  --open-button-background: var(--l-gray);
+  --open-button-border: none;
+  --background: var(--white);
+  --border: none;
+  --outline: 0px;
+  --color: var(--d-gray);
+  --accent: var(--black);
+	font-weight: bold;
+	font-size: .9rem;
+}
+
 ::-moz-selection, ::selection {
   color: var(--white);
   background: var(--d-gray);
@@ -154,4 +167,16 @@ nav {
 	@media screen and (width < 650px) {
 		.reaper { display: none; }
 	}
+}
+
+body.high-contrast {
+	--white: #FFF;
+	--black: #000;
+	--l-gray: #a7a7a7;
+	--m-gray: #000;
+	--d-gray: #000;
+	font-weight: bold;
+	> .handbook > .page * { color: var(--black); }
+	.quote .body { color: var(--black) !important; }
+	nav a { color: var(--white); }
 }

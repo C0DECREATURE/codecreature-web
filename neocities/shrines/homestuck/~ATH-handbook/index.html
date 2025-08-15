@@ -27,6 +27,17 @@
 		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's script --
 		<script src="script.js?fileversion=9"></script>-->
+		
+		<script>
+			window.addEventListener('load', ()=>{
+				let contrastCheckbox = document.createElement('input');
+				contrastCheckbox.id = "contrastCheckbox";
+				contrastCheckbox.addEventListener('click', toggleContrast);	
+				addPageSettingCheckbox(contrastCheckbox, 'high contrast', 'display in high contrast (this page only)');
+				
+				function toggleContrast() { document.body.classList.toggle('high-contrast'); }
+			});
+		</script>
 	</head>
 	
 	<!-----------BODY------------------->
