@@ -26,6 +26,7 @@ window.addEventListener('load', ()=>{
 });
 
 function showShipDescription(ship) {
+	ship.classList.add('cur-ship');
 	let description = ship.querySelector('.description').innerHTML;
 	shipDescriptionDisplay.querySelector('.description').innerHTML = description;
 	shipDescriptionDisplay.dataset.shipId = ship.id;
@@ -33,6 +34,8 @@ function showShipDescription(ship) {
 	document.getElementById('ship-description-anchor').focus();
 }
 function closeShipDescription() {
+	let ship = document.getElementById(shipDescriptionDisplay.dataset.shipId); 
 	shipDescriptionDisplay.classList.add('hidden');
-	document.getElementById(shipDescriptionDisplay.dataset.shipId).focus();
+	ship.focus();
+	ship.classList.remove('cur-ship');
 }

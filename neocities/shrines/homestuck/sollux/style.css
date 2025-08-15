@@ -31,6 +31,15 @@ body.customCursor {
 	z-index: 1000;
 }
 
+.skip-to-content {
+	background: red;
+	box-shadow: 2px 2px 0 0 var(--blue);
+	color: var(--black);
+	font-weight: bold;
+	padding: .25rem .5rem;
+	transform: translateY(-200%);
+}
+
 /* page settings button */
 div:has(> #page-settings) {
 	position: relative;

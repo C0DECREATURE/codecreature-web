@@ -14,7 +14,26 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-08-15'),
+		date: new Date('2025-08-15T07:10'),
+		authors: ['emery','prax'],
+		tags: ['homestuck'],
+		summary: `
+			filling in the hs <a href="/shrines/homestuck/shipping">ship wall</a>
+		`,
+		details: `
+			<p>getting some character art in %%4% the homestuck <a href="/shrines/homestuck/shipping">ship wall</a> buttons!! %%im% using a %A%combination\\combo% of art pulled from the <a href="https://mspaintadventures.fandom.com/wiki/Shipping_wall?file=Shipping_wall.gif">comic page</a> and custom drawn ones %%2% match the style. %%its% %N%b33n% %%rly% fun!! got more %%2% do %%tho%.</p>
+			<p align="center">
+				<img src="/shrines/homestuck/shipping/images/dave.png" alt="dave doodle">
+				<img src="/shrines/homestuck/shipping/images/eridan.png" alt="eridan doodle">
+				<img src="/shrines/homestuck/shipping/images/jade.png" alt="jade doodle">
+				<img src="/shrines/homestuck/shipping/images/sollux_2.png" alt="sollux doodle">
+				<img src="/shrines/homestuck/shipping/images/tavros.png" alt="tavros doodle">
+			</p>
+			<p>they also have some fun fancy borders and hover/select highlight effects!!</p>
+		`
+	},
+	{
+		date: new Date('2025-08-15T02:25'),
 		authors: ['emery'],
 		tags: ['links'],
 		summary: `

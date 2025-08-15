@@ -23,6 +23,7 @@ body {
 }
 
 img { image-rendering: pixelated; }
+img.flip { transform: scale(-100%,100%); }
 
 main {
 	padding: 10px;
@@ -33,29 +34,60 @@ main {
 section#ship-squares {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 10px;
+	gap: 15px;
 	justify-content: center;
+	padding: 0 15px;
+	max-width: 940px;
+	margin: 0 auto;
 	
 	.ship {
-		margin-top: 1.25rem;
+		margin-top: 1rem;
 		position: relative;
-		--size: max(100px,min(175px,calc(24vw - 15px)));
+		--size: 175px;
 		width: var(--size);
 		height: var(--size);
-		border: var(--border);
+		
 		padding: 0;
 		
-		&:hover { outline: 2px var(--pink) solid; }
-		&:focus-visible {
-			outline: 1px var(--white) solid;
-      box-shadow: 0 0 0 4px var(--pink);
+		&:before {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0; left: 0;
+			z-index: 1;
+			background-repeat: no-repeat;
+			opacity: .9;
 		}
+		
+		&:nth-child(n):before { background-image: url('images/ship_square_1.png'); }
+		&:nth-child(2n):before { background-image: url('images/ship_square_2.png'); }
+		&:nth-child(3n):before { background-image: url('images/ship_square_3.png'); }
+		&:nth-child(4n):before { transform: rotate(90deg); }
+		&:nth-child(5n):before { transform: rotate(180deg); }
+		&:nth-child(6n):before { transform: rotate(90deg); }
+		
+		&:hover, &:active, &:focus, &:focus-visible, &.cur-ship {
+			background-image: url('images/ship_square_highlight.png');
+		}
+		&:focus-visible { outline: none; }
+		&:active, &:focus, &:focus-visible, &.cur-ship { &:after {
+			content: "";
+			position: absolute;
+			width: 215px;
+			height: 207px;
+			top: 50%; left: 50%; transform: translate(-50%,-50%);
+			z-index: 3;
+			background-repeat: no-repeat;
+			background-image: url('images/ship_square_circle.png');
+		} }
 		
 		/* icon at top of square */
 		.icons {
 			position: absolute;
+			z-index: 5;
 			width: 100%;
-			top: 0; transform: translateY(-55%);
+			top: 0; transform: translateY(-48%);
 			user-select: none;
 			img { width: 25%; }
 		}
@@ -66,6 +98,16 @@ section#ship-squares {
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			
+			img { z-index: 3 }
+			img:nth-child(1) { margin-left: 12px; }
+			img:nth-child(2), img:nth-child(3) { margin-left: -12px; }
+		}
+		
+		&.triad .content {
+			img { max-width: 80px; }
+			img:nth-child(1) { margin-left: 15px; }
+			img:nth-child(2), img:nth-child(3) { margin-left: -17px; }
 		}
 	}
 }
@@ -122,6 +164,7 @@ section#ship-description {
 /* main navigation */
 nav {
 	position: fixed;
+	z-index: 1001;
 	bottom: 0;
 	width: 100%;
 	padding: 1rem .5rem;

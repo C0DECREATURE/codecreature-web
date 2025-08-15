@@ -6,6 +6,17 @@
 	--d-gray: #6e6e6e;
 }
 
+.skip-to-content {
+	background: var(--l-gray);
+	color: var(--black);
+	transform: translateY(-300%);
+	padding: .25rem .5rem;
+	font-weight: bold;
+	&:focus {
+		transform: translateY(0%);
+	}
+}
+
 .page-settings {
   --open-button-fill: var(--black);
   --open-button-background: var(--l-gray);
