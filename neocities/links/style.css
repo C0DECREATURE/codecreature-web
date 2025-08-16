@@ -4,7 +4,6 @@ html, body { margin: 0 }
 body {
 	background-color: var(--dd-blue);
 	background-image: url('/graphix/bg/arcade_flash.png');
-	/* background-image: url('/graphix/bg/arcade_flash.png'); */
 	background-size: min(25%, 400px);
 }
 
@@ -59,6 +58,8 @@ main .right {
 	
 	--starsize: 2rem;
 	
+	.content > :first-child { h3 { margin-top: .15em; } }
+	
 	> .content, > .content > section {
 		width: 100%;
 		> header {
@@ -71,9 +72,12 @@ main .right {
 				content: '';
 				position: absolute;
 				width: 2rem; height: 2rem;
-				background: url('images/star.png');
+				/*background: url('images/star.svg');*/
+				background: var(--blue);
 				background-size: contain;
-				transform: translateY(-50%);
+				transform: translateY(calc(-50% + 2px));
+				margin: 0 -3px;
+				clip-path: polygon(50% 0%, 67% 33%, 100% 50%, 67% 67%, 50% 100%, 33% 67%, 0% 50%, 33% 33%); 
 			}
 		}
 	}
@@ -88,21 +92,23 @@ main .right {
 	gap: .5rem;
 	&:not(:last-child) { margin-bottom: .5rem; }
 	.button, .description {
-		padding: .5rem;
-		background: var(--yellow);
+		--bg: var(--yellow);
+		border: .5rem var(--bg) solid;
+		background: var(--bg);
 		span, a {
 			vertical-align: middle;
 			margin: auto 0;
 		}
 	}
-	&:nth-child(2n) { .button, .description { background: var(--green); } }
+	&:nth-child(2n) { .button, .description { --bg: var(--green); } }
 	a.button {
+		background: var(--dd-blue);
 		width: 88px;
 		flex-shrink: 0;
 		height: 31px;
 		color: var(--l-blue);
 		text-align: center;
-		img { background: var(--dd-blue); width: auto; max-height: 100%; max-width: 100%; }
+		img { width: auto; max-height: 100%; max-width: 100%; }
 		&:link, &:visited {
 			color: var(--l-blue);
 			display: block;
