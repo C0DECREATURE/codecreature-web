@@ -25,12 +25,13 @@
 			position: relative;
 			display: inline-block;
 			margin: 0; margin-bottom: 15px;
-			&:hover {
+			&:hover, &:focus-visible {
 				img { transform: scale(2); }
 				z-index: 100;
+				outline: none;
 			}
 		}
-		a:not(:hover) img {
+		a:not(:hover,:focus-visible) img {
 			image-rendering: pixelated;
 			-webkit-filter: drop-shadow(1px 1px 0px black);
 			filter: drop-shadow(1px 1px 0px black);
