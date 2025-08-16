@@ -155,6 +155,12 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	}
 }
 
+/* add white outline to dark images */
+img.dark {
+	-webkit-filter: drop-shadow(0 0 2px white);
+	filter: drop-shadow(0 0 2px white);
+}
+
 /* set page background buttons */
 .set-background {
 	background: black;
