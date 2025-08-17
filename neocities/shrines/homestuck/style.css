@@ -73,6 +73,10 @@ nav {
 	img { max-width: min(5rem,20vw); }
 }
 
+/* spin on hover */
+#playlists-disc img { transition: rotate 3s linear; }
+#playlists-disc:hover, #playlists-disc:focus-visible { img { rotate: 360deg; } }
+
 .text-section {
 	padding: 0 1em;
 	max-width: min(600px,100%);
