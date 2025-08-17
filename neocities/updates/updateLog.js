@@ -14,9 +14,26 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-17T05:45'),
+		authors: ['prax'],
+		tags: ['minor','new page'],
+		summary: `
+			homestuck <a href="/shrines/homestuck/playlists">playlists</a> page
+		`,
+		details: `
+			<p><a href="/shrines/homestuck/playlists">homestuck music</a> time!! gotta work on filling it out but %%im% gonna put all my character playlists in there. %%im% also gonna feature them on any character shrines %%i% do, but %%i% have playlists %%4% some %%i% dont plan %%2% do that with</p>
+			<p>the layout is %%rly% basic and playlists dont auto %A%pause\\pawse% when %%u% start a %A%new\\mew% one, but %%ill% sort that stuff out later!!!!</p>
+			<p align="center">
+				<img src="/shrines/homestuck/sollux/images/alterniabound_sprite.gif" alt="sollux's talk sprite, edited so his skin has acne and a faint tinge of his blood color. his hair has small extra hairs at the ends">
+				<img src="/shrines/homestuck/sollux/images/alterniabound_sprite_shrug_talk.gif" alt="a version of sollux's edited talk sprite where he is talking, looking down slightly, and shrugging one shoulder">
+				<br>%%i% am also working on edits %%4% some of the sprites featured on the <a href="/shrines/homestuck">homestuck shrine base</a>
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-15T07:10'),
 		authors: ['emery','prax'],
-		tags: ['homestuck'],
+		tags: ['homestuck','art'],
 		summary: `
 			filling in the hs <a href="/shrines/homestuck/shipping">ship wall</a>
 		`,

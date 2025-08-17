@@ -1,0 +1,73 @@
+:root {
+	--black: #000;
+	--white: #fff;
+}
+
+#playlist-template { display: none; }
+
+.sollux {
+	--black: #000;
+	--blood: #a1a100;
+	--dark-blood: #666600;
+	--red: #f20000;
+	
+	--text: var(--dark-blood);
+	--text-accent: var(--blood);
+	text-transform: lowercase;
+	/* --white: #FFF;
+	--dark-red: #b30000;
+	--l-blue: #3161ff;
+	--blue: #003bff;
+	--dark-blue: #001e82; */
+}
+
+.karkat {
+	--blood: ;
+	--text: ;
+	text-transform: uppercase;
+}
+
+html, body { height: 100%; width: 100%; }
+
+body {
+	margin: 0;
+	font-family: Courier, monospace;
+	font-weight: bold;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow: scroll;
+	padding-bottom: 2rem;
+	
+	> span p { width: min(100vw, 600px); margin: 1rem auto; }
+}
+
+body > header, nav { 
+	background: var(--black);
+	color: var(--white);
+}
+
+/* main navigation */
+nav {
+	width: 100%;
+	padding: 1rem .5rem;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	font-size: 1.5rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	gap: 1.5em;
+	a {
+		&:visited, &:link {
+			color: inherit;
+		}
+		&:hover {
+			color: var(--green);
+		}
+	}
+}

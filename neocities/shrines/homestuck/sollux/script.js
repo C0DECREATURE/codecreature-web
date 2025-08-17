@@ -13,6 +13,7 @@
 
 let enterButton;
 
+// skip loading screen and go straight to main content
 let skipLoadScreen = false;
 
 // assign elements to variables on window load
@@ -153,35 +154,7 @@ function setGlassesImage() {
 //////////////////////////////////////////////////////////////////////////////////
 // AUDIO PLAYER
 
-// playlist for audio player
-const playlist = [
-	{
-		title: `5-4-3-2-1 Lisp Off`,
-		artist: `Modest Mouse`,
-		url: 'https://www.youtube.com/watch?v=Z2lNFYpi--M'
-	},
-	{
-		title: `Hacking Machine`,
-		artist: `Guerilla Toss`,
-		url: 'https://www.youtube.com/watch?v=5fthfDlCVv4'
-	},
-	{
-		title: `We're All Gonna Die`,
-		artist: `Jesse From The Future`,
-		url: 'https://www.youtube.com/watch?v=GOHa3pJhLuo'
-	},
-	{
-		title: `Heimdalsgate Like a Promethean Curse`,
-		artist: `of Montreal`,
-		url: 'https://www.youtube.com/watch?v=ZFt_c4wYpvQ'
-	},
-	{
-		title: `Two Fingers`,
-		artist: `Jake Bugg`,
-		url: 'https://www.youtube.com/watch?v=GG4f2bKjlYc'
-	}
-];
-
+const playlist = solluxPlaylist.playlist;
 
 // converts given number to binary string
 // takes positive numbers or strings of positive numbers

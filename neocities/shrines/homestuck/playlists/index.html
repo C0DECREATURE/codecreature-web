@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>[S] ==> Playlists</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/homestuck/images/favicon.ico">
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=9"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=9" rel="stylesheet" type="text/css"></link>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
+		<!-- page settings -->
+		<script src="/js/page-settings.min.js?fileversion=9"></script>
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.min.js?fileversion=9"></script>
+		
+		<!--WMPlayer audio player-->
+		<link rel="stylesheet" type="text/css" href="WMPlayer.css"/>
+		<script src="/js/WMPlayer/WMPlayer.min.js"></script>
+		<script src="/shrines/homestuck/playlists/sollux.js"></script>
+		<script src="/shrines/homestuck/playlists/karkat.js"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's javascript -->
+		<script src="script.js?fileversion=9"></script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header>
+			<h1>homestuck playlists</h1>
+		</header>
+		
+		<main>
+			<span>
+				<p>small collections of songs that remind me of characters!
+				<br><u class="tq">ive</u> set them up <u class="tq">2</u> <u class="tq">b</u> listened <u class="tq">2</u> in order but <u class="tq">u</u> can do <u class="tq" data-a="whatever">whatefur</u> <u class="tq">u</u> want <u class="tq-e">:33</u></p>
+				<p>at some point <u class="tq">i</u> will make this <u class="tq" data-a="prettier">purrettier</u>, and also make the playlists <u class="tq" data-a="pause">pawse</u> when <u class="tq">u</u> start another one
+			</span>
+			
+			<div class="playlist-section">
+				<div id="playlist-template" class="playlist hidden">
+					<header>
+						<img class="icon" alt="">
+						<span>
+							<h2 class="character-name">name</h2>
+							<span class="playlist-title">title</span>
+						</span>
+					</header>
+					<div class="wmp-playlist"></div>
+					
+					<!-- control panel -->
+					<div class="wmp-panel">
+						<div class="wmp-current-track"><span class="wmp-current-track-title"></span><span class="wmp-timer"><span class="wmp-current-track-time">0:00</span><span class="wmp-current-track-duration">N/A</span></span></div>
+						<div class="wmp-controls">
+							<div class="wmp-play wmp-button">
+								<svg class="wmp-button-play" width="18" height="18">
+									<polygon class="wmp-symbol-play" points="2,2 16,9 2,16"/>
+									<g class="wmp-symbol-pause">
+										<rect x="2" y="2" width="4" height="14" />
+										<rect x="11" y="2" width="4" height="14" />
+										<rect x="2" y="2" width="14" height="14" fill="transparent" stroke="transparent"/>
+									</g>
+								</svg>
+							</div>
+							<div class="wmp-stop wmp-button">
+								<svg class="wmp-button-stop" width="18" height="18">
+									<rect class="wmp-symbol-stop" x="2" y="2" width="14" height="14"/>
+								</svg>
+							</div>
+							<div class="wmp-rewind wmp-button">
+								<svg class="wmp-button-rewind" width="18" height="18">
+									<polygon class="wmp-symbol-rewind" points="2,9 9,2 9,9 16,2 16,16 9,9 9,16"/>
+								</svg>
+							</div>
+							<div class="wmp-fast-forward wmp-button">
+								<svg class="wmp-button-fast-forward" width="18" height="18">
+									<polygon class="wmp-symbol-fast-forward" points="2,2 9,9 9,2 16,9 9,16 9,8 2,16"/>
+								</svg>
+							</div>
+						</div>
+						<div class="wmp-volume-bar-container">
+							<div class="wmp-button wmp-mute">
+								<svg width="18" height="18">
+									<g class="wmp-button-volume">
+										<polygon points="2,6 5,6 10,2 10,16 5,12 2,12 " />
+										<g class="wmp-symbol-muted">
+											<path d="M12,4 Q18,9 12,14" fill="transparent" />
+											<path d="M12,7 Q14,9 12,11" fill="transparent" />
+										</g>
+									</g>
+								</svg>
+							</div>
+							<div class="wmp-volume-bar"></div>
+						</div>
+						<div class="wmp-progress-bar-container">
+							<div class="wmp-progress-bar"></div>
+						</div>
+					</div>
+				</div>
+				<!-- end playlist template -->
+			</div>
+		</main>
+		
+		<!---AUDIO PLAYER--->
+		
+		
+		<!--<div id="music-player"></div>
+		<!---END AUDIO PLAYER--->
+		
+		<nav>
+			<a href="/shrines/homestuck">homestuck</a>
+			<a href="/shrines">shrines</a>
+			<a href="/home">home</a>
+		</nav>
+	</body>
+	<!--------------END BODY------------->
+</html>
