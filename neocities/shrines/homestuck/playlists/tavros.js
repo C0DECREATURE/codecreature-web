@@ -1,6 +1,6 @@
 /*
 <!-- this page's script -->
-<script src="/shrines/homestuck/playlists/sollux.js?fileversion=9"></script>
+<script src="/shrines/homestuck/playlists/tavros.js?fileversion=9"></script>
 
 */
 
