@@ -9,7 +9,7 @@
 
 const solluxPlaylist = {
 	character: 'sollux',
-	title: '<u class="tq" data-a="hacking machine">hackiing machiine</u>',
+	title: '<u class="tq" data-a="binary mind">biinary miind</u>',
 	playlist: [
 		{
 			title: `5-4-3-2-1 Lisp Off`,
@@ -30,6 +30,11 @@ const solluxPlaylist = {
 			title: `Heimdalsgate Like a Promethean Curse`,
 			artist: `of Montreal`,
 			url: 'https://www.youtube.com/watch?v=ZFt_c4wYpvQ'
+		},
+		{
+			title: `Binary Mind`,
+			artist: `Ra Ra Riot`,
+			url: 'https://www.youtube.com/watch?v=rYmA0UuW1dU'
 		},
 		{
 			title: `Two Fingers`,
