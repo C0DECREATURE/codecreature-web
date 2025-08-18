@@ -66,7 +66,7 @@ function newDragBox(params) {
 		// if no url is given but a download file is specified, clicking the link downloads the file
 		else if ( download ) {
 			if ( download == "img" && icon ) { download = icon; }
-			bLink.download = download;
+			bLink.download = title;
 			bLink.href = download;
 		}
 	}
