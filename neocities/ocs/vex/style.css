@@ -4,6 +4,7 @@
 	--d-red: #930020;
 	--dd-red: #640614;
 	--ddd-red: #3C0000;
+	--ddd-red-rgb: 60,0,0;
 	--l-gray: #B2ADAE;
 	--gray: #665F60;
 	--d-gray: #3B3637;
@@ -52,20 +53,42 @@ main {
 	width: 100%; height: 100%;
 	display: flex;
 }
-main > * header {
+main > * > header {
+	position: relative;
 	font-family: 'Crimes Times Six', sans-serif;
+	background:
+		linear-gradient(rgba(var(--ddd-red-rgb),.8),rgba(var(--ddd-red-rgb),.8)),
+		url('/graphix/bg/pencil_scribble.jpg');
+	background-size: 300px;
+	background-blend-mode: hard-light;
 	line-height: 0.1em;
 	text-align: center;
 	background-color: var(--black);
 	padding: .4em;
 	font-size: 2em;
+	
+	@media (prefers-reduced-motion: no-preference) {
+		margin-bottom: 5px;
+	box-shadow: 0 0 15px var(--black);
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0; left: 0;
+			transform: translateY(100%);
+			background-image: url('/graphix/dividers/blood_drips.webp');
+			width: 100%;
+			height: 24px;
+		}
+	}
 }
 @media screen and (max-width: 800px) {
 	body { height: auto; min-height: 100vh; }
 	
-	main { flex-direction: column; } /* stack vertically on small screens */
-	/* main area flex children */
-	main > * { max-width: 100%; }
+	main {
+		flex-direction: column; /* stack vertically on small screens */
+		/* main area flex children */
+		> * { max-width: 100%; }
+	}
 	
 	/* show main image in center on large screens */
 	#main-image { order: 1; }
@@ -91,10 +114,16 @@ main > * header {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
 	border-top:none; border-bottom: none;
 }
+#main-image button#coffin { pointer-events: auto; }
 #main-image img {
+	pointer-events: none;
+	user-select: none;
 	max-width: 170%; max-height: 70vh;
 	position: relative;
 	left: 50%; transform: translate(-50%,0); /* center horizontally */
+	
+	-webkit-filter: drop-shadow(5px 5px 0px var(--black));
+	filter: drop-shadow(8px 8px 15px rgba(0,0,0,.6));
 }
 
 /* coffin stuff */
@@ -105,17 +134,17 @@ main > * header {
 @media screen and (max-width: 800px) { #coffin { overflow: hidden; } }
 @media (prefers-reduced-motion: no-preference) {
 	/* closed coffin shake on hover */
-	#coffin.closed img:hover {
+	#coffin.closed:hover {
 		animation: shake .3s;
 		/* loop */
 		animation-iteration-count: infinite;
 	}
 	@keyframes shake {
-		0% { transform: translate(-50%,0); }
-		25% { transform: translate(-50%,0) rotate(-1deg); }
-		50% { transform: translate(-50%,0); }
-		75% { transform: translate(-50%,0) rotate(1deg); }
-		100% { transform: translate(-50%,0); }
+		0% { rotate: 0deg; }
+		25% { rotate: -1deg; }
+		50% { rotate: 0deg; }
+		75% { rotate: 1deg; }
+		100% { rotate: 0deg; }
 	}
 	/*@keyframes shake {
 		0% { transform: translate(1px, 1px) rotate(0deg); }
@@ -155,15 +184,17 @@ nav {
 	padding: .25em; gap: .55em;
 	background: var(--black);
 	font-size: max(1rem,min(15vw,2.25em));
+	/* to top on small screens */
+	@media screen and (max-width: 800px) { order: -1; }
+	
+	a, button {
+		display: block;
+		font-size: inherit;
+		color: var(--red);
+		text-align: center;
+		&:is(:hover,:focus-visible) { color: var(--yellow); }
+	}
 }
-@media screen and (max-width: 800px) { nav { order: -1; } }
-nav :is(a,button) {
-	display: block;
-	font-size: inherit;
-	color: var(--red);
-	text-align: center;
-}
-nav :is(a,button):is(:hover,:focus-visible) { color: var(--yellow); }
 /* page settings icon button */
 .open-page-settings { font-size: .8em; margin-top: -.2em; padding: 0px; }
 .open-page-settings:hover { --open-button-fill: var(--yellow); }
@@ -187,29 +218,34 @@ nav :is(a,button):is(:hover,:focus-visible) { color: var(--yellow); }
 
 /************** ABOUT SECTION **************/
 
-#about { display: flex; flex-direction: column; }
+#about {
+	display: flex;
+	flex-direction: column;
+	@media screen and (min-width: 800px) { overflow: auto; }
+}
 
 /* name and species */
 #about header {
 	font-size: 2.5em;
 	line-height: 0.8em;
-}
-#about header :is(h1,.subheader,.subheader-mini) { margin: 0px; }
-#about header h1 {
-	font-family: 'Crimes Times Six', sans-serif;
-	line-height: 0.85em;
-	color: var(--yellow);
-}
-#about header .subheader {
-	font-family: 'My Imaginary Friend', sans-serif;
-	font-size: .9em;
-	color: var(--red);
-}
-#about header .subheader-mini {
-	font-family: 'My Imaginary Friend', sans-serif;
-	font-weight: normal;
-	font-size: .75em;
-	color: var(--gray);
+	
+	h1, .subheader, .subheader-mini { margin: 0px; }
+	h1 {
+		font-family: 'Crimes Times Six', sans-serif;
+		line-height: 0.85em;
+		color: var(--yellow);
+	}
+	.subheader {
+		font-family: 'My Imaginary Friend', sans-serif;
+		font-size: .9em;
+		color: var(--red);
+	}
+	.subheader-mini {
+		font-family: 'My Imaginary Friend', sans-serif;
+		font-weight: normal;
+		font-size: .75em;
+		color: var(--gray);
+	}
 }
 
 #about .content {
@@ -222,15 +258,34 @@ nav :is(a,button):is(:hover,:focus-visible) { color: var(--yellow); }
 
 /************** GALLERY SECTION **************/
 
-#gallery { position: relative; text-align: center; display: flex; flex-direction: column; }
-
-#gallery a { color: var(--yellow); font-size: 1.4em; }
-#gallery a:is(:hover,:focus-visible) { color: var(--l-gray); }
+#gallery {
+	position: relative;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	
+	a {
+		color: var(--yellow); font-size: 1.4em;
+		&:hover, &:focus-visible { color: var(--red); }
+	}
+}
 
 /* container for things that aren't the header/footer */
-#gallery .content { overflow-y: auto; flex-grow: 1; }
+#gallery .content {
+	overflow-y: auto;
+	flex-grow: 1;
+	min-height: 0;
+	background:
+		linear-gradient(rgba(var(--ddd-red-rgb),.8),rgba(var(--ddd-red-rgb),.8)),
+		url('/graphix/bg/crosses.jpg');
+	background-color: var(--ddd-red);
+	background-size: 150px;
+	background-repeat: repeat;
+	background-blend-mode: overlay;
+}
 
 #balloon-animal {
+	z-index: 2;
 	position: absolute; right: 0; top: 0;
 	max-height: 100%; max-width: 30%;
 }
