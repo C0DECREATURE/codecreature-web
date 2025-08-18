@@ -14,9 +14,32 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-18T20:55'),
+		authors: ['emery'],
+		tags: ['minor','homestuck','graphix','vex'],
+		summary: `
+			minor updates
+		`,
+		details: `
+			<p>small improvements and additions to the <a href="/links">links</a>, blood paintings added to the <a href="/shrines/homestuck/shipping">homestuck ship wall</a> plus improved styling for the <a href="/shrines/homestuck/playlists">playlists</a>, a couple new <a href="/graphix">graphics</a> plus layout adjustments, and some additional styling and improved hitboxes for <a href="/ocs/vex">vex</a>! busy times</p>
+			<p align="center">
+				<img src="images/homestuck-shipping-2025-08-18.jpg" alt="" style="width:48%">
+				<img src="images/vex-2025-08-18.jpg" alt="" style="width:48%">
+				<br>red flavor. graphic design is my passion
+			</p>
+			<p align="center">
+				<img src="/shrines/homestuck/nepeta/images/alterniabound_sprite.gif" alt="edit of nepeta's alterniabound talk sprite. she has green-tinted skin, freckles, and pawprint-shaped highlights in her eyes">
+				<img src="/shrines/homestuck/nepeta/images/alterniabound_sprite_blush_talk.gif" alt="edit of nepeta's alterniabound blushing sprite">
+				<img src="/shrines/homestuck/shipping/images/kanaya.png" alt="kanaya doodle">
+				<img src="/shrines/homestuck/shipping/images/davepeta.png" alt="davepeta doodle">
+				<br>fresh edits
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-17T05:45'),
 		authors: ['prax'],
-		tags: ['minor','new page'],
+		tags: ['minor','new page','homestuck'],
 		summary: `
 			homestuck <a href="/shrines/homestuck/playlists">playlists</a> page
 		`,
