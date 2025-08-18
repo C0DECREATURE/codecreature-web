@@ -9,7 +9,7 @@
 
 const solluxPlaylist = {
 	character: 'sollux',
-	title: 'hackiing machiine',
+	title: '<u class="tq" data-a="hacking machine">hackiing machiine</u>',
 	playlist: [
 		{
 			title: `5-4-3-2-1 Lisp Off`,

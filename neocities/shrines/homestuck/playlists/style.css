@@ -20,7 +20,6 @@
 	--red: #f20000;
 	
 	--text: var(--dark-blood);
-	text-transform: lowercase;
 	/*
 	--dark-red: #b30000;
 	--l-blue: #3161ff;
@@ -34,15 +33,21 @@
 	--text: #626262;
 	--skin: #c6bcbc;
 	--skin-light: #e8e4e4;
-	text-transform: uppercase;
 }
 
 .tavros {
 	--blood: #a15000;
 	--skin: #c1b9b1;
 	--skin-light: #e6e3df;
-	text-transform: uppercase;
-	span::first-letter, h2::first-letter { text-transform: lowercase; }
+}
+
+body.tqOn {
+	.karkat * { text-transform: uppercase; }
+	.sollux * { text-transform: lowercase; }
+	.tavros {
+		* { text-transform: uppercase; }
+		span::first-letter, h2::first-letter { text-transform: lowercase; }
+	}
 }
 
 html, body { height: 100%; width: 100%; }

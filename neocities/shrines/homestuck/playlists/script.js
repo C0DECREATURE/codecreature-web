@@ -15,10 +15,7 @@ let curPlaylist = 0; // playlists index of currently loaded playlist
 
 var playlistPattern = `<button class="$status">
 	<span>$index.</span>
-	<span>
-		<span class="title">$title</span> by
-		<span class="artist">$artist</span>
-	</span>
+	<span>$title by $artist</span>
 	<span>$duration</span>
 </button>`;
 
