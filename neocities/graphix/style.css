@@ -113,13 +113,16 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	.img-wrapper { width: 150px; height: 20px; }
 }
 :has(>#deco) { flex: 4 }
-/* OLD - add back in if backgrounds/deco removed from wrapper
-#bgs { min-width: min(100%, 400px); flex: 3; }
-#deco { min-width: min(100%, 450px); flex: 4; }*/
-#stickers { min-width: min(100%, 550px); flex: 4; }
+:has(>#bgs) { min-width: min(100%, 400px); flex: 3; }
+#deco { min-width: min(100%, 450px); flex: 4; }
+#stickers {
+	min-width: min(100%, 550px);
+	flex: 4;
+	.img-grid img { max-width: max(80px,10%); }
+}
 #hexagon-stamps {
-	text-align: center;
-	min-width: min(100%, 395px); flex: 1;
+	min-width: min(100%, 395px);
+	.honeycomb { width: fit-content; margin: 0 auto; }
 }
 
 /* compensate for header height when scrolling to images from full view */
@@ -146,11 +149,11 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	}
 	/* background image samples */
 	.bg-image {
-		width: min(48vw, 220px);
+		width: min(48%, 220px);
 		border: 1px var(--green) solid;
 		.inner {
 			width: 100%;
-			padding-top: min(48vw, 220px);
+			padding-top: 80%;
 		}
 	}
 }
