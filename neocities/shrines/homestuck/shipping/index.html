@@ -28,7 +28,20 @@
 	
 	<!-----------BODY------------------->
 	<body>
+		<img src="images/preview.png" style="position:absolute;z-index:2000;top:0;left:0;width:100%;height:100%;pointer-events:none;user-select:none;opacity:0;">
+		
 		<main>
+			<div>
+				<img src="images/wall_bull.png" class="side-decor" style="
+					top: 80px; left:0; transform: translateX(-55%);">
+				<img src="images/wall_hands.png" class="side-decor" style="
+					top: 375px; left:0; transform: translateX(-80%);">
+				<img src="images/wall_cat.png" class="side-decor" style="
+					top: 290px; right:0; transform: translateX(50%);">
+				<img src="images/wall_smile.png" class="side-decor" style="
+					top: 670px; right:0; transform: translateX(105%);">
+			</div>
+			
 			<img src="images/quadrants.png" alt="diagram showing the four troll romance quadrants: red (heart), pale (diamond), black (spades), and ashen (clubs)">
 			
 			<p>click a ship for a mini-manifesto!<br>in no particular order, i will sort them when i'm done</p>
@@ -38,7 +51,7 @@
 				<button class="ship" id="davekat">
 					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
 					<div class="content">
-						<img src="images/dave.png" alt="dave" style="margin-left: 0">
+						<img src="images/dave.png" alt="dave" style="margin-right:-5%;">
 						<img src="images/karkat_2.png" alt="karkat" class="flip">
 					</div>
 					<div class="description hidden">
@@ -157,7 +170,7 @@
 				<button class="ship" id="jadepeta">
 					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
 					<div class="content">
-						<img src="images/davepeta.png" alt="davepeta">
+						<img src="images/davepeta.png" alt="davepeta" class="flip">
 						<img src="images/jade.png" alt="jade" class="flip"></div>
 					<div class="description hidden">
 						jade<img class="icon" src="images/quadrants_pale.png" alt="diamond">davepeta
@@ -216,7 +229,7 @@
 				<button class="ship triad" id="erikarsol">
 					<div class="icons"><img src="images/quadrants_ashen.png" alt="clubs"></div>
 					<div class="content">
-						<img src="images/eridan.png" alt="eridan">
+						<img src="images/eridan.png" alt="eridan" style="z-index:2;margin-top:5%;">
 						<img src="images/karkat.png" alt="karkat">
 						<img src="images/sollux.png" alt="sollux" class="flip">
 					</div>

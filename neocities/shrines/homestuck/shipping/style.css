@@ -1,5 +1,7 @@
 :root {
 	--wall: #832121;
+	--m-wall: #6b1b1b;
+	--d-wall: #541313;
 	--lines: #330d0d;
 	--black: black;
 	--white: white;
@@ -15,11 +17,10 @@
 }
 
 body {
-	padding-bottom: 4rem; /* compensate for navigation */
 	margin: 0;
 	font-family: Courier, monospace;
 	text-align: center;
-	background: var(--wall);
+	background: var(--d-wall);
 	font-weight: bold;
 }
 
@@ -27,9 +28,19 @@ img { image-rendering: pixelated; }
 img.flip { transform: scale(-100%,100%); }
 
 main {
-	padding: 10px;
-	margin-top: 2rem;
+	position: relative;
+	background: var(--wall);
+	padding: 2.5rem 10px 5rem 10px;
+	max-width: 970px;
+	border: min(40px,5vw) var(--m-wall) solid;
+	border-top: none; border-bottom: none;
+	margin: 0 auto;
 	img { max-width: 100%; user-select: none; pointer-events: none; }
+}
+
+img.side-decor {
+	position: absolute;
+	@media screen and (width < 1150px) { display: none; }
 }
 
 section#ship-squares {
@@ -56,9 +67,8 @@ section#ship-squares {
 			width: 100%;
 			height: 100%;
 			top: 0; left: 0;
-			z-index: 1;
+			z-index: 2;
 			background-repeat: no-repeat;
-			opacity: .9;
 		}
 		
 		&:nth-child(n):before { background-image: url('images/ship_square_1.png'); }
@@ -94,21 +104,22 @@ section#ship-squares {
 		}
 		
 		.content {
+			position: relative;
+			z-index: 1;
 			width: 100%;
 			height: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			
-			img { z-index: 3 }
 			img:nth-child(1) { margin-left: 12px; }
 			img:nth-child(2), img:nth-child(3) { margin-left: -12px; }
 		}
 		
 		&.triad .content {
-			img { max-width: 80px; }
-			img:nth-child(1) { margin-left: 15px; }
-			img:nth-child(2), img:nth-child(3) { margin-left: -17px; }
+			img { max-width: 85px; }
+			img:nth-child(1) { margin-left: 10%; }
+			img:nth-child(2), img:nth-child(3) { margin-left: -15%; }
 		}
 	}
 }
