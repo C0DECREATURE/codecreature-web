@@ -10,8 +10,17 @@
 
 var WMPlayersContainer = document.getElementById('music-player');
 var WMPlayers = [];
-var playlists = [solluxPlaylist,karkatPlaylist];
+var playlists = [solluxPlaylist,karkatPlaylist,tavrosPlaylist];
 let curPlaylist = 0; // playlists index of currently loaded playlist
+
+var playlistPattern = `<button class="$status">
+	<span>$index.</span>
+	<span>
+		<span class="title">$title</span> by
+		<span class="artist">$artist</span>
+	</span>
+	<span>$duration</span>
+</button>`;
 
 window.addEventListener('load',()=>{
 	let playlistTemplate = document.getElementById('playlist-template');
@@ -26,7 +35,7 @@ window.addEventListener('load',()=>{
 		WMPlayers[i] = new WMPlayer({
 			parent: el, //Set player's container,
 			template: playlistTemplate, //Set player template
-			//playlistPattern: playlistPattern, //Set playlist song pattern
+			playlistPattern: playlistPattern, //Set playlist song pattern
 			loop: true,
 			YTApiKey: "AIzaSyBknQarg1E4Ux-3d6Ddyz5mR9iF9ZpgZuA", //YouTube API Key to fetch duration
 			playlist: p.playlist

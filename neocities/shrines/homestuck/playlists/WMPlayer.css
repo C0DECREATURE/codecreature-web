@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
-
-#playlist-0 { margin-top: 40px; }
+#playlist-0 { margin-top: 0px; }
 
 /*WMPlayer template*/
 .wmplayer.default {
@@ -14,15 +12,28 @@
 	header {
 		display: flex;
 		align-items: center;
-		.icon {
+		height: 100px;
+		.icon-wrapper {
+			position: relative;
+			width: 120px;
+			height: 110px;
+			align-self: flex-end;
 			margin: -35px 0 -10px -20px;
 			user-select: none;
 			pointer-events: none;
 		}
+		.icon {
+			position: absolute;
+			bottom: 0;
+			left: 40%;
+			transform: translate(-50%,0%);
+		}
+		> span {
+			flex-grow: 1;
+		}
 		h2 {
 			margin-bottom: 0;
 			color: var(--text-accent);
-			text-
 		}
 	}
 }
@@ -73,8 +84,8 @@
 /*control panel buttons*/
 .wmplayer.default .wmp-button {
     cursor: pointer;
-    fill:#7f7f7f;
-    stroke:#7f7f7f;
+    fill: var(--text-accent);
+    stroke: var(--text-accent);
     stroke-linecap: round;
     stroke-width: 2;
     stroke-linejoin: round;
@@ -85,17 +96,17 @@
 }
 
 .wmplayer.default .wmp-button path {
-    stroke:#7f7f7f;
+    stroke: var(--text-accent);
     stroke-width: 1;
 }
 
 .wmplayer.default .wmp-button:hover, .wmp-button:focus {
-    fill: #304ffe;
-    stroke: #304ffe;
+    fill: var(--text);
+    stroke: var(--text);
 }
 .wmplayer.default .wmp-button:hover path,
 .wmp-button:focus path {
-    stroke: #304ffe;
+    stroke: var(--text);
 }
 
 .wmplayer.default .wmp-controls {
@@ -235,54 +246,58 @@
 
 /*playlist*/
 .wmplayer.default .wmp-playlist {
-    display: table;
+    display: flex;
+		flex-direction: column;
     width: 100%;
     table-layout:fixed;
     border-collapse:collapse;
     border-spacing:0;
 }
 
-.wmplayer.default .wmp-playlist > div {
-    display: table-row;
+.wmplayer.default .wmp-playlist > button {
+    display: flex;
     cursor: pointer;
-    border-top: 1px solid rgba(0,0,0,0.12);
+    border-top: 1px solid var(--text);
+    background-color: var(--bg);
 }
 
-.wmplayer.default .wmp-playlist > div:hover, div.wmp-playlist > div:focus {
-    background-color:#f5f5f5;
+.wmplayer.default .wmp-playlist > button:hover, div.wmp-playlist > button:focus {
+    background-color: var(--bg);
 }
 
-.wmplayer.default .wmp-playlist > div.wmp-current {
-    background-color:#f5f5f5;
+.wmplayer.default .wmp-playlist > button.wmp-current {
+    background-color: var(--bg-accent);
 }
 
-.wmplayer.default .wmp-playlist > div > span {
+.wmplayer.default .wmp-playlist > button > span {
     display: table-cell;
     font-size:13px;
     vertical-align: middle;
-    color: rgba(0,0,0,0.87);
+		color: var(--text);
     padding: 10px 9px;
 }
 
-.wmplayer.default .wmp-playlist > div > span:first-child {
+.wmplayer.default .wmp-playlist > button > span:first-child {
     width: 50px;
     padding-left: 15px;
     text-align:right;
 }
 
-.wmplayer.default .wmp-playlist > div > span:nth-child(2) {
+.wmplayer.default .wmp-playlist > button > span:nth-child(2) {
+		flex-grow: 1;
+		min-width: 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.wmplayer.default .wmp-playlist > div > span:last-child {
+.wmplayer.default .wmp-playlist > button > span:last-child {
     width: 64px;
     padding-right: 15px;
     text-align:right;
 }
 
-.wmplayer.default .wmp-playlist > div.wmp-error > span {
+.wmplayer.default .wmp-playlist > button.wmp-error > span {
     color: rgba(255,0,0,0.87);
 }
 
@@ -290,106 +305,18 @@
 .wmplayer.default .wmp-footer {
     padding: 5px 15px;
     font-size: 11px;
-    color: #7f7f7f;
-    border-top: 1px solid rgba(0,0,0,0.12);
+    color: var(--text);
+    border-top: 1px solid var(--text);
 }
 
 .wmplayer.default .wmp-footer a {
-    color: rgba(0,0,0,0.87);
+    color: var(--text-accent);
     text-decoration: none;
 }
 
 .wmplayer.default .wmp-footer a:hover,
 .wmplayer.default .wmp-footer a:focus {
-    color: #304ffe;
-}
-
-/*dark theme*/
-.wmplayer.default.dark {
-    background-color: rgba(0,0,0,0.87);
-}
-
-.wmplayer.default.dark .wmp-current-track {
-    color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-button {
-    fill: #f5f5f5;
-    stroke:#f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-button path {
-    stroke: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-button:hover,
-.wmp-button:focus {
-    fill: #f5f5f5;
-    stroke: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-button:hover path,
-.wmp-button:focus path {
-    stroke: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-volume-bar-container:before {
-    background-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-volume-bar {
-    background-color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-volume-bar:after {
-    background-color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-progress-bar-container:before {
-    background-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-progress-bar {
-    background-color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-progress-bar:after {
-    background-color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-playlist > div {
-    border-top-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-playlist > div > span {
-    color: #f5f5f5;
-}
-
-.wmplayer.default.dark .wmp-playlist > div:hover,
-div.wmp-playlist > div:focus {
-    background-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-playlist > div.wmp-current {
-    background-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-playlist > div.wmp-error > span {
-    color: rgba(255,0,0,0.87);
-}
-
-.wmplayer.default.dark .wmp-footer {
-    border-top-color: rgba(255,255,255,0.13);
-}
-
-.wmplayer.default.dark .wmp-footer a {
-    color: #7f7f7f;
-    text-decoration: none;
-}
-
-.wmplayer.default.dark .wmp-footer a:hover,
-.wmplayer.default.dark .wmp-footer a:focus {
-    color: #fff;
+    color: var(--text-accent);
 }
 
 @media only screen and (max-width: 480px) {
