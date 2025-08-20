@@ -1,5 +1,7 @@
 :root {
 	--green: #628A29;
+	--l-green: #cbdd38;
+	--d-green: #4d7921;
 	--black: black;
 	--white: white;
 }
@@ -24,14 +26,16 @@ body {
 	}
 }
 
+img { image-rendering: pixelated; }
+
+:focus-visible { outline: 2px var(--l-green) solid; box-shadow: 0 0 0 4px var(--d-green); }
+
 main {
 	flex-grow: 1;
 	min-height: 0;
 	overflow: scroll;
 	padding-bottom: 2rem;
 }
-
-img { image-rendering: pixelated; }
 
 /* main navigation */
 nav {
@@ -73,6 +77,7 @@ nav {
 	img { max-width: min(5rem,20vw); }
 }
 
+#playlists-disc { display: inline-block; }
 /* spin on hover */
 #playlists-disc img { transition: rotate 3s linear; }
 #playlists-disc:hover, #playlists-disc:focus-visible { img { rotate: 360deg; } }
