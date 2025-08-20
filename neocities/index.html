@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+	
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
@@ -15,172 +16,198 @@
 		<script src="/js/page-settings.min.js?fileversion=9"></script>
 		
 		<!-- fonts -->
-		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
 		<link href="/fonts/ComicSans/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/SuperComic/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/JandaCloserToFree/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
+		<link href="/fonts/DS-Digital/stylesheet.css?fileversion=9" rel="stylesheet" type="text/css">
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
-		<!--this page's stylesheet-->
-		<link href="/home/style.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
-		
-		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
-		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=9"></script>
-		<script src="/js/jquery.lettering.js?fileversion=9"></script>
-		<script>
-			$(document).ready(function() {
-				$(".txt-rainbow").lettering(); /* automatically put each letter in a <span> */
-			});
-		</script>
 		
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.min.js?fileversion=9"></script>
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=9"></script>
 		
-		<!-- tv player scripts -->
-		<script src="/js/tv-player.js?fileversion=9"></script>
+		<!--this page's stylesheet-->
+		<link href="/warnings/warnings.css?fileversion=9" rel="stylesheet" type="text/css" media="all">
 		
-		<!-- image takeover -->
-		<script src="/js/image-takeover.js?fileversion=9"></script>
-		
-		<!-- this page's script -->
-		<script src="/home/home.js?fileversion=9"></script>
+		<!-- this page's javascript -->
+		<script src="/warnings/warnings.js"></script>
 	</head>
 	
-	<!-----------BODY------------------->
 	<body>
-		
-		<div class="container">
-			<div class="header">
-				<div class="title text-outline-2px">
-					<span class="sr-only">CODECREATURE!!</span>
-					<h1 class="txt-rainbow" aria-hidden="true">C0D3CR34TUR3!!</h1>
-				</div>
-				<div class="divider">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-				</div>
-				<div class="subtitle">
-					UNDER CONSTRUCTION
-				</div>
-				<div class="divider">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-					<img src="/graphix/dividers/construction-tape.gif" alt="">
-				</div>
-			</div>
+		<div class="container tq-format">
+			<!-- WARNING banner -->
+			<header class="banner">
+				<div class="front"><h1>WARNING!</h1></div>
+			</header>
+			<div class="banner back"></div>
 			
-			<main id="main">
-				<section id="updates">
-					<button class="skip-to-content" onclick="window.location.hash='about'">skip updates section</button>
-					<iframe title="updates" class="updates" src="/updates/?iframe&fileversion=1.1"></iframe>
-				</section>
+			<!-- main box -->
+			<main id="content-box" class="content-box">
+				<!-- top right buttons -->
+				<div class="topbar">
+					<div class="circle grn"></div> <div class="circle ylw"></div> <div class="circle pnk"></div>
+				</div>
 				
-				<section id="about" class="tq-format">
-						im using this <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> learn more <u class="tq" data-txt="abt"><span class="sr-only">about</span><span aria-hidden="true">abt</span></u> javascript and css!! no themes or goals here its <u class="tq" data-a="whatever" data-txt="whatefur"><span class="sr-only">whatever</span><span aria-hidden="true">whatefur</span></u> <u class="tq" data-txt="i"><span class="sr-only">i</span><span aria-hidden="true">i</span></u> <u class="tq-nep tq" data-txt="f33l"><span class="sr-only">feel</span><span aria-hidden="true">f33l</span></u> like making <u class="tq-e tq" data-txt=":33c"><span class="sr-only">mischievous kitty emoji</span><span aria-hidden="true">:33c</span></u>
-					<br><br>
+				<!-- shadows -->
+				<div class="banner shadow"></div>
+				
+				<!-- inner content box -->
+				<div class="inner">
 					
-					<div class="tv">
-						<img src="/home/tv.png" alt="a colorful CRT television with cat ears">
+					<!-- shadows -->
+					<div class="banner shadow"></div>
+					
+					<!-- actual content -->
+					<div id="main-content" class="content">
+						<header>this site contains:</header>
 						
-						<div class="screen scanlines lighten"></div>
-						<div class="screen scanlines multiply"></div>
-						<div class="screen" id="tv-screen">
-							<!--
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/nyan-cat.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/go-kitty-go.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/maxwell-dance-dream.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							-->
-						</div>
+						<section class="warning-list">
+							<!-- flashing button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('flashing')">
+								<img src="/graphix/icons/flashing.png" alt="colors radiating from white stars">
+								<br>flashing
+							</button>
+							
+							<!-- unreality button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('unreality')">
+								<img src="/graphix/icons/unreality.png" alt="a cat with spirals for eyes">
+								<br>unreality
+							</button>
+							
+							<!-- gore button -->
+							<button class="warninglink" type="button"
+							onmouseover="showMiniInfo(this)" onmouseout="hideMiniInfo()"
+							onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+							onclick="showBigInfo('gore')">
+								<img src="/graphix/icons/gore.png" alt="a bone and drop of blood">
+								<br>gore
+							</button>
+						</section>
 						
-						<div class="buttons">
-							<!-- can't put on separate lines because that interprets as spaces -->
-							<button type="button" class="prev" onclick="prev()" aria-label="TV skip back">
-							</button><button type="button" class="play" onclick="playPause()" aria-label="TV power">
-							</button><button type="button" class="next" onclick="next()" aria-label="TV skip forward"></button>
-						</div>
+						<section id="accessibility">
+							<button onclick="showBigInfo('accessibility')"><h2>more accessibility options...</h2></button>
+						</section>
 						
-						<!--contents credit-->
-						<button class="credit" title="show TV credits" aria-label="show TV credits" onclick="credButton();">&#169;</a>
+						<footer>
+							<div class="left">
+								proceed at <u class="tq">ur</u> own risk!!
+							</div>
+							
+							<!-- home button -->
+							<div>
+								<button class="btn btn-green"
+								onmouseover="showMiniInfo(this);" onmouseout="hideMiniInfo();"
+								onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+								onclick="okButton();"
+								aria-label="accept warnings">
+									OK!
+								</button>
+							</div>
+						</footer>
 					</div>
-					<!-- tv credit popup -->
-					<div class="tvcredit" id="credit">
-						<button class="close" aria-label="hide TV credits" onclick="closeCredit()">
-							<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i></button>
-						<div class="header">TV PLAYLIST</div>
-						<div class="content">
-							<p>tv %A%temporarily\\tempurrarily% disabled, looking %%4% a new video host</p>
-							<ol>
-								<li><a href="https://youtu.be/QH2-TGUlwu4?si=xmw2-NaZRKtEKUmL">nyan cat [original]</a>
-									by nyancat</li>
-								<li><a href="https://youtu.be/atJPkF9KHYc?si=V3vRvKvM83uNQDHF">gokittygo</a>
-									by matheus</li>
-								<li><a href="https://youtu.be/Oyc1pluilgc?si=qxYD6gM1O2V-zyje">maxwell dances but its a dream</a>
-									by mr. creeper</li>
-							</ol>
+					
+					<div id="big-info" class="content hide">
+						<header><h2></h2></header>
+						<div id="gore" class="info">
+							depictions of <b>cartoon injury</b> with stylized flesh, bones, or blood.
+							this also includes <b>candy gore</b>, in which body parts are made of
+							unnatural materials like fruit or candy
 						</div>
+						<div id="flashing" class="info hide">
+							rapidly <b>flickering</b> images, <b>gifs</b>, and extremely <b>saturated colors</b>, which may affect %%ppl% with <b>sensory processing</b> issues, <b>migraines</b> or <b>seizures</b>. large <b>moving elements</b> generally respect %%ur% device's <a target="_blank" href="https://prefers-reduced-motion.com/">reduced motion settings</a>
+						</div>
+						<div id="unreality" class="info hide">
+							unlabeled fake or misleading content, like <b>conspiracy theories</b>, simulated <b>ads</b>,
+							and <b>glitches</b>. these %%r% not designed %%2% %%b% upsetting or malicious, but %%pls% %%b% aware!!
+						</div>
+						<div id="accessibility" class="info hide">
+							<p>
+								i'm not a professional, but i do my best to make the site accessible where i can. it's an art site first and foremost, but i want it to be enjoyable for as many folks as possible!!
+							</p>
+							<section>
+								<header><h3>typing quirks</h3></header>
+								<p>
+									<b>typing quirks</b> (numbers in place of letters, abbreviations, puns, etc) can be disabled in the <a onclick="showPageSettings();">page settings</a> menu at the top of the page. it is <b>disabled for screenreaders</b> by default. this setting is <b>saved</b> in your browser across all pages!!
+								</p>
+							</section>
+							<section>
+								<header><h3>custom cursors</h3></header>
+								<p>
+									many pages have <b>custom cursors</b>. if you want the default cursors instead, check the box in the <a onclick="showPageSettings();">page settings</a> menu at the top of the page.
+								</p>
+							</section>
+							<section>
+								<header><h3>keyboard navigation</h3></header>
+								<p>
+									i have made an effort to test keyboard navigation as much as possible. work in progress pages may not work as well.
+								</p>
+							</section>
+							<section>
+								<p>
+									if you notice a screenreader or keyboard nav problem, please send me a message on neocities or any of my <a href="/about">other contact links</a> and i'll do my best to correct it if i can!!
+								</p>
+							</section>
+							</ul>
+						</div>
+						<div id="javascript" class="info hide">
+							all pages on this site require <b>javascript</b> to run correctly - %%u% %%wont% %%b% able %%2% access <b>games</b> or other <b>interactive content</b> without it, and many pages <b>may not load</b>
+						</div>
+						<div id="mobile" class="info hide">
+							%%i% try %%2% make pages mobile-%A%friendly\\furiendly% when %%i% have the time, but this site is always
+							going %%2% look best on a <b>large %N%scr33n%</b>. some features may not work correctly without a
+							<b>mouse</b>!!
+						</div>
+						<footer>
+							<div>
+								<button class="btn btn-pink" type="button" onclick="showMainContent()">back</button>
+							</div>
+						</footer>
 					</div>
 					
-					basically everything is being written from scratch so <u class="tq" data-a="updates" data-txt="upd8s"><span class="sr-only">updates</span><span aria-hidden="true">upd8s</span></u> might <u class="tq" data-txt="b"><span class="sr-only">be</span><span aria-hidden="true">b</span></u> kinda slow!!
-					
-					<br><br>
-					<img src="/graphix/deco/sleeping-glitter-kitty-sticker.gif" alt="" width="200px">
-					
-				</section>
+				</div>
+				
+				<!--corner character outline-->
+				<div id="cornerimg-overlap" class="cornerimg cornerimg-overlap">
+					<img src="/ocs/catnip/images/sitting-chib-outline-light.png" alt="">
+				</div>
+				
 			</main>
 			
-			<nav class="links">
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/games/wormrace';">site map</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/games/wormrace';">worm race</button>
-				<button class="btn btn-orange" type="button" onclick="window.location.href='/404';">404 error</button>
-				<button class="btn btn-green" type="button" onclick="window.location.href='/shrines';">shrines</button>
-				<button class="btn btn-blue" type="button" onclick="window.location.href='/games/toybox';">plushies</button>
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/fonts';">fonts</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/graphix';">graphix</button>
-				<button class="btn btn-orange" type="button" onclick="window.location.href='/ocs';">characters</button>
-				<button class="btn btn-green" type="button" onclick="window.location.href='/about'">about</button>
-				<button class="btn btn-blue" type="button" onclick="window.location.href='https://neocities.org/site/codecreature';">neocities</button>
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/links';">links</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/warnings';">warnings</button>
-			</nav>
+			<!-- character in corner -->
+			<div id="cornerimg" class="cornerimg">
+				<div class="textbox" id="mini-info"><div class="text"></div></div>
+				<img src="/ocs/catnip/images/sitting-chib.png" alt="a little robot cat with a screen for a face">
+			</div>
+			<div id="cornerimg-back" class="cornerimg back">
+				<img src="/ocs/catnip/images/sitting-chib-outline-dark.png" alt="">
+			</div>
+			
+			<footer class="content-box">
+				<button class="javascript"
+				onmouseover="showMiniInfo('javascript required');" onmouseout="hideMiniInfo();"
+				onfocus="showMiniInfo('javascript required');" onblur="hideMiniInfo()"
+				onclick="showBigInfo('javascript')">
+					<img src="/graphix/icons/javascript-check.png" alt="javascript required">
+				</button>
+				
+				<button class="mobile"
+				onmouseover="showMiniInfo('some pages r not mobile friendly!');" onmouseout="hideMiniInfo();"
+				onfocus="showMiniInfo(this);" onblur="hideMiniInfo()"
+				onclick="showBigInfo('mobile')">
+					<img src="/graphix/icons/mobile-x.png" alt="mobile friendliness">
+				</button>
+			</footer>
+			
 		</div>
-		
-		<!-- bottom left fixed -->
-		<button class="bottom-left-fixed btn-strip image-takeover-immune shake"
-			onclick="randomImageTakeover('', 'progressive')" aria-label="don't click here! no!">
-			<img class="image-takeover-immune" src="/graphix/buttons/dont-click-here.gif" alt="">
-		</button>
-		
-		<!-- bottom right fixed -->
-		<a aria-label="fursona" class="bottom-right-fixed" href="https://toyhou.se/3048217.praxis">
-			<img name="furryhell" src="/home/furry-hell-1.png" alt="a smiling purple red panda wearing sunglasses with a rainbow behind it">
-			<svg
-				viewBox="0 0 98 68.6"
-				version="1.1"
-				id="furry-hell-svg"
-				alt=""
-				xml:space="preserve"
-				xmlns:xlink="http://www.w3.org/1999/xlink"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:svg="http://www.w3.org/2000/svg"><defs
-				id="defs1" /><g
-				id="layer1" transform="translate(-56.067524,-114.37933)"><path
-					d="m 76.465312,182.59951 c -1.149484,-9.6259 1.402244,-19.46121 5.882104,-27.93363 3.769224,-6.87037 9.102681,-12.79514 15.137542,-17.77061 3.840202,-3.75541 8.428022,-6.58974 13.277272,-8.83612 5.19831,-2.79716 10.67997,-5.05208 16.3165,-6.78892 1.89533,-1.1374 4.08917,-1.25816 6.19214,-1.68751 6.79944,-1.82509 13.79506,-2.4924 20.84073,-2.62001 -1e-4,21.88627 -1.9e-4,43.77255 -2.9e-4,65.65882 -25.87314,0.87875 -51.77137,0.55558 -77.645998,-0.022 z"
-					id="path1"
-					onmouseover="document.furryhell.src='/home/furry-hell-2.png';"
-					onmousedown="document.furryhell.src='/home/furry-hell-2.png';"
-					onmouseout="document.furryhell.src='/home/furry-hell-1.png';"/></g></svg>
-		</a>
+
 	</body>
-	<!--------------END BODY------------->
 </html>

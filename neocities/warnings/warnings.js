@@ -149,5 +149,5 @@ function okButton() {
 	// go to redirect page if specified, otherwise go home
 	const urlParams = new URL(window.location.href).searchParams;
 	if ( urlParams.has("redirect") ) { window.location.href = urlParams.get("redirect") }
-	else { window.location.href="/" }
+	else { window.location.href="/home" }
 }
