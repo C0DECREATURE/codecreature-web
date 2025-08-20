@@ -214,12 +214,6 @@ main {
 		}
 	}
 	#ath-book {
-		width: 160px;
-		rotate: -4deg;
-		margin-right: -10px;
-		img { padding-bottom: 1.75rem; }
-	}
-	#ath-for-dummies {
 		width: 180px;
 		rotate: 10deg;
 	}
