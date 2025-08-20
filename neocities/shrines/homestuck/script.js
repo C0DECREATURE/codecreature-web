@@ -1,9 +1,3 @@
-/*
-<!-- this page's script -->
-<script src="script.js?fileversion=9"></script>
-
-*/
-
 // force strict mode
 "use strict";
 
@@ -48,6 +42,13 @@ function spriteTalk(sprite,speed) {
 	}
 }
 
+// hover/focus and unhover/unfocus events
+function hoverSprite(s) {
+	if (s.dataset.hoverState) setSpriteState(s,s.dataset.hoverState);
+	spriteTalk(s);
+}
+function unHoverSprite(s) { setSpriteState(s,"neutral"); }
+
 window.addEventListener('load', ()=>{
 	let sprites = document.getElementsByClassName('sprite');
 	for (let i = 0; i < sprites.length; i++) {
@@ -56,19 +57,9 @@ window.addEventListener('load', ()=>{
 		if (!s.dataset.state) s.dataset.state = "neutral";
 		setSpriteState(s,s.dataset.state);
 		// talk animation on hover
-		s.addEventListener('mouseenter', ()=>{
-			if (s.dataset.hoverState) setSpriteState(s,s.dataset.hoverState);
-			spriteTalk(s);
-		});
-		s.addEventListener('focusin', ()=>{
-			if (s.dataset.hoverState) setSpriteState(s,s.dataset.hoverState);
-			spriteTalk(s);
-		});
-		s.addEventListener('mouseleave', ()=>{
-			setSpriteState(s,"neutral");
-		});
-		s.addEventListener('focusout', ()=>{
-			setSpriteState(s,"neutral");
-		});
+		s.addEventListener('mouseenter', ()=>{ hoverSprite(s); });
+		s.addEventListener('focus', ()=>{ hoverSprite(s); });
+		s.addEventListener('mouseleave', ()=>{ unHoverSprite(s); });
+		s.addEventListener('blur', ()=>{ unHoverSprite(s); });
 	}
 });
