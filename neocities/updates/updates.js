@@ -160,7 +160,7 @@ function loadUpdates() {
 			u.querySelector('.details').innerHTML +=
 				`<p class="txt-pink">
 					<a href="#title" class="txt-pink">jump <u class="tq">2</u> latest</a>
-					/ <a href="/" class="txt-pink">home</a>
+					/ <a href="/home" class="txt-pink">home</a>
 				</p>`;
 		});
 		

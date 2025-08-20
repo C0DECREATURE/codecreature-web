@@ -330,7 +330,7 @@ const updateLog = [
 		date: new Date('2024-12-07T00:06'),
 		tags: ['minor','art'],
 		summary: `
-			lil furry art on <a href="/">home</a> page
+			lil furry art on <a href="/home">home</a> page
 		`,
 		details: `
 			<p align="center">

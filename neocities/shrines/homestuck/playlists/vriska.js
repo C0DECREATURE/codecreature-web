@@ -1,6 +1,6 @@
 /*
 <!-- this page's script -->
-<script src="/shrines/homestuck/playlists/vriska.js?fileversion=9"></script>
+<script src="/shrines/homestuck/playlists/vriska.js?fileversion=10"></script>
 
 */
 
