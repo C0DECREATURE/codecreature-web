@@ -14,11 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-20T11:30'),
+		authors: ['emery'],
+		tags: ['minor'],
+		summary: `
+			directory change
+		`,
+		details: `
+			Altered the directory structure for the homepage/warnings, might want to refresh your cache if anything is acting strange. Please let me know if you notice anything still broken after that!
+		`
+	},
+	{
 		date: new Date('2025-08-18T20:55'),
 		authors: ['emery'],
-		tags: ['minor','homestuck','graphix','vex'],
+		tags: ['minor','homestuck','graphix','vex','art'],
 		summary: `
-			minor updates
+			assorted small updates
 		`,
 		details: `
 			<p>small improvements and additions to the <a href="/links">links</a>, blood paintings added to the <a href="/shrines/homestuck/shipping">homestuck ship wall</a> plus improved styling for the <a href="/shrines/homestuck/playlists">playlists</a>, a couple new <a href="/graphix">graphics</a> plus layout adjustments, and some additional styling and improved hitboxes for <a href="/ocs/vex">vex</a>! busy times</p>
