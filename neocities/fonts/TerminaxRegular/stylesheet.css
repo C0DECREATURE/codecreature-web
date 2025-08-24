@@ -1,0 +1,16 @@
+/*
+<link href="/fonts/TerminaxRegular/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+.txt-terminax { font-family: "Terminax Regular", monospace; }
+
+@font-face{
+	font-family: "Terminax Regular";
+	src: url("TerminaxRegular.eot");
+	src: url("TerminaxRegular.eot?#iefix")format("embedded-opentype"),
+			url("TerminaxRegular.woff")format("woff"),
+			url("TerminaxRegular.woff2")format("woff2"),
+			url("TerminaxRegular.ttf")format("truetype");
+	font-weight:normal;
+	font-style:normal;
+	font-display:swap;
+}
