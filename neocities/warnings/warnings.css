@@ -1,8 +1,5 @@
 /***********************************************************************/
 
-/* style to be applied dynamically to hide items */
-.hide { display: none; }
-
 /* make all images unselectable by default */
 img { -webkit-user-select: none; user-select: none; }
 
