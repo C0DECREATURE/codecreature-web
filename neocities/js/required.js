@@ -1,12 +1,14 @@
 // self executing
 (function(){
+	if (
+		window.location.pathname.replaceAll('/','') == '' &&
+		!window.location.search.includes('showWarnings=true')
+	) {
+		window.location.href = '/home';
 	// redirect to warnings page immediately if:
 	// warnings not shown yet, user is not Neocities screenshotter, not already redirecting
-	if (
-		(
-			localStorage.getItem("showWarnings") != "false"
-			|| window.location.search.includes('showWarnings=true')
-		) &&
+	} else if (
+		localStorage.getItem("showWarnings") != "false" &&
 		navigator.userAgent.toLowerCase() != 'screenjesus' &&
 		window.location.pathname.replaceAll('/','') != 'warnings' &&
 		window.location.pathname.replaceAll('/','') != ''
