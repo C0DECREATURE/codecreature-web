@@ -1,6 +1,7 @@
 // self executing
 (function(){
 	if (
+		localStorage.getItem("showWarnings") == "false" &&
 		window.location.pathname.replaceAll('/','') == '' &&
 		!window.location.search.includes('showWarnings=true')
 	) {
