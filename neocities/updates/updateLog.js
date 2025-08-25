@@ -14,6 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-25T12:52'),
+		authors: ['emery','prax'],
+		tags: ['updates'],
+		summary: `
+			updates page (mostly) fixed
+		`,
+		details: `
+			<p>
+				the tags here are...... kinda mostly working!! there's a few weird bits with the pagination buttons but its fine for now. also we have pagination buttons now. no longer loading 50+ updates every time you open the page! hooray!
+			</p>
+			<p>
+				also i'm playing with a bunch of the shared code, fixing some redirects and writing a font loader just to play with javascript a little. i'm trying to actually start respecting the object-oriented aspect of the object-oriented language
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-08-20T11:30'),
 		authors: ['emery'],
 		tags: ['minor'],
@@ -21,7 +37,7 @@ const updateLog = [
 			directory change
 		`,
 		details: `
-			Altered the directory structure for the homepage/warnings, might want to refresh your cache if anything is acting strange. Please let me know if you notice anything still broken after that!
+			<p>Altered the directory structure for the homepage/warnings, might want to refresh your cache if anything is acting strange. Please let me know if you notice anything still broken after that!</p>
 		`
 	},
 	{
