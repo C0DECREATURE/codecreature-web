@@ -146,7 +146,7 @@ const fonts = {
 					css += `}`;
 				}
 				catch(e) {
-					if (typeof style != 'string') { console.error(`All font styles must be strings. Received type ${typeof style)}` }
+					if (typeof style != 'string') { console.error(`All font styles must be strings. Received type ${typeof style}`) }
 					else throw new Error(e);
 					continue;
 				}
