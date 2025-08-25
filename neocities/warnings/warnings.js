@@ -51,21 +51,21 @@ function showBigInfo(name) {
 	
 	var infoElements = bigInfo.getElementsByClassName("info");
 	for (var i = 0; i < infoElements.length; i++) {
-		if (infoElements[i].id == name) { validId = true; infoElements[i].classList.remove('hide'); }
-		else { infoElements[i].classList.add('hide'); }
+		if (infoElements[i].id == name) { validId = true; infoElements[i].classList.remove('hidden'); }
+		else { infoElements[i].classList.add('hidden'); }
 	}
 	
 	if (validId) {
-		mainContent.classList.add("hide");
-		bigInfo.classList.remove("hide");
+		mainContent.classList.add("hidden");
+		bigInfo.classList.remove("hidden");
 		//bigInfo.scrollTo(0,0);
 		bigInfo.querySelector('header').innerHTML = name;
 	}
 }
 
 function showMainContent() {
-	mainContent.classList.remove("hide");
-	bigInfo.classList.add("hide");
+	mainContent.classList.remove("hidden");
+	bigInfo.classList.add("hidden");
 	mainContent.scrollTo(0,0);
 	window.location.hash='';
 };
@@ -149,5 +149,5 @@ function okButton() {
 	// go to redirect page if specified, otherwise go home
 	const urlParams = new URL(window.location.href).searchParams;
 	if ( urlParams.has("redirect") ) { window.location.href = urlParams.get("redirect") }
-	else { window.location.href="/home" }
+	else { window.location.href = "/home" }
 }
