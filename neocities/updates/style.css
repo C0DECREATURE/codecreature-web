@@ -14,21 +14,34 @@ body .main-container {
 	height: auto; 
 }
 body:not(.iframe) .main-container {
-	width: min(1000px, 80%);
 	background-color: var(--dd-purple);
-	padding: 2em .75em .5em .5em;
+	padding: 2em .75em .5em .75em;
 	min-height: calc(100vh - 1rem);
-}
-@media screen and (max-width: 500px) {
-	body:not(.iframe) .main-container {
-		width: 100%; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+	
+	@media screen and (width > 500px) {
+		width: min(1000px, 80%);
+	}
+	@media screen and (width <= 500px) {
+		width: 100%;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	}
 }
+/* when page is not in iframe */
+body:not(.iframe) {
+	background-color: var(--d-purple);
+	background-image: url('/graphix/bg/rainbow-paw-stars.png');
+	background-size: min(400px, 50vw, 50vh);
+	.iframe-only { display: none; }
+}
 /* when page is in iframe */
-.iframe .main-container {
-	width: auto;
-	padding: .75em;
-	min-height: 100%;
+.iframe {
+	.main-container {
+		width: auto;
+		padding: .75em;
+		min-height: 100%;
+	}
+	/* hide regular title, title navigation links */
+	#title, #links { display: none; }
 }
 
 img { max-width: 100% }
@@ -48,13 +61,28 @@ img.mini { max-height: 1em; }
 	border-radius: 0;
 }
 
-.title, .title:link, .title:visited { display: block; color: var(--pink); text-align: center; font-size: max(1em, min(10vw,2em)); text-transform: uppercase; }
-.title img.block { display: block; margin: 0 auto; }
-.title img:not(.block) { height: 1em; margin-bottom: -.1em; }
+.title, .title:link, .title:visited {
+	display: block;
+	color: var(--pink);
+	text-align: center;
+	font-size: max(1em, min(10vw,2em));
+}
+.title img.block {
+	display: block;
+	margin: 0 auto;
+}
+.title img:not(.block) {
+	height: 1em;
+	margin-bottom: -.1em;
+}
 /* when page is in iframe */
-.iframe  .title { font-size: 1em; }
+.iframe .title { font-size: 1em; }
 
-.subtitle { display: block; text-align: center; }
+.subtitle {
+	color: var(--green);
+	display: block;
+	text-align: center;
+}
 
 div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
 .all-tags { margin-top: .5em; }
@@ -66,7 +94,8 @@ div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
 .all-tags button:hover { color: var(--yellow); }
 .all-tags button.add-tag { background: var(--purple); color: var(--d-purple); margin-left: 0; border-left: 0; }
 
-.all-tags button.add-tag.selected { background: var(--yellow); }
+.all-tags button.add-tag.included { background: var(--green); }
+.all-tags button.add-tag.excluded { background: var(--yellow); }
 
 /* updates list styling */
 .updatelist { padding: 0 5% 0 8%; list-style: none; }
@@ -85,7 +114,6 @@ div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
   background-repeat: no-repeat;
   margin-left: -1.5em; /* should be negative same as width */
 }
-.iframe .update:before { margin-left: 0; }
 /* alternate image bullet points */
 .update:nth-child(2n+1):before { background-image: url('/graphix/deco/smiley-spin-yellow.gif'); }
 .update:nth-child(3n+1):before { background-image: url('/graphix/deco/smiley-spin-pink.gif'); }
@@ -95,15 +123,36 @@ div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
 
 .update .tag-area a { color: var(--pink); }
 .update .tag-area a:hover { color: var(--yellow); }
-/* when page is in iframe */
-.iframe  .update .tag-area { display: none; }
 
 .update .details { padding-left: 2em; margin-bottom: 3em; }
-/* when page is in iframe */
-.iframe  .update .details { display: none; }
 
 .update .summary { color: var(--l-green); }
-/* when page is in iframe */
-.iframe  .update .summary { padding-left: 2em; color: var(--l-blue); }
 
-.footer { margin-left: 1em; margin-bottom: 0.5em; }
+footer { margin: 0 1em .5em 1em; }
+
+/* next/prev page button area */
+#pagination {
+	display: flex;
+	justify-content: space-between;
+	/* actual buttons */
+	a {
+		color: var(--white);
+		background: var(--purple);
+		padding: .2em .5em .4em .5em;
+		border-radius: .5em;
+		&:hover, &:focus-visible { background-color: var(--pink); }
+	}
+}
+
+/* when page is in iframe */
+.iframe {
+	/* individual update styling */
+	.update:before { margin-left: 0; }
+	.update {
+		.tag-area { display: none; }
+		.details { display: none; }
+		.summary { padding-left: 2em; color: var(--l-blue); }
+	}
+	/* footer next/previous page buttons */
+	#next-page, #previous-page { display: none; }
+}

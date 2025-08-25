@@ -18,7 +18,7 @@
 		<script src="/js/iframe-detector.js?fileversion=10"></script>
 		
 		<!-- fonts -->
-		<link href="/fonts/ComicSans/stylesheet.css?fileversion=10" rel="stylesheet" type="text/css">
+		<link href="/fonts/ComicSansMS/stylesheet.css?fileversion=10" rel="stylesheet" type="text/css">
 		<link href="/fonts/SuperComic/stylesheet.css?fileversion=10" rel="stylesheet" type="text/css">
 		
 		<!--base stylesheet-->
@@ -50,8 +50,19 @@
 		<div class="main-container">
 			<base target="_parent">
 			
-			<a class="title" id="title"></a>
-			<a class="subtitle" id="subtitle"></a>
+			<a id="title" class="title" href="/updates">
+				<img src="/graphix/deco/green-3d-spin-star.gif" alt="">
+				UPDATE LOG
+				<img src="/graphix/deco/green-3d-spin-star.gif" alt="">
+			</a>
+			<a id="iframe-title" class="title iframe-only" href="/updates">
+				<img class="block" src="/graphix/deco/new-cat.gif" alt="">
+				LATEST UPDATES
+				
+				<span class="subtitle" id="iframe-subtitle">
+					click <u class="tq">4</u> full log
+				</span>
+			</a>
 			
 			<div id="links">
 				<a href="/home">home</a> /
@@ -59,9 +70,19 @@
 				<div id="all-tags" class="all-tags hidden"></div>
 			</div>
 			
-			<ul class="updatelist" id="updatelist"><!-- updates inserted here --></ul>
+			<ul class="updatelist" id="updatelist">
+				<!-- updates inserted here -->
+			</ul>
 			
-			<div class="footer" id="footer"></div>
+			<footer class="hidden">
+				<!-- link for iframe display -->
+				<a href="/updates" class="iframe-only" id="more-link">more...</a>
+				<!-- pagination -->
+				<div id="pagination">
+					<a id="previous-page" class="hidden">previous page</a>
+					<a id="next-page" class="hidden">next page</a>
+				</div>
+			</footer>
 		</div>
 		
 		
