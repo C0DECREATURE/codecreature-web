@@ -39,7 +39,7 @@ body, button {
 /* page content container */
 body > .container {
 	position: relative;
-	top: min(min(8rem, 20vw),20vh);
+	top: min(min(7rem, 20vw),20vh);
 	@media screen and (max-width:600px) { top: 8vh; }
 	left: 5vw;
 	margin-left: auto; margin-right: auto;
@@ -50,7 +50,7 @@ body > .container {
 .banner {
 	--height: min(16rem, 30vw);
 	position: absolute;
-	top: 0rem;
+	top: -1rem;
 	left: max(-6rem, -8vw);
 	height: var(--height);
 	width: 70%;
@@ -104,14 +104,14 @@ body > .container {
 	position: relative;
 	display: flex; flex-flow: column;
 	width: 72%;
-	@media screen and (max-aspect-ratio: 7/4) {
+	@media screen and (height >= 450px) and (max-aspect-ratio: 7/5) {
 		@media (max-width:1000px) { width: 75%; }
 		@media (max-width:700px) { width: 90%; }
 	}
 	height: min(71vh,36.25rem); /* 580px */
 	@media screen and (max-width:600px) { height: 73vh; }
 	/* short & wide screen */
-	@media screen and (min-aspect-ratio: 7/4) { height: 30rem; } 
+	@media screen and (height < 450px) and (min-aspect-ratio: 7/5) { height: 30rem; } 
 	background-color: var(--blue);
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
 	border: min(.65rem, .8vw) var(--dd-purple) solid; /* 10px */
@@ -257,7 +257,7 @@ body > .container {
 }
 @media screen and (max-width:800px) and (max-aspect-ratio:3/4) {
 	.warninglink {
-		width: min(min(85%,15rem),22vh);
+		width: min(min(75%,15rem),22vh);
 		font-size: 1em;
 		line-height: 1.25em;
 	}
@@ -301,7 +301,7 @@ button:has(h2):is(:hover,:focus-visible) h2 { color: var(--pink); }
 .cornerimg {
 	--cornerimg-width: min(85vh,min(29.375rem,42.73vw)); /* 470px */
 	position: absolute;
-	right: 0;
+	right: -1.5rem;
 	bottom: 0;
 	z-index: 4;
 	width: var(--cornerimg-width);
