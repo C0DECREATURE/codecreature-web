@@ -61,12 +61,18 @@ img.mini { max-height: 1em; }
 	border-radius: 0;
 }
 
-.title, .title:link, .title:visited {
+.title {
 	display: block;
-	color: var(--pink);
 	text-align: center;
 	font-size: max(1em, min(10vw,2em));
+	font-weight: normal;
+	h1 {
+		font-family: 'Super Comic';
+		/* remove html default header styling */
+		margin: 0; line-height: inherit; font-weight: inherit; font-size: inherit;
+	}
 }
+.title, .title:link, .title:visited { color: var(--pink); }
 .title img.block {
 	display: block;
 	margin: 0 auto;

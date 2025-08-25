@@ -26,7 +26,7 @@ const tags = {
 			let excluded = excludedTags.includes(tag);
 			
 			if (included) { // the tag is currently included, exclude it
-				excludeTag(tag);
+				tags.exclude(tag);
 			}
 			else if (excluded) { // if the tag is currently excluded, make it neutral
 				neutralTag(tag);
@@ -65,7 +65,37 @@ const tags = {
 			console.log('including tag: ' + tag);
 		}
 		else console.error('tags.include() could not add tag ' + tag + ' (not in allTags list)');
-	}
+	},
+	// exclude this tag from the tags being shown
+	exclude: function(tag, update) {
+		// if the tag is valid
+		if ( tag in allTags ) {
+			// remove tag from includedTags
+			let includeIndex = includedTags.indexOf(tag);
+			if (includeIndex > -1) { includedTags.splice(includeIndex, 1); }
+			// remove tag from excludedTags
+			let added = false;
+			if (!excludedTags.includes(tag)) {
+				excludedTags.push(tag);
+				added = true; // if tag was actually added
+			}
+			
+			// if display should update, update it
+			if (update != false && added) { updateTagDisplay(); }
+			
+			// update the toggle button style for the tag 
+			var btn = document.getElementById(allTags[tag].tClass + '-toggle')
+			if (btn) {
+				btn.classList.add('excluded');
+				btn.innerHTML = '-';
+				btn.ariaLabel = 'remove tag';
+			}
+			
+			// log
+			console.log('excluding tag: ' + tag);
+		}
+		else console.error('tags.exclude() could not add tag ' + tag + ' (not in allTags list)');
+	},
 };
 
 // self executing initiation function
@@ -155,7 +185,7 @@ const tags = {
 		// add excluded tags, don't update display yet
 		excludedTags.forEach((t) => {
 			t = t.replace("%20"," ");
-			excludeTag(t, false)
+			tags.exclude(t, false)
 		});
 	}
 	
@@ -293,37 +323,6 @@ function createUpdate(update) {
 function updateIFrameDisplay() {
 	
 	document.getElementById('more-link').href = window.location.pathname + window.location.search;
-}
-
-// exclude this tag from the tags being shown
-function excludeTag(tag, update) {
-	// if the tag is valid
-	if ( tag in allTags ) {
-		// remove tag from includedTags
-		let includeIndex = includedTags.indexOf(tag);
-		if (includeIndex > -1) { includedTags.splice(includeIndex, 1); }
-		// remove tag from excludedTags
-		let added = false;
-		if (!excludedTags.includes(tag)) {
-			excludedTags.push(tag);
-			added = true; // if tag was actually added
-		}
-		
-		// if display should update, update it
-		if (update != false && added) { updateTagDisplay(); }
-		
-		// update the toggle button style for the tag 
-		var btn = document.getElementById(allTags[tag].tClass + '-toggle')
-		if (btn) {
-			btn.classList.add('excluded');
-			btn.innerHTML = '-';
-			btn.ariaLabel = 'remove tag';
-		}
-		
-		// log
-		console.log('excluding tag: ' + tag);
-	}
-	else console.log('ERROR: excludeTag() could not add tag ' + tag + ' (not in allTags list)');
 }
 
 // make tag neither specifically included nor excluded
