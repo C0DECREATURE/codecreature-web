@@ -106,6 +106,10 @@ const tags = {
 	// url parameters
 	let urlParams = new URL(window.location.toLocaleString()).searchParams;
 	
+	// reset hash link if is page nav
+	let hash = window.location.hash;
+	if (hash == '#top' || hash == '#pagination') window.location.hash = '';
+	
 	// check if this page has 'iframe' in its URL parameters
 	// and that iframe parameter is not set to 'false'
 	// if so, add the iframe class to this page's body

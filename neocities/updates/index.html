@@ -43,8 +43,9 @@
 	</head>
 	
 	<!-----------BODY------------------->
-	<body>
+	<body id="top">
 		<script>tqInitMenu();</script>
+		<button class="skip-to-content" onclick="window.location.hash='pagination'">jump to pagination</button>
 		<!--main content container -->
 		<div class="main-container">
 			<base target="_parent">
@@ -80,8 +81,13 @@
 				<a href="/updates" class="iframe-only" id="more-link">more...</a>
 				<!-- pagination -->
 				<div id="pagination">
-					<a id="previous-page" class="hidden">previous page</a>
-					<a id="next-page" class="hidden">next page</a>
+					<div>
+						<a id="previous-page" class="hidden">previous<span class="sr-only"> page</span></a>
+					</div>
+					<button onclick="window.location.hash='top'"><span class="sr-only">jump to </span>top</button>
+					<div>
+						<a id="next-page" class="hidden">next<span class="sr-only"> page</span></a>
+					</div>
 				</div>
 			</footer>
 		</div>

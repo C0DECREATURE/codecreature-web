@@ -141,13 +141,22 @@ footer { margin: 0 1em .5em 1em; }
 	display: flex;
 	justify-content: space-between;
 	/* actual buttons */
-	a {
+	a, button {
 		color: var(--white);
 		background: var(--purple);
 		padding: .2em .5em .4em .5em;
 		border-radius: .5em;
 		&:hover, &:focus-visible { background-color: var(--pink); }
 	}
+}
+/* jump to pagination button for keyboard/screenreader nav */
+.skip-to-content {
+	color: var(--d-purple);
+	background: var(--yellow);
+	border: 2px var(--purple) solid;
+	border-top: none;
+	padding: .2em .5em .4em .5em;
+	border-radius: 0 0 .5em .5em;
 }
 
 /* when page is in iframe */
@@ -160,5 +169,5 @@ footer { margin: 0 1em .5em 1em; }
 		.summary { padding-left: 2em; color: var(--l-blue); }
 	}
 	/* footer next/previous page buttons */
-	#next-page, #previous-page { display: none; }
+	.skip-to-content, #pagination { display: none; }
 }
