@@ -3,15 +3,16 @@
 	// redirect to warnings page immediately if:
 	// warnings not shown yet, user is not Neocities screenshotter, not already redirecting
 	if (
-		localStorage.getItem("showWarnings") != "false" &&
+		(
+			localStorage.getItem("showWarnings") != "false"
+			|| window.location.search.includes('showWarnings=true')
+		) &&
 		navigator.userAgent.toLowerCase() != 'screenjesus' &&
-		window.location.pathname.replaceAll('/','') != '' &&
-		window.location.pathname.replaceAll('/','') != 'warnings'
+		window.location.pathname.replaceAll('/','') != 'warnings' &&
+		window.location.pathname.replaceAll('/','') != ''
 	) {
 		let redirect = window.location.pathname + window.location.search;
-		console.log(window.location.pathname.replaceAll('/','') != 'warnings');
-		//window.location.pathname = "/";
-		//window.location.href = `${window.location.hostname}/?redirect=${redirect}`;
+		window.location.href = `/?redirect=${redirect}`;
 	}
 })();
 
