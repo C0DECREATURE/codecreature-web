@@ -229,7 +229,7 @@ function loadUpdates() {
 	// if url parameters specifies an update to start at
 	if (firstUpdate > 1) {
 		let queryParams = new URL(window.location.toLocaleString()).searchParams;
-		queryParams.set("firstUpdate", Math.max(0, firstUpdate-showLimit));
+		queryParams.set("firstUpdate", Math.max(0, firstUpdate - showLimit));
 		document.getElementById('previous-page').href = window.location.pathname + "?" + queryParams.toString();
 		// show previous page button
 		document.querySelector('footer').classList.remove('hidden');
@@ -358,7 +358,8 @@ function updateTagDisplay() {
 	let newUrl = new URL(location);
 	newUrl.searchParams.set("includedTags", includedTags.toString());
 	newUrl.searchParams.set("excludedTags", excludedTags.toString());
-	newUrl.searchParams.set("firstUpdate", 0);
+	firstUpdate = 0;
+	newUrl.searchParams.set("firstUpdate", firstUpdate);
 	// add new parameters to url
 	history.pushState({}, "", newUrl);
 	// reload updates with new parameters
