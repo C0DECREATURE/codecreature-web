@@ -1,6 +1,8 @@
 // self executing
 (function(){
-	if (
+	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
+		window.location.hostname.replace('codecreature.neocities.org','codecreature.helioho.st');
+	} else if (
 		localStorage.getItem("showWarnings") == "false" &&
 		window.location.pathname.replaceAll('/','') == '' &&
 		!window.location.search.includes('showWarnings=true')
