@@ -2,7 +2,7 @@
 
 Copyright (c) 2023-2025 Codecreature
 
-CC BY-NC 4.0
+CC-BY-NC-4.0
 This project is licensed under the terms of the Creative Commons Attribution-NonCommercial 4.0 International license.
 
 #### You are free to:
