@@ -61,10 +61,12 @@ window.addEventListener("load", (event) => {
 });
 
 const defaultSvgIcons = {
-	// put the correct svg in each .svg-icon element
-	load: function() {
+	loaded: false,
+	// put the correct svg in each .svg-icon element that is contained in given element parent
+	load: function(el) {
 		console.log('loading svg icons');
-		document.querySelectorAll('.svg-icon').forEach((i) => {
+		if (!el) el = document.body;
+		el.querySelectorAll('.svg-icon').forEach((i) => {
 			let icon = svgIcons[i.dataset.icon.replaceAll('-','')];
 			// if the data-icon is a valid icon
 			if (icon) {
@@ -74,7 +76,8 @@ const defaultSvgIcons = {
 				i.style.stroke = window.getComputedStyle(i).color;
 				if (window.getComputedStyle(i).fontWeight == 'bold') i.classList.add('svg-icon-bold');
 			} // if the data-icon is not valid
-			else console.log('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
+			else console.error('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
 		});
+		this.loaded = true;
 	},
 }

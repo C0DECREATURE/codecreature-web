@@ -123,6 +123,11 @@ const fullImageView = {
 				}
 			});
 			
+			// if svg-icons has already run, run it again on the full image view element
+			if (typeof defaultSvgIcons !== 'undefined' && defaultSvgIcons.loaded == true) {
+				defaultSvgIcons.load(fullImageView.element);
+			}
+			
 			console.log('full image view setup complete');
 		}
 	},
