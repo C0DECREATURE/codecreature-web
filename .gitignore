@@ -27,6 +27,13 @@
 *.sqlite
 *.db
 
+# heliohost files #
+######################
+/.composer
+/.ssh
+/git
+/logs
+
 # OS generated files #
 ######################
 .DS_Store
