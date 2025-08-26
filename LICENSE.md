@@ -10,6 +10,7 @@ Artwork and image elements of this project are NOT licensed for use or redistrib
 ## Code
 
 CC-BY-NC-4.0
+
 Code elements of this project (CSS, Javascript, HTML, etc) are licensed under the terms of the Creative Commons Attribution-NonCommercial 4.0 International license.
 
 #### You are free to:
