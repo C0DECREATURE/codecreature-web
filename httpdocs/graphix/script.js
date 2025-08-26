@@ -96,7 +96,7 @@ function graphixPageInit() {
 	nav.addEventListener('mouseleave', (event) => { closeNavDropdown() });
 	
 	// put the correct svg in each .svg-icon element
-	loadSvgIcons();
+	defaultSvgIcons.load();
 }
 
 // set up background image samples

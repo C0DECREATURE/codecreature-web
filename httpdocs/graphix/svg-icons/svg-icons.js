@@ -7,7 +7,7 @@ add to top of HTML document:
 add to bottom of body to control when icons load
 <script>
 	// put the correct svg in each .svg-icon element
-	loadSvgIcons();
+	defaultSvgIcons.load();
 </script>
 */
 
@@ -57,21 +57,24 @@ document.querySelector('head').appendChild(svgCss);
 
 // on window load
 window.addEventListener("load", (event) => {
-	loadSvgIcons();
+	defaultSvgIcons.load();
 });
 
-// put the correct svg in each .svg-icon element
-function loadSvgIcons() {
-	document.querySelectorAll('.svg-icon').forEach((i) => {
-		let icon = svgIcons[i.dataset.icon.replaceAll('-','')];
-		// if the data-icon is a valid icon
-		if (icon) {
-			i.innerHTML = icon;
-			// set svg fill and stroke colors to text color
-			i.style.fill = window.getComputedStyle(i).color;
-			i.style.stroke = window.getComputedStyle(i).color;
-			if (window.getComputedStyle(i).fontWeight == 'bold') i.classList.add('svg-icon-bold');
-		} // if the data-icon is not valid
-		else console.log('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
-	});
+const defaultSvgIcons = {
+	// put the correct svg in each .svg-icon element
+	load: function() {
+		console.log('loading svg icons');
+		document.querySelectorAll('.svg-icon').forEach((i) => {
+			let icon = svgIcons[i.dataset.icon.replaceAll('-','')];
+			// if the data-icon is a valid icon
+			if (icon) {
+				i.innerHTML = icon;
+				// set svg fill and stroke colors to text color
+				i.style.fill = window.getComputedStyle(i).color;
+				i.style.stroke = window.getComputedStyle(i).color;
+				if (window.getComputedStyle(i).fontWeight == 'bold') i.classList.add('svg-icon-bold');
+			} // if the data-icon is not valid
+			else console.log('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
+		});
+	},
 }

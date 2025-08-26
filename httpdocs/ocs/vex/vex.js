@@ -62,5 +62,5 @@ window.addEventListener('load',function(){
 	
 	// run full image setup code
 	fullImageView.init();
-	loadSvgIcons();
+	defaultSvgIcons.load();
 });
