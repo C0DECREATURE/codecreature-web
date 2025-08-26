@@ -89,19 +89,42 @@ img.mini { max-height: 1em; }
 	display: block;
 	text-align: center;
 }
+a:hover .subtitle { color: var(--yellow); }
 
-div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
-.all-tags { margin-top: .5em; }
-.all-tags button {
-	padding: 0.1em 0.5em; margin: 0.25em;
-	background: var(--d-purple); border: 2px var(--purple) solid; color: var(--pink);
+#links { text-align: center; margin: 0 auto 1em auto; }
+
+#sort-filter {
+	margin-top: .75rem;
+	
+	h3 {
+		margin: 0;
+		font-family: 'Super Comic';
+		font-weight: normal;
+		color: var(--yellow);
+	}
 }
-.all-tags button.tag { width: 10em; margin-right: 0; border-right: 0; }
-.all-tags button:hover { color: var(--yellow); }
-.all-tags button.add-tag { background: var(--purple); color: var(--d-purple); margin-left: 0; border-left: 0; }
 
-.all-tags button.add-tag.included { background: var(--green); }
-.all-tags button.add-tag.excluded { background: var(--yellow); }
+#sort-updates, #all-tags {
+	margin-top: .5em;
+	/* button container divs */
+	> div { display: inline-block; }
+	button {
+		padding: 0.1em 0.5em; margin: 0.25em;
+		background: var(--d-purple); border: 2px var(--purple) solid; color: var(--pink);
+		&:hover { color: var(--yellow); }
+	}
+}
+#all-tags button {
+	&.tag-name { width: 10em; margin-right: 0; border-right: 0; }
+	&.add-tag {
+		background: var(--purple);
+		color: var(--d-purple);
+		margin-left: 0; 
+		order-left: 0;
+		&.included { background: var(--green); }
+		&.excluded { background: var(--yellow); }
+	}
+}
 
 /* updates list styling */
 .updatelist { padding: 0 5% 0 8%; list-style: none; }
@@ -127,8 +150,14 @@ div:has(> .all-tags) { text-align: center; margin: 0 auto 1em auto; }
 .update .date, .update .date a { display: inline-block; color: var(--yellow); }
 .update .date a:hover { color: var(--l-green); }
 
-.update .tag-area a { color: var(--pink); }
-.update .tag-area a:hover { color: var(--yellow); }
+.update .tag-area {
+	display: flex; flex-wrap: wrap;
+	gap: .25em;
+	a {
+		color: var(--pink);
+		&:hover { color: var(--yellow); }
+	}
+}
 
 .update .details { padding-left: 2em; margin-bottom: 3em; }
 

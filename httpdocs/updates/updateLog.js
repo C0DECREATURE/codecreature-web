@@ -14,9 +14,21 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-08-26T16:40'),
+		authors: ['prax'],
+		tags: ['general','update log'],
+		summary: `
+			moved %%2% new host!!
+		`,
+		details: `
+			<p>finally %A%migrated\\migr8d% the site %%2% heliohost!! now all our pages can have databases and stuff. all neocities links should redirect automatically %%2% the new host, %A%let me know\\lmk% if %%u% notice issues %%w% that %E%:33c%</p>
+			<p>also fixed the %A%updates\\upd8s% issue %%w% pagination buttons not being hidden correctly, %A%improved\\impurroved% the styling on tag filters, and added option %%2% sort by newest/oldest %A%updates\\upd8s%</p>
+		`
+	},
+	{
 		date: new Date('2025-08-25T12:52'),
 		authors: ['emery','prax'],
-		tags: ['updates'],
+		tags: ['update log','general'],
 		summary: `
 			updates page (mostly) fixed
 		`,
@@ -32,7 +44,7 @@ const updateLog = [
 	{
 		date: new Date('2025-08-20T11:30'),
 		authors: ['emery'],
-		tags: ['minor'],
+		tags: ['general','minor'],
 		summary: `
 			directory change
 		`,
@@ -43,7 +55,7 @@ const updateLog = [
 	{
 		date: new Date('2025-08-18T20:55'),
 		authors: ['emery'],
-		tags: ['minor','homestuck','graphix','vex','art'],
+		tags: ['homestuck','graphix','ocs','vex','art'],
 		summary: `
 			assorted small updates
 		`,
@@ -130,7 +142,7 @@ const updateLog = [
 	{
 		date: new Date('2025-08-11T10:34'),
 		authors: ['emery','prax'],
-		tags: ['minor','art'],
+		tags: ['minor','art','general'],
 		summary: `
 			favicons and site button!
 		`,
@@ -151,7 +163,7 @@ const updateLog = [
 	{
 		date: new Date('2025-08-11T05:52'),
 		authors: ['emery'],
-		tags: ['general','sollux'],
+		tags: ['general','homestuck'],
 		summary: `
 			music player!
 		`,
@@ -216,7 +228,7 @@ const updateLog = [
 	{
 		date: new Date('2025-08-08T23:58'),
 		authors: ['emery'],
-		tags: ['shrines','sollux'],
+		tags: ['shrines','homestuck'],
 		summary: `
 			<a href="/shrines/homestuck/sollux">mobius double reacharound virus</a> installed
 		`,
@@ -273,7 +285,7 @@ const updateLog = [
 	},
 	{
 		date: new Date('2025-07-19T09:01'),
-		tags: ['new page','shrines','sollux'],
+		tags: ['new page','shrines','homestuck'],
 		summary: `
 			lil wip page %%4% <a href="/shrines/homestuck/sollux">sollux</a> plus boring code stuff
 		`,
@@ -318,7 +330,7 @@ const updateLog = [
 	},
 	{
 		date: new Date('2024-12-15T10:33'),
-		tags: ['ocs','minor'],
+		tags: ['ocs','vex','minor'],
 		summary: `
 			<a href="/ocs/vex">vex</a> adjustments
 		`,
@@ -331,7 +343,7 @@ const updateLog = [
 	},
 	{
 		date: new Date('2024-12-09T11:49'),
-		tags: ['new page','ocs'],
+		tags: ['new page','ocs','vex'],
 		summary: `
 			new wip page %%4% my oc <a href="/ocs/vex">vex</a>
 		`,

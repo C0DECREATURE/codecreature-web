@@ -68,8 +68,19 @@
 			
 			<div id="links">
 				<a href="/home">home</a> /
-				<button id="all-tags-button" class="txt-green" onclick="document.getElementById('all-tags').classList.toggle('hidden');">sort by tags</button>
-				<div id="all-tags" class="all-tags hidden"></div>
+				<button id="all-tags-button" class="txt-green" onclick="filters.toggle()">sort & filter</button>
+				<div id="sort-filter" class="hidden">
+					<div id="sort-updates">
+						<h3>sorting</h3>
+						sort updates by:
+						<button onclick="updates.sortBy('newest');">newest</button>
+						<button onclick="updates.sortBy('oldest');">oldest</button>
+					</div>
+					<div id="all-tags">
+						<h3>tag filters</h3>
+					</div>
+					<button class="txt-green" onclick="filters.close()">hide sort & filters</button>
+				</div>
 			</div>
 			
 			<ul class="updatelist" id="updatelist">
