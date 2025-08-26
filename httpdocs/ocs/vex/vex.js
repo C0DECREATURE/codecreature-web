@@ -61,6 +61,6 @@ window.addEventListener('load',function(){
 	for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
 	
 	// run full image setup code
-	initFullImage();
+	fullImageView.init();
 	loadSvgIcons();
 });

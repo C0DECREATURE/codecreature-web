@@ -9,7 +9,7 @@ function graphixPageInit() {
 	}
 	
 	// run full image setup code
-	initFullImage();
+	fullImageView.init();
 	
 	// set up background image samples
 	backgrounds = document.getElementsByClassName('bg-image');

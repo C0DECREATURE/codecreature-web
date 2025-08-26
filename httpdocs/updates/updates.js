@@ -201,7 +201,7 @@ const updates = {
 		}
 		
 		// set up image full view
-		initFullImage();
+		fullImageView.init();
 	},
 	// create element for an update from updateLog
 	createElement: function(update) {
