@@ -102,4 +102,44 @@ main {
 			border: 3px var(--black) solid;
 		}
 	}
+	
+	#newspaper, #newspaper:link, #newspaper:visited, #newspaper:hover {
+		color: var(--black);
+	}
+	#newspaper {
+		position: fixed;
+		right: 0; bottom: 0;
+		transform: translate(-8%,40%);
+		rotate: -20deg;
+		background: var(--white);
+		width: min(400px,50vw);
+		height: min(400px,50vw);
+		border: 3px var(--black) solid;
+		
+		&:hover {
+			transform: translate(-8%,30%);
+		}
+		
+		> header {
+			text-align: center;
+			h2 {
+				font-family: 'Arial';
+				letter-spacing: initial;
+				text-transform: uppercase;
+				font-size: 3rem;
+				margin: 1rem 1rem .75rem 1rem;
+				border-bottom: 4px var(--black) solid;
+			}
+			h4 {
+				font-size: .75rem;
+				margin-top: 0;
+			}
+		}
+		
+		.comics {
+			padding: .5rem;
+			padding-top: 0;
+			img { max-width: 100%; }
+		}
+	}
 }
