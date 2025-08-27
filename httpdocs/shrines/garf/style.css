@@ -116,8 +116,8 @@ main {
 		height: min(400px,50vw);
 		border: 3px var(--black) solid;
 		
-		&:hover {
-			transform: translate(-8%,30%);
+		@media (prefers-reduced-motion: no-preference) {
+			&:hover { transform: translate(-8%,30%); }
 		}
 		
 		> header {
