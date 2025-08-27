@@ -4,8 +4,10 @@
 	text-align: center;
 	
 	a.ministrife-button {
+		display: inline-block;
 		margin-bottom: 0;
 		margin-top: 0;
+		line-height: 0;
 	}
 	
 	.sprites {
@@ -25,10 +27,12 @@
 			position: relative;
 			display: inline-block;
 			margin: 0; margin-bottom: 15px;
+			img { transition: transform .2s, filter .2s; }
 			&:hover, &:focus-visible {
 				img { transform: scale(2); }
 				z-index: 100;
-				outline: none;
+				outline-width: 0px !important;
+				box-shadow: none !important;
 			}
 		}
 		a:not(:hover,:focus-visible) img {
