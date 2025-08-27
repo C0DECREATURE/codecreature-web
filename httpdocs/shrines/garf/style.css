@@ -18,8 +18,18 @@ body {
 	background: var(--l-yellow);
 }
 
-a, a:link, a:visited { color: var(--blue); }
+a, a:link, a:visited { color: var(--red); }
 a:hover { color: var(--orange); }
+
+a.skip-to-content {
+	background: var(--yellow);
+	color: var(--black);
+	border: 2px black solid;
+	border-top: none;
+	border-radius: 0 0 1em 1em;
+	padding: .3em .6em .2em .5em;
+	left: .5rem;
+}
 
 main {
 	display: flex;
@@ -63,11 +73,11 @@ main {
 			display: inline-block;
 			margin-right: .35em;
 		}
-		a:hover, button:hover {
+		a, button { &:focus-visible, &:hover {
 			background: var(--white);
 			color: var(--red);
 			&:before { background-image: url('images/paw_on.svg'); }
-		}
+		} }
 	}
 	
 	> .right {
@@ -116,8 +126,11 @@ main {
 		height: min(400px,50vw);
 		border: 3px var(--black) solid;
 		
+		
+		transition: all 0.25s;
+		
 		@media (prefers-reduced-motion: no-preference) {
-			&:hover { transform: translate(-8%,30%); }
+			&:hover, &:focus-visible { transform: translate(-8%,25%); }
 		}
 		
 		> header {
