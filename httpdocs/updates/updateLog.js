@@ -11,8 +11,22 @@ const updateLog = [
 		details: `
 			
 		`
-	},
+	},garfield_2025_08_27.jpg
 */
+	{
+		date: new Date('2025-08-27T03:12'),
+		authors: ['prax'],
+		tags: ['new page','shrines','garfield'],
+		summary: `
+			%A%little\\lil% shrine %%4% <a href="/shrines/garf">garf</a>
+		`,
+		details: `
+			<p align="center"><img src="images/garfield_2025_08_27.jpg" alt="screenshot of garfield web page. it has the Garfield logo at the top. Garfield is lounging atop a white text boxx in the middle, and the sidebars have a tiling green pattern of his face. A newspaper with comic strips is poking up at an angle from the bottom right. There are several links on the sidebar with small pawprints on them."></p>
+			<p>
+				%A%I don't know\\idk% anything %%abt% garfield %%rly% but %%i% like %%2% look at him!! %%im% %A%going to\\gonna% put more stuff on there %A%later\\l8r% %%i% think. using the old garfield.com web archives %%4% %A%inspiration\\inspurration%, %%i% %N%n33d% %%2% find more good stuff %%2% fill it out. cool fat orange guy %E%B33%
+			</p>
+		`
+	},
 	{
 		date: new Date('2025-08-26T16:40'),
 		authors: ['prax'],
