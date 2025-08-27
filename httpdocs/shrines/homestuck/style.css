@@ -74,13 +74,28 @@ nav {
 	flex-wrap: wrap;
 	gap: 1rem;
 	margin: 0 auto;
-	img { max-width: min(5rem,20vw); }
+	img {
+		max-width: min(5rem,20vw);
+		transition: transform .2s;
+		&:hover, &:focus-visible {
+			transform: scale(1.1);
+		}
+	}
 }
 
 #playlists-disc { display: inline-block; }
 /* spin on hover */
-#playlists-disc img { transition: rotate 3s linear; }
-#playlists-disc:hover, #playlists-disc:focus-visible { img { rotate: 360deg; } }
+#playlists-disc img {
+	transition: transform .5s;
+}
+#playlists-disc { &:hover, &:focus-visible { img {
+		transform: scale(1.2);
+		animation: spin 4s linear infinite;
+} } }
+@keyframes spin{
+  0%{ rotate: 0deg; }
+  100%{ rotate: 360deg; }
+}
 
 .text-section {
 	padding: 0 1em;
