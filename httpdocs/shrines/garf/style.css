@@ -3,7 +3,9 @@
 	--white: white;
 	--orange: #e49836;
 	--l-yellow: #f5e99f;
+	--yellow: #ffff66;
 	--blue: #74b8d4;
+	--red: #cc0000;
 }
 
 html, body { height: 100%; width: 100%; }
@@ -12,12 +14,92 @@ body {
 	margin: 0;
 	font-family: "Garfield","Comic Sans MS","Comic Sans",sans-serif;
 	letter-spacing: .1em;
+	color: var(--black);
 	background: var(--l-yellow);
+}
+
+a, a:link, a:visited { color: var(--blue); }
+a:hover { color: var(--orange); }
+
+main {
+	display: flex;
+	height: 100%;
 	
-	> header {
-		padding: 1rem .5rem .5rem .5rem;
+	> .left, > .right {
+		background-image: url('images/garfield_bg_green.gif');
+		width: 88px;
+		min-width: 88px;
+	}
+	
+	> .left {
+		margin-left: 1.2rem;
+		margin-right: 1rem;
+	}
+	
+	nav {
+		padding: 3rem 0;
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+		
+		a, a:link, a:visited, button {
+      display: block;
+      width: 130%;
+			margin-left: -.5rem;
+			color: var(--black);
+      font-size: .75rem;
+      background: var(--yellow);
+      border: 2px black solid;
+      border-radius: 0 1em 1em 0;
+      padding: .3em .6em .2em .5em;
+		}
+		a:before, button:before {
+			content: '';
+			background-image: url('images/paw_off.svg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			width: 1em;
+			height: 1em;
+			display: inline-block;
+			margin-right: .35em;
+		}
+		a:hover, button:hover {
+			background: var(--white);
+			color: var(--red);
+			&:before { background-image: url('images/paw_on.svg'); }
+		}
+	}
+	
+	> .right {
+		margin-right: 1.2rem;
+		margin-left: 1rem;
+		@media screen and (width < 600px) { width: 0px; min-width: 0px; margin-right: 0px; }
+	}
+	
+	> .center {
+		flex-grow: 1;
+		min-width: 0;
 		text-align: center;
-		h1 { margin: 0; line-height: 1; }
-		img { max-width: min(600px,90vw); }
+		
+		> header {
+			padding: 1rem .5rem .5rem .5rem;
+			h1 { margin: 0; line-height: 1; }
+			img { max-width: min(600px,90%); }
+		}
+		
+		> img:first-of-type {
+			max-width: min(500px,80%);
+		}
+		
+		> .main {
+			background: var(--white);
+			width: min(550px,90%);
+			margin: 0 auto;
+			--m: max(-55px,-6.5vw); /* top margin */
+			margin-top: var(--m);
+			padding: calc(var(--m)*-1 + .35rem) 1rem 2rem 1rem;
+			border-radius: 1rem;
+			border: 3px var(--black) solid;
+		}
 	}
 }
