@@ -2,5 +2,5 @@
 <link href="/fonts/Garfield/stylesheet.css" rel="stylesheet" type="text/css">
 */
 
-@font-face { font-family: "Gharfield"; font-display: swap; src: url('/fonts/Garfield/Garfield.ttf'); }
+@font-face { font-family: "Garfield"; font-display: swap; src: url('/fonts/Garfield/Garfield.ttf'); }
 .txt-garfield { font-family: "Garfield", "Comic Sans MS", "Comic Sans", sans-serif; }
