@@ -1,0 +1,6 @@
+/*
+<link href="/fonts/AdLib/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face { font-family: "Ad Lib"; font-display: swap; src: url('/fonts/AdLib/AdLib.ttf'); }
+.txt-adlib { font-family: "Ad Lib", "Comic Sans MS", "Comic Sans", sans-serif; }
