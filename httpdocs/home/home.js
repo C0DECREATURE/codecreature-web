@@ -1,17 +1,8 @@
 var creditPopup;
 
 window.addEventListener('load',function() {
-	/*
 	//----- TV -----//
-	// list of all playables for tv
-	const videos = document.getElementById('tv-screen').children;
-	// current video
-	var cur = 0;
-	// whether tv is currently on
-	var tvOn = false;
-
-	initTV();
-	*/
+	
 	//----- CREDITS POPUP ----//
 	creditPopup = document.getElementById('credit');
 });
