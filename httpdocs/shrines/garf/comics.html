@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>the garf</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="favicon.gif">
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=10"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
+		
+		<script>fonts.load('Garfield')</script>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
+		<!-- page settings -->
+		<script src="/js/page-settings.min.js?fileversion=10"></script>
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.min.js?fileversion=10"></script>
+		
+		<!-- load jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=10"></script>
+		<!-- load navigation -->
+		<script> $(function(){ $("#nav-wrapper").load("nav.html"); }); </script> 
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<link href="comics.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<!--this page's script-->
+		<script src="comics.js?fileversion=10"></script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<a class="skip-to-content" href="#content">skip to content</a>
+		
+		<main>
+			<div id="nav-wrapper" class="left">
+			</div>
+			
+			<div class="center">
+				<div class="wrapper">
+					<header><h1>
+						<a href="/shrines/garf"><img id="logo" src="images/logo.png" alt="Garfield"></a>
+					</h1></header>
+					
+					<a id="content"><!-- anchor for keyboard nav --></a>
+					
+					<div id="comic-nav">
+						<button id="prev">previous</button>
+						<button id="next">next</button>
+					</div>
+					
+					<img id="comic-insert" src="https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%201978_jp2.zip&file=Garfield%201978_jp2/Garfield%201978_0000.jp2&id=garfield-complete&scale=1&rotate=0">
+				</div>
+			</div>
+			
+			<div class="right">
+			</div>
+		</main>
+		
+	</body>
+	<!--------------END BODY------------->
+</html>

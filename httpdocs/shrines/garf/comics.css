@@ -1,0 +1,29 @@
+main > .center > .wrapper {
+	background: var(--white);
+	border: 3px var(--black) solid;
+	padding-bottom: 2rem;
+	min-height: min(500px,55vw);
+	height: fit-content;
+	width: fit-content;
+	max-width: min(650px,100%);
+	margin: 1rem auto;
+}
+
+#comic-insert {
+	display: block;
+	margin: 0 auto 1rem auto;
+	padding: 1rem .5rem 0 .5rem;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	max-width: 100%;
+}
+.wrapper:has(#comic-insert) {
+	min-height: 180px;
+}
+
+#comic-nav {
+	width: min(400px,80%);
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 0 auto;
+}
