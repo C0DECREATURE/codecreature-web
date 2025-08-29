@@ -160,13 +160,14 @@ main {
 .tv .lighten { opacity: .15; mix-blend-mode: screen; }
 .tv .multiply { opacity: .2; mix-blend-mode: multiply; }
 
-.tv .screen video {
+.tv .screen youtube-player {
 	width: 160%;
 	height: 100%;
 	margin-left: -25%;
 	display: none;
 	/* background to show when video doesn't load */
 	background-image: url('/graphix/bg/tv-static.gif');
+	.buttons { display: none; }
 }
 /* buttons on front of tv */
 .tv .buttons {

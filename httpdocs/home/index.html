@@ -6,6 +6,12 @@
 		
 		<title>C0D3CR34TUR3!!</title>
 		
+		<!-- youtube video player -->
+		<script 
+			type="module" 
+			src="/js/alansYoutubePlayer/youtube-player-v1.js"
+		></script>
+		
 		<!-- universal base javascript -->
 		<script src="/js/required.js?fileversion=10"></script>
 		<!-- universal base css -->
@@ -34,9 +40,6 @@
 		
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.min.js?fileversion=10"></script>
-		
-		<!-- tv player scripts -->
-		<script src="/js/tv-player.js?fileversion=10"></script>
 		
 		<!-- image takeover -->
 		<script src="/js/image-takeover.js?fileversion=10"></script>
@@ -87,27 +90,16 @@
 						<div class="screen scanlines lighten"></div>
 						<div class="screen scanlines multiply"></div>
 						<div class="screen" id="tv-screen">
-							<!--
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/nyan-cat.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/go-kitty-go.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							<video onended="next()">
-								<source src="https://purraxis-neocities.000webhostapp.com/tv/maxwell-dance-dream.mp4" type="video/mp4">
-								<br><br>ERROR<br>browser does not<br>support video
-							</video>
-							-->
+							<youtube-player class="tv-video" :video="atJPkF9KHYc"></youtube-player>
+							<youtube-player class="tv-video" :video="QH2-TGUlwu4"></youtube-player>
+							<youtube-player class="tv-video" :video="Oyc1pluilgc"></youtube-player>
 						</div>
 						
 						<div class="buttons">
 							<!-- can't put on separate lines because that interprets as spaces -->
-							<button type="button" class="prev" onclick="prev()" aria-label="TV skip back">
-							</button><button type="button" class="play" onclick="playPause()" aria-label="TV power">
-							</button><button type="button" class="next" onclick="next()" aria-label="TV skip forward"></button>
+							<button type="button" class="prev" aria-label="TV skip back">
+							</button><button id="tv-play" type="button" class="play" aria-label="TV power">
+							</button><button type="button" class="next" aria-label="TV skip forward"></button>
 						</div>
 						
 						<!--contents credit-->
