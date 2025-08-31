@@ -190,10 +190,10 @@ main {
 	#newspaper {
 		position: fixed;
 		right: 0; bottom: 0;
-		transform: translate(-8%,40%);
+		transform: translate(-8%,60%);
 		rotate: -20deg;
 		background: var(--white);
-		width: min(400px,50vw);
+		width: max(14rem,min(400px,50vw));
 		height: min(420px,53vw);
 		border: 3px var(--black) solid;
 		
