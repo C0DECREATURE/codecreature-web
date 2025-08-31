@@ -1,0 +1,46 @@
+body {
+	background-color: var(--l-purple);
+}
+
+.center > .container {
+	max-width: min(780px,92%);
+	min-width: 0;
+	margin: 2rem auto;
+	--border: 4px var(--d-purple) solid;
+	border: var(--border);
+	border-top: none;
+	background: var(--white);
+	
+	header {
+		h1 { margin: 0; line-height: 0; }
+		.subtitle {
+			font-family: "Ad Lib", sans-serif;
+			background: linear-gradient(to bottom,#6c448b,#b280bb);
+			padding: .1em .5em 0 .5em;
+			border-bottom: var(--border);
+			color: var(--white);
+			font-size: 1rem;
+			text-shadow: 2px 1px var(--d-purple);
+		}
+	}
+}
+
+main {
+	> .left, > .right {
+		background-image: url('images/garfield_bg_purple_2x.jpg');
+	}
+}
+
+#posters {
+	display: flex;
+	flex-wrap: wrap;
+	--pad: 1rem;
+	padding: var(--pad);
+	gap: var(--pad);
+	
+	.poster {
+		max-width: calc(50% - (var(--pad)/2));
+		border: 2px var(--d-purple) solid;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	}
+}
