@@ -34,6 +34,7 @@
 			font-family: 'Garfield', 'Comic Sans MS', 'Comic Sans', sans-serif;
 			font-weight: bold;
 			font-size: .9rem;
+			&:hover { color: var(--red); }
 		}
 	}
 }
@@ -139,7 +140,7 @@ main {
 			&:after {
 				content: '';
 				position: absolute;
-				left: -5%; bottom: 53%;
+				left: -5%; bottom: 51%;
 				width: 100%;
 				padding-bottom: 70%;
 				background-image: url('images/button_topper.png');
