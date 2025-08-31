@@ -1,0 +1,59 @@
+.container {
+	background: var(--white);
+	padding: 1rem;
+	margin: 2rem auto 0 auto;
+	max-width: 80%;
+}
+
+#shelves {
+	margin: 1rem auto;
+	width: fit-content;
+  border-spacing: 0;
+	
+	--size: min(200px,30vw);
+	
+	tr:first-of-type {
+		height: calc(var(--size) * 0.275);
+		td {
+			background-image: url('images/merch/shelf_top_middle.png');
+			&:first-of-type { background-image: url('images/merch/shelf_top_left.png'); }
+			&:last-of-type { background-image: url('images/merch/shelf_top_right.png'); }
+		}
+		
+	}
+	
+	.item {
+		width: var(--size);
+		height: var(--size);
+		vertical-align: bottom;
+		
+		/* middle */
+		background-image: url('images/merch/shelf_middle.png');
+		text-align: center;
+		img { max-width: 100%; }
+		/* left side */
+		&:first-of-type {
+			background-image: url('images/merch/shelf_left.png');
+			text-align: right;
+			img { max-width: 80%; }
+		}
+		/* right side */
+		&:last-of-type {
+			background-image: url('images/merch/shelf_right.png');
+			text-align: left;
+			img { max-width: 85%; }
+		}
+		
+		img {
+			max-height: 90%;
+			display: inline-block;
+			margin-bottom: calc(var(--size)*.04);
+		}
+	}
+	
+	td {
+		background-size: 100% 100%;
+		&:first-of-type { width: calc(var(--size)*.9); }
+		&:last-of-type {  }
+	}
+}
