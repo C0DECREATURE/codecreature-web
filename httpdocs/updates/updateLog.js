@@ -11,8 +11,19 @@ const updateLog = [
 		details: `
 			
 		`
-	},garfield_2025_08_27.jpg
+	},
 */
+	{
+		date: new Date('2025-08-31T09:15'),
+		authors: ['bug','emery'],
+		tags: ['shrines','garfield'],
+		summary: `
+			added <a href="/shrines/garf">garf</a> content
+		`,
+		details: `
+			<a href="/shrines/garf">garfield shrine</a> expansion! added some <a href="/shrines/garf/merch.html">collectibles</a>, <a href="/shrines/garf/posters.html">posters</a>, and also every <a href="/shrines/garf/comics.html">daily comic</a> from 1978-2024. still need to finish making the tiling shelf pieces for the collectibles and pad out some of the pages with a bit more content!
+		`
+	},
 	{
 		date: new Date('2025-08-27T03:12'),
 		authors: ['prax'],
