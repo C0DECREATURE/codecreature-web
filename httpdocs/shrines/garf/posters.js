@@ -16,12 +16,16 @@ const posters = {
 	loadPoster: (...indexes)=>{
 		for (let index of indexes) {
 			if (index < posters.list.length) {
-				let img = document.createElement('img');
+				let loading = document.createElement('div');
+				loading.classList.add('poster','loading');
+				posters.container.appendChild(loading);
+				loading.style.backgroundImage = `url('${posters.list[index].src}')`;
+				/* let img = document.createElement('img');
 				img.src = posters.list[index].src;
 				img.alt = "";
 				img.classList.add('poster','full-viewable');
 				// add the element to the page once the image loads
-				img.addEventListener('load',()=>{ posters.container.appendChild(img) });
+				img.addEventListener('load',()=>{ posters.container.appendChild(img) }); */
 			}
 		}
 	},

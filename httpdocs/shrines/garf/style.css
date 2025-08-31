@@ -8,8 +8,34 @@
 	--l-blue: #7bfefc;
 	--red: #cc0000;
 	--l-purple: #f3c6fe;
+	--purple: #d399f0;
 	--d-purple: #660066;
 	--sidebar-color: #32ca97;
+}
+
+.page-settings {
+	--open-button-fill: var(--black);
+	--open-button-background: var(--yellow);
+	--open-button-border: 2px var(--black) solid;
+	--background: var(--white);
+	--border: 3px var(--black) solid;
+	--outline: 0px;
+	--color: var(--black);
+	--accent: var(--black);
+	.open-page-settings {
+		box-shadow: -3px 3px var(--black);
+		&:hover { --open-button-fill: var(--red); background: var(--white); }
+	}
+	#page-settings-contents {
+		border-radius: 1rem;
+		padding-top: 1.5rem;
+		font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+		label, button {
+			font-family: 'Garfield', 'Comic Sans MS', 'Comic Sans', sans-serif;
+			font-weight: bold;
+			font-size: .9rem;
+		}
+	}
 }
 
 html, body { height: 100%; width: 100%; }
@@ -43,10 +69,18 @@ a.skip-to-content {
 	&:hover, &:focus-visible {
 		filter: hue-rotate(15deg) saturate(80%) brightness(120%) contrast(120%);
 	}
+	user-select: none;
 }
 a:has(#logo) {
 	display: block;
 	height: fit-content;
+}
+
+.whitebox {
+	background: var(--white);
+	padding: 1.25rem 1rem 1.5rem 1rem;
+	border-radius: 1rem;
+	border: 3px var(--black) solid;
 }
 
 main {
@@ -98,6 +132,23 @@ main {
 			color: var(--red);
 			&:before { background-image: url('images/paw_on.svg'); }
 		} }
+		
+		a:first-of-type {
+			position: relative;
+			margin-top: 100%;
+			&:after {
+				content: '';
+				position: absolute;
+				left: -5%; bottom: 53%;
+				width: 100%;
+				padding-bottom: 70%;
+				background-image: url('images/button_topper.png');
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: 40% bottom;
+			}
+		}
+		
 	}
 	
 	> .right {
@@ -118,19 +169,18 @@ main {
 			h1 { margin: 0; line-height: 1; }
 		}
 		
-		> .main {
-			background: var(--white);
+		> .whitebox {
 			width: min(550px,90%);
 			margin: 0 auto;
 			--m: max(-55px,-6.5vw); /* top margin */
 			margin-top: var(--m);
 			padding: calc(var(--m)*-1 + .35rem) 1rem 2rem 1rem;
-			border-radius: 1rem;
-			border: 3px var(--black) solid;
 		}
 		
 		#content-topper {
 			max-width: min(500px,80%);
+			user-select: none;
+			pointer-events: none;
 		}
 	}
 	

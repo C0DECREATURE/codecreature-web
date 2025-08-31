@@ -39,8 +39,12 @@ main {
 	gap: var(--pad);
 	
 	.poster {
-		max-width: calc(50% - (var(--pad)/2));
+		width: calc(50% - (var(--pad)/2));
+		padding-bottom: 35.5%;
 		border: 2px var(--d-purple) solid;
+		background: var(--purple);
+		background-position: center;
+		background-size: cover;
 		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	}
 }
