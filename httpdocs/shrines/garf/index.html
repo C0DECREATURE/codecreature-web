@@ -22,10 +22,15 @@
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.min.js?fileversion=10"></script>
 		
+		<!-- load jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=10"></script>
+		<!-- load navigation -->
+		<script> $(function(){ $("#nav-wrapper").load("nav.html"); }); </script> 
+		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
-		<!--this page's script-->
-		<script src="script.js?fileversion=10"></script>
+		<!--this page's script(s)-->
+		<script src="newspaper.js?fileversion=10"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -33,28 +38,23 @@
 		<a class="skip-to-content" href="#content">skip to content</a>
 		
 		<main>
-			<div class="left">
-				<nav>
-					<div class="sr-only">Navigation</div>
-					<a href="/">Home</a>
-					<a href="/shrines">Shrines</a>
-					<a href="https://dailycomicsonline.com/category/garfield/" target="_blank">Comics</a>
-					<a href="">Merch</a>
-					<a href="https://www.bgreco.net/garfield/" target="_blank">Random</a>
-				</nav>
+			<div id="nav-wrapper" class="left">
 			</div>
 			
 			<div class="center">
-				<header><h1><img src="images/logo.png" alt="Garfield"></h1></header>
+				<header><h1><a href="/shrines/garf"><img id="logo" src="images/logo.png" alt="Garfield"></a></h1></header>
 				
-				<img src="images/garfield_laying_wave.png" alt="">
+				<div class="wrapper">
+					<img id="content-topper" src="images/garfield_laying_wave.png" alt="">
+				</div>
+				
 				<section id="content" class="main">
 					WIP! More coming soon...
 				</section>
 			</div>
 			
 			<div class="right">
-				<a id="newspaper" href="https://dailycomicsonline.com/category/garfield/" target="_blank">
+				<a id="newspaper" href="comics.html">
 					<header>
 						<h2>COMICS</h2>
 						<h4 id="news-date"></h4>
