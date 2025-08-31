@@ -1,3 +1,13 @@
+body {
+	background: var(--blue);
+}
+
+main {
+	> .left, > .right {
+		background-image: url('images/garfield_bg_blue_2x.jpg');
+	}
+}
+
 main > .center > .wrapper {
 	background: var(--white);
 	border: 3px var(--black) solid;
