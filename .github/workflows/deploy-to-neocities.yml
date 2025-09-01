@@ -4,7 +4,7 @@ name: Deploy to neocities
 on:
   push:
     branches:
-      - helioho.st
+      - main
 
 concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
