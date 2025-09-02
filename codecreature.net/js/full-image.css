@@ -6,11 +6,15 @@
 	font-size: 1rem; line-height: 1.25;
 	text-align: center;
 	
+	--accent: var(--white);
+	--text: inherit;
+	--background: none;
+	--border: 1px var(--accent) dashed;
 	
 	button {
 		z-index: 2;
 		position: absolute;
-		color: white;
+		color: var(--text);
 		font-size: max(3.5vw, 2rem);
 		background: none; padding: 0.25em 0.5em; border: none;
 	}
@@ -58,25 +62,17 @@
 			flex-shrink: 1;
 			min-height: 0;
 			
-			background: var(--black);
-			padding: 1em 1.5em;
+			background: var(--background);
+			padding: .75em 1em 1.5em 1em;
 			margin-top: 1rem;
+			border: var(--border);
 			
 			> * { max-width: 100%; }
 		}
 		p { margin: .5em auto; }
 		a:link { text-decoration: underline; }
 		.credit { font-size: 1.25em; font-weight: bold; }
-		hr { width: min(100%, 70vw); border: 1px var(--green) dashed; }
+		hr { width: min(100%, 65vw); border: none; border-top: var(--border); }
 	}
 	
-	.image {
-		
-	}
 }
-
-.full-image-view 
-
-.full-image-view 
-
-.full-image-view 

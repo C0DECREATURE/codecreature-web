@@ -2,6 +2,15 @@
 // put at top of html document
 		<!--full image view-->
 		<script src="/js/full-image.js?fileversion=9"></script>
+
+// optional CSS options for pages that load this script
+.full-image-view {
+	--accent: var(--white);
+	--text: inherit;
+	--background: var(--black);
+	--border: 1px var(--accent) dashed;
+}
+
 */
 
 // force strict mode

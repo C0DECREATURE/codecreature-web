@@ -36,6 +36,14 @@ a.skip-to-content { padding: .5em; background: var(--green); color: var(--black)
 /* page settings button */
 button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); } }
 
+/* full image view settings */
+.full-image-view {
+	--accent: var(--green);
+	--text: inherit;
+	--background: linear-gradient(rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 0%);
+	--border: 1px var(--accent) dashed;
+}
+
 /* navigation bar */
 .nav {
 	display: flex; flex-wrap: wrap; justify-content: center; gap: 2em; 
