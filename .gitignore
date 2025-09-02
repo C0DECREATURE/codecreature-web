@@ -31,8 +31,19 @@
 ######################
 /.composer
 /.ssh
+/.trash
+
+# site setup #
+######################
+.htaccess
+
+# github files #
+######################
 /git
 /logs
+/.github
+/LICENSE.md
+/README.md
 
 # OS generated files #
 ######################
