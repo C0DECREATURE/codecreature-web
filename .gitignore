@@ -29,9 +29,9 @@
 
 # heliohost files #
 ######################
-/.composer
-/.ssh
-/.trash
+.composer/*
+.ssh/*
+.trash/*
 
 # site setup #
 ######################
@@ -39,9 +39,9 @@
 
 # github files #
 ######################
-/git
-/logs
-/.github
+/git/*
+/logs/*
+/.github/*
 /LICENSE.md
 /README.md
 
