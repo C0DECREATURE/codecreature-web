@@ -13,7 +13,7 @@
 		<!-- universal base css -->
 		<link href="/js/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('Garfield')</script>
+		<script>fonts.load('Garfield');</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
@@ -21,6 +21,9 @@
 		<script src="/js/page-settings.min.js?fileversion=10"></script>
 		<!-- typing quirk alt text -->
 		<script src="/js/typing-quirks.min.js?fileversion=10"></script>
+		
+		<!--full image view-->
+		<script src="/js/full-image.js?fileversion=9"></script>
 		
 		<!-- load jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=10"></script>
@@ -67,26 +70,30 @@
 					<!-- shelf 1 -->
 					<tr>
 						<td class="item">
-							<img src="images/merch/mcdonalds_scooter_01.png" alt="">
+							<img src="images/merch/mcdonalds_scooter_01.png" alt=""
+								data-caption="1989 McDonald’s Happy Meal toy">
 						</td>
 						
 						<td class="item">
-							<img src="images/merch/mcdonalds_scooter_02.png" alt="">
+							<img src="images/merch/mcdonalds_scooter_02.png" alt=""
+								data-caption="1989 McDonald’s Happy Meal toy">
 						</td>
 						
 						<td class="item">
-							<img src="images/merch/mcdonalds_tractor.png" alt="">
+							<img src="images/merch/mcdonalds_tractor.png" alt=""
+								data-caption="1989 McDonald’s Happy Meal toy">
 						</td>
 						
 						<td class="item">
-							<img src="images/merch/mcdonalds_skateboard.png" alt="">
+							<img src="images/merch/mcdonalds_skateboard.png" alt=""
+								data-caption="1989 McDonald’s Happy Meal toy">
 						</td>
 					</tr>
 					
 					<!-- shelf 2 -->
 					<tr>
 						<td class="item small">
-							<img src="images/merch/clock_fat.png" alt="A very round Garfield with a small round clock in his belly">
+							<img src="images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
 						</td>
 						
 						<td class="item">
@@ -105,7 +112,6 @@
 					<!-- shelf 3 -->
 					<tr>
 						<td class="item">
-							<img src="" alt="">
 						</td>
 						
 						<td class="item">
@@ -122,6 +128,16 @@
 					</tr>
 					<!-- end of shelf items -->
 				</table>
+				<script>
+					// add full image view to shelf items
+					(()=>{
+						let items = document.getElementById('shelves').getElementsByClassName('item');
+						for (let i = 0; i < items.length; i++) {
+							let images = items[i].getElementsByTagName('img');
+							for (let j = 0; j < images.length; j++) { images[j].classList.add('full-viewable'); }
+						}
+					})();
+				</script>
 				
 			</div>
 			

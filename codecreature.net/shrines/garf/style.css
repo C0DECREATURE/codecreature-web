@@ -39,6 +39,17 @@
 	}
 }
 
+/* credit/caption under full image view */
+.full-image-view {
+	.fiv-content {
+		.text {
+			background: var(--white);
+			border-radius: 1rem;
+			border: 3px var(--black) solid;
+		}
+	}
+}
+
 html, body { height: 100%; width: 100%; }
 
 body {
