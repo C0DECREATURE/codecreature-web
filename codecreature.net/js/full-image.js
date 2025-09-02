@@ -2,9 +2,6 @@
 // put at top of html document
 		<!--full image view-->
 		<script src="/js/full-image.js?fileversion=9"></script>
-		<link href="/js/full-image.css?fileversion=9" rel="stylesheet" type="text/css"></link>
-		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js"></script>
 */
 
 // force strict mode
@@ -13,17 +10,22 @@
 const fullImageView = {
 	// full image view html element
 	element: null,
-	// full image view css element
-	css: null,
-	createCss: function() {
+	loadDependencies: function() {
 		if (!document.getElementById('full-image-view-css')) {
 			// add the associated style sheet to the document that loaded this
-			this.css = document.createElement('link');
-			this.css.rel = 'stylesheet';
-			this.css.type = 'text/css';
-			this.css.href = "/js/full-image.css?fileversion=9";
-			this.css.id = "full-image-view-css";
-			document.querySelector('HEAD').appendChild(this.css);
+			let css = document.createElement('link');
+			css.rel = 'stylesheet';
+			css.type = 'text/css';
+			css.href = "/js/full-image.css?fileversion=9";
+			css.id = "full-image-view-css";
+			document.querySelector('HEAD').appendChild(css);
+		}
+		if (!document.getElementById('svg-icons-js')) {
+			// add the associated style sheet to the document that loaded this
+			let js = document.createElement('script');
+			js.src = "/graphix/svg-icons/svg-icons.js";
+			js.id = "svg-icons-js";
+			document.querySelector('HEAD').appendChild(js);
 		}
 	},
 	// collection of img elements that can be clicked to full view
@@ -42,7 +44,7 @@ const fullImageView = {
 				<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>`;
 			}
 			
-			this.createCss();
+			this.loadDependencies();
 			
 			// add overlay element to body of html document if one doesn't exist
 			if (!document.querySelector('.full-image-view')) {
@@ -239,7 +241,7 @@ const fullImageView = {
 }
 
 // create css immediately when this script is loaded
-fullImageView.createCss();
+fullImageView.loadDependencies();
 
 window.addEventListener('load', () => {
 	if (typeof dontAutoInitFIV !== 'undefined' && dontAutoInitFIV) {}
