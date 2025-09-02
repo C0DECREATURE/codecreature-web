@@ -30,11 +30,13 @@ const fullImageView = {
 			document.querySelector('HEAD').appendChild(css);
 		}
 		if (!document.getElementById('svg-icons-js')) {
-			// add the associated style sheet to the document that loaded this
-			let js = document.createElement('script');
-			js.src = "/graphix/svg-icons/svg-icons.js";
-			js.id = "svg-icons-js";
-			document.querySelector('HEAD').appendChild(js);
+			try {
+				// add the associated style sheet to the document that loaded this
+				let js = document.createElement('script');
+				js.src = "/graphix/svg-icons/svg-icons.js";
+				js.id = "svg-icons-js";
+				document.querySelector('HEAD').appendChild(js);
+			} catch { console.error(`full image view couldn't load svg-icons.js`) }
 		}
 	},
 	// collection of img elements that can be clicked to full view

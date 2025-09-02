@@ -49,11 +49,14 @@ const svgIcons = {
 }
 
 // add the associated style sheet to the document that loaded this
-let svgCss = document.createElement('link');
-svgCss.rel = 'stylesheet';
-svgCss.type = 'text/css';
-svgCss.href = '/graphix/svg-icons/svg-icons.css';
-document.querySelector('head').appendChild(svgCss);
+if (!document.getElementById('svg-icons-css')) {
+	let svgCss = document.createElement('link');
+	svgCss.rel = 'stylesheet';
+	svgCss.type = 'text/css';
+	svgCss.href = '/graphix/svg-icons/svg-icons.css';
+	svgCss.id = 'svg-icons-css';
+	document.querySelector('head').appendChild(svgCss);
+}
 
 // on window load
 window.addEventListener("load", (event) => {
