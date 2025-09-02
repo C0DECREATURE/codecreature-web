@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>the garf</title>
+		<title>garf posters</title>
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="favicon.gif">
 		
@@ -13,7 +13,7 @@
 		<!-- universal base css -->
 		<link href="/js/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('Garfield')</script>
+		<script>fonts.load('Garfield','Ad Lib')</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
@@ -25,13 +25,13 @@
 		<!-- load jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=10"></script>
 		<!-- load navigation -->
-		<script> $(function(){ $("#nav-wrapper").load("nav.html"); }); </script> 
+		<script> $(function(){ $("#nav-wrapper").load("../nav.html"); }); </script> 
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
-		<link href="comics.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<link href="posters.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
 		<!--this page's script-->
-		<script src="comics.js?fileversion=10"></script>
+		<script src="posters.js?fileversion=10"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -43,19 +43,20 @@
 			</div>
 			
 			<div class="center">
-				<div class="wrapper">
-					<header><h1>
-						<a href="/shrines/garf"><img id="logo" src="images/logo.png" alt="Garfield"></a>
-					</h1></header>
+				<div class="container">
+					<header>
+						<h1><img class="banner" src="../images/posters/posters_banner.jpg" alt="Classic Garfield Posters, where every poster is a masterpiece!"></h1>
+						<div class="subtitle">
+							Super Selection • Excellent Value • Suitable for Framing • Great Gifts
+						</div>
+					</header>
 					
-					<a id="content"><!-- anchor for keyboard nav --></a>
-					
-					<div id="comic-nav">
-						<button id="prev">previous</button>
-						<button id="next">next</button>
+					<div id="content"><!-- anchor for keyboard nav -->
+						
+						<section id="posters"><!-- posters inserted here --></section>
+						<script>posters.init()</script>
+						
 					</div>
-					
-					<img id="comic-insert" src="https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%201978_jp2.zip&file=Garfield%201978_jp2/Garfield%201978_0000.jp2&id=garfield-complete&scale=1&rotate=0">
 				</div>
 			</div>
 			

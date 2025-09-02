@@ -4,7 +4,7 @@ body {
 
 main {
 	> .left, > .right {
-		background-image: url('images/garfield_bg_blue_2x.jpg');
+		background-image: url('../images/garfield_bg_blue_2x.jpg');
 	}
 }
 

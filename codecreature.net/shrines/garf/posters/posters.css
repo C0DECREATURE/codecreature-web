@@ -27,7 +27,7 @@ body {
 
 main {
 	> .left, > .right {
-		background-image: url('images/garfield_bg_purple_2x.jpg');
+		background-image: url('../images/garfield_bg_purple_2x.jpg');
 	}
 }
 
