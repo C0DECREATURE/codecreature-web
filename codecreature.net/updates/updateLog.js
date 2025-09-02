@@ -14,14 +14,38 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-09-02T16:05'),
+		authors: ['emery'],
+		tags: ['general','important'],
+		summary: `
+			<b>NEW DOMAIN!!</b>
+		`,
+		details: `
+			<p>Website domain has been updated to codecreature.net!</p>
+			<p>Neocities links will continue to function as long as Neocities exists, but if you've bookmarked or linked anything with the codecreature.helioho.st domain, update those asap! I will be taking the heliohost domain down in about a month.</p>
+			<p>The good news is, I should be able to maintain the .net domain forever, so even if I switch hosts in the future the links will be nice and stable %E%:)%</p>
+		`
+	},
+	{
+		date: new Date('2025-09-02T16:02'),
+		authors: ['emery'],
+		tags: ['shrines','garfield','minor'],
+		summary: `
+			<a href="/shrines/garf">garfield</a> image galleries added
+		`,
+		details: `
+			<p>Garfield <a href="/shrines/garf/merch">merch</a> and <a href="/shrines/garf/posters">posters</a> images can now be clicked to open full image views. Also, the full image overlay on all pages across the site has some minor style and code fixes!</p>
+		`
+	},
+	{
 		date: new Date('2025-08-31T09:15'),
 		authors: ['bug','emery'],
 		tags: ['shrines','garfield'],
 		summary: `
-			added <a href="/shrines/garf">garf</a> content
+			added <a href="/shrines/garf">garfield</a> content
 		`,
 		details: `
-			<a href="/shrines/garf">garfield shrine</a> expansion! added some <a href="/shrines/garf/merch.html">collectibles</a>, <a href="/shrines/garf/posters.html">posters</a>, and also every <a href="/shrines/garf/comics.html">daily comic</a> from 1978-2024. still need to finish making the tiling shelf pieces for the collectibles and pad out some of the pages with a bit more content!
+			<p><a href="/shrines/garf">garfield shrine</a> expansion! added some <a href="/shrines/garf/merch">collectibles</a>, <a href="/shrines/garf/posters">posters</a>, and also every <a href="/shrines/garf/comics">daily comic</a> from 1978-2024. still need to finish making the tiling shelf pieces for the collectibles and pad out some of the pages with a bit more content!</p>
 		`
 	},
 	{
