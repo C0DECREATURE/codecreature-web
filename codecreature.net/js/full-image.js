@@ -39,17 +39,12 @@ const fullImageView = {
 		if (!this.initCalled) {
 			this.initCalled = true;
 			
-			if (!document.getElementById('svg-icons-js')) {
-				document.querySelector('head').innerHTML += `<!-- svg icons -->
-				<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>`;
-			}
-			
 			this.loadDependencies();
 			
 			// add overlay element to body of html document if one doesn't exist
 			if (!document.querySelector('.full-image-view')) {
 				this.element = document.createElement('div');
-				this.element.classList.add('full-image-view');
+				this.element.classList.add('full-image-view','hidden');
 			} else this.element = document.querySelector('.full-image-view');
 			// fill it with content
 			this.element.innerHTML = `
@@ -68,14 +63,22 @@ const fullImageView = {
 				</button>
 				
 				<div class="fiv-content">
-					<img src="" alt="">
-					<p class="credit"></p>
-					<p class="caption"></p>
-					<p class="alt" aria-hidden="true"></p>
+					<div><img class="image" src="" alt=""></div>
+					<div class="text">
+						<p class="credit"></p>
+						<p class="caption"></p>
+						<p class="alt" aria-hidden="true"></p>
+					</div>
 				</div>
 			`;
 			// add it to the body
 			document.querySelector('body').appendChild(this.element);
+			
+			this.image = fullImageView.element.querySelector('.image');
+			this.textbox = fullImageView.element.querySelector('.text');
+			this.credit = fullImageView.element.querySelector('.credit');
+			this.caption = fullImageView.element.querySelector('.caption');
+			this.alt = fullImageView.element.querySelector('.alt');
 			
 			// make background clicker and close button close full image view
 			document.getElementById('fiv-clicker').addEventListener('click', fullImageView.close);
@@ -151,7 +154,7 @@ const fullImageView = {
 	close: function() {
 		if (fullImageView.isOpen()) {
 			// hide full view element
-			fullImageView.element.style.display = 'none';
+			fullImageView.element.classList.add('hidden');
 			// focus image that was opened
 			fullImageView.viewables[fullImageView.curEl].focus();
 		}
@@ -184,7 +187,7 @@ const fullImageView = {
 		console.log('opening full image #' + logNum + ': ' + src);
 		
 		// put the image in the overlay
-		fullImageView.element.querySelector('img').src = src;
+		fullImageView.image.src = src;
 		// if credit link was provided
 		var credit = img.dataset.credit;
 		var creditLabel = img.dataset.creditLabel;
@@ -192,29 +195,33 @@ const fullImageView = {
 			let txt = '<a href="' + credit + '">';
 			if ( creditLabel ) txt += creditLabel + '</a>';
 			else txt += 'credit</a>';
-			fullImageView.element.querySelector('.credit').innerHTML = txt;
-		} else fullImageView.element.querySelector('.credit').innerHTML = '';
+			fullImageView.credit.innerHTML = txt;
+		} else fullImageView.credit.innerHTML = '';
 		// if caption was provided
 		var caption = img.dataset.caption;
-		if ( caption ) fullImageView.element.querySelector('.caption').innerHTML = caption;
-		else fullImageView.element.querySelector('.caption').innerHTML = '';
+		if ( caption ) fullImageView.caption.innerHTML = caption;
+		else fullImageView.caption.innerHTML = '';
 		// if image has alt text provided
 		if ( alt && alt != "" ) {
-			fullImageView.element.querySelector('img').alt = alt;
+			fullImageView.image.alt = alt;
 			let txt = '';
 			if (credit || caption) txt += '<hr>';
-			fullImageView.element.querySelector('.alt').innerHTML = txt + 'alt text: ' + alt;
-		} else fullImageView.element.querySelector('.alt').innerHTML = '';
+			fullImageView.alt.innerHTML = txt + 'alt text: ' + alt;
+		} else fullImageView.alt.innerHTML = '';
+		
+		// if text content was provided
+		if (credit || caption || alt) { fullImageView.textbox.classList.remove('hidden'); }
+		else { fullImageView.textbox.classList.add('hidden'); }
 		
 		if (!fullImageView.isOpen()) {
 			// display the full image overlay
-			fullImageView.element.style.display = 'block';
+			fullImageView.element.classList.remove('hidden');
 			// focus the full image overlay
 			document.getElementById('fiv-close').focus();
 		}
 	},
 	// returns boolean - whether full image view is open
-	isOpen: function() { return fullImageView.element.style.display == 'block'; },
+	isOpen: function() { return !fullImageView.element.classList.contains('hidden'); },
 	// touchscreen variables
 	touchInput: {
 		startX: 0,
@@ -223,7 +230,7 @@ const fullImageView = {
 		endY: 0,
 		check: function() {
 			// if the full image overlay is displayed
-			if ( fullImageView.element.style.display == 'block' ) {
+			if ( fullImageView.isOpen() ) {
 				// minimum pixels of movement to consider a touch a swipe
 				var minSwipe = 30;
 				// if horizontal swipe was made
