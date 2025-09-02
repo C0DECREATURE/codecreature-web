@@ -39,9 +39,9 @@
 
 # github files #
 ######################
-/git/*
-/logs/*
-/.github/*
+git/*
+logs/*
+.github/*
 /LICENSE.md
 /README.md
 
