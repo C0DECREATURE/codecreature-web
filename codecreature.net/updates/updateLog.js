@@ -14,6 +14,17 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-09-03T02:15'),
+		authors: ['emery'],
+		tags: ['bugs'],
+		summary: `
+			directory errors
+		`,
+		details: `
+			<p>A couple pages are having some issues due to the new github system, hopefully will have that sorted soon - I'm really figuring the webhosting stuff out on the fly here lol</p>
+		`
+	},
+	{
 		date: new Date('2025-09-02T16:05'),
 		authors: ['emery'],
 		tags: ['general','important'],
@@ -488,17 +499,18 @@ const updateLog = [
 	},
 	{
 		date: new Date('2024-03-09T00:40'),
-		tags: ['bugs'],
+		tags: ['bug fix'],
 		summary: `
-			broke the %%upd8% page tag system again
+			<s>broke the %%upd8% page tag system again</s>
 		`,
 		details: `
-			<p>
+			<p>Update from the future - fixed!</p>
+			<p><s>
 				something %A%about\\abt% my recent edits made the %A%update\\upd8% tag filters stop working %A%properly\\purroperly%. oops.
-			</p>
-			<p>
+			</s></p>
+			<p><s>
 				%%im% %A%too\\2% busy %%2% fix it right %A%now\\meow% but %%ill% get %%2% that eventually %E%:'33%
-			</p>
+			</s></p>
 		`
 	},
 	{
