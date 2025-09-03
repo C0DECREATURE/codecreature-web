@@ -22,7 +22,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center"><img src="images/garfield_2025_09_03.jpg"></p>
-			<p>Various <a href="/shrines/garf">Garfield</a> page adjustments, mostly on the <a href="/shrines/garf/comics">comics</a> page! Added fancier styling, loading indicators, date info, and fancy previous/next buttons.</p>
+			<p>Various <a href="/shrines/garf">Garfield</a> page adjustments, mostly on the <a href="/shrines/garf/comics">comics</a> page! Added fancier styling, loading indicators, date info, cursor, and fancy previous/next buttons.</p>
 		`
 	},
 	{
