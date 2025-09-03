@@ -8,3 +8,7 @@
 	<a href="/shrines">Shrines</a>
 	<a href="/">Home</a>
 </nav>
+
+<div id="nav-ad">
+	<img src="/shrines/garf/images/checks_ad.gif">
+</div>

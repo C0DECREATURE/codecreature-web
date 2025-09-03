@@ -112,8 +112,16 @@ main {
 		margin-left: 1.2rem;
 	}
 	
+	#nav-wrapper {
+		display: flex; flex-direction: column;
+		height: 100%;
+		justify-content: space-between;
+		align-items: center;
+		padding: min(3rem,5vh) 0;
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	}
+	#nav-ad { @media screen and (height < 500px) { display: none; } }
 	nav {
-		padding: 3rem 0;
 		display: flex;
 		flex-direction: column;
 		gap: max(.5rem,.8vw);
@@ -161,7 +169,6 @@ main {
 				background-position: 40% bottom;
 			}
 		}
-		
 	}
 	
 	> .right {
