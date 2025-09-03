@@ -1,7 +1,7 @@
 // self executing
 (function(){
 	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
-		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.helioho.st');
+		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	} else if (
 		localStorage.getItem("showWarnings") == "false" &&
 		window.location.pathname.replaceAll('/','') == '' &&
