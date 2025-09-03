@@ -501,7 +501,7 @@ const updateLog = [
 		date: new Date('2024-03-09T00:40'),
 		tags: ['bug fix'],
 		summary: `
-			<s>broke the %%upd8% page tag system again</s>
+			broke the %%upd8% tag system again (resolved)
 		`,
 		details: `
 			<p>Update from the future - fixed!</p>
@@ -649,7 +649,7 @@ const updateLog = [
 	},
 	{
 		date: new Date('2024-01-10T12:00'),
-		tags: ['bugs','games','worm race'],
+		tags: ['bug fix','games','worm race'],
 		summary: `
 			wormrace down for maintenance (resolved)
 		`,
