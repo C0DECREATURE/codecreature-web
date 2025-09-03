@@ -42,9 +42,11 @@
 
 /* credit/caption under full image view */
 .full-image-view {
+	color: var(--orange);
 	.fiv-content {
 		.text {
 			background: var(--white);
+			color: var(--black);
 			border-radius: 1rem;
 			border: 3px var(--black) solid;
 		}
