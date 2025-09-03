@@ -63,6 +63,15 @@ body {
 	background: var(--l-yellow);
 }
 
+/* cursor */
+body.customCursor, .customCursor * {
+	cursor: url("/shrines/garf/images/cursor.png"), auto;
+	/* links cursor */
+	a, a:hover, button, button:hover {
+		cursor: url("/shrines/garf/images/cursor.png"), auto;
+	}
+}
+
 a, a:link, a:visited { color: var(--red); }
 a:hover { color: var(--orange); }
 
