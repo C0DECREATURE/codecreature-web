@@ -165,7 +165,7 @@ main {
 			&:after {
 				content: '';
 				position: absolute;
-				left: -5%; bottom: 51%;
+				left: -8%; bottom: 51%;
 				width: 100%;
 				padding-bottom: 70%;
 				background-image: url('images/button_topper.png');
