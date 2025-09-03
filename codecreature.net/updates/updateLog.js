@@ -14,14 +14,26 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-09-03T02:15'),
+		date: new Date('2025-09-03T04:41'),
 		authors: ['emery'],
-		tags: ['bugs'],
+		tags: ['shrines','garfield'],
 		summary: `
-			directory errors
+			fancier <a href="/shrines/garf/comics">garfield comics</a>
 		`,
 		details: `
-			<p>A couple pages are having some issues due to the new github system, hopefully will have that sorted soon - I'm really figuring the webhosting stuff out on the fly here lol</p>
+			<p align="center"><img src="images/garfield_2025_09_03.jpg"></p>
+			<p>Various <a href="/shrines/garf">Garfield</a> page adjustments, mostly on the <a href="/shrines/garf/comics">comics</a> page! Added fancier styling, loading indicators, date info, and fancy previous/next buttons.</p>
+		`
+	},
+	{
+		date: new Date('2025-09-03T02:15'),
+		authors: ['emery'],
+		tags: ['bug fix'],
+		summary: `
+			directory errors fixed
+		`,
+		details: `
+			<p>A couple pages were having some issues due to the host/domain transfer, hopefully sorted now. I'm really figuring the webhosting stuff out on the fly here lol</p>
 		`
 	},
 	{
