@@ -9,31 +9,93 @@ main {
 }
 
 main > .center > .wrapper {
+	position: relative;
 	background: var(--white);
 	border: 3px var(--black) solid;
-	padding-bottom: 2rem;
-	min-height: min(500px,55vw);
+	padding-bottom: 2.5rem;
+	@media screen and (width >= 800px) { min-height: min(550px,55vw); }
+	@media screen and (width < 800px) { min-height: min(550px,65vw); }
+	
 	height: fit-content;
-	width: fit-content;
-	max-width: min(650px,100%);
-	margin: 1rem auto;
+	width: min(700px,100%);
+	max-width: 100%;
+	margin: max(1rem,5vh) auto;
+	
+	> header {
+		h1 { margin-bottom: 0; }
+		p {
+			margin-top: -.25em; margin-bottom: 1.5rem;
+			font-family: 'Ad Lib','Garfield',sans-serif;
+			text-transform: uppercase;
+			font-size: min(2rem, 5vw);
+		}
+	}
 }
 
 #comic-insert {
+	position: relative;
+	z-index: 1;
 	display: block;
 	margin: 0 auto 1rem auto;
-	padding: 1rem .5rem 0 .5rem;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
-	max-width: 100%;
+	max-width: min(600px,100%);
 }
-.wrapper:has(#comic-insert) {
-	min-height: 180px;
+#comic-wrapper {
+	position: relative;
+	min-height: min(220px,25vw);
+	width: 94%;
+  margin: 0 auto;
+	
+	figcaption { margin-bottom: .5em; }
+	
+	&:before {
+		content: 'Loading...';
+		position: absolute;
+		left: 0; top: 0;
+		line-height: min(200px,20vw);
+		width: 100%;
+		height: 100%;
+	}
 }
 
 #comic-nav {
-	width: min(400px,80%);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transform: translateY(50%);
+	z-index: 3;
+	width: 100%;
 	display: flex;
-	justify-content: center;
-	gap: 1rem;
-	margin: 0 auto;
+	justify-content: space-between;
+}
+
+#prev, #next {
+	display: block;
+	font-family:'Ad Lib','Garfield',sans-serif;
+	text-transform: uppercase;
+	img { display: block; }
+}
+@media screen and (width < 1100px) {
+	#next { transform: translateX(6%); }
+	#prev { transform: translateX(-6%); }
+}
+@media screen and (width >= 1100px) {
+	#prev, #next {
+		display: block;
+		position: relative;
+		font-family:'Ad Lib','Garfield',sans-serif;
+		span {
+			position: absolute;
+			bottom: 40%;
+			text-transform: uppercase;
+		}
+	}
+	#next {
+		transform: translateX(48%);
+		span { left: 65%; }
+	}
+	#prev {
+		transform: translateX(-48%);
+		span { right: 65%; }
+	}
 }

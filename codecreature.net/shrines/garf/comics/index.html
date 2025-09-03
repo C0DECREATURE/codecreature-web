@@ -13,7 +13,7 @@
 		<!-- universal base css -->
 		<link href="/js/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('Garfield')</script>
+		<script>fonts.load('Garfield','Ad Lib')</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
@@ -44,18 +44,32 @@
 			
 			<div class="center">
 				<div class="wrapper">
-					<header><h1>
-						<a href="/shrines/garf"><img id="logo" src="../images/logo.png" alt="Garfield"></a>
-					</h1></header>
+					<header>
+						<h1>
+							<a href="/shrines/garf"><img id="logo" src="../images/logo.png" alt="Garfield"></a>
+						</h1>
+						<p>Comics Archive</p>
+					</header>
 					
 					<a id="content"><!-- anchor for keyboard nav --></a>
+					<div class="sr-only">Unfortunately, the comics on this page do not have alt text.</div>
+					
+					<figure id="comic-wrapper">
+						<figcaption></figcaption>
+						<img id="comic-insert" src="https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%201978_jp2.zip&file=Garfield%201978_jp2/Garfield%201978_0000.jp2&id=garfield-complete&scale=1&rotate=0" alt="">
+					</figure>
 					
 					<div id="comic-nav">
-						<button id="prev">previous</button>
-						<button id="next">next</button>
+						<button id="prev">
+							<img src="../images/point_left.png" alt="">
+							<span>older</span>
+						</button>
+						<button id="next">
+							<img src="../images/point_right.png" alt="">
+							<span>newer</span>
+						</button>
 					</div>
 					
-					<img id="comic-insert" src="https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%201978_jp2.zip&file=Garfield%201978_jp2/Garfield%201978_0000.jp2&id=garfield-complete&scale=1&rotate=0">
 				</div>
 			</div>
 			

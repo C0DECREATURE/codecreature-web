@@ -67,7 +67,9 @@ const comic = {
     return urlNum;
 	},
 	load: ()=>{
+		document.getElementById(comic.id).src = '';
 		document.getElementById(comic.id).src = `https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
+		document.getElementById('comic-wrapper').querySelector('figcaption').innerHTML = `${comic.year} #${comic.num+1}`
 		console.log(`Loaded comic: ${comic.year} #${comic.num+1}`);
 	},
 	next: ()=>{
