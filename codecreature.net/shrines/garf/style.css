@@ -117,10 +117,13 @@ main {
 		height: 100%;
 		justify-content: space-between;
 		align-items: center;
-		padding: min(3rem,5vh) 0;
+		padding: min(3rem,5vh) 0 min(1.5rem,2vh) ;
 		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	}
-	#nav-ad { @media screen and (height < 500px) { display: none; } }
+	#nav-ad {
+		max-width: 90%;
+		@media screen and (height < 500px) { display: none; }
+	}
 	nav {
 		display: flex;
 		flex-direction: column;
@@ -213,8 +216,8 @@ main {
 		transform: translate(-8%,60%);
 		rotate: -20deg;
 		background: var(--white);
-		width: max(14rem,min(400px,50vw));
-		height: min(420px,53vw);
+		width: max(14rem,min(70vh,min(400px,50vw)));
+		height: min(70vh,min(420px,53vw));
 		border: 3px var(--black) solid;
 		
 		transition: all 0.25s;
