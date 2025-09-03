@@ -15,7 +15,6 @@ let urlParams; // url search parameters
 
 let updateArea; // area where update elements should be placed
 let allTags = {}; // all update tags + their states
-let updateSort = 'newest';
 
 // tag related functions
 const tags = {
@@ -51,7 +50,7 @@ const tags = {
 			}
 			
 			// if display should update, update it
-			if (update != false && added) { updateTagDisplay(); }
+			if (update != false && added) { tags.update(); }
 			
 			// update the toggle button style for the tag 
 			var btn = document.getElementById(allTags[tag].tClass + '-toggle')
@@ -81,7 +80,7 @@ const tags = {
 			}
 			
 			// if display should update, update it
-			if (update != false && added) { updateTagDisplay(); }
+			if (update != false && added) { tags.update(); }
 			
 			// update the toggle button style for the tag 
 			var btn = document.getElementById(allTags[tag].tClass + '-toggle')
@@ -108,7 +107,7 @@ const tags = {
 			if (excludeIndex > -1) { excludedTags.splice(excludeIndex, 1); }
 			
 			// if display should update, update it
-			if (update != false && (includeIndex > -1 || excludeIndex > -1)) { updateTagDisplay(); }
+			if (update != false && (includeIndex > -1 || excludeIndex > -1)) { tags.update(); }
 			
 			// update the toggle button style for the tag 
 			var btn = document.getElementById(allTags[tag].tClass + '-toggle')
@@ -123,17 +122,35 @@ const tags = {
 		}
 		else console.error('tags.reset() could not reset tag ' + tag + ' (not in allTags list)');
 	},
+	// update the tags to show via the URL parameters, then reset the page
+	update: function() {
+		let newUrl = new URL(location);
+		newUrl.searchParams.set("includedTags", includedTags.toString());
+		newUrl.searchParams.set("excludedTags", excludedTags.toString());
+		firstUpdate = 0;
+		newUrl.searchParams.set("firstUpdate", firstUpdate);
+		// add new parameters to url
+		history.pushState({}, "", newUrl);
+		// reload updates with new parameters
+		updates.load();
+	},
 };
 
 const updates = {
 	// list of all update elements
 	list: [],
+	// current sort function
+	sort: 'newest',
 	// sorts by the given string ('newest','oldest')
 	sortBy: function(sort) {
 		filters.close();
-		if (updateSort != sort) {
-			updateSort = sort;
-			firstUpdate = 0;
+		if (updates.sort != sort) {
+			updates.sort = sort;
+			let newUrl = new URL(location);
+			newUrl.searchParams.set("updateSort", sort);
+			// add new search parameters to url
+			history.pushState({}, "", newUrl);
+			// reload updates with new parameters
 			updates.load();
 		}
 	},
@@ -159,7 +176,7 @@ const updates = {
 			// if it meets requirements, add to list
 			if (load) {
 				// if sorting oldest to newest, add to beginning
-				if (updateSort == 'oldest') { loadUpdates.unshift(update); }
+				if (updates.sort == 'oldest') { loadUpdates.unshift(update); }
 				// if sorting newest to oldest (default), add to end
 				else { loadUpdates.push(update); }
 			}
@@ -291,7 +308,7 @@ const updates = {
 	firstUpdate = Math.floor(firstUpdate/showLimit) * showLimit;
 	
 	// if url parameters specifies a sort order
-	if ( urlParams.has('updateSort') ) { updateSort = urlParams.get('updateSort'); }
+	if ( urlParams.has('updateSort') ) { updates.sort = urlParams.get('updateSort'); }
 	
 	// check if this page has 'iframe' in its URL parameters
 	// and that iframe parameter is not set to 'false'
@@ -386,17 +403,4 @@ const filters = {
 
 function updateIFrameDisplay() {
 	document.getElementById('more-link').href = window.location.pathname + window.location.search;
-}
-
-// update tags to show and reload
-function updateTagDisplay() {
-	let newUrl = new URL(location);
-	newUrl.searchParams.set("includedTags", includedTags.toString());
-	newUrl.searchParams.set("excludedTags", excludedTags.toString());
-	firstUpdate = 0;
-	newUrl.searchParams.set("firstUpdate", firstUpdate);
-	// add new parameters to url
-	history.pushState({}, "", newUrl);
-	// reload updates with new parameters
-	updates.load();
 }
