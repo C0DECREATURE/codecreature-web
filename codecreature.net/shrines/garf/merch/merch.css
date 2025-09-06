@@ -15,6 +15,16 @@
 		height: calc(var(--size)*1.192);
 		vertical-align: bottom;
 		
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: flex-end;
+			gap: 5%;
+			padding-bottom: calc(var(--size)*.05);
+		}
+		
 		/* middle */
 		background-image: url('../images/merch/shelf_middle.png');
 		text-align: center;
@@ -28,9 +38,10 @@
 		}
 		/* right side */
 		&:last-of-type {
+			width: calc(var(--size)*1.458);
 			background-image: url('../images/merch/shelf_right.png');
 			text-align: left;
-			img { max-width: 85%; }
+			img { max-width: 67%; }
 		}
 		
 		img {
@@ -41,6 +52,11 @@
 		}
 		
 		&.small img {
+			max-height: 50%;
+			max-width: 50%;
+		}
+		
+		&.med img {
 			max-height: 70%;
 			max-width: 70%;
 		}
@@ -88,7 +104,13 @@
 					width: 110.3%;
 				}
 			}
-			&:last-of-type { background-image: url('../images/merch/shelf_top_right.png'); }
+			&:last-of-type {
+				&:before {
+					background-image: url('../images/merch/shelf_top_right.png');
+					width: 106.31%;
+					left: 0;
+				}
+			}
 		}
 	}
 	
