@@ -79,12 +79,8 @@
 	
 	/* top of shelves */
 	tr:first-of-type {
-		height: 0;
-		z-index: 2;
-		
 		td {
 			position: relative;
-			height: 0;
 			
 			&:before {
 				content: '';
@@ -94,6 +90,7 @@
 				background-size: 100%;
 				position: absolute;
 				right: 0;
+				top: 0;
 				height: calc(var(--size));
 				width: 100%;
 			}
