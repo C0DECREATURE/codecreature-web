@@ -287,7 +287,8 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 		width: 100%;
 		padding: 0 .2em;
 		font-size: var(--header-fontsize);
-		color: var(--text-dark);
+		color: var(--brown-1);
+		--text-shadow-color: var(--pink-7);
 	}
 	.deco { position: absolute; right: 0; top: 0; height: 2.5rem; }
 }
@@ -351,13 +352,13 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	
 	h2 {
 		margin-left: auto;
-		margin-top: max(-5vw, -60px);
+		margin-top: max(-7vw, -70px);
 		max-width: 60%;
 		font-size: max(1rem, min(5rem,10vw));
 		line-height: 1;
 	}
 	
-	p { margin: 0 0 0 auto; max-width: 70%; font-size: max(1rem, min(1.75rem,3.5vw)); }
+	p { margin: .5em 0 0 auto; max-width: 70%; font-size: max(1rem, min(1.75rem,3.5vw)); }
 }
 
 /************************** BUTTONS **************************/
