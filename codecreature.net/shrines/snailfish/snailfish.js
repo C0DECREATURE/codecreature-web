@@ -10,16 +10,6 @@ const speciesList = {
 		location: `Mariana Trench`,
 		photo: `photos/polaroids/mariana_snailfish_01.png`,
 		photoCaption: `Little guy looking for crustaceans`,
-		videos: [
-			{
-				src: 'https://www.youtube.com/embed/lc8Ovo33fNc',
-				title: 'Deep Sea Planet'
-			},
-			{
-				src: 'https://www.youtube.com/embed/2Y047jlTosk',
-				title: 'The Deepest Fish'
-			}
-		],
 		info: `
 			<p>The most famous hadal snailfish! Since 2017, when it became the first fish from such extreme depths to have its genome sequenced, the MHS has been extremely important for our understanding of how vertebrates survive the trenches. It has tons of extra copies of certain genes, while others (like the ones that produce skin color) are totally gone!</p>
 			<p>Gene analysis indicates that the Mariana snailfish likely has severely degraded vision, as is typical for deep sea animals, but may be able to see dim blue light. This could be an indicator that bioluminescence exists somewhere in the trench! <a href="https://www.researchgate.net/publication/353605156_Insights_into_the_vision_of_the_hadal_snailfish_Pseudoliparis_swirei_through_proteomic_analysis_of_the_eye">(source)</a>
@@ -131,7 +121,7 @@ const speciesList = {
 	}
 }
 
-var speciesDetails, speciesPolaroid, speciesPhoto, speciesCaption, speciesVideos;
+var speciesDetails, speciesPolaroid, speciesPhoto, speciesCaption;
 
 //set up the page
 function initSnailfish() {
@@ -139,7 +129,6 @@ function initSnailfish() {
 	speciesPolaroid = speciesDetails.querySelector('.polaroid');
 	speciesPhoto = speciesPolaroid.querySelector('.photo');
 	speciesCaption = speciesPolaroid.querySelector('.caption');
-	speciesVideos = speciesDetails.querySelector('.videos');
 	
 	loadSpecies('mariana');
 }
@@ -177,29 +166,6 @@ function loadSpecies(s) {
 		
 		// details section
 		speciesDetails.querySelector('.info').innerHTML = s.info;
-		
-		// DEBUG: first video not cleared when switching species
-		// videos
-		if (s.videos && s.videos.length > 0) {
-			let videos = speciesVideos.children;
-			// clear all previously loaded videos
-			for (let i = 0; i < videos.length; i++) {
-				if ( videos[i].classList.contains('temp') ) videos[i].remove();
-			}
-			/* add this species' videos from list */
-			for (let i = 0; i < s.videos.length; i++) {
-				let v = speciesVideos.children[0].cloneNode(true);
-				data = s.videos[i];
-				v.src = data.src;
-				v.title = data.title;
-				v.classList.remove('hidden');
-				v.classList.add('temp');
-				speciesVideos.appendChild(v);
-			}
-			// make sure video area is displayed
-			speciesVideos.classList.remove('hidden');
-		}
-		else { speciesVideos.classList.add('hidden'); }
 		
 		// update the content of all links to source material
 		//updateSourceLinks(speciesDetails);

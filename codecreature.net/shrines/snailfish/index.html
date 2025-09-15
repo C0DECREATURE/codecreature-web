@@ -69,7 +69,7 @@
 						</header>
 						<div class="main">
 							<p>There are over 400 known snailfish species, ranging from shallow waters to the hadal zone.</p>
-							<p>These silly little guys are the apex predators of the trenches!</p>
+							<p>These squishy, scaleless little fish are the apex predators of the trenches!</p>
 							<p>An unknown snailfish species holds the deepest fish record at over 8300 meters.</p>
 							<p>Hadal snailfish have jelly-like bones and an unfused skull, which lets them survive immense water pressure.</p>
 						</div>
@@ -150,11 +150,14 @@
 							let speciesButtons = document.getElementById('species-selection').getElementsByTagName('button');
 							for (let button of speciesButtons) {
 								// scroll to put species selection at the top of screen when button clicked
+								// if species details is shorter than window height, put bottom at bottom of screen instead
 								button.addEventListener('click',()=>{
-									window.scrollTo({
-										top: document.getElementById('species-details').offsetTop,
-										behavior:'smooth'
-									});
+									let speciesDetails = document.getElementById('species-details');
+									let scrollModifier = Math.max(0, window.innerHeight - speciesDetails.offsetHeight);
+									console.log(speciesDetails.offsetHeight);
+									console.log('scroll modifier: ' + scrollModifier);
+									// scroll
+									window.scrollTo({ top: speciesDetails.offsetTop - scrollModifier, behavior:'smooth' });
 								});
 							}
 						})();
@@ -180,15 +183,18 @@
 							</div></div>
 						</div>
 					</section>
-					
-					<footer>
-						<header><h3>Videos</h3></header>
-						<div class="videos">
-							<iframe class="video hidden yt-video" src="" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-						</div>
-					</footer>
-					
 				</section>
+			</section>
+			
+			<section id="videos">
+				<header><h3>Videos</h3></header>
+				<div class="videos">
+					<!-- Deep Sea Planet -->
+					<iframe class="video yt-video" src="https://www.youtube.com/embed/lc8Ovo33fNc" title="Deep Sea Planet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					
+					<!-- The Deepest Fish -->
+					<iframe class="video yt-video" src="https://www.youtube.com/embed/2Y047jlTosk" title="The Deepest Fish" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
 			</section>
 		</main>
 		

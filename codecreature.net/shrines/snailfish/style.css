@@ -400,7 +400,7 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	background: var(--blue-10);
 	
 	/* left/right padding */
-	header, .main, footer {
+	header, .main {
 		padding: 0 var(--section-padding-h);
 	}
 	
@@ -443,22 +443,22 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 		/* polaroid image */
 		.wrapper:has(> .polaroid) { min-width: min(50%, 300px); max-width: 300px; }
 	}
+}
+
+#videos {
+	background: var(--blue-11);
+	padding: 0 var(--section-padding-h);
+	padding-top: 1rem;
+	padding-bottom: 10rem;
+	width: 100%;
+	
+	.videos {
+		display: flex; gap: 1rem;
+		overflow-x: scroll;
+		padding: 1rem 0 1.5rem 0;
 		
-	/* footer with videos */
-	footer {
-		background: var(--blue-11);
-		padding-top: 1rem;
-		padding-bottom: 10rem;
-		width: 100%;
-		
-		.videos {
-			display: flex; gap: 1rem;
-			overflow-x: scroll;
-			padding: 1rem 0 1.5rem 0;
-			
-			.video {
-				width: max( min( calc(100vw - (var(--section-padding-h) * 2)), 300px ), 33% );
-			}
+		.video {
+			width: max( min( calc(100vw - (var(--section-padding-h) * 2)), 300px ), 33% );
 		}
 	}
 }
