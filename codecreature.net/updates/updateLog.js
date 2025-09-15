@@ -13,6 +13,19 @@ const updateLog = [
 		`
 	},
 */
+	/*{
+		date: new Date('YYYY-MM-DDTHH:mm'),
+		authors: [],
+		tags: [],
+		summary: `
+			
+		`,
+		details: `
+			<p>
+				garf <a href="/shrines/garf/merch">merch shelf</a> display style finished!! still %N%n33ds% mobile %A%though\\tho%
+			</p>
+		`
+	},*/
 	{
 		date: new Date('2025-09-03T04:41'),
 		authors: ['emery'],
