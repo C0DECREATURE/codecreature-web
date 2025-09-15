@@ -127,7 +127,7 @@
 	}
 	
 	/* top row of merch */
-	tr:nth-of-type(2) {
+	tr:first-of-type {
 		td img {
 			max-height: 70%;
 		}

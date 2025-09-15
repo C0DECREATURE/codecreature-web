@@ -33,8 +33,8 @@
 		<!--this page's stylesheets-->
 		<link href="../style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
 		<link href="merch.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
-		<!-- this page's script -->
-		<script src="merch.js?fileversion=10"></script>
+		<!-- shelf table resize script --
+		<script src="merchShelf.js?fileversion=10"></script>-->
 	</head>
 	
 	<!-----------BODY------------------->
@@ -57,72 +57,74 @@
 				</div>
 				
 				<table id="shelves">
-					<!-- Shelved Garfield merch --
-						<td class="item">
-							<img src="../images/merch/" alt="">
-						</td>
-					-->
-					<!-- shelf 1 -->
-					<tr>
+					<tbody>
+						<!-- Shelved Garfield merch --
+							<td class="item">
+								<img src="../images/merch/" alt="">
+							</td>
+						-->
+						<!-- shelf 1 -->
+						<tr>
+							
+							<td class="item small"><div class="wrapper">
+								<img src="../images/merch/mcdonalds_scooter_02.png" alt=""
+									data-caption="1989 McDonald’s Happy Meal toy">
+								<img src="../images/merch/mcdonalds_skateboard.png" alt=""
+									data-caption="1989 McDonald’s Happy Meal toy">
+							</div></td>
+							
+							<td class="item med">
+								<img src="../images/merch/mcdonalds_scooter_01.png" alt=""
+									data-caption="1989 McDonald’s Happy Meal toy">
+							</td>
+							
+							<td class="item small"><div class="wrapper">
+								<img src="../images/merch/mcdonalds_tractor.png" alt=""
+									data-caption="1989 McDonald’s Happy Meal toy">
+								<img src="../images/merch/wendys_magnifier.png" alt="">
+							</div></td>
+							
+							<td class="item small">
+							</td>
+						</tr>
 						
-						<td class="item small"><div class="wrapper">
-							<img src="../images/merch/mcdonalds_scooter_02.png" alt=""
-								data-caption="1989 McDonald’s Happy Meal toy">
-							<img src="../images/merch/mcdonalds_skateboard.png" alt=""
-								data-caption="1989 McDonald’s Happy Meal toy">
-						</div></td>
+						<!-- shelf 2 -->
+						<tr>
+							<td class="item small">
+								<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/coin_bank.png" alt="A coin bank of Garfield sitting up, crossing his arms with a smirk">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/plush_01.png" alt="">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/plush_mcdonalds.png" alt="">
+							</td>
+						</tr>
 						
-						<td class="item med">
-							<img src="../images/merch/mcdonalds_scooter_01.png" alt=""
-								data-caption="1989 McDonald’s Happy Meal toy">
-						</td>
-						
-						<td class="item small"><div class="wrapper">
-							<img src="../images/merch/mcdonalds_tractor.png" alt=""
-								data-caption="1989 McDonald’s Happy Meal toy">
-							<img src="../images/merch/wendys_magnifier.png" alt="">
-						</div></td>
-						
-						<td class="item small">
-						</td>
-					</tr>
-					
-					<!-- shelf 2 -->
-					<tr>
-						<td class="item small">
-							<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
-						</td>
-						
-						<td class="item">
-							<img src="../images/merch/coin_bank.png" alt="A coin bank of Garfield sitting up, crossing his arms with a smirk">
-						</td>
-						
-						<td class="item">
-							<img src="../images/merch/plush_01.png" alt="">
-						</td>
-						
-						<td class="item">
-							<img src="../images/merch/plush_mcdonalds.png" alt="">
-						</td>
-					</tr>
-					
-					<!-- shelf 3 -->
-					<tr>
-						<td class="item">
-						</td>
-						
-						<td class="item">
-							<img src="../images/merch/plush_02.png" alt="">
-						</td>
-						
-						<td class="item">
-							<img src="../images/merch/coin_bank_feed.png" alt="A coin bank of Garfield sitting with a fork and knife raised. He is wearing a red bandana that reads 'Feed the kitty.'">
-						</td>
-						
-						<td class="item small">
-						</td>
-					</tr>
-					<!-- end of shelf items -->
+						<!-- shelf 3 -->
+						<tr>
+							<td class="item">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/plush_02.png" alt="">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/coin_bank_feed.png" alt="A coin bank of Garfield sitting with a fork and knife raised. He is wearing a red bandana that reads 'Feed the kitty.'">
+							</td>
+							
+							<td class="item small">
+							</td>
+						</tr>
+						<!-- end of shelf items -->
+					</tbody>
 				</table>
 				<script>
 					// add full image view to shelf items
