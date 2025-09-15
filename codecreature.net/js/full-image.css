@@ -49,7 +49,7 @@
 			flex-grow: 0;
 			img {
 				max-width: 85vw;
-				max-height: 85vw;
+				max-height: 100%;
 			}
 		}
 		
@@ -61,7 +61,7 @@
 			min-height: 0;
 			
 			background: var(--background);
-			padding: .75em 1em 1.5em 1em;
+			padding: .75em 1em 1em 1em;
 			margin-top: 1rem;
 			border: var(--border);
 			
