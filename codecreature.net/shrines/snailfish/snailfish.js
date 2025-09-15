@@ -55,7 +55,7 @@ const speciesList = {
 			}
 		],
 		info: `
-			<p>With its large eyes, blue skin, and comparatively small arm fins, the blue snailfish doesn't look like any other known hadal species. It actually evolved from a totally independent genus of shallower-sea fish! This discovery shows that the snailfish family don't just dominate the trenches because they got lucky; their biology is so well-suited to adapting to the extreme deep that they've gone through the process at least two separate times.</p>
+			<p>With its large eyes, blue skin, and comparatively small arm fins, the blue snailfish doesn't look like any other known hadal species. After genetic analysis, it was found to have evolved from a totally independent genus of shallower-sea fish! This discovery shows that the snailfish family don't dominate the trenches because they got lucky; their biology is so well-suited to adapting to the extreme deep that they've gone through the process at least two separate times.</p>
 			
 			<p>This species is also notable for having more bones than most snailfish. Unclear what it's doing with those extra vertebrae (65 total, twice as many as humans!)</p>
 			
@@ -127,7 +127,7 @@ const speciesList = {
 		photo: `photos/polaroids/threadfin_snailfish_02.gif`,
 		photoAlt: `GIF of a small gray snailfish swimming`,
 		photoCaption: `Filmed in its natural habitat!`,
-		info: `The threadfin snailfish is a benthopelagic fish found on the sea floor. Despite living thousands of meters above, it shares many features in common with its deeper-sea hadal cousins, including its prominent facial sensory pores.`
+		info: `The threadfin snailfish is a benthopelagic fish found on the sea floor. Despite living thousands of meters above the trenches, it shares many features in common with its deeper hadal cousins, including its prominent facial sensory pores.`
 	}
 }
 
