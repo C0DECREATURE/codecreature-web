@@ -96,14 +96,13 @@
 			
 			<section id="species">
 				<header>
-					<div class="bg-wrapper"><img class="bg" src="images/species-header.png" alt=""></div>
+					<div class="bg-wrapper"><img class="bg" src="images/species_header.png" alt=""></div>
 					<h2>meet the family</h2>
 					<p>these are some of my favorite deep sea snailfish species, including several undescribed specimens!</p>
 				</header>
 				
 				<section id="species-selection">
-					
-					<div class="button-wrapper"><button onclick="loadSpecies('mariana')">
+					<div class="button-wrapper"><button onclick="loadSpecies('mariana');speciesButtonClicked();">
 						<div class="polaroid"><div class="wrapper">
 							<img class="photo" src="photos/polaroids/mariana_snailfish_01.png" alt="">
 							<p>Mariana</p>
@@ -145,6 +144,21 @@
 						</div></div>
 					<button></div>
 					
+					<script>
+						(()=>{
+							// for each button in #species-selection
+							let speciesButtons = document.getElementById('species-selection').getElementsByTagName('button');
+							for (let button of speciesButtons) {
+								// scroll to put species selection at the top of screen when button clicked
+								button.addEventListener('click',()=>{
+									window.scrollTo({
+										top: document.getElementById('species-details').offsetTop,
+										behavior:'smooth'
+									});
+								});
+							}
+						})();
+					</script>
 				</section>
 				
 				<section id="species-details">
@@ -195,10 +209,10 @@
 			
 			<h2>AMPHIPODS</h2>
 			<p>
-				are among the most common <b>invertebrates</b> in the hadal zone. They are also the primary prey for snailfish!
+				are among the most common <b>invertebrates</b> in the hadal zone. They are also the primary food source for hadal snailfish!
 			</p>
 			<p>
-				Much like snailfish, these little crustaceans have undergone special adaptations to thrive in the extreme deep. They are opportunistic <b>scavengers</b> that can withstand <b>long periods of starvation</b> between meals.
+				Much like the fish, these little crustaceans have undergone special adaptations to thrive in the extreme deep. They are opportunistic <b>scavengers</b> that can withstand <b>long periods of starvation</b> between meals.
 			</p>
 			<p>
 			Amphipods are found throughout hadal snailfish habitats, and even beyond into waters too deep for any fish! There are <b>over 9,000 species</b> of aphipods described so far, found in a wide range of habitats including <b>oceans</b>, <b>rivers</b>, <b>lakes</b>, <b>beaches</b>, and even in <b>moist areas of land</b>.
