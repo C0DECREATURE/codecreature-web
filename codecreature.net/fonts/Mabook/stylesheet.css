@@ -1,0 +1,12 @@
+/*
+<link href="/fonts/Mabook/stylesheet.css" rel="stylesheet" type="text/css">
+*/
+
+@font-face {
+	font-family: "Mabook";
+	font-display: swap;
+	src: url('Mabook.otf');
+	src: url("Mabook.otf")format("opentype"),
+			url("Mabook.ttf")format("truetype");
+}
+.txt-mabook { font-family: "Mabook", "Comic Sans MS", "Comic Sans", sans-serif; }
