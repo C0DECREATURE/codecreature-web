@@ -9,7 +9,7 @@ const speciesList = {
 		depth: `8,076 meters`,
 		location: `Mariana Trench`,
 		photo: `photos/polaroids/mariana_snailfish_01.png`,
-		photoCaption: `Little guy looking for crustaceans`,
+		photoCaption: `Looking for crustaceans`,
 		info: `
 			<p>The most famous hadal snailfish! Since 2017, when it became the first fish from such extreme depths to have its genome sequenced, the MHS has been extremely important for our understanding of how vertebrates survive the trenches. It has tons of extra copies of certain genes, while others (like the ones that produce skin color) are totally gone!</p>
 			<p>Gene analysis indicates that the Mariana snailfish likely has severely degraded vision, as is typical for deep sea animals, but may be able to see dim blue light. This could be an indicator that bioluminescence exists somewhere in the trench! <a href="https://www.researchgate.net/publication/353605156_Insights_into_the_vision_of_the_hadal_snailfish_Pseudoliparis_swirei_through_proteomic_analysis_of_the_eye">(source)</a>
