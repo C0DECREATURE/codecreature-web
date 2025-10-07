@@ -14,7 +14,7 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-09-15T23:24'),
+		date: new Date('2025-10-08T01:36'),
 		authors: ['emery'],
 		tags: ['shrines','snailfish'],
 		summary: `
@@ -25,7 +25,7 @@ const updateLog = [
 				<img src="images/snailfish_2025_09_15.jpg" alt="A screenshot of the new snailfish aquarium layout. It includes an aquarium with a pale pink snailfish, a poster of a snail, a hadal zone diagram, a jar of fish food with a shrimp label, and a model of the Nautilus deep sea vehicle. The sketches have a smooth cartoonish style and use a limited color palette of blues, pinks, yellows, oranges.">
 			</p>
 			<p>
-				Working on the <a href="/shrines/snailfish">snailfish</a> page a bit, new color palette, new sketches, and some layout adjustments! Art is still sketchy but it's a closer approximation than the previous version. Can't do the final art until I have my tablet agiain, but hopefully soon I'd like to work on some content additions, better navigation between screens, and video player updates.
+				Working on the <a href="/shrines/snailfish">snailfish</a> page a bit, new color palette, new sketches, and some layout adjustments! Art is still sketchy but it's a closer approximation than the previous version. Can't do the final art until I have my tablet again, but hopefully soon I'd like to work on some content additions, better navigation between screens, and video updates.
 			</p>
 		`
 	},
