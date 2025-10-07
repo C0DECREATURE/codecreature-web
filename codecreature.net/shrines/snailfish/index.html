@@ -13,6 +13,9 @@
 		<!-- page settings -->
 		<script src="/js/page-settings.min.js?fileversion=10"></script>
 		
+		<!-- load fonts -->
+		<script>fonts.load('Mabook');</script>
+		
 		<!--base stylesheet-->
 		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
@@ -64,14 +67,14 @@
 				<section id="trivia">
 					<div>
 						<header>
-							<h3 class="text-outline-2px">TRIVIA</h3>
+							<h3 class="text-outline-2px">Trivia</h3>
 							<img class="deco" src="images/trivia_deco_top.png" alt="">
 						</header>
 						<div class="main">
 							<p>There are over 400 known snailfish species, ranging from shallow waters to the hadal zone.</p>
 							<p>These squishy, scaleless little fish are the apex predators of the trenches!</p>
 							<p>An unknown snailfish species holds the deepest fish record at over 8300 meters.</p>
-							<p>Hadal snailfish have jelly-like bones and an unfused skull, which lets them survive immense water pressure.</p>
+							<p>Hadal species have developed jelly-like bones and an unfused skull to survive immense water pressure.</p>
 						</div>
 						<footer>
 							<img class="deco" src="images/trivia_deco_bottom.png" alt="">
@@ -87,22 +90,20 @@
 						<div class="polaroid"><div class="wrapper">
 							<img class="top-left" src="images/tiny_fish.png" alt="">
 							<img class="photo" src="photos/polaroids/snailfish_01.png" alt="">
-							<p>Lorem ipsum dolor sit amet.</p>
+							<p>Water puppy!</p>
 						</div></div>
 					</div>
 				</section>
 				
 			</section>
 			
-			<section id="species">
-				<header>
-					<div class="bg-wrapper"><img class="bg" src="images/species_header.png" alt=""></div>
-					<h2>meet the family</h2>
-					<p>these are some of my favorite deep sea snailfish species, including several undescribed specimens!</p>
-				</header>
+			<section id="species" class="wave-section">
+				<header><h2>meet the family</h2></header>
+				
+				<p>these are some of my favorite deep sea snailfish species, including several undescribed specimens!</p>
 				
 				<section id="species-selection">
-					<div class="button-wrapper"><button onclick="loadSpecies('mariana');speciesButtonClicked();">
+					<div class="button-wrapper"><button onclick="loadSpecies('mariana');">
 						<div class="polaroid"><div class="wrapper">
 							<img class="photo" src="photos/polaroids/mariana_snailfish_01.png" alt="">
 							<p>Mariana</p>
@@ -137,13 +138,6 @@
 						</div></div>
 					<button></div>
 					
-					<div class="button-wrapper"><button onclick="loadSpecies('')">
-						<div class="polaroid"><div class="wrapper">
-							<img class="photo" src="photos/polaroids/default.png" alt="">
-							<p>??</p>
-						</div></div>
-					<button></div>
-					
 					<script>
 						(()=>{
 							// for each button in #species-selection
@@ -152,19 +146,21 @@
 								// scroll to put species selection at the top of screen when button clicked
 								// if species details is shorter than window height, put bottom at bottom of screen instead
 								button.addEventListener('click',()=>{
+									/* DEBUG - scroll to top not working right
 									let speciesDetails = document.getElementById('species-details');
 									let scrollModifier = Math.max(0, window.innerHeight - speciesDetails.offsetHeight);
 									console.log(speciesDetails.offsetHeight);
 									console.log('scroll modifier: ' + scrollModifier);
 									// scroll
 									window.scrollTo({ top: speciesDetails.offsetTop - scrollModifier, behavior:'smooth' });
+									*/
 								});
 							}
 						})();
 					</script>
 				</section>
 				
-				<section id="species-details">
+				<section id="species-details" class="wave-section">
 					<header>
 						<img class="icon" src="photos/icons/snailfish_01.png" alt="">
 						<div class="names">
@@ -186,8 +182,8 @@
 				</section>
 			</section>
 			
-			<section id="videos">
-				<header><h3>Videos</h3></header>
+			<section id="videos" class="wave-section">
+				<header><h2>videos</h2></header>
 				<div class="videos">
 					<!-- Deep Sea Planet -->
 					<iframe class="video yt-video" src="https://www.youtube.com/embed/lc8Ovo33fNc" title="Deep Sea Planet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

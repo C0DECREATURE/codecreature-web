@@ -1,7 +1,10 @@
-#preview-guide { opacity: 0; padding-top:10px; z-index: 1000; position: absolute; top: 0; left: 50%; transform: translate(-50%,0); width: min(1100px,100%); }
+#preview-guide { opacity: 0; padding-top:10px; z-index: 1000; position: absolute; top: 0; left: 50%; transform: translate(-50%,0); width: var(--content-width); }
 
 :root {
-	--border: 4px var(--blue-10) solid;
+	--max-content-width: 900px;
+	--content-width: min(var(--max-content-width), 100vw);
+	
+	--border: 4px var(--blue-11) solid;
 	--border-radius: 1.5rem;
 	--section-padding-h: min(2em,4%);
 	
@@ -36,6 +39,7 @@
 	--pink-5: #9d668d;
 	--pink-6: #7d5274;
 	--pink-7: #5c3b66;
+	--pink-8: #412549;
 	
 	--brown-1: #ffd872;
 	--brown-2: #f1b367;
@@ -58,7 +62,7 @@ body {
 	color: var(--text);
 	background: var(--blue-11);
 }
-@media screen and (width < 1100px) { body { overflow-x: hidden; } }
+@media screen and (width < var(--max-content-width)) { body { overflow-x: hidden; } }
 
 /* header text */
 h1, h2, h3, h4 { margin: 0; }
@@ -77,7 +81,7 @@ button { margin: 0; padding: 0; background: none; font-size: inherit; font-weigh
 /************************** FULL SCREEN PAGES **************************/
 .full-page {
 	margin: 0 auto;
-	width: min(1100px,100%);
+	width: var(--content-width);
 	
 	b {
 		color: var(--pink-4);
@@ -118,10 +122,26 @@ main {
 iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 
 /************************** POLAROID PHOTOS **************************/
-.polaroid { max-width: 100%; background: white; }
-.polaroid > .wrapper { width: 100%; padding: calc(4% + 4px); }
-.polaroid p { font-family: 'Comic Sans MS', sans-serif; color: var(--text-dark); text-align: center; margin: 0; }
+.polaroid {
+	max-width: 100%;
+	font-family: 'Mabook', sans-serif;
+	color: var(--blue-7);
+	text-align: center;
+	font-size: 1.5rem;
+}
+.polaroid > .wrapper {
+	width: 100%;
+	padding: calc(4% + 4px);
+	padding-bottom: .3em;
+	position: relative;
+	background: var(--white);
+}
+.polaroid p { margin: 0; }
 .polaroid, .polaroid .photo { border: var(--border); }
+.polaroid .photo {
+	aspect-ratio: 1 / 1;
+	background: var(--blue-11);
+}
 
 /************************************************************************/
 /************************** AQUARIUM SECTION **************************/
@@ -131,13 +151,12 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	padding-top: 1em;
 	display: flex; flex-direction: column; gap: 0;
 	background-color: var(--blue-9);
-	background-image: url('images/header.png');
+	background-image: url('images/header_bg.svg');
 	background-size: 100% 100%;
 	border-bottom: var(--border);
 	
 	> header {
 		margin-left: 3%;
-    margin-top: 1rem;
 		z-index: 1;
 		width: 80%;
 		img { max-height: 1em; }
@@ -154,7 +173,7 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	pointer-events: none;
 	position: absolute;
 	z-index: 1;
-	bottom: 4%;
+	bottom: 5%;
 	left: 58%;
   transform: translate(-50%,0);
   width: 70%;
@@ -206,7 +225,7 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 .button-wrapper:has(#fish-food) {
 	z-index: 2;
 	position: absolute;
-	bottom: 1%;
+	bottom: .5%;
   right: -2%;
   width: 14%;}
 
@@ -219,7 +238,9 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	width: 100%;
 	display: flex; gap: 2.5rem; flex-wrap: wrap;
 	justify-content: center; align-items: start;
-	padding: 3rem var(--section-padding-h) 8rem var(--section-padding-h);
+	padding: 3rem var(--section-padding-h);
+	/* account for next section's header */
+	padding-bottom: calc(.12 * var(--content-width));
 }
 
 /************************** TRIVIA BOX **************************/
@@ -228,9 +249,9 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 #trivia { border: var(--border); }
 
 #trivia {
-	--header-fontsize: max(1rem, min(3rem,10vw));
+	--header-fontsize: max(1rem, min(3rem, calc(.1 * var(--content-width))));
 	flex: 1;
-	min-width: min(23rem,95vw); max-width: 40rem;
+	min-width: min(22rem,95vw); max-width: 40rem;
 	border-radius: var(--border-radius);
 	background: var(--pink-5);
 	padding: .5rem;
@@ -243,8 +264,9 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 #trivia > div > .main {
 	border: var(--border);
 	border-color: var(--pink-7);
-	padding: var(--header-fontsize) 0 3rem 0;
-	margin: calc(var(--header-fontsize)*-1) 0 -3rem 0;
+	padding-top: var(--header-fontsize);
+	margin-top: calc(var(--header-fontsize)*-1);
+	margin-bottom: -3rem;
 	border-top: none; border-bottom: none;
 	background: var(--blue-9);
 	
@@ -257,6 +279,10 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 		text-align: center;
 		/* no bottom divider on last item */
 		&:last-child { border-bottom: none; }
+		&:nth-child(2n) { background-color: var(--blue-10); }
+		&:last-child {
+			padding-bottom: 3.5rem;
+		}
 	}
 }
 
@@ -284,6 +310,8 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	margin-bottom: -.5rem;
 	.bg { bottom: 0; }
 	h3 {
+		font-family: 'Mabook', 'Comic Sans MS', 'Comic Sans', sans-serif;
+		letter-spacing: .04em;
 		width: 100%;
 		padding: 0 .2em;
 		font-size: var(--header-fontsize);
@@ -302,7 +330,7 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 /************************** MAIN TEXT **************************/
 #basic-info > .main {
 	flex: 3;
-	min-width: min(calc(16em + 1em + 290px),100%);
+	min-width: min(17em,100%);
 	max-width: 50rem;
 	display: flex; flex-wrap: wrap; gap: 1em;
 	justify-content: center;
@@ -312,13 +340,14 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 #basic-info > .main { margin-bottom: 2.5rem; }
 #basic-info > .main > p { flex: 2; min-width: min(16em,100%); }
 #basic-info > .main div:has(.polaroid) {
-	position: relative;
-	flex: 1; min-width: min(290px,90%); max-width: min(400px,90%);
+	flex: 1;
+	width: 250px; min-width: min(300px,90%);
+	flex-grow: 0;
 	rotate: 2deg;
 }
 #basic-info .polaroid .top-left {
 	position: absolute;
-	top: 5%; left: -8%;
+	top: 3%; left: -8%;
 	width: 30%;
 	rotate: -25deg;
 	filter: drop-shadow(0 5px 0 var(--blue-9));
@@ -332,11 +361,11 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	width: 100%; display: flex;
 	flex-direction: column;
 	background: var(--blue-9);
+	z-index: 1;
 }
 #species > header {
 	z-index: 1;
 	position: relative; width: 100%;
-	margin-top: 3px;
 	padding: 0 var(--section-padding-h);
 	text-align: right;
 	
@@ -352,21 +381,27 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	
 	h2 {
 		margin-left: auto;
-		margin-top: max(-7vw, -70px);
 		max-width: 60%;
-		font-size: max(1rem, min(5rem,10vw));
 		line-height: 1;
 	}
-	
-	p { margin: .5em 0 0 auto; max-width: 70%; font-size: max(1rem, min(1.75rem,3.5vw)); }
+}
+#species > p {
+	max-width: 70%; 
+	padding: 0 var(--section-padding-h);
+	font-size: max(1rem, min(1.75rem,3.5vw));
+	text-align: right;
+	margin: .25em 0 0 auto;
 }
 
 /************************** BUTTONS **************************/
 #species-selection {
-	z-index: 2;
 	display: flex;
 	justify-content: center; align-items: start;
+	
 	padding: 0;
+	/* account for next section's header */
+	padding-bottom: calc(.22 * var(--content-width));
+	
 	> .button-wrapper {
 		margin: 1.75%;
 		--r-abs: min(var(--r), calc(var(--r)*-1));
@@ -394,18 +429,23 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 
 /************************** SPECIES DETAILS **************************/
 #species-details {
-	z-index: 2; 
 	--icon-width: min(45%, max(27%,15rem));
 	width: 100%;
 	background: var(--blue-10);
+	z-index: 2;
 	
 	/* left/right padding */
 	header, .main {
 		padding: 0 var(--section-padding-h);
 	}
 	
+	/* account for next section's header */
+	padding-bottom: calc(.05 * var(--content-width));
+	
 	header {
-		display: flex; align-items: start;
+		display: flex;
+		align-items: start;
+		bottom: calc(100% + (.02 * var(--content-width)));
 	}
 
 	/* header icon */
@@ -420,13 +460,19 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	.names {
 		z-index: 0;
 		margin: 4% 0 1rem max(-4em,-8vw);
-		padding: min(1em,2vw) min(3em,6vw) min(1em,2vw) min(5em,10vw);
+		padding: min(.8em,2vw) min(3em,6vw) min(.8em,2vw) min(5em,10vw);
 		border-radius: 0 var(--border-radius) var(--border-radius) 0;
 		border: var(--border);
-		background: linear-gradient(to right, var(--accent-light-2), var(--accent-light-1));
-		color: var(--text-dark);
+		background: var(--pink-5);
+		color: var(--pink-8);
+		text-shadow: 2px 2px var(--pink-6);
+		font-family: 'Mabook', 'Comic Sans MS', 'Comic Sans', sans-serif;
 	}
-	.common-name { font-size: max(1rem, min(3rem, 6vw)); line-height: 1em; }
+	.common-name {
+		font-size: max(1rem, .045 * var(--content-width));
+		line-height: 1em;
+		letter-spacing: 0.05em;
+	}
 	.scientific-name { font-size: max(1rem, min(2rem, 4vw)); line-height: 1em; margin-bottom: .33em; }
 	
 	/* main area */
@@ -441,7 +487,9 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 		}
 		
 		/* polaroid image */
-		.wrapper:has(> .polaroid) { min-width: min(50%, 300px); max-width: 300px; }
+		.wrapper:has(> .polaroid) {
+			min-width: min(50%, 300px); max-width: 300px;
+		}
 	}
 }
 
@@ -451,6 +499,7 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 	padding-top: 1rem;
 	padding-bottom: 10rem;
 	width: 100%;
+	z-index: 3;
 	
 	.videos {
 		display: flex; gap: 1rem;
@@ -462,3 +511,39 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 		}
 	}
 }
+
+.wave-section {
+	position: relative;
+	
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		z-index: -1;
+		--height: calc(.15 * var(--content-width));
+		height: var(--height);
+		top: calc((-1 * var(--height)) + 2px); left: 0;
+		background-size: auto 100%;
+		background-position: bottom;
+		background-repeat: no-repeat;
+		pointer-events: none;
+	}
+	
+	header {
+		position: absolute;
+		bottom: 100%;
+		margin-top: calc(-1 * var(--size));
+		--size: max( 1rem, min( 11vw, max(1rem, calc(.06 * var(--content-width))) ) );
+		
+		h2 {
+			display: inline-block;
+			margin-top: calc( -.5 * var(--size) );
+			font-size: var(--size);
+			font-weight: normal;
+			font-family: 'Mabook', 'Comic Sans MS', 'Comic Sans', sans-serif;
+		}
+	}
+}
+#species:before { background-image: url('images/species_header.svg'); }
+#species-details:before { background-image: url('images/species_details_header.svg'); }
+#videos:before { background-image: url('images/videos_header.svg'); }
