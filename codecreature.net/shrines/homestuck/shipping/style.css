@@ -24,6 +24,16 @@ body {
 	font-weight: bold;
 }
 
+body.red-only .ship:not(.red) { display: none; }
+body.pale-only .ship:not(.pale) { display: none; }
+body.black-only .ship:not(.black) { display: none; }
+body.ashen-only .ship:not(.ashen) { display: none; }
+body.conciliatory-only .ship:not(.conciliatory) { display: none; }
+body.concupiscent-only .ship:not(.concupiscent) { display: none; }
+body.red-romance-only .ship:not(.red-romance) { display: none; }
+body.black-romance-only .ship:not(.black-romance) { display: none; }
+body.all-only #currently-showing { display: none; }
+
 img { image-rendering: pixelated; }
 img.flip { transform: scale(-100%,100%); }
 
@@ -51,6 +61,12 @@ section#ship-squares {
 	padding: 0 15px;
 	max-width: 940px;
 	margin: 0 auto;
+	
+	header {
+		width: 100%;
+		h2 { margin: 0; }
+		margin-bottom: .25rem;
+	}
 	
 	.ship {
 		margin-top: 1rem;
@@ -205,4 +221,18 @@ nav {
 	--background: var(--black);
 	--color: var(--pink);
 	--accent: var(--white);
+}
+
+#quadrants-diagram {
+	margin: 0 auto;
+	width: min(508px,100%);
+	background-image: url('images/quadrants_diagram_background.png');
+	background-size: 100%;
+	border-spacing: 0px;
+	tr, td {
+		padding: 0;
+	}
+	button:hover {
+		transform: scale(1.1);
+	}
 }

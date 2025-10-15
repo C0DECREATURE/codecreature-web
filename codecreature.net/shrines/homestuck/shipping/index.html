@@ -27,7 +27,7 @@
 	</head>
 	
 	<!-----------BODY------------------->
-	<body>
+	<body class="all-only">
 		<img src="images/preview.png" style="position:absolute;z-index:2000;top:0;left:0;width:100%;height:100%;pointer-events:none;user-select:none;opacity:0;">
 		
 		<main>
@@ -42,14 +42,50 @@
 					top: 670px; right:0; transform: translateX(105%);">
 			</div>
 			
-			<img src="images/quadrants.png" alt="diagram showing the four troll romance quadrants: red (heart), pale (diamond), black (spades), and ashen (clubs)">
+			<table id="quadrants-diagram" name="quadrants diagram">
+				<tr><td colspan="4">
+					<button onclick="showShips('red-romance')"><img src="images/quadrants_diagram_red_romance.png" alt="red romance"></button>
+				</td></tr>
+				
+				<tr>
+					<td rowspan="2">
+						<button onclick="showShips('concupiscent')"><img src="images/quadrants_diagram_concupiscent.png" alt="concupiscent"></button>
+					</td>
+					<td>
+						<button onclick="showShips('red')"><img src="images/quadrants_diagram_heart.png" alt="heart quadrant"></button>
+					</td>
+					<td>
+						<button onclick="showShips('pale')"><img src="images/quadrants_diagram_diamond.png" alt="diamond quadrant"></button>
+					</td>
+					<td rowspan="2">
+						<button onclick="showShips('conciliatory')"><img src="images/quadrants_diagram_conciliatory.png" alt="conciliatory"></button>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<button onclick="showShips('black')"><img src="images/quadrants_diagram_spade.png" alt="spade quadrant"></button>
+					</td>
+					<td>
+						<button onclick="showShips('ashen')"><img src="images/quadrants_diagram_clubs.png" alt="clubs quadrant"></button>
+					</td>
+				</tr>
+				<tr><td colspan="4">
+					<button onclick="showShips('black-romance')"><img src="images/quadrants_diagram_black_romance.png" alt="black romance"></button>
+				</td></tr>
+			</table>
 			
 			<p>click a ship for a mini-manifesto!<br>in no particular order, i will sort them when i'm done</p>
 			
 			<section id="ship-squares">
+				<header id="currently-showing">
+					<h2>showing: <span id="currently-showing-name">all</span></h2>
+					<button onclick="showShips('all')">[reset]</button>
+				</header>
+				
 				<!--davekat-->
-				<button class="ship" id="davekat">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship red" id="davekat">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/dave.png" alt="dave" style="margin-right:-5%;">
 						<img src="images/karkat_2.png" alt="karkat" class="flip">
@@ -61,8 +97,8 @@
 					</div>
 				</button>
 				<!--solkat-->
-				<button class="ship" id="solkat">
-					<div class="icons"><img src="images/quadrants_black.png" alt="black"></div>
+				<button class="ship black" id="solkat">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/sollux_2.png" alt="sollux">
 						<img src="images/karkat.png" alt="karkat" class="flip">
@@ -76,8 +112,8 @@
 					</div>
 				</button>
 				<!--eridave-->
-				<button class="ship" id="eridave">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship red" id="eridave">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/eridan.png" alt="eridan">
 						<img src="images/dave.png" alt="dave" class="flip">
@@ -89,8 +125,8 @@
 					</div>
 				</button>
 				<!--gamkar-->
-				<button class="ship" id="gamkar">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
+				<button class="ship pale" id="gamkar">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/karkat_2.png" alt="karkat" style="margin-left:10%;margin-right:-15%">
 						<img src="images/gamzee.png" alt="gamzee">
@@ -102,8 +138,8 @@
 					</div>
 				</button>
 				<!--meowrails-->
-				<button class="ship" id="meowrails">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
+				<button class="ship pale" id="meowrails">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/nepeta_2.png" alt="nepeta" class="flip">
 						<img src="images/equius.png" alt="equius">
@@ -115,8 +151,8 @@
 					</div>
 				</button>
 				<!--solradia-->
-				<button class="ship" id="solradia">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship pale red" id="solradia">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/sollux.png" alt="sollux">
 						<img src="images/aradia_2.png" alt="aradia">
@@ -128,8 +164,8 @@
 					</div>
 				</button>
 				<!--neprezi-->
-				<button class="ship" id="neprezi">
-					<div class="icons"><img src="images/quadrants_black.png" alt="black"><img src="images/quadrants_red.png" alt="red"></div>
+				<button class="ship black red" id="neprezi">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/terezi.png" alt="terezi" style="margin-left:-5%;">
 						<img src="images/nepeta_2.png" alt="nepeta">
@@ -141,8 +177,8 @@
 					</div>
 				</button>
 				<!--psii/sufferer-->
-				<button class="ship" id="psiisufferer">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
+				<button class="ship pale" id="psiisufferer">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/psiionic.png" alt="psiionic">
 						<img src="images/sufferer.png" alt="sufferer">
@@ -154,8 +190,8 @@
 					</div>
 				</button>
 				<!--equius/dirk-->
-				<button class="ship" id="dirkquius">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"><img src="images/quadrants_black.png" alt="heart"></div>
+				<button class="ship pale black" id="dirkquius">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/equius.png" alt="equius" class="flip">
 						<img src="images/dirk.png" alt="dirk">
@@ -167,8 +203,8 @@
 					</div>
 				</button>
 				<!--jadepeta-->
-				<button class="ship" id="jadepeta">
-					<div class="icons"><img src="images/quadrants_pale.png" alt="diamond"></div>
+				<button class="ship pale" id="jadepeta">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/davepeta.png" alt="davepeta" class="flip">
 						<img src="images/jade.png" alt="jade" class="flip"></div>
@@ -179,8 +215,8 @@
 					</div>
 				</button>
 				<!--rosemary-->
-				<button class="ship" id="rosemary">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship red" id="rosemary">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/rose.png" alt="rose">
 						<img src="images/kanaya.png" alt="kanaya" class="flip">
@@ -194,8 +230,8 @@
 					</div>
 				</button>
 				<!--johndavekat-->
-				<button class="ship triad" id="johndavekat">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"><img src="images/quadrants_black.png" alt="diamond"><img src="images/quadrants_ashen.png" alt="clubs"></div>
+				<button class="ship triad red black ashen" id="johndavekat">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/karkat_2.png" alt="karkat" style="margin-right: -15px; z-index: 4;">
 						<img src="images/dave.png" alt="dave">
@@ -213,8 +249,8 @@
 					</div>
 				</button>
 				<!--aradia/tavros-->
-				<button class="ship" id="aratav">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship red" id="aratav">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/aradia.png" alt="aradia">
 						<img src="images/tavros.png" alt="tavros" style="margin-left:-15%;">
@@ -226,8 +262,8 @@
 					</div>
 				</button>
 				<!--erikarsol-->
-				<button class="ship triad" id="erikarsol">
-					<div class="icons"><img src="images/quadrants_ashen.png" alt="clubs"></div>
+				<button class="ship triad ashen" id="erikarsol">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/eridan.png" alt="eridan" style="z-index:2;margin-top:5%;">
 						<img src="images/karkat.png" alt="karkat">
@@ -240,8 +276,8 @@
 					</div>
 				</button>
 				<!--jadenep-->
-				<button class="ship" id="jadenep">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"></div>
+				<button class="ship red" id="jadenep">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/jade.png" alt="jade" style="margin-left:15%;margin-right:-5%;">
 						<img src="images/nepeta.png" alt="nepeta" style="margin-bottom: 10%; align-self: flex-end">
@@ -253,8 +289,8 @@
 					</div>
 				</button>
 				<!--junevrisrezi-->
-				<button class="ship triad" id="junevrisrezi">
-					<div class="icons"><img src="images/quadrants_red.png" alt="heart"><img src="images/quadrants_pale.png" alt="diamond"></div>
+				<button class="ship triad red pale" id="junevrisrezi">
+					<div class="icons"></div>
 					<div class="content">
 						<img src="images/june.png" alt="june">
 						<img src="images/vriska.png" alt="vriska">
@@ -265,7 +301,7 @@
 						june<img class="icon" src="images/quadrants_red.png" alt="heart">vriska
 						vriska<img class="icon" src="images/quadrants_pale.png" alt="diamond">terezi
 						
-						another classic. transgender lesbians doing hormones together and they're all slightly awful. making each other better and also worse
+						another classic. trans girls doing hormones together and they're all slightly awful. making each other better but also worse
 					</div>
 				</button>
 			</section>
