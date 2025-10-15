@@ -28,6 +28,9 @@ window.addEventListener('load',()=>{
 		let p = playlists[i];
 		let el = document.createElement('div');
 		
+		el.id = 'playlist-'+i;
+		el.classList.add(p.character,'playlist');
+		
 		// SET UP PLAYER
 		WMPlayers[i] = new WMPlayer({
 			parent: el, //Set player's container,
@@ -42,8 +45,6 @@ window.addEventListener('load',()=>{
 		el.querySelector('.character-name').innerHTML = p.character;
 		el.querySelector('.playlist-title').innerHTML = p.title;
 		el.querySelector('.icon').src = '/shrines/homestuck/'+p.character+'/images/icon.png';
-		el.id = 'playlist-'+i;
-		el.classList.add(p.character,'playlist');
 		
 		el.querySelector('.wmp-playlist-item').addEventListener('click',()=>{
 			console.log('!');

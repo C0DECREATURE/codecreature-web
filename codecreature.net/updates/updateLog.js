@@ -14,6 +14,20 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-10-15T09:59'),
+		authors: ['prax'],
+		tags: ['bug'],
+		summary: `
+			need %%2% fix music player again %E%://%
+		`,
+		details: `
+			<p>
+				%A%I don't know\\idk% %A%what's\\whats% up %%w% it, %A%maybe\\maaaaaybe% %N%n33d% %%2% try a %A%different\\diffurent% player?
+				<br>ughhhhh %A%problem\\purroblem% %%4% %A%later\\l8r%, %%im% %N%d33p% %N%d33p% in the insomnia pit %A%at\\@% this time
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-10-08T01:36'),
 		authors: ['emery'],
 		tags: ['shrines','snailfish'],
