@@ -10,7 +10,7 @@
 
 var WMPlayersContainer = document.getElementById('music-player');
 var WMPlayers = [];
-var playlists = [solluxPlaylist,karkatPlaylist,tavrosPlaylist];
+var playlists = [solluxPlaylist,karkatPlaylist,tavrosPlaylist,aradiaPlaylist];
 let curPlaylist = 0; // playlists index of currently loaded playlist
 
 var playlistPattern = `<button class="$status">
