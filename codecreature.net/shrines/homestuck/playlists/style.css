@@ -41,6 +41,13 @@
 	--skin-light: #e6e3df;
 }
 
+.aradia {
+	--blood: #a30103;
+	--skin: #c7bfbf;
+	--skin-light: #b1a1a1;
+	.wmplayer.default header .icon { transform: translate(-50%,17%); }
+}
+
 body.tqOn {
 	.karkat * { text-transform: uppercase; }
 	.sollux * { text-transform: lowercase; }
