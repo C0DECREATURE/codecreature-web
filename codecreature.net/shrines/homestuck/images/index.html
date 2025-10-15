@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>homestuck</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/homestuck/images/favicon.ico">
+		
+		<!-- universal base javascript -->
+		<script src="/js/required.js?fileversion=10"></script>
+		<!-- universal base css -->
+		<link href="/js/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
+		<!-- page settings -->
+		<script src="/js/page-settings.min.js?fileversion=10"></script>
+		<!-- typing quirk alt text -->
+		<script src="/js/typing-quirks.min.js?fileversion=10"></script>
+		
+		<!--full image view-->
+		<script src="/js/full-image.js?fileversion=10"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="../style.css?fileversion=10" rel="stylesheet" type="text/css" media="all"> <!--homestuck base-->
+		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's javascript -->
+		<script src="script.js?fileversion=10"></script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header>
+			<h1>free graphics</h1>
+		</header>
+		
+		<main>
+		
+			<section id="info" class="tq-format">
+				<p>
+					these <u class="tq" data-txt="r"><span class="sr-only">are</span><span aria-hidden="true">r</span></u> the homestuck edits and art <u class="tq" data-txt="ive"><span class="sr-only">I've</span><span aria-hidden="true">ive</span></u> made that <u class="tq" data-txt="r"><span class="sr-only">are</span><span aria-hidden="true">r</span></u> <u class="tq-nep tq" data-txt="fr33"><span class="sr-only">free</span><span aria-hidden="true">fr33</span></u> <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> use with credit!!
+				</p>
+				<p>
+					this page <u class="tq-nep tq" data-txt="n33ds"><span class="sr-only">needs</span><span aria-hidden="true">n33ds</span></u> <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> <u class="tq" data-txt="b"><span class="sr-only">be</span><span aria-hidden="true">b</span></u> styled better eventually <u class="tq-e tq" data-txt=":'33"><span class="sr-only">crying kitty emoji</span><span aria-hidden="true">:'33</span></u>
+				</p>
+			</section>
+			
+			<section id="image-sections">
+			
+				<section id="sprites">
+					<header>
+						<h2><span class="prompt">sprite edits</span></h2>
+					</header>
+					<img src="../nepeta/images/alterniabound_sprite.gif" alt="">
+					<img src="../nepeta/images/alterniabound_sprite_talk.gif" alt="">
+					<img src="../nepeta/images/alterniabound_sprite_blush.gif" alt="">
+					<img src="../nepeta/images/alterniabound_sprite_blush_talk.gif" alt="">
+					<br>
+					<img src="../sollux/images/alterniabound_sprite.gif" alt="">
+					<img src="../sollux/images/alterniabound_sprite_talk.gif" alt="">
+					<img src="../sollux/images/alterniabound_sprite_shrug.gif" alt="">
+					<img src="../sollux/images/alterniabound_sprite_shrug_talk.gif" alt="">
+				</section>
+				
+				<section id="deco">
+					<header>
+						<h2><span class="prompt">small decorations</span></h2>
+					</header>
+					<img src="../aradia/images/skull_sticker.png" alt="">
+				</section>
+			</section>
+			<!-- end of image-sections -->
+			<script>
+				// self-executing function to register that images should open full view on click
+				(()=>{
+					let images = document.getElementById('image-sections').getElementsByTagName('img');
+					for (let i = 0; i < images.length; i++) {
+						images[i].classList.add('full-viewable');
+					}
+				})();
+			</script>
+
+		</main>
+		
+		<nav>
+			<a href="../">homestuck</a>
+			<a href="/shrines">shrines</a>
+			<a href="/home">home</a>
+		</nav>
+		
+	</body>
+	<!--------------END BODY------------->
+</html>

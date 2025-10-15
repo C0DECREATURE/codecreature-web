@@ -1,0 +1,11 @@
+#deco img {
+	max-width: min(100%, 300px);
+	max-height: min(80vw, 300px);
+}
+
+.full-image-view {
+	--accent: var(--white);
+	--text: var(--white);
+	--background: var(--black);
+	--border: 1px var(--white) dashed;
+}

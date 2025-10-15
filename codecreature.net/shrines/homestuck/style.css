@@ -103,18 +103,19 @@ nav {
 	margin: 0 auto;
 }
 
-.text-section, .ministrife {
+section {
 	h3, h4 {
 		margin-bottom: 0;
-		&:has(.prompt) {
-			font-weight: normal;
-			.prompt {
-				text-decoration: underline;
-				font-family: Verdana, sans-serif;
-			}
-			&::before {
-				content: '> ';
-			}
-		}
+	}
+}
+
+.prompt {
+	font-weight: normal;
+	.prompt {
+		text-decoration: underline;
+		font-family: Verdana, sans-serif;
+	}
+	&::before {
+		content: '> ';
 	}
 }
