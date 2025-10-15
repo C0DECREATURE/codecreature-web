@@ -14,6 +14,26 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-10-15T18:27'),
+		authors: ['prax'],
+		tags: ['minor','homestuck'],
+		summary: `
+			a few small <a href="/shrines/homestuck">homestuck</a> %A%updates\\upd8s%
+		`,
+		details: `
+			<p>
+				added a page %%4% <a href="/shrines/homestuck/images">homestuck %A%graphics\\graphix%</a> %%ive% made that %%r% %N%fr33% %%2% use!!
+			</p>
+			<p>
+				also working on some cassette tape art %%2% make the playlists page fancy, have a small preview
+			</p>
+			<p align="center">
+				<img src="/shrines/homestuck/playlists/aradia_cassette.png" style="width:max(50%,200px)"
+					alt="Dithered image of an Aradia cassette tape titled 'good to be alive!' It is black with a red label and stickers of the time aspect symbol, a white fedora, and a skull with Aradia's curled horns and red fairy wings.">
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-10-15T09:59'),
 		authors: ['prax'],
 		tags: ['bug'],
