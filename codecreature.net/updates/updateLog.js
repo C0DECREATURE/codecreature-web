@@ -22,7 +22,7 @@ const updateLog = [
 		`,
 		details: `
 			<p>
-				added a page %%4% <a href="/shrines/homestuck/images">homestuck %A%graphics\\graphix%</a> %%ive% made that %%r% %N%fr33% %%2% use!!
+				added a page %%4% <a href="/shrines/homestuck/images">homestuck %A%graphics\\graphix%</a> %%ive% made that %%r% %N%fr33% %%2% use, and the <a href="/shrines/homestuck/shipping">ship wall</a> diagram can now be clicked %%2% sort by type!
 			</p>
 			<p>
 				also working on some cassette tape art %%2% make the playlists page fancy, have a small preview
