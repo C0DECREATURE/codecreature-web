@@ -30,6 +30,9 @@ img { image-rendering: pixelated; }
 
 :focus-visible { outline: 2px var(--l-green) solid; box-shadow: 0 0 0 4px var(--d-green); }
 
+a, a:link, a:visited { color: var(--l-green); }
+a:hover, a:focus-visible { color: var(--white); }
+
 main {
 	flex-grow: 1;
 	min-height: 0;
