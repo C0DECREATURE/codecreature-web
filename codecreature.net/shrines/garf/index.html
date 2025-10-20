@@ -25,7 +25,9 @@
 		<!-- load jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=10"></script>
 		<!-- load navigation -->
-		<script> $(function(){ $("#nav-wrapper").load("/shrines/garf/nav.txt"); }); </script> 
+		<script> $(function(){ $("#nav-wrapper").load("/shrines/garf/nav.txt"); }); </script>
+		<!-- load right bar -->
+		<script> $(function(){ $("#right-bar-wrapper").load("/shrines/garf/right.txt"); }); </script> 
 		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
@@ -49,25 +51,15 @@
 				</div>
 				
 				<section id="content" class="whitebox">
-					<a href="comics/"><img src="images/comics_ad.gif" alt="Free! Today's Comic"></a>
+					<a href="comics/?year=random&num=today"><img src="images/comics_ad.gif" alt="Free! Today's Comic"></a>
 					<a href="merch/"><img style="max-height: 150px;" src="images/items_ad.gif" alt="New Items"></a>
 					<a href="posters/"><img src="images/posters/posters_ad.gif" alt="All new! Garfield Posters"></a>
 				</section>
 			</div>
 			
-			<div class="right">
-				<a id="newspaper" href="comics">
-					<header>
-						<h2>COMICS</h2>
-						<h4 id="news-date"></h4>
-					</header>
-					<div class="comics">
-						<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3505710.gif" alt="">
-						<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3512063.gif" alt="">
-						<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3512063.gif" alt="">
-					</div>
-				</a>
+			<div id="right-bar-wrapper" class="right">
 			</div>
+			
 		</main>
 		
 	</body>

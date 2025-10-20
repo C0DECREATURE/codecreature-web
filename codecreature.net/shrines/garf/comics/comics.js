@@ -8,94 +8,160 @@ const comic = {
 		comic.year = year;
 		comic.load();
 	},
-	minYear: 1978,
-	maxYear: 2024,
-	yearSizes: {
-		'1978': 195,
-		'1979': 364,
-		'1980': 365,
-		'1981': 365,
-		'1982': 365,
-		'1983': 365,
-		'1984': 366,
-		'1985': 365,
-		'1986': 365,
-		'1987': 365,
-		'1988': 366,
-		'1989': 365,
-		'1990': 365,
-		'1991': 365,
-		'1992': 366,
-		'1993': 365,
-		'1994': 365,
-		'1995': 365,
-		'1996': 366,
-		'1997': 365,
-		'1998': 365,
-		'1999': 365,
-		'2000': 366,
-		'2001': 365,
-		'2002': 365,
-		'2003': 365,
-		'2004': 366,
-		'2005': 365,
-		'2006': 365,
-		'2007': 365,
-		'2008': 366,
-		'2009': 365,
-		'2010': 365,
-		'2011': 365,
-		'2012': 366,
-		'2013': 365,
-		'2013': 365,
-		'2014': 365,
-		'2015': 365,
-		'2016': 366,
-		'2017': 365,
-		'2018': 365,
-		'2019': 365,
-		'2020': 366,
-		'2021': 365,
-		'2022': 365,
-		'2023': 365,
-		'2024': 366,
-	},
+	firstDate: new Date(`June 19, 1978 00:00:00`),
+	lastDate: new Date(`December 31, 2024 23:59:59`),
 	num: 0,
+	// gives the comic number to use in the archive URL, as a string with 4 digits
+	// e.g. 1 --> "0001", 25 --> "0025"
 	urlNum: ()=>{
 		let urlNum = comic.num.toString();
     while (urlNum.length < 4) { urlNum = "0" + urlNum; }
     return urlNum;
 	},
+	// array of my favorite comics, in the format [year,number]
+	// note: comic numbers start at zero, so one less than the display number on the page
+	favorites: {
+		'1978': [
+			3, 36, 41, 48, 64, 86, 97,
+			111, 112, 115, 118, 124, 126, 129, 136, 141, 143, 146, 156, 167
+			// ^^^ left off here
+		],
+		'2024': [ 327 ]
+	},
 	load: ()=>{
+		comic.fixDates();
 		document.getElementById(comic.id).src = '';
 		document.getElementById(comic.id).src = `https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
 		document.getElementById('comic-wrapper').querySelector('figcaption').innerHTML = `${comic.year} #${comic.num+1}`
-		console.log(`Loaded comic: ${comic.year} #${comic.num+1}`);
+		console.log(`Loading comic: ${comic.year} #${comic.num+1}`);
+		// update url search parameters and page title
+		comic.updateURL();
+	},
+	// update url search parameters and page title
+	updateURL: ()=>{
+		let url = new URL(location);
+		url.searchParams.set('year',comic.year);
+		url.searchParams.set('num',comic.num);
+		history.pushState({}, "", url);
+		// update the page title
+		document.title = `garf archive ${comic.year} #${comic.num+1}`;
 	},
 	next: ()=>{
-		comic.num += 1;
-		comic.fix();
-		comic.load();
+		// get url search parameters, if favorites = true then get the next favorited comic
+		let urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('favorites') && urlParams.get('favorites') == 'true') comic.nextFavorite();
+		// if favorites is not set or not = true then load next day's comic
+		else {
+			comic.num += 1;
+			comic.load();
+		}
 	},
 	prev: ()=>{
-		comic.num -= 1;
-		comic.fix();
-		comic.load();
+		// get url search parameters, if favorites = true then get the next favorited comic
+		let urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.has('favorites') && urlParams.get('favorites') == 'true') comic.prevFavorite();
+		// if favorites is not set or not = true then load previous day's comic
+		else {
+			comic.num -= 1;
+			comic.load();
+		}
+	},
+	// load the next closest favorited comic
+	nextFavorite: ()=>{
+		// if the last comic year has been passed, loop back to the first year
+		if (comic.year > comic.lastYear) comic.year = comic.firstYear;
+		// get list of favorites for this year
+		let f = comic.favorites[comic.year];
+		console.log(typeof f);
+		// if favorites exist in this year
+		if (f && f.length > 0) {
+			for (let i = 0; i < f.length; i++) {
+				// if this is the first favorite that is after the current comic,
+				// load that favorite and end the function
+				if (f[i] > comic.num) {
+					comic.num = f[i];
+					comic.load();
+					return;
+				}
+			}
+		}
+		// if no comic was loaded for this year, go to next year and try again
+		comic.year += 1;
+		comic.num = 0;
+		comic.nextFavorite();
+	},
+	// load the previous closest favorited comic
+	prevFavorite: ()=>{
+		if (comic.year < comic.firstYear) comic.year = comic.lastYear;
+		let f = comic.favorites[comic.year];
+		// if favorites exist in this year
+		if (f) {
+			for (let i = f.length - 1; i >= 0; i--) {
+				// if this favorite is after the current comic, or is the current comic, keep searching
+				if (f[i] >= comic.num) continue;
+				// if this is the first favorite that is before the current comic,
+				// load that favorite and end the function
+				else {
+					comic.num = f[i];
+					comic.load();
+					return;
+				}
+			}
+		}
+		// if no comic was loaded for this year, go to previous year and try again
+		comic.year -= 1;
+		comic.num = comic.yearMaxNum(comic.year);
+		comic.prevFavorite();
 	},
 	// fix any issues with num/year exceeding bounds
-	fix: ()=>{
-		if (comic.num > comic.yearSizes[comic.year.toString()] - 1) {
+	fixDates: ()=>{
+		if (comic.year > comic.lastYear) { comic.year = comic.lastYear; }
+		if (comic.year < comic.firstYear) { comic.year = comic.firstYear; }
+		
+		if (comic.num > comic.yearMaxNum(comic.year)) {
 			comic.year += 1;
-			if (comic.year > comic.maxYear) { comic.year = comic.minYear; }
+			if (comic.year > comic.lastYear) { comic.year = comic.firstYear; }
 			comic.num = 0;
 		}
 		else if (comic.num < 0) {
 			comic.year -= 1;
-			if (comic.year < comic.minYear) { comic.year = comic.maxYear; }
-			comic.num = comic.yearSizes[comic.year.toString()] - 1;
+			if (comic.year < comic.firstYear) { comic.year = comic.lastYear; }
+			comic.num = comic.yearMaxNum(comic.year);
 		}
 	},
+	// gets comic number for given date
+	dateNum: (date)=>{
+		let num; // variable to return
+		// calculate comic number for year
+		let start = new Date(date.getFullYear(), 0, 0); // first day of the year
+		let diff = date - start; // difference in milliseconds between first day of year and today
+		let day = Math.floor(diff / 86400000); // divide difference in milliseconds by number of milliseconds per day
+		num = day - 1;
+		// return comic number
+		return num;
+	},
+	yearMaxNum: (year)=>{
+		let date = new Date(`December 31, ${year} 00:00:00`);
+		let num = comic.dateNum(date);
+		// if year is first year, adjust for start date (because it didn't start Jan 1st)
+		if (comic.year == comic.firstYear) num -= comic.dateNum(comic.firstDate) + 1;
+		return num;
+	},
+	// set comic data for given date
+	set: (date, load)=> {
+		// get comic year and number
+		comic.year = date.getFullYear();
+		comic.num = comic.dateNum(date);
+		// if year is first year, adjust for start date (because it didn't start Jan 1st)
+		if (comic.year == comic.firstYear) comic.num -= comic.dateNum(comic.firstDate) + 1;
+		// load comic if load parameter is true
+		if (load == true) comic.load();
+	},
 	init: ()=>{
+		// set min/max year values
+		comic.firstYear = comic.firstDate.getFullYear(),
+		comic.lastYear = comic.lastDate.getFullYear(),
+		
 		// navigate comics with arrow keys
 		document.addEventListener('keyup', (event) => {
 			if (event.key === "ArrowRight") {
@@ -110,6 +176,32 @@ const comic = {
 		// navigate comics with buttons
 		document.getElementById('prev').addEventListener('click',comic.prev);
 		document.getElementById('next').addEventListener('click',comic.next);
+		
+		// get url search parameters
+		let urlParams = new URLSearchParams(window.location.search);
+		
+		// if year is defined, set that year as first to load
+		if (urlParams.has('year')) {
+			// if year parameter = "random", set a random year (skip the first year if )
+			if (urlParams.get('year') == 'random') {
+				// set random year
+				comic.year = Math.floor(Math.random() * (comic.lastYear - comic.firstYear + 1) + comic.firstYear);
+			} // otherwise set year to the value given
+			else comic.year = Number(urlParams.get('year'));
+		}
+		
+		// if comic number is defined, set that number as first to load
+		if (urlParams.has('num')) {
+			// if num parameter = "today", set the number corresponding to today's date
+			if (urlParams.get('num') == 'today') {
+				let now = new Date();
+				now.setFullYear(comic.year);
+				comic.set(now);
+			} // otherwise set num to the value given
+			else comic.num = Number(urlParams.get('num'));
+		}
+		
+		// load comic
 		comic.load();
 	}
 }

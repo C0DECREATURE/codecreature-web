@@ -1,0 +1,17 @@
+<section id="stamps">
+	<img src="/graphix/stamps/garf-yknow.png" alt="">
+	<img src="/graphix/stamps/not-immune-to-propoganda-garf.png" alt="">
+	<img src="/graphix/stamps/garfsplat.png" alt="">
+</section>
+
+<a id="newspaper" href="/shrines/garf/comics/?year=random&num=today">
+	<header>
+		<h2>COMICS</h2>
+		<h4 id="news-date"></h4>
+	</header>
+	<div class="comics">
+		<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3505710.gif" alt="">
+		<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3512063.gif" alt="">
+		<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3512063.gif" alt="">
+	</div>
+</a>

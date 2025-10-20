@@ -174,7 +174,7 @@ main {
 			&:after {
 				content: '';
 				position: absolute;
-				left: -8%; bottom: 51%;
+				left: -8%; bottom: 46%;
 				width: 100%;
 				padding-bottom: 70%;
 				background-image: url('images/button_topper.png');
@@ -189,6 +189,19 @@ main {
 		margin-right: 1.2rem;
 		/* hide right bar on small screens */
 		@media screen and (width < 800px) { width: 0px; min-width: 0px; margin-right: 0px; }
+		
+		#stamps {
+			width: 100%; height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 5px;
+		}
+		
+		&:has(.comics) #stamps {
+			height: 80%;
+		}
 	}
 	
 	> .center {

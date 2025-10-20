@@ -1,10 +1,10 @@
 <nav>
 	<div class="sr-only">Navigation</div>
 	<a href="/shrines/garf">Garfield</a>
-	<a href="/shrines/garf/comics">Comic</a>
+	<a href="/shrines/garf/comics">Archive</a>
 	<a href="/shrines/garf/merch">Merch</a>
 	<a href="/shrines/garf/posters">Posters</a>
-	<a href="https://www.bgreco.net/garfield/" target="_blank">Random</a>
+	<a href="https://www.bgreco.net/garfield/" target="_blank">Generator</a>
 	<a href="/shrines">Shrines</a>
 	<a href="/">Home</a>
 </nav>

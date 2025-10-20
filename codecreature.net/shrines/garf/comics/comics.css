@@ -6,6 +6,8 @@ main {
 	> .left, > .right {
 		background-image: url('../images/garfield_bg_blue_2x.jpg');
 	}
+	
+	.right #newspaper { display: none; }
 }
 
 main > .center > .wrapper {
