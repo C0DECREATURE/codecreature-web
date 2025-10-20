@@ -395,6 +395,8 @@ main {
 	top: calc(var(--hh) * -.2);
 	width: var(--cw);
 	display: none; /* hide until later */
+	pointer-events: none; /* no pointer events on the wrapper (override on children) */
+	> * { pointer-events: auto; /* allow normal clicks on the content */ }
 }
 /* top area with worm image + left/right buttons on small screens */
 .detailbox .top-flex { display: flex; align-items: center; justify-content: space-evenly; font-size: min(3rem, 13vw); }
@@ -425,17 +427,18 @@ main {
 	border: max(calc(var(--cw) * .009), 3px) var(--dd-blue) solid;
 }
 /* main content container in detailbox */
-.detailbox .detail-content { background: var(--white); }
+.detailbox .detail-content {
+	background: var(--white);
+}
 @media screen and (width > 600px) { .detailbox .detail-content { margin-top: 6%; margin-bottom: .5em; } }
 /* bottom button area (back/feed) */
 .detailbox .bottom-buttons {
-	height: calc(var(--cw) * .09);
 	display: flex;
 	justify-content: space-between;
 	align-content: center;
 	background: var(--dd-blue);
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-	font-size: calc(var(--cw) * .05);
+	font-size: calc(var(--cw) * .04);
 	color: var(--white);
 }
 .detailbox .bottom-buttons button {
@@ -448,9 +451,7 @@ main {
 .detailbox .bottom-buttons button:disabled .text { opacity: 0.5; }
 .detailbox .bottom-buttons button .tooltiptext { font-size: 0.6em; max-width: calc(var(--cw) * .3); }
 /* increase size on hover */
-.detailbox .bottom-buttons button:enabled:is(:hover, :focus-visible) { margin-top: -.08em; font-size: calc(1em * 1.08); }
-.detailbox .bottom-buttons button:enabled:first-child:is(:hover, :focus-visible) { 	margin-left: -.12em; }
-.detailbox .bottom-buttons button:enabled:last-child:is(:hover, :focus-visible) { margin-right: -.12em; }
+.detailbox .bottom-buttons button:enabled:is(:hover, :focus-visible) { transform: scale(1.1); }
 /* svg icons inside button */
 .detailbox .bottom-buttons button .svg-icon svg { margin: 0 .1em; }
 .detailbox .bottom-buttons button:enabled:is(:hover, :focus-visible) .svg-icon svg { margin-bottom: -.05em; }
@@ -472,7 +473,7 @@ main {
 	z-index: 1;
 	position: relative;
 	width: 100%;
-	margin-top: 3%;
+	margin-top: 2.5%;
 	font-family: "Super Comic", sans-serif; font-size: calc(var(--cw) / 20);
 	letter-spacing: .05em;
 	text-transform: uppercase;
@@ -506,7 +507,7 @@ main {
 @media screen and (max-width:600px) { .sharebox { margin-top: -1em; } }
 
 .sharebox .detail-content .share-main {
-	padding: 4% 5% 2% 5%;
+	padding: 2.5% 5% 1% 5%;
 	text-align: center;
 	font-size: calc(var(--cw) / 40);
 }
@@ -517,7 +518,7 @@ main {
 	align-content: center; justify-content: center;
 }
 /* .share-btn-section children */
-.sharebox .detail-content .share-btn-section > * { margin-bottom: calc(var(--cw) / 40); margin-right: calc(var(--cw) * .01); }
+.sharebox .detail-content .share-btn-section > * { margin-bottom: calc(var(--cw) / 65); margin-right: calc(var(--cw) * .01); }
 .sharebox .detail-content > :last-child > * { margin-bottom: 0; }
 .sharebox .detail-content .share-btn-section > :last-child { margin-right: 0; }
 
@@ -755,7 +756,7 @@ main {
 .race-tracks {
 	position: relative;
 	min-width: calc(var(--cw)*.7); max-width: 90%; flex: 2;
-	margin: 3% 0 0 0;
+	margin: 2% 0 0 0;
 	border-radius: 1em;
 	overflow: hidden;
 }

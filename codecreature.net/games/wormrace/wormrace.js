@@ -382,7 +382,7 @@ function loadWormData(e) {
 			if ( openTab == 'race' ) {
 				// set the aria label for screen readers
 				document.querySelector('.worm-track-' + i).ariaLabel =
-					w.color + ' worm movement: ' + w.movement.toString();
+					w.color + ' worm movement: ' + w.movement;
 				
 				// if this is the last worm to be done
 				if ( i == worms.length - 1 ) {
