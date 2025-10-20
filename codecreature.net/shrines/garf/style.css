@@ -107,6 +107,24 @@ a:has(#logo) {
 	border: 3px var(--black) solid;
 }
 
+.yellowbutton {
+	color: var(--black);
+	&:is(a), &:link, &:visited { color: var(--black); }
+	background-color: var(--yellow);
+	border: 2px black solid;
+	box-shadow: -2px 2px var(--black);
+	padding: .5em .75em .2em .75em;
+	
+	&:hover, &:focus-visible {
+		background: var(--white);
+		color: var(--red);
+	}
+	&:active {
+		box-shadow: none;
+		transform: translate(-2px,2px);
+	}
+}
+
 main {
 	display: flex;
 	height: 100%;
@@ -144,13 +162,9 @@ main {
       display: block;
       width: max(130%,11.5vw);
 			margin-left: -.75rem;
-			color: var(--black);
       font-size: max(.75rem,1.2vw);
-      background: var(--yellow);
-      border: 2px black solid;
       border-radius: 0 1em 1em 0;
       padding: .3em .6em .2em .5em;
-      box-shadow: -2px 2px var(--black);
 		}
 		a:before, button:before {
 			content: '';
@@ -163,8 +177,6 @@ main {
 			margin-right: .35em;
 		}
 		a, button { &:focus-visible, &:hover {
-			background: var(--white);
-			color: var(--red);
 			&:before { background-image: url('images/paw_on.svg'); }
 		} }
 		

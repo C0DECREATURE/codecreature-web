@@ -78,6 +78,13 @@ main > .center > .wrapper {
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+#toggle-favorites {
+	height: fit-content;
+	font-size: max(.75rem,min(1rem,2vw));
+	border-radius: 1em;
 }
 
 #prev, #next {

@@ -18,6 +18,7 @@ const comic = {
     while (urlNum.length < 4) { urlNum = "0" + urlNum; }
     return urlNum;
 	},
+	showFavorites: false,
 	// array of my favorite comics, in the format [year,number]
 	// note: comic numbers start at zero, so one less than the display number on the page
 	favorites: {
@@ -49,7 +50,7 @@ const comic = {
 	next: ()=>{
 		// get url search parameters, if favorites = true then get the next favorited comic
 		let urlParams = new URLSearchParams(window.location.search);
-		if (urlParams.has('favorites') && urlParams.get('favorites') == 'true') comic.nextFavorite();
+		if (comic.showFavorites) comic.nextFavorite();
 		// if favorites is not set or not = true then load next day's comic
 		else {
 			comic.num += 1;
@@ -59,7 +60,7 @@ const comic = {
 	prev: ()=>{
 		// get url search parameters, if favorites = true then get the next favorited comic
 		let urlParams = new URLSearchParams(window.location.search);
-		if (urlParams.has('favorites') && urlParams.get('favorites') == 'true') comic.prevFavorite();
+		if (comic.showFavorites) comic.prevFavorite();
 		// if favorites is not set or not = true then load previous day's comic
 		else {
 			comic.num -= 1;
@@ -112,6 +113,33 @@ const comic = {
 		comic.year -= 1;
 		comic.num = comic.yearMaxNum(comic.year);
 		comic.prevFavorite();
+	},
+	// returns boolean showing whether current comic is favorited
+	isFavorite: ()=>{
+		let b = false;
+		let f = comic.favorites[comic.year];
+		if (f.includes(comic.num)) b = true;
+		return b;
+	},
+	// toggles whether favorites should be shown
+	// if set to true, jumps to nearest favorited comic
+	toggleFavorites: ()=>{
+		comic.showFavorites = !comic.showFavorites;
+		// set page text
+		let button = document.getElementById('toggle-favorites'); // toggle favorites button
+		let subtitle = document.getElementById('page-subtitle'); // subtitle of page
+		if (comic.showFavorites) {
+			button.innerHTML = 'Show All Comics';
+			subtitle.innerHTML = 'My Favorites';
+		} else {
+			button.innerHTML = 'Show My Favorites';
+			subtitle.innerHTML = 'Comics Archive';
+		}
+		// if the current comic is not favorited, jump to next favorite
+		if (!comic.isFavorite()) {
+			comic.num -= 1;
+			comic.nextFavorite();
+		}
 	},
 	// fix any issues with num/year exceeding bounds
 	fixDates: ()=>{
@@ -200,6 +228,9 @@ const comic = {
 			} // otherwise set num to the value given
 			else comic.num = Number(urlParams.get('num'));
 		}
+		
+		// if favorites = true, show next favorite (or the original comic to load, if it is favorited)
+		if (urlParams.has('favorites') && urlParams.get('favorites') == 'true') comic.toggleFavorites();
 		
 		// load comic
 		comic.load();
