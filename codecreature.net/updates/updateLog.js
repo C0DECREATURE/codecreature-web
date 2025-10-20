@@ -14,22 +14,71 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-10-20T15:06'),
+		authors: ['emery'],
+		tags: ['games','worm race','minor'],
+		summary: `
+			stronger <a href="/games/wormrace">worm race</a> poison, faster heart potion & apple
+		`,
+		details: `
+			<p>
+				apples reduced from 30 seconds to 10, heart potions reduced from 5 minutes to 4 minutes, and poison increased from -4 base effect to -5. will this mess up the balance? maybe! enjoy
+			</p>
+			<p>
+				also a goblin has informed me that if you've just poisoned the winning worm, it will appear without a crown. I may or may not fix this because it is very confusing and also kind of funny
+			</p>
+		`
+	},
+	{
+		date: new Date('2025-10-20T18:21'),
+		authors: ['prax','emery'],
+		tags: ['shrines','garfield'],
+		summary: `
+			<a href="/shrines/garf">garfield</a> comic updates
+		`,
+		details: `
+			<p>
+				i've logged <a href="/shrines/garf/comics?favorites=true">my favorite garfield comics</a> for the 1978 & 1979! use the toggle at the bottom %%2% show only those, or all comics in the archive. %%i% also added the ability to load a comic from <a href="/shrines/garf/comics/?year=random&num=today">today's date</a> in a random year. in theory %%u% could also load a comic from any specific date with the function, but there's no interface on the site for that (yet...)
+			</p>
+			<p>
+				also added some garfield stamps to the right side!
+			</p>
+		`
+	},
+	{
+		date: new Date('2024-10-19T15:21'),
+		authors: ['prax'],
+		tags: ['graphix','minor'],
+		summary: `
+			new <a href="/graphix#stickers">stickers</a>!
+		`,
+		details: `
+			<p align="center"><img src="/graphix/stickers/dbgci_cat_plush.png" alt=""></p>
+			<p>added some fresh stickers to the <a href="/graphix#stickers">graphix page</a> %E%:33%</p>
+		`
+	},
+	
+	
+	
+	{
 		date: new Date('2025-10-15T18:27'),
 		authors: ['prax'],
-		tags: ['minor','homestuck'],
+		tags: ['minor','homestuck','mobile'],
 		summary: `
 			a few small <a href="/shrines/homestuck">homestuck</a> %A%updates\\upd8s%
 		`,
 		details: `
 			<p>
-				added a page %%4% <a href="/shrines/homestuck/images">homestuck %A%graphics\\graphix%</a> %%ive% made that %%r% %N%fr33% %%2% use, and the <a href="/shrines/homestuck/shipping">ship wall</a> diagram can now be clicked %%2% sort by type!
+				added a page %%4% <a href="/shrines/homestuck/images">homestuck %A%graphics\\graphix%</a> %%ive% made that %%r% %N%fr33% %%2% use, and the <a href="/shrines/homestuck/shipping">ship wall</a> top diagram sections can now be clicked %%2% sort by type!
 			</p>
 			<p>
 				also working on some cassette tape art %%2% make the playlists page fancy, have a small preview
 			</p>
 			<p align="center">
-				<img src="/shrines/homestuck/playlists/aradia_cassette.png" style="width:max(50%,200px)"
+				<img src="/shrines/homestuck/playlists/aradia_cassette.png" style="width:max(45%,200px)"
 					alt="Dithered image of an Aradia cassette tape titled 'good to be alive!' It is black with a red label and stickers of the time aspect symbol, a white fedora, and a skull with Aradia's curled horns and red fairy wings.">
+				<img src="/shrines/homestuck/playlists/sollux_cassette.png" style="width:max(45%,200px)"
+					alt="Dithered image of a Sollux cassette tape titled 'binary mind.' It is blue with a red and blue label divided diagonally down the middle. It has stickers of Sollux's Gemini symbol, a purple bee, and a red floppy disk.">
 			</p>
 		`
 	},
