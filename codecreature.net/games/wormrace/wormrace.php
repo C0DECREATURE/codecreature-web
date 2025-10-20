@@ -17,11 +17,11 @@
 	$updates = 0;
 	
 	// maximum allowed db updates per hour
-	$maxUpdates = 4850; // 000webhost limit: 5000
+	$maxUpdates = 8000;
 	// total updates in the past hour
 	$totalUpdates = 0;
 	// maximum allowed db updates per hour
-	$maxQueries = 12000; // 000webhost limit: 15000
+	$maxQueries = 15000; // 000webhost limit: 15000
 	// total updates in the past hour
 	$totalQueries = 0;
 	
