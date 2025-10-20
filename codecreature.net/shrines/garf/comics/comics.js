@@ -24,9 +24,15 @@ const comic = {
 	favorites: {
 		'1978': [
 			3, 36, 41, 48, 64, 86, 97,
-			111, 112, 115, 118, 124, 126, 129, 136, 141, 143, 146, 156, 167
-			// ^^^ left off here
+			111, 112, 115, 118, 123, 124, 126, 129, 136, 141, 143, 146, 156, 167, 168, 173
 		],
+		'1979': [
+			14, 16, 31, 55, 65, 67, 71, 77, 79, 97,
+			101, 118, 134, 140, 158, 160, 169, 192, 193, 194,
+			215, 226, 230, 239, 241, 281, 286, 303, 309, 316, 320, 326, 342, 343
+		],
+		'1980': [  ],
+		// ^^^ left off here
 		'2024': [ 327 ]
 	},
 	load: ()=>{
@@ -43,6 +49,7 @@ const comic = {
 		let url = new URL(location);
 		url.searchParams.set('year',comic.year);
 		url.searchParams.set('num',comic.num);
+		url.searchParams.set('favorites',comic.showFavorites);
 		history.pushState({}, "", url);
 		// update the page title
 		document.title = `garf archive ${comic.year} #${comic.num+1}`;
