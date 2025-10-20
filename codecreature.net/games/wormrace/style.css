@@ -1,8 +1,8 @@
 :root {
 	/* container width */
-	--cw: min(780px, calc(100vw - 15px));
+	--cw: min(780px, calc(120vw - 15px));
 	/* header height */
-	--hh: min(220px, 22vw);
+	--hh: min(35vw,min(220px, 27vh));
 	/* race width */
 	--rw: var(--cw);
 	/* window height */
@@ -306,16 +306,18 @@ main > header {
 	z-index: 1;
 	position: relative;
 	width: 100%; height: var(--hh);
+	margin-bottom: calc(var(--hh)*-.08);
 }
 main > header img {
 	position: absolute;
-	width: 100%; max-width: 1000px;
+	max-width: min(1000px,100%);
+	max-height: 100%;
 	top: 2%; left: 50%; transform: translate(-50%, 0);
 	-webkit-user-select: none; user-select: none; pointer-events: none;
 }
 main > header .banner-subtitle {
 	position: absolute; width: 100%;
-	top: min(calc(var(--hh)*.7), calc(var(--cw)*.2));
+	top: min(calc(var(--hh)*.58), calc(var(--cw)*.2));
 	font-size: max(1em, min(35px, 5vw)); text-align: center;
 	color: var(--dd-blue);
 }
@@ -329,7 +331,7 @@ main {
 	position: relative;
 	flex: 1; /* fill remaining horizontal space */
 	height: var(--wh);
-	padding-top: .75em;
+	padding-top: .5em;
 	overflow-x: hidden; /* DEBUG: content width gets fucked when scrollbar appears */
 	overflow-y: scroll; /* DEBUG: extra weird spacing at bottom of .body makes scroll on desktop detail view */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -339,6 +341,7 @@ main {
 /* main area in container */
 .body {
 	position: relative;
+	z-index: 2;
 	width: var(--cw);
 	display: flex;
 	flex-wrap: wrap;
@@ -369,11 +372,12 @@ main {
 }
 .wormchoice:focus-visible { background: var(--white); outline: calc(var(--cw) / 180) white solid; }
 
+.wormbox:has(#detail-image) { pointer-events: none; /* clicks pass through */ }
+
 /* image of worm */
 .wormbox img {
 	z-index: 2;
 	max-width: 100%; max-height: 100%;
-	pointer-events: none; /* clicks pass through */
 }
 .worm-area .wormbox img {
 	position: absolute; left: 50%; top: 50%;
@@ -388,7 +392,7 @@ main {
 .detailbox {
 	z-index: 2;
 	position: relative;
-	top: calc(var(--hh) * -.15);
+	top: calc(var(--hh) * -.2);
 	width: var(--cw);
 	display: none; /* hide until later */
 }
@@ -456,7 +460,7 @@ main {
 	display: flex; justify-content: right; flex-wrap: wrap;
 	gap: 3.5%;
 	width: 100%;
-	padding: 3% 4.5% 5.5% 4.5%;
+	padding: 2% 2% 4% 4.5%;
 	/* put the border/padding inside instead of outside */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	text-align: right;
@@ -594,7 +598,7 @@ main {
 	border-radius: 0 0 calc(var(--cw) / 45 ) calc(var(--cw) / 45 );
 	border: min(10px, 1.11vw) var(--white) solid;
 	border-top: 0;
-	padding: 6.5% 6.5% 6.5% 5%;
+	padding: 6.5% 6.5% 4.5% 5%;
 	/* put the border inside instead of outside */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	/* background lines */
@@ -858,6 +862,7 @@ main {
 ******************************************************************************************/
 
 .chat-box {
+	display: none;
 	z-index: 200;
 	position: fixed; right: 1.5vw;
 	bottom: 0;
