@@ -1,10 +1,15 @@
 FIXES:
 - width/scrollbar issues (currently overriden)
 https://stackoverflow.com/questions/3541863/css-100-width-but-avoid-scrollbar
+- mud says scrollbar doesn't work
 - redo item array into object so it can have named keys
 - .body div gets extra height added when viewing detail box on large screens
 - racetrack height changes slightly on crown appear
 - string cheese dark background is too similar to orange pretzel
+- worm loses crown if the user just poisoned them, why?? only occurs with poison, not battery juice. only appears for the user that just did the poisoning
+
+COMPLAINTS:
+- runs slowly
 
 FEATURES:
 - new blue worm art

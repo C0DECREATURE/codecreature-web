@@ -45,18 +45,18 @@ const items = [
 		movement:4, health:0,
 		movementEffect:[ 3/4, 1, 1, 5/4, 5/4 ],
 		healthEffect:[ 1, 1, 1, 1, 1 ],
-		cooldown: 30, // .5 min
+		cooldown: 10, // .5 min
 		flavor:"room and board for one" },
 	{ name:"battery juice", image:"drink.png", icon:"icon-movement-2.png", bg:"var(--l-blue)",
 		tableName: 'drink', // name of its column in SQL database
 		movement:40, health:-1,
 		movementEffect:[ 1/2, 3/4, 1, 4.5/4, 5/4 ],
 		healthEffect:[ 1, 1, 1, 1, 1 ],
-		cooldown: 300, // 5 min
+		cooldown: 240, // 4 min
 		flavor:"is it healthy? no! but does it taste good? also no" },
 	{ name:"poison", image:"poison.png", icon:"icon-health-neg.png", bg:"var(--green)",
 		tableName: 'poison', // name of its column in SQL database
-		movement:-4, health:-1,
+		movement:-5, health:-1,
 		movementEffect:[ 2, 1, 1, 1, 1 ],
 		healthEffect:[ 0, 1, 1, 1, 1 ],
 		cooldown: 180, // 3 min
