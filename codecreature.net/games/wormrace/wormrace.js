@@ -52,7 +52,7 @@ const items = [
 		movement:40, health:-1,
 		movementEffect:[ 1/2, 3/4, 1, 4.5/4, 5/4 ],
 		healthEffect:[ 1, 1, 1, 1, 1 ],
-		cooldown: 240, // 4 min
+		cooldown: 300, // 5 min
 		flavor:"is it healthy? no! but does it taste good? also no" },
 	{ name:"poison", image:"poison.png", icon:"icon-health-neg.png", bg:"var(--green)",
 		tableName: 'poison', // name of its column in SQL database
@@ -66,7 +66,7 @@ const items = [
 		movement:0, health:1,
 		movementEffect:[ 1, 1, 1, 1, 1 ],
 		healthEffect:[ 1, 1, 1, 1, 0 ],
-		cooldown: 300, // 5 min
+		cooldown: 240, // 4 min
 		flavor:"love is good for u, 4<span aria-label='out of'></span><span aria-hidden='true'>/</span>5 worms agree" }
 ];
 
