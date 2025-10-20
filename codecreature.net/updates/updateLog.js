@@ -14,14 +14,16 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-10-20T19:08'),
+		date: new Date('2025-10-20T19:38'),
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],
 		summary: `
 			minor <a href="/games/wormrace">worm</a> style adjustments
 		`,
 		details: `
-			The <a href="/games/wormrace">worm race</a> page has been tweaked for (hopefully) better function on large devices, and the chatbox has been removed for now since the chat service I was using has stopped working. Fingers crossed nothing's broken now lol.
+			<p>
+				The <a href="/games/wormrace">worm race</a> page layout has been tweaked for (hopefully) better function on large devices, a couple broken bits of css have been fixed, and the chatbox has been removed for now since the chat service I was using has stopped working. Fingers crossed nothing's broken now lol.
+			</p>
 		`
 	},
 	{
@@ -43,7 +45,7 @@ const updateLog = [
 	{
 		date: new Date('2025-10-20T15:06'),
 		authors: ['emery'],
-		tags: ['games','worm race'],
+		tags: ['games','worm race','minor'],
 		summary: `
 			stronger <a href="/games/wormrace">worm race</a> poison, faster heart potion & apple
 		`,
