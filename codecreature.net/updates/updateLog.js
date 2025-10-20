@@ -14,19 +14,14 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-10-20T15:06'),
+		date: new Date('2025-10-20T19:08'),
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],
 		summary: `
-			stronger <a href="/games/wormrace">worm race</a> poison, faster heart potion & apple
+			minor <a href="/games/wormrace">worm</a> style adjustments
 		`,
 		details: `
-			<p>
-				apples reduced from 30 seconds to 10, heart potions reduced from 5 minutes to 4 minutes, and poison increased from -4 base effect to -5. will this mess up the balance? maybe! enjoy
-			</p>
-			<p>
-				also a goblin has informed me that if you've just poisoned the winning worm, it will appear without a crown. I may or may not fix this because it is very confusing and also kind of funny
-			</p>
+			The <a href="/games/wormrace">worm race</a> page has been tweaked for (hopefully) better function on large devices, and the chatbox has been removed for now since the chat service I was using has stopped working. Fingers crossed nothing's broken now lol.
 		`
 	},
 	{
@@ -42,6 +37,22 @@ const updateLog = [
 			</p>
 			<p>
 				also added some garfield stamps to the right side!
+			</p>
+		`
+	},
+	{
+		date: new Date('2025-10-20T15:06'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			stronger <a href="/games/wormrace">worm race</a> poison, faster heart potion & apple
+		`,
+		details: `
+			<p>
+				apples reduced from 30 seconds to 10, heart potions reduced from 5 minutes to 4 minutes, and poison increased from -4 base effect to -5. will this mess up the balance? maybe! enjoy
+			</p>
+			<p>
+				also a goblin has informed me that if you've just poisoned the winning worm, it will appear without a crown. I may or may not fix this because it is very confusing and also kind of funny
 			</p>
 		`
 	},
