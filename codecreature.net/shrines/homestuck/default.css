@@ -1,0 +1,40 @@
+img { image-rendering: pixelated; }
+
+html, body { height: 100%; width: 100%; }
+
+body {
+	margin: 0;
+	font-family: Courier, monospace;
+	font-weight: bold;
+	text-align: center;
+	display: flex; flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
+	min-height: 0;
+	overflow: scroll;
+	padding-bottom: 2rem;
+}
+
+/* main navigation */
+nav {
+	width: 100%;
+	padding: min(1rem, max(.15em, 3vh)) .5rem;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	background: var(--white);
+	color: var(--black);
+	font-size: min(1.5rem, max(1rem, 6vh));
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	gap: 1.5em;
+	a {
+		&:visited, &:link {
+			color: inherit;
+		}
+		&:hover {
+			color: var(--green);
+		}
+	}
+}

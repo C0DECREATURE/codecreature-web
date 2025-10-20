@@ -3,6 +3,12 @@
 	--white: #fff;
 }
 
+/* top page settings button */
+.page-settings {
+	--color: var(--white);
+	--accent: red;
+}
+
 #playlist-template { display: none; }
 
 .playlist {
@@ -57,8 +63,6 @@ body.tqOn {
 	}
 }
 
-html, body { height: 100%; width: 100%; }
-
 body {
 	margin: 0;
 	font-family: Courier, monospace;
@@ -69,35 +73,10 @@ body {
 }
 
 main {
-	flex-grow: 1;
-	min-height: 0;
-	overflow: scroll;
-	padding-bottom: 2rem;
-	
 	> span p { width: min(100vw, 600px); margin: 1rem auto; }
 }
 
 body > header, nav { 
 	background: var(--black);
 	color: var(--white);
-}
-
-/* main navigation */
-nav {
-	width: 100%;
-	padding: 1rem .5rem;
-	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
-	font-size: 1.5rem;
-	font-weight: bold;
-	display: flex;
-	justify-content: center;
-	gap: 1.5em;
-	a {
-		&:visited, &:link {
-			color: inherit;
-		}
-		&:hover {
-			color: var(--green);
-		}
-	}
 }
