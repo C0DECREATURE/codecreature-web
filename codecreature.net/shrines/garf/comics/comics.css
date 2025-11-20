@@ -50,6 +50,7 @@ main > .center > .wrapper {
 	margin: 0 auto 1rem auto;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	max-width: min(600px,100%);
+	user-select: none;
 }
 #comic-wrapper {
 	position: relative;
@@ -57,7 +58,29 @@ main > .center > .wrapper {
 	width: 94%;
   margin: 0 auto;
 	
-	figcaption { margin-bottom: .5em; }
+	figcaption {
+		position: relative;
+		width: fit-content;
+		margin: 0 auto;
+		margin-bottom: .5em;
+	}
+	&.favorite figcaption {
+		&:before, &:after {
+			content: '';
+			background-image: url('../images/paw_off.svg');
+			background-size: 100%;
+			background-repeat: no-repeat;
+			width: 1em;
+			height: 1em;
+			position: absolute;
+		}
+		&:before { left: calc(100% + .35em); }
+		&:after { right: calc(100% + .35em); }
+		
+		&:hover, &:focus-visible {
+			
+		}
+	}
 	
 	&:before {
 		content: 'Loading...';

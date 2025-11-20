@@ -29,17 +29,45 @@ const comic = {
 		'1979': [
 			14, 16, 31, 55, 65, 67, 71, 77, 79, 97,
 			101, 118, 134, 140, 158, 160, 169, 192, 193, 194,
-			215, 226, 230, 239, 241, 281, 286, 303, 309, 316, 320, 326, 342, 343
+			215, 226, 230, 239, 241, 281, 286,
+			303, 309, 316, 320, 326, 342, 343
 		],
-		'1980': [  ],
+		'1980': [
+			3, 5, 33, 47, 54, 61, 65, 68, 74, 76, 77, 92, 95, 99,
+			100, 102, 110, 120, 129, 132, 134, 138, 145, 146, 179, 195, 199,
+			202, 208, 209, 213, 217, 236, 240, 243, 252, 262, 263, 270, 271, 283, 292,
+			302, 307, 308, 317, 329, 342, 346, 348, 356, 360, 363
 		// ^^^ left off here
+		],
 		'2024': [ 327 ]
 	},
 	load: ()=>{
 		comic.fixDates();
+		// clear current image
 		document.getElementById(comic.id).src = '';
-		document.getElementById(comic.id).src = `https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
+		// load image from internet archive
+		document.getElementById(comic.id).src =
+			`https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
+		/* test - using bgreco
+			// format year
+			let y = comic.year.toString().substring(2,4);
+			// format month
+			let m = comic.month + 1;
+			m = m.toString();
+			if (m.length < 2) m = "0" + m;
+			// format day
+			let d = comic.day.toString();
+			if (d.length < 2) d = "0" + d;
+			// load image
+			document.getElementById(comic.id).src =
+				`https://www.bgreco.net/garfield/panel.gif?urldate=${y}${m}${d}&year=${comic.year.toString()}&frame=0
+				`;
+		*/
 		document.getElementById('comic-wrapper').querySelector('figcaption').innerHTML = `${comic.year} #${comic.num+1}`
+		// add class indicating favorite
+		if ( comic.isFavorite() ) { document.getElementById('comic-wrapper').classList.add('favorite'); }
+		else { document.getElementById('comic-wrapper').classList.remove('favorite'); }
+		// log that comic is loading
 		console.log(`Loading comic: ${comic.year} #${comic.num+1}`);
 		// update url search parameters and page title
 		comic.updateURL();
@@ -125,7 +153,7 @@ const comic = {
 	isFavorite: ()=>{
 		let b = false;
 		let f = comic.favorites[comic.year];
-		if (f.includes(comic.num)) b = true;
+		if (f && f.includes(comic.num)) b = true;
 		return b;
 	},
 	// toggles whether favorites should be shown
@@ -138,14 +166,14 @@ const comic = {
 		if (comic.showFavorites) {
 			button.innerHTML = 'Show All Comics';
 			subtitle.innerHTML = 'My Favorites';
+			// if the current comic is not favorited, jump to next favorite
+			if (!comic.isFavorite()) {
+				comic.num -= 1;
+				comic.nextFavorite();
+			}
 		} else {
 			button.innerHTML = 'Show My Favorites';
 			subtitle.innerHTML = 'Comics Archive';
-		}
-		// if the current comic is not favorited, jump to next favorite
-		if (!comic.isFavorite()) {
-			comic.num -= 1;
-			comic.nextFavorite();
 		}
 	},
 	// fix any issues with num/year exceeding bounds
@@ -171,13 +199,16 @@ const comic = {
 		let start = new Date(date.getFullYear(), 0, 0); // first day of the year
 		let diff = date - start; // difference in milliseconds between first day of year and today
 		let day = Math.floor(diff / 86400000); // divide difference in milliseconds by number of milliseconds per day
-		num = day - 1;
+		num = day;
 		// return comic number
 		return num;
 	},
+	date: ()=>{
+		return new Date(comic.year,0,comic.num);
+	},
 	yearMaxNum: (year)=>{
 		let date = new Date(`December 31, ${year} 00:00:00`);
-		let num = comic.dateNum(date);
+		let num = comic.dateNum(date) - 1;
 		// if year is first year, adjust for start date (because it didn't start Jan 1st)
 		if (comic.year == comic.firstYear) num -= comic.dateNum(comic.firstDate) + 1;
 		return num;
@@ -186,6 +217,8 @@ const comic = {
 	set: (date, load)=> {
 		// get comic year and number
 		comic.year = date.getFullYear();
+		comic.month = date.getMonth();
+		comic.day = date.getDate();
 		comic.num = comic.dateNum(date);
 		// if year is first year, adjust for start date (because it didn't start Jan 1st)
 		if (comic.year == comic.firstYear) comic.num -= comic.dateNum(comic.firstDate) + 1;
@@ -231,9 +264,12 @@ const comic = {
 			if (urlParams.get('num') == 'today') {
 				let now = new Date();
 				now.setFullYear(comic.year);
+				now.setDate(now.getDate() - 1);
 				comic.set(now);
 			} // otherwise set num to the value given
-			else comic.num = Number(urlParams.get('num'));
+			else {
+				comic.num = Number(urlParams.get('num'));
+			}
 		}
 		
 		// if favorites = true, show next favorite (or the original comic to load, if it is favorited)

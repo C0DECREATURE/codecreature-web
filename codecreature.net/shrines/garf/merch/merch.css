@@ -133,3 +133,12 @@
 		}
 	}
 }
+
+@media screen and (width < 1300px) {
+	#newspaper { display: none; }
+}
+
+.fiv-content .alt {
+	opacity: 0.65;
+	font-size: 0.9em;
+}

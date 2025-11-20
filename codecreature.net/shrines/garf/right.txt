@@ -2,6 +2,7 @@
 	<img src="/graphix/stamps/garf-yknow.png" alt="">
 	<img src="/graphix/stamps/not-immune-to-propoganda-garf.png" alt="">
 	<img src="/graphix/stamps/garfsplat.png" alt="">
+	<img src="/graphix/stamps/garf_caffeine.png" alt="">
 </section>
 
 <a id="newspaper" href="/shrines/garf/comics/?year=random&num=today">

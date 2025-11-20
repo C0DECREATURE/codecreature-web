@@ -13,6 +13,32 @@ const updateLog = [
 		`
 	},
 */
+	/*
+	{
+		date: new Date(''),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			<a href="/games/wormrace">worm race</a> guide and cheat prevention!
+		`,
+		details: `
+			<p>added a <a href="/games/wormrace#guide">how to play guide</a> for the worm race</p>
+			<p>the page uses hashes to navigate now, which I think is better. also made it possible to jump directly to the <a href="/games/wormrace#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter</p>
+			<p>additionally, minor IP address tracking has been added, just to prevent cheating (shoutout</p>
+		`
+	},*/
+	{
+		date: new Date('2025-11-20T13:36'),
+		authors: ['prax','emery'],
+		tags: ['shrines','garfield','minor'],
+		summary: `
+			more <a href="/shrines/garf/comics">garfield</a> favorites, merch, & styling!!
+		`,
+		details: `
+			<p>small %A%update\\upd8% %%2% the garf pages!! <a href="/shrines/garf/comics/?year=1980&num=0&favorites=true">favorite comics from 1980</a> added, plus a %A%little\\lil% red paw in the title %%2% mark favorites even not in favorites-only mode.</p>
+			<p>%A%there's\\theres% also a bit more <a href="/shrines/garf/merch">merch</a> and new details and alt text for some of the existing ones!!</p>
+		`
+	},
 	{
 		date: new Date('2025-10-20T19:38'),
 		authors: ['emery'],
