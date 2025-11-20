@@ -34,7 +34,7 @@
 	</head>
 	<body>
 		<!-- navigation -->
-		<div class="menu">
+		<nav class="menu" id="menu">
 			<header>menu</header>
 			<button class="open-menu" aria-label="menu">
 				<!-- menu bars -->
@@ -43,13 +43,15 @@
 			<div class="menu-content">
 				<a href="/">site home</a>
 				<button onclick="showChoices();">worms</button>
+				<button onclick="showRace();">racetrack</button>
+				<button onclick="showGuide();">guide</button>
 				<button onclick="showShare();">propaganda</button>
 				<button class="open-updates" onclick="showUpdates();">updates</button>
 				<button class="close-menu" aria-label="close menu">
 					<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i>
 				</button>
 			</div>
-		</div>
+		</nav>
 		
 		<!-- contains all worm content -->
 		<main>
@@ -146,6 +148,38 @@
 					</div>
 				</div>
 				
+				<!-- how to play -->
+				<div class="detailbox" id="guide">					
+					<!-- share content box -->
+					<div class="box detail-content">
+						<!-- title -->
+						<div class="name">how to play</div>
+						
+						<div class="main">
+							<p>each worm has two stats: <span class="health caps">health</span> and <span class="movement caps">race progress</span>.</p>
+							
+							<hr>
+							
+							<p><span class="item apple">apples</span> increase <span class="movement">race progress</span> a little..</p>
+							
+							<p><span class="item battery">battery juice</span> increases <span class="movement">race progress</span> a lot, but damages <span class="health">health</span>.</p>
+							
+							<p><span class="item heart">heart potions</span> increase <span class="health">health</span>.</p>
+							
+							<p><span class="item poison">poison</span> decreases <span class="health">health</span> and <span class="movement">race progress</span>. if the worm is already at minimum health, it decreases progress a <b>lot</b>.</p>
+							
+							<hr>
+							
+							<p>low <span class="health caps">health</span> makes apples and battery juice <b>less effective</b>, and makes poisoning <b>more effective</b>. the current health effect on each item is shown in the worm's <b>effects</b> tab.</p>
+						</div>
+					</div>
+					
+					<!-- play guide bottom buttons -->
+					<div class="box buttons bottom-buttons">
+						<button onclick="hideGuide(true);"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
+					</div>
+				</div>
+				
 				<!-- share box -->
 				<div class="detailbox sharebox" id="sharebox">					
 					<!-- share content box -->
@@ -192,7 +226,7 @@
 					
 					<!-- share bottom buttons -->
 					<div class="box buttons bottom-buttons">
-						<button onclick="hideShare();"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
+						<button onclick="hideShare(true);"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
 					</div>
 				</div>
 				
@@ -240,7 +274,7 @@
 		</main>
 		
 		<!-- UPDATES IFRAME -->
-		<div class="updates">
+		<div class="updates" id="updates-container">
 			<button class="close" aria-label="close updates" onclick="hideUpdates();">
 				<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i>
 			</button>

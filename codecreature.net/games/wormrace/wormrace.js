@@ -77,7 +77,7 @@ var maxHealth = 4;
 // open tab - set to default at start
 var openTab = 'choices';
 // previous open tab
-var prevTab = '';
+var prevTab;
 
 // chosen worm
 var wormChoice = '';
@@ -98,12 +98,13 @@ var canFeed = true;
 var dbLimit = false;
 
 // global element variables
-var raceContent = ''; // main race content
-var loadArea = ''; // race loading area
-var loadStatus = ''; // race loading status text
-var wormchoices = ''; // collection of all .wormchoice elements
-var detailbox = ''; // details tab container
-var sharebox = ''; // share tab container
+var raceContent; // main race content
+var loadArea; // race loading area
+var loadStatus; // race loading status text
+var wormchoices; // collection of all .wormchoice elements
+var detailbox; // details tab container
+var guidebox; // how to play tab container
+var sharebox; // share tab container
 
 // url parameter list
 const urlParams = new URL(window.location.toLocaleString()).searchParams; 
@@ -123,6 +124,7 @@ function init() {
 	raceContent = document.querySelector( ".race-content" );
 	wormchoices = document.getElementsByClassName('wormchoice');
 	detailbox = document.getElementById('details');
+	guidebox = document.getElementById('guide');
 	sharebox = document.getElementById('sharebox');
 	
 	// update when the user can feed again every half second
@@ -279,7 +281,7 @@ function controlEvent(e) {
 	////////////////////////////////////////////////////////////////////
 */
 
-// adjust widths based on main container size
+// adjust widths and height based on main container size
 // called when window loads, then again every time window is resized
 function cwResize() {
 	var mw = document.querySelector('main').offsetWidth;
@@ -306,6 +308,19 @@ function cwResize() {
 	document.querySelectorAll('.updates').forEach((u) => {
 		if (window.getComputedStyle(u).display == 'none') u.style.display = '';
 	});
+	
+	// determine if menu contents + updates section exceed height of screen
+	let menu = document.getElementById('menu');
+	let menuContentsHeight = document.getElementById('updates-container').offsetHeight * 1.05;
+	let menuContents = menu.childNodes;
+	for (let i = 0; i < menuContents.length; i++) {
+		let h = menuContents[i].offsetHeight;
+		// if the height is a valid number and the element is not the updates button, add its height
+		if ( typeof h == 'number' && !menuContents[i].classList.contains('open-updates') ) menuContentsHeight += h;
+	}
+	// if menu too tall or window too narrow, show updates button and hide updates
+	if ( menuContentsHeight > menu.offsetHeight || window.innerWidth < 1000 ) document.body.classList.add('updates-button');
+	else document.body.classList.remove('updates-button');
 }
 
 /*
@@ -459,17 +474,24 @@ function loadWormData(e) {
 
 /*
 	////////////////////////////////////////////////////////////////////
-	SHOW + HIDE DETAILS/CHOICES
+	SHOW + HIDE POPUP BOXES
 	////////////////////////////////////////////////////////////////////
 */
+
+// show the previously open box, if it exists
+function showPreviousBox() {
+	if (prevTab == null || prevTab == 'choices' ) showChoices();
+	else if (prevTab == 'race') showRace();
+	else if (prevTab == 'details') showDetails();
+	else if (prevTab == guidebox.id) showGuide();
+	prevTab = null;
+}
 
 // show details box
 function showDetails() {
 	if ( openTab != 'details' ) {
-		// hide worm choices
-		hideChoices();
-		// hide race screen
-		hideRace();
+		// hide other displays
+		hideChoices(); hideRace(); hideShare(); hideGuide();
 		// set initial item info
 		detailbox.querySelector('#item-info').innerHTML = '<span class="lg">SELECT AN ITEM</span>';
 		detailbox.querySelector('.flavor-text').innerHTML = '';
@@ -496,12 +518,10 @@ function showChoices() {
 			wormchoices[i].style.display = 'block';
 			wormchoices[i].disabled = false;
 		}
-		// hide the detail box
-		hideDetails();
+		// hide other displays
+		hideRace(); hideDetails(); hideShare(); hideGuide();
 		// hide the share box
 		sharebox.style.display = 'none';
-		// hide race screen
-		hideRace();
 		// save new open tab
 		openTab = 'choices';
 	}
@@ -532,12 +552,8 @@ function hideLoading() {
 function showShare() {
 	if ( openTab != 'share' ) {
 		prevTab = openTab;
-		// hide worm choices
-		hideChoices();
-		// hide race screen
-		hideRace();
-		// hide the detail box
-		hideDetails();
+		// hide other displays
+		hideChoices(); hideRace(); hideDetails(); hideGuide();
 		// show the share box
 		sharebox.style.display = 'block';
 		// save new open tab
@@ -546,12 +562,28 @@ function showShare() {
 }
 
 // hide share box
-function hideShare() {
+function hideShare(back) {
 	sharebox.style.display = 'none';
-	if (prevTab == 'choices') showChoices();
-	else if (prevTab == 'race') showRace();
-	else if (prevTab == 'details') showDetails();
-	prevTab = '';
+	if (back) showPreviousBox();
+}
+
+// show how to play box
+function showGuide() {
+	if ( openTab != guidebox.id ) {
+		prevTab = openTab;
+		// hide other displays
+		hideChoices(); hideRace(); hideDetails(); hideShare();
+		// show the share box
+		guidebox.style.display = 'block';
+		// save new open tab
+		openTab = guidebox.id;
+	}
+}
+
+// hide how to play box
+function hideGuide(back) {
+	guidebox.style.display = 'none';
+	if (back) showPreviousBox();
 }
 
 // show updates
@@ -765,9 +797,8 @@ function initRace(e) {
 
 // hide other screens, show race screen
 function showRace(e) {
-	// hide the detail box and worm choices
-	hideDetails();
-	hideChoices();
+	// hide other displays
+	hideChoices(); hideRace(); hideDetails(); hideShare(); hideGuide();
 	// save new open tab
 	openTab = 'race';
 	

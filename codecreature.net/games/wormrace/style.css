@@ -539,7 +539,7 @@ main {
 	DETAIL BOX HEALTH
 ******************************************************************************************/
 
-.detailbox .health {
+#details .health {
 	margin-left: auto;
 	display: flex;
 	top: 3%; height: calc(var(--cw) / 20);
@@ -549,7 +549,7 @@ main {
 	/* put the padding inside instead of outside */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-.detailbox .health .bar {
+#details .health .bar {
 	display: flex;
 	height: 50%; width: 90%;
 	border: max(calc(var(--cw) / 180 ), 2px) var(--white) solid;
@@ -557,19 +557,19 @@ main {
 	background: var(--white);
 	overflow: hidden;
 }
-.detailbox .health .section {
+#details .health .section {
 	background: var(--green);
 	width: 20%; height: 100%;
 	border-right: 3px var(--white) solid;
 	/* put the border inside instead of outside */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
-.detailbox .health img {
+#details .health img {
 	height: 120%;
 	margin: -2% 0 0 -4%;
 }
 
-.detailbox .health-effects {
+#details .health-effects {
 	width: 22%;
 	border: max(calc(var(--cw) / 180 ), 2px) var(--dd-blue) solid;
 	border-radius: calc(var(--cw) / 100 );
@@ -577,17 +577,17 @@ main {
 	line-height: 1.25;
 	text-align: center;
 }
-.detailbox .health-effects .title {
+#details .health-effects .title {
 	color: var(--white);
 	margin-bottom: 0.25em;
 	padding: 0.1em 0; line-height: 1em;
 }
-.detailbox .health-effects img { height: 1em; margin-bottom: -3%; }
+#details .health-effects img { height: 1em; margin-bottom: -3%; }
 /* ? info icon */
-.detailbox .health-effects .tooltip {
+#details .health-effects .tooltip {
 	float: right; margin: 0 5% 0 -5%;
 	border-radius: 50%;}
-.detailbox .health-effects .tooltiptext { font-size: 1em; width: 6em; }
+#details .health-effects .tooltiptext { font-size: 1em; width: 6em; }
 
 /******************************************************************************************
 	DETAIL BOX ITEMS
@@ -615,46 +615,47 @@ main {
 }
 
 /* area where items are placed */
-.detailbox .item-area {
+#details .item-area {
 	width: 80%;
 	margin: -12% auto 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
-@media screen and (max-width: 500px) { .detailbox .item-area { width: 100%; } }
+@media screen and (max-width: 500px) { #details .item-area { width: 100%; } }
 /* item styling */
-.detailbox .item {
+#details .item {
 	width: calc(var(--cw) * .13 );
 	height: calc(var(--cw) * .13 );
 	background: var(--white);
 	border-radius: 50%;
 	font-size: 1.5em;
 }
-@media screen and (max-width: 500px) { .detailbox .item { width: calc(var(--cw) * .18 ); height: calc(var(--cw) * .18 ) } }
+@media screen and (max-width: 500px) { #details .item { width: calc(var(--cw) * .18 ); height: calc(var(--cw) * .18 ) } }
 /* disabled item styling */
-.detailbox .item:disabled { opacity: 1; }
-.detailbox .item:disabled .bg { opacity: 0.3; }
-.detailbox .item:disabled .content > img { opacity: 0.5; }
-.detailbox .item .tooltiptext { bottom: 115%; }
+#details .item:disabled { opacity: 1; }
+#details .item:disabled .bg { opacity: 0.3; }
+#details .item:disabled .content > img { opacity: 0.5; }
+#details .item .tooltiptext { bottom: 115%; }
 
 /* to keep the flexbox from breaking due to relative positioning */
-.detailbox .item .wrapper { position: relative; width: 100%; height: 100%; }
-.detailbox .item .icon {
+#details .item .wrapper { position: relative; width: 100%; height: 100%; }
+#details .item .icon {
 	position: absolute;
 	right: 0; bottom: 0;
 	transform: translate(30%, 30%);
 	width: calc(var(--cw) * .045 ); height: calc(var(--cw) *.045 );
+	@media screen and (max-width: 400px) {
+		width: max(15px, calc(var(--cw) * .062 ));
+		height: max(15px, calc(var(--cw) * .062 ));
+	}
 	z-index: 3;
 	padding: 5%;
 	border-radius: 50%;
 }
-.detailbox .item:not(:disabled):is(:focus, :hover) .icon { transform: translate(20%, 20%); }
-@media screen and (max-width: 400px) { .detailbox .item .icon {
-	width: max(15px, calc(var(--cw) * .062 )); height: max(15px, calc(var(--cw) * .062 ));
-} }
+#details .item:not(:disabled):is(:focus, :hover) .icon { transform: translate(20%, 20%); }
 /* item background area */
-.detailbox .item .bg {
+#details .item .bg {
 	z-index: 1;
 	position: absolute; top: 0; left: 0;
 	width: 100%; height: 100%;
@@ -663,32 +664,32 @@ main {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 /* style for selected items */
-.detailbox .selected .bg { border: max(2px, calc(var(--cw) / 180 )) var(--dd-blue) solid; }
+#details .selected .bg { border: max(2px, calc(var(--cw) / 180 )) var(--dd-blue) solid; }
 
-.detailbox .item img {
+#details .item img {
 	z-index: 2;
 	position: absolute; left: 50%; top: 50%;
 	transform: translate(-50%, -50%);
 	max-width: 75%; max-height: 75%;
 	-webkit-user-select: none; user-select: none; /* disable highlighting */
 }
-.detailbox .item:focus-visible { outline: 3px var(--dd-blue) solid; }
+#details .item:focus-visible { outline: 3px var(--dd-blue) solid; }
 
 /* info about items */
-.detailbox .item-info {
+#details .item-info {
 	margin-top: 0.5em;
 	width: 100%; text-align: center; height: 3em;
 	color: var(--white);
 	font-size: calc(var(--cw) / 30 );
 	line-height: 1.2em;
 }
-.detailbox .item-info .flavor-text {
+#details .item-info .flavor-text {
 	font-style: italic;
 	font-size: .85em;
 }
-.detailbox .item-info img { height: auto; max-height: 1em; margin: 0 0 -.15em .1em; }
+#details .item-info img { height: auto; max-height: 1em; margin: 0 0 -.15em .1em; }
 
-.detailbox .item-info .lg { text-transform: uppercase; font-size: 1.5em; line-height: 2.4em;}
+#details .item-info .lg { text-transform: uppercase; font-size: 1.5em; line-height: 2.4em;}
 
 /******************************************************************************************
 	DETAIL BOX MOBILE
@@ -720,19 +721,19 @@ main {
 		text-align: center;
 		gap: .5rem;
 	}
-	.detailbox .health-effects { width: max(5em, 30%); }
+	#details .health-effects { width: max(5em, 30%); }
 	
 	/* info about items */
-	.detailbox .item-info {
+	#details .item-info {
 		margin-top: 0.5em;
 		width: 100%; text-align: center; height: 3em;
 		color: var(--white);
 		font-size: calc(var(--cw) / 25 );
 	}
 	
-	.detailbox .health { width: 100%; height: calc(var(--cw) / 15); border-radius: 0;	}
-	.detailbox .health .bar { width: 98%; }
-	.detailbox .health img { margin: -1% 0 0 -2%; }
+	#details .health { width: 100%; height: calc(var(--cw) / 15); border-radius: 0;	}
+	#details .health .bar { width: 98%; }
+	#details .health img { margin: -1% 0 0 -2%; }
 }
 
 /******************************************************************************************
@@ -913,18 +914,24 @@ main {
 	UPDATES
 ******************************************************************************************/
 button.open-updates { display: none; /* hide on large screens */ }
-.updates iframe { width: 100%; flex: 1; visibility: hidden; /* hide until loaded */ }
 .updates {
+	iframe { width: 100%; flex: 1; visibility: hidden; /* hide until loaded */ }
+	
 	z-index: 100;
 	position: absolute;
 	left: 2%; bottom: 5%;
 	width: min(30vw, calc(var(--cw)*.46)); height: min(calc(var(--wh)*.85), 350px);
+	
 	border: max(calc(var(--cw) / 135 ), 3px) var(--dd-blue) solid; border-top-color: var(--d-blue);
 	box-shadow: max(calc(var(--cw) / 135 ), 3px) max(calc(var(--cw) / 135 ), 3px) 0 var(--l-green) inset;
 	padding: 1em; padding-right: 0.5em;
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	
 	rotate: -8deg;
+	@media screen and (max-width: 1200px) { rotate: -6deg; }
+	
 	display: flex; flex-direction: column;
+	
 	/* background lines */
 	background:
 		repeating-linear-gradient(
@@ -963,14 +970,13 @@ button.open-updates { display: none; /* hide on large screens */ }
 }
 .updates .title:hover { color: var(--red); }
 .updates .loading { flex: 1; text-align: center; color: var(--orange); }
-@media screen and (max-width: 1200px) {
-	.updates { rotate: -6deg; }
-}
-@media screen and (max-width: 1000px) {
+
+/* class added to body when updates should be opened by a button */
+.updates-button {
 	.updates {
-		width: min(calc(var(--cw) * .8), 400px); height: min(calc(var(--wh)*.85), 450px);
-		left: 45%; bottom: 48%; transform: translate(-51%, 50%);
-		rotate: -8deg;
+		width: min(calc(var(--cw) * .9), 500px); height: min(calc(var(--wh)*.85), 450px);
+		left: 50%; bottom: 48%; transform: translate(-51%, 50%);
+		rotate: 0deg;
 		display: none /* hide until opened */
 	}
 	.updates.shadow { transform: translate(calc(var(--cw)*-.025 - 51%), calc(var(--cw)*.02 + 50%)); }
@@ -978,3 +984,77 @@ button.open-updates { display: none; /* hide on large screens */ }
 	button.open-updates { display: block; }
 }
 @media screen and (max-width: 450px) { .updates { rotate: 0deg; width: 80%; } }
+
+/******************************************************************************************
+	HOW TO PLAY BOX
+******************************************************************************************/
+
+#guide {
+	hr {
+		border: 1px var(--yellow) solid;
+		border-top-width: 2px;
+		border-radius: 2px;
+		box-shadow: none;
+	}
+	
+	span.caps { text-transform: uppercase; }
+	
+	/* effects */
+	span.health, span.movement {
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			margin: 0 -.05em -.2em -.15em;
+			background-size: 100%;
+		}
+	}
+	span.health {
+		color: var(--pink);
+		&:before {
+			background-image: url('icon-health-pos.png');
+			margin-right: .05em;
+		}
+	}
+	span.movement {
+		color: var(--d-green);
+		&:before { background-image: url('icon-movement-1.png'); }
+	}
+	
+	/* items */
+	span.heart {
+		color: var(--pink);
+		&:before { background-image: url('heal.png'); }
+	}
+	span.apple {
+		color: var(--orange);
+		&:before { background-image: url('apple.png'); }
+	}
+	span.battery {
+		color: var(--l-blue);
+		&:before { background-image: url('drink.png'); }
+	}
+	span.poison {
+		color: var(--purple);
+		&:before { background-image: url('poison.png'); }
+	}
+	span.item {
+		font-weight: bold;
+		text-transform: uppercase;
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1.2em;
+			height: 1.2em;
+			margin-bottom: -.2em;
+			margin-right: .2em;
+			background-size: 100%;
+		}
+	}
+	
+	
+	.main {
+		padding: 0 3% .5em 3%;
+	}
+}

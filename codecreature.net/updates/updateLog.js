@@ -13,20 +13,19 @@ const updateLog = [
 		`
 	},
 */
-	/*
 	{
-		date: new Date(''),
+		date: new Date('2025-11-20T20:42'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
 		summary: `
-			<a href="/games/wormrace">worm race</a> guide and cheat prevention!
+			<a href="/games/wormrace">worm</a> play guide and racetrack button!
 		`,
 		details: `
-			<p>added a <a href="/games/wormrace#guide">how to play guide</a> for the worm race</p>
-			<p>the page uses hashes to navigate now, which I think is better. also made it possible to jump directly to the <a href="/games/wormrace#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter</p>
-			<p>additionally, minor IP address tracking has been added, just to prevent cheating (shoutout</p>
+			<p>Added a basic how to play guide for the <a href="/games/wormrace">worm race</a>!</p>
+			<p>The page uses hashes to navigate now, which I think is better. Also made it possible to jump directly to the <a href="/games/wormrace#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter.</p>
+			<p>The dark orange color has also been darkened a bit for better contrast!</p>
 		`
-	},*/
+	},
 	{
 		date: new Date('2025-11-20T13:36'),
 		authors: ['prax','emery'],
