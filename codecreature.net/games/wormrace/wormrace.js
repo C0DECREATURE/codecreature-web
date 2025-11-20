@@ -57,7 +57,7 @@ const items = [
 	{ name:"poison", image:"poison.png", icon:"icon-health-neg.png", bg:"var(--green)",
 		tableName: 'poison', // name of its column in SQL database
 		movement:-5, health:-1,
-		movementEffect:[ 2, 1, 1, 1, 1 ],
+		movementEffect:[ 5, 1, 1, 1, 1 ],
 		healthEffect:[ 0, 1, 1, 1, 1 ],
 		cooldown: 180, // 3 min
 		flavor:"pesticide for <span aria-label='your'></span><span aria-hidden='true'>ur</span> least favorite worm" },

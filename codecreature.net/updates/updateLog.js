@@ -18,12 +18,13 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['games','worm race'],
 		summary: `
-			<a href="/games/wormrace">worm</a> play guide and racetrack button!
+			<a href="/games/wormrace">worm</a> play guide and racetrack button, plus poison adjustment!
 		`,
 		details: `
 			<p>Added a basic how to play guide for the <a href="/games/wormrace">worm race</a>!</p>
 			<p>The page uses hashes to navigate now, which I think is better. Also made it possible to jump directly to the <a href="/games/wormrace#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter.</p>
 			<p>The dark orange color has also been darkened a bit for better contrast!</p>
+			<p>Poison is also now much stronger when health is at zero.</p>
 		`
 	},
 	{
