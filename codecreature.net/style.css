@@ -134,7 +134,7 @@ iframe { border: none; padding: 0; margin: 0; }
 note: each letter needs its own span tag
 put this in head:
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="/js/jquery.lettering.js"></script>
+<script src="/codefiles/jquery.lettering.js"></script>
 <script>
 	$(document).ready(function() {
 		$(".txt-rainbow").lettering();

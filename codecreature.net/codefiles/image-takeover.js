@@ -2,7 +2,7 @@
 
 // put this at the top of html document
 <!-- image takeover -->
-<script src="/js/image-takeover.js"></script>
+<script src="/codefiles/image-takeover.js"></script>
 
 */
 

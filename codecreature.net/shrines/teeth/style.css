@@ -1,0 +1,38 @@
+:root {
+	--paper: #d9d9d9;
+}
+
+img#ad {
+	max-width: min(500px,100%);
+}
+
+#contact-form {
+	width: min(500px,100%);
+	background: var(--paper);
+	padding: 1rem;
+	
+	p, h4, input, select, textarea { margin-bottom: .5em; }
+	h4:first-of-type { margin-top: 0; }
+	p { margin-top: 0; }
+
+	#address-info input[type=text] {
+		border: none;
+		border-bottom: 1px black solid;
+		margin-bottom: .25em;
+	}
+	
+	#notes {
+		width: 100%;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+	
+	button[type=submit] {
+		background: #9b9b9b;
+		padding: .25em .5em;
+	}
+}
+
+label.required:before {
+	content: '*';
+	color: red;
+}

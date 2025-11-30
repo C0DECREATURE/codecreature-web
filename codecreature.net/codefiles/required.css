@@ -22,7 +22,7 @@
   left: 5%;
   position: absolute;
 	z-index: 5000;
-  transform: translateY(-100%);
+  transform: translateY(-200%);
 }
 .skip-to-content:focus {
   transform: translateY(0%);

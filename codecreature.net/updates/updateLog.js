@@ -1058,7 +1058,7 @@ const updateLog = [
 			<p align="center">also. i wrote this script %%4% a page that doesnt exist yet but %%4% now. here.</p>
 			<p align="center">
 				<!-- image takeover -->
-				<script src="/js/image-takeover.js"></script>
+				<script src="/codefiles/image-takeover.js"></script>
 				<button class="btn-strip image-takeover-immune shake" onclick="randomImageTakeover('', 'max');" aria-label="don't click here! no!">
 					<img class="image-takeover-immune" src="/graphix/buttons/dont-click-here.gif" alt="">
 				</button>

@@ -313,7 +313,7 @@ const updates = {
 	// check if this page has 'iframe' in its URL parameters
 	// and that iframe parameter is not set to 'false'
 	// if so, add the iframe class to this page's body
-	// loaded from /js/iframe-detector.js
+	// loaded from /codefiles/iframe-detector.js
 	iFrameParams();
 	
 	// if this is being displayed in an iframe

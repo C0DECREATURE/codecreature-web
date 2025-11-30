@@ -1,7 +1,7 @@
 /*
 // put at top of html document
 		<!--full image view-->
-		<script src="/js/full-image.js?fileversion=9"></script>
+		<script src="/codefiles/full-image.js?fileversion=9"></script>
 
 // optional CSS options for pages that load this script
 .full-image-view {
@@ -25,7 +25,7 @@ const fullImageView = {
 			let css = document.createElement('link');
 			css.rel = 'stylesheet';
 			css.type = 'text/css';
-			css.href = "/js/full-image.css?fileversion=9";
+			css.href = "/codefiles/full-image.css?fileversion=9";
 			css.id = "full-image-view-css";
 			document.querySelector('HEAD').appendChild(css);
 		}
