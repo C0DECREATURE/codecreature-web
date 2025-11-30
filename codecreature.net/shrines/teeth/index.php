@@ -31,9 +31,23 @@ if (array_key_exists('email', $_POST)) {
 		} else {
 			$quantity = '';
 		}
+    //Apply some basic validation to the teeth type
+    if (array_key_exists('type', $_POST)) {
+			$type = substr(strip_tags($_POST['type']), 0, 255);
+		} else {
+			$type = '';
+		}
     //Apply some basic validation and filtering to the gift-type
     if (array_key_exists('gift', $_POST)) {
-			$gift = "Requested in return: " . substr(strip_tags($_POST['gift']), 0, 255);
+			$gift = substr(strip_tags($_POST['gift']), 0, 255);
+			if ($gift == "gift") {
+				$gift = "Topolino's Gift";
+			} elseif ($gift == "label") {
+				$gift = "Prepaid Shipping Label";
+			} else {
+				$gift = "Nothing";
+			}
+			$gift = "Requested in return: " . $gift;
 		} else {
 			$gift = 'Nothing';
 		}
@@ -48,7 +62,7 @@ if (array_key_exists('email', $_POST)) {
 		if ( !array_key_exists('link', $_POST) ) {
 			$credit = "Credit: " . $name;
 		} else {
-			$link = substr(strip_tags($_POST['name']), 0, 255);
+			$link = substr(strip_tags($_POST['link']), 0, 255);
 			$credit = "Credit:\nDisplay name: " . $name . "\nCredit link: " . $link;
 		}
     //Apply validation and filtering to the mailing address
@@ -58,9 +72,9 @@ if (array_key_exists('email', $_POST)) {
 			$address = "ZIP code: " . substr(strip_tags($_POST['zip']), 0, 5);
 		} else {
 			if (array_key_exists('addressname', $_POST)) {
-				$name = substr(strip_tags($_POST['addressname']), 0, 255);
+				$addressname = substr(strip_tags($_POST['addressname']), 0, 255);
 			} else {
-				$name = '(no name)';
+				$addressname = '(no name)';
 			}
 			// street address
 			if (array_key_exists('address1', $_POST)) {
@@ -114,7 +128,7 @@ if (array_key_exists('email', $_POST)) {
         $mail->addAddress($to);
         $mail->addReplyTo($email, $name);
         $mail->Subject = $subject;
-        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . "teeth\n" . $gift . "\n" . $address . "\n" . $credit;
+        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . "teeth\n" . $gift . "\n\n" . $address . "\n\n" . $credit;
         if (!$mail->send()) {
             $msg .= 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
@@ -188,7 +202,7 @@ if (array_key_exists('email', $_POST)) {
 						<br>
 						<select id="gift-type" name="gift" onchange="emailForm.updateGiftType();">
 							<option value="">(Select one)</option>
-							<option value="gift">Gift</option>
+							<option value="gift">Topolino's Gift</option>
 							<option value="label">Prepaid Shipping Label</option>
 							<option value="nothing">Nothing</option>
 						</select>
@@ -314,7 +328,7 @@ if (array_key_exists('email', $_POST)) {
 						let labels = emailForm.addressInfo.getElementsByTagName('label');
 						for (let i = 0; i < labels.length; i++) {
 							if (fullAddress || labels[i].id == 'address-zip') labels[i].classList.add('required');
-							else labels[i].classList.remove('required');
+							else if (labels[i].id != 'address-2') labels[i].classList.remove('required');
 						}
 					}
 					else { emailForm.addressInfo.classList.add('hidden'); }
