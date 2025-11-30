@@ -51,11 +51,11 @@ if (array_key_exists('email', $_POST)) {
 			if ($gift == "gift") {
 				$gift = "Topolino's Gift";
 			} elseif ($gift == "label") {
-				$length = substr(strip_tags($_POST['quantity']), 0, 5);
-				$width = substr(strip_tags($_POST['quantity']), 0, 5);
-				$height = substr(strip_tags($_POST['quantity']), 0, 5);
+				$length = substr(strip_tags($_POST['length']), 0, 5);
+				$width = substr(strip_tags($_POST['width']), 0, 5);
+				$height = substr(strip_tags($_POST['height']), 0, 5);
 				$lengthUnit = substr(strip_tags($_POST['lengthUnit']), 0, 5);
-				$weight = substr(strip_tags($_POST['quantity']), 0, 5);
+				$weight = substr(strip_tags($_POST['weight']), 0, 5);
 				$weightUnit = substr(strip_tags($_POST['weightUnit']), 0, 5);
 				$envelope = "Envelope: " . $length . " x " . $width . " x " . $height . " " . $lengthUnit . ", weighs " . $weight . $weightUnit;
 				$gift = "Prepaid Shipping Label\n" . $envelope;
@@ -95,7 +95,7 @@ if (array_key_exists('email', $_POST)) {
 			if (array_key_exists('address1', $_POST)) {
 				$address1 = substr(strip_tags($_POST['address1']), 0, 255);
 				// if address has a second line
-				if (array_key_exists('address2', $_POST)) { $address1 = $address1 . "\n" . substr(strip_tags($_POST['address2']), 0, 255); }
+				if (array_key_exists('address2', $_POST) && $_POST['address2'] != '') { $address1 = $address1 . "\n" . substr(strip_tags($_POST['address2']), 0, 255); }
 			} else {
 				$address1 = '(no street address)';
 			}
@@ -143,7 +143,7 @@ if (array_key_exists('email', $_POST)) {
         $mail->addAddress($to);
         $mail->addReplyTo($email, $name);
         $mail->Subject = $subject;
-        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . "teeth\n" . $gift . "\n\n" . $address . "\n\n" . $credit;
+        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . " teeth\n" . $gift . "\n\n" . $address . "\n\n" . $credit;
         if (!$mail->send()) {
             $msg .= 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
