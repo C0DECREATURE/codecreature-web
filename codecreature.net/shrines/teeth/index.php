@@ -14,6 +14,14 @@ if (array_key_exists('email', $_POST)) {
 		$quantity = '';
 		$type = '';
 		$gift = '';
+		// envelope info
+		$envelope = '';
+		$length = '';
+		$width = '';
+		$height = '';
+		$lengthUnit = '';
+		$weight = '';
+		$weightUnit = '';
 		// mailing address
 		$address = ''; // holds combined address string
 		$addressname = '';
@@ -43,7 +51,14 @@ if (array_key_exists('email', $_POST)) {
 			if ($gift == "gift") {
 				$gift = "Topolino's Gift";
 			} elseif ($gift == "label") {
-				$gift = "Prepaid Shipping Label";
+				$length = substr(strip_tags($_POST['quantity']), 0, 5);
+				$width = substr(strip_tags($_POST['quantity']), 0, 5);
+				$height = substr(strip_tags($_POST['quantity']), 0, 5);
+				$lengthUnit = substr(strip_tags($_POST['lengthUnit']), 0, 5);
+				$weight = substr(strip_tags($_POST['quantity']), 0, 5);
+				$weightUnit = substr(strip_tags($_POST['weightUnit']), 0, 5);
+				$envelope = "Envelope: " . $length . " x " . $width . " x " . $height . " " . $lengthUnit . ", weighs " . $weight . $weightUnit;
+				$gift = "Prepaid Shipping Label\n" . $envelope;
 			} else {
 				$gift = "Nothing";
 			}
@@ -202,7 +217,7 @@ if (array_key_exists('email', $_POST)) {
 						<br>
 						<select id="gift-type" name="gift" onchange="emailForm.updateGiftType();">
 							<option value="">(Select one)</option>
-							<option value="gift">Topolino's Gift</option>
+							<option value="gift">Gift from Topolino</option>
 							<option value="label">Prepaid Shipping Label</option>
 							<option value="nothing">Nothing</option>
 						</select>
@@ -216,14 +231,14 @@ if (array_key_exists('email', $_POST)) {
 							<input type="number" step=".5" id="envelope-width" name="width" size="3">
 							x
 							<input type="number" step=".5" id="envelope-thickness" name="height" size="3">
-							<select id="envelope-dimensions-type">
+							<select id="envelope-dimensions-type" name="lengthUnit">
 								<option value="in">in</option>
 								<option value="cm">cm</option>
 							</select>
 							<br>
 							<label for="envelope-weight" class="required">Weight:</label>
 							<input type="number" step=".5" id="envelope-weight" name="weight" size="3">
-							<select id="envelope-weight-type">
+							<select id="envelope-weight-type" name="weightUnit">
 								<option value="oz">oz</option>
 								<option value="g">g</option>
 							</select>
@@ -257,7 +272,7 @@ if (array_key_exists('email', $_POST)) {
 							<br>
 							
 							<label for="address-zip" class="required">ZIP:</label>
-							<input type="text" id="address-zip" name="zip" pattern="[0-9]{5}" title="5 digit ZIP code" maxlength="5" required>
+							<input type="text" id="address-zip" name="zip" pattern="[0-9]{5}" title="5 digit ZIP code" maxlength="5">
 							<br>
 						</section>
 						
@@ -327,8 +342,8 @@ if (array_key_exists('email', $_POST)) {
 						emailForm.addressInfo.classList.remove('hidden');
 						let labels = emailForm.addressInfo.getElementsByTagName('label');
 						for (let i = 0; i < labels.length; i++) {
-							if (fullAddress || labels[i].id == 'address-zip') labels[i].classList.add('required');
-							else if (labels[i].id != 'address-2') labels[i].classList.remove('required');
+							if ( (fullAddress || labels[i].htmlFor == 'address-zip') && labels[i].htmlFor != 'address-2' ) labels[i].classList.add('required');
+							else labels[i].classList.remove('required');
 						}
 					}
 					else { emailForm.addressInfo.classList.add('hidden'); }
