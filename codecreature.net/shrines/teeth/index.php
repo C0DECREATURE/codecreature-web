@@ -327,26 +327,46 @@ if (array_key_exists('email', $_POST)) {
 					}
 					return r;
 				},
+				// make given input required or not based on "required" boolean parameter
+				setRequired(inputId,required) {
+					let input = document.getElementById(inputId);
+					let label = emailForm.getLabelFor(inputId);
+					if (required) {
+						input.setAttribute('required','true');
+						if (label) label.classList.add('required');
+					} else {
+						input.removeAttribute('required');
+						if (label) label.classList.remove('required');
+					}
+				},
 				// update the form according to current gift-type selection
 				updateGiftType: ()=>{
 					let v = emailForm.giftType.options[emailForm.giftType.selectedIndex].value;
 					let envelope, address, fullAddress = false;
+					
 					// set which sections to show based on selection
 					if (v == 'label') { envelope = true; address = true; }
 					else if (v == 'gift') { address = true; fullAddress = true; }
+					
 					// if envelope info needed
 					if (envelope) { emailForm.envelopeInfo.classList.remove('hidden'); }
 					else { emailForm.envelopeInfo.classList.add('hidden'); }
-					// if address info needed
-					if (address) {
-						emailForm.addressInfo.classList.remove('hidden');
-						let labels = emailForm.addressInfo.getElementsByTagName('label');
-						for (let i = 0; i < labels.length; i++) {
-							if ( (fullAddress || labels[i].htmlFor == 'address-zip') && labels[i].htmlFor != 'address-2' ) labels[i].classList.add('required');
-							else labels[i].classList.remove('required');
-						}
+					// set the correct required value for envelope info
+					let eInputs = emailForm.envelopeInfo.getElementsByTagName('input');
+					for (let i = 0; i < eInputs.length; i++) {
+						if (envelope) emailForm.setRequired(eInputs[i].id,true);
+						else emailForm.setRequired(eInputs[i].id,false);
 					}
+					
+					// if address info needed
+					if (address) { emailForm.addressInfo.classList.remove('hidden'); }
 					else { emailForm.addressInfo.classList.add('hidden'); }
+					// set the correct required value for address info
+					let aInputs = emailForm.addressInfo.getElementsByTagName('input');
+					for (let i = 0; i < aInputs.length; i++) {
+						if ( address && (fullAddress || aInputs[i].id == 'address-zip') && aInputs[i].id != 'address-2' ) emailForm.setRequired(aInputs[i].id,true);
+						else emailForm.setRequired(aInputs[i].id,false);
+					}
 				},
 				// update the form according to current tooth-type selection
 				updateToothType: ()=>{
