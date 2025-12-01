@@ -188,15 +188,16 @@ if (array_key_exists('email', $_POST)) {
 <body>
 	<a class="skip-to-content" href="#content">skip to content</a>
 		
-		<nav><a href="/">home</a></nav>
+		<nav><a href="/">return home</a></nav>
 		
-		<main id="content">
-			
-			<h2>teeth for topolino</h2>
-			<p>
-				Burdened by too many teeth? Finally, the solution is here!
-				<br>Send a tooth to Topolino, receive something in return.
-			<p>
+		<main>
+			<header>
+				<h2>teeth for topolino</h2>
+				<p id="content">
+					Burdened by too many teeth? Finally, the solution is here!
+					<br>Send a tooth to Topolino, receive something in return.
+				<p>
+			</header>
 			
 			<!-- if form not already submitted -->
 			<?php if (empty($msg)) { ?>
