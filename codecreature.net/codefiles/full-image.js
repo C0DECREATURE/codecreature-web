@@ -144,7 +144,7 @@ const fullImageView = {
 				defaultSvgIcons.load(fullImageView.element);
 			}
 			
-			console.log('full image view setup complete');
+			console.log(`Full Image View setup complete. Found ${this.viewables.length} full-viewable elements.`);
 		}
 	},
 	setUpViewables: function() {
