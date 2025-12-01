@@ -120,16 +120,15 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	min-width: min(100%, 350px); flex: 1;
 	.img-wrapper { width: 150px; height: 20px; }
 }
-:has(>#deco) { flex: 4 }
-:has(>#bgs) { min-width: min(100%, 400px); flex: 3; }
+#bgs { min-width: min(100%, 800px); flex: 3; }
 #deco { min-width: min(100%, 450px); flex: 4; }
 #stickers {
 	min-width: min(100%, 550px);
 	flex: 4;
 	.img-grid img { max-width: max(80px,10%); }
 }
+:has(> #hexagon-stamps) { min-width: min(100%, 395px); flex: 1; }
 #hexagon-stamps {
-	min-width: min(100%, 395px);
 	.honeycomb { width: fit-content; margin: 0 auto; }
 }
 
