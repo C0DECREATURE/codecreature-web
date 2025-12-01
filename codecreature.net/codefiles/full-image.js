@@ -203,8 +203,8 @@ const fullImageView = {
 		var credit = img.dataset.credit;
 		var creditLabel = img.dataset.creditLabel;
 		if ( credit ) {
-			let txt = '<a href="' + credit + '">';
-			if ( creditLabel ) txt += creditLabel + '</a>';
+			let txt = `<a href="${credit}">`;
+			if ( creditLabel ) txt = `credit: ${txt}${creditLabel}</a>`;
 			else txt += 'credit</a>';
 			fullImageView.credit.innerHTML = txt;
 		} else fullImageView.credit.innerHTML = '';
