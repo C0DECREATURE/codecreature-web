@@ -45,22 +45,3 @@ function getKey() {
 }
 // use coffin key
 function useKey() { document.querySelector('body').classList.remove('hasKey'); }
-
-/**********************************/
-// FULL IMAGE VIEW SETUP
-
-window.addEventListener('load',function(){
-	// add full-viewable class to all gallery images
-	let images = document.getElementById('gallery-images').getElementsByTagName('img');
-	for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
-	
-	images = document.getElementById('blinkies').getElementsByTagName('img');
-	for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
-	
-	images = document.getElementById('stamps').getElementsByTagName('img');
-	for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
-	
-	// run full image setup code
-	fullImageView.init();
-	defaultSvgIcons.load();
-});
