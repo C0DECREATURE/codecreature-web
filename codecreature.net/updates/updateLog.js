@@ -14,6 +14,57 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-11-30-22:55'),
+		authors: ['emery'],
+		tags: ['general'],
+		summary: `
+			contact email addresses
+		`,
+		details: `
+			<p>
+				Set up various emails for contact purposes. I'll be integrating those on more parts of the site at some point. For now, the following addresses are functional if anyone wants to get in touch!
+			</p>
+			<ul>
+				<li>admin@codecreature.net</li>
+				<li>prax@codecreature.net</li>
+				<li>emery@codecreature.net</li>
+			</ul>
+		`
+	},
+	{
+		date: new Date('2025-11-30-22:27'),
+		authors: ['emery'],
+		tags: ['new page','teeth'],
+		summary: `
+			new <a href="/shrines/teeth">teeth</a> page
+		`,
+		details: `
+			<p>
+				Wanted to better understand how to make a PHP email form with <a href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a>, so I made an advanced version of the old "send me your teeth" mailto link from the 404 page. No fancy styling on the page yet, though.
+			</p>
+			<p>
+				I'm currently planning to theme it around Topolino, the Italian tooth fairy mouse! I am 100% serious about the teeth, %A%by the way\\btw%. If you <a href="/shrines/teeth">send me a tooth</a> of any kind, Topolino will send you something. I don't think anyone will actually do it, but the offer stands.
+			</p>
+			<p>
+				I'd like to make a little cabinet of curiosities style page to display all the teeth I find or obtain, including the ones I already have (mostly my own.) Hoping to incorporate more teeth and bones into my room clutter and insect taxidermy art projects in the future. Much to be done.
+			</p>
+			<p align="center"><img src="/graphix/ads/popup/send_me_your_teeth.jpg" style="max-width: 450px;" alt="Send me your teeth ad"></p>
+		`
+	},
+	{
+		date: new Date('2025-11-30-20:01'),
+		authors: ['emery'],
+		tags: ['graphix','minor'],
+		summary: `
+			a few <a href="/graphix">%A%graphics\\graphix%</a> additions
+		`,
+		details: `
+			<p>
+				Couple new images added to the <a href="/graphix">%A%graphics\\graphix%</a> page - mostly backgrounds. Layout adjusted accordingly.
+			</p>
+		`
+	},
+	{
 		date: new Date('2025-11-20T20:42'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
