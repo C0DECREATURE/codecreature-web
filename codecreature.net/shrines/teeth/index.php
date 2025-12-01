@@ -119,6 +119,12 @@ if (array_key_exists('email', $_POST)) {
 			}
 			$address = "Address:\n" . $addressname . "\n" . $address1 . "\n" . $city . ", " . $state . " " . $zip; 
 		}
+    //Apply some basic validation and filtering to the notes section
+		$notes = '';
+    if (array_key_exists('notes', $_POST)) {
+			$notes = "\n\nNotes:\n" . substr(strip_tags($_POST['notes']), 0, 1500);
+    }
+		
     //Validate to address
     //Never allow arbitrary input for the 'to' address as it will turn your form into a spam gateway!
     //Substitute appropriate addresses from your own domain, or simply use a single, fixed address
@@ -143,7 +149,7 @@ if (array_key_exists('email', $_POST)) {
         $mail->addAddress($to);
         $mail->addReplyTo($email, $name);
         $mail->Subject = $subject;
-        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . " teeth\n" . $gift . "\n\n" . $address . "\n\n" . $credit;
+        $mail->Body = "Teeth form submission:\n\nWant to send: " . $quantity . " " . $type . " teeth\n" . $gift . "\n\n" . $address . "\n\n" . $credit . $notes;
         if (!$mail->send()) {
             $msg .= 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
@@ -159,7 +165,7 @@ if (array_key_exists('email', $_POST)) {
 		
 		<title>topolino's teeth</title>
 		<!-- favicon -->
-		<link rel="icon" type="image/x-icon" href="favicon.gif">
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=10"></script>
@@ -187,9 +193,10 @@ if (array_key_exists('email', $_POST)) {
 		<main id="content">
 			
 			<h2>teeth for topolino</h2>
-			<p>TESTING! Don't interact with this page yet please, I'm still getting it working.</p>
-			
-			<p class="hidden">Burdened by too many teeth? Finally, the solution is here!<p>
+			<p>
+				Burdened by too many teeth? Finally, the solution is here!
+				<br>Send a tooth to Topolino, receive something in return.
+			<p>
 			
 			<!-- if form not already submitted -->
 			<?php if (empty($msg)) { ?>
@@ -294,7 +301,7 @@ if (array_key_exists('email', $_POST)) {
 					
 					<label for="notes">Notes:</label>
 					<br>
-					<textarea id="notes" name="notes"></textarea>
+					<textarea id="notes" name="notes" maxlength="1500"></textarea>
 					<br>
 
 					<input type="submit" value="Submit">
