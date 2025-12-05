@@ -14,6 +14,32 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2025-12-05-02:36'),
+		authors: ['prax','emery'],
+		tags: ['graphix','minor'],
+		summary: `
+			new <a href="/graphix">graphix</a>
+		`,
+		details: `
+			<p align="center">
+				<img src="/graphix/bumperstickers/louis_wain_happy.png" alt="Digital bumper sticker of Louis Wain's last painting. It reads 'I am happy because everyone loves me' beside a blue and red painting of a smiling cat.">
+				<img src="/graphix/stamps/louis_wain_orange.png" alt="Stamp of Louis Wain's painting of a happy orange tabby cat on a green background.">
+			</p>
+			<p>added a few images %%2% the <a href="/graphix">graphix page</a>, including a couple %A%little\\lil% %A%Louis Wain\\louis wain% things %%i% made %%bc% %%i% love him</p>
+		`
+	},
+	{
+		date: new Date('2025-12-05T01:58'),
+		authors: ['prax'],
+		tags: ['games','worm race','minor'],
+		summary: `
+			<a href="/games/wormrace/?worm=1">pretzel</a art fix!!
+		`,
+		details: `
+			<p>the art %%4% <a href="/games/wormrace/?worm=1">pretzel</a> has %N%b33n% bothering me %%4% a while %%bc% it %A%didn't\\didnt% match the line weight on the other worms. adjusted that a bit!!</p>
+		`
+	},
+	{
 		date: new Date('2025-11-30-22:55'),
 		authors: ['emery'],
 		tags: ['general'],
