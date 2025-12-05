@@ -33,7 +33,7 @@ const updateLog = [
 		authors: ['prax'],
 		tags: ['games','worm race','minor'],
 		summary: `
-			<a href="/games/wormrace/?worm=1">pretzel</a art fix!!
+			<a href="/games/wormrace/?worm=1">pretzel</a> art fix!!
 		`,
 		details: `
 			<p>the art %%4% <a href="/games/wormrace/?worm=1">pretzel</a> has %N%b33n% bothering me %%4% a while %%bc% it %A%didn't\\didnt% match the line weight on the other worms. adjusted that a bit!!</p>
