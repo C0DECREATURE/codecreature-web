@@ -156,7 +156,7 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	}
 	/* background image samples */
 	.bg-image {
-		width: min(48%, 220px);
+		width: min(48%, 180px);
 		border: 1px var(--green) solid;
 		.inner {
 			width: 100%;
