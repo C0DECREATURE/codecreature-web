@@ -1,6 +1,6 @@
 /*
 <!-- draggable elements -->
-<script src="/codefiles/draggable.js?fileversion=10"></script>
+<script src="/codefiles/draggable.js?fileversion=20251216"></script>
 
 */
 

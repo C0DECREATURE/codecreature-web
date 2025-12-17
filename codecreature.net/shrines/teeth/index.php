@@ -168,22 +168,22 @@ if (array_key_exists('email', $_POST)) {
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=10"></script>
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=10" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
 		
 		<!-- load fonts --
 		<script>fonts.load()</script>-->
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=10" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=10"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=10" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--this page's script(s)--
-		<script src="script.js?fileversion=10"></script>-->
+		<script src="script.js?fileversion=20251216"></script>-->
 </head>
 <body>
 	<a class="skip-to-content" href="#content">skip to content</a>

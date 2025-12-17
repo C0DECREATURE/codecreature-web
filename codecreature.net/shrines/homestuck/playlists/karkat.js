@@ -1,6 +1,6 @@
 /*
 <!-- karkat playlist -->
-<script src="/shrines/homestuck/playlists/karkat.js?fileversion=10"></script>
+<script src="/shrines/homestuck/playlists/karkat.js?fileversion=20251216"></script>
 
 */
 
