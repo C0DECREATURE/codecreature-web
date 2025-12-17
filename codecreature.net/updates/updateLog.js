@@ -423,7 +423,7 @@ const updateLog = [
 		`,
 		details: `
 			<p>new <a href="/shrines/homestuck/~ATH-handbook">~ATH handbook</a> page, in CSS styled after the canon book interior. also made a silly cover for one of the links to it on <a href="/shrines/homestuck/sollux">sollux</a>'s page</p>
-			<p align="center"><img src="/shrines/homestuck/images/~ATH_for_dummies.jpg" style="max-width: 25%;" alt="a 'for dummies' book cover edited to be about the ~ATH programming language. the for dummies mascot man has been edited to look like a homestuck troll"></p>
+			<p align="center"><img src="/shrines/homestuck/~ATH-handbook/~ATH_for_dummies.jpg" style="max-width: 25%;" alt="a 'for dummies' book cover edited to be about the ~ATH programming language. the for dummies mascot man has been edited to look like a homestuck troll"></p>
 		`
 	},
 	{
