@@ -520,7 +520,7 @@ const updateLog = [
 			<a href="/shrines/homestuck/sollux">mobius double reacharound virus</a> installed
 		`,
 		details: `
-			<p align="center"><img src="images/sollux-2025-08-08.jpg" alt="screenshot of a simulated code window titled "check this shit out dot ~ATH." it has white, red, and blue code written inside. there is a yellow-green arrow button at the bottom."></p>
+			<p align="center"><img src="images/sollux-2025-08-08.jpg" alt="Screenshot of a simulated code window titled 'check this shit out dot ~ATH.' It has white, red, and blue code written inside. There is a yellow-green arrow button at the bottom."></p>
 			<p>
 				<a href="/shrines/homestuck/sollux">sollux</a> page has a new loading animation, and the glasses light up on hover (the hover bit was, embarrassingly, a bit difficult to sort out).
 			</p>
