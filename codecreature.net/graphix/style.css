@@ -6,6 +6,8 @@
 
 html, body { margin: 0; }
 
+html { background-color: var(--black); }
+
 body {
 	background-color: var(--black);
 	color: var(--green);
