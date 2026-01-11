@@ -33,10 +33,6 @@
 .ssh/**
 .trash/**
 
-# my test environment folders #
-######################
-**/test-environment
-
 # site setup #
 ######################
 .htaccess
@@ -58,4 +54,7 @@ logs/**
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# my test environment folders #
+######################
 /codecreature.net/games/wormrace/test-environment
