@@ -1,4 +1,8 @@
 <?php
+	// display errors
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
+
 	// total number of worms
 	$numWorms = 6;
 	
@@ -13,6 +17,9 @@
 	
 	// server's current Unix time
 	$time = time();
+	
+	// cooldown to log for this feeding
+	$cooldown = 0;
 	
 	/********************** FEEDING LOG TABLE **********************/
 	
@@ -45,22 +52,21 @@
 	$ipCooldownTime = 0;
 	// for each row in the feed log table
 	while ($row = $feedLogData->fetchArray(SQLITE3_ASSOC)) {
-		// if row is from the last 10 minutes and the IP address matches the user
+		// if row is from the last hour and the IP address matches the user
 		if (
-			$row["time"] < ($time - 600)
+			$row["time"] < ($time - 3600)
 			&& $row["ipAddress"] == $ipAddress
 		) {
 			$ipCooldownTime += $row["cooldown"];
 		}
 	}
 	
-	// if the accumulated cooldown from this IP in the last 10 minutes exceeds the limits
-	if ( $ipCooldownTime > ($ipUserLimit * 600) ) {
+	// if the accumulated cooldown in the last hour exceeds the limits
+	if ( $ipCooldownTime > ($ipUserLimit * 3600) ) {
 		echo "LIMIT";
 	}
-	// if this IP address hasn't exceeded the limit, proceed with request
+	// if the IP address hasn't exceeded the limit, proceed with request
 	else {
-		
 		// delete data over 24 hours old
 		$db->exec( "
 			DELETE FROM feedLog
@@ -171,7 +177,7 @@
 				// get item's movement value to add to worm movwmwnt
 				$movement = $itemRow["movement"];
 				// get movement effect array
-				$movementEffect = explode(' ', $itemRow["movementEffect"]);
+				$movementEffect = explode(',', $itemRow["movementEffect"]);
 				// if the item has a valid movement effect entry for the current worm health,
 				// modify the movement value using that effect
 				if ($movementEffect[$row["health"]]) { $movement = $movement * $movementEffect[$row["health"]]; }
@@ -201,9 +207,12 @@
 				// if new worm health falls outside range, fix it
 				if ( $row[ "health" ] < 0 ) { $row[ "health" ] = 0; }
 				elseif ( $row[ "health" ] >= 4 ) { $row[ "health" ] = 4; }
-				
-				/////////////////////////////////////////////////////////////////////
-				// UPDATE WORM ROW TO FEED
+			}
+			
+			/////////////////////////////////////////////////////////////////////
+			// UPDATE WORM ROW
+			if( isset( $_GET[ "wormId" ] ) )
+			{
 				$db->exec( "
 					UPDATE worms
 					SET
@@ -220,8 +229,9 @@
 						idNum=" . $wormId . ";"
 				);
 				
+				
 				/////////////////////////////////////////////////////////////////////
-				// INSERT FEEDING LOG ROW FOR THIS FEEDING
+				// INSERT ACCESS DATA ROW FOR CURRENT SESSION
 				$db->exec( "
 					INSERT INTO feedLog 
 					(
@@ -240,24 +250,24 @@
 						" . $ipAddress . "
 					)"
 				);
-				
-				// this next bit doesn't work and idk why
-				// intended to replace the previous updates section
-				/*
-				$db->exec( "
-					UPDATE worms
-					SET
-						movement=" . $row[ "movement" ] . ",
-						health=" . $row[ "health" ] . ",
-						appleCount=" . $row[ "appleCount" ] . ",
-						drinkCount=" . $row[ "drinkCount" ] . ",
-						poisonCount=" . $row[ "poisonCount" ] . ",
-						healCount=" . $row[ "healCount" ] . "
-					WHERE
-						idNum=" . $wormId . ";"
-				);
-				*/
 			}
+			
+			// this next bit doesn't work and idk why
+			// intended to replace the previous updates section
+			/*
+			$db->exec( "
+				UPDATE worms
+				SET
+					movement=" . $row[ "movement" ] . ",
+					health=" . $row[ "health" ] . ",
+					appleCount=" . $row[ "appleCount" ] . ",
+					drinkCount=" . $row[ "drinkCount" ] . ",
+					poisonCount=" . $row[ "poisonCount" ] . ",
+					healCount=" . $row[ "healCount" ] . "
+				WHERE
+					idNum=" . $wormId . ";"
+			);
+			*/
 		}
 		
 		/////////////////////////////////////////////////////////////////////

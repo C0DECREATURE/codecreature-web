@@ -1,9 +1,6 @@
 // force strict mode
 "use strict";
 
-// location of wormrace.php file
-var phpSrc = '';
-
 // define worms, put into array
 const worms = [
 	{name:"jeremy", length:"4", color:"pink", likes:"tax evasion",
@@ -197,15 +194,12 @@ function init() {
 	cwResize();
 	
 	var urlWorm = urlParams.get('worm');
-	// if url parameters includes a value for results and that result is ':33'
-	if ( urlParams.has('results') && urlParams.get('results') == ':33'  ) showRace();
-	else {
-		getWormData();
-		// if url parameters includes a value for worm and that result is a valid worm, open that worm
-		if ( urlWorm && urlWorm >= 0 && urlWorm < worms.length ) chooseWorm(Number(urlWorm));
-		// if url parameters includes a value for share and that result is not 'false'
-		if ( urlParams.has('share') && urlParams.get('share') != 'false' ) showShare();
-	}
+	
+	getWormData();
+	// if url parameters includes a value for worm and that result is a valid worm, open that worm
+	if ( urlWorm && urlWorm >= 0 && urlWorm < worms.length ) chooseWorm(Number(urlWorm));
+	// if url parameters includes a value for share and that result is not 'false'
+	if ( urlParams.has('share') && urlParams.get('share') != 'false' ) showShare();
 }
 
 /*
@@ -344,7 +338,7 @@ function getWormData() {
 	xhr.onerror = errorWormData;
 	xhr.onload = loadWormData;
 	// Specify the request type, and URL we want to talk to
-	xhr.open("GET", phpSrc + "wormrace.php" );
+	xhr.open("GET", "wormrace.php" );
 	// Send the request
 	xhr.send();
 }
@@ -874,18 +868,12 @@ function feedWorm() {
 		var xhr = new XMLHttpRequest();
 		xhr.onerror = onFeedError;
 		xhr.onload = onFeedLoad;
-		xhr.open("GET", phpSrc +
+		xhr.open("GET",
 			"wormrace.php?wormId=" + wormId +
 			"&name=" + wormName +
 			"&item=" + itemTN
 		);
 		xhr.send();
-		
-		console.log("wormrace.php?wormId=" + wormId +
-			"&name=" + wormName +
-			"&movement=" + dist +
-			"&health=" + health +
-			"&item=" + itemTN);
 	}
 }
 
