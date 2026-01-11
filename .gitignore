@@ -29,13 +29,13 @@
 
 # heliohost files #
 ######################
-.composer/*
-.ssh/*
-.trash/*
+.composer/**
+.ssh/**
+.trash/**
 
 # my test environment folders #
 ######################
-*/test-environment/*
+**/test-environment/**
 
 # site setup #
 ######################
@@ -43,9 +43,9 @@
 
 # github files #
 ######################
-git/*
-logs/*
-.github/*
+git/**
+logs/**
+.github/**
 /LICENSE.md
 /README.md
 
