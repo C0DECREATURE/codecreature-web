@@ -371,29 +371,50 @@ function errorWormData() {
 function loadWormData(e) {
 	// string echo returned from the server
 	var str = e.currentTarget.responseText;
-	// split the responseText into variables
-	var strParts = str.split(",");
 	
-	// if the database has reached write limit
+	// if this IP address has exceeded feeding limits
 	if ( str === "LIMIT" ) {
-		alert('Worm race has had too many visitors!' + '\n' + 'Please come back in an hour');
+		alert('Worm race has had too many visitors from your IP address recently!' + '\n' + 'Please come back later.');
 		dbLimit = true;
 	}
 	// if the database has not reached write limit
 	else {
+		// split the responseText into variables
+		var strParts = str.split("ITEMS");
+		// array of worm data strings
+		var wormData = strParts[0].split(";");
+		// array of item data strings
+		var itemData = strParts[1].split(";");
+		
+		// for each item data chunk received
+		for (let i = 0; i < itemData.length; i++) {
+			if (itemData[i].length > 0) {
+				// split it into full array
+				let data = itemData[i].split(",");
+				// get the item associated
+				let item = items[data[0]];
+				// fill in the info
+				item.movement = data[1];
+				item.movementEffect = data[2].split(" ");
+				item.health = data[3];
+				item.healthEffect = data[4];
+				item.cooldown = data[5];
+			}
+		}
+		
+		// for each worm
 		for (let i = 0; i < worms.length; i++) {
 			// the current worm
 			var w = worms[i];
-			// the str array # for the first data point of the current worm
-			var n = 0;
-			if ( i > 0 ) n = i * (strParts.length / worms.length);
+			// split the worm's data into an array
+			let data = wormData[i].split(",");
 			// put the data received for this worm in the worms array
-			w.movement = strParts[n + 2];
-			w.health = strParts[n + 3];
-			w.appleCount = strParts[n + 4];
-			w.drinkCount = strParts[n + 5];
-			w.poisonCount = strParts[n + 6];
-			w.healCount = strParts[n + 7];
+			w.movement = data[2];
+			w.health = data[3];
+			w.appleCount = data[4];
+			w.drinkCount = data[5];
+			w.poisonCount = data[6];
+			w.healCount = data[7];
 			
 			// update the max distance based on this worm's movement
 			maxDist = Math.max(w.movement, maxDist);
@@ -651,7 +672,7 @@ function chooseWorm(num) {
 	// show the details box
 	showDetails();
 	// style the initial item detail text
-	detailbox.querySelector('.lg').style.textShadow = '.08em .08em ' + w.colorCodeDark;
+	if (detailbox.querySelector('.lg')) detailbox.querySelector('.lg').style.textShadow = '.08em .08em ' + w.colorCodeDark;
 }
 
 // set the detail box health for the current wormChoice
