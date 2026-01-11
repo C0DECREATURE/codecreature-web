@@ -35,7 +35,7 @@
 
 # my test environment folders #
 ######################
-**/test-environment/**
+**/test-environment
 
 # site setup #
 ######################
