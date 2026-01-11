@@ -33,6 +33,10 @@
 .ssh/*
 .trash/*
 
+# my test environment folders #
+######################
+test-environment/*
+
 # site setup #
 ######################
 .htaccess
