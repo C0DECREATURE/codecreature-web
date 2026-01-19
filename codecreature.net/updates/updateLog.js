@@ -14,7 +14,23 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2025-12-05-02:36'),
+		date: new Date('2026-01-19T05:41'),
+		authors: ['prax'],
+		tags: ['new page','shrines','tangy'],
+		summary: `
+			<a href="/shrines/tangy">tangy shrine</a> added!
+		`,
+		details: `
+			<p>
+				<a href="/shrines/tangy">tangy shrine</a>!! %A%pretty\\purretty% simple %%4% now
+			</p>
+			<p align="center">
+				<img src="images/tangy_2026_01_19.jpg" alt="Screenshot of the new page featuring Tangy the orange fruit Animal Crossing cat. It has a Tangy amiibo card at the center, a gif of a Tangy that is only a head and legs, and an Animal Crossing grass texture background.">
+			</p>
+		`
+	},
+	{
+		date: new Date('2025-12-05T02:36'),
 		authors: ['prax','emery'],
 		tags: ['graphix','minor'],
 		summary: `

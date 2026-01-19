@@ -1,0 +1,82 @@
+:focus-visible { outline: 2px var(--l-green) solid; box-shadow: 0 0 0 4px var(--d-green); }
+
+.invisible { visibility: hidden; }
+
+body {
+	background: #009059;
+	background-image: url('/graphix/bg/ac_spring_2x.png');
+	margin: 0px;
+	height: 100vh;
+	font-family: sans-serif;
+	
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	position: relative;
+	flex-grow: 1;
+	width: 100%;
+	
+	> .container {
+		position: absolute;
+		top: 45%; left: 50%;
+		transform: translate(-50%,-50%);
+		
+		> header {
+			text-align: center;
+		}
+	}
+}
+
+#amiibo, #amiibo .front > img, #amiibo .back { border-radius: 2%; }
+#amiibo {
+	width: min(276px,80vw);
+	height: auto;
+	aspect-ratio: 7.11/10;
+	position: relative;
+	
+	&:hover, &:focus-visible { box-shadow: 0px 0px 8px 8px #fff; }
+	
+	> img { max-width: 100%; }
+	
+	.back {
+		width: 100%;
+		height: 100%;
+		background: #fabe00;
+		border: 10px #e85d00 solid;
+		box-sizing: border-box;
+	}
+	
+	.front, .back {
+		position: absolute;
+		top: 0; left: 0;
+	}
+}
+
+#leggy-run {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+nav {
+	background: #60af16;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	
+	a, a:link, a:visited {
+		background: #fabe00;
+		color: #de3800;
+		font-weight: bold;
+		padding: .25em .5em;
+		border-radius: .2em;
+		font-size: 1.25rem;
+	}
+	a:hover, a:focus-visible {
+		background: #de3800;
+		color: #fff;
+	}
+}

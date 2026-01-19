@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>tang 4 the tangy one</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
+		<!-- page settings -->
+		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		
+		<main>
+			<div class="container">
+				<header>
+					<h1>reeeeOWR!</h1>
+				</header>
+				
+				<button id="amiibo" onclick="
+					this.querySelector('.front').classList.toggle('invisible');
+					this.querySelector('.back').classList.toggle('invisible');
+				">
+					<!--front of card-->
+					<div class="front">
+						<img src="amiibo.png" alt="Tangy Amiibo card.">
+					</div>
+					<!--back of card-->
+					<div class="back invisible">
+						<h3>Tangy</h3>
+						<ul>
+							<li>Cat</li>
+							<li>Peppy</li>
+							<li>June 17th</li>
+							<li>Gemini</li>
+						</ul>
+					</div>
+				</button>
+			</div>
+			
+			<img id="leggy-run" src="leggy_run.gif" alt="">
+		</main>
+		
+		<nav>
+			<a href="/shrines">shrines</a>
+			<a href="/home">home</a>
+		</nav>
+		
+	</body>
+	<!--------------END BODY------------->
+</html>
