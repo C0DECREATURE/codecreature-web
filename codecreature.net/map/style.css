@@ -3,18 +3,36 @@ body {
 	text-align: center;
 }
 
-nav {
+.trait-icons {
+	margin-left: .25em;
+	
+	img {
+		height: 1.2em;
+		margin-bottom: -.2em;
+	}
+	
+	/* icon meaning key section */
+	&.guide > * {
+		display: block;
+	}
+}
+
+#page-links {
 	max-width: 400px;
 	margin: 0 auto;
+	text-align: left;
 	
-	a {
-		display: block;
-		
-		&.wip {
-			color: var(--orange);
-			&:hover { color: var(--yellow); }
-			&::after { content: ' (wip)'; }
-		}
+	a:not(.wip) {
+		font-weight: bold;
 	}
+	a.wip {
+		color: var(--orange);
+		&:hover { color: var(--yellow); }
+	}
+	
+	ul { margin-top: 0; }
+	
+	li { list-style-type: square; }
+	
 	h3 { margin-bottom: 0; }
 }

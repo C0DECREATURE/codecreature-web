@@ -33,37 +33,106 @@
 		</header>
 		
 		<p>sorry this is... not pretty at the moment</p>
+		<div class="trait-icons guide">
+			<span>key:</span>
+			<span><img src="/graphix/icons/check.svg" alt=""> = (mostly) finished page</span>
+			<span><img src="/graphix/icons/warning.svg" alt=""> = work in progress</span>
+			<span><img src="/graphix/icons/mobile-no.svg" alt="not mobile-friendly"> = only works on desktop</span>
+			<span><img src="/graphix/icons/eyestrain.svg" alt="eye strain"> = extra bright or flashing</span>
+			<span><img src="/graphix/icons/gore.svg" alt=""> = cartoon blood/gore</span>
+		</div>
 		
-		<nav>
+		<nav id="page-links">
 			<h3>basics</h3>
-			<a href="/home" class="wip">home</a>
-			<a href="/warnings">warnings</a>
-			<a href="/about" class="wip">about</a>
-			<a href="/updates" class="wip">updates</a>
+			<ul>
+				<li><a href="/home" class="page" data-traits="wip eyestrain">home</a></li>
+				<li><a href="/warnings" class="page" data-traits="">warnings</a></li>
+				<li><a href="/map" class="page" data-traits="wip">site map</a></li>
+				<li><a href="/about" class="page" data-traits="wip">about</a></li>
+				<li><a href="/updates" class="page" data-traits="wip">updates</a></li>
+			</ul>
 			
 			<h3>games & interactive</h3>
-			<a href="/games/worm-race">worm race</a>
-			<a href="/404">404 error</a>
-			<a href="/games/toybox" class="wip">toybox</a>
+			<ul>
+				<li><a href="/games/worm-race" class="page" data-traits="">worm race</a></li>
+				<li><a href="/404" class="page" data-traits="eyestrain">404 error</a></li>
+				<li><a href="/games/toybox" class="page" data-traits="wip no-mobile">toybox</a></li>
+			</ul>
 			
 			<h3>shrines</h3>
-			<a href="/shrines/garfield" class="wip">garfield</a>
-			<a href="/shrines/homestuck" class="wip">homestuck</a>
-			<a href="/shrines/homestuck/sollux" class="wip">sollux</a>
-			<a href="/shrines/homestuck/nepeta" class="wip">nepeta</a>
-			<a href="/shrines/snailfish" class="wip">snailfish</a>
-			<a href="/shrines/tangy" class="wip">tangy</a>
-			<a href="/shrines/raptor-red">raptor red</a>
-			<a href="/shrines/teeth" class="wip">tooth collection</a>
+			<a href="/shrines" class="page" data-traits="wip">shrines list</a>
+			<ul>
+				<li><a href="/shrines/garfield" class="page" data-traits="wip no-mobile">garfield</a>
+					<ul>
+						<li><a href="/shrines/garfield/comics" class="page" data-traits="wip">comics archive</a></li>
+						<li><a href="/shrines/garfield/merch" class="page" data-traits="">merch shelf</a></li>
+						<li><a href="/shrines/garfield/posters" class="page" data-traits="wip">posters</a></li>
+					</ul>
+				</li>
+				<li><a href="/shrines/homestuck" class="page" data-traits="wip">homestuck</a>
+					<ul>
+						<li><a href="/shrines/homestuck/sollux" class="page" data-traits="wip">sollux</a></li>
+						<li><a href="/shrines/homestuck/nepeta" class="page" data-traits="wip">nepeta</a></li>
+						<li><a href="/shrines/homestuck/~ATH-handbook" class="page" data-traits="">~ATH handbook</a></li>
+						<li><a href="/shrines/homestuck/shipping" class="page" data-traits="wip">shipping wall</a></li>
+						<li><a href="/shrines/homestuck/images" class="page" data-traits="wip">free graphics</a></li>
+						<li><a href="/shrines/homestuck/playlists" class="page" data-traits="wip">playlists</a> (broken)</li>
+					</ul>
+				</li>
+				<li><a href="/shrines/snailfish" class="page" data-traits="wip">snailfish</a></li>
+				<li><a href="/shrines/tangy" class="page" data-traits="wip">tangy</a></li>
+				<li><a href="/shrines/raptor-red" class="page" data-traits="">raptor red</a></li>
+				<li><a href="/shrines/teeth" class="page" data-traits="wip">tooth collection</a></li>
+			</ul>
 			
 			<h3>characters</h3>
-			<a href="/ocs/vex" class="wip" data-warnings="blood">vex</a>
+			<ul>
+				<li><a href="/ocs/vex" class="page" data-traits="wip gore">vex</a></li>
+			</ul>
 			
 			<h3>resources</h3>
-			<a href="/fonts" class="wip">fonts</a>
-			<a href="/graphix"><u class="tq" data-a="graphics">graphix</u></a>
-			<a href="/links" class="wip">links</a>
+			<ul>
+				<li><a href="/fonts" class="page" data-traits="wip no-mobile">fonts</a></li>
+				<li><a href="/graphix" class="page" data-traits="eyestrain"><u class="tq" data-a="graphics">graphix</u></a></li>
+				<li><a href="/links" class="page" data-traits="wip eyestrain">links</a></li>
+			</ul>
 		</nav>
+		<script>
+			let pageLinks = document.getElementById('page-links').getElementsByClassName('page');
+			// for each .page element
+			for (let i = 0; i < pageLinks.length; i++) {
+				let p = pageLinks[i];
+				// get the list of traits for this page
+				let traits = p.dataset.traits.split(' ');
+				// if there are traits in the list
+				if (traits.length > 0) {
+					// create a section for trait icons
+					let icons = document.createElement('span');
+					icons.classList.add('trait-icons');
+					// put the icons in the section
+					if (traits.includes("eyestrain")) console.log(`eyestrain in ${p.dataset.traits}`);
+					// function to add a trait icon with given image source and alt text
+					function addTrait(src,alt) {
+						let img = document.createElement('img');
+						img.src = src;
+						img.alt = alt;
+						img.title = alt;
+						icons.appendChild(img);
+					}
+					// add the appropriate traits based on traits dataset
+					// doing it this way ensures they are always in the same order with no duplicates
+					if (traits.includes("wip")) {
+						addTrait("/graphix/icons/warning.svg","WIP");
+						p.classList.add('wip');
+					} else { addTrait("/graphix/icons/check.svg","complete"); }
+					if (traits.includes("no-mobile")) addTrait("/graphix/icons/mobile-no.svg","not mobile-friendly");
+					if (traits.includes("eyestrain")) addTrait("/graphix/icons/eyestrain.svg","eye strain");
+					if (traits.includes("gore")) addTrait("/graphix/icons/gore.svg","blood/gore");
+					// put the icons section immediately after the link
+					p.after(icons);
+				}
+			}
+		</script>
 		
 		
 	</body>
