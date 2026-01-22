@@ -3,6 +3,9 @@ body {
 	text-align: center;
 }
 
+h1, h3 { color: var(--yellow); }
+h3 { margin-bottom: 0; }
+
 .trait-icons {
 	margin-left: .25em;
 	
@@ -23,16 +26,16 @@ body {
 	text-align: left;
 	
 	a:not(.wip) {
+		color: var(--green);
 		font-weight: bold;
+		&:hover { color: var(--d-green); }
 	}
 	a.wip {
-		color: var(--orange);
-		&:hover { color: var(--yellow); }
+		color: var(--l-blue);
+		&:hover { color: var(--blue); }
 	}
 	
 	ul { margin-top: 0; }
 	
 	li { list-style-type: square; }
-	
-	h3 { margin-bottom: 0; }
 }
