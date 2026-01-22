@@ -14,6 +14,17 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-01-22T18:09'),
+		authors: ['emery'],
+		tags: ['resources'],
+		summary: `
+			Free <a href="/codefiles/ACNLclock">ACNL clock</a> widget
+		`,
+		details: `
+			<p>I've made the <a href="/codefiles/ACNLclock">Animal Crossing clock</a> widget from the Tangy page publicly available! Noncommercial purposes only, please include credit somewhere on your site.</p>
+		`
+	},
+	{
 		date: new Date('2026-01-22T05:55'),
 		authors: ['emery'],
 		tags: ['shrines','tangy'],
