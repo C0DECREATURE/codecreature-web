@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-BoldItalic.woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline3Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline3.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline2Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow1.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow2Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline4.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Bold.woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-MediumItalic.woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Medium.woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline2.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-HeavyItalic.woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow1Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Regular.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-DemiItalic.woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow3Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-LightItalic.woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-BlackItalic.woff');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Italic.woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow2.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow4.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline4Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline1Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Black.woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Outline1.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-ThinItalic.woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Demi.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Heavy.woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow4Fill.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Shadow3.woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Thin.woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Seconda Round';
+    src: url('SecondaRound-Light.woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
