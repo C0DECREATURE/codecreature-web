@@ -20,44 +20,69 @@
 		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--this page's script-->
+		<script src="script.js?fileversion=20251216"></script>
 	</head>
 	
 	<!-----------BODY------------------->
 	<body>
-		
 		<main>
-			<div class="container">
-				<header>
-					<h1>reeeeOWR!</h1>
-				</header>
-				
-				<!--amiibo card-->
-				<button id="amiibo" onclick="this.firstChild.classList.toggle('flipBack');"><div class="container">
-					<!--front of card-->
-					<div class="front">
-						<img src="amiibo.png" alt="Tangy Amiibo card.">
-					</div>
-					<!--back of card-->
-					<div class="back">
-						<h3>Tangy</h3>
-						<ul>
-							<li>Cat</li>
-							<li>Peppy</li>
-							<li>June 17th</li>
-							<li>Gemini</li>
-						</ul>
-					</div>
-				</div></button>
-				<!--amiibo card end-->
+			<div id="left"></div>
+			
+			<div id="center">
+				<div class="container">
+					<header>
+						<h1>reeeeOWR!</h1>
+					</header>
+					
+					<!--amiibo card-->
+					<button id="amiibo" onclick="this.firstChild.classList.toggle('flipBack');"><div class="container">
+						<!--front of card-->
+						<div class="front">
+							<img src="amiibo.png" alt="Tangy Amiibo card.">
+						</div>
+						<!--back of card-->
+						<div class="back">
+							<header>
+								<h2>
+									<img src="orange_icon.png" alt="">Tangy<img src="orange_icon.png" alt="">
+								</h2>
+							</header>
+							<section>
+								<div class="top">
+									<div class="portrait">
+										<img src="portrait.png" alt="">
+									</div>
+									<ul>
+										<li>Cat</li>
+										<li>Peppy</li>
+										<li>June 17th</li>
+										<li>Gemini</li>
+									</ul>
+								</div>
+							</section>
+						</div>
+					</div></button>
+					<!--amiibo card end-->
+				</div>
 			</div>
+			
+			<div id="right"></div>
 			
 			<img id="leggy-run" src="leggy_run.gif" alt="">
 		</main>
-		
 		<nav>
 			<a href="/shrines">shrines</a>
 			<a href="/home">home</a>
 		</nav>
+		<div id="clock">
+			<img class="guide hidden" src="acnl_clock.png" alt="">
+			<img src="acnl_clock.svg" alt="">
+			<div class="date"><div class="month">0</div><span>/</span><div class="day">0</div></div>
+			<div class="weekday"></div>
+			<div class="time"><div class="hour">0</div><span>:</span><div class="minute">00</div></div>
+			<div class="ampm"></div>
+		</div>
 		
 	</body>
 	<!--------------END BODY------------->

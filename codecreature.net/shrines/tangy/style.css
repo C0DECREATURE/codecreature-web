@@ -19,14 +19,32 @@ main {
 	width: 100%;
 	overflow: scroll;
 	
-	> .container {
-		margin: auto;
+	display: flex;
+	
+	@media screen and (width > 600px) {
+		#left, #right {
+			width: 15%;
+			background-image: url('/graphix/bg/orange_wall.png');
+			background-size: auto 45%;
+		}
+		#center {
+			box-shadow: inset 0px 0px 10px #008052;
+		}
+	}
+	#center {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center; align-items: center;
 		padding-bottom: 3rem;
-		width: fit-content;
-		height: fit-content;
 		
-		> header {
-			text-align: center;
+		> .container {
+			width: fit-content;
+			height: fit-content;
+			
+			> header {
+				text-align: center;
+			}
 		}
 	}
 }
@@ -39,6 +57,8 @@ main {
 	
   perspective: 1000px; /* 3D effect for flip */
 	
+	color: #970000;
+	
 	/* round all needed corners */
 	> .container, .front, .front > img, .back { border-radius: 2%; }
 	
@@ -46,6 +66,12 @@ main {
 	
 	img { pointer-events: none; } /* images not draggable */
 	
+	ul {
+		margin-top: 0px;
+		padding: 0px;
+		flex-grow: 1;
+		li { list-style-position: inside; }
+	}
 		
 	/* inner container for flip card effect */
 	> .container {
@@ -68,9 +94,39 @@ main {
 		width: 100%;
 		height: 100%;
 		background: #fabe00;
-		border: 10px #e85d00 solid;
+		border: 10px #ee7800 solid;
 		box-sizing: border-box;
 		transform: rotateY(180deg); /* compensate for animation flip */
+		
+		> section {
+			width: 100%;
+			padding: 5%; padding-top: 0px;
+			> .top {
+				display: flex;
+				gap: 5%;
+			}
+		}
+		
+		div.portrait {
+			width: 45%;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+		
+		> header {
+			background: #fff;
+		}
+		h2 {
+			margin-top: 0px;
+			padding: .25em;
+			color: #ee7500;
+			img {
+				width: 1.2em;
+				margin-bottom: -.2em;
+			}
+		}
 	}
 	
 	.front, .back {
@@ -84,9 +140,67 @@ main {
 
 #leggy-run {
 	position: absolute;
-	right: 10px;
+	right: 13%;
 	bottom: 10px;
 	max-width: 30%;
+}
+
+#clock {
+	position: fixed;
+	left: 10px;
+	bottom: 10px;
+	width: min(200px,20vw);
+	aspect-ratio: 102/57;
+	background: #60af16;
+	border: 10px #60af16 solid;
+	border-radius: 42%;
+	
+	img {
+		position: absolute;
+		top: -15px;
+		z-index: -1;
+		width: 100%;
+		filter: drop-shadow(3px 3px 2px #028953);
+	}
+	.date, .weekday, .time, .ampm { position: absolute; }
+	.date, .weekday { color: #57441c; }
+	.date {
+    left: 22px;
+    bottom: 78px;
+		width: 44%;
+    rotate: 8deg;
+    font-size: 33px;
+    display: flex;
+    justify-content: space-between;
+    gap: .1em;
+		text-align: center;
+  }
+	.month, .day { flex-grow: 1; }
+	.weekday {
+		left: 135px;
+    bottom: 78px;
+    font-size: 32px;
+  }
+	.time, .ampm { color: #4d5933; }
+	.time {
+    position: absolute;
+    left: 31px;
+    bottom: 27px;
+    font-size: 36px;
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+    gap: .15em;
+  }
+	.ampm {
+    left: 141px;
+    bottom: 34px;
+    font-size: 27px;
+		text-transform: uppercase;
+  }
+	.guide {
+		z-index: 3; opacity: .5;
+	}
 }
 
 nav {
