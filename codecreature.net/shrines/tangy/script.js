@@ -7,7 +7,8 @@ const clock = {
 		daybox.innerHTML = date.getDate();
 		weekdaybox.innerHTML = clock.dayNames[date.getDay()];
 		hourbox.innerHTML = date.getHours();
-		minutebox.innerHTML = date.getMinutes();
+		let minutes = date.getMinutes().toString();
+		minutebox.innerHTML = minutes.length < 2 ? '0' + minutes : minutes;
 		ampmbox.innerHTML = date.getHours() >= 12 ? 'pm' : 'am';
 	},
 	dayNames: [ 'Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa' ]
