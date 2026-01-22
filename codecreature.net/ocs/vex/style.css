@@ -129,12 +129,19 @@ main > * > header {
 /* coffin stuff */
 #coffin {
 	padding-top: 1em;
+	@media screen and (max-width: 800px) { overflow: hidden; }
 }
-@media screen and (min-width: 800px) { #coffin { flex-grow: 1; } }
-@media screen and (max-width: 800px) { #coffin { overflow: hidden; } }
+div:has(> #coffin) {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@media screen and (min-width: 800px) {
+		flex-grow: 1;
+	}
+}
 @media (prefers-reduced-motion: no-preference) {
 	/* closed coffin shake on hover */
-	#coffin.closed:hover {
+	#coffin:not(.open):hover {
 		animation: shake .3s;
 		/* loop */
 		animation-iteration-count: infinite;
@@ -195,18 +202,27 @@ nav {
 		&:is(:hover,:focus-visible) { color: var(--yellow); }
 	}
 }
+#page-settings, #page-settings-contents {
+	--open-button-fill: var(--red);
+	--open-button-background: none;
+	--open-button-border: none;
+	--background: var(--dd-red);
+	--border: var(--box-border);
+	--outline: 0px;
+	--color: var(--red);
+	--accent: var(--yellow);
+}
 /* page settings icon button */
-.open-page-settings { font-size: .8em; margin-top: -.2em; padding: 0px; }
-.open-page-settings:hover { --open-button-fill: var(--yellow); }
+#page-settings {
+	font-size: .8em; margin-top: -.2em; padding: 0px;
+	&:hover { --open-button-fill: var(--yellow); }
+}
 #page-settings-contents {
 	font-size: 1.25rem;
 	position: absolute;
 	left: 50%; transform: translate(-50%,0);
 	z-index: 1000;
-	background: var(--dd-red);
 	padding: 1em 1.25em 1em 0.75em;
-	border: var(--box-border);
-	outline: 0px;
 	border-radius: 0px;
 	min-width: 90%;
 	flex-direction: column; gap: 0.5em; align-items: flex-end; 

@@ -80,10 +80,13 @@
 			</section>
 			
 			<section id="main-image">
-				<button id="coffin" class="closed" onclick="coffinClick();">
-					<img id="coffin-img" src="images/coffin-closed.png" alt="a dark coffin, wrapped in gold chain and locked with a padlock">
-				</button>
-				<button id="coffin-key" onclick="getKey();"><img src="images/coffin-key.png" alt="an ornate gold key"></button>
+				<div>
+					<button id="coffin">
+						<img id="coffin-img" src="images/coffin-closed.png" alt="a dark coffin, wrapped in gold chain and locked with a padlock">
+					</button>
+					<button id="coffin-key"><img src="images/coffin-key.png" alt="an ornate gold key"></button>
+					<script>coffin.init();</script>
+				</div>
 				
 				<nav>
 					<a href="/home">home</a>
@@ -126,7 +129,7 @@
 						</div>
 						
 						<footer>
-							<a href="https://toyhou.se/22284867">more art on toyhouse...</a>
+							<a href="https://toyhou.se/22284867.vex/gallery">more art on toyhouse...</a>
 						</footer>
 					</section>
 					
