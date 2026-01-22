@@ -13,15 +13,18 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
 		
+		<script>fonts.load('Seconda Round');
+		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
 		
+		<!--ACNL clock-->
+		<script id="ACNLclock-script" src="/codefiles/ACNLclock/script.min.js"></script>
+		
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
-		<!--this page's script-->
-		<script src="script.js?fileversion=20251216"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -75,14 +78,8 @@
 			<a href="/shrines">shrines</a>
 			<a href="/home">home</a>
 		</nav>
-		<div id="clock">
-			<img class="guide hidden" src="acnl_clock.png" alt="">
-			<img src="acnl_clock.svg" alt="">
-			<div class="date"><div class="month">0</div><span>/</span><div class="day">0</div></div>
-			<div class="weekday"></div>
-			<div class="time"><div class="hour">0</div><span>:</span><div class="minute">00</div></div>
-			<div class="ampm"></div>
-		</div>
+		
+		<div id="ACNLclock"></div>
 		
 	</body>
 	<!--------------END BODY------------->

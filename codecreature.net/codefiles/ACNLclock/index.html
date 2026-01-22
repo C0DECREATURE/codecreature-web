@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>ACNL Clock Demo</title>
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		
+		<script>fonts.load('Seconda Round');</script>
+		
+		<!--ACNL clock script-->
+		<script id="ACNLclock-script" src="/codefiles/ACNLclock/script.min.js"></script>
+		
+		<style>
+			body {
+				text-align: center;
+				background-image: url('/graphix/bg/ac_spring_2x.png');
+				color: #57441c;
+				font-family: 'Seconda Round', sans-serif;
+				
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				align-items: center;
+				
+				> header, > header h1 { width: fit-content; }
+				> header { padding: 0px 1em; }
+				
+				> header, #description {
+					box-shadow: 0px 5px 0px #8d682c, inset 10px 5px 0px #e9d097;
+					border-radius: 25px;
+					box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+					background: #f6e1a9;
+					border: 10px #cc9143 solid;
+				}
+			}
+			
+			#description {
+				width: min(500px,100vw);
+				font-weight: 500;
+				padding: 1em 1.5em;
+					
+				:first-child { margin-top: 0px; }
+				a { color: #445938; }
+				a:hover { color: #577a43; }
+				.btn {
+					background: #dfa85a;
+					padding: .5em 1em .35em 1em;
+					border-radius: 1em;
+					box-shadow: 0px 5px 0px #8d682c;
+					display: inline-block;
+					margin-bottom: 5px;
+					box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+					font-weight: 800;
+					font-size: 1.25em;
+					text-shadow: 1px 1px 0px #f6e1a9;
+					&:active {
+						box-shadow: none;
+						transform: translateY(5px);
+					}
+				}
+			}
+		</style>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header><h1>Animal Crossing: New Leaf Clock</h1></header>
+		
+		<!-- Clock will be inserted in this div -->
+		<div id="ACNLclock"></div>
+		
+		<section id="description">
+			<p>Free widget for non-commercial use!</p>
+			<a class="btn" href="https://github.com/C0DECREATURE/ACNL-clock">Github</a>
+			<a class="btn" href="/">Home</a>
+		</section>
+		
+	</body>
+	<!--------------END BODY------------->
+</html>

@@ -7,7 +7,7 @@ body {
 	background-image: url('/graphix/bg/ac_spring_2x.png');
 	margin: 0px;
 	height: 100vh;
-	font-family: sans-serif;
+	font-family: 'Seconda Round', sans-serif;
 	
 	display: flex;
 	flex-direction: column;
@@ -21,9 +21,9 @@ main {
 	
 	display: flex;
 	
-	@media screen and (width > 600px) {
+	@media screen and (width > 575px) {
 		#left, #right {
-			width: 15%;
+			width: min(175px,15%);
 			background-image: url('/graphix/bg/orange_wall.png');
 			background-size: auto 45%;
 		}
@@ -145,67 +145,16 @@ main {
 	max-width: 30%;
 }
 
-@media screen and (width < 675px) {
-	#clock { display: none; }
-}
-@media screen and (width >= 675px) {
-	#clock {
-		position: fixed;
-		left: 6%;
-		bottom: 10px;
-		width: 200px;
-		aspect-ratio: 102/57;
-		background: #60af16;
-		border: 10px #60af16 solid;
-		border-radius: 42%;
-		
-		img {
-			position: absolute;
-			top: -15px;
-			z-index: -1;
-			width: 100%;
-			filter: drop-shadow(3px 3px 2px #028953);
-		}
-		.date, .weekday, .time, .ampm { position: absolute; }
-		.date, .weekday { color: #57441c; }
-		.date {
-			left: 22px;
-			bottom: 78px;
-			width: 44%;
-			rotate: 8deg;
-			font-size: 33px;
-			display: flex;
-			justify-content: space-between;
-			gap: .1em;
-			text-align: center;
-		}
-		.month, .day { flex-grow: 1; }
-		.weekday {
-			left: 135px;
-			bottom: 78px;
-			font-size: 32px;
-		}
-		.time, .ampm { color: #4d5933; }
-		.time {
-			position: absolute;
-			left: 31px;
-			bottom: 27px;
-			font-size: 36px;
-			width: 48%;
-			display: flex;
-			justify-content: space-between;
-			gap: .15em;
-		}
-		.ampm {
-			left: 141px;
-			bottom: 34px;
-			font-size: 27px;
-			text-transform: uppercase;
-		}
-		.guide {
-			z-index: 3; opacity: .5;
-		}
-	}
+#ACNLclock {
+	--clock-width: min(200px,30vw) !important;
+	position: fixed;
+	left: min(50px,3vw);
+	bottom: calc(.05 * var(--clock-width));
+	background: #60af16;
+	border: 10px #60af16 solid;
+	border-radius: 42%;
+	> * { z-index: 2; }
+	img { filter: drop-shadow(3px 3px 2px #028953); z-index: 1; }
 }
 
 nav {
@@ -213,6 +162,8 @@ nav {
 	padding: 15px;
 	display: flex;
 	justify-content: center;
+	@media screen and (width < 675px) { padding-left: 36vw; }
+	@media screen and (width < 350px) { padding-right: 0px; }
 	gap: 15px;
 	
 	a, a:link, a:visited {
