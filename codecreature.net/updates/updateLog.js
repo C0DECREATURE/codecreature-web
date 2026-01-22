@@ -21,7 +21,7 @@ const updateLog = [
 			<a href="/shrines/tangy">tangy shrine</a> clock
 		`,
 		details: `
-			<p>Small <a href="/shrines/tangy">Tangy</a> update! Added an ACNL style clock (still needs the correct font), Orange Wall sidebars, and a bit more styling to the back of the card</p>
+			<p>Small <a href="/shrines/tangy">Tangy</a> update! Added an ACNL style clock (still needs the correct font), Orange Wall sidebars, and a bit more styling to the back of the card.</p>
 		`
 	},
 	{
