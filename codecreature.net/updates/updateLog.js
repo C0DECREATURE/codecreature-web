@@ -14,6 +14,49 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-01-22T00:17'),
+		authors: ['prax'],
+		tags: ['map'],
+		summary: `
+			<a href="/map">site map</a> %A%improvements\\impurrovements%
+		`,
+		details: `
+			<p align="center">
+				<img src="images/map_2026_01_22.jpg" alt="" style="width: 400px;">
+				<br>the <a href="/map">map</a> has more icons now, is slightly prettier, plus actually includes (mostly) all of the pages that exist!
+			</p>
+		`
+	},
+	{
+		date: new Date('2026-01-21T10:03'),
+		authors: ['emery'],
+		tags: ['minor','general','garfield','worm race'],
+		summary: `
+			better SEO directory names
+		`,
+		details: `
+			<p>
+				Directory path names changed for SEO and clarity: /games/wormrace to /games/worm-race, and /shrines/garf to /shrines/garfield. Redirects are set up so the old links should still work, but you can always update to the new URLs for a small boost in loading speed if you have either of those pages linked/bookmarked somewhere!
+			</p>
+			<p>
+				Internal redirects have been also been added for various other pages for convenience, e.g. <a href="/homestuck">/homestuck</a> and <a href="/shrines/homestuck">/shrines/homestuck</a> link to the same thing %E%:)%
+			</p>
+		`
+	},
+	{
+		date: new Date('2026-01-21T10:03'),
+		authors: ['emery'],
+		tags: ['minor','garfield'],
+		summary: `
+			<a href="/shrines/garfield/comics">garfield comics</a> working again
+		`,
+		details: `
+			<p>
+				the internet archive changed the file location for the <a href="/shrines/garfield/comics">garfield comic strips</a> so you couldn't view them on my site for a bit, but it's fixed now!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-01-19T05:41'),
 		authors: ['prax'],
 		tags: ['new page','shrines','tangy'],
@@ -25,7 +68,7 @@ const updateLog = [
 				<a href="/shrines/tangy">tangy shrine</a>!! %A%pretty\\purretty% simple %%4% now
 			</p>
 			<p align="center">
-				<img src="images/tangy_2026_01_19.jpg" alt="Screenshot of the new page featuring Tangy the orange fruit Animal Crossing cat. It has a Tangy amiibo card at the center, a gif of a Tangy that is only a head and legs, and an Animal Crossing grass texture background.">
+				<img src="images/tangy_2026_01_19.jpg" alt="Screenshot of the new page featuring the orange cat from Animal Crossing. It has a Tangy amiibo card at the center, a gif of a Tangy that is only a head and legs, and an Animal Crossing grass texture background.">
 			</p>
 		`
 	},
