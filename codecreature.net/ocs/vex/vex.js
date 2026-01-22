@@ -15,7 +15,10 @@ const coffin = {
 	},
 	// called when coffin clicked
 	click: ()=>{
-		if (coffin.isLocked && document.querySelector('body').classList.contains('hasKey') ) coffin.unlock();
+		if (coffin.isLocked && document.querySelector('body').classList.contains('hasKey') ) {
+			coffin.unlock();
+			coffin.open();
+		}
 		else coffin.toggle();
 	},
 	// toggle coffin open/closed state
@@ -42,20 +45,22 @@ const coffin = {
 		coffin.isLocked = true;
 		localStorage.setItem('vexCoffinLocked',coffin.isLocked);
 	},
-	// unlock and open the coffin
+	// unlock the coffin
 	unlock: ()=>{
 		console.log("unlocking coffin");
 		coffin.isLocked = false;
 		localStorage.setItem('vexCoffinLocked',coffin.isLocked);
 		coffin.useKey();
-		coffin.open();
 	},
 	// pick up the coffin key
 	getKey: ()=>{
 		document.querySelector('body').classList.add('hasKey');
 		document.getElementById('coffin-key').remove();
-		// if touch is primary input, unlock immediately
-		if (window.matchMedia("(pointer: coarse)").matches) { coffin.unlock(); }
+		// if touch is primary input, unlock and open immediately
+		if (window.matchMedia("(pointer: coarse)").matches) {
+			coffin.unlock();
+			coffin.open();
+		}
 	},
 	// use the coffin key
 	useKey: ()=>{
