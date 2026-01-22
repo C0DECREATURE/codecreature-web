@@ -659,7 +659,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="images/worm-race-2025-07-08.png" alt="screenshot showing the new worm art. the pink worm wears many neckties along the length of its body. the orange worm is tangled in a knot with its own string. the yellow worm has multicolored liquid splotches along its body and a slightly crazed expression. the green worm is curled up holding a large leaf like an umbrella. the blue worm is sitting in a blue and white striped inner tube. the purple worm has multiple small legs and holds a chewed up plastic straw.">
+				<img src="images/wormrace-2025-07-08.png" alt="screenshot showing the new worm art. the pink worm wears many neckties along the length of its body. the orange worm is tangled in a knot with its own string. the yellow worm has multicolored liquid splotches along its body and a slightly crazed expression. the green worm is curled up holding a large leaf like an umbrella. the blue worm is sitting in a blue and white striped inner tube. the purple worm has multiple small legs and holds a chewed up plastic straw.">
 				<br>behold, the <a href="/games/worm-race">worms</a> have %N%b33n% reborn in glorious new forms
 			</p>
 		`
@@ -778,7 +778,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img class="tall" src="images/worm-race-2024-03-14.png" alt="">
+				<img class="tall" src="images/wormrace-2024-03-14.png" alt="">
 				<br>nav arrows, %A%improved\\impurroved% top bar, fixed some %A%positioning\\pawsitioning% issues
 			</p>
 		`
