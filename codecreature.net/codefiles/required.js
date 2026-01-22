@@ -12,6 +12,7 @@
 	// warnings not shown yet, user is not Neocities screenshotter, not already redirecting
 	} else if (
 		localStorage.getItem("showWarnings") != "false" &&
+		!window.location.search.includes('showWarnings=false') &&
 		navigator.userAgent.toLowerCase() != 'screenjesus' &&
 		window.location.pathname.replaceAll('/','') != 'warnings' &&
 		window.location.pathname.replaceAll('/','') != ''
@@ -20,7 +21,6 @@
 		window.location.href = `/?redirect=${redirect}`;
 	}
 })();
-
 
 const isReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
