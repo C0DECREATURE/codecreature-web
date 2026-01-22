@@ -145,14 +145,18 @@ main {
 	max-width: 30%;
 }
 
-#ACNLclock {
-	--clock-width: min(200px,30vw) !important;
+.wrapper:has(#ACNLclock) {
 	position: fixed;
 	left: min(50px,3vw);
-	bottom: calc(.05 * var(--clock-width));
+	bottom: 0;
 	background: #60af16;
 	border: 10px #60af16 solid;
 	border-radius: 42%;
+}
+#ACNLclock {
+	--clock-width: min(200px,30vw) !important;
+	position: relative;
+	bottom: calc(.07 * var(--clock-width));
 	> * { z-index: 2; }
 	img { filter: drop-shadow(3px 3px 2px #028953); z-index: 1; }
 }
