@@ -41,13 +41,16 @@ const comic = {
 		],
 		'2024': [ 327 ]
 	},
+	// internet archive source
+	iaSrc: `https://ia801700.us.archive.org/BookReader/BookReaderImages.php?zip=/3/items/garfield-complete/`,
+	// load image for the current comic
 	load: ()=>{
 		comic.fixDates();
 		// clear current image
 		document.getElementById(comic.id).src = '';
 		// load image from internet archive
 		document.getElementById(comic.id).src =
-			`https://ia601204.us.archive.org/BookReader/BookReaderImages.php?zip=/15/items/garfield-complete/Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
+			`${comic.iaSrc}Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
 		/* test - using bgreco
 			// format year
 			let y = comic.year.toString().substring(2,4);
