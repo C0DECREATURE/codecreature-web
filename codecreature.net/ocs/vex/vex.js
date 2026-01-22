@@ -51,6 +51,7 @@ const coffin = {
 		coffin.isLocked = false;
 		localStorage.setItem('vexCoffinLocked',coffin.isLocked);
 		coffin.useKey();
+		else coffin.btn.querySelector('img').src = "images/coffin-closed-unlocked.png";
 	},
 	// pick up the coffin key
 	getKey: ()=>{
