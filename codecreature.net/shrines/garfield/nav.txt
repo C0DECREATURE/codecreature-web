@@ -1,0 +1,14 @@
+<nav>
+	<div class="sr-only">Navigation</div>
+	<a class="yellowbutton" href="/shrines/garfield">Garfield</a>
+	<a class="yellowbutton" href="/shrines/garfield/comics">Archive</a>
+	<a class="yellowbutton" href="/shrines/garfield/merch">Merch</a>
+	<a class="yellowbutton" href="/shrines/garfield/posters">Posters</a>
+	<a class="yellowbutton" href="https://www.bgreco.net/garfield/" target="_blank">Generator</a>
+	<a class="yellowbutton" href="/shrines">Shrines</a>
+	<a class="yellowbutton" href="/">Home</a>
+</nav>
+
+<div id="nav-ad">
+	<img src="/shrines/garfield/images/checks_ad.gif">
+</div>

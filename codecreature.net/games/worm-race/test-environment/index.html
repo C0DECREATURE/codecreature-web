@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>ultim8 worm sport</title>
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="favicon.ico">
+		
+		<!--fonts-->
+		<link href="/fonts/YetR/stylesheet.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="/fonts/SuperComic/stylesheet.css?fileversion=20251216" rel="stylesheet" type="text/css">
+		
+		<!--base stylesheet-->
+		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js"></script>
+
+		<!-- game status -->
+		<script src="status.js?fileversion=20251216"></script>
+		<!-- this game's javascript -->
+		<script src="wormrace.js?fileversion=20251216"></script>
+		<script src="chatbox.js?fileversion=20251216"></script>
+	</head>
+	<body>
+		<!-- navigation -->
+		<nav class="menu" id="menu">
+			<header>menu</header>
+			<button class="open-menu" aria-label="menu">
+				<!-- menu bars -->
+				<div></div> <div></div> <div></div>
+			</button>
+			<div class="menu-content">
+				<a href="/">site home</a>
+				<button onclick="showChoices();">worms</button>
+				<button onclick="showRace();">racetrack</button>
+				<button onclick="showGuide();">guide</button>
+				<button onclick="showShare();">propaganda</button>
+				<button class="open-updates" onclick="showUpdates();">updates</button>
+				<button class="close-menu" aria-label="close menu">
+					<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i>
+				</button>
+			</div>
+		</nav>
+		
+		<!-- contains all worm content -->
+		<main>
+			<!-- banner header and text -->
+			<header onclick="showChoices();">
+				<img src="banner.png" alt="WORM RACE">
+				<div class="banner-subtitle"></div>
+			</header>
+			
+			<!-- loading status inserted here -->
+			<section class="load-area">
+				<div class="marquee">
+					<div class="marquee-content mc1"></div>
+					<div class="marquee-content mc2"></div>
+				</div>
+				<div id="load-status"></div>
+				<div class="subtitle">
+					if this keeps happening,<br>the database may be offline.
+					<br><a href="/updates" class="txt-purple">click here for updates</a>
+				</div>
+				<div class="marquee">
+					<div class="marquee-content mc1"></div>
+					<div class="marquee-content mc2"></div>
+				</div>
+			</section>
+			
+			<!-- main area (under header) -->
+			<section class="load-hide load-hidden body" id="body">
+				
+				<div id="worm-area"><!-- worm choices inserted here --></div>
+				
+				<!-- worm detail info box -->
+				<div class="detailbox" id="details">
+					<div class="top-flex buttons">
+						<!-- previous worm button -->
+						<button class="prev-worm"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i></button>
+						<!-- detailbox worm profile image -->
+						<div class="wormbox">
+							<img src="" id="detail-image" alt="">
+							<div class="bg"></div>
+						</div>
+						<!-- next worm button -->
+						<button class="next-worm"><i class="content svg-icon svg-icon-solid" data-icon="rounded-caret-right"></i></button>
+					</div>
+					
+					<!-- detailbox content box -->
+					<div class="box detail-content">
+						<!-- name inserted here -->
+						<div class="name"><span class="text" id="name"></span></div>
+						<div class="health">
+							<div class="bar"></div>
+							<img src="icon-health-pos.png" alt="">
+						</div>
+						
+						<!-- top right section -->
+						<div class="detail-body">
+							<!-- worm description inserted here -->
+							<div id="worm-details"></div>
+							
+							<div class="health-effects">
+								<div class="title">
+									<span aria-hidden="true">effects</span>
+									<button class="tooltip" aria-label="health effect on food/drink movement">
+										<i class="svg-icon svg-icon-outline" data-icon="circle-question-mark-outline"></i>
+										<span class="tooltiptext">health effect on food/drink movement</span>
+									</button>
+								</div>
+								<span id="apple-effect"></span>%<img src="icon-movement-1.png" alt="effect on apple">
+								<br><span id="drink-effect"></span>%<img src="icon-movement-2.png" alt="effect on juice">
+							</div>
+							
+						</div>
+						
+						<!-- bottom section -->
+						<div class="bottom">
+							<!-- items inserted here -->
+							<div class="item-area" id="item-area"></div>
+							
+							<!-- item info area -->
+							<div class="item-info">
+								<span id="item-info"></span>
+								<div class="flavor-text"></div>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="box buttons bottom-buttons">
+						<button onclick="showChoices();"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
+						<button class="tooltip" id="feed-button" onclick="feedWorm();">
+							<span class="text">feed<i class="svg-icon svg-icon-solid" data-icon="rounded-caret-right"></i></span>
+							<span class="tooltiptext"></span>
+						</button>
+					</div>
+				</div>
+				
+				<!-- how to play -->
+				<div class="detailbox" id="guide">					
+					<!-- share content box -->
+					<div class="box detail-content">
+						<!-- title -->
+						<div class="name">how to play</div>
+						
+						<div class="main">
+							<p>each worm has two stats: <span class="health caps">health</span> and <span class="movement caps">race progress</span>.</p>
+							
+							<hr>
+							
+							<p><span class="item apple">apples</span> increase <span class="movement">race progress</span> a little..</p>
+							
+							<p><span class="item battery">battery juice</span> increases <span class="movement">race progress</span> a lot, but damages <span class="health">health</span>.</p>
+							
+							<p><span class="item heart">heart potions</span> increase <span class="health">health</span>.</p>
+							
+							<p><span class="item poison">poison</span> decreases <span class="health">health</span> and <span class="movement">race progress</span>. if the worm is already at minimum health, it decreases progress a <b>lot</b>.</p>
+							
+							<hr>
+							
+							<p>low <span class="health caps">health</span> makes apples and battery juice <b>less effective</b>, and makes poisoning <b>more effective</b>. the current health effect on each item is shown in the worm's <b>effects</b> tab.</p>
+						</div>
+					</div>
+					
+					<!-- play guide bottom buttons -->
+					<div class="box buttons bottom-buttons">
+						<button onclick="hideGuide(true);"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
+					</div>
+				</div>
+				
+				<!-- share box -->
+				<div class="detailbox sharebox" id="sharebox">					
+					<!-- share content box -->
+					<div class="box detail-content">
+						<!-- title -->
+						<div class="name">propaganda</div>
+						
+						<div class="share-main">
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/nb6plvg.gif" alt=""></span>
+								<textarea rows="2" cols="60" name="flashing worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.imgur.com/nb6plvg.gif" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/5Lbp7Id.png" alt=""></span>
+								<textarea rows="2" cols="60" name="static worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.imgur.com/5Lbp7Id.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/LmNs5Mq.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote pink button code"><a href="https://codecreature.net/games/worm-race/?worm=0" aria-label="worm race - vote pink"><img src="https://i.imgur.com/LmNs5Mq.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/oh2sVOa.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote orange button code"><a href="https://codecreature.net/games/worm-race/?worm=1" aria-label="worm race - vote orange"><img src="https://i.imgur.com/oh2sVOa.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/HCXZvih.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote yellow button code"><a href="https://codecreature.net/games/worm-race/?worm=2" aria-label="worm race - vote yellow"><img src="https://i.imgur.com/HCXZvih.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/gQGUviM.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote green button code"><a href="https://codecreature.net/games/worm-race/?worm=3" aria-label="worm race - vote green"><img src="https://i.imgur.com/gQGUviM.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/BHAxw1u.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote blue button code"><a href="https://codecreature.net/games/worm-race/?worm=4" aria-label="worm race - vote blue"><img src="https://i.imgur.com/BHAxw1u.png" alt=""></a></textarea>
+							</div>
+							<div class="share-btn-section">
+								<span><img src="https://i.imgur.com/N9Wgfro.png" alt=""></span>
+								<textarea rows="2" cols="60" name="vote purple button code"><a href="https://codecreature.net/games/worm-race/?worm=5" aria-label="worm race - vote purple"><img src="https://i.imgur.com/N9Wgfro.png" alt=""></a></textarea>
+							</div>
+							
+						</div>
+					</div>
+					
+					<!-- share bottom buttons -->
+					<div class="box buttons bottom-buttons">
+						<button onclick="hideShare(true);"><i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>back</button>
+					</div>
+				</div>
+				
+			</section>
+			
+			<!-- worm race section -->
+			<section class="load-hide load-hidden race">
+				<!-- screen reader navigation -->
+				<div class="sr-only">
+					<a href="#race-tracks">jump to race tracks</a>
+					<a href="#worm-stats-area">jump to worm stats</a>
+					<a href="#bottom-text">jump to footer text</a>
+				</div>
+				
+				<div class="race-content">
+					<!-- worm race tracks inserted here -->
+					<div class="race-tracks">
+						<div class="bg"></div>
+						<div id="race-tracks"></div>
+					</div>
+					
+					<!-- worm stats inserted here -->
+					<div class="worm-stats-area" id="worm-stats-area"></div>
+					
+					<p id="bottom-text">
+						worm race is still in development. come back later for improved worm content
+						<br>to do list: timed tournaments, finalize worm art, sounds
+					</p>
+				</div>
+			</section>
+			
+			<!-- puts space at bottom for chat box header -->
+			<div id="chatspacer">&nbsp;</div>
+			<!-- chat box -->
+			<section class="chat-box">
+				<header onclick="toggleOpenChat();">
+					worm chat
+					<button class="btn-strip toggle" aria-label="open chat">+</button>
+				</header>
+				<iframe src='https://chattable.neocities.org/embed?chat=41114519' id='chattable' title='worm chat' frameborder='none'></iframe>
+				<div id="chat-load-text">loading<br>chat...</div>
+				<script>initChat();</script>
+			</section>
+			
+		</main>
+		
+		<!-- UPDATES IFRAME -->
+		<div class="updates" id="updates-container">
+			<button class="close" aria-label="close updates" onclick="hideUpdates();">
+				<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i>
+			</button>
+			<a class="title" href="/updates?includedTags=worm+race">LATEST UPDATES</a>
+			<p class="loading">loading...</p>
+			<iframe title="updates" id="updates" src="/updates/?includedTags=worm+race&tqOn=false"></iframe>
+			<script>
+				let updateCSS = document.createElement('link');
+				updateCSS.href = '/games/worm-race/updates.css?fileversion=5';
+				updateCSS.rel = 'stylesheet';
+				updateCSS.type = 'text/css';
+				updateCSS.media = 'all';
+				
+				let updateFonts = document.createElement('link');
+				updateFonts.href = '/fonts/YetR/stylesheet.css?fileversion=5';
+				updateFonts.rel = 'stylesheet';
+				updateFonts.type = 'text/css';
+				updateFonts.media = 'all';
+				
+				let iFrame = document.getElementById("updates");
+				
+				iFrame.onload = function() {
+					document.querySelector('.updates').querySelector('.loading').style.display = 'none';
+					iFrame.contentDocument.head.appendChild(updateCSS);
+					iFrame.contentDocument.head.appendChild(updateFonts);
+					iFrame.style.visibility = 'visible'; // show once loaded
+				}
+			</script>
+		</div>
+		<div class="updates shadow"></div>
+		
+		<script>
+			init();
+			
+			// share textarea
+			var shareareas = document.getElementsByClassName('share-btn-section');
+			for ( let i = 0; i < shareareas.length; i++ ) {
+				var s = shareareas[i];
+				s.innerHTML += '<button class="tooltip-click"><i class="svg-icon svg-icon-outline" data-icon="copy-outline"></i><span class="tooltiptext">Copied!</span></button>';
+				s.querySelector('button').addEventListener('click', function() {
+					var t = this.parentNode.querySelector('textarea');
+					navigator.clipboard.writeText(t.value);
+				} );
+			}
+			var textareas = document.getElementsByTagName('textarea');
+			for ( let i = 0; i < textareas.length; i++ ) {
+				var t = textareas[i];
+				t.readOnly = true;
+				t.addEventListener('click', function() {
+					this.select();
+					navigator.clipboard.writeText(this.value);
+				} );
+			}
+			
+			// put the correct svg in each .svg-icon element
+			defaultSvgIcons.load();
+		</script>
+	</body>
+</html>

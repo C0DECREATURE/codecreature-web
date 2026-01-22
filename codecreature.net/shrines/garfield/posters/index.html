@@ -4,16 +4,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>the garf</title>
+		<title>garf posters</title>
 		<!-- favicon -->
-		<link rel="icon" type="image/x-icon" href="favicon.gif">
+		<link rel="icon" type="image/x-icon" href="../favicon.gif">
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20251216"></script>
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('Garfield')</script>
+		<script>fonts.load('Garfield','Ad Lib')</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
@@ -25,14 +25,15 @@
 		<!-- load jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20251216"></script>
 		<!-- load navigation -->
-		<script> $(function(){ $("#nav-wrapper").load("/shrines/garf/nav.txt"); }); </script>
+		<script> $(function(){ $("#nav-wrapper").load("../nav.txt"); }); </script> 
 		<!-- load right bar -->
-		<script> $(function(){ $("#right-bar-wrapper").load("/shrines/garf/right.txt"); }); </script> 
+		<script> $(function(){ $("#right-bar-wrapper").load("/shrines/garfield/right.txt"); }); </script> 
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
-		<!--this page's script(s)-->
-		<script src="newspaper.js?fileversion=20251216"></script>
+		<link href="../style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="posters.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--this page's script-->
+		<script src="posters.js?fileversion=20251216"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -44,22 +45,25 @@
 			</div>
 			
 			<div class="center">
-				<header><h1><a href="/shrines/garf"><img id="logo" src="images/logo.png" alt="Garfield"></a></h1></header>
-				
-				<div class="wrapper">
-					<img id="content-topper" src="images/garfield_laying_wave.png" alt="">
+				<div class="container">
+					<header>
+						<h1><img class="banner" src="../images/posters/posters_banner.jpg" alt="Classic Garfield Posters, where every poster is a masterpiece!"></h1>
+						<div class="subtitle">
+							Super Selection • Excellent Value • Suitable for Framing • Great Gifts
+						</div>
+					</header>
+					
+					<div id="content"><!-- anchor for keyboard nav -->
+						
+						<section id="posters"><!-- posters inserted here --></section>
+						<script>posters.init()</script>
+						
+					</div>
 				</div>
-				
-				<section id="content" class="whitebox">
-					<a href="comics/?year=random&num=today"><img src="images/comics_ad.gif" alt="Free! Today's Comic"></a>
-					<a href="merch/"><img style="max-height: 150px;" src="images/items_ad.gif" alt="New Items"></a>
-					<a href="posters/"><img src="images/posters/posters_ad.gif" alt="All new! Garfield Posters"></a>
-				</section>
 			</div>
 			
 			<div id="right-bar-wrapper" class="right">
 			</div>
-			
 		</main>
 		
 	</body>

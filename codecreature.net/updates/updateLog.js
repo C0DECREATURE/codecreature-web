@@ -49,10 +49,10 @@ const updateLog = [
 		authors: ['prax'],
 		tags: ['games','worm race','minor'],
 		summary: `
-			<a href="/games/wormrace/?worm=1">pretzel</a> art fix!!
+			<a href="/games/worm-race/?worm=1">pretzel</a> art fix!!
 		`,
 		details: `
-			<p>the art %%4% <a href="/games/wormrace/?worm=1">pretzel</a> has %N%b33n% bothering me %%4% a while %%bc% it %A%didn't\\didnt% match the line weight on the other worms. adjusted that a bit!!</p>
+			<p>the art %%4% <a href="/games/worm-race/?worm=1">pretzel</a> has %N%b33n% bothering me %%4% a while %%bc% it %A%didn't\\didnt% match the line weight on the other worms. adjusted that a bit!!</p>
 		`
 	},
 	{
@@ -111,11 +111,11 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['games','worm race'],
 		summary: `
-			<a href="/games/wormrace">worm</a> play guide and racetrack button, plus poison adjustment!
+			<a href="/games/worm-race">worm</a> play guide and racetrack button, plus poison adjustment!
 		`,
 		details: `
-			<p>Added a basic how to play guide for the <a href="/games/wormrace">worm race</a>!</p>
-			<p>Also made it possible to jump directly to the <a href="/games/wormrace#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter.</p>
+			<p>Added a basic how to play guide for the <a href="/games/worm-race">worm race</a>!</p>
+			<p>Also made it possible to jump directly to the <a href="/games/worm-race#race">racetrack</a> without feeding a worm first - having it hidden made sense in the alpha version, but now it doesn't matter.</p>
 			<p>The dark orange color has also been darkened a bit for better contrast!</p>
 			<p>Poison is also now much stronger when health is at zero.</p>
 		`
@@ -125,11 +125,11 @@ const updateLog = [
 		authors: ['prax','emery'],
 		tags: ['shrines','garfield','minor'],
 		summary: `
-			more <a href="/shrines/garf/comics">garfield</a> favorites, merch, & styling!!
+			more <a href="/shrines/garfield/comics">garfield</a> favorites, merch, & styling!!
 		`,
 		details: `
-			<p>small %A%update\\upd8% %%2% the garf pages!! <a href="/shrines/garf/comics/?year=1980&num=0&favorites=true">favorite comics from 1980</a> added, plus a %A%little\\lil% red paw in the title %%2% mark favorites even not in favorites-only mode.</p>
-			<p>%A%there's\\theres% also a bit more <a href="/shrines/garf/merch">merch</a> and new details and alt text for some of the existing ones!!</p>
+			<p>small %A%update\\upd8% %%2% the garf pages!! <a href="/shrines/garfield/comics/?year=1980&num=0&favorites=true">favorite comics from 1980</a> added, plus a %A%little\\lil% red paw in the title %%2% mark favorites even not in favorites-only mode.</p>
+			<p>%A%there's\\theres% also a bit more <a href="/shrines/garfield/merch">merch</a> and new details and alt text for some of the existing ones!!</p>
 		`
 	},
 	{
@@ -137,11 +137,11 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],
 		summary: `
-			minor <a href="/games/wormrace">worm</a> style adjustments
+			minor <a href="/games/worm-race">worm</a> style adjustments
 		`,
 		details: `
 			<p>
-				The <a href="/games/wormrace">worm race</a> page layout has been tweaked for (hopefully) better function on large devices, a couple broken bits of css have been fixed, and the chatbox has been removed for now since the chat service I was using has stopped working. Fingers crossed nothing's broken now lol.
+				The <a href="/games/worm-race">worm race</a> page layout has been tweaked for (hopefully) better function on large devices, a couple broken bits of css have been fixed, and the chatbox has been removed for now since the chat service I was using has stopped working. Fingers crossed nothing's broken now lol.
 			</p>
 		`
 	},
@@ -150,11 +150,11 @@ const updateLog = [
 		authors: ['prax','emery'],
 		tags: ['shrines','garfield'],
 		summary: `
-			<a href="/shrines/garf">garfield</a> comic updates
+			<a href="/shrines/garfield">garfield</a> comic updates
 		`,
 		details: `
 			<p>
-				i've logged <a href="/shrines/garf/comics?favorites=true">my favorite garfield comics</a> for the 1978 & 1979! use the toggle at the bottom %%2% show only those, or all comics in the archive. %%i% also added the ability to load a comic from <a href="/shrines/garf/comics/?year=random&num=today">today's date</a> in a random year. in theory %%u% could also load a comic from any specific date with the function, but there's no interface on the site for that (yet...)
+				i've logged <a href="/shrines/garfield/comics?favorites=true">my favorite garfield comics</a> for the 1978 & 1979! use the toggle at the bottom %%2% show only those, or all comics in the archive. %%i% also added the ability to load a comic from <a href="/shrines/garfield/comics/?year=random&num=today">today's date</a> in a random year. in theory %%u% could also load a comic from any specific date with the function, but there's no interface on the site for that (yet...)
 			</p>
 			<p>
 				also added some garfield stamps to the right side!
@@ -166,7 +166,7 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],
 		summary: `
-			stronger <a href="/games/wormrace">worm race</a> poison, faster heart potion & apple
+			stronger <a href="/games/worm-race">worm race</a> poison, faster heart potion & apple
 		`,
 		details: `
 			<p>
@@ -249,11 +249,11 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['shrines','garfield'],
 		summary: `
-			fancier <a href="/shrines/garf/comics">garfield comics</a>
+			fancier <a href="/shrines/garfield/comics">garfield comics</a>
 		`,
 		details: `
 			<p align="center"><img src="images/garfield_2025_09_03.jpg"></p>
-			<p>Various <a href="/shrines/garf">Garfield</a> page adjustments, mostly on the <a href="/shrines/garf/comics">comics</a> page! Added fancier styling, loading indicators, date info, cursor, and fancy previous/next buttons.</p>
+			<p>Various <a href="/shrines/garfield">Garfield</a> page adjustments, mostly on the <a href="/shrines/garfield/comics">comics</a> page! Added fancier styling, loading indicators, date info, cursor, and fancy previous/next buttons.</p>
 		`
 	},
 	{
@@ -285,10 +285,10 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['shrines','garfield','minor'],
 		summary: `
-			<a href="/shrines/garf">garfield</a> image galleries added
+			<a href="/shrines/garfield">garfield</a> image galleries added
 		`,
 		details: `
-			<p>Garfield <a href="/shrines/garf/merch">merch</a> and <a href="/shrines/garf/posters">posters</a> images can now be clicked to open full image views. Also, the full image overlay on all pages across the site has some minor style and code fixes!</p>
+			<p>Garfield <a href="/shrines/garfield/merch">merch</a> and <a href="/shrines/garfield/posters">posters</a> images can now be clicked to open full image views. Also, the full image overlay on all pages across the site has some minor style and code fixes!</p>
 		`
 	},
 	{
@@ -296,10 +296,10 @@ const updateLog = [
 		authors: ['bug','emery'],
 		tags: ['shrines','garfield'],
 		summary: `
-			added <a href="/shrines/garf">garfield</a> content
+			added <a href="/shrines/garfield">garfield</a> content
 		`,
 		details: `
-			<p><a href="/shrines/garf">garfield shrine</a> expansion! added some <a href="/shrines/garf/merch">collectibles</a>, <a href="/shrines/garf/posters">posters</a>, and also every <a href="/shrines/garf/comics">daily comic</a> from 1978-2024. still need to finish making the tiling shelf pieces for the collectibles and pad out some of the pages with a bit more content!</p>
+			<p><a href="/shrines/garfield">garfield shrine</a> expansion! added some <a href="/shrines/garfield/merch">collectibles</a>, <a href="/shrines/garfield/posters">posters</a>, and also every <a href="/shrines/garfield/comics">daily comic</a> from 1978-2024. still need to finish making the tiling shelf pieces for the collectibles and pad out some of the pages with a bit more content!</p>
 		`
 	},
 	{
@@ -307,7 +307,7 @@ const updateLog = [
 		authors: ['prax'],
 		tags: ['new page','shrines','garfield'],
 		summary: `
-			%A%little\\lil% shrine %%4% <a href="/shrines/garf">garf</a>
+			%A%little\\lil% shrine %%4% <a href="/shrines/garfield">garf</a>
 		`,
 		details: `
 			<p align="center"><img src="images/garfield_2025_08_27.jpg" alt="screenshot of garfield web page. it has the Garfield logo at the top. Garfield is lounging atop a white text boxx in the middle, and the sidebars have a tiling green pattern of his face. A newspaper with comic strips is poking up at an angle from the bottom right. There are several links on the sidebar with small pawprints on them."></p>
@@ -612,12 +612,12 @@ const updateLog = [
 		date: new Date('2025-07-08T08:18'),
 		tags: ['games','worm race','art'],
 		summary: `
-			new %A%and\\n% fresh <a href="/games/wormrace">worm</a> art %%4% %%ur% eyeballs
+			new %A%and\\n% fresh <a href="/games/worm-race">worm</a> art %%4% %%ur% eyeballs
 		`,
 		details: `
 			<p align="center">
-				<img src="images/wormrace-2025-07-08.png" alt="screenshot showing the new worm art. the pink worm wears many neckties along the length of its body. the orange worm is tangled in a knot with its own string. the yellow worm has multicolored liquid splotches along its body and a slightly crazed expression. the green worm is curled up holding a large leaf like an umbrella. the blue worm is sitting in a blue and white striped inner tube. the purple worm has multiple small legs and holds a chewed up plastic straw.">
-				<br>behold, the <a href="/games/wormrace">worms</a> have %N%b33n% reborn in glorious new forms
+				<img src="images/worm-race-2025-07-08.png" alt="screenshot showing the new worm art. the pink worm wears many neckties along the length of its body. the orange worm is tangled in a knot with its own string. the yellow worm has multicolored liquid splotches along its body and a slightly crazed expression. the green worm is curled up holding a large leaf like an umbrella. the blue worm is sitting in a blue and white striped inner tube. the purple worm has multiple small legs and holds a chewed up plastic straw.">
+				<br>behold, the <a href="/games/worm-race">worms</a> have %N%b33n% reborn in glorious new forms
 			</p>
 		`
 	},
@@ -731,11 +731,11 @@ const updateLog = [
 		date: new Date('2024-03-14T03:46'),
 		tags: ['games','worm race','mobile','minor'],
 		summary: `
-			minor %A%updates\\upd8s% %%2% mobile <a href="/games/wormrace">worm race</a>
+			minor %A%updates\\upd8s% %%2% mobile <a href="/games/worm-race">worm race</a>
 		`,
 		details: `
 			<p align="center">
-				<img class="tall" src="images/wormrace-2024-03-14.png" alt="">
+				<img class="tall" src="images/worm-race-2024-03-14.png" alt="">
 				<br>nav arrows, %A%improved\\impurroved% top bar, fixed some %A%positioning\\pawsitioning% issues
 			</p>
 		`
@@ -945,7 +945,7 @@ const updateLog = [
 		date: new Date('2023-11-30T12:00'),
 		tags: ['worm race','games','minor'],
 		summary: `
-			winners get <a href="/games/wormrace">crowns</a> <img src="/games/wormrace/crown.png" alt="" class="mini">
+			winners get <a href="/games/worm-race">crowns</a> <img src="/games/worm-race/crown.png" alt="" class="mini">
 		`,
 		details: `
 			<p align="center"><img src="https://i.imgur.com/tJvNU78.png" alt="purple fuzzy worm wearing a gold crown"></p>
@@ -955,14 +955,14 @@ const updateLog = [
 		date: new Date('2023-11-29T12:00'),
 		tags: ['worm race','games'],
 		summary: `
-			<a href="/games/wormrace">worm race</a> results animation, %A%updates\\upd8s% section, fancier menu, layout fixes
+			<a href="/games/worm-race">worm race</a> results animation, %A%updates\\upd8s% section, fancier menu, layout fixes
 		`,
 		details: `
 			<p>put a simple animation <u class="tq">in2</u> the race results <u class="tq-nep">scr33n</u>!!!!</p>
 			<p>
 				also worm race %A%updates\\upd8s% <u class="tq">r</u>
 				automatically displayed in the new %A%update\\upd8% section on the
-				<a href="/games/wormrace">worm race</a> page!! %%i% want
+				<a href="/games/worm-race">worm race</a> page!! %%i% want
 				%%2% put a pin at the top so it looks like a %A%little\\lill% note but
 				%%im% out of spoons %%4% the day <u class="tq-e">:'33</u>
 			</p>
@@ -1016,7 +1016,7 @@ const updateLog = [
 		date: new Date('2023-11-27T12:00'),
 		tags: ['games','worm race'],
 		summary: `
-			<a href="/games/wormrace">worm race</a> balance adjustments, bug fixes, new <a href="/games/wormrace/?share">share button</a>
+			<a href="/games/worm-race">worm race</a> balance adjustments, bug fixes, new <a href="/games/worm-race/?share">share button</a>
 		`,
 		details: `
 			<p>
@@ -1050,11 +1050,11 @@ const updateLog = [
 		date: new Date('2023-11-27T11:00'),
 		tags: ['games','worm race','art'],
 		summary: `
-			finalized <a href="/games/wormrace">worm race</a> background art!!
+			finalized <a href="/games/worm-race">worm race</a> background art!!
 		`,
 		details: `
 			<p align="center">
-				<img src="/games/wormrace/bg.png" alt="tiling background image featuring fuzzy worms intertwined with colorful shapes">
+				<img src="/games/worm-race/bg.png" alt="tiling background image featuring fuzzy worms intertwined with colorful shapes">
 				<br>smooth and clean <u class="tq-e">:33</u>
 			</p>
 		`
@@ -1075,9 +1075,9 @@ const updateLog = [
 		date: new Date('2023-11-25T13:00'),
 		tags: ['worm race','games'],
 		summary: `
-			worm race chatbox + loading <u class="tq-nep">scr33n</u> <a href="/games/wormrace">worm march</a>
+			worm race chatbox + loading <u class="tq-nep">scr33n</u> <a href="/games/worm-race">worm march</a>
 			<br>
-			<img src="/games/wormrace/pink_racer.png" alt="" class="mini"><img src="/games/wormrace/orange_racer.png" alt="" class="mini"><img src="/games/wormrace/yellow_racer.png" alt="" class="mini"><img src="/games/wormrace/green_racer.png" alt="" class="mini"><img src="/games/wormrace/blue_racer.png" alt="" class="mini"><img src="/games/wormrace/purple_racer.png" alt="" class="mini">
+			<img src="/games/worm-race/pink_racer.png" alt="" class="mini"><img src="/games/worm-race/orange_racer.png" alt="" class="mini"><img src="/games/worm-race/yellow_racer.png" alt="" class="mini"><img src="/games/worm-race/green_racer.png" alt="" class="mini"><img src="/games/worm-race/blue_racer.png" alt="" class="mini"><img src="/games/worm-race/purple_racer.png" alt="" class="mini">
 		`,
 		details: `
 			<p align="center"><img src="https://i.imgur.com/swbRgaD.png" alt="screenshot showing rows of rainbow worms on the loading screen">
@@ -1181,7 +1181,7 @@ const updateLog = [
 		date: new Date('2023-11-23T12:00'),
 		tags: ['art','games','worm race','minor'],
 		summary: `
-			<a href="/games/wormrace">worm race</a> banner + background sketches!!
+			<a href="/games/worm-race">worm race</a> banner + background sketches!!
 		`,
 		details: `
 			<p>new sketches %%4% the banner and background <u class="tq-e">:33</u></p>
@@ -1204,11 +1204,11 @@ const updateLog = [
 		date: new Date('2023-11-22T12:00'),
 		tags: ['games','worm race','art'],
 		summary: `
-			worm race <a href="/games/wormrace/?share">share buttons</a>
+			worm race <a href="/games/worm-race/?share">share buttons</a>
 		`,
 		details: `
 			<p>
-				<u class="tq" data-a="celebrate">celebr8</u> revival of worm race with buttons from the new <a href="/games/wormrace/?share">share section</a>!! theres a general race button plus one %%4% each worm that links direct %%2% their <u class="tq" data-a="profile">purrofile</u>
+				<u class="tq" data-a="celebrate">celebr8</u> revival of worm race with buttons from the new <a href="/games/worm-race/?share">share section</a>!! theres a general race button plus one %%4% each worm that links direct %%2% their <u class="tq" data-a="profile">purrofile</u>
 			</p>
 			<p align="center">
 				<img src="https://i.imgur.com/5Lbp7Id.png" alt="worm race button with colorful letters and pink fuzzy worm">
@@ -1225,19 +1225,19 @@ const updateLog = [
 		date: new Date('2023-11-22T11:00'),
 		tags: ['games','worm race','art'],
 		summary: `
-			RETURN OF <a href="/games/wormrace">WORM RACE</a>
+			RETURN OF <a href="/games/worm-race">WORM RACE</a>
 		`,
 		details: `
 			<p>
-				after a whole <u class="tq-nep">w33k</u> of downtime, the <a href="/games/wormrace">worms rise again</a>!! stats reset one last time but %%ill% try %%2% back them up more often going <u class="tq" data-a="forward">furward</u>
+				after a whole <u class="tq-nep">w33k</u> of downtime, the <a href="/games/worm-race">worms rise again</a>!! stats reset one last time but %%ill% try %%2% back them up more often going <u class="tq" data-a="forward">furward</u>
 			</p>
 			<p align="center">
-				<img src="/games/wormrace/pink_racer.png" alt="" width="15%">
-				<img src="/games/wormrace/orange_racer.png" alt="" width="15%">
-				<img src="/games/wormrace/yellow_racer.png" alt="" width="15%">
-				<img src="/games/wormrace/green_racer.png" alt="" width="15%">
-				<img src="/games/wormrace/blue_racer.png" alt="" width="15%">
-				<img src="/games/wormrace/purple_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/pink_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/orange_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/yellow_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/green_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/blue_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/purple_racer.png" alt="" width="15%">
 			</p>
 			<p>
 				basically i was running dozens of database read/write requests per user per minute, which is bad. had %%2% rewrite the whole php code and half the javascript from scratch (again) and then <u class="tq" data-a="navigate">navig8</u> a whole new host service but the fresh code is way more efficient!! %%u% just gotta refresh the page %%4% health updates if %%u% have had the worm details <u class="tq-nep">scr33n</u> sitting up for a while, no big deal. but <u class="tq">pls</u> dont spam refresh the page lol, it also %A%updates\\upd8s% when %%u% <u class="tq-nep">f33d</u> a worm.
@@ -1251,16 +1251,16 @@ const updateLog = [
 				now i can get back %%2% the actual planned updates, like more art stuff!! finalized the item icons %%4% a start <u class="tq-e">:33</u>
 			</p>
 			<p align="center">
-				<img src="/games/wormrace/apple.png" alt="drawing of a golden apple" width="20%">
-				<img src="/games/wormrace/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
-				<img src="/games/wormrace/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
-				<img src="/games/wormrace/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
+				<img src="/games/worm-race/apple.png" alt="drawing of a golden apple" width="20%">
+				<img src="/games/worm-race/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
+				<img src="/games/worm-race/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
+				<img src="/games/worm-race/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
 				</p>
 			<p align="center">
-				<img src="/games/wormrace/icon-movement-1.png" alt="small icon of a green arrow">
-				<img src="/games/wormrace/icon-movement-2.png" alt="small icon of a double arrow">
-				<img src="/games/wormrace/icon-health-pos.png" alt="small icon of a pink heart">
-				<img src="/games/wormrace/icon-health-neg.png" alt="small icon of a purple broken heart">
+				<img src="/games/worm-race/icon-movement-1.png" alt="small icon of a green arrow">
+				<img src="/games/worm-race/icon-movement-2.png" alt="small icon of a double arrow">
+				<img src="/games/worm-race/icon-health-pos.png" alt="small icon of a pink heart">
+				<img src="/games/worm-race/icon-health-neg.png" alt="small icon of a purple broken heart">
 				</p>
 			<p>
 				there's also some fancy new UI! <u class="tq" data-a="proper">propurr</u> health bar, more <u class="tq" data-a="informative">infurmative</u> health effects section, and the race looks a %A%little\\lil% bit nicer</p>
@@ -1280,7 +1280,7 @@ const updateLog = [
 			worm race balance adjustments
 		`,
 		details: `
-			<p>minor balance edits %%2% the <a href="/games/wormrace">worm race!</a></p>
+			<p>minor balance edits %%2% the <a href="/games/worm-race">worm race!</a></p>
 			<ul>
 				<li>apple base %A%movement\\mewvement% increased from 3 %%2% 4</li>
 				<li>maximum health effect decreased from 67% to 50%</li>
@@ -1292,10 +1292,10 @@ const updateLog = [
 		date: new Date('2023-11-15T11:00'),
 		tags: ['games','worm race'],
 		summary: `
-			added <a href="/games/wormrace">worm health system</a> <img src="/games/wormrace/icon-health-pos.png" alt="" class="mini">
+			added <a href="/games/worm-race">worm health system</a> <img src="/games/worm-race/icon-health-pos.png" alt="" class="mini">
 		`,
 		details: `
-			<p>worm race health system is up, <a href="/games/wormrace">sabotage is now on the table</a> <u class="tq-e">B33</u></p>
+			<p>worm race health system is up, <a href="/games/worm-race">sabotage is now on the table</a> <u class="tq-e">B33</u></p>
 			<p>other minor worm updates:</p>
 			<ul>
 				<li>worm stats on race page</li>
@@ -1308,7 +1308,7 @@ const updateLog = [
 			<p>up next on the worm agenda, visual updates and worm share!! i want %%2% make
 				buttons so ppl can share the race or a specific worm on their page. the ability
 				%%2% link %%2% a worm has already <u class="tq-nep">b33n</u>
-				added (<a href="/games/wormrace?worm=0">here's one</a>)
+				added (<a href="/games/worm-race?worm=0">here's one</a>)
 				<u class="tq" data-a="although">altho</u> it doesn't display health correctly, gotta fix that</p>
 		`
 	},
@@ -1316,7 +1316,7 @@ const updateLog = [
 		date: new Date('2023-11-13T12:00'),
 		tags: ['games','worm race','art'],
 		summary: `
-			big update %%2% the <a href="/games/wormrace">worm races</a>!!!! congrats %%2% purple worm %%4% winning alpha v1
+			big update %%2% the <a href="/games/worm-race">worm races</a>!!!! congrats %%2% purple worm %%4% winning alpha v1
 		`,
 		details: `
 			<p align="center">
@@ -1347,7 +1347,7 @@ const updateLog = [
 		date: new Date('2023-11-11T12:00'),
 		tags: ['new page','games','worm race'],
 		summary: `
-			<a href="/games/wormrace">worm race alpha version</a> is live <u class="tq-e">:33</u>
+			<a href="/games/worm-race">worm race alpha version</a> is live <u class="tq-e">:33</u>
 		`,
 		details: `
 			<p>fresh new worm <u class="tq" data-a="popularity">pawpularity</u> contest!!</p>
@@ -1357,7 +1357,7 @@ const updateLog = [
 			it took me a whole evening of banging my brain on the keyboard %%2% start understanding sql databases,
 			but it works!!</p>
 			<p align="center"><img src="https://i.imgur.com/7QOn7Bh.png" alt="screenshot of the worm race alpha version. 6 different colored worms on strings are competing, with orange worm in first place. each worm has a 'vote' button">
-			<br><a href="/games/wormrace"><u class="tq" data-a="participate">particip8</u> in worm democracy <u class="tq">2day</u></a></p>
+			<br><a href="/games/worm-race"><u class="tq" data-a="participate">particip8</u> in worm democracy <u class="tq">2day</u></a></p>
 		`
 	},
 	{

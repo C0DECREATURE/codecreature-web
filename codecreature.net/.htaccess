@@ -1,3 +1,22 @@
 Options +Indexes
 
 ErrorDocument 404 /not_found.html
+
+Redirect 301 /homestuck /shrines/homestuck
+Redirect 301 /sollux /shrines/homestuck/sollux
+Redirect 301 /nepeta /shrines/homestuck/nepeta
+Redirect 301 /homestuck-ships /shrines/homestuck/shipping
+
+Redirect 301 /shrines/garf /shrines/garfield
+Redirect 301 /garfield /shrines/garfield
+
+Redirect 301 /teeth /shrines/teeth
+Redirect 301 /tangy /shrines/tangy
+Redirect 301 /snailfish /shrines/snailfish
+Redirect 301 /raptor-red /shrines/raptor-red
+
+Redirect 301 /toybox /games/toybox
+
+Redirect 301 /games/wormrace /games/worm-race
+Redirect 301 /wormrace /games/worm-race
+Redirect 301 /worm-race /games/worm-race

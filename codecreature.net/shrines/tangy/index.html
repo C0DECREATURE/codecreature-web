@@ -31,16 +31,14 @@
 					<h1>reeeeOWR!</h1>
 				</header>
 				
-				<button id="amiibo" onclick="
-					this.querySelector('.front').classList.toggle('invisible');
-					this.querySelector('.back').classList.toggle('invisible');
-				">
+				<!--amiibo card-->
+				<button id="amiibo" onclick="this.firstChild.classList.toggle('flipBack');"><div class="container">
 					<!--front of card-->
 					<div class="front">
 						<img src="amiibo.png" alt="Tangy Amiibo card.">
 					</div>
 					<!--back of card-->
-					<div class="back invisible">
+					<div class="back">
 						<h3>Tangy</h3>
 						<ul>
 							<li>Cat</li>
@@ -49,7 +47,8 @@
 							<li>Gemini</li>
 						</ul>
 					</div>
-				</button>
+				</div></button>
+				<!--amiibo card end-->
 			</div>
 			
 			<img id="leggy-run" src="leggy_run.gif" alt="">

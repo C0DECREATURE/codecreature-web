@@ -5,7 +5,7 @@
 	<img src="/graphix/stamps/garf_caffeine.png" alt="">
 </section>
 
-<a id="newspaper" href="/shrines/garf/comics/?year=random&num=today">
+<a id="newspaper" href="/shrines/garfield/comics/?year=random&num=today">
 	<header>
 		<h2>COMICS</h2>
 		<h4 id="news-date"></h4>

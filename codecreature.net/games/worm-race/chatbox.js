@@ -142,7 +142,7 @@ function initChat() {
 				height: .9em; width: .9em; margin-bottom: -.1em; margin-right: .2em;
 				background-size: 100% 100%; background-position: left top; background-repeat: no-repeat;
 			}
-			.owner:before { background-image: url("http://codecreature.helioho.st/games/wormrace/apple.png"); }
+			.owner:before { background-image: url("http://codecreature.helioho.st/games/worm-race/apple.png"); }
 			.mod:before { background-image: url('` + window.location.href + `heal.png'); }
 			/* hover text */
 			.tooltip {

@@ -65,10 +65,10 @@ body {
 
 /* cursor */
 body.customCursor, .customCursor * {
-	cursor: url("/shrines/garf/images/cursor.png"), auto;
+	cursor: url("/shrines/garfield/images/cursor.png"), auto;
 	/* links cursor */
 	a, a:hover, button, button:hover {
-		cursor: url("/shrines/garf/images/cursor.png"), auto;
+		cursor: url("/shrines/garfield/images/cursor.png"), auto;
 	}
 }
 
