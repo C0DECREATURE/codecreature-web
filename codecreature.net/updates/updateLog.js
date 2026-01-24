@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-01-24T17:44'),
+		authors: ['emery'],
+		tags: ['resources'],
+		summary: `
+			<a href="/codefiles/ACNLclock">ACNL clock</a> updates every minute
+		`,
+		details: `
+			<p>
+				Previous version of the clock only updated on page refresh. Now it should auto-update exactly once every minute %E%:)%
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-01-22T18:09'),
 		authors: ['emery'],
 		tags: ['resources'],
