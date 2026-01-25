@@ -175,7 +175,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<header>
 			<h1>Sign Up</h1>
 		</header>
-		<p>fill this form to create an account!</p>
+		<p class="warning"><strong>don't actually sign up! it isn't ready yet....</strong></p>
+		<p class="hidden">fill this form to create an account!</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="form-group">
 				<label for="email">email: </label>
@@ -217,7 +218,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</div>
 			<div class="form-group">
 				<input type="checkbox" id="password-agree" required>
-				<label for="password-agree">I have chosen a password I don't use on any other site</label>
+				<label for="password-agree" class="warning">I have chosen a password I don't use on any other site</label>
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-green" value="Submit">
