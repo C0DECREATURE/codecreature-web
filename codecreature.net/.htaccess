@@ -2,6 +2,10 @@ Options +Indexes
 
 ErrorDocument 404 /not_found.html
 
+Redirect 302 /user /user/settings
+Redirect 301 /login /user/login
+Redirect 301 /register /user/register
+
 Redirect 301 /homestuck /shrines/homestuck
 Redirect 301 /sollux /shrines/homestuck/sollux
 Redirect 301 /nepeta /shrines/homestuck/nepeta
