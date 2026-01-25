@@ -68,54 +68,54 @@ iframe { border: none; padding: 0; margin: 0; }
 }
 
 /* button colors */
-.btn-red {
+.btn-red, .btn-danger {
 	background-color: var(--red);
 	box-shadow: .123em .123em var(--d-blue);
 	text-shadow: -.07em -.03em var(--d-blue);
+	&:hover { background-color: var(--pink); }
 }
-.btn-red:hover { background-color: var(--pink); }
 
-.btn-orange {
+.btn-orange, .btn-warning {
 	background-color: var(--orange);
 	box-shadow: .123em .123em var(--red);
 	text-shadow: -.07em -.03em var(--red);
+	&:hover { background-color: var(--yellow); }
 }
-.btn-orange:hover { background-color: var(--yellow); }
 
 .btn-yellow {
 	background-color: var(--yellow);
 	box-shadow: .123em .123em var(--red);
 	text-shadow: -.07em -.03em var(--red);
+	&:hover { background-color: var(--l-green); }
 }
-.btn-yellow:hover { background-color: var(--l-green); }
 
 .btn-green {
 	background-color: var(--green);
 	box-shadow: .123em .123em var(--blue);
 	text-shadow: -.07em -.03em var(--blue);
+	&:hover { background-color: var(--l-blue); }
 }
-.btn-green:hover { background-color: var(--l-blue); }
 
 .btn-blue {
 	background-color: var(--blue);
 	box-shadow: .123em .123em var(--dd-blue);
 	text-shadow: -.07em -.03em var(--dd-blue);
+	&:hover { background-color: var(--l-blue); }
 }
-.btn-blue:hover { background-color: var(--l-blue); }
 
 .btn-purple {
 	background-color: var(--purple);
 	box-shadow: .123em .123em var(--dd-blue);
 	text-shadow: -.07em -.03em var(--dd-blue);
+	&:hover { background-color: var(--pink); }
 }
-.btn-purple:hover { background-color: var(--pink); }
 
 .btn-pink {
 	background-color: var(--pink);
 	box-shadow: .123em .123em var(--blue);
 	text-shadow: -.07em -.03em var(--blue);
+	&:hover { background-color: var(--l-pink); }
 }
-.btn-pink:hover { background-color: var(--l-pink); }
 
 /******* END BUTTONS *******/
 
