@@ -2,7 +2,6 @@ Options +Indexes
 
 ErrorDocument 404 /not_found.html
 
-Redirect 302 /user /user/settings
 Redirect 301 /login /user/login
 Redirect 301 /register /user/register
 
