@@ -1,0 +1,23 @@
+body {
+	background: var(--black);
+}
+
+.invalid-feedback, .alert-danger {
+	color: var(--red);
+}
+
+.invalid-feedback {
+	font-style: italic;
+}
+
+form .btn {
+	margin-top: .5em;
+}
+
+.form-group:not(:last-of-type) {
+	margin-bottom: .2rem;
+}
+
+
+
+h1, h2 { font-family: "Super Comic", sans-serif; }
