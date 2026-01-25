@@ -4,6 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect to user settings page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+		echo "logged in";
     header("location: ../settings");
     exit;
 }
@@ -14,6 +15,20 @@ require_once "../config.php";
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
+
+// DEBUG: using these to construct error messages, but is there a way to do it with functions?
+$login_err_generic = "Invalid username or password.";
+$login_err_attempts = "Too many failed attempts.<br>Check your username or ";
+$login_err_tomorrow = $login_err_attempts." try again tomorrow.";
+$login_err_contact = $login_err_attempts." contact admin@codecreature.net for assistance.";
+
+// limits on failed login attempts
+$daily_attempt_limit = 5; // permitted failed login attempts per day
+$total_attempt_limit = 15; // permitted failed login attempts total
+$failed_attempts_today = 0; // failed attempts on this day
+$failed_attempts_total = 0; // failed attempts ever
+
+date_default_timezone_set('America/New_York'); // EST
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -31,9 +46,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } else{
         $password = trim($_POST["password"]);
     }
-    
-    // Validate credentials
+		
+		// CHECK IF USERNAME HAS TOO MANY FAILED PASSWORD ATTEMPTS
+		// wrote this section from scratch. hopefully working
+		// if a username and password has been submitted
     if(empty($username_err) && empty($password_err)){
+			$sql = "SELECT id, date FROM login_attempts WHERE username = ?";
+			
+			if($stmt = mysqli_prepare($link, $sql)){
+				// Bind variables to the prepared statement as parameters
+				mysqli_stmt_bind_param($stmt, "s", $username);
+				
+				// Attempt to execute the prepared statement
+				if(mysqli_stmt_execute($stmt)){
+					// get the resulting array of rows
+					$result = $stmt->get_result();
+					// current date for comparing
+					$current_date = date('Y-m-d');
+					// get all login attempt rows for this username
+					while ($row = mysqli_fetch_assoc($result)) {
+						$failed_attempts_total += 1;
+						// if the failed attempt was today, log it
+						if ($row['date'] == $current_date) {
+							$failed_attempts_today += 1;
+						}
+					}
+				} else{
+					echo "Could not validate user login attempts.";
+				}
+				
+				if ($failed_attempts_total > $total_attempt_limit) {
+					$login_err = $login_err_contact;
+				} else if ($failed_attempts_today > $daily_attempt_limit) {
+					$login_err = $login_err_tomorrow;
+				}
+				
+				// Close statement
+				mysqli_stmt_close($stmt);
+			}
+		}
+		
+    // Validate credentials
+    if(empty($username_err) && empty($password_err) && empty($login_err)){
         // Prepare a select statement
         $sql = "SELECT id, username, password, access, icon, last_login FROM users WHERE username = ?";
         
@@ -54,6 +108,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $access, $icon, $last_login);
                     if(mysqli_stmt_fetch($stmt)){
+												// get the current time in sql DATETIME format
+												$current_date = date('Y-m-d H:i:s');
+												
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
@@ -68,23 +125,53 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														// check if this is the user's first login
 														$welcome = $last_login == NULL ? '?welcome=true' : '';
 														
-														// record the last login time
-														date_default_timezone_set('America/New_York'); // EST
-														$current_date = date('Y-m-d H:i:s');
+														// record the login time
 														$date_sql = "UPDATE users SET last_login='".$current_date."' WHERE id=".$id;
 														if ($link->query($date_sql) === TRUE) { echo "User last_login updated successfully";
-														} else { echo "Error updating last_login: " . $conn->error; }
+														} else { echo "Error updating last_login: " . $link->error; }
+														
+														// delete all failed login attempts for this user
+														/* DEBUG: this breaks the ability to reroute to settings after login? why...
+														$delete_attempts = "DELETE FROM login_attempts WHERE username=".$username;
+														if ($link->query($delete_attempts) === TRUE) {
+														} else { echo "Error deleting old login attempts: " . mysqli_error($link); }
+														*/
 														
                             // Redirect user to welcome page
                             header("location: ../settings".$welcome);
                         } else{
-                            // Password is not valid, display a generic error message
-                            $login_err = "Invalid username or password.";
+														// log the failed login attempt
+														// Prepare an insert statement
+														$sql = "INSERT INTO login_attempts (username, date) VALUES (?, ?)";
+														if($stmt = mysqli_prepare($link, $sql)){
+																// Bind variables to the prepared statement as parameters
+																mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_date);
+																
+																// Set parameters
+																$param_username = $username;
+																$param_date = $current_date;
+																
+																// Attempt to execute the prepared statement
+																if(!mysqli_stmt_execute($stmt)){
+																		echo "Error logging failed login attempt: " . $link->error; 
+																}
+														}
+														
+														$login_err = $login_err_generic;
+														if ($failed_attempts_total > $total_attempt_limit) {
+															$login_err = $login_err." ".$login_err_contact;
+														} else if ($failed_attempts_today > $daily_attempt_limit) {
+															$login_err = $login_err." ".$login_err_tomorrow;
+														}
                         }
                     }
                 } else{
-                    // Username doesn't exist, display a generic error message
-                    $login_err = "Invalid username or password.";
+                    $login_err = $login_err_generic;
+										if ($failed_attempts_total > $total_attempt_limit) {
+											$login_err = $login_err." ".$login_err_contact;
+										} else if ($failed_attempts_today > $daily_attempt_limit) {
+											$login_err = $login_err." ".$login_err_tomorrow;
+										}
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -94,7 +181,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
-    
+		
     // Close connection
     mysqli_close($link);
 }
