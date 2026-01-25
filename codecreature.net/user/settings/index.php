@@ -137,7 +137,6 @@
 				<section class="settings-block" id="actions">
 					<header><h2>account actions</h2></header>
 					<div class="content-wrapper">
-						<a href="../reset-password.php" class="hidden btn btn-warning">Reset Password</a>
 						<a href="../logout.php" class="btn btn-danger">Sign Out</a>
 					</div>
 				</section>
