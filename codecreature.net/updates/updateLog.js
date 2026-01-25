@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-01-25T00:21'),
+		authors: ['emery'],
+		tags: ['bug fix','resources','minor'],
+		summary: `
+			<a href="/codefiles/ACNLclock">ACNL clock</a> midnight fix
+		`,
+		details: `
+			<p>
+				ACNL clock now displays 12 instead of 0 at midnight!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-01-24T17:44'),
 		authors: ['emery'],
 		tags: ['resources'],
