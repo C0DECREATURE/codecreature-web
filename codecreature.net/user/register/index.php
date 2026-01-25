@@ -184,17 +184,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</div>
 			<div class="form-group">
 				<label for="username">username: </label>
-				<input type="text" id="username" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+				<input
+					type="text"
+					id="username" name="username"
+					minlength="3"
+					maxlength="25"
+					class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
+					value="<?php echo $username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
 			</div>
 			<div class="form-group">
 				<label for="password">password: </label>
-				<input type="password" id="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+				<input
+					type="password"
+					id="password" name="password"
+					minlength="5"
+					maxlength="5"
+					class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+					value="<?php echo $password; ?>">
 				<span class="invalid-feedback"><?php echo $password_err; ?></span>
 			</div>
 			<div class="form-group">
 				<label for="confirm_password">confirm password: </label>
-				<input type="password" id="confirm_password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+				<input
+					type="password"
+					id="confirm_password" name="confirm_password"
+					minlength="5"
+					maxlength="5"
+					class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
+					value="<?php echo $confirm_password; ?>">
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
 			</div>
 			<div class="form-group">
