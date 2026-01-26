@@ -10,6 +10,8 @@
 	
 	// Include password functions file
 	require_once "../password-functions.php";
+	// Include icon functions file
+	require_once "../icon-functions.php";
 ?>
  
 <!DOCTYPE html>
@@ -74,66 +76,71 @@
 				<section class="settings-block" id="details">
 					<header><h2>user details</h2></header>
 					<div class="content-wrapper">
+						<img class="user-icon" src="/user/icons/<?php echo $_SESSION['user_icon']; ?>.png" alt="">
 						<div class="info">
-							username:
-							<span class="value"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
-						</div>
-						<div class="info">
-							access level:
-							<span class="value"><?php echo htmlspecialchars($_SESSION["user_access"]); ?></span>
-						</div>
-						<div class="info hidden">
-							current icon:
-							<span class="value"><?php echo htmlspecialchars($_SESSION["user_icon"]); ?></span>
+							<div>
+								username:
+								<span class="value"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
+							</div>
+							<div>
+								access level:
+								<span class="value <?php echo htmlspecialchars($_SESSION["user_access"]); ?>"><?php echo htmlspecialchars($_SESSION["user_access"]); ?></span>
+							</div>
 						</div>
 					</div>
 				</section>
 				
-				<section class="settings-block hidden" id="icon">
-					<header><h2>icon</h2></header>
+				<section class="settings-block" id="icon">
+					<header><h2>select icon</h2></header>
 					<div class="content-wrapper">
-						<form name="icon">
+						<form name="icon" action="../icon-functions.php" method="post">
 							<!--icon inputs-->
 							<div class="icon-selections">
 								<!--jeremy-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_pink" name="icon-selection">
-									<label for="icon-worm_pink"><img class="icon-preview" src="/user/icons/worm_pink.png"></label>
+									<input type="radio" id="icon-worm_pink" value="worm_pink" name="new-icon">
+									<label for="icon-worm_pink"><img class="icon-preview" src="/user/icons/worm_pink.png" alt="pink worm"></label>
 								</div>
 								<!--pretzel-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_orange" name="icon-selection">
-									<label for="icon-worm_orange"><img class="icon-preview" src="/user/icons/worm_orange.png"></label>
+									<input type="radio" id="icon-worm_orange" value="worm_orange" name="new-icon">
+									<label for="icon-worm_orange"><img class="icon-preview" src="/user/icons/worm_orange.png" alt="pink worm"></label>
 								</div>
 								<!--string cheese-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_yellow" name="icon-selection">
-									<label for="icon-worm_yellow"><img class="icon-preview" src="/user/icons/worm_yellow.png"></label>
+									<input type="radio" id="icon-worm_yellow" value="worm_yellow" name="new-icon">
+									<label for="icon-worm_yellow"><img class="icon-preview" src="/user/icons/worm_yellow.png" alt="yellow worm"></label>
 								</div>
 								<!--matilda-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_green" name="icon-selection">
-									<label for="icon-worm_green"><img class="icon-preview" src="/user/icons/worm_green.png"></label>
+									<input type="radio" id="icon-worm_green" value="worm_green" name="new-icon">
+									<label for="icon-worm_green"><img class="icon-preview" src="/user/icons/worm_green.png" alt="blue worm"></label>
 								</div>
 								<!--pool noodle-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_blue" name="icon-selection">
-									<label for="icon-worm_blue"><img class="icon-preview" src="/user/icons/worm_blue.png">
+									<input type="radio" id="icon-worm_blue" value="worm_blue" name="new-icon">
+									<label for="icon-worm_blue"><img class="icon-preview" src="/user/icons/worm_blue.png" alt="blue worm">
 								</div>
 								<!--microplastics-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_purple" name="icon-selection">
-									<label for="icon-worm_purple"><img class="icon-preview" src="/user/icons/worm_purple.png"></label>
+									<input type="radio" id="icon-worm_purple" value="worm_purple" name="new-icon">
+									<label for="icon-worm_purple"><img class="icon-preview" src="/user/icons/worm_purple.png" alt="purple worm"></label>
 								</div>
 								<!--worm apple-->
 								<div class="wrapper">
-									<input type="radio" id="icon-worm_apple" name="icon-selection">
-									<label for="icon-worm_apple"><img class="icon-preview" src="/user/icons/worm_apple.png"></label>
+									<input type="radio" id="icon-worm_apple" value="worm_apple" name="new-icon">
+									<label for="icon-worm_apple"><img class="icon-preview" src="/user/icons/worm_apple.png" alt="golden apple"></label>
 								</div>
 							</div>
 							<!--end of icon inputs-->
 							<input type="submit" class="btn btn-green" value="update">
 						</form>
+						<script>
+							 (function () {
+								 let icon = '<?php echo $_SESSION['user_icon']; ?>';
+								 console.log(icon);
+							 })();
+						</script>
 					</div>
 				</section>
 				
@@ -144,10 +151,9 @@
 					<div class="content-wrapper">
 						<!--reset password form-->
 						<section id="reset-password">
-							<h3>Reset Password</h3>
-							<form action="../password-reset.php" method="post"> 
+							<form name="reset-password" action="../password-reset.php" method="post"> 
 								<div class="form-group">
-									<label for="new_password">new password</label>
+									<label for="new_password">new password: </label>
 									<input
 										type="password"
 										id="new_password" name="new_password"
@@ -157,7 +163,7 @@
 									<span class="invalid-feedback"><?php echo $new_password_err; ?></span>
 								</div>
 								<div class="form-group">
-									<label for="confirm_password">confirm password</label>
+									<label for="confirm_password">confirm new password: </label>
 									<input
 										type="password"
 										id="confirm_password" name="confirm_password"

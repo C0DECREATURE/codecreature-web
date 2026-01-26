@@ -177,8 +177,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<header>
 			<h1>Sign Up</h1>
 		</header>
-		<p class="warning"><strong>don't actually sign up! it isn't ready yet....</strong></p>
-		<p class="hidden">fill this form to create an account!</p>
+		<p>
+			fill this form to create an account!
+			<br><strong>this feature is in a very early stage.</strong>
+		</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="form-group">
 				<label for="email">email: </label>

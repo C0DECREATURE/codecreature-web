@@ -1,6 +1,14 @@
 body > header {
 	font-family: 'Super Comic', sans-serif;
 	strong { color: var(--l-blue); }
+	text-align: center;
+}
+
+nav { text-align: center; }
+
+main {
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 #user-settings {
@@ -9,9 +17,23 @@ body > header {
 	gap: 15px;
 }
 
+#details .content-wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+#details .info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 #details .value {
 	font-weight: bold;
 	color: var(--green);
+}
+#details .value.admin { color: var(--orange); }
+#details .user-icon {
+	width: min(100%,max(50px,min(100px, 30%)));
 }
 
 section.settings-block {
@@ -38,9 +60,8 @@ section.settings-block {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 20px;
+	gap: max(2%,5px);
 }
-
 .icon-selections .wrapper:has(input[type="radio"]) {
 	position: relative;
 	width: min(100px, 90%);

@@ -7,7 +7,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: /login");
     exit;
 }
- 
+
 // Include database connection file
 require_once "connect.php";
 // Include password validator file
