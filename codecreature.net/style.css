@@ -52,17 +52,18 @@ iframe { border: none; padding: 0; margin: 0; }
 	--btn-bg: var(--blue);
 	--btn-color: var(--white);
 	--btn-shadow: var(--dd-blue);
+	--btn-shadow-size: .123em;
 	--btn-txt-shadow: var(--btn-shadow);
 	--btn-hover: var(--l-blue);
 }
-.btn, .btn:link, .btn:visited {
-	position: relative;
+.btn, .btn:link, .btn:visited, a.btn {
 	display: inline-block;
 	padding: .307em .615em;
 	border-radius: 20px;
 	border: none;
 	background: var(--btn-bg);
-	box-shadow: .123em .123em var(--btn-shadow);
+	box-shadow: var(--btn-shadow-size) var(--btn-shadow-size) var(--btn-shadow);
+	margin-bottom: var(--btn-shadow-size);
 	text-shadow: -.07em -.03em var(--btn-shadow);
 	color: var(--btn-color);
 	font-size: max(1rem, min(1.55em, 6vw));
@@ -75,13 +76,12 @@ iframe { border: none; padding: 0; margin: 0; }
 	background: var(--btn-hover);
 }
 .btn:active {
-	top: .123em;
-	left: .123em;
+	transform: translate(var(--btn-shadow-size), var(--btn-shadow-size));
 	box-shadow: none;
 }
 
 /* button colors */
-.btn-red, .btn-red:link, .btn-danger {
+.btn-red, .btn-danger {
 	--btn-bg: var(--red);
 	--btn-shadow: var(--d-blue);
 	--btn-hover: var(--pink);
