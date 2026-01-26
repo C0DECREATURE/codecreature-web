@@ -19,14 +19,14 @@ $username_err = $password_err = $login_err = "";
 // DEBUG: using these to construct error messages, but is there a way to do it with functions?
 $login_err_generic = "Invalid username or password.";
 $login_err_attempts = "Too many failed attempts.<br>Check your username or ";
-$login_err_tomorrow = $login_err_attempts." try again tomorrow.";
-$login_err_contact = $login_err_attempts." contact admin@codecreature.net for assistance.";
+$login_err_tomorrow = $login_err_attempts."try again tomorrow.";
+$login_err_contact = $login_err_attempts."contact admin@codecreature.net for assistance.";
 
 // limits on failed login attempts
 $daily_attempt_limit = 5; // permitted failed login attempts per day
 $total_attempt_limit = 10; // permitted failed login attempts total
 $failed_attempts_today = 0; // failed attempts on this day
-$failed_attempts_total = 0; // failed attempts ever
+$failed_attempts_total = 0; // failed attempts total
 
 date_default_timezone_set('America/New_York'); // EST
  
