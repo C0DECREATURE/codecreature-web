@@ -14,10 +14,15 @@ form .btn {
 	margin-top: .5em;
 }
 
+.btn-small, .btn-small:link, .btn-small:visited {
+	font-size: max(.85rem,min(1rem, 4vw));
+	font-family: 'Yet R', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
 .form-group:not(:last-of-type) {
 	margin-bottom: .2rem;
 }
 
-
-
-h1, h2 { font-family: "Super Comic", sans-serif; }
+h1, h2, h3 { font-family: "Super Comic", sans-serif; }

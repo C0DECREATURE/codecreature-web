@@ -7,6 +7,9 @@
 			header("location: ../login/");
 			exit;
 	}
+	
+	// Include password functions file
+	require_once "../password-functions.php";
 ?>
  
 <!DOCTYPE html>
@@ -27,7 +30,7 @@
 		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
 		
 		<!-- fonts -->
-		<script>fonts.load('ComicSansMS','SuperComic');</script>
+		<script>fonts.load('ComicSansMS','SuperComic','Yet R');</script>
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
@@ -136,8 +139,39 @@
 				
 				<section class="settings-block" id="actions">
 					<header><h2>account actions</h2></header>
+					
+					
 					<div class="content-wrapper">
-						<a href="../logout.php" class="btn btn-danger">Sign Out</a>
+						<!--reset password form-->
+						<section id="reset-password">
+							<h3>Reset Password</h3>
+							<form action="../password-reset.php" method="post"> 
+								<div class="form-group">
+									<label for="new_password">new password</label>
+									<input
+										type="password"
+										id="new_password" name="new_password"
+										maxlength="<?php echo $password_length; ?>"
+										class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>"
+										value="<?php echo $new_password; ?>">
+									<span class="invalid-feedback"><?php echo $new_password_err; ?></span>
+								</div>
+								<div class="form-group">
+									<label for="confirm_password">confirm password</label>
+									<input
+										type="password"
+										id="confirm_password" name="confirm_password"
+										maxlength="<?php echo $password_length; ?>"
+										class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
+									<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+								</div>
+								<div class="form-group">
+									<input type="submit" class="btn btn-small" value="Update Password">
+								</div>
+							</form>
+						</section>  
+						<!--logout button-->
+						<a href="../logout.php" class="btn btn-danger">Log Out</a>
 					</div>
 				</section>
 				

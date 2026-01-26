@@ -25,6 +25,12 @@ section.settings-block {
 	}
 	> .content-wrapper {
 		padding: .5em .75em;
+		
+		> section:not(:last-child) {
+			border-bottom: 2px var(--blue) solid;
+			padding-bottom: 10px;
+			margin-bottom: 20px;
+		}
 	}
 }
 

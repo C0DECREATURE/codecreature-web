@@ -1,6 +1,8 @@
 <?php
 // Include database connection file
 require_once "../connect.php";
+// Include password functions file
+require_once "../password-functions.php";
 
 // Initialize the session
 session_start();
@@ -10,15 +12,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: ../details");
     exit;
 }
-
-// required password length
-// make sure to also update maxlength in HTML password input fields
-// (can't set the HTML input length with php because it breaks firefox auto-password generation)
-$password_length = 6;
  
 // Define variables and initialize with empty values
-$email = $username = $password = $confirm_password = "";
-$email_err = $username_err = $password_err = $confirm_password_err = "";
+$email = $username = "";
+$email_err = $username_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -94,25 +91,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             mysqli_stmt_close($stmt);
         }
     }
-    
+		
     // Validate password
-    if ( empty(trim($_POST["password"])) ) {
-        $password_err = "Please enter a password.";     
-    } elseif (strlen(trim($_POST["password"])) != $password_length) {
-        $password_err = "Password must have ".$password_length." characters.";
-    } elseif ( !preg_match('/(?=.*[0-9]).+/', trim($_POST["password"])) ) {
-        $password_err = "Password must contain at least one number";
-    } elseif ( !preg_match('/(?=.*[a-zA-Z]).+/', trim($_POST["password"])) ) {
-        $password_err = "Password must contain at least one letter";
-    } elseif ( trim($_POST["password"]) == trim($_POST["username"]) ) {
-        $password_err = "Password must be different from username";
-    } elseif(preg_match('/(.)\1{3}/', trim($_POST["password"]))){
-        $password_err = "Password may not have more than 3 repeating characters";
-    } elseif ( preg_match('/(?=.*(?=(\w+)\1{2}|p[a@*][s\$][s\$]|w[o0*]rd|user|login|access|qwerty|q2w3e|uiop|asdf|monkey|letmein|dragon|hello|batman|shadow|loveme|lovely|mynoob|donald|charlie|ashley|hottie|flower|abc|xyz|012|123|345|456|567|678|789|890|1122|2233|4455|5566|6677|8899|9900)).+/i', trim($_POST["password"])) ) {
-        $password_err = "Please choose a less common password";
-		} else {
-        $password = trim($_POST["password"]);
-    }
+		$password_err = getPasswordErr(trim($_POST["password"]));
+		if(empty($password_err)) { $password = trim($_POST["password"]); }
     
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
@@ -219,7 +201,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="password" name="password"
-					maxlength="6"
+					maxlength="<?php echo $password_length; ?>"
 					class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $password; ?>">
 				<span class="invalid-feedback"><?php echo $password_err; ?></span>
@@ -229,7 +211,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="confirm_password" name="confirm_password"
-					maxlength="6"
+					maxlength="<?php echo $password_length; ?>"
 					class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $confirm_password; ?>">
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
