@@ -24,7 +24,7 @@ $login_err_contact = $login_err_attempts." contact admin@codecreature.net for as
 
 // limits on failed login attempts
 $daily_attempt_limit = 5; // permitted failed login attempts per day
-$total_attempt_limit = 15; // permitted failed login attempts total
+$total_attempt_limit = 10; // permitted failed login attempts total
 $failed_attempts_today = 0; // failed attempts on this day
 $failed_attempts_total = 0; // failed attempts ever
 
@@ -130,12 +130,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														if ($link->query($date_sql) === TRUE) { echo "User last_login updated successfully";
 														} else { echo "Error updating last_login: " . $link->error; }
 														
-														// delete all failed login attempts for this user
-														/* DEBUG: this breaks the ability to reroute to settings after login? why...
-														$delete_attempts = "DELETE FROM login_attempts WHERE username=".$username;
-														if ($link->query($delete_attempts) === TRUE) {
-														} else { echo "Error deleting old login attempts: " . mysqli_error($link); }
-														*/
+														// clear failed login attempts log for this user
+														$delSql = "DELETE FROM login_attempts WHERE username = ?";
+														if($delStmt = mysqli_prepare($link, $delSql)){
+															// Bind variables to the prepared statement as parameters
+															mysqli_stmt_bind_param($delStmt, "s", $username);
+															// Attempt to execute the prepared statement
+															if(mysqli_stmt_execute($delStmt)){
+																echo "Login attempts cleared.";
+															} else{
+																echo "Could not validate user login attempts.";
+															}
+															// Close statement
+															mysqli_stmt_close($delStmt);
+														}
 														
                             // Redirect user to welcome page
                             header("location: ../settings".$welcome);
