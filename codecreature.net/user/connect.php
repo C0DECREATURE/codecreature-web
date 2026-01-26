@@ -1,9 +1,9 @@
 <?php
 	/* Database credentials */
 	define('DB_SERVER', 'localhost');
-	define('DB_USERNAME', 'root');
-	define('DB_PASSWORD', '');
-	define('DB_NAME', 'users');
+	define('DB_USERNAME', 'prax_users');
+	define('DB_PASSWORD', 'xeLXzdEmg9i75c!^');
+	define('DB_NAME', 'prax_users');
 	 
 	/* Attempt to connect to MySQL database */
 	$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
