@@ -16,7 +16,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>user settings</title>
+		<title>user <?php echo htmlspecialchars($_SESSION["username"]); ?></title>
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20251216"></script>

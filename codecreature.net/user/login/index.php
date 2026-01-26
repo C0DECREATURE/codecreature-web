@@ -2,10 +2,10 @@
 // Initialize the session
 session_start();
  
-// Check if the user is already logged in, if yes then redirect to user settings page
+// Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 		echo "logged in";
-    header("location: ../settings");
+    header("location: ../details");
     exit;
 }
  
@@ -146,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														}
 														
                             // Redirect user to welcome page
-                            header("location: ../settings".$welcome);
+                            header("location: ../details".$welcome);
                         } else{
 														// log the failed login attempt
 														// Prepare an insert statement

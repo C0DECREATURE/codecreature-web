@@ -2,11 +2,19 @@
 // Include database connection file
 require_once "../connect.php";
 
-// Check if the user is already logged in, if yes then redirect to welcome page
+// Initialize the session
+session_start();
+// Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ../settings");
+		echo "logged in";
+    header("location: ../details");
     exit;
 }
+
+// required password length
+// make sure to also update maxlength in HTML password input fields
+// (can't set the HTML input length with php because it breaks firefox auto-password generation)
+$password_length = 6;
  
 // Define variables and initialize with empty values
 $email = $username = $password = $confirm_password = "";
@@ -55,6 +63,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
         $username_err = "Username can only contain letters, numbers, and underscores.";
+    } elseif(preg_match('/.*c.*[o0*].*d.*[e3].*c.*r.*[e3].*[a@].*t.*u.*r.*[e3].*|.*[a@]dm[i1l]n.*|.*m[o0]d[e3]r[a@]t[o0]r.*|.*w.*[e3].*b.*m.*[a@].*s.*t.*[e3].*r.*/i', trim($_POST["username"]))){
+        $username_err = "Please choose a different username.";
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
@@ -86,11 +96,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate password
-    if(empty(trim($_POST["password"]))){
+    if ( empty(trim($_POST["password"])) ) {
         $password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["password"])) != 5){
-        $password_err = "Password must have 5 characters.";
-    } else{
+    } elseif (strlen(trim($_POST["password"])) != $password_length) {
+        $password_err = "Password must have ".$password_length." characters.";
+    } elseif ( !preg_match('/(?=.*[0-9]).+/', trim($_POST["password"])) ) {
+        $password_err = "Password must contain at least one number";
+    } elseif ( !preg_match('/(?=.*[a-zA-Z]).+/', trim($_POST["password"])) ) {
+        $password_err = "Password must contain at least one letter";
+    } elseif ( trim($_POST["password"]) == trim($_POST["username"]) ) {
+        $password_err = "Password must be different from username";
+    } elseif(preg_match('/(.)\1{3}/', trim($_POST["password"]))){
+        $password_err = "Password may not have more than 3 repeating characters";
+    } elseif ( preg_match('/(?=.*(?=(\w+)\1{2}|p[a@*][s\$][s\$]|w[o0*]rd|user|login|access|qwerty|q2w3e|uiop|asdf|monkey|letmein|dragon|hello|batman|shadow|loveme|lovely|mynoob|donald|charlie|ashley|hottie|flower|abc|xyz|012|123|345|456|567|678|789|890|1122|2233|4455|5566|6677|8899|9900)).+/i', trim($_POST["password"])) ) {
+        $password_err = "Please choose a less common password";
+		} else {
         $password = trim($_POST["password"]);
     }
     
@@ -199,8 +219,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="password" name="password"
-					minlength="5"
-					maxlength="5"
+					maxlength="6"
 					class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $password; ?>">
 				<span class="invalid-feedback"><?php echo $password_err; ?></span>
@@ -210,8 +229,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="confirm_password" name="confirm_password"
-					minlength="5"
-					maxlength="5"
+					maxlength="6"
 					class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $confirm_password; ?>">
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
