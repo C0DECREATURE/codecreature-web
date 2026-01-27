@@ -131,6 +131,11 @@
 									<input type="radio" id="icon-worm_apple" value="worm_apple" name="new-icon">
 									<label for="icon-worm_apple"><img class="icon-preview" src="/user/icons/worm_apple.png" alt="golden apple"></label>
 								</div>
+								<!--worm energy drink-->
+								<div class="wrapper">
+									<input type="radio" id="icon-worm_drink" value="worm_drink" name="new-icon">
+									<label for="icon-worm_drink"><img class="icon-preview" src="/user/icons/worm_drink.png" alt="golden apple"></label>
+								</div>
 							</div>
 							<!--end of icon inputs-->
 							<input type="submit" class="btn btn-green" value="update">
