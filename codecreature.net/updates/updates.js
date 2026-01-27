@@ -304,6 +304,16 @@ const updates = {
 	// if url parameters specifies an update to start at
 	if ( urlParams.has('firstUpdate') ) { firstUpdate = Number(urlParams.get('firstUpdate')); }
 	
+	
+	// if url parameters specifies a number of updates to show
+	if ( urlParams.has('showLimit') ) {
+		let limit = Number(urlParams.get('showLimit'));
+		if( !isNaN(limit) ) {
+			showLimit = limit;
+			iFrameShowLimit = limit;
+		}
+	}
+	
 	// normalize first update based on page length limit
 	firstUpdate = Math.floor(firstUpdate/showLimit) * showLimit;
 	
