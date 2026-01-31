@@ -1,6 +1,6 @@
 # License
 
-Copyright (c) 2023-2025 Codecreature
+Copyright (c) 2023-2026 Codecreature
 
 ## Artwork
 
