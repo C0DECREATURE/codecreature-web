@@ -16,7 +16,7 @@ $icon = $icon_err = $icon_success = "";
 
 function updateIcon($new_icon) {
 	// empty variables for storing data
-	global $link, $icon, $icon_err, $icon_success;
+	global $users_conn, $icon, $icon_err, $icon_success;
 	
 	// if icon has been given, set it
 	if(!empty(trim($new_icon))){
@@ -30,7 +30,7 @@ function updateIcon($new_icon) {
 		// Prepare an update statement
 		$sql = "UPDATE users SET icon = ? WHERE id = ?";
 		
-		if($stmt = mysqli_prepare($link, $sql)){
+		if($stmt = mysqli_prepare($users_conn, $sql)){
 			// Bind variables to the prepared statement as parameters
 			mysqli_stmt_bind_param($stmt, "si", $param_icon, $param_id);
 			
@@ -52,7 +52,7 @@ function updateIcon($new_icon) {
 	}
 	
 	// Close connection
-	mysqli_close($link);
+	mysqli_close($users_conn);
 	
 	// redirect to user details page
 	header("Location: /user/details");

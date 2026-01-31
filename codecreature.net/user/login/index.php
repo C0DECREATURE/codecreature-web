@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err)){
 			$sql = "SELECT id, date FROM login_attempts WHERE username = ?";
 			
-			if($stmt = mysqli_prepare($link, $sql)){
+			if($stmt = mysqli_prepare($users_conn, $sql)){
 				// Bind variables to the prepared statement as parameters
 				mysqli_stmt_bind_param($stmt, "s", $username);
 				
@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT id, username, password, access, icon, last_login FROM users WHERE username = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($users_conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
@@ -127,12 +127,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														
 														// record the login time
 														$date_sql = "UPDATE users SET last_login='".$current_date."' WHERE id=".$id;
-														if ($link->query($date_sql) === TRUE) { echo "User last_login updated successfully";
-														} else { echo "Error updating last_login: " . $link->error; }
+														if ($users_conn->query($date_sql) === TRUE) { echo "User last_login updated successfully";
+														} else { echo "Error updating last_login: " . $users_conn->error; }
 														
 														// clear failed login attempts log for this user
 														$delSql = "DELETE FROM login_attempts WHERE username = ?";
-														if($delStmt = mysqli_prepare($link, $delSql)){
+														if($delStmt = mysqli_prepare($users_conn, $delSql)){
 															// Bind variables to the prepared statement as parameters
 															mysqli_stmt_bind_param($delStmt, "s", $username);
 															// Attempt to execute the prepared statement
@@ -151,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														// log the failed login attempt
 														// Prepare an insert statement
 														$sql = "INSERT INTO login_attempts (username, date) VALUES (?, ?)";
-														if($stmt = mysqli_prepare($link, $sql)){
+														if($stmt = mysqli_prepare($users_conn, $sql)){
 																// Bind variables to the prepared statement as parameters
 																mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_date);
 																
@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 																
 																// Attempt to execute the prepared statement
 																if(!mysqli_stmt_execute($stmt)){
-																		echo "Error logging failed login attempt: " . $link->error; 
+																		echo "Error logging failed login attempt: " . $users_conn->error; 
 																}
 														}
 														
@@ -191,7 +191,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 		
     // Close connection
-    mysqli_close($link);
+    mysqli_close($users_conn);
 }
 ?>
  
