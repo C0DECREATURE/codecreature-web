@@ -5,6 +5,7 @@
 	--d-orange: rgb(249, 82, 0);
 	--yellow: #FFE300;
 	--l-green: #E7FF43;
+	--l-green-rgb: 232, 255, 66;
 	--green: #8DF01F;
 	--d-green: #00C93E;
 	--dd-green: #008E40;
@@ -12,8 +13,8 @@
 	--l-blue: #3AEBFF;
 	--blue: #007FFF;
 	--blue-rgb: 0, 127, 255;
-	--d-blue: #6723FE;
-	--d-blue-rgb: 103, 35, 254;
+	--d-blue: #4F3DFC;
+	--d-blue-rgb: 79, 61, 252;
 	--dd-blue: #5911B4;
 	--ll-pink: rgb(255,189,226);
 	--l-pink: #FF84C8;
