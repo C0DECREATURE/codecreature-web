@@ -1,0 +1,32 @@
+/* all .svg-icon elements */
+i.svg-icon {
+	height: .9em;
+	margin-bottom: -.05em;
+	display: inline-block;
+	background: black;
+	background-repeat: no-repeat;
+}
+
+.svg-icon.i-menu-bars {
+	aspect-ratio: 1;
+	mask: url('/graphix/svg-icons/menu.svg');
+	mask-size: 100%;
+}
+
+.svg-icon.i-x {
+	aspect-ratio: 1;
+	mask: url('/graphix/svg-icons/x.svg');
+	mask-size: 100%;
+}
+
+.svg-icon.i-caret-right {
+	aspect-ratio: .7;
+	mask: url('/graphix/svg-icons/caret_right.svg');
+	mask-size: 100%;
+}
+
+.svg-icon.i-caret-left {
+	aspect-ratio: .7;
+	mask: url('/graphix/svg-icons/caret_left.svg');
+	mask-size: 100%;
+}
