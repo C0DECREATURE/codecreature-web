@@ -5,7 +5,7 @@ $password = $new_password = $confirm_password = "";
 $password_err = $new_password_err = $confirm_password_err = "";
 
 // required password length
-$password_length = 6;
+$password_length = 8;
 
 // gets the password error for the given password
 // if password passes validation, return empty string

@@ -178,8 +178,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			<h1>Sign Up</h1>
 		</header>
 		<p>
-			fill this form to create an account!
-			<br><strong>this feature is in a very early stage.</strong>
+			Complete this form to create an account!
 		</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="form-group">
@@ -198,6 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					value="<?php echo $username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
 			</div>
+			<span class="txt-orange">Please choose a password you don't use on other sites!</span>
 			<div class="form-group">
 				<label for="password">password: </label>
 				<input
@@ -217,10 +217,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $confirm_password; ?>">
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-			</div>
-			<div class="form-group">
-				<input type="checkbox" id="password-agree" required>
-				<label for="password-agree" class="warning">I have chosen a password I don't use on any other site</label>
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-green" value="Submit">
