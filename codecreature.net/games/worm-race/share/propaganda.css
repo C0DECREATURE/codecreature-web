@@ -1,0 +1,25 @@
+/******************************************************************************************
+	SHARE BOX MAIN CONTENT
+******************************************************************************************/
+.share-btn-section {
+	width: 100%;
+	display: flex;
+	align-content: center; justify-content: center;
+}
+/* .share-btn-section children */
+#propaganda .share-btn-section > * { margin-bottom: calc(var(--cw) / 65); margin-right: calc(var(--cw) * .01); }
+.share-btn-section:last-child > * { margin-bottom: 0; }
+.share-btn-section > :last-child { margin-right: 0; }
+
+#propaganda textarea, #propaganda textarea:focus {
+	resize: none; overflow: hidden; word-break: break-all;
+	background: var(--l-blue);
+	border: 1px var(--blue) dashed;
+	color: var(--dd-blue);
+}
+#propaganda textarea:focus { border: 1px var(--d-blue) solid; outline: 1px var(--d-blue) solid; border-radius: 0; }
+#propaganda textarea::selection { background: var(--d-blue); color: var(--white); }
+/* copy button */
+.share-btn-section button { font-size: max(25px, calc(var(--cw) / 30)); }
+.share-btn-section .tooltiptext { width: 4em; }
+.share-btn-section button:hover { color: var(--l-blue); }

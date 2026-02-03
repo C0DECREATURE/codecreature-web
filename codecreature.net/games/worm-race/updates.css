@@ -3,7 +3,7 @@ body { font-family: "Yet R", sans-serif; }
 a, a:link, a:visited { color: var(--d-orange); }
 a:hover { color: var(--red); }
 
-.iframe .main-container { padding-top: 0; font-size: min(10vw, 1.125rem); }
+.iframe .main-container { padding-top: 0; padding-bottom: 0; font-size: min(10vw, 1.125rem); }
 
 .iframe .title { display: none; }
 .iframe .subtitle { color: var(--orange); }

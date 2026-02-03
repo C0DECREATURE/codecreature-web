@@ -1,0 +1,82 @@
+/******************************************************************************************
+	HOW TO PLAY BOX
+******************************************************************************************/
+
+#guide {
+	height: fit-content;
+	.details {
+		max-height: 100%;
+		width: 100%;
+		font-size: max(1rem, min(4vh, min(1.15em, 4vw)));
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		gap: .25em;
+	}
+	
+	p { margin: 0; }
+	
+	hr {
+		width: 90%;
+		border: 1px var(--yellow) solid;
+		border-bottom-width: 2px;
+		border-radius: 2px;
+		box-shadow: none;
+	}
+	
+	span.caps { text-transform: uppercase; }
+	
+	/* effects */
+	span.health, span.movement {
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1em;
+			height: 1em;
+			margin: 0 -.05em -.2em -.15em;
+			background-size: 100%;
+		}
+	}
+	span.health {
+		color: var(--pink);
+		&:before {
+			background-image: url('../images/icon-health-pos.png');
+			margin-right: .05em;
+		}
+	}
+	span.movement {
+		color: var(--d-green);
+		&:before { background-image: url('../images/icon-progress-1.png'); }
+	}
+	
+	/* items */
+	span.heart {
+		color: var(--pink);
+		&:before { background-image: url('../images/heal.png'); }
+	}
+	span.apple {
+		color: var(--orange);
+		&:before { background-image: url('../images/apple.png'); }
+	}
+	span.battery {
+		color: var(--l-blue);
+		&:before { background-image: url('../images/drink.png'); }
+	}
+	span.poison {
+		color: var(--purple);
+		&:before { background-image: url('../images/poison.png'); }
+	}
+	span.item {
+		font-weight: bold;
+		text-transform: uppercase;
+		&:before {
+			content: '';
+			display: inline-block;
+			width: 1.2em;
+			height: 1.2em;
+			margin-bottom: -.2em;
+			margin-right: .2em;
+			background-size: 100%;
+		}
+	}
+}
