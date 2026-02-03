@@ -33,8 +33,12 @@ const updateLog = [
 			</p>
 			<h3>visuals</h3>
 			<p>%%i% rewrote the CSS from scratch because it was a huge mess. the look on desktop is largely the same, though there should be some  improvements %%4% wider screen dimensions. worm race mobile has been adjusted more heavily, with (hopefully) support %%4% landscape mode as well!</p>
+			<p align="center">
+				<img src="images/worm_race_2026_02_03_landscape.jpg" alt="Screenshot of the wormrace in a landscape mobile layout with sections positioned horizontally so they all fit without scrolling.">
+				<br>nobody asked %%4% this. there is something wrong with me
+			</p>
 			<h3>security and code</h3>
-			<p>%%i% have moved most functions %%2% the backend (PHP and MariaDB) instead of where it was (frontend Javascript and random SQL3 databases.) this has several advantages, including ease of adding planned features going forward.</p>
+			<p>%%i% have moved most functions %%2% the backend (PHP and MariaDB) instead of where it was (frontend Javascript and random SQL3 databases.) this has several advantages, including ease of adding planned features going forward. %%ive% also managed a 50% decrease in total file size %%4% the game.</p>
 			<p>another thing this let me implement is actual <strong>security</strong>!! worm race was embarrassingly easy to bot spam in the past, and not only is that bad %%4% fairness, it also puts a lot of strain on the nonprofit hosting service. on that note...</p>
 			<p align="center">
 				<img src="images/worm_race_2026_02_03_limit.jpg" alt="Screenshot of a worm-decorated page that says 'Too many recent feed actions from your IP address. Try again in a few minutes, or sign in.'">
