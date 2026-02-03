@@ -14,6 +14,58 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-03T17:40'),
+		authors: ['prax','emery'],
+		tags: ['games','worm race'],
+		summary: `
+			major <a href="/games/worm-race">worm race</a> update!
+		`,
+		details: `
+			<p>big edits time!!</p>
+			<p align="center">
+				<img src="images/worm_race_2026_02_03_recent.jpg" alt="Screenshot of the new feed history page. It shows the usernames of the latest participants in worm race, including which item they fed to which worm. There is also a banner at the top indicating which worm is currently winning.">
+			</p>
+			<h3>feed history</h3>
+			<p>since %%i% needed feed tracking %%4% the new system anyway, %%u% can now view the latest activity on the racetrack page. if %%u% feed using an account, the account name will be included also (though %%im% planning %%2% add an option %%2% keep activity private in the future.)</p>
+			<p>logged in users will have their total contributions saved %%2% the leaderboards!</p>
+			<p align="center">
+				<img src="images/worm_race_2026_02_03_fans.jpg" alt="Screenshot of the worm leaderboard page for Pretzel the orange worm. It shows the top five fans and top five haters, along with the count of how many times the logged in user has fed that worm.">
+			</p>
+			<h3>visuals</h3>
+			<p>%%i% rewrote the CSS from scratch because it was a huge mess. the look on desktop is largely the same, though there should be some  improvements %%4% wider screen dimensions. worm race mobile has been adjusted more heavily, with (hopefully) support %%4% landscape mode as well!</p>
+			<h3>security and code</h3>
+			<p>%%i% have moved most functions %%2% the backend (PHP and MariaDB) instead of where it was (frontend Javascript and random SQL3 databases.) this has several advantages, including ease of adding planned features going forward.</p>
+			<p>another thing this let me implement is actual <strong>security</strong>!! worm race was embarrassingly easy to bot spam in the past, and not only is that bad %%4% fairness, it also puts a lot of strain on the nonprofit hosting service. on that note...</p>
+			<p align="center">
+				<img src="images/worm_race_2026_02_03_limit.jpg" alt="Screenshot of a worm-decorated page that says 'Too many recent feed actions from your IP address. Try again in a few minutes, or sign in.'">
+			</p>
+			<h3>activity limits</h3>
+			<p>worm race now limits simultaneous users to 2 per IP address (calculated based on item cooldown time.) it shouldn't affect most %A%people\\ppl%, but if %%u% play with a household (is anyone actually doing this..?) you can always <a href="/user/">log in</a> so you won't be lumped in with everyone on %%ur% router. all IP address data is cleared within 24 hours and is only used for this purpose.</p>
+			<h3>what's next?</h3>
+			<p>the new structure puts me closer %%2% what has always been the goal - tournament-style races with a set end date. %A%you'll\\youll% still have access %%2% the total results over time, but the main races will last 1-3 months with trophies awarded at the end. each worm will have a trophy case showing their successes!</p>
+			<p>dedicated campaigns %%4% a specific worm are only temporary right now, and some worms %%r% so far behind they would struggle %%2% catch up. once that update is out, it will be possible %%2% get %%ur% worm a trophy even if they have been unpopular in the past, which %%i% think will make the game more rewarding! %E%:3%</p>
+		`
+	},
+	{
+		date: new Date('2026-01-25T00:21'),
+		authors: ['emery'],
+		tags: ['general','users'],
+		summary: `
+			poking at a <a href="/user/login">user database</a>
+		`,
+		details: `
+			<p>
+				I really want to be able to have actual users for games, chat, etc, so I'm testing that system out! It's pretty basic for now and only used in <a href="/games/worm-race">worm race</a> so far, but I'm planning on rolling out more features over time as I get the hang of things.
+			</p>
+			<p>
+				Passwords are encrypted and I've generally tried to use good security practices, though I'm sure there's more to be added as I go. There's also a limit on how many times you can fail entering a password before being locked out. Since the current userbase is very small there's no automated account recovery system yet, but if you contact admin@codecreature.net from the email associated with your account I can reset things for you.
+			</p>
+			<p>
+				I've set some basic password requirements, including bans on all variations of the most common passwords (sorry to anyone relying on P@ssword123, but it's for your own good.) As with any online account, I <strong>strongly</strong> recommend using a password manager so that one security breach on any site doesn't create security risks on every site you've ever used. I'm doing my best here but you should never trust any site with the keys to your entire life online!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-01-25T00:21'),
 		authors: ['emery'],
 		tags: ['bug fix','resources','minor'],
