@@ -66,9 +66,12 @@
 									$cur_worm = $worms[$i];
 									$winner = (int)$cur_worm["progress"] == $percent_max ? " winner" : "";
 									$percent = (int)$cur_worm["progress"] / $percent_max;
+									$css_percent = ($percent*100)-25;
+									$css_time = $percent * 3;
+									$css_bounce = 1-(.8*$percent);
 									echo '
 										<div id="'.$cur_worm["color"].'-racer" class="race-row'.$winner.'"
-										style="--percent:'. ($percent*100)-25 .'%; --time:'. $percent * 3 .'s;--bounce:'. 1-(.8*$percent) .'s;">
+										style="--percent:'.$css_percent.'%; --time:'.$css_time.'s;--bounce:'.$css_bounce.'s;">
 											<div class="dots" style="border-color: var(--'.$cur_worm["color"].');"></div>
 											<div class="wrapper">
 												<img src="'.$image_path.$cur_worm["color"].'_racer.png" alt="">
