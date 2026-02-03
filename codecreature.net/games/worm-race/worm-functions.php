@@ -191,10 +191,11 @@ function getWormLeaderboard($worm) {
 		// output the top helpers as a table
 		$helper_table = "<div class='table'>";
 		for ($i = 0; $i < 5; $i++) {
+			$display_count = $i + 1;
 			if ($i < count($helpers)) {
-				$helper_table = $helper_table."<div class='row'><span>#". $i + 1 ."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
+				$helper_table = $helper_table."<div class='row'><span>#".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
 			} else {
-				$helper_table = $helper_table."<div class='row'><span>#". $i + 1 ."</span><span></span><span></span></div>";
+				$helper_table = $helper_table."<div class='row'><span>#".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$helper_table = $helper_table."</div>";
@@ -208,10 +209,11 @@ function getWormLeaderboard($worm) {
 		// output the top hurters as a table
 		$hurter_table = "<div class='table'>";
 		for ($i = 0; $i < 5; $i++) {
+			$display_count = $i + 1;
 			if ($i < count($hurters)) {
-				$hurter_table = $hurter_table."<div class='row'><span>#". $i + 1 ."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
+				$hurter_table = $hurter_table."<div class='row'><span>#".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
 			} else {
-				$hurter_table = $hurter_table."<div class='row'><span>#". $i + 1 ."</span><span></span><span></span></div>";
+				$hurter_table = $hurter_table."<div class='row'><span>#".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$hurter_table = $hurter_table."</div>";
