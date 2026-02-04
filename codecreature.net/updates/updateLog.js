@@ -22,6 +22,9 @@ const updateLog = [
 		`,
 		details: `
 			<p>
+				UPDATE: I have found the source of the issue. Something is wrong with the function that auto-deletes old feed log data, so I've removed that while I test out solutions. Things should be working fine on the user end in the meantime!
+			</p>
+			<p>
 				For some reason the feed log database isn't updating properly on the site, even though it's working on my local version %E%:')%
 			</p>
 			<p>
