@@ -76,6 +76,8 @@ function getFeedLogData() {
 		// go through each worm row, assign to variables
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
+			/* DEBUG - currently table is getting wiped when it shouldn't be, seeing if this fixes it
+			
 			if ( $row['date'] < (time() - 86400) ) {
 				// delete log data older than 1 day
 				$del_sql = "DELETE FROM feed_log WHERE id=".$row['id'];
@@ -85,7 +87,10 @@ function getFeedLogData() {
 			} else {
 				// store log data less than 1 day old
 				$feed_log[] = $row;
-			}
+			}*/
+			
+			// store log data less than 1 day old
+			$feed_log[] = $row;
 		}
 	} else {
 		$load_err = "Could not fetch feed log data. Try again later.";
