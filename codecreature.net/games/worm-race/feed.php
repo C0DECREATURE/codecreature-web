@@ -89,7 +89,7 @@ function logFeeding($worm,$item) {
 	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, ?, ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
-		mysqli_stmt_bind_param($stmt, "iiiis", $param_user_id, $param_ip, $param_date, $param_worm, $param_item);
+		mysqli_stmt_bind_param($stmt, "isiis", $param_user_id, $param_ip, $param_date, $param_worm, $param_item);
 		$param_user_id = $logged_in ? $_SESSION["id"] : NULL;
 		$param_ip = $_SERVER['REMOTE_ADDR'];
 		$param_date = time();

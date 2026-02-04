@@ -138,14 +138,13 @@ function userCanFeed($reference,$type) {
 			$row[$type] == $reference &&
 			($type == "user_id" || $row["user_id"] == NULL)
 		) {
-			if ( strtotime($row['date']) > (time() - $time_period) ) {
+			if ( $row['date'] > (time() - $time_period) ) {
 				$cooldown_accumulated += (int)$items[$row["item"]]["cooldown"];
 			} else {
 				break; // if we have reached results older than the time period, break for loop
 			}
 		}
 	}
-	
 	if ($cooldown_accumulated > ($time_period * $max_users)) { return false;
 	} else { return true; }
 }
