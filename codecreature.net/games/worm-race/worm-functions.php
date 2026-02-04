@@ -76,7 +76,8 @@ function getFeedLogData() {
 		// go through each worm row, assign to variables
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
-			/* DEBUG - currently table is getting wiped when it shouldn't be, seeing if this fixes it
+			/* DEBUG - currently table is getting wiped when it shouldn't be.
+			removing this part fixes it, but now the data isn't clearing itself. ugh
 			
 			if ( $row['date'] < (time() - 86400) ) {
 				// delete log data older than 1 day

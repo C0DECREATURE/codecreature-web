@@ -86,12 +86,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 function logFeeding($worm,$item) {
 	global $worm_conn; global $logged_in; global $items;
 	
-	$sql = "INSERT INTO feed_log (user_id, IP_address, worm, item) VALUES (?, ?, ?, ?)";
+	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
-		mysqli_stmt_bind_param($stmt, "isis", $param_user_id, $param_ip, $param_worm, $param_item);
+		mysqli_stmt_bind_param($stmt, "iiis", $param_user_id, $param_ip, $param_date, $param_worm, $param_item);
 		$param_user_id = $logged_in ? $_SESSION["id"] : NULL;
 		$param_ip = $_SERVER['REMOTE_ADDR'];
+		$param_date = time();
 		$param_worm = $worm;
 		$param_item = $item;
 		
