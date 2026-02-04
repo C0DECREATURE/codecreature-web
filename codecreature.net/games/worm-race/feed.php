@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				$_SESSION["last_cooldown"] = $item["cooldown"];
 				logFeeding($worm_id,$item_name);
 				// redirect to racetrack page
-				//header("location: ".$worm_race_path."racetrack");
+				header("location: ".$worm_race_path."racetrack");
 			} else{
 				$feed_err = "<strong>Error</strong>: Could not access worm database.<br>Try again later.";
 			}
