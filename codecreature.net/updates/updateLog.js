@@ -14,6 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-04T02:42'),
+		authors: ['emery'],
+		tags: ['games','worm race','bug'],
+		summary: `
+			recent worm feedings bug
+		`,
+		details: `
+			<p>
+				For some reason the feed log database isn't updating properly on the site, even though it's working on my local version %E%:')%
+			</p>
+			<p>
+				Worms are still being fed, and logged in users will still have their long term stats saved, but the recent feedings box at the bottom of the race will be empty until I sort this out. Oops!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-03T17:40'),
 		authors: ['prax','emery'],
 		tags: ['games','worm race'],
