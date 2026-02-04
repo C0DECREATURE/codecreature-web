@@ -89,7 +89,7 @@ function logFeeding($worm,$item) {
 	$sql = "INSERT INTO feed_log (user_id, IP_address, worm, item) VALUES (?, ?, ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
-		mysqli_stmt_bind_param($stmt, "ssis", $param_user_id, $param_ip, $param_worm, $param_item);
+		mysqli_stmt_bind_param($stmt, "isis", $param_user_id, $param_ip, $param_worm, $param_item);
 		$param_user_id = $logged_in ? $_SESSION["id"] : NULL;
 		$param_ip = $_SERVER['REMOTE_ADDR'];
 		$param_worm = $worm;
@@ -136,7 +136,7 @@ function logFeeding($worm,$item) {
 						$param_user_id = $_SESSION["id"];
 						$param_username = $_SESSION["username"];
 						if(!mysqli_stmt_execute($stmt)){
-							$feed_err = "<strong>Error</strong>: Could not create user data row.<br>Try again later.";
+							$feed_err = "<strong>Error</strong>: Could not create user data.<br>Try again later.";
 						}
 					}
 				}
