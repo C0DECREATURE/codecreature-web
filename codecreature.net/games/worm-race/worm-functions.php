@@ -119,7 +119,7 @@ function getFeedLogDisplay() {
 function userCanFeed($reference,$type) {
 	global $items; global $feed_log;
 	
-	$max_users = 1; // maximum users for this user type
+	$max_users = 1.25; // maximum users for this user type
 	if ($type == "IP_address") { $max_users = 2; }
 	
 	// get all feed log data if not already fetched
