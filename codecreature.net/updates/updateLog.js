@@ -14,6 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-05T15:13'),
+		authors: ['emery'],
+		tags: ['games','worm fishing'],
+		summary: `
+			working on a <a href="/games/worm-fishing">new game</a>
+		`,
+		details: `
+			<p>
+				<a href="/games/worm-fishing">Unfishing minigame</a> for worms!
+			</p>
+			<p>
+				Obviously unfinished, but I'm having fun learning Godot. Surpisingly fast to make simple games in it actually. There's no in-game tutorial yet - just alternate the left and right keys to reel the worm upwards. Not mobile-friendly either, but I'll work on that once desktop is finished.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-04T19:49'),
 		authors: ['emery'],
 		tags: ['games','worm race','bug fix'],
