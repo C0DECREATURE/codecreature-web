@@ -205,18 +205,18 @@ function logFeeding($worm,$item) {
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--worm race game stylesheet-->
-		<link href="../worm-common/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--loading page stylesheet-->
 		<link href="loading.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
 		<!-- menu & navigation -->
-		<?php include '../worm-common/menu.php'; ?>
+		<?php include '/menu.php'; ?>
 		
 		
 		<main id="content-wrapper">
 			<!--main page header-->
-			<?php include '../worm-common/header.php'; ?>
+			<?php include '/header.php'; ?>
 			
 			<!-- contains all worm content -->
 			<div id="content">
@@ -224,7 +224,7 @@ function logFeeding($worm,$item) {
 			</div>
 			
 			<!--main page footer-->
-			<?php include '../worm-common/footer.php'; ?>
+			<?php include '/footer.php'; ?>
 		</main>
 		
 		<!--worm race updates-->

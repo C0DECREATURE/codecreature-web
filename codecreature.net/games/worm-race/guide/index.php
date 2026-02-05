@@ -27,17 +27,17 @@
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--worm race game stylesheet-->
-		<link href="../../worm-common/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="guide.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
 		<!-- menu & navigation -->
-		<?php include '../../worm-common/menu.php'; ?>
+		<?php include '../menu.php'; ?>
 		
 		<div id="content-wrapper">
 			<!--main page header-->
-			<?php include '../../worm-common/header.php'; ?>
+			<?php include '../header.php'; ?>
 			
 			<main id="content">
 				
@@ -68,7 +68,7 @@
 			</main>
 			
 			<!--main page footer-->
-			<?php include '../../worm-common/footer.php'; ?>
+			<?php include '../footer.php'; ?>
 		</div>
 		
 		<!--worm race updates-->
