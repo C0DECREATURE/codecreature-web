@@ -14,21 +14,18 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2026-02-04T02:42'),
+		date: new Date('2026-02-04T19:49'),
 		authors: ['emery'],
-		tags: ['games','worm race','bug'],
+		tags: ['games','worm race','bug fix'],
 		summary: `
-			recent worm feedings bug
+			worm feed timer fixed!
 		`,
 		details: `
 			<p>
-				UPDATE: I have found the source of the issue. Something is wrong with the function that auto-deletes old feed log data, so I've removed that while I test out solutions. Things should be working fine on the user end in the meantime!
+				Bugs relating to the timer (recent feedings not appearing or people getting locked out unfairly) should be fixed! If anyone notices further issues, please reach out on <a href="https://neocities.org/site/codecreature">Neocities</a> or email us at <a href="mailto:admin@codecreature.net">admin@codecreature.net</a>.
 			</p>
 			<p>
-				For some reason the feed log database isn't updating properly on the site, even though it's working on my local version %E%:')%
-			</p>
-			<p>
-				Worms are still being fed, and logged in users will still have their long term stats saved, but the recent feedings box at the bottom of the race will be empty until I sort this out. Oops!
+				If anyone is wondering, I was accidentally using Greenwich Mean Time for some parts and EST for others, so everyone was perceived as feeding from the future. Oops.
 			</p>
 		`
 	},
