@@ -36,7 +36,7 @@ main:after {
 	pointer-events: none;
 }
 
-main img {
+main img, nav a, nav button {
 	position: absolute;
 	filter: drop-shadow(4px 4px 3px #21120c77);
 	user-select: none;
