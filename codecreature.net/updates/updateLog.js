@@ -14,9 +14,36 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-06T03:06'),
+		authors: ['emery'],
+		tags: ['new page','trinkets'],
+		summary: `
+			<a href="/trinkets">trinkets</a> page
+		`,
+		details: `
+			<p>wanted a place to collect weird %A%little\\lil% stuff %%i% find. <a href="/trinkets">trinket time</a>. more to come.</p>
+			<p align="center">
+				<img src="images/trinkets_2026_02_06.jpg" alt="Screenshot of the trinkets page. It has various weird antique objects and drawings arranged randomly on an old forest tapestry background.">
+			</p>
+			<p>not remotely mobile friendly, but %%i% may make it scale for screen size eventually</p>
+		`
+	},
+	{
+		date: new Date('2026-02-06T03:01'),
+		authors: ['emery'],
+		tags: ['minor','games','worm fishing'],
+		summary: `
+			small worm fishing update
+		`,
+		details: `
+			<p>kinda sorta works on mobile now, basic tutorial, a few other improvements</p>
+			<p>having trouble getting the actual website to update when %%i% upload new files, so that's a bit annoying. will figure that out at some point.</p>
+		`
+	},
+	{
 		date: new Date('2026-02-05T15:13'),
 		authors: ['emery'],
-		tags: ['games','worm fishing'],
+		tags: ['new page','games','worm fishing'],
 		summary: `
 			working on a <a href="/games/worm-fishing">new game</a>
 		`,
