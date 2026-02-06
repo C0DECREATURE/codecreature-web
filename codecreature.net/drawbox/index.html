@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drawbox!</title>
+		<meta name="description" content="Doodle in your browser!">
+		<meta name="keywords" content="draw, art, game">
+		<meta name="author" content="codecreature">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		
+		<!-- fonts -->
+		<script>fonts.load('Comic Sans MS','Super Comic')</script>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
+		
+		<!--base stylesheet-->
+		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		
+		<!--drawbox stylesheet-->
+		<link href="drawbox.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+		<nav>
+			<a href="/">home</a>
+		</nav>
+		
+    <h1>DRAWBOX</h1>
+		
+		<canvas id="drawboxcanvas" width="500" height="500"></canvas>
+		
+		<div id="stroke-width-wrapper">
+			<input id="stroke-width" type="range"
+				min="1" max="100" value="5"
+				oninput="change_stroke_width(this.value);"
+				orient="vertical">
+			<div id="stroke-width-preview"></div>
+		</div>
+    
+		<section id="settings">
+			<button onclick="Restore()" class="btn btn-orange">Undo</button>
+			<button onclick="Clear()" class="btn btn-orange">Clear</button>
+			
+			<div id="drawbox-stroke-colors">
+				<!-- custom color picker -->
+				<div id="custom-color-wrapper" class="stroke-color wrapper dark">
+					<input id="custom-color-picker" type="color" class="btn-strip"
+						oninput="stroke_color=this.value;customColorPicked()"
+						onclick="customColorPicked()">
+				</div>
+				<!-- default colors inserted here -->
+			</div>
+		</section>
+		
+		<button id="submit" class="hidden">Submit drawing</button>
+		
+		<p>
+			gallery submission currently disabled
+			<br>
+			credit:
+			<a href="https://drawbox.nekoweb.org/">drawbox.nekoweb</a>
+			&
+			<a href="https://aglovale.nekoweb.org/blog/posts/2025-06-11-Drawbox-Additions">aglovale.nekoweb</a>
+			& <strong>codecreature</strong>
+		</p>
+		
+    <p id="status" class="hidden"></p>
+
+    <h1 class="hidden">Submitted Drawings</h1>
+    <div id="gallery"></div>
+    
+    
+    <script src="drawbox.js"></script>
+    <script src="color-picker.js"></script>
+    <script src="extras.js"></script>
+</body></html>
