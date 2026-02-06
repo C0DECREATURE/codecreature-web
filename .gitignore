@@ -58,3 +58,6 @@ Thumbs.db
 # my stuff #
 ######################
 /codecreature.net/games/worm-race/test-environment
+
+# PHP connect files
+connect.php
