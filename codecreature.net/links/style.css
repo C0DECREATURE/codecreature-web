@@ -169,7 +169,7 @@ nav {
 	margin-top: .5rem;
 	border: 5px black solid;
 	border-radius: .5rem;
-	a {
+	a:not(.inline) {
 		display: block;
 		background: var(--d-blue);
 		padding: .25em .5rem;
