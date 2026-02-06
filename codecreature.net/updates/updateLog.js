@@ -14,6 +14,23 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-06T17:33'),
+		authors: ['prax'],
+		tags: ['new page','games','drawbox'],
+		summary: `
+			<a href="/drawbox">drawbox</a>!
+		`,
+		details: `
+			<p>put in <a href="/drawbox">our version of the drawbox</a> originally by <a href="https://drawbox.nekoweb.org/">drawbox.nekoweb</a> and <a href="https://aglovale.nekoweb.org/blog/posts/2025-06-11-Drawbox-Additions">aglovale</a>!!</p>
+			<p>
+				custom stuff %A%we've\\weve% added so far: ctrl+z undo, color selection %A%indicators\\indic8ors% %%w% code %%2% determine if the marker should %%b% dark or light based on the color, and line weight slider %A%preview\\purreview% %E%:33%
+			</p>
+			<p>
+				since the original host is down %%im% not sure how %%2% do the google %N%sh33ts% drawing submissions but looking %%2% figure it out soon!!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-06T03:06'),
 		authors: ['emery'],
 		tags: ['new page','trinkets'],
@@ -36,8 +53,7 @@ const updateLog = [
 			small worm fishing update
 		`,
 		details: `
-			<p>kinda sorta works on mobile now, basic tutorial, a few other improvements</p>
-			<p>having trouble getting the actual website to update when %%i% upload new files, so that's a bit annoying. will figure that out at some point.</p>
+			<p>kinda sorta works on mobile now, basic tutorial, a few other improvements!</p>
 		`
 	},
 	{
