@@ -183,6 +183,24 @@ const fonts = {
 // set up Font object class
 Object.assign(fonts.Font.prototype, fonts.fontPrototype);
 
+new fonts.Font('Ad Lib',['ttf']);
 new fonts.Font('Comic Sans MS',['ttf']);
 new fonts.Font('Crimes Times Six',['ttf']);
 new fonts.Font('DS Digital',['ttf'],['Bold','Italic','BoldItalic']);
+new fonts.Font('Garfield',['ttf']);
+new fonts.Font('Ghoulish Fright',['ttf']);
+new fonts.Font('Halogen',['otf']);
+new fonts.Font('Hiveswap Alternian',['ttf']);
+new fonts.Font('Janda Closer To Free',['ttf']);
+new fonts.Font('Kaiju Monster',['ttf']);
+new fonts.Font('Letter-O-Matic',['ttf'],['Bold','Italic']);
+new fonts.Font('Mabook',['ttf']);
+new fonts.Font('Matura Regular',['otf']);
+new fonts.Font('My Imaginary Friend',['ttf']);
+new fonts.Font('Seconda Round',['woff'],['Bold','Italic','Bold Italic','Light');
+new fonts.Font('Splatoon',['otf'],['1','2']);
+new fonts.Font('Super Comic',['ttf']);
+new fonts.Font('Terminax Regular',['woff']);
+new fonts.Font('Unown',['otf'],['Light']);
+new fonts.Font('Victorian Parlor',['ttf']);
+new fonts.Font('Yet R',['ttf']);
