@@ -4,6 +4,7 @@
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	} else if (
 		localStorage.getItem("showWarnings") == "false" &&
+		(typeof showWarnings == 'undefined' || showWarnings != false) &&
 		window.location.pathname.replaceAll('/','') == '' &&
 		!window.location.search.includes('showWarnings=true')
 	) {
@@ -13,10 +14,12 @@
 	} else if (
 		localStorage.getItem("showWarnings") != "false" &&
 		!window.location.search.includes('showWarnings=false') &&
+		(typeof showWarnings == 'undefined' || showWarnings == true) &&
 		navigator.userAgent.toLowerCase() != 'screenjesus' &&
 		window.location.pathname.replaceAll('/','') != 'warnings' &&
 		window.location.pathname.replaceAll('/','') != ''
 	) {
+		console.log('redirect');
 		let redirect = window.location.pathname + window.location.search;
 		window.location.href = `/?redirect=${redirect}`;
 	}
