@@ -14,6 +14,26 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-07T02:09'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			new <a href="/trinkets">trinkets</a>
+		`,
+		details: `
+			<p>I've added more images to the <a href="/trinkets">trinkets</a> page, along with a little house charm for the home button.</p>
+			<p align="center">
+				<img src="images/trinkets_2026_02_07.jpg" alt="Screenshot of the trinkets page. It now has a small house charm as a home button, metal brackets in the corners, and more weird clutter.">
+			</p>
+			<p>
+				I've also made it so you get around by clicking and dragging instead of scrolling. Definitely not mobile-friendly but I think it should work on various PCs, let me know if you notice issues! Locking it so it can't go out of bounds was kind of a pain honestly, but I think this makes it a lot more fun to look at.
+			</p>
+			<p align="center">
+				<img src="images/trinkets_2026_02_07_letter.jpg" alt="Screenshot of an envelope covered in cat stamps. It has 'Click and drag to explore' written in a calligraphy style.">
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-06T17:33'),
 		authors: ['prax'],
 		tags: ['new page','games','drawbox'],
