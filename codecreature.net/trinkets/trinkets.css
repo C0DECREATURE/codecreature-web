@@ -5,7 +5,7 @@ body, html {
 
 body {
 	background-image: url('images/tapestry_forest.jpg');
-	background-size: auto 100vh;
+	background-size: 100vw 100vh;
 	background-position: top left;
 	background-attachment: fixed;
 }
