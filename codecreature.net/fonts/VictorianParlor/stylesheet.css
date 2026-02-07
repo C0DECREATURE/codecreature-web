@@ -1,0 +1,3 @@
+@font-face { font-family: "Victorian Parlor"; font-display: swap; src: local('Victorian Parlor Vintage Alternate'), url('/fonts/VictorianParlor/VictorianParlor.ttf'); }
+
+.txt-victorian-parlor { font-family: "Victorian Parlor", serif; }
