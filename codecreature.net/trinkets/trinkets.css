@@ -50,7 +50,7 @@ main {
 
 .corner {
 	--width: 1406px;
-	--height: 1400px;
+	--height: 1700px;
 	position: absolute;
 	z-index: 999;
 }
@@ -61,7 +61,11 @@ main {
 
 .stamp {
 	filter: drop-shadow(1px 1px 2px #21120c77);
-	
+}
+
+#trinket-box {
+	position: absolute;
+	left: 1050px; top: 760px;
 }
 
 main:after {
