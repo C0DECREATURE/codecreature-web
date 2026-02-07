@@ -13,7 +13,7 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load()</script>
+		<script>fonts.load('Victorian Parlor')</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
@@ -28,20 +28,99 @@
 	<body>
 		<nav>
 			<a class="skip-to-content" href="#content">skip to content</a>
-			<a href="/" class="home">home</a>
+			<a href="/" class="home"><img src="images/house_charm.png" alt="home"></a>
 		</nav>
 		
-		<main>
-			<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -10deg; left: 226px; top: 140px;">
-			<img src="images/thorn_hand.png" alt="" style="left: 819px; top: 193px;">
-			<img src="images/ant_hill.png" alt="" style="left: 1162px; top: 68px;">
-			<img src="images/kill_that_fly.png" alt="" style="left: 730px; top: 561px;">
-			<img src="images/unicorn_shield.png" alt="" style="left: 612px; top: 26px;">
-			<img src="images/button_ivory.png" style="left: 297px; top: 463px;" alt="">
-			<img src="images/bead_red_swirl.png" alt="" style="left: 672px; top: 294px;">
-			<img src="images/thin_lamb.png" alt="" style="rotate: -5deg; left: 1115px; top: 456px;">
-			<img src="images/face_hand.png" alt="" style="left: 58px; top: 230px;">
-		</main>
+		<main><div id="drag-wrapper">
+			<img id="top-left-marker" class="corner" src="images/corner.png" alt="">
+			<img id="top-right-marker" class="corner" src="images/corner.png" alt="">
+			<img id="bottom-left-marker" class="corner" src="images/corner.png" alt="">
+			<img id="bottom-right-marker" class="corner" src="images/corner.png" alt="">
+			
+			<div id="intro">
+				<img src="images/envelope.png" alt="" style="">
+				<img class="stamp" src="images/stamp_polska.png" alt="" style="rotate: 5deg; left: -116px; top: -101px;">
+				<img class="stamp" src="images/stamp_felis_cattus.png" alt="" style="left: -182px; top: -89px;">
+				<p>Click and drag to explore...</p>
+			</div>
+			
+			<img src="images/tapestry_floral_green.png" alt="" style="rotate: 5deg; left: 29px; top: 526px;">
+			
+			<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -10deg; left: 255px; top: 328px;">
+			<img src="images/ant_hill.png" alt="" style="left: 1126px; top: 64px;">
+			<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
+			<img src="images/kill_that_fly.png" alt="" style="left: 693px; top: 748px;">
+			<img src="images/unicorn_shield.png" alt="" style="left: 653px; top: 184px;">
+			<img src="images/thin_lamb.png" alt="" style="rotate: -5deg; left: 1118px; top: 446px;">
+			<img src="images/face_hand.png" alt="" style="left: 39px; top: 402px;">
+			<img src="images/button_ivory.png" style="left: 304px; top: 567px;" alt="">
+			<img src="images/bead_red_swirl.png" alt="" style="left: 691px; top: 472px;">
+			
+			<img src="images/lily_perfume.png" alt="" style="left: 762px; top: 406px;">
+			<img src="images/stone_orb.png" alt="" style="left: 1382px; top: 279px;">
+			<img src="images/egg_doll.png" alt="" style="rotate: 15deg; left: 398px; top: 884px;">
+		</div></main>
 	</body>
 	<!--------------END BODY------------->
+	<script>
+		// Make the DIV element draggable:
+		dragElement(document.getElementById("drag-wrapper"));
+
+		function dragElement(elmnt) {
+			var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+			if (document.getElementById(elmnt.id + "header")) {
+				// if present, the header is where you move the DIV from:
+				document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+			} else {
+				// otherwise, move the DIV from anywhere inside the DIV:
+				elmnt.onmousedown = dragMouseDown;
+			}
+
+			function dragMouseDown(e) {
+				e = e || window.event;
+				e.preventDefault();
+				// get the mouse cursor position at startup:
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				document.onmouseup = closeDragElement;
+				// call a function whenever the cursor moves:
+				document.onmousemove = elementDrag;
+			}
+
+			function elementDrag(e) {
+				e = e || window.event;
+				e.preventDefault();
+				// calculate the new cursor position:
+				pos1 = pos3 - e.clientX;
+				pos2 = pos4 - e.clientY;
+				pos3 = e.clientX;
+				pos4 = e.clientY;
+				// lock dragging to prevent going too far off screen
+				let top = elmnt.offsetTop - pos2;
+				let left = elmnt.offsetLeft - pos1;
+				// lock top left corner
+				let topLeftRect = document.getElementById("top-left-marker").getBoundingClientRect();
+				if (topLeftRect.top > 0) { top = Math.min(Number(elmnt.style.top.replaceAll("px","")), top); }
+				if (topLeftRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
+				// lock bottom right corner
+				let bottomRightRect = document.getElementById("bottom-right-marker").getBoundingClientRect();
+				if (window.innerHeight - bottomRightRect.bottom > 0) {
+					top = Math.max(Number(elmnt.style.top.replaceAll("px","")), top);
+				}
+				if (bottomRightRect.right - window.innerWidth < 0) {
+					left = Math.max(Number(elmnt.style.left.replaceAll("px","")), left);
+				}
+				//if (bottomRightRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
+				// set the element's new position:
+				elmnt.style.top = top + "px";
+				elmnt.style.left = left + "px";
+			}
+
+			function closeDragElement() {
+				// stop moving when mouse button is released:
+				document.onmouseup = null;
+				document.onmousemove = null;
+			}
+		}
+	</script>
 </html>
