@@ -1,0 +1,79 @@
+/**************************************************
+Credit: Dhanish
+https://codepen.io/dhanishgajjar/pen/bjaYYo
+**************************************************/
+
+body {
+  perspective: 1200px;
+}
+
+.book {
+  transform-style: preserve-3d;
+  position: absolute;
+	width: 230px;
+  height: 300px;
+  cursor: pointer;
+  backface-visibility: visible;
+}
+
+.book > * {
+  transform-style: preserve-3d;
+  position: absolute;
+  width: 230px;
+  height: 100%;
+	top: 0; left: 0;
+  transform-origin: left center;
+  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+}
+
+.book .front, .book .back {
+	width: 230px;
+  height: 300px;
+	top: 4px;
+}
+
+.book .page { top: 3px; left: 1px; }
+.book .page3, .book .page4, .book .page5 { left: 2px; }
+
+.book img {
+	height: 100%;
+}
+.book .front img, .book .back img {
+	top: -2px; left: 0; 
+}
+/* flip first half of pages so they show up correctly */
+.book .page1 img, .book .page3 img, .book .page5 img,  { transform: scaleX(-1); }
+
+.book:hover, .book:focus-visible {
+	.front {
+		transform: rotateY(-160deg) scale(1.1);
+		/*box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);*/
+	}
+	.page1 {
+		transform: rotateY(-156deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.page2 {
+		transform: rotateY(-24deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.page3 {
+		transform: rotateY(-148deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.page4 {
+		transform: rotateY(-32deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.page5 {
+		transform: rotateY(-140deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.page6 {
+		transform: rotateY(-40deg) scale(1.1);
+		box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+	}
+	.back {
+		transform: rotateY(-20deg) scale(1.1);
+	}
+}

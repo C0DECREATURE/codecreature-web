@@ -170,11 +170,13 @@ main img, nav a, nav button {
 		left: 21%;
 		bottom: 55%;
 		overflow: hidden;
+		img { left: 50%; transform: translateX(-50%); }
 	}
 }
 .pot .content-wrapper {
 	width: 100%;
 	transform: translateY(100%);
+	bottom: -1%;
 	transition: transform 1s;
 	img { position: relative; }
 }
