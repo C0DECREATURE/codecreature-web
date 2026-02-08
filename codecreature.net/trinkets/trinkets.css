@@ -33,12 +33,15 @@ a.home .popout {
 	font-family: 'Victorian Parlor', serif;
 	font-size: 2rem;
 	span {
-		padding: .1em .4em .1em .75em;
+		padding: .1em .4em .1em .65em;
 		webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
 		background: #dec59e;
 	}
 }
 a.home:hover .popout, a.home:active .popout, a.home:focus-visible .popout { width: 100%; }
+
+button:focus-visible { outline: none; }
+button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 
 #intro {
 	position: absolute;
@@ -108,9 +111,14 @@ main:after {
 /* window background image */
 .window {
 	position: relative;
+	pointer-events: none;
 	width: fit-content;
 }
-.window img {
+.window > img {
+	position: absolute;
+	top: 0; left: 0;
+}
+.window > img:first-child {
 	position: relative;
 }
 .window:before {
@@ -120,14 +128,18 @@ main:after {
 	top: 0; left: 0;
 	width: 100%; height: 100%;
 	background-image: url('images/window_view.png');
-	background-size: 200px;
+	background-size: 250px;
 	background-attachment: fixed;
+	pointer-events: initial;
 }
 .window.window-90:before { width: 90%; height: 90%; top: 5%; left: 5%; }
 .window.window-80:before { width: 80%; height: 80%; top: 10%; left: 10%; }
 .window.window-70:before { width: 70%; height: 70%; top: 15%; left: 15%; }
 .window.window-60:before { width: 60%; height: 60%; top: 20%; left: 20%; }
 .window.window-50:before { width: 50%; height: 50%; top: 25%; left: 25%; }
+.window.window-round:before { border-radius: 50%; }
+
+#medieval-frame-rotate { transition: transform 1s; }
 
 /* section behind the window that gets dragged */
 #drag-wrapper {
@@ -177,8 +189,11 @@ main img, nav a, nav button {
 }
 .dice-box:hover .inner, .dice-box:active .inner, .dice-box:focus-visible .inner { transform: translateX(-90%); }
 
+button:has(> .hover-hide) { position: absolute; }
 .hover-hide { filter: none; }
-.hover-hide:hover { opacity: 0; }
+button:active .hover-hide, button:focus-visible .hover-hide, button:focus .hover-hide, .hover-hide:hover {
+	opacity: 0;
+}
 
 /* FOLLOWING EYE */
 .eye-wrapper { position: absolute; width: fit-content; }

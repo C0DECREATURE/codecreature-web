@@ -64,6 +64,7 @@
 			</div>
 			
 			<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -10deg; left: 327px; top: 338px;">
+			
 			<img src="images/ant_hill.png" alt="" style="left: 1129px; top: 61px;">
 			<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
 			<img src="images/star_goose.png" alt="" style="left: -63px; top: 1307px;">
@@ -74,8 +75,12 @@
 			<img src="images/medieval_harpy.png" alt="" style="left: 1395px; top: 39px;">
 			<img src="images/thin_lamb.png" alt="" style="rotate: -5deg; left: 1118px; top: 446px;">
 			<img src="images/felt_cat.png" alt="" style="left: 1489px; top: 120px;">
-			<img src="images/face_hand.png" alt="" style="left: 89px; top: 368px;">
 			<img src="images/stone_orb.png" alt="" style="left: 1382px; top: 279px;">
+			
+			<button style="left: 89px; top: 368px;">
+				<img src="images/face_hand_smile.png" alt="">
+				<img class="hover-hide" src="images/face_hand.png" alt="">
+			</button>
 			
 			<!-- gold rectangle window -->
 			<div class="window window-80" style="left: 1547px; top: 1252px;">
@@ -86,14 +91,24 @@
 			
 			<img src="images/bead_red_swirl.png" alt="" style="left: 754px; top: 464px;">
 			
+			<img src="images/koi_charm.png" alt="" style="rotate: 8deg; left: 382px; top: 1520px;">
+			<img src="images/hedgehog_shaker.png" alt="" style="left: 1425px; top: 1759px;">
+			<img src="images/green_orb.png" alt="" style="left: 1865px; top: 1511px;">
+			
+			<img src="images/spoon_1.png" alt="" style="left: 1759px; top: 155px;">
+			<img src="images/spoon_2.png" alt="" style="left: 1821px; top: 47px;">
+			<img src="images/spoon_3.png" alt="" style="left: 1882px; top: 119px;">
+			
 			<img src="images/lily_perfume.png" alt="" style="left: 808px; top: 364px;">
-			<img src="images/fat_caterpillar.png" alt="" style="left: 1808px; top: 1801px;">
+			<img src="images/fat_caterpillar.png" alt="" style="rotate: 10deg; left: 1789px; top: 1805px;">
 			<img src="images/centiworm.png" alt="" style="left: 799px; top: 976px;">
-			<img src="images/gem_snake.png" alt="" style="left: 1879px; top: 434px;">
+			<img src="images/gem_snake.png" alt="" style="left: 1869px; top: 465px;">
 			
 			<!-- EGG DOLL -->
-			<img src="images/egg_doll_blink.png" alt="" style="rotate: 15deg; left: 480px; top: 1023px;">
-			<img class="hover-hide" src="images/egg_doll.png" alt="" style="rotate: 15deg; left: 480px; top: 1023px;">
+			<button style="rotate: 15deg; left: 480px; top: 1023px;">
+				<img src="images/egg_doll_blink.png" alt="">
+				<img class="hover-hide" src="images/egg_doll.png" alt="">
+			</button>
 			
 			<!-- FINGER POT -->
 			<div class="pot" style="left: 680px; top: 1640px;">
@@ -122,14 +137,14 @@
 			<img src="images/mirror_silver_moon.png" alt="" style="top: 975px; left: 634px;">
 			
 			<!-- FOLLOWING EYES -->
-			<!-- top right eye -->
+			<!-- bottom left eye -->
 			<div class="eye-wrapper" style="rotate: -10deg; left: 294px; top: 1470px;">
 				<img class="bottom" src="images/eye_bead_bottom.png" alt="">
 				<img class="pupil" src="images/eye_bead_center.png" alt="">
 				<img class="top" src="images/eye_bead_top.png" alt="">
 			</div>
-			<!-- bottom left eye -->
-			<div class="eye-wrapper" style="rotate:15deg;left: 1950px; top: 388px;">
+			<!-- top right eye -->
+			<div class="eye-wrapper" style="rotate:15deg;left: 1945px; top: 425px;">
 				<img class="bottom" src="images/eye_bead_bottom.png" alt="">
 				<img class="pupil" src="images/eye_bead_center.png" alt="">
 				<img class="top" src="images/eye_bead_top.png" alt="">
@@ -138,9 +153,24 @@
 			<script src="follow-eye.js?fileversion=20251216"></script>
 			
 			<!-- WINDOW FRAMES -->
-			<div class="window window-60" style="left: -50px; top: 590px;">
-				<img src="images/medieval_frame.png" alt="">
+			<div class="window window-50 window-round" style="left: -50px; top: 590px;">
+				<img class="outer" id="medieval-frame-rotate" src="images/medieval_frame_outer.png" alt=""
+					style="pointer-events: initial; transform: rotate(0deg);">
+				<img class="inner" src="images/medieval_frame_inner.png" alt="">
 			</div>
+			<!-- rotate medieval frame outer part on hover -->
+			<script>
+				(()=>{
+					let f = document.getElementById('medieval-frame-rotate');
+					f.addEventListener("mouseenter", rotateFrame);
+					f.addEventListener("touchstart", rotateFrame);
+					function rotateFrame() {
+						let r = Number(f.style.transform.replaceAll("rotate(","").replaceAll("deg)","").replaceAll(" ",""));
+						r += 45;
+						f.style.transform = "rotate(" + r + "deg)";
+					}
+				})();
+			</script>
 			
 			<!-- TOP EDGE -->
 			<img src="images/tall_tapestries.png" alt="" style="left: 758px; top: -122px;">
