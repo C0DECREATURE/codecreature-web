@@ -1,5 +1,6 @@
 // Make the DIV element draggable:
 dragElement(document.getElementById("drag-wrapper"));
+document.getElementById("drag-wrapper").addEventListener('touchstart',mouseDown,false);
 
 function dragElement(elmnt) {
 	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -9,16 +10,20 @@ function dragElement(elmnt) {
 	} else {
 		// otherwise, move the DIV from anywhere inside the DIV:
 		elmnt.onmousedown = dragMouseDown;
+		elmnt.ontouchstart = dragMouseDown;
+		
 	}
 
 	function dragMouseDown(e) {
 		e = e || window.event;
 		e.preventDefault();
 		// get the mouse cursor position at startup:
-		pos3 = e.clientX;
-		pos4 = e.clientY;
+		pos3 = (e.clientX || e.targetTouches[0].pageX);
+		pos4 = (e.clientY || e.targetTouches[0].pageY);
+		document.ontouchend = closeDragElement;
 		document.onmouseup = closeDragElement;
 		// call a function whenever the cursor moves:
+		document.ontouchmove = elementDrag;
 		document.onmousemove = elementDrag;
 	}
 
@@ -26,10 +31,10 @@ function dragElement(elmnt) {
 		e = e || window.event;
 		e.preventDefault();
 		// calculate the new cursor position:
-		pos1 = pos3 - e.clientX;
-		pos2 = pos4 - e.clientY;
-		pos3 = e.clientX;
-		pos4 = e.clientY;
+		pos1 = pos3 - (e.clientX || e.targetTouches[0].pageX);
+		pos2 = pos4 - (e.clientY || e.targetTouches[0].pageY);
+		pos3 = (e.clientX || e.targetTouches[0].pageX);
+		pos4 = (e.clientY || e.targetTouches[0].pageY);
 		// lock dragging to prevent going too far off screen
 		let top = elmnt.offsetTop - pos2;
 		let left = elmnt.offsetLeft - pos1;
@@ -54,6 +59,8 @@ function dragElement(elmnt) {
 	function closeDragElement() {
 		// stop moving when mouse button is released:
 		document.onmouseup = null;
+		document.ontouchstart = null;
 		document.onmousemove = null;
+		document.ontouchmmove = null;
 	}
 }
