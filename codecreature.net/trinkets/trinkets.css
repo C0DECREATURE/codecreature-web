@@ -70,9 +70,9 @@ main {
 	overflow: hidden;
 	
 	@media screen and (width < 600px) {
-		width: 142%; left: -21%;
-		height: 142%; top: -21%;
-		transform: scale(.7);
+		width: 118%; left: -9%;
+		height: 118%; top: -9%;
+		transform: scale(.85);
 	}
 }
 
@@ -91,9 +91,33 @@ main {
 	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
-#trinket-box {
-	position: absolute;
+#shadow-box {
+	position: relative;
 	left: 1050px; top: 760px;
+	.img-magnifier-glass {
+		position: absolute;
+		z-index: 1;
+		cursor: none;
+		border-radius: 50%;
+		cursor: none;
+		/*Set the size of the magnifier glass:*/
+		width: 200px;
+		aspect-ratio: 1;
+		left: -50px;
+		top: 470px;
+		img {
+			cursor: initial;
+			rotate: 35deg;
+      width: 104%;
+      left: -33%;
+      top: -12%;
+      filter: drop-shadow(5px 7px 4px #21120c99);
+			pointer-events: none;
+		}
+	}
+}
+.img-magnifier-container {
+	position: relative;
 }
 
 /* sepia color overlay */
@@ -162,7 +186,10 @@ main img, nav a, nav button {
 
 .pot {
 	position: absolute;
+	z-index: 1;
 	width: fit-content;
+	.front { border-radius: 46%; width: 80%; left: 12%; }
+	.front img { left: -15%; }
 	.front, .front img { position: relative; }
 	.contents {
 		position: absolute;
@@ -178,13 +205,14 @@ main img, nav a, nav button {
 	transform: translateY(100%);
 	bottom: -1%;
 	transition: transform 1s;
-	img { position: relative; }
+	img { position: relative; pointer-events: none;}
 }
-.pot:has(.front:hover, .front:active) .content-wrapper { transform: translateY(0%); }
+.pot:has(.front:hover, .front:focus-visible, .front:active) .content-wrapper { transform: translateY(0%); }
 
 .dice-box {
 	position: absolute;
 	width: fit-content;
+	z-index: 1;
 	.outer { position: relative; }
 	.inner { transition: transform 1.15s; }
 	img { filter: drop-shadow(-8px 8px 4px #21120c77); }
@@ -195,6 +223,19 @@ button:has(> .hover-hide) { position: absolute; }
 .hover-hide { filter: none; }
 button:active .hover-hide, button:focus-visible .hover-hide, button:focus .hover-hide, .hover-hide:hover {
 	opacity: 0;
+}
+
+.spoons { position: absolute; }
+.spoons * {
+	top: 0;
+	left: 0;
+	&:first-child { left: -9px; }
+	&:nth-child(3) { left: 3px; }
+	transition: transform .5s;
+}
+.spoons:hover {
+	*:nth-child(2) { transform: translate(65px, 76px); }
+	*:nth-child(3) { transform: translate(-55px, 107px); }
 }
 
 /* FOLLOWING EYE */

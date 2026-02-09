@@ -23,6 +23,8 @@
 		<!--this page's stylesheets-->
 		<link href="trinkets.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<link href="book.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!-- this page's scripts -->
+		<script src="magnifying-glass.js?fileversion=20251216"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -55,18 +57,17 @@
 			<img src="images/tapestry_floral_green.png" alt="" style="rotate: 5deg; left: 27px; top: 635px;">
 			<img src="images/tapestry_floral_red.png" alt="" style="rotate: -4deg; left: 1393px; top: 550px;">
 			
-			<div id="trinket-box">
-				<img src="images/trinket_box.png" alt="" style="">
-				<img src="images/red_bulb.png" alt="A tiny red light bulb charm made from a thimble." style="left: 236px; top: 449px;">
-				<img src="images/tiny_hand.png" alt="" style="left: 177px; top: 87px;">
-				<img src="images/coin_cent_charm.png" alt="" style="left: 25px; top: 411px;">
-				<img src="images/mirror_blue_moon.png" alt="" style="top: 281px; left: 168px;">
-				<img src="images/lilypad_beetle.png" alt="" style="left: 134px; top: 934px;">
+			<div id="shadow-box" class="img-magnifier-container">
+				<img id="shadow-box-img" src="images/shadow_box.png" alt="" width="457" height="1041">
 			</div>
+			<script>
+				/* Execute the magnify function: */
+				magnify("shadow-box-img", 2);
+			</script> 
 			
 			<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -10deg; left: 327px; top: 338px;">
 			
-			<img src="images/ant_hill.png" alt="" style="left: 1129px; top: 61px;">
+			<img src="images/ant_hill.png" alt="" style="rotate: 3deg; left: 1129px; top: 61px;">
 			<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
 			<img src="images/star_goose.png" alt="" style="left: -63px; top: 1307px;">
 			<img src="images/toad_freak.png" alt="" style="left: 855px; top: 539px;">
@@ -87,18 +88,25 @@
 			<div class="window window-80" style="left: 1547px; top: 1252px;">
 				<img src="images/gold_frame.png" alt="">
 			</div>
+			<img src="images/ceramic_cat.png" alt="" style="left: 1661px; top: 1377px;">
 			
 			<img src="images/ivory_ring.png" alt="" style="left: 1767px; top: 1088px;">
-			
 			<img src="images/bead_red_swirl.png" alt="" style="left: 754px; top: 464px;">
 			
+			<button style="left: 1480px;top: 1570px;">
+				<img src="images/pearl_eye_left.png" alt="" style="border-radius: 50%;">
+				<img class="hover-hide" src="images/pearl_eye.png" alt="" style="border-radius: 50%;">
+			</button>
+			
 			<img src="images/koi_charm.png" alt="" style="rotate: -10deg; left: 523px; top: 1470px;">
-			<img src="images/hedgehog_shaker.png" alt="" style="left: 1425px; top: 1759px;">
+			<img src="images/hedgehog_shaker.png" alt="" style="left: 1417px; top: 1747px;">
 			<img src="images/green_orb.png" alt="" style="left: 1865px; top: 1511px;">
 			
-			<img src="images/spoon_1.png" alt="" style="left: 1759px; top: 155px;">
-			<img src="images/spoon_2.png" alt="" style="left: 1821px; top: 47px;">
-			<img src="images/spoon_3.png" alt="" style="left: 1882px; top: 119px;">
+			<div class="spoons" style="left: 1820px; top: 47px;">
+				<img src="images/spoon_3.png" alt="">
+				<img src="images/spoon_2.png" alt="">
+				<img src="images/spoon_1.png" alt="">
+			</div>
 			
 			<img src="images/lily_perfume.png" alt="" style="left: 808px; top: 364px;">
 			<img src="images/fat_caterpillar.png" alt="" style="rotate: 10deg; left: 1789px; top: 1805px;">
@@ -115,11 +123,10 @@
 			<div class="pot" style="left: 680px; top: 1640px;">
 				<img class="back" src="images/finger_pot_back.png" alt="">
 				<div class="contents"><div class="content-wrapper">
-					<img src="" alt="">
+					<img src="images/taxidermy_rat.png" alt="">
 				</div></div>
-				<button class="front"><img src="images/finger_pot_front.png" alt=""></button>
+				<button class="front" onclick="console.log(click);"><img src="images/finger_pot_front.png" alt=""></button>
 			</div>
-			
 			
 			<!-- DICE BOX -->
 			<button class="dice-box" style="rotate: -25deg; left: 1557px; top: 1123px;">
@@ -167,7 +174,7 @@
 			<script src="follow-eye.js?fileversion=20251216"></script>
 			
 			<!-- WINDOW FRAMES -->
-			<div class="window window-50 window-round" style="left: -50px; top: 590px;">
+			<div class="window window-50 window-round" style="left: -50px; top: 590px; border-radius: 50%;">
 				<img class="outer" id="medieval-frame-rotate" src="images/medieval_frame_outer.png" alt=""
 					style="pointer-events: initial; transform: rotate(0deg);">
 				<img class="inner" src="images/medieval_frame_inner.png" alt="">
@@ -176,8 +183,9 @@
 			<script>
 				(()=>{
 					let f = document.getElementById('medieval-frame-rotate');
-					f.addEventListener("mouseenter", rotateFrame);
-					f.addEventListener("touchstart", rotateFrame);
+					let container = document.getElementById('medieval-frame-rotate').parentNode;
+					container.addEventListener("mouseenter", rotateFrame);
+					container.addEventListener("touchstart", rotateFrame);
 					function rotateFrame() {
 						let r = Number(f.style.transform.replaceAll("rotate(","").replaceAll("deg)","").replaceAll(" ",""));
 						r += 45;
