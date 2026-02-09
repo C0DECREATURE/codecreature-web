@@ -14,6 +14,17 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-08T19:01'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			interactive <a href="/trinkets">trinkets</a>
+		`,
+		details: `
+			<p>Added several interactive elements to the trinkets page. Hover over things to check it out!</p>
+		`
+	},
+	{
 		date: new Date('2026-02-07T02:09'),
 		authors: ['emery'],
 		tags: ['trinkets'],
