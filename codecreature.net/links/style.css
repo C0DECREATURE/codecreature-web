@@ -161,7 +161,7 @@ main > .right {
 #coding-resources, #art-resources, #other {
 	a:not(.inline) {
 		display: block;
-		&:not(:first-child) { margin-top: .75rem; }
+		&:not(:first-child, .mt-0) { margin-top: .75rem; }
 	}
 }
 
