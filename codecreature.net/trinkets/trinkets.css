@@ -225,6 +225,8 @@ button:active .hover-hide, button:focus-visible .hover-hide, button:focus .hover
 	opacity: 0;
 }
 
+.book { z-index: 1; }
+
 .spoons { position: absolute; }
 .spoons * {
 	top: 0;
