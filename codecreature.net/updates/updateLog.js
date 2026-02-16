@@ -14,6 +14,21 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-16T02:27'),
+		authors: ['emery'],
+		tags: ['games','worm fishing'],
+		summary: `
+			some <a href="/games/worm-fishing">worm fishing</a> improvements
+		`,
+		details: `
+			<p align="center">
+				<img src="images/worm_fishing_2026_02_16.jpg" alt="Screenshot of worm fishing">
+				<br>Game window is now transparent with sketched in foreground/background elements
+			</p>
+			<p>Health potions added, worm movement has been adjusted, and larger fish species are prevented from spawning too close together. Also basic navigation buttons so you aren't trapped on the page!</p>
+		`
+	},
+	{
 		date: new Date('2026-02-08T19:01'),
 		authors: ['emery'],
 		tags: ['trinkets'],
