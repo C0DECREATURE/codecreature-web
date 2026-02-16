@@ -203,7 +203,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="password" name="password"
-					maxlength="<?php echo $password_length; ?>"
+					minlength="<?php echo $password_length; ?>"
 					class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $password; ?>">
 				<span class="invalid-feedback"><?php echo $password_err; ?></span>
@@ -213,7 +213,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<input
 					type="password"
 					id="confirm_password" name="confirm_password"
-					maxlength="<?php echo $password_length; ?>"
+					minlength="<?php echo $password_length; ?>"
 					class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $confirm_password; ?>">
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>

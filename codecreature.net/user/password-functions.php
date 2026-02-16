@@ -16,8 +16,8 @@ function getPasswordErr($p) {
 	// Validate password
 	if ( empty(trim($p)) ) {
 		$password_err = "Please enter a password.";     
-	} elseif (strlen(trim($p)) != $password_length) {
-		$password_err = "Password must have ".$password_length." characters.";
+	} elseif (strlen(trim($p)) < $password_length) {
+		$password_err = "Password must have at least ".$password_length." characters.";
 	} elseif ( !preg_match('/(?=.*[0-9]).+/', trim($p)) ) {
 		$password_err = "Password must contain at least one number";
 	} elseif ( !preg_match('/(?=.*[a-zA-Z]).+/', trim($p)) ) {

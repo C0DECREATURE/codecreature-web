@@ -1,17 +1,19 @@
 <?php
-	// Initialize the session
-	session_start();
-	 
-	// Check if the user is logged in, if not then redirect to login page
-	if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-			header("location: ../login/");
-			exit;
-	}
-	
-	// Include password functions file
-	require_once "../password-functions.php";
-	// Include icon functions file
-	require_once "../icon-functions.php";
+
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+	header("location: ../login/");
+	exit;
+}
+
+// Include password functions file
+require_once "../password-functions.php";
+// Include icon functions file
+require_once "../icon-functions.php";
+
 ?>
  
 <!DOCTYPE html>
@@ -162,7 +164,7 @@
 									<input
 										type="password"
 										id="new_password" name="new_password"
-										maxlength="<?php echo $password_length; ?>"
+										minlength="<?php echo $password_length; ?>"
 										class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>"
 										value="<?php echo $new_password; ?>">
 									<span class="invalid-feedback"><?php echo $new_password_err; ?></span>
@@ -172,7 +174,7 @@
 									<input
 										type="password"
 										id="confirm_password" name="confirm_password"
-										maxlength="<?php echo $password_length; ?>"
+										minlength="<?php echo $password_length; ?>"
 										class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
 									<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
 								</div>
