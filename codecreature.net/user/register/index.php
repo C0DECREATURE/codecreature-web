@@ -93,8 +93,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 		
     // Validate password
-		$password_err = getPasswordErr(trim($_POST["password"]));
-		if(empty($password_err)) { $password = trim($_POST["password"]); }
+	$password_err = getPasswordErr(trim($_POST["password"]));
+	if(empty($password_err)) { $password = trim($_POST["password"]); }
     
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
