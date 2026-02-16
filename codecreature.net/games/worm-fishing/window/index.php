@@ -5,8 +5,6 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>Worm Fishing</title>
 		
-		<!--base website stylesheet-->
-		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--game window stylesheet-->
 		<link href="../window.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		
@@ -31,7 +29,7 @@
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":315520,"index.wasm":36160334},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":333896,"index.wasm":36160334},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
