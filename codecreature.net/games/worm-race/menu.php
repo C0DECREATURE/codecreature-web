@@ -9,10 +9,11 @@
 	
 	<nav id="menu-buttons">
 		<a href="/">site home</a>
-		<a href="<?php echo $worm_race_path ?>">worms</a>
+		<a href="<?php echo $worm_race_path ?>">feed</a>
 		<a href="<?php echo $worm_race_path ?>racetrack">racetrack</a>
 		<a href="<?php echo $worm_race_path ?>guide">guide</a>
 		<a href="<?php echo $worm_race_path ?>share">propaganda</a>
+		<a href="/games/worm-fishing">fishing</a>
 		<button id="open-updates" onclick="">
 			updates
 		</button>

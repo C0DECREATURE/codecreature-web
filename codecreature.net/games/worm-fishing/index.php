@@ -1,9 +1,8 @@
 <?php
-	// include worm functions file
-	require_once "worm-functions.php";
 
-	// fetch worm data
-	getAllData();
+// include users connection data
+require_once "../worm-common/users.php";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,9 +11,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<title>ultimate worm sport</title>
-		
-		<!-- check url parameters and such -->
-		<script>updateUrl();</script>
 		
 		<!-- prevent warnings popup on this page -->
 		<script>var showWarnings = false;</script>
@@ -41,25 +37,18 @@
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
-		
-		<!-- menu & navigation -->
+		<!--main page footer-->
 		<?php include 'menu.php'; ?>
 		
+		<!-- menu & navigation -->
 		<div id="content-wrapper">
-			<!--main page header-->
-			<?php include 'header.php'; ?>
 			
 			<main id="content">
-				<!--worm details-->
-				<?php include 'worms.php'; ?>
-				
+				<iframe src="window"></iframe>
 			</main>
 			
 			<!--main page footer-->
-			<?php include 'footer.php'; ?>
+			<?php include $_SERVER['DOCUMENT_ROOT'].'/games/worm-common/footer.php'; ?>
 		</div>
-		
-		<!--worm race updates-->
-		<?php include 'updates.php'; ?>
 	</body>
 </html>

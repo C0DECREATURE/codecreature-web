@@ -1,39 +1,6 @@
-body, html { width: 100%; height: 100%; margin: 0px; padding: 0px; }
-
-body {
-	background: var(--l-blue);
-	background-image: url('../worm-race/images/bg.png');
-	background-size: min(250px, 30vw, 30vh);
-	background-blend-mode: overlay;
-	font-family: "Yet R", sans-serif;
-}
-
-main {
-	height: calc(100% - 3rem);
-	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
 iframe {
 	border: none;
 	aspect-ratio: 875/675;
-	width: min(875px,100%);
-}
-
-nav {
-	font-size: 2rem;
-	text-align: center;
-	line-height: 1;
-	a, a:link, a:visited, button {
-		color: var(--white);
-		background: var(--blue);
-		padding: .15em .5em;
-		border-radius: .25em;
-	}
-	a:hover, button:hover {
-		background: var(--d-blue);
-	}
+	width: 100%;
+	max-width: 875px;
 }

@@ -2,23 +2,15 @@
 // include database connection file
 require_once "connect.php";
 
-// include user database connection file
-include $_SERVER['DOCUMENT_ROOT']."/user/database.php";
-
-// Initialize the session if not already started
-if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
-// Store whether a user is logged in
-$logged_in = false;
-if ( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true ) {
-	$logged_in = true;
-}
-
 // set default timezone
 date_default_timezone_set('America/New_York');
 
 // path for worm race images
 $worm_race_path = "/games/worm-race/";
 $image_path = $worm_race_path."images/";
+
+// include users connection data
+require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
 
 // worm data arrays
 $worms = array();
