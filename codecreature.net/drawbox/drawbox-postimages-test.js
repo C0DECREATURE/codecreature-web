@@ -11,9 +11,6 @@
 				     `\\´´\¸.·´
         
 */
-const GOOGLE_FORM_ID = "1FAIpQLSf2fagtGIa1QuJOLyinWBTiPfuPbir0lW8GrVlLyUwTE2gHdw";
-const ENTRY_ID = "entry.1750369035";
-const GOOGLE_SHEET_ID = "1NuylhQIlKYwrCxXFJGMaut47R8UA_JHw-Db6TRa-x1I";
 const DISPLAY_IMAGES = true;
 
 /*
@@ -21,10 +18,6 @@ const DISPLAY_IMAGES = true;
         DONT EDIT BELOW THIS POINT IF YOU DONT KNOW WHAT YOU ARE DOING.
         
 */
-
-const CLIENT_ID = "b4fb95e0edc434c";
-const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/" + GOOGLE_SHEET_ID + "/export?format=csv";
-const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/" + GOOGLE_FORM_ID + "/formResponse";
 
 let canvas = document.getElementById("drawboxcanvas");
 let context = canvas.getContext("2d");
@@ -127,30 +120,9 @@ document.getElementById("submit").addEventListener("click", async function () {
 
   const imageData = canvas.toDataURL("image/png");
   const blob = await (await fetch(imageData)).blob();
-  const formData = new FormData();
-  formData.append("image", blob, "drawing.png");
-
+	
   try {
-    const response = await fetch("https://api.imgur.com/3/image", {
-      method: "POST",
-      headers: { Authorization: `Client-ID ${CLIENT_ID}` },
-      body: formData,
-    });
-
-    const data = await response.json();
-    if (!data.success) throw new Error("Imgur upload failed");
-
-    const imageUrl = data.data.link;
-    console.log("Uploaded image URL:", imageUrl);
-
-    const googleFormData = new FormData();
-    googleFormData.append(ENTRY_ID, imageUrl);
-
-    await fetch(GOOGLE_FORM_URL, {
-      method: "POST",
-      body: googleFormData,
-      mode: "no-cors",
-    });
+    imageUploadRequest("drawing", blob)
 
     statusText.textContent = "Upload successful!";
     alert("Image uploaded and submitted successfully ☻");
@@ -158,11 +130,38 @@ document.getElementById("submit").addEventListener("click", async function () {
   } catch (error) {
     console.error(error);
     statusText.textContent = "Error uploading image.";
-    alert("Error uploading image or submitting to Google Form.");
+    alert("Error uploading image or submitting to PostImages.");
   } finally {
     submitButton.disabled = false;
   }
 });
+
+function imageUploadRequest(fileName, img) {
+	const formObject = {
+			key: '915bc6f3865bd2f868ff294a1ff8f78c',
+			gallery: 'pmcJDyn',
+			o: '2b819584285c102318568238c7d4a4c7',
+			m: '59c2ad4b46b0c1e12d5703302bff0120',
+			version: '1.0.1',
+			portable: '1',
+			name: fileName.split('.')[0],
+			type: fileName.split('.')[1],
+			image: img
+	};
+
+	const formBody = Object.keys(formObject)
+			.map(property => `${encodeURIComponent(property)}=${encodeURIComponent(formObject[property])}`)
+			.join("&");
+
+	return {
+			method: 'POST',
+			url: 'https://api.postimage.org/1/upload',
+			headers: {
+					'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+			},
+			body: formBody
+	};
+};
 
 async function fetchImages() {
   if (!DISPLAY_IMAGES) {
