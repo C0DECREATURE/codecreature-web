@@ -10,7 +10,7 @@ require_once "../worm-common/users.php";
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>ultimate worm sport</title>
+		<title>don't fish</title>
 		
 		<!-- prevent warnings popup on this page -->
 		<script>var showWarnings = false;</script>
