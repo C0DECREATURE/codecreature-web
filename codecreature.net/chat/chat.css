@@ -2,25 +2,69 @@ body, html {
 	margin: 0px; padding: 0px; width: 100%; height: 100%;
 }
 
-.messages {
-	max-width: 70rem;
-	background: var(--l-blue);
+/* modify these on other pages to change colors */
+.chatbox {
+	--bg: var(--l-blue);
+	--borders: var(--blue);
+	--header: var(--green);
+	--header-text: var(--d-blue);
+	--header-hover: var(--white);
+	--bubble-bg: var(--white);
+	--bubble-shadow: var(--blue);
+	--bubble-text: var(--blue);
+	--username: var(--d-blue);
+	--mod: var(--pink);
+	--admin: var(--orange);
+	--input-box-bg: var(--yellow);
+	--input-box-focus: var(--l-green);
+	--input-box-text: var(--d-blue);
+	--send-bg: var(--green);
+	--send: var(--d-blue);
+	--send-hover: var(--white);
+}
+
+.chatbox {
+	background: var(--bg);
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+}
+
+.chatbox > header {
+	background: var(--header);
+	border-bottom: 4px var(--borders) solid;
+	padding: .3rem .75rem;
+	text-align: right;
+	a, a:link, a:visited, button {
+		color: var(--header-text);
+		&:hover, &:focus, &:focus-visible {
+			color: var(--header-hover);
+		}
+	}
+}
+
+.messages {
+	display: flex;
+	flex-flow: column-reverse nowrap;
+	flex-grow: 1;
+	overflow-y: auto;
+	gap: .75rem;
 	padding: 1rem .75rem;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	color: var(--bubble-text);
 }
 
 .message {
-	width: max(60%, min(90%, 35rem));
+	width: min(90%, 40rem);
 	display: flex;
 	gap: .5rem;
-	font-size: 1rem;
+	font-size: max(.85rem, min(1rem,2vw));
 	padding: .5em .75em;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
-	background: var(--white);
-	border: 4px var(--d-blue) solid;
+	background: var(--bubble-bg);
+	box-shadow: 4px 6px var(--bubble-shadow);
+	margin-bottom: 4px;
 	border-radius: 1rem 1rem 1rem 0;
 }
 .message.self {
@@ -31,11 +75,14 @@ body, html {
 .message .bubble { width: 100%; }
 .message .bubble header {
 	width: 100%;
-	font-size: 1.5rem;
 	line-height: 1;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	@media screen and (width < 450px) {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 
 .message .icon {
@@ -45,9 +92,45 @@ body, html {
 
 .message .username {
 	font-weight: bold;
+	font-size: 1.25em;
+	color: var(--username);
+}
+.message.admin .username {
+	color: var(--admin);
+}
+.message.mod .username {
+	color: var(--mod);
 }
 
 .message .date {
-	font-size: 1rem;
 	font-style: italic;
+	opacity: 0.75;
+}
+
+#new-message {
+	display: flex;
+	background: var(--input-box-bg);
+	color: var(--input-box-text);
+	border-top: 4px var(--borders) solid;
+}
+#new-message button[type=submit] {
+	background: var(--send-bg);
+	color: var(--send);
+	padding: .25rem .5rem;
+	&:hover, &:focus, &:focus-visible {
+		color: var(--send-hover);
+	}
+}
+#message-input {
+	flex-grow: 1;
+	background: none;
+	color: inherit;
+	font-size: .85em;
+	padding: .5rem .75rem;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	border: none;
+}
+#message-input:focus, #message-input:focus-visible {
+	background: var(--input-box-focus);
+	outline: none;
 }
