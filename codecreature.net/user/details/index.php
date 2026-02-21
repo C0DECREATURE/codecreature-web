@@ -85,8 +85,8 @@ require_once "../icon-functions.php";
 								<span class="value"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
 							</div>
 							<div>
-								access level:
-								<span class="value <?php echo htmlspecialchars($_SESSION["user_access"]); ?>"><?php echo htmlspecialchars($_SESSION["user_access"]); ?></span>
+								authorization level:
+								<span class="value <?php echo htmlspecialchars($_SESSION["user_authorization"]); ?>"><?php echo htmlspecialchars($_SESSION["user_authorization"]); ?></span>
 							</div>
 						</div>
 					</div>
