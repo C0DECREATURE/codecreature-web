@@ -29,7 +29,7 @@ if (isset($_POST['submit'])){
 	);
 	
 	date_default_timezone_set('America/New_York'); // EST
-	$date = date('y/m/d h:ia');
+	$date = time();
 	
 	$chat_table = $_POST['chat-table'];
 		
@@ -101,6 +101,11 @@ if (isset($_POST['submit'])){
 		
 		<form id="new-message" method="POST">
 			<input type="hidden" name="chat-table" value="worm_chat"></input>
+			<input type="hidden" id="timezone-offset" name="timezone-offset" value=""></input>
+			<script>
+				let localDate = new Date();
+				document.getElementById('timezone-offset').value = localDate.getTimezoneOffset() * 60;
+			</script>
 			<input id="message-input" type="text" name="message" minlength="1" maxlength="400" autocomplete="off"></input>
 			<button type="submit" name="submit">send</button>
 		</form>

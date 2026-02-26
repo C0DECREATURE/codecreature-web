@@ -13,7 +13,6 @@ $result = mysqli_query($chat_conn, $sql);
 
 while ($row = mysqli_fetch_array($result))
 	{
-		echo '<script>console.log("' . $row['id'] . '");</script>';
 	?>
 <div class="
 		message
@@ -27,7 +26,10 @@ while ($row = mysqli_fetch_array($result))
 	<div class="bubble">
 		<header>
 			<span class="username"><?php echo $row['username']; ?></span>
-			<span class="date"><?php echo $row['date']; ?></span>
+			<span class="date">
+				<?php echo date('Y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
+				
+			</span>
 		</header>
 		<div class="content"><?php echo $row['message']; ?></div>
 	</div>
