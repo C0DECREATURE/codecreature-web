@@ -207,6 +207,7 @@ body {
 	position: relative;
 	background: var(--blue);
 	border-top: var(--menu-border) var(--dd-blue) solid;
+	color: var(--white);
 	/* menu cast shadow */
 	@media screen and (width >= 1000px) { box-shadow: inset var(--menu-border) 0px rgb(var(--d-blue-rgb),0.5); }
 	padding: .3em 1em .4em .5em;

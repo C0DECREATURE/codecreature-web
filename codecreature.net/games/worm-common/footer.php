@@ -4,6 +4,8 @@
 		<?php echo $logged_in ? $_SESSION["username"] : 'log in'; ?>
 	</a>
 	
+	/
+	
 	<button id="open-chatbox" onclick="toggleChatbox();">chat</button>
 	<div id="chatbox" class="hidden">
 		<header>
