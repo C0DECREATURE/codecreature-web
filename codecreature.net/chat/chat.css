@@ -9,6 +9,7 @@ body, html {
 	--header: var(--green);
 	--header-text: var(--d-blue);
 	--header-hover: var(--white);
+	--header-popup: var(--l-green);
 	--bubble-bg: var(--white);
 	--bubble-shadow: var(--blue);
 	--bubble-text: var(--blue);
@@ -21,6 +22,7 @@ body, html {
 	--send-bg: var(--green);
 	--send: var(--d-blue);
 	--send-hover: var(--white);
+	--font: 'Yet R', sans-serif;
 }
 
 .chatbox {
@@ -29,12 +31,15 @@ body, html {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	font-family: var(--font);
 }
 
 .chatbox > header {
+	position: relative;
 	background: var(--header);
 	border-bottom: 4px var(--borders) solid;
 	padding: .3rem .75rem;
+	font-size: 1.25rem;
 	text-align: right;
 	a, a:link, a:visited, button {
 		color: var(--header-text);
@@ -42,6 +47,39 @@ body, html {
 			color: var(--header-hover);
 		}
 	}
+}
+button.open-page-settings, #page-settings-contents {
+	--open-button-fill: var(--header-text);
+	--open-button-background: none;
+	--open-button-border: none;
+	--color: inherit;
+	--accent: var(--d-blue);
+}
+button.open-page-settings:hover * { fill: var(--header-hover); stroke: var(--header-hover); }
+button.open-page-settings {
+  position: relative;
+	padding: .25em;
+	margin: -.3em;
+	top: .1em; right: 0;
+	display: inline-block;
+  color: var(--open-button-fill);
+  background: var(--open-button-background);
+  border: var(--open-button-border);
+  font-size: 1em;
+  line-height: 0;
+  border-radius: 50%;
+}
+#page-settings-contents {
+	position: absolute;
+	top: 100%;
+	margin: 0;
+	border-radius: 0 0 0 1rem;
+	z-index: 1000;
+	box-shadow: 5px 5px var(--borders);
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	right: 0;
+	max-width: min(100%, 22rem);
+	background: var(--header-popup);
 }
 
 .messages {
@@ -59,8 +97,8 @@ body, html {
 	width: min(90%, 40rem);
 	display: flex;
 	gap: .5rem;
-	font-size: max(.85rem, min(1rem,2vw));
-	padding: .5em .75em;
+	font-size: 1rem;
+	padding: .5em .85em .75em .75em;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 	background: var(--bubble-bg);
 	box-shadow: 4px 6px var(--bubble-shadow);
