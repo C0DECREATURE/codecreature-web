@@ -1,5 +1,5 @@
 :root {
-	--menu-border: max(min(.8vh,.35vw), 3.5px);
+	--menu-border: max(min(.8vh,.3vw), 3.5px);
 }
 
 html, body {
@@ -204,17 +204,51 @@ body {
 	FOOTER
 ******************************************************************************************/
 #main-footer {
+	position: relative;
 	background: var(--blue);
 	border-top: var(--menu-border) var(--dd-blue) solid;
 	/* menu cast shadow */
 	@media screen and (width >= 1000px) { box-shadow: inset var(--menu-border) 0px rgb(var(--d-blue-rgb),0.5); }
 	padding: .3em 1em .4em .5em;
 	text-align: right;
-	color: var(--white);
-	text-transform: uppercase;
-	text-shadow: .08em .08em var(--dd-blue);
-	a, a:link, a:visited { color: inherit; }
-	a:hover { color: var(--l-blue); }
+	> a, a:link, > a:visited, > button {
+		color: var(--white);
+		text-transform: uppercase;
+		text-shadow: .08em .08em var(--dd-blue);
+	}
+	> a:hover, > button:hover { color: var(--l-blue); }
+}
+
+
+/******************************************************************************************
+	CHATBOX
+******************************************************************************************/
+
+#chatbox {
+	position: absolute;
+	z-index: 1001;
+	bottom: 100%; right: 0;
+	border: var(--dd-blue) var(--menu-border) solid;
+	border-right: none;
+	border-radius: 1rem 0 0 0;
+	overflow: hidden;
+	
+	header {
+		display: flex;
+		justify-content: space-between;
+		background: var(--yellow);
+		padding: .3em .6em;
+		font-size: 1.25rem;
+		text-align: left;
+		font-family: "Super Comic", sans-serif;
+	}
+	header, header button { color: var(--d-blue); }
+	header button:hover { color: var(--blue); }
+	
+	iframe {
+		width: min(100vw, 32rem);
+		height: min(80vh, 40rem);
+	}
 }
 
 /******************************************************************************************

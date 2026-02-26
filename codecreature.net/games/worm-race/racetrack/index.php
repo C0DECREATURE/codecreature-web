@@ -129,7 +129,7 @@
 			</div>
 			
 			<!--main page footer-->
-			<?php include '../footer.php'; ?>
+			<?php include '../../worm-common/footer.php'; ?>
 		</main>
 		
 		<!--worm race updates-->

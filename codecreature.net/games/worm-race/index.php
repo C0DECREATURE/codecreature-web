@@ -56,7 +56,7 @@
 			</main>
 			
 			<!--main page footer-->
-			<?php include 'footer.php'; ?>
+			<?php include '../worm-common/footer.php'; ?>
 		</div>
 		
 		<!--worm race updates-->
