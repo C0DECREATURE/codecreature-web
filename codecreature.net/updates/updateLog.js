@@ -14,6 +14,22 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-02-26T17:58'),
+		authors: ['emery'],
+		tags: ['chat','worm race','worm fishing'],
+		summary: `
+			chat feature added! <a href="/games/worm-race">worms only</a> for now
+		`,
+		details: `
+			<p>
+				the old worm chat relied on an outside host (chattable), the new one is entirely locally hosted so I have more control & it should be more reliable! I can also make new chat rooms whenever, so if I want to add chats to other parts of the site I can do that. hooray
+			</p>
+			<p>
+				getting it to update on everyone's screens when a new message comes in was the most annoying part tbh. the solution I figured out is a little clunky but good enough for now. I also need to fix the page refreshing when you send a new message because it's unnecessary and creates a flash of content, but that's a problem for later
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-16T02:27'),
 		authors: ['emery'],
 		tags: ['games','worm fishing'],
