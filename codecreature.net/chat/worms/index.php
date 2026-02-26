@@ -101,7 +101,6 @@ if (isset($_POST['submit'])){
 		
 		<form id="new-message" method="POST">
 			<input type="hidden" name="chat-table" value="worm_chat"></input>
-			<input type="hidden" id="timezone-offset" name="timezone-offset" value=""></input>
 			<script>
 				let localDate = new Date();
 				document.getElementById('timezone-offset').value = localDate.getTimezoneOffset() * 60;
