@@ -8,11 +8,12 @@ $username = isset($_SESSION["username"]) ? $_SESSION["username"] : "Anonymous";
 // Include database connection file
 require_once "connect.php";
 
-$sql = "SELECT * FROM worm_chat ORDER BY id DESC LIMIT 50;";
+$sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC LIMIT 50;";
 $result = mysqli_query($chat_conn, $sql);
 
 while ($row = mysqli_fetch_array($result))
 	{
+		echo '<script>console.log("' . $row['id'] . '");</script>';
 	?>
 <div class="
 		message
