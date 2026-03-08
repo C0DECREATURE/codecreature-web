@@ -1,7 +1,7 @@
 <?php
 
 // Include database connection file
-require_once "connect.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/user/connect.php";
 
 function getIcon($id) {
 	global $users_conn;
