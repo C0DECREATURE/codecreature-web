@@ -3,7 +3,7 @@
 session_start();
 
 $user_IP = $_SERVER['REMOTE_ADDR'];
-$user_id = isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : "0";
+$username = isset($_SESSION["username"]) ? $_SESSION["username"] : "Anonymous";
 
 // Include database connection file
 require_once "connect.php";
@@ -18,9 +18,11 @@ while ($row = mysqli_fetch_array($result))
 	{
 	?>
 <div class="message <?php echo (
-			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
-			|| ($user_id != "0" && $row['user_id'] == $user_id)
-		) ? 'self' : ''; ?> <?php echo $row['authorization']; ?>"
+			($username == "Anonymous" && $row['username'] == "Anonymous" && $row['IP_address'] == $user_IP)
+			|| ($username != "Anonymous" && $row['username'] == $username)
+		) ? 'self' : ''; ?> <?php echo $row['authorization'];
+	// DEBUG: not working for anon messages, also want it to be based on user ID rather than username
+	?>"
 	id="message-<?php echo $row['id']; ?>">
 	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
 	
