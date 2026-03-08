@@ -11,6 +11,9 @@ require_once "connect.php";
 $sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC LIMIT 50;";
 $result = mysqli_query($chat_conn, $sql);
 
+// include function getIcon($id) to get icon path for given user id
+include '../user/icon-get.php';
+
 while ($row = mysqli_fetch_array($result))
 	{
 	?>
@@ -22,7 +25,8 @@ while ($row = mysqli_fetch_array($result))
 		) ? 'self' : ''; ?>
 		<?php echo $row['authorization']; ?>
 	" id="message-<?php echo $row['id']; ?>">
-	<img class="icon" src="/user/icons/worm_blue.png" alt="">
+	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
+	
 	<div class="bubble">
 		<header>
 			<span class="username"><?php echo $row['username']; ?></span>
