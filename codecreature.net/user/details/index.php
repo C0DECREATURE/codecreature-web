@@ -11,8 +11,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 // Include password functions file
 require_once "../password-functions.php";
-// Include icon functions file
-require_once "../icon-functions.php";
+// Include icon update functions file
+require_once "../icon-update.php";
 
 ?>
  
@@ -95,7 +95,7 @@ require_once "../icon-functions.php";
 				<section class="settings-block" id="icon">
 					<header><h2>select icon</h2></header>
 					<div class="content-wrapper">
-						<form name="icon" action="../icon-functions.php" method="post">
+						<form name="icon" action="../icon-update.php" method="post">
 							<!--icon inputs-->
 							<div class="icon-selections">
 								<!--jeremy-->
