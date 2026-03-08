@@ -15,7 +15,9 @@ body, html {
 	--bubble-text: var(--blue);
 	--username: var(--d-blue);
 	--mod: var(--pink);
+	--mod-border: var(--l-pink);
 	--admin: var(--orange);
+	--admin-border: var(--yellow);
 	--input-box-bg: var(--yellow);
 	--input-box-focus: var(--l-green);
 	--input-box-text: var(--d-blue);
@@ -133,12 +135,10 @@ button.open-page-settings {
 	font-size: 1.25em;
 	color: var(--username);
 }
-.message.admin .username {
-	color: var(--admin);
-}
-.message.mod .username {
-	color: var(--mod);
-}
+.message.admin .username { color: var(--admin); }
+.message.admin { border: 4px var(--admin-border) solid; }
+.message.moderator .username { color: var(--mod); }
+.message.moderator { border: 4px var(--mod-border) solid; }
 
 .message .date {
 	font-style: italic;
