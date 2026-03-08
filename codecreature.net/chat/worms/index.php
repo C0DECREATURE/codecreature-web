@@ -22,24 +22,26 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 if (isset($_POST['submit'])){
-	
-	// Escape user inputs for security
-	$message = mysqli_real_escape_string(
-		$chat_conn, $_REQUEST['message']
-	);
-	
-	date_default_timezone_set('America/New_York'); // EST
-	$date = time();
-	
-	$chat_table = $_POST['chat-table'];
+	// if message text is not empty
+	if (!empty(trim($_REQUEST['message']))) {
+		// Escape user inputs for security
+		$message = mysqli_real_escape_string(
+			$chat_conn, $_REQUEST['message']
+		);
 		
-	// Attempt insert query execution
-	$sql = "INSERT INTO $chat_table (user_id, username, authorization, message, date) 
-							VALUES ('$user_id', '$username', '$user_authorization', '$message', '$date')";
-	if (mysqli_query($chat_conn, $sql)) {
-		;
-	} else {
-		echo "ERROR: Message not sent!!!";
+		date_default_timezone_set('America/New_York'); // EST
+		$date = time();
+		
+		$chat_table = $_POST['chat-table'];
+			
+		// Attempt insert query execution
+		$sql = "INSERT INTO $chat_table (user_id, username, authorization, message, date) 
+								VALUES ('$user_id', '$username', '$user_authorization', '$message', '$date')";
+		if (mysqli_query($chat_conn, $sql)) {
+			;
+		} else {
+			echo "ERROR: Message not sent!!!";
+		}
 	}
 }
 
