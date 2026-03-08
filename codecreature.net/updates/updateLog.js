@@ -16,13 +16,13 @@ const updateLog = [
 	{
 		date: new Date('2026-03-08T16:00'),
 		authors: ['emery'],
-		tags: ['chat','worm race','minor'],
+		tags: ['chat','minor'],
 		summary: `
-			chat icons, minor worm styling
+			chat icons, small chat fixes
 		`,
 		details: `
 			<p>
-				chat interface now shows the user's selected icon instead of a placeholder! plus worm race CSS has been adjusted a little for mobile.
+				chat interface now shows the user's selected icon instead of a placeholder! also no longer accepts blank messages, and admin/mod messages have a colored border for some added clarity.
 			</p>
 		`
 	},
