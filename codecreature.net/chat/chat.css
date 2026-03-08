@@ -126,8 +126,9 @@ button.open-page-settings {
 }
 
 .message .icon {
-	width: 3em;
-	height: 3em;
+	width: 3rem;
+	height: 3rem;
+	flex-shrink: 0;
 }
 
 .message .username {
