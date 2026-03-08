@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-08T16:00'),
+		authors: ['emery'],
+		tags: ['chat','worm race','minor'],
+		summary: `
+			chat icons, minor worm styling
+		`,
+		details: `
+			<p>
+				chat interface now shows the user's selected icon instead of a placeholder! plus worm race CSS has been adjusted a little for mobile.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-02-26T17:58'),
 		authors: ['emery'],
 		tags: ['chat','worm race','worm fishing'],
