@@ -8,7 +8,9 @@ function getIcon($id) {
 	
 	if (gettype($id) == "string") { $id = intval($id); }
 	
-	if(!empty($id)){
+	if ($id == 0 || empty($id)) {
+		return "/user/icons/default.png";
+	} else {
 		// prepared statement to get icon for user
 		$sql = "SELECT icon FROM users WHERE id = ?";
 		
@@ -23,6 +25,7 @@ function getIcon($id) {
 				mysqli_stmt_bind_result($stmt, $icon);
 				// fetch values
 				while (mysqli_stmt_fetch($stmt)) {
+					if (empty($icon)) { $icon = "default"; }
 					return "/user/icons/".$icon.".png";
 				}
 			} else{
