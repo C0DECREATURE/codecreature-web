@@ -1,4 +1,4 @@
-body { font-family: "Yet R", serif; }
+body { font-family: "Yet R", serif; background: var(--white); }
 
 h1, h2, h3 {
 	font-family: "Super Comic", sans-serif;
