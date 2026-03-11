@@ -14,11 +14,27 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-11T09:51'),
+		authors: ['emery'],
+		tags: ['chat'],
+		summary: `
+			chat allows <a href="/chat/bbcode">bbcode</a>
+		`,
+		details: `
+			<p>
+				Using the <a href="https://github.com/vanilla/nbbc">New BBCode Parser</a> by Sean Werkema and Vanilla Forums to enable basic message styling! Current options listed in my very bare-bones <a href="/chat/bbcode">BBCode guide</a>. This is much better than what we had before (which was... you could put literally any HTML you wanted in there. not good or smart lol)
+			</p>
+			<p>
+				I've also added a basic warning page before opening external links sent by other users. Safety first and whatnot.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-03-08T16:00'),
 		authors: ['emery'],
 		tags: ['chat','minor'],
 		summary: `
-			chat icons, small chat fixes
+			chat user icons, small fixes
 		`,
 		details: `
 			<p>
