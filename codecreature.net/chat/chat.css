@@ -49,6 +49,7 @@ body, html {
 			color: var(--header-hover);
 		}
 	}
+	#page-settings-contents { font-size: 1.15rem; }
 }
 button.open-page-settings, #page-settings-contents {
 	--open-button-fill: var(--header-text);
@@ -114,6 +115,7 @@ button.open-page-settings {
 
 .message .bubble { width: 100%; }
 .message .bubble header {
+	margin-bottom: .15rem;
 	width: 100%;
 	line-height: 1;
 	display: flex;
@@ -172,4 +174,41 @@ button.open-page-settings {
 #message-input:focus, #message-input:focus-visible {
 	background: var(--input-box-focus);
 	outline: none;
+}
+
+/***********************************************/
+/*   BBCODE & MESSAGE CONTENTS   */
+
+/* spoiler text */
+.bbcode_spoiler:not(:hover) {
+	background: var(--blue);
+	color: var(--blue);
+}
+.bbcode_spoiler::selection { background: var(--blue); color: var(--white); }
+
+/* quotes */
+.bbcode_quote {
+	margin: .25em 0;
+}
+.bbcode_quote_head {
+	background: var(--l-blue);
+	padding: .25em .5em;
+	border-radius: .5em .5em 0 0;
+}
+.bbcode_quote_body {
+	padding: .3em .5em;
+	border: 2px var(--l-blue) solid;
+	border-top: none;
+	border-radius: 0 0 .5em .5em;
+}
+
+.bbcode_smiley {
+	max-height: 1em;
+	margin: 0 -.1em -.1em -.1em;
+}
+img + .bbcode_smiley { margin-left: 0; }
+.bbcode_smiley:has(+ img) { margin-right: 0; }
+
+.message .content img {
+	max-width: 100%;
 }
