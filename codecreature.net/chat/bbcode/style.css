@@ -1,0 +1,55 @@
+body { font-family: "Yet R", serif; }
+
+h1, h2, h3 {
+	font-family: "Super Comic", sans-serif;
+	color: var(--dd-blue);
+}
+
+#page-nav {
+	width: fit-content;
+	
+	border: 4px var(--blue) solid;
+	border-radius: .5em;
+	overflow: hidden;
+	
+	header {
+		padding: .25em .6em .25em .6em;
+		background: var(--blue);
+		h2 { color: var(--white); }
+	}
+	.content { padding: .5em .75em .6em .75em; }
+	
+	h2 { margin: 0; }
+	h3 { margin: 0; }
+	
+	a { display: block; }
+	a, a:link, a:visited { color: var(--d-blue); }
+	a:hover { color: var(--purple); }
+}
+
+main {
+	max-width: 40rem;
+	padding-bottom: 1rem;
+}
+
+.category > header h2 {
+	margin-bottom: 0;
+}
+
+.style h4 {
+	margin-bottom: 0;
+	margin-top: .75em;
+	text-transform: uppercase;
+	color: var(--d-blue);
+}
+.style > :not(h4) { margin-left: 1em; }
+.style hr { margin-top: .25em; }
+.style .format, .style hr {
+	border: none;
+	border-bottom: 2px var(--l-blue) dotted;
+	margin-bottom: .25em;
+}
+.style .format { padding-bottom: .25em; }
+.style .format::before {
+	content: 'format: ';
+}

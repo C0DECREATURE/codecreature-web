@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widateh=device-widateh, initial-scale=1.0">
+    <title>bbcode guide</title>
+		<meta name="description" content="BBCode guide for codecreature's chatrooms.">
+		<meta name="keywords" content="bbcode, guide, formatting, documentation, chat">
+		<meta name="author" content="codecreature">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		
+		<!-- fonts -->
+		<script>fonts.load('Yet R','Super Comic')</script>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
+		
+		<!--base stylesheet-->
+		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet-->
+		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+	
+	<nav>
+		<a class="btn btn-green" onclick="history.back();">back</a>
+		<a class="btn btn-green" href="/">home</a>
+	</nav>
+	
+	<header>
+		<h1>BBCode Guide</h1>
+		<p>these are all the bbcode tags currently supported!</p>
+	</header>
+	
+	<div id="page-nav">
+		<header><h2>page nav</h2></header>
+		<div class="content">
+		</div>
+	</div>
+	
+	<main>
+		
+		<section class="category" id="text-styling">
+			<header><h2>text styling</h2></header>
+			
+			<div class="style" id="b">
+				<h4>[b] bold</h4>
+				<div class="format">[b]...[/b]</div>
+				<div class="description">The [b] tag formats its contents using <b>bold</b> text.</div>
+			</div>
+			
+			<div class="style" id="i">
+				<h4>[i] italics</h4>
+				<div class="format">[i]...[/i]</div>
+				<div class="description">The [i] tag formats its contents using <i>italicized</i> text.</div>
+			</div>
+			
+			<div class="style" id="s">
+				<h4>[s] strikeout</h4>
+				<div class="format">[s]...[/s]</div>
+				<div class="description">The [s] tag adds a <s>strikeout</s> to its contents.</div>
+			</div>
+			
+			<div class="style" id="sub">
+				<h4>[sub] subscript</h4>
+				<div class="format">[sub]...[/sub]</div>
+				<div class="description">The [sub] tag formats its contents as <sub>subscript</sub>.</div>
+			</div>
+			
+			<div class="style" id="sup">
+				<h4>[sup] superscript</h4>
+				<div class="format">[sup]...[/sup]</div>
+				<div class="description">The [sup] tag formats its contents as <sup>superscript</sup>.</div>
+			</div>
+			
+			<div class="style" id="sup">
+				<h4>[size] font size</h4>
+				<div class="format">[size=n]...[/size]</div>
+				<div class="description">
+					The [size] tag sets the font size of its contents.
+					<hr>
+					<div style="font-size: 0.5em">This text is size 0.</div>
+					<div style="font-size: 0.67em">This text is size 1.</div>
+					<div style="font-size: 0.83em">This text is size 2.</div>
+					<div style="font-size: 1.0em">This text is size 3.</div>
+					<div style="font-size: 1.17em">This text is size 4.</div>
+					<div style="font-size: 1.5em">This text is size 5.</div>
+					<div style="font-size: 2.0em">This text is size 6.</div>
+					<div style="font-size: 2.5em">This text is size 7.</div>
+				</div>
+			</div>
+			
+			<!-- hiding until i make it so color names use the site color palette
+			<div class="style" id="color">
+				<h4>[color] font color</h4>
+				<div class="format">[color=n]...[/color]</div>
+				<div class="description">
+					The [color] tag sets the font color of its contents. You can specify the color as either a three-digit hex code, like #069, as a six-digit hex code, like #E34715, or as a standard HTML color name, like red.
+					<br>For example,
+					[color=goldenrod]gold[/color] will appear as
+					<span style='color:goldenrod;'>gold</span>,
+					and
+					[color=#069]blue[/color] will appear as
+					<span style='color:#069;'>blue</span>.
+				</div>
+			</div>
+			-->
+			
+			
+			
+		<section>
+		
+		<section class="category" id="links">
+			<header><h2>links</h2></header>
+			
+			<div class="style" id="url">
+				<h4>[url] external links</h4>
+				<div class="format">[url]address[/url] OR [url=address]...[/url]</div>
+				<div class="description">
+					The [url] tag allows you to insert links to external documents. In the first form, it simply marks the URL as a link:
+					<br>[url]https://codecreature.net[/url] --> https://codecreature.net
+					<hr>
+					In the second form, you can specify the text to appear within the link:
+					<br>[url=https://codecreature.net]codecreature![/url] --> codecreature!
+				</div>
+			</div>
+		</section>
+		
+		<section class="category" id="images">
+			<header><h2>images</h2></header>
+			
+			<div class="style" id="img">
+				<h4>[img] image</h4>
+				<div class="format">[img]address[/img]</div>
+				<div class="description">
+					The [img] tag allows you to insert images. Paste a URL to the image between the start and end [img] tags, like this:
+					<br>[img]https://codecreature.net/graphix/deco/maxwell.gif[/img]
+					<br>--><img src="https://codecreature.net/graphix/deco/maxwell.gif" alt="" style="max-width: 100px;">
+				</div>
+			</div>
+		</section>
+	
+	</main>
+	
+	<script>
+		let pageNavContent = document.getElementById('page-nav').querySelector('.content');
+		let styles = document.getElementsByClassName('style');
+		for (let i = 0; i < styles.length; i++) {
+			let navLink = document.createElement('a');
+			navLink.href = "#" + styles[i].id;
+			navLink.innerHTML = styles[i].querySelector('h4').innerHTML;
+			pageNavContent.appendChild(navLink);
+		}
+	</script>
+</body></html>
