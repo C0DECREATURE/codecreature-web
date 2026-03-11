@@ -29,6 +29,8 @@ if (isset($_POST['submit'])){
 			$chat_conn, $_REQUEST['message']
 		);
 		
+		$message = strip_tags($message, '<a><b><strong><i>');
+		
 		date_default_timezone_set('America/New_York'); // EST
 		$date = time();
 		
