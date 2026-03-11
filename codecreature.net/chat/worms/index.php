@@ -29,7 +29,8 @@ if (isset($_POST['submit'])){
 			$chat_conn, $_REQUEST['message']
 		);
 		
-		$message = strip_tags($message, '<a><b><strong><i>');
+		// strip HTML tags from message
+		$message = strip_tags($message);
 		
 		date_default_timezone_set('America/New_York'); // EST
 		$date = time();
@@ -97,6 +98,7 @@ if (isset($_POST['submit'])){
 			</button>
 			<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
 				<!--page settings go here-->
+				<span><a href="/chat/bbcode">BBCode Style Guide</a></span>
 			</div>
 		</header>
 		

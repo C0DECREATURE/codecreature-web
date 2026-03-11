@@ -8,6 +8,37 @@ $username = isset($_SESSION["username"]) ? $_SESSION["username"] : "Anonymous";
 // Include database connection file
 require_once "connect.php";
 
+
+/*************************************/
+/* BBCODE PARSER */
+require_once $_SERVER['DOCUMENT_ROOT'].'/codefiles/nbbc-3.0.0/Loader.php';
+use Nbbc\BBCode;
+$bbcode = new BBCode;
+
+// set the directory to find smileys
+$bbcode->ClearSmileys();
+$bbcode->SetSmileyDir("/graphix/emojis"); /* DEBUG it's looking for them locally still..?? */
+$bbcode->AddSmiley(":heart:","heart.png");
+$bbcode->AddSmiley(":brokenheart:","broken_heart.png");
+$bbcode->AddSmiley(":right:","arrow_right.png");
+$bbcode->AddSmiley(":left:","arrow_left.png");
+$bbcode->AddSmiley(":up:","arrow_up.png");
+$bbcode->AddSmiley(":down:","arrow_down.png");
+
+// automatically detect and style links
+$bbcode->SetDetectURLs(true);
+$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}">{$text/h}</a>');
+
+// remove default rules I don't want included in chat messages
+$bbcode->RemoveRule('u');
+$bbcode->RemoveRule('acronym');
+$bbcode->RemoveRule('font');
+$bbcode->RemoveRule('code');
+$bbcode->RemoveRule('email');
+$bbcode->RemoveRule('columns');
+
+/*************************************/
+
 $sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC LIMIT 50;";
 $result = mysqli_query($chat_conn, $sql);
 
@@ -33,7 +64,9 @@ while ($row = mysqli_fetch_array($result))
 				<?php echo date('Y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
 			</span>
 		</header>
-		<div class="content"><?php echo $row['message']; ?></div>
+		<div class="content"><?php
+			echo $bbcode->Parse($row['message']);
+		?></div>
 	</div>
 </div>
 	<?php
