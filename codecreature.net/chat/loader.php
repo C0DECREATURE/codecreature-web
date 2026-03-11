@@ -27,7 +27,7 @@ $bbcode->AddSmiley(":down:","arrow_down.png");
 
 // automatically detect and style links
 $bbcode->SetDetectURLs(true);
-$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}">{$text/h}</a>');
+$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}" target="_blank">{$text/h}</a>');
 
 // remove default rules I don't want included in chat messages
 $bbcode->RemoveRule('u');
