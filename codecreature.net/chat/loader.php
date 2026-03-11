@@ -31,7 +31,6 @@ while ($row = mysqli_fetch_array($result))
 			<span class="username"><?php echo $row['username']; ?></span>
 			<span class="date">
 				<?php echo date('Y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
-				
 			</span>
 		</header>
 		<div class="content"><?php echo $row['message']; ?></div>

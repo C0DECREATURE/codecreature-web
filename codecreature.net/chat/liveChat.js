@@ -16,17 +16,16 @@ Date.prototype.isDstObserved = function () {
 	return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
-// DEBUG: having difficulty figuring out how to get it to load ONLY new messages. ugh
 function loadChat(){
 	let messages = document.getElementsByClassName('message');
-	let msgCount = 0;
-	if (messages.length > 0) msgCount = messages[0].id.replaceAll('message-','');
+	let latestMsg = 0;
+	if (messages.length > 0) latestMsg = messages[0].id.replaceAll('message-','');
 	
 	let localDate = new Date();
 	let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
 	
 	var content;
-	$.get("/chat/loader.php?from=" + msgCount + "&timezone-offset=" + timezoneOffset, function(data){
+	$.get("/chat/loader.php?from=" + latestMsg + "&timezone-offset=" + timezoneOffset, function(data){
 			content = data;
 			$('#messages').prepend(content);
 	});
