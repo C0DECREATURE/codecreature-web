@@ -193,6 +193,7 @@ input[type=color] { position: absolute; left: -50%; top: -50%; width: 200%; heig
 }
 
 .stroke-color.current:after {
+	pointer-events: none;
 	position: absolute;
 	left: 50%; top: 50%; transform: translate(-50%,-50%);
 	content: 'X';

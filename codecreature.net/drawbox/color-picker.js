@@ -1,4 +1,7 @@
-/*    BELOW CODE ADDED BY AGLOVALE.NEKOWEB.ORG    */
+/*
+	BELOW CODE ADDED BY AGLOVALE.NEKOWEB.ORG
+	& modified by codecreature.net
+*/
  
 let colors = [
 	"white", "dd-purple", "d-purple", "dd-blue", "purple", "l-purple", "l-pink", "pink", "d-pink",
