@@ -1,0 +1,9 @@
+<?php
+	require_once("src/BBCode.php");
+	require_once("src/BBCodeException.php");
+	require_once("src/BBCodeLexer.php");
+	require_once("src/BBCodeLibrary.php");
+	require_once("src/Debugger.php");
+	require_once("src/EmailAddressValidator.php");
+	require_once("src/Profiler.php");
+?>
