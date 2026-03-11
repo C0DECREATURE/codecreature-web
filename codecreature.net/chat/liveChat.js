@@ -24,7 +24,6 @@ function loadChat(){
 	
 	let localDate = new Date();
 	let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
-	if (localDate.isDstObserved()) timezoneOffset -= 60000;
 	
 	var content;
 	$.get("/chat/loader.php?from=" + msgCount + "&timezone-offset=" + timezoneOffset, function(data){

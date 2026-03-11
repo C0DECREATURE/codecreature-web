@@ -35,8 +35,8 @@ if (isset($_POST['submit'])){
 		$chat_table = $_POST['chat-table'];
 			
 		// Attempt insert query execution
-		$sql = "INSERT INTO $chat_table (user_id, username, authorization, message, date) 
-								VALUES ('$user_id', '$username', '$user_authorization', '$message', '$date')";
+		$sql = "INSERT INTO $chat_table (user_id, username, IP_address, authorization, message, date) 
+								VALUES ('$user_id', '$username', '$user_IP', '$user_authorization', '$message', '$date')";
 		if (mysqli_query($chat_conn, $sql)) {
 			;
 		} else {
