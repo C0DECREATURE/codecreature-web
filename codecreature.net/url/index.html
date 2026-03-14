@@ -50,7 +50,7 @@
 		<script>document.getElementById('redirect-url-display').innerHTML = redirectUrl;</script>
 		
 		<div id="proceed-options">
-			<button class="btn btn-red" onclick="history.back()">Go Back</button>
+			<a class="btn btn-red" href="javascript:void(0);" onclick="history.back()">Go Back</button>
 			
 			<a class="btn btn-green" id="continue">Open Link</a>
 			<script>document.getElementById('continue').href = redirectUrl;</script>
