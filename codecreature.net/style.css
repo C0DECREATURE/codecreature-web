@@ -44,8 +44,8 @@ body.customCursor, .customCursor * {
 	}
 }
 
-/* u elements not underlined by default */
-u { text-decoration: inherit; }
+/* typing quirk elements not underlined by default */
+u.tq, u.tq-nep, u.tq-e { text-decoration: inherit; }
 
 iframe { border: none; padding: 0; margin: 0; }
 
