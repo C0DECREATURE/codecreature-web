@@ -42,7 +42,12 @@ body, html {
 	border-bottom: 4px var(--borders) solid;
 	padding: .3rem .75rem;
 	font-size: 1.25rem;
-	text-align: right;
+	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: .6rem;
+	
 	a, a:link, a:visited, button {
 		color: var(--header-text);
 		&:hover, &:focus, &:focus-visible {
@@ -61,9 +66,9 @@ button.open-page-settings, #page-settings-contents {
 button.open-page-settings:hover * { fill: var(--header-hover); stroke: var(--header-hover); }
 button.open-page-settings {
   position: relative;
-	padding: .25em;
 	margin: -.3em;
-	top: .1em; right: 0;
+	padding: 0 .25em;
+	top: 0; right: 0;
 	display: inline-block;
   color: var(--open-button-fill);
   background: var(--open-button-background);
@@ -83,6 +88,7 @@ button.open-page-settings {
 	right: 0;
 	max-width: min(100%, 22rem);
 	background: var(--header-popup);
+	text-align: right;
 }
 
 .messages {
