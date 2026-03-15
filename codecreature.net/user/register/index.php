@@ -56,13 +56,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 		
     // Validate username
-    if(empty(trim($_POST["username"]))){
+		$u = trim($_POST["username"]);
+		$username_length = 20;
+    if(empty($u)){
         $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
+    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', $u)){
         $username_err = "Username can only contain letters, numbers, and underscores.";
-    } elseif(preg_match('/.*c.*[o0*].*d.*[e3].*c.*r.*[e3].*[a@].*t.*u.*r.*[e3].*|.*[a@]dm[i1l]n.*|.*m[o0]d[e3]r[a@]t[o0]r.*|.*w.*[e3].*b.*m.*[a@].*s.*t.*[e3].*r.*|anonymous|someone/i', trim($_POST["username"]))){
+    } elseif(preg_match('/.*c.*[o0*].*d.*[e3].*c.*r.*[e3].*[a@].*t.*u.*r.*[e3].*|.*[a@]dm[i1l]n.*|.*m[o0]d[e3]r[a@]t[o0]r.*|.*w.*[e3].*b.*m.*[a@].*s.*t.*[e3].*r.*|anonymous|someone/i', $u)){
         $username_err = "Please choose a different username.";
-    } else{
+    } elseif (strlen($u) > $username_length) {
+				$username_err = "Username muse have less than ".$username_length." characters.";
+		} else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
         
@@ -192,7 +196,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					type="text"
 					id="username" name="username"
 					minlength="3"
-					maxlength="25"
+					maxlength="<?php echo $username_length; ?>"
 					class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
 					value="<?php echo $username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
