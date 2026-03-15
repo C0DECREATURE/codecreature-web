@@ -11,6 +11,8 @@ $image_path = $worm_race_path."images/";
 
 // include users connection data
 require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
+// include get username by id function
+require_once $_SERVER['DOCUMENT_ROOT']."/user/username-get.php";
 
 // worm data arrays
 $worms = array();
@@ -147,7 +149,7 @@ function getWormLeaderboard($worm) {
 	global $leaderboard_err; global $worm_conn; global $helper_table; global $hurter_table;
 	$worm_row = "worm_".$worm;
 	// get all user logs for this worm
-	$sql = "SELECT username, ".$worm_row." FROM user_data";
+	$sql = "SELECT user_id, ".$worm_row." FROM user_data";
 	if ( $result = mysqli_query($worm_conn,$sql) ) {
 		$helpers = [];
 		$hurters = [];
@@ -157,17 +159,19 @@ function getWormLeaderboard($worm) {
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
 			if (!empty($row[$worm_row])) {
+				$username = getUsernameById($row["user_id"]);
+				
 				$actions = json_decode($row[$worm_row]);
 				$actions = get_object_vars(json_decode($row[$worm_row]));
 				if ($actions["total_help"] > 0) {
 					$helpers[] = [
-						"username" => $row["username"],
+						"username" => $username,
 						"count" => $actions["total_help"]
 					];
 				}
 				if ($actions["total_hurt"] > 0) {
 					$hurters[] = [
-						"username" => $row["username"],
+						"username" => $username,
 						"count" => $actions["total_hurt"]
 					];
 				}
@@ -185,9 +189,24 @@ function getWormLeaderboard($worm) {
 		for ($i = 0; $i < 5; $i++) {
 			$display_count = $i + 1;
 			if ($i < count($helpers)) {
-				$helper_table = $helper_table."<div class='row'><span>#".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
+				$action_count = $counts[$i];
+				if ($action_count >= 1000) {
+					if ($action_count >= 10000) {
+						if ($action_count >= 100000) {
+							// 100,000+
+							$action_count = round($action_count / 10000, 0) . "k";
+						} else {
+							// 10,000 - 10,999
+							$action_count = round($action_count / 1000, 1) . "k";
+						}
+					} else {
+						// 1,000 - 1,999
+						$action_count = round($action_count / 1000, 2) . "k";
+					}
+				}
+				$helper_table = $helper_table."<div class='row'><span><small>#</small>".$display_count."</span><span>".$users[$i]."</span><span>".$action_count."</span></div>";
 			} else {
-				$helper_table = $helper_table."<div class='row'><span>#".$display_count."</span><span></span><span></span></div>";
+				$helper_table = $helper_table."<div class='row'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$helper_table = $helper_table."</div>";
@@ -203,9 +222,9 @@ function getWormLeaderboard($worm) {
 		for ($i = 0; $i < 5; $i++) {
 			$display_count = $i + 1;
 			if ($i < count($hurters)) {
-				$hurter_table = $hurter_table."<div class='row'><span>#".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
+				$hurter_table = $hurter_table."<div class='row'><span><small>#</small>".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
 			} else {
-				$hurter_table = $hurter_table."<div class='row'><span>#".$display_count."</span><span></span><span></span></div>";
+				$hurter_table = $hurter_table."<div class='row'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$hurter_table = $hurter_table."</div>";
