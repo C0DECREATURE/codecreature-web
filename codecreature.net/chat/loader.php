@@ -59,7 +59,7 @@ $sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC 
 $result = mysqli_query($chat_conn, $sql);
 
 // include function getIcon($id) to get icon path for given user id
-require_once $_SERVER['DOCUMENT_ROOT'].'/user/icon-get.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
 
 while ($row = mysqli_fetch_array($result))
 	{

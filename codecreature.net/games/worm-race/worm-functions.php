@@ -12,7 +12,7 @@ $image_path = $worm_race_path."images/";
 // include users connection data
 require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
 // include get username by id function
-require_once $_SERVER['DOCUMENT_ROOT']."/user/username-get.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
 // worm data arrays
 $worms = array();
