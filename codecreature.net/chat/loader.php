@@ -50,6 +50,7 @@ $bbcode->RemoveRule('acronym');
 $bbcode->RemoveRule('font');
 $bbcode->RemoveRule('code');
 $bbcode->RemoveRule('email');
+$bbcode->RemoveRule('wiki');
 $bbcode->RemoveRule('columns');
 
 /*************************************/
