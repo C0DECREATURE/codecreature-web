@@ -14,6 +14,25 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-14T20:27'),
+		authors: ['emery'],
+		tags: ['chat','minor'],
+		summary: `
+			couple of bbcode acessibility features
+		`,
+		details: `
+			<p>
+				couple of <a href="/chat/bbcode#accessibility">bbcode accessibility</a> options added! it now works with the site-wide "proper english" feature, so you can add alt text to any regular text or text emoticons!
+			</p>
+			<p>
+				also fixed it so that you can use [u] underline tags again
+			</p>
+			<p>
+				need to make it so you can add alt text to bbcode images next
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-03-11T09:51'),
 		authors: ['emery'],
 		tags: ['chat'],
