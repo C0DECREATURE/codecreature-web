@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		
     // Validate username
 		$u = trim($_POST["username"]);
-		$username_length = 20;
+		$username_length = 16;
     if(empty($u)){
         $username_err = "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', $u)){
