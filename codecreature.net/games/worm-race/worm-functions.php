@@ -159,7 +159,7 @@ function getWormLeaderboard($worm) {
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
 			if (!empty($row[$worm_row])) {
-				$username = getUsernameById($row["user_id"]);
+				$username = getUsername($row["user_id"]);
 				
 				$actions = json_decode($row[$worm_row]);
 				$actions = get_object_vars(json_decode($row[$worm_row]));
