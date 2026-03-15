@@ -470,7 +470,7 @@
 
 .leaderboard {
 	color: var(--color-dark);
-	font-size: max(1rem, min(4vw, 3vh));
+	font-size: min(1.25rem, max(1rem, min(3vw, 3vh)));
 	flex-grow: 1;
 	display: flex; flex-direction: column; justify-content: space-between;
 	overflow-y: auto;
@@ -485,7 +485,7 @@
 		min-width: min(200px, 100%);
 		border: var(--menu-border) var(--color) solid;
 		border-radius: var(--border-radius-sm);
-		padding: .25em .75em .5em .75em;
+		padding: .25em .4em .5em .4em;
 	}
 	
 	.tables {
@@ -496,14 +496,17 @@
 		padding: .5em .75em 0em .75em;
 		moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 		justify-content: center;
-		> * { flex-grow: 1; }
+		> * {
+			width: 40%;
+			flex-grow: 1;
+		}
 		h4 { font-family: "Super Comic", sans-serif; }
 		.table { width: 100%; }
-		.row { display: flex; gap: .5em; }
-		.row > :first-child { width: 12%; }
+		.row { display: flex; gap: .25em; }
+		.row > :first-child { width: 10%; flex-shrink: 0; }
 		.row > :nth-child(2) { flex-grow: 1; }
 		.row > :last-child { width: 20%; text-align: right; }
-		.row:first-of-type { font-weight: bold; }
+		.row:first-of-type > *:not(:first-of-type, :last-of-type) { font-weight: bold; }
 	}
 	
 	.user-data {
