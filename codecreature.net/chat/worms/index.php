@@ -66,6 +66,8 @@ if (isset($_POST['submit'])){
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		<!-- typing quirk alt text -->
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20251216"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('Yet R','Super Comic')</script>

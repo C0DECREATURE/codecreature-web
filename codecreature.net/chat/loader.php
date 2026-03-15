@@ -27,10 +27,25 @@ $bbcode->AddSmiley(":down:","arrow_down.png");
 
 // automatically detect and style links
 $bbcode->SetDetectURLs(true);
-$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}" target="_blank">{$text/h}</a>');
+$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}">{$text/h}</a>');
 
 // remove default rules I don't want included in chat messages
-$bbcode->RemoveRule('u');
+$bbcode->AddRule('alt',[
+		'mode' => BBCode::BBCODE_MODE_ENHANCED,
+		'template' => '<span class="tq" data-a="{$_default}">{$_content}</span>',
+		'class' => 'inline',
+		'content' => 'BBCODE_REQUIRED',
+		'allow_in' => ['listitem', 'block', 'columns', 'inline', 'link']
+]);
+$bbcode->AddRule('e',[
+		'mode' => BBCode::BBCODE_MODE_ENHANCED,
+		'template' => '<span class="tq-e" data-a="{$_default}">{$_content}</span>',
+		'class' => 'inline',
+		'content' => 'BBCODE_REQUIRED',
+		'allow_in' => ['listitem', 'block', 'columns', 'inline', 'link']
+]);
+
+// remove default rules I don't want included in chat messages
 $bbcode->RemoveRule('acronym');
 $bbcode->RemoveRule('font');
 $bbcode->RemoveRule('code');
@@ -69,6 +84,13 @@ while ($row = mysqli_fetch_array($result))
 		?></div>
 	</div>
 </div>
+<script>
+	// assign text and alt text for all typing quirk elements in the message that was just loaded
+	(()=>{
+		<?php echo "let tqParentElement = document.getElementById('message-".$row['id']."');"; ?>
+		tqAlts(tqParentElement);
+	})();
+</script>
 	<?php
 	}
 ?>

@@ -14,6 +14,8 @@
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		<!-- typing quirk alt text -->
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20251216"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('Yet R','Super Comic')</script>
@@ -23,130 +25,220 @@
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--chatbox stylesheet-->
+		<link href="../chat.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
-	
-	<nav>
-		<a class="btn btn-green" onclick="history.back();">back</a>
-		<a class="btn btn-green" href="/">home</a>
-	</nav>
+<body class="chatbox">
 	
 	<header>
-		<h1>BBCode Guide</h1>
-		<p>these are all the bbcode tags currently supported!</p>
+		<a href="javascript:void(0);" onclick="history.back();">back</a>
+		
+		<button id="page-settings" class="open-page-settings" aria-label="page settings"
+		onclick="togglePageSettings();" onfocusvisible="togglePageSettings();">
+			<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
+				<svg viewBox="0 0 132.29201 132.29201" xmlns="http://www.w3.org/2000/svg">
+					<path style="stroke-linejoin:round;stroke-linecap:butt;" d="M 58.475469,8.2100704 V 25.772997 A 41.184249,41.184253 0 0 0 35.106834,39.084493 L 20.308319,30.540394 12.64347,43.816052 27.439039,52.358188 a 41.184249,41.184253 0 0 0 -2.48311,13.787695 41.184249,41.184253 0 0 0 2.392781,13.545669 l -14.70524,8.490098 7.155267,13.56973 15.138236,-8.739987 a 41.184249,41.184253 0 0 0 23.538496,13.507377 v 16.9748 l 15.329698,0.58813 V 106.51877 A 41.184249,41.184253 0 0 0 97.497322,92.806186 l 15.493668,8.945194 7.15527,-13.56973 -15.124,-8.732125 A 41.184249,41.184253 0 0 0 107.3247,66.145883 41.184249,41.184253 0 0 0 105.01048,52.554559 L 120.14626,43.816052 112.4819,30.540394 97.340717,39.282337 A 41.184249,41.184253 0 0 0 73.805167,25.688558 V 8.2100704 Z m 7.664849,31.9490626 a 25.987005,25.986999 0 0 1 25.98724,25.98675 25.987005,25.986999 0 0 1 -25.98724,25.987241 25.987005,25.986999 0 0 1 -25.98675,-25.987241 25.987005,25.986999 0 0 1 25.98675,-25.98675 z" />
+				</svg>
+			</i>
+		</button>
+		<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
+			<!--page settings go here-->
+		</div>
 	</header>
 	
-	<div id="page-nav">
-		<header><h2>page nav</h2></header>
-		<div class="content">
+	<section class="page-content">
+		
+		<h1>BBCode Guide</h1>
+		<p>these are all the bbcode tags currently supported!</p>
+	
+		<div id="page-nav">
+			<header><h2>jump to</h2></header>
+			<div class="content">
+			</div>
 		</div>
-	</div>
+		
+		<main>
+			
+			<section class="category" id="text-styling">
+				<header><h2>text styling</h2></header>
+				
+				<div class="style" id="b">
+					<h4>[b] bold</h4>
+					<div class="format">[b]...[/b]</div>
+					<div class="description">The [b] tag formats its contents using <b>bold</b> text.</div>
+				</div>
+				
+				<div class="style" id="i">
+					<h4>[i] italics</h4>
+					<div class="format">[i]...[/i]</div>
+					<div class="description">The [i] tag formats its contents using <i>italicized</i> text.</div>
+				</div>
+				
+				<div class="style" id="u">
+					<h4>[u] underline</h4>
+					<div class="format">[u]...[/u]</div>
+					<div class="description">The [u] tag adds an <u>underline</u> to its contents.</div>
+				</div>
+				
+				<div class="style" id="s">
+					<h4>[s] strikeout</h4>
+					<div class="format">[s]...[/s]</div>
+					<div class="description">The [s] tag adds a <s>strikeout</s> to its contents.</div>
+				</div>
+				
+				<div class="style" id="sub">
+					<h4>[sub] subscript</h4>
+					<div class="format">[sub]...[/sub]</div>
+					<div class="description">The [sub] tag formats its contents as <sub>subscript</sub>.</div>
+				</div>
+				
+				<div class="style" id="sup">
+					<h4>[sup] superscript</h4>
+					<div class="format">[sup]...[/sup]</div>
+					<div class="description">The [sup] tag formats its contents as <sup>superscript</sup>.</div>
+				</div>
+				
+				<div class="style" id="sup">
+					<h4>[size] font size</h4>
+					<div class="format">[size=n]...[/size]</div>
+					<div class="description">
+						The [size] tag sets the font size of its contents.
+						<hr>
+						<div style="font-size: 0.5em">This text is size 0.</div>
+						<div style="font-size: 0.67em">This text is size 1.</div>
+						<div style="font-size: 0.83em">This text is size 2.</div>
+						<div style="font-size: 1.0em">This text is size 3.</div>
+						<div style="font-size: 1.17em">This text is size 4.</div>
+						<div style="font-size: 1.5em">This text is size 5.</div>
+						<div style="font-size: 2.0em">This text is size 6.</div>
+						<div style="font-size: 2.5em">This text is size 7.</div>
+					</div>
+				</div>
+				
+				<!-- hiding until i make it so color names use the site color palette
+				<div class="style" id="color">
+					<h4>[color] font color</h4>
+					<div class="format">[color=n]...[/color]</div>
+					<div class="description">
+						The [color] tag sets the font color of its contents. You can specify the color as either a three-digit hex code, like #069, as a six-digit hex code, like #E34715, or as a standard HTML color name, like red.
+						<br>For example,
+						[color=goldenrod]gold[/color] will appear as
+						<span style='color:goldenrod;'>gold</span>,
+						and
+						[color=#069]blue[/color] will appear as
+						<span style='color:#069;'>blue</span>.
+					</div>
+				</div>
+				-->
+				
+				
+				
+			</section>
+			
+			<section class="category" id="links">
+				<header><h2>links</h2></header>
+				
+				<div class="style" id="url">
+					<h4>[url] external links</h4>
+					<div class="format">[url]address[/url] OR [url=address]...[/url]</div>
+					<div class="description">
+						The [url] tag allows you to insert links to external documents. In the first form, it simply marks the URL as a link:
+						<br>[url]https://codecreature.net[/url] --> https://codecreature.net
+						<hr>
+						In the second form, you can specify the text to appear within the link:
+						<br>[url=https://codecreature.net]codecreature![/url] --> codecreature!
+						<hr>
+						You can link to pages on codecreature.net without the domain name:
+						<br>[url]/home[/url] or [url=/home]homepage[/url]
+						<br>--> https://codecreature.net/home
+					</div>
+				</div>
+			</section>
+			
+			<section class="category" id="images">
+				<header><h2>images</h2></header>
+				
+				<div class="style" id="img">
+					<h4>[img] image link</h4>
+					<div class="format">[img]address[/img]</div>
+					<div class="description">
+						The [img] tag allows you to insert images. Paste a URL to the image between the start and end [img] tags, like this:
+						<br>[img]https://codecreature.net/graphix/deco/maxwell.gif[/img]
+						<hr>
+						You can link to images on codecreature.net without the domain name:
+						<br>[img]/graphix/deco/maxwell.gif[/img]
+					</div>
+				</div>
+				
+				<!-- hiding until I fix the emoji source bug
+				<div class="style" id="emoji">
+					<h4>emoji</h4>
+					<div class="format">:name:</div>
+					<div class="description">
+						type a supported emoji name between colons to insert it!
+						<br><img class="bbcode_smiley" src="/graphix/emojis/heart.png" alt=""> :heart:
+						<br><img class="bbcode_smiley" src="/graphix/emojis/broken_heart.png" alt=""> :brokenheart:
+						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_up.png" alt=""> :up:
+						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_down.png" alt=""> :down:
+						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_left.png" alt=""> :left:
+						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_right.png" alt=""> :right:
+					</div>
+				</div>
+				-->
+			</section>
+			
+			<section class="category" id="accessibility">
+				<header><h2>accessibility</h2></header>
+				
+				<div class="style" id="alt">
+					<h4>[alt] alt text</h4>
+					<div class="format">[alt=alt text]...[/alt]</div>
+					<div class="description">
+						The [alt] tag allows you to add an accessible alternative to any text. This works for screenreaders and anyone with the "proper English" setting active on the site.
+						<hr>
+						Consider using this for chatspeak, unusual abbreviations, numbers in place of letters, and any other text that may be inaccessible to screenreaders, non-native English speakers, or anyone else not familiar with your personal style of typing.
+						<hr>
+						[alt=please]pls[/alt] will display as "pls" to most users, but "please" for anyone requesting accessible text.
+					</div>
+				</div>
+				
+				<div class="style" id="e">
+					<h4>[e] emoticon alt text</h4>
+					<div class="format">[e=alt text]...[/e]</div>
+					<div class="description">
+						The [e] tag allows you to add an accessible description to text emoticons. This works similarly to [alt], but only replaces text for screenreaders.
+						<hr>
+						[emote=shocked cat face]83[/emote] will display "83", but screen readers will read it as "shocked cat face."
+						<hr>
+						The following emoticons have pre-written alt text, so you can write them as [e]...[/e].
+						<br>For example, screen readers will read [e]:)[/e] as "smiley face."
+						<br>
+							<span class="tq-e">:)</span>
+							<span class="tq-e">;)</span>
+							<span class="tq-e">:D</span>
+							<span class="tq-e">XD</span>
+							<span class="tq-e">B)</span>
+						<br>
+							<span class="tq-e">:(</span>
+							<span class="tq-e">:'(</span>
+							<span class="tq-e">D:</span>
+						<br>
+							<span class="tq-e">:3</span>
+							<span class="tq-e">;3</span>
+							<span class="tq-e">:'3</span>
+							<span class="tq-e">B3</span>
+							<span class="tq-e">:3c</span>
+						<br>
+							<span class="tq-e">:P</span>
+							<span class="tq-e">XP</span>
+					</div>
+				</div>
+			</section>
 	
-	<main>
-		
-		<section class="category" id="text-styling">
-			<header><h2>text styling</h2></header>
-			
-			<div class="style" id="b">
-				<h4>[b] bold</h4>
-				<div class="format">[b]...[/b]</div>
-				<div class="description">The [b] tag formats its contents using <b>bold</b> text.</div>
-			</div>
-			
-			<div class="style" id="i">
-				<h4>[i] italics</h4>
-				<div class="format">[i]...[/i]</div>
-				<div class="description">The [i] tag formats its contents using <i>italicized</i> text.</div>
-			</div>
-			
-			<div class="style" id="s">
-				<h4>[s] strikeout</h4>
-				<div class="format">[s]...[/s]</div>
-				<div class="description">The [s] tag adds a <s>strikeout</s> to its contents.</div>
-			</div>
-			
-			<div class="style" id="sub">
-				<h4>[sub] subscript</h4>
-				<div class="format">[sub]...[/sub]</div>
-				<div class="description">The [sub] tag formats its contents as <sub>subscript</sub>.</div>
-			</div>
-			
-			<div class="style" id="sup">
-				<h4>[sup] superscript</h4>
-				<div class="format">[sup]...[/sup]</div>
-				<div class="description">The [sup] tag formats its contents as <sup>superscript</sup>.</div>
-			</div>
-			
-			<div class="style" id="sup">
-				<h4>[size] font size</h4>
-				<div class="format">[size=n]...[/size]</div>
-				<div class="description">
-					The [size] tag sets the font size of its contents.
-					<hr>
-					<div style="font-size: 0.5em">This text is size 0.</div>
-					<div style="font-size: 0.67em">This text is size 1.</div>
-					<div style="font-size: 0.83em">This text is size 2.</div>
-					<div style="font-size: 1.0em">This text is size 3.</div>
-					<div style="font-size: 1.17em">This text is size 4.</div>
-					<div style="font-size: 1.5em">This text is size 5.</div>
-					<div style="font-size: 2.0em">This text is size 6.</div>
-					<div style="font-size: 2.5em">This text is size 7.</div>
-				</div>
-			</div>
-			
-			<!-- hiding until i make it so color names use the site color palette
-			<div class="style" id="color">
-				<h4>[color] font color</h4>
-				<div class="format">[color=n]...[/color]</div>
-				<div class="description">
-					The [color] tag sets the font color of its contents. You can specify the color as either a three-digit hex code, like #069, as a six-digit hex code, like #E34715, or as a standard HTML color name, like red.
-					<br>For example,
-					[color=goldenrod]gold[/color] will appear as
-					<span style='color:goldenrod;'>gold</span>,
-					and
-					[color=#069]blue[/color] will appear as
-					<span style='color:#069;'>blue</span>.
-				</div>
-			</div>
-			-->
-			
-			
-			
-		<section>
-		
-		<section class="category" id="links">
-			<header><h2>links</h2></header>
-			
-			<div class="style" id="url">
-				<h4>[url] external links</h4>
-				<div class="format">[url]address[/url] OR [url=address]...[/url]</div>
-				<div class="description">
-					The [url] tag allows you to insert links to external documents. In the first form, it simply marks the URL as a link:
-					<br>[url]https://codecreature.net[/url] --> https://codecreature.net
-					<hr>
-					In the second form, you can specify the text to appear within the link:
-					<br>[url=https://codecreature.net]codecreature![/url] --> codecreature!
-				</div>
-			</div>
-		</section>
-		
-		<section class="category" id="images">
-			<header><h2>images</h2></header>
-			
-			<div class="style" id="img">
-				<h4>[img] image</h4>
-				<div class="format">[img]address[/img]</div>
-				<div class="description">
-					The [img] tag allows you to insert images. Paste a URL to the image between the start and end [img] tags, like this:
-					<br>[img]https://codecreature.net/graphix/deco/maxwell.gif[/img]
-					<br>--><img src="https://codecreature.net/graphix/deco/maxwell.gif" alt="" style="max-width: 100px;">
-				</div>
-			</div>
-		</section>
-	
-	</main>
+		</main>
+	</section>
 	
 	<script>
 		let pageNavContent = document.getElementById('page-nav').querySelector('.content');
@@ -158,4 +250,6 @@
 			pageNavContent.appendChild(navLink);
 		}
 	</script>
-</body></html>
+	
+</body>
+</html>
