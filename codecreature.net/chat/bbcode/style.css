@@ -19,7 +19,6 @@ h1 { margin: 0; }
 
 #page-nav {
 	width: fit-content;
-	
 	border: 4px var(--blue) solid;
 	border-radius: .5em;
 	
@@ -31,7 +30,6 @@ h1 { margin: 0; }
 	
 	.content {
 		padding: .5em .75em .6em .75em;
-		background: var(--white);
 	}
 	
 	h2 { margin: 0; }
