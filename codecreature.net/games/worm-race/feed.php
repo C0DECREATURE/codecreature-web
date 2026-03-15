@@ -130,12 +130,11 @@ function logFeeding($worm,$item) {
 					if (isset($row[$worm_row])) { $arr = get_object_vars(json_decode($row[$worm_row])); }
 				} else {
 					// insert a row for the user
-					$sql_insert = "INSERT INTO user_data (user_id, username) VALUES (?, ?)";
+					$sql_insert = "INSERT INTO user_data (user_id) VALUES (?)";
 					if ($stmt = mysqli_prepare($worm_conn, $sql_insert)) {
 						// bind variables to statement as parameters
-						mysqli_stmt_bind_param($stmt, "is", $param_user_id, $param_username);
+						mysqli_stmt_bind_param($stmt, "i", $param_user_id);
 						$param_user_id = $_SESSION["id"];
-						$param_username = $_SESSION["username"];
 						if(!mysqli_stmt_execute($stmt)){
 							$feed_err = "<strong>Error</strong>: Could not create user data.<br>Try again later.";
 						}
