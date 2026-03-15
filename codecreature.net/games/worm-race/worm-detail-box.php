@@ -6,7 +6,15 @@
 	
 	<div>
 		<div class="main-image main-worm-tab">
+			<button type="button" onclick="openDetailBox('<?php echo $prev_worm["color"] ?>')">
+				<i class="svg-icon i-caret-left"></i>
+			</button>
+			
 			<img src="<?php echo $image_path.$cur_worm["color"].".png" ?>" alt="">
+			
+			<button type="button" onclick="openDetailBox('<?php echo $next_worm["color"] ?>')">
+				<i class="svg-icon i-caret-right"></i>
+			</button>
 		</div>
 		
 		<header>

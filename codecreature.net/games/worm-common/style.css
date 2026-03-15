@@ -291,7 +291,7 @@ body {
 	border-radius: var(--border-radius) var(--border-radius) 0 0;
 	overflow: hidden;
 	line-height: 1.9em;
-	font-size: max(1rem,min(5vh,min(2.5rem, 5.5vw)));
+	font-size: max(1rem,min(5vh,min(2.5rem, 5.25vw)));
 	font-family: "Super Comic", sans-serif;
 	letter-spacing: .05em;
 	text-transform: uppercase;
