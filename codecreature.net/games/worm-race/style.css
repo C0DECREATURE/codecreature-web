@@ -19,6 +19,8 @@
 		background-size: 100% 95%;
 		background-position: bottom;
 		background-repeat: no-repeat;
+		pointer-events: none;
+		> * { pointer-events: initial; }
 	}
 	/* banner and link hidden on worm details page for small screens */
 	@media screen and (
