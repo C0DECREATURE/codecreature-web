@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif(preg_match('/.*c.*[o0*].*d.*[e3].*c.*r.*[e3].*[a@].*t.*u.*r.*[e3].*|.*[a@]dm[i1l]n.*|.*m[o0]d[e3]r[a@]t[o0]r.*|.*w.*[e3].*b.*m.*[a@].*s.*t.*[e3].*r.*|anonymous|someone/i', $u)){
         $username_err = "Please choose a different username.";
     } elseif (strlen($u) > $username_length) {
-				$username_err = "Username muse have less than ".$username_length." characters.";
+				$username_err = "Username must have less than ".$username_length." characters.";
 		} else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
