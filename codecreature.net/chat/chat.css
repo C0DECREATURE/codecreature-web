@@ -102,6 +102,9 @@ button.open-page-settings {
 	color: var(--bubble-text);
 }
 
+/* put the load older messages button at top of page */
+#load-older { order: 1000; }
+
 .message {
 	width: min(90%, 40rem);
 	display: flex;
