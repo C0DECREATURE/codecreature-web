@@ -14,19 +14,6 @@ const updateLog = [
 	},
 */
 	{
-		date: new Date('2026-03-16T03:52'),
-		authors: ['emery'],
-		tags: ['chat','worm race','bug'],
-		summary: `
-			chat down temporarily
-		`,
-		details: `
-			<p>
-				messed something up in the chat, it's working on my locally hosted version but not the public one! gotta troubleshoot, please be patient %E%:')%
-			</p>
-		`
-	},
-	{
 		date: new Date('2026-03-16T03:43'),
 		authors: ['emery'],
 		tags: ['chat'],
