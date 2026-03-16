@@ -74,7 +74,7 @@ while (mysqli_stmt_fetch($sql)) { $oldest_message = $oldest_message_id; }
 
 // only loads messages with id newer than $_GET['from']
 // if $_GET['from'] not set, loads any messages
-$from = isset($_GET['from']) ? $_GET['from'] : 0;
+$from = isset($_GET['from']) ? $_GET['from'] : $oldest_message - 1;
 // if $_GET['to'] parameter given, only loads messages older than $_GET['to']
 $sql_to = isset($_GET['to']) ? " AND id < ".$_GET['to'] : "";
 // statement to get messages
