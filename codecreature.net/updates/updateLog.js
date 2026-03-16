@@ -14,6 +14,77 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-16T03:52'),
+		authors: ['emery'],
+		tags: ['chat','worm race','bug'],
+		summary: `
+			chat down temporarily
+		`,
+		details: `
+			<p>
+				messed something up in the chat, it's working on my locally hosted version but not the public one! gotta troubleshoot, please be patient %E%:')%
+			</p>
+		`
+	},
+	{
+		date: new Date('2026-03-16T03:43'),
+		authors: ['emery'],
+		tags: ['chat'],
+		summary: `
+			more message history, chat rules
+		`,
+		details: `
+			<p>
+				chats now include a "load older messages" button so you can view more than 50 messages back!
+			</p>
+			<p>
+				%A%I've\\i've% also added a <a href="/chat/rules">rules page</a> as a general guideline for chatrooms. it's not that serious, just attempt to moderately behave yourselves. %%i% aim to be a benevolent god
+			</p>
+		`
+	},
+	{
+		date: new Date('2026-03-16T01:44'),
+		authors: ['emery'],
+		tags: ['users','minor'],
+		summary: `
+			assorted user system updates
+		`,
+		details: `
+			<p>
+				<ul>
+					<li>
+						usernames, icons, etc around the site pull from the user database based on a user's unique ID number
+					</li>
+					<li>
+						username length limited to 16 characters. the 25 character limit was making layouts a nightmare, sorry
+					</li>
+					<li>
+						password reset now displays error messages when something is incorrectly entered. still need to make it so it does this on the same page though
+					</li>
+				</ul>
+			</p>
+		`
+	},
+	{
+		date: new Date('2026-03-15T06:02'),
+		authors: ['emery'],
+		tags: ['worm race','games','minor'],
+		summary: `
+			minor worm race CSS edits
+		`,
+		details: `
+			<p>
+				arrow buttons to navigate between worm detail pages on mobile/narrow screen
+			</p>
+			<p>
+				worm fan leaderboard pages should also behave more appropriately with long usernames, and scores over 999 are rounded and condensed.
+			</p>
+		`
+	},
+	
+	
+	
+	{
 		date: new Date('2026-03-14T20:27'),
 		authors: ['emery'],
 		tags: ['chat','minor'],
@@ -22,13 +93,13 @@ const updateLog = [
 		`,
 		details: `
 			<p>
-				couple of <a href="/chat/bbcode#accessibility">bbcode accessibility</a> options added! it now works with the site-wide "proper english" feature, so you can add alt text to any regular text or text emoticons!
+				couple of <a href="/chat/bbcode#accessibility">bbcode accessibility</a> options added! it's integrated with the site-wide "proper english" feature, so you can add alt text to any regular text or text emoticons!
 			</p>
 			<p>
-				also fixed it so that you can use [u] underline tags again
+				also fixed it so that you can use [u] underline tags
 			</p>
 			<p>
-				need to make it so you can add alt text to bbcode images next
+				need to enable alt text for bbcode images next
 			</p>
 		`
 	},
