@@ -16,19 +16,49 @@ Date.prototype.isDstObserved = function () {
 	return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
 
-function loadChat(){
+let localDate = new Date();
+let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
+
+function getOldestLoadedMessage() {
+	let messages = document.getElementsByClassName('message');
+	let oldestMsg = 0;
+	if (messages.length > 0) oldestMsg = Number(messages[messages.length - 1].id.replaceAll('message-',''));
+	return oldestMsg;
+}
+function getLatestLoadedMessage() {
 	let messages = document.getElementsByClassName('message');
 	let latestMsg = 0;
-	if (messages.length > 0) latestMsg = messages[0].id.replaceAll('message-','');
-	
-	let localDate = new Date();
-	let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
+	if (messages.length > 0) latestMsg = Number(messages[0].id.replaceAll('message-',''));
+	return latestMsg;
+}
+
+function loadChat(){
+	let latestMsg = getLatestLoadedMessage();
 	
 	var content;
-	$.get("/chat/loader.php?from=" + latestMsg + "&timezone-offset=" + timezoneOffset, function(data){
+	$.get("/chat/loader.php?chat_table=" + chatTableName + "&from=" + latestMsg + "&timezone-offset=" + timezoneOffset, function(data){
 			content = data;
 			$('#messages').prepend(content);
+			updateLoadOlder();
 	});
 	
 	setTimeout(loadChat, 2000);
+}
+
+function loadOlderChat() {
+	document.getElementById('load-older').classList.add('hidden');
+	
+	let oldestMsg = getOldestLoadedMessage();
+	
+	$.get("/chat/loader.php?chat_table=" + chatTableName + "&to=" + oldestMsg + "&timezone-offset=" + timezoneOffset, function(data){
+			content = data;
+			$('#messages').append(content);
+			updateLoadOlder();
+	});
+	
+}
+function updateLoadOlder() {
+	if (oldestMessageId < getOldestLoadedMessage()) {
+		document.getElementById('load-older').classList.remove('hidden');
+	}
 }

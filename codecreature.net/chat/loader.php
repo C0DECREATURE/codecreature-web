@@ -5,8 +5,16 @@ session_start();
 $user_IP = $_SERVER['REMOTE_ADDR'];
 $user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : "0";
 
-// Include database connection file
+// Include chat database connection file
 require_once "connect.php";
+
+// include user database file (functions to access user info based on user id)
+// getIcon(), getUsername()
+require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
+
+/*************************************/
+/* SETTINGS */
+$load_limit = 25; // maximum number of messages to load at once
 
 
 /*************************************/
@@ -55,12 +63,16 @@ $bbcode->RemoveRule('columns');
 
 /*************************************/
 
-$sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC LIMIT 50;";
-$result = mysqli_query($chat_conn, $sql);
+$chat_table = $_GET['chat_table'];
 
-// include user database file (functions to access user info based on user id)
-// getIcon(), getUsername()
-require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
+// only loads messages with id newer than $_GET['from']
+// if $_GET['from'] not set, loads any messages
+$from = isset($_GET['from']) ? $_GET['from'] : "0";
+// if $_GET['to'] parameter given, only loads messages older than $_GET['to']
+$sql_to = isset($_GET['to']) ? " AND id < ".$_GET['to'] : "";
+// statement to get messages
+$sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$load_limit.";";
+$result = mysqli_query($chat_conn, $sql);
 
 while ($row = mysqli_fetch_array($result))
 	{

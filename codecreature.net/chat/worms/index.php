@@ -3,9 +3,11 @@
 // Initialize the session
 session_start();
 
-// Include database connection file
-require_once "../connect.php";
-	
+// Include chat database connection file
+require_once $_SERVER['DOCUMENT_ROOT']."/chat/connect.php";
+
+$chat_table = "worm_chat";
+
 $logged_in = false;
 $user_id = '0';
 $user_IP = $_SERVER['REMOTE_ADDR'];
@@ -34,8 +36,6 @@ if (isset($_POST['submit'])){
 		
 		date_default_timezone_set('America/New_York'); // EST
 		$date = time();
-		
-		$chat_table = $_POST['chat-table'];
 			
 		// Attempt insert query execution
 		$sql = "INSERT INTO $chat_table (user_id, username, IP_address, authorization, message, date) 
@@ -47,7 +47,6 @@ if (isset($_POST['submit'])){
 		}
 	}
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +83,20 @@ if (isset($_POST['submit'])){
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- chat code -->
+		<script>
+			<?php echo 'const chatTableName = "'.$chat_table.'";'; ?>
+			<?php
+				// get id of oldest message in database
+				$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$chat_table." ORDER BY date LIMIT 1;");
+				mysqli_stmt_execute($sql);
+				mysqli_stmt_bind_result($sql, $oldest_message);
+				while (mysqli_stmt_fetch($sql)) {
+					echo 'const oldestMessageId = '.$oldest_message.';';
+				}
+			?>
+		</script>
     <script src="/chat/liveChat.js"></script>
+		
 </head>
 <body>
 	<main class="chatbox">
@@ -103,12 +115,11 @@ if (isset($_POST['submit'])){
 				<span><a href="/chat/bbcode">BBCode Style Guide</a></span>
 			</div>
 		</header>
-		
 		<section class="messages" id="messages">
+			<button id="load-older" onclick="loadOlderChat();">load older messages</button>
 		</section>
 		
 		<form id="new-message" method="POST">
-			<input type="hidden" name="chat-table" value="worm_chat"></input>
 			<script>
 				let localDate = new Date();
 				document.getElementById('timezone-offset').value = localDate.getTimezoneOffset() * 60;
