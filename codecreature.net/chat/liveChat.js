@@ -21,7 +21,7 @@ let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
 
 function getOldestLoadedMessage() {
 	let messages = document.getElementsByClassName('message');
-	let oldestMsg = 0;
+	let oldestMsg = 1;
 	if (messages.length > 0) oldestMsg = Number(messages[messages.length - 1].id.replaceAll('message-',''));
 	return oldestMsg;
 }
@@ -60,5 +60,7 @@ function loadOlderChat() {
 function updateLoadOlder() {
 	if (oldestMessageId < getOldestLoadedMessage()) {
 		document.getElementById('load-older').classList.remove('hidden');
+	} else {
+		document.getElementById('load-older').classList.add('hidden');
 	}
 }

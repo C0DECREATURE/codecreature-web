@@ -110,11 +110,12 @@ if (isset($_POST['submit'])){
 			</button>
 			<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
 				<!--page settings go here-->
+				<span><a href="/chat/rules">Chatroom Rules</a></span>
 				<span><a href="/chat/bbcode">BBCode Style Guide</a></span>
 			</div>
 		</header>
 		<section class="messages" id="messages">
-			<button id="load-older" onclick="loadOlderChat();">load older messages</button>
+			<button id="load-older" class="hidden" onclick="loadOlderChat();">load older messages</button>
 		</section>
 		
 		<form id="new-message" method="POST">
