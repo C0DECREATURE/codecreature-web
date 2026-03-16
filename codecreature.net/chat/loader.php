@@ -74,36 +74,38 @@ $sql_to = isset($_GET['to']) ? " AND id < ".$_GET['to'] : "";
 $sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$load_limit.";";
 $result = mysqli_query($chat_conn, $sql);
 
-while ($row = mysqli_fetch_array($result))
-	{
-	?>
-<div class="message <?php echo (
-			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
-			|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
-		) ? 'self' : ''; ?> <?php echo $row['authorization'];
-	?>"
-	id="message-<?php echo $row['id']; ?>">
-	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
-	
-	<div class="bubble">
-		<header>
-			<span class="username"><?php echo getUsername($row['user_id']); ?></span>
-			<span class="date">
-				<?php echo date('y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
-			</span>
-		</header>
-		<div class="content"><?php
-			echo $bbcode->Parse($row['message']);
-		?></div>
+if ($result = mysqli_query($chat_conn, $sql)) {
+	while ($row = mysqli_fetch_array($result))
+		{
+		?>
+	<div class="message <?php echo (
+				($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
+				|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
+			) ? 'self' : ''; ?> <?php echo $row['authorization'];
+		?>"
+		id="message-<?php echo $row['id']; ?>">
+		<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
+		
+		<div class="bubble">
+			<header>
+				<span class="username"><?php echo getUsername($row['user_id']); ?></span>
+				<span class="date">
+					<?php echo date('y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
+				</span>
+			</header>
+			<div class="content"><?php
+				echo $bbcode->Parse($row['message']);
+			?></div>
+		</div>
 	</div>
-</div>
-<script>
-	// assign text and alt text for all typing quirk elements in the message that was just loaded
-	(()=>{
-		<?php echo "let tqParentElement = document.getElementById('message-".$row['id']."');"; ?>
-		tqAlts(tqParentElement);
-	})();
-</script>
-	<?php
-	}
+	<script>
+		// assign text and alt text for all typing quirk elements in the message that was just loaded
+		(()=>{
+			<?php echo "let tqParentElement = document.getElementById('message-".$row['id']."');"; ?>
+			tqAlts(tqParentElement);
+		})();
+	</script>
+		<?php
+		}
+}
 ?>
