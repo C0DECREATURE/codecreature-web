@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-16T15:05'),
+		authors: ['emery'],
+		tags: ['general'],
+		summary: `
+			fancier hosting, less downtime!
+		`,
+		details: `
+			<p>
+				we've moved to a hosting plan (<a href="https://heliohost.org">heliohost</a>'s morty server) that should have near-zero downtime. no more 502 bad gateway errors (hopefully!!)
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-03-16T03:43'),
 		authors: ['emery'],
 		tags: ['chat'],
