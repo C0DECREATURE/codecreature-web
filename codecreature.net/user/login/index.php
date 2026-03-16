@@ -1,11 +1,16 @@
 <?php
 // Initialize the session
-session_start();
+if(!isset($_SESSION)){session_start();}
+
+// get path to redirect to after login
+// if redirect URL parameter set, use that
+$redirect_path = "/user/details";
+if (isset($_GET['redirect']) && !empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
  
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 		echo "logged in";
-    header("location: ../details");
+    header("location: ".$redirect_path);
     exit;
 }
  
@@ -146,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 														}
 														
                             // Redirect user to welcome page
-                            header("location: ../details".$welcome);
+                            header("location: ".$redirect_path.$welcome); // DEBUG not working??
                         } else{
 														// log the failed login attempt
 														// Prepare an insert statement
@@ -228,7 +233,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<body>
 		<div class="wrapper">
 			<h1>Login</h1>
-			<p>Please fill in your credentials to login.</p>
 			
 			<?php 
 			if(!empty($login_err)){
