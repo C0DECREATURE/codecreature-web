@@ -14,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
 
 /*************************************/
 /* SETTINGS */
-$load_limit = 25; // maximum number of messages to load at once
+$load_limit = 50; // maximum number of messages to load at once
 
 
 /*************************************/
