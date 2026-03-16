@@ -20,6 +20,23 @@ function getUsername($id) {
 	}
 }
 
+function getAuthorization($id) {
+	global $users_conn;
+	$sql = "SELECT authorization FROM users WHERE id = ".$id;
+	// Execute the SQL query
+	$result = $users_conn->query($sql);
+
+	// Process the result set
+	if ($result->num_rows > 0) {
+		// Output data of each row
+		while($row = $result->fetch_assoc()) {
+			return $row["authorization"];
+		}
+	} else {
+		echo "user";
+	}
+}
+
 function getIcon($id) {
 	global $users_conn;
 	
