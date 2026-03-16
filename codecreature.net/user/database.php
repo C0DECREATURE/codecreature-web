@@ -1,7 +1,7 @@
 <?php
 
-// Include database connection file
-require_once "connect.php";
+// Include user database connection file
+require_once $_SERVER['DOCUMENT_ROOT']."/user/connect.php";
 
 function getUsername($id) {
 	global $users_conn;
