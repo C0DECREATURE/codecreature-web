@@ -66,9 +66,8 @@ while ($row = mysqli_fetch_array($result))
 	?>
 <div class="message <?php echo (
 			($username == "Anonymous" && $row['username'] == "Anonymous" && $row['IP_address'] == $user_IP)
-			|| ($username != "Anonymous" && $row['username'] == $username)
+			|| ($username != "Anonymous" && $row['user_id'] == $_SESSION["id"])
 		) ? 'self' : ''; ?> <?php echo $row['authorization'];
-	// DEBUG: not working for anon messages, also want it to be based on user ID rather than username
 	?>"
 	id="message-<?php echo $row['id']; ?>">
 	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
