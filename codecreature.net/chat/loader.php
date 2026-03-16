@@ -3,7 +3,7 @@
 session_start();
 
 $user_IP = $_SERVER['REMOTE_ADDR'];
-$username = isset($_SESSION["username"]) ? $_SESSION["username"] : "Anonymous";
+$user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : "0";
 
 // Include database connection file
 require_once "connect.php";
@@ -58,15 +58,16 @@ $bbcode->RemoveRule('columns');
 $sql = "SELECT * FROM worm_chat WHERE id > ". $_GET['from'] ." ORDER BY id DESC LIMIT 50;";
 $result = mysqli_query($chat_conn, $sql);
 
-// include function getIcon($id) to get icon path for given user id
+// include user database file (functions to access user info based on user id)
+// getIcon(), getUsername()
 require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
 
 while ($row = mysqli_fetch_array($result))
 	{
 	?>
 <div class="message <?php echo (
-			($username == "Anonymous" && $row['username'] == "Anonymous" && $row['IP_address'] == $user_IP)
-			|| ($username != "Anonymous" && $row['user_id'] == $_SESSION["id"])
+			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
+			|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
 		) ? 'self' : ''; ?> <?php echo $row['authorization'];
 	?>"
 	id="message-<?php echo $row['id']; ?>">
@@ -74,9 +75,9 @@ while ($row = mysqli_fetch_array($result))
 	
 	<div class="bubble">
 		<header>
-			<span class="username"><?php echo $row['username']; ?></span>
+			<span class="username"><?php echo getUsername($row['user_id']); ?></span>
 			<span class="date">
-				<?php echo date('Y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
+				<?php echo date('y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
 			</span>
 		</header>
 		<div class="content"><?php
