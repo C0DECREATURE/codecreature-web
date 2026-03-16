@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-16T17:43'),
+		authors: ['emery'],
+		tags: ['chat','new page'],
+		summary: `
+			<a href="/chat">chat hub</a> page
+		`,
+		details: `
+			<p>
+				made a simple navigation/hub page for chatrooms so they're accessible from a central location!
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-03-16T15:05'),
 		authors: ['emery'],
 		tags: ['general'],

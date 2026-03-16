@@ -1,0 +1,36 @@
+.chatbox > header {
+	justify-content: space-between;
+}
+
+.messages {
+	flex-direction: column;
+	gap: .5em;
+	align-items: center;
+}
+
+h1, h2 {
+	font-family: "Super Comic", sans-serif;
+	color: var(--d-blue);
+	margin: 0;
+}
+h1 { font-size: min(2.5rem, 11vw); }
+h2 { font-size: min(2rem, 10vw); }
+
+a.child-page {
+	color: inherit;
+	font-weight: bold;
+	font-size: 1.15em;
+	border: 4px var(--bubble-bg) solid;
+}
+a.child-page:hover {
+	color: var(--d-green);
+	background: var(--l-green);
+	border-color: var(--green);
+}
+a.child-page:active {
+	transform: translate(4px, 6px);
+	box-shadow: none;
+}
+.child-page:nth-of-type(odd) {
+	border-radius: 1rem 1rem 0 1rem;
+}
