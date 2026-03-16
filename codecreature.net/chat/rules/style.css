@@ -1,0 +1,24 @@
+body, body.chatbox { font-family: "Yet R", serif; background: var(--white); }
+
+.chatbox > header {
+	justify-content: space-between;
+}
+
+.page-content {
+	padding: 1rem 1.25rem;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	overflow-y: scroll;
+}
+
+h1, h2, h3 {
+	font-family: "Super Comic", sans-serif;
+	color: var(--dd-blue);
+}
+
+h1 { margin: .15em 0; }
+
+h4, li:has(h4:first-child)::marker {
+	color: var(--d-blue);
+	font-size: 1.1em;
+	margin-bottom: 0;
+}
