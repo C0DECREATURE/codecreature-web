@@ -1,7 +1,7 @@
 <?php
 
 // Initialize the session
-session_start();
+if(!isset($_SESSION)){session_start();}
  
 // Check if the user is logged in, if not then redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -158,12 +158,23 @@ require_once "../icon-update.php";
 					<div class="content-wrapper">
 						<!--reset password form-->
 						<section id="reset-password">
-							<form name="reset-password" action="../password-reset.php" method="post"> 
+							<form name="reset-password" action="../password-reset.php" method="POST">
+								<input type="hidden" name="form" value="reset-password"></input>
+								<div class="form-group">
+									<label for="old_password">current password: </label>
+									<input
+										type="password"
+										id="old_password" name="password"
+										required
+										class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+									<span class="invalid-feedback"><?php echo $password_err; ?></span>
+								</div>
 								<div class="form-group">
 									<label for="new_password">new password: </label>
 									<input
 										type="password"
 										id="new_password" name="new_password"
+										required
 										minlength="<?php echo $password_length; ?>"
 										class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>"
 										value="<?php echo $new_password; ?>">
@@ -174,6 +185,7 @@ require_once "../icon-update.php";
 									<input
 										type="password"
 										id="confirm_password" name="confirm_password"
+										required
 										minlength="<?php echo $password_length; ?>"
 										class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
 									<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
@@ -182,7 +194,7 @@ require_once "../icon-update.php";
 									<input type="submit" class="btn btn-small" value="Update Password">
 								</div>
 							</form>
-						</section>  
+						</section>
 						<!--logout button-->
 						<a href="../logout.php" class="btn btn-danger">Log Out</a>
 					</div>
