@@ -40,18 +40,36 @@ function getUsername($id) {
 
 function getAuthorization($id) {
 	global $users_conn;
-	$sql = "SELECT authorization FROM users WHERE id = ".$id;
-	// Execute the SQL query
-	$result = $users_conn->query($sql);
-
-	// Process the result set
-	if ($result->num_rows > 0) {
-		// Output data of each row
-		while($row = $result->fetch_assoc()) {
-			return $row["authorization"];
-		}
+	
+	if (gettype($id) == "string") { $id = intval($id); }
+	
+	if ($id == 0 || empty($id)) {
+		return "user";
 	} else {
-		echo "user";
+		// prepared statement to get icon for user
+		$sql = "SELECT authorization FROM users WHERE id = ?";
+		
+		if($stmt = mysqli_prepare($users_conn, $sql)){
+			// Bind variables to the prepared statement as parameters
+			mysqli_stmt_bind_param($stmt, "i", $param_id);
+			$param_id = $id;
+			
+			// Attempt to execute the prepared statement
+			if(mysqli_stmt_execute($stmt)){
+				// bind result variables
+				mysqli_stmt_bind_result($stmt, $auth);
+				// fetch values
+				while (mysqli_stmt_fetch($stmt)) {
+					if (empty($auth)) { $auth = "user"; }
+					return $auth;
+				}
+			} else{
+				echo "Could not retrieve user authorization.";
+			}
+			
+			// Close statement
+			mysqli_stmt_close($stmt);
+		}
 	}
 }
 
