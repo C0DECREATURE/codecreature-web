@@ -36,8 +36,8 @@ if (isset($_POST['submit'])){
 		$date = time();
 			
 		// Attempt insert query execution
-		$sql = "INSERT INTO $chat_table (user_id, username, IP_address, authorization, message, date) 
-								VALUES ('$user_id', '$username', '$user_IP', '$user_authorization', '$message', '$date')";
+		$sql = "INSERT INTO $chat_table (user_id, IP_address, authorization, message, date) 
+								VALUES ('$user_id', '$user_IP', '$user_authorization', '$message', '$date')";
 		if (mysqli_query($chat_conn, $sql)) {
 			;
 		} else {
@@ -84,13 +84,13 @@ if (isset($_POST['submit'])){
 		<script>
 			<?php echo 'const chatTableName = "'.$chat_table.'";'; ?>
 			<?php
+				$oldest_message = 1;
 				// get id of oldest message in database
 				$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$chat_table." ORDER BY date LIMIT 1;");
 				mysqli_stmt_execute($sql);
-				mysqli_stmt_bind_result($sql, $oldest_message);
-				while (mysqli_stmt_fetch($sql)) {
-					echo 'const oldestMessageId = '.$oldest_message.';';
-				}
+				mysqli_stmt_bind_result($sql, $oldest_message_id);
+				while (mysqli_stmt_fetch($sql)) { $oldest_message = $oldest_message_id; }
+				echo 'const oldestMessageId = '.$oldest_message.';';
 			?>
 		</script>
     <script src="/chat/liveChat.js"></script>
