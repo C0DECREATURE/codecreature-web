@@ -16,8 +16,9 @@ body, html {
 	--username: var(--d-blue);
 	--mod: var(--pink);
 	--mod-border: var(--l-pink);
-	--admin: var(--orange);
+	--admin: var(--d-orange);
 	--admin-border: var(--yellow);
+	--pronouns: var(--blue);
 	--input-box-bg: var(--yellow);
 	--input-box-focus: var(--l-green);
 	--input-box-text: var(--d-blue);
@@ -46,6 +47,7 @@ body, html {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	align-items: center;
 	gap: .6rem;
 	
 	a, a:link, a:visited, button {
@@ -128,8 +130,8 @@ button.open-page-settings {
 	width: 100%;
 	line-height: 1;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	gap: .3em;
 	@media screen and (width < 450px) {
 		flex-direction: column;
 		align-items: flex-start;
@@ -152,7 +154,23 @@ button.open-page-settings {
 .message.moderator .username { color: var(--mod); }
 .message.moderator { border: 4px var(--mod-border) solid; }
 
+.message .username {
+	font-weight: bold;
+	font-size: 1.25em;
+	color: var(--username);
+}
+
+.message .pronouns {
+	font-size: .9em;
+	color: var(--pronouns);
+	opacity: 0.75;
+	line-height: 1.15em;
+	margin-top:.15em;
+}
+
 .message .date {
+	flex-grow: 1;
+	text-align: right;
 	font-style: italic;
 	opacity: 0.75;
 }

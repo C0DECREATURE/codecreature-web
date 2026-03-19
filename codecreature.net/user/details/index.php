@@ -13,6 +13,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 require_once "../password-functions.php";
 // Include icon update functions file
 require_once "../icon-update.php";
+// Include pronouns update functions file
+require_once "../pronouns-update.php";
 
 ?>
  
@@ -80,11 +82,17 @@ require_once "../icon-update.php";
 					<div class="content-wrapper">
 						<img class="user-icon" src="/user/icons/<?php echo $_SESSION['user_icon']; ?>.png" alt="">
 						<div class="info">
-							<div>
+							<div class="username">
 								username:
 								<span class="value"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
 							</div>
-							<div>
+							<div class="pronouns">
+								pronouns:
+								<span class="value"><?php
+									echo !empty(htmlspecialchars($_SESSION["user_pronouns"])) ? htmlspecialchars($_SESSION["user_pronouns"]) : "unspecified";
+								?></span>
+							</div>
+							<div class="authorization">
 								authorization level:
 								<span class="value <?php echo htmlspecialchars($_SESSION["user_authorization"]); ?>"><?php echo htmlspecialchars($_SESSION["user_authorization"]); ?></span>
 							</div>
@@ -142,12 +150,20 @@ require_once "../icon-update.php";
 							<!--end of icon inputs-->
 							<input type="submit" class="btn btn-green" value="update">
 						</form>
-						<script>
-							 (function () {
-								 let icon = '<?php echo $_SESSION['user_icon']; ?>';
-								 console.log(icon);
-							 })();
-						</script>
+					</div>
+				</section>
+				
+				<section class="settings-block" id="pronouns">
+					<header><h2>update display info</h2></header>
+					<div class="content-wrapper">
+						<!-- user pronouns -->
+						<form name="pronouns" action="../pronouns-update.php" method="post">
+							<div>
+								pronouns:
+								<input type="text" name="pronouns" maxlength="<?php echo $pronouns_length; ?>"></input>
+							</div>
+							<input type="submit" class="btn btn-green" value="update">
+						</form>
 					</div>
 				</section>
 				

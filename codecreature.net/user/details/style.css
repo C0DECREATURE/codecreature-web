@@ -29,9 +29,10 @@ main {
 }
 #details .value {
 	font-weight: bold;
-	color: var(--green);
+	color: var(--l-blue);
 }
-#details .value.admin { color: var(--orange); }
+#details .username .value { color: var(--green); }
+#details .value .admin { color: var(--orange); }
 #details .user-icon {
 	width: min(100%,max(50px,min(100px, 30%)));
 }

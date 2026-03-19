@@ -13,6 +13,31 @@ const updateLog = [
 		`
 	},
 */
+	/*{
+		date: new Date(''),
+		authors: ['emery','prax'],
+		tags: ['games','worm race'],
+		summary: `
+			worm race race seasons are here!
+		`,
+		details: `
+			<p>worm race now has <strong>seasons</strong> in addition to the all-time race!!!!</p>
+			<p>this has been the goal for an extremely long time and i'm really hyped to have it working. %%i% think this should make the whole experience more rewarding!</p>
+			<p>the seasons are spring, summer, fall, and winter. each is 3 months long. the current worm race beta season will run until the end of %A%May\\may%, after which it will start the standard season cycle with summer 2026!</p>
+			<p>top users for each season will also be registered %E%:33%</p>
+		`
+	},*/
+	{
+		date: new Date('2026-03-19T04:30'),
+		authors: ['emery'],
+		tags: ['chat','users','minor'],
+		summary: `
+			user pronouns
+		`,
+		details: `
+			<p>users can now set their pronouns for the <a href="/chat">chats</a>!<p>16 character limit but otherwise freestyling it.</p>
+		`
+	},
 	{
 		date: new Date('2026-03-16T17:43'),
 		authors: ['emery'],

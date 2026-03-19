@@ -95,6 +95,10 @@ while ($row = mysqli_fetch_array($result))
 	<div class="bubble">
 		<header>
 			<span class="username"><?php echo getUsername($row['user_id']); ?></span>
+			<span class="pronouns" title="pronouns"><?php
+				$pronouns = getPronouns($row['user_id']);
+				echo !empty($pronouns) ? "(".$pronouns.")" : "";
+			?></span>
 			<span class="date">
 				<?php echo date('y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
 			</span>
