@@ -94,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err) && empty($login_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password, authorization, nickname, pronouns, icon, last_login FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password, authorization, pronouns, icon, last_login FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($users_conn, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -111,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $authorization, $nickname, $pronouns, $icon, $last_login);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $authorization, $pronouns, $icon, $last_login);
                     if(mysqli_stmt_fetch($stmt)){
 												// get the current time in sql DATETIME format
 												$current_date = date('Y-m-d H:i:s');
@@ -124,11 +124,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
-                            $_SESSION["user_authorization"] = $authorization;                            
-                            $_SESSION["user_nickname"] = $nickname;                            
-                            $_SESSION["user_pronouns"] = $pronouns;                            
-                            $_SESSION["user_icon"] = $icon;                            
+                            $_SESSION["username"] = $username;
+                            $_SESSION["user_authorization"] = $authorization;                         
+                            $_SESSION["user_pronouns"] = $pronouns;
+                            $_SESSION["user_icon"] = $icon;
                             
 														// check if this is the user's first login
 														$welcome = $last_login == NULL ? '?welcome=true' : '';
