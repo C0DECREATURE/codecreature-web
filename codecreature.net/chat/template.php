@@ -10,15 +10,13 @@ $logged_in = false;
 $user_id = '0';
 $user_IP = $_SERVER['REMOTE_ADDR'];
 $username = "Anonymous";
-$user_authorization = "user";
 $user_icon = "";
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	$logged_in = true;
 	$user_id = $_SESSION["id"];
-	$username = $_SESSION["username"];                    
-	$user_authorization = $_SESSION["user_authorization"];                            
-	$user_icon = $_SESSION["user_icon"];   
+	$username = $_SESSION["username"];                       
+	$user_icon = $_SESSION["user_icon"];
 }
 
 if (isset($_POST['submit'])){
@@ -36,8 +34,8 @@ if (isset($_POST['submit'])){
 		$date = time();
 			
 		// Attempt insert query execution
-		$sql = "INSERT INTO $chat_table (user_id, IP_address, authorization, message, date) 
-								VALUES ('$user_id', '$user_IP', '$user_authorization', '$message', '$date')";
+		$sql = "INSERT INTO $chat_table (user_id, IP_address, message, date) 
+								VALUES ('$user_id', '$user_IP', '$message', '$date')";
 		if (mysqli_query($chat_conn, $sql)) {
 			;
 		} else {
