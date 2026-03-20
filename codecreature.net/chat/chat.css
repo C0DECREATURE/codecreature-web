@@ -15,7 +15,7 @@ body, html {
 	--bubble-text: var(--blue);
 	--username: var(--d-blue);
 	--mod: var(--pink);
-	--mod-border: var(--l-pink);
+	--mod-border: var(--ll-pink);
 	--admin: var(--d-orange);
 	--admin-border: var(--yellow);
 	--pronouns: var(--blue);
