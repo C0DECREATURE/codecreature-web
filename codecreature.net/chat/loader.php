@@ -87,7 +87,7 @@ while ($row = mysqli_fetch_array($result))
 <div class="message <?php echo (
 			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
 			|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
-		) ? 'self' : ''; ?> <?php echo $row['authorization'];
+		) ? 'self' : ''; ?> <?php echo getAuthorization($row['user_id']);
 	?>"
 	id="message-<?php echo $row['id']; ?>">
 	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
