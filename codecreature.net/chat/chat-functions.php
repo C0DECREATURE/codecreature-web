@@ -27,14 +27,16 @@ function isValidChatTable($table_name) {
 
 // check for errors in current user attempting to modify a message
 // make sure message exists, no duplicate message id, user has permission to modify
-function getMessageModifyErr($message_id) {
+function getMessageModifyErr($message_id, $table_name) {
 	global $chat_conn; global $user_id; global $user_auth; global $logged_in;
 	
-	$error_text = "Something went wrong. Please try again later.";
+	$error_text = "";
 	
 	// if the current user is logged out, no modify permissions
 	if (!$logged_in) {
 		$error_text = "Logged out users can't modify messages, sorry!";
+	} else if (!isValidChatTable($table_name)) {
+		$error_text = 'Invalid chatroom "'.$table_name.'"';
 	// if the current user is logged in
 	} else {
 		$sql = "SELECT user_id FROM $table_name WHERE id = ?";

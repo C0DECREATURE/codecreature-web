@@ -16,10 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$error_text = "Missing chat database table name.";
 	} else $table_name = trim($_REQUEST['chat-table']);
 	
-	// if still no errors...
-	// make sure chat table name is valid
-	if (empty($error_text) && !isValidChatTable($table_name)) $error_text = 'Invalid chat database table "'.$table_name.'"';
-	
 	// check for message id
 	if (!isset($_REQUEST['message-id']) || empty(trim($_REQUEST['message-id']))) {
 		$error_text = "Missing message ID.";
@@ -27,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	// if still no errors...
 	// make sure message exists and current user allowed to modify
-	if (empty($error_text)) $error_text = getMessageModifyErr($message_id);
+	if (empty($error_text)) $error_text = getMessageModifyErr($message_id, $table_name);
 	
 	// if still no errors...
 	// delete the message
