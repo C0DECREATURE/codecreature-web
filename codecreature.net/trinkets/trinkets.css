@@ -1,3 +1,8 @@
+:root {
+	--page-width: 1920px;
+	--page-height: 1800px;
+}
+
 body, html {
 	width: 100%; height: 100%;
 	margin: 0;
@@ -77,15 +82,13 @@ main {
 }
 
 .corner {
-	--width: 1920px;
-	--height: 1700px;
 	position: absolute;
 	z-index: 999;
 }
 #top-left-marker { top: 0px; left: 0px; }
-#top-right-marker { top: 0px; left: var(--width); rotate: 90deg }
-#bottom-right-marker { top: var(--height); left: var(--width); rotate: 180deg }
-#bottom-left-marker { top: var(--height); left: 0px; rotate: -90deg }
+#top-right-marker { top: 0px; left: var(--page-width); rotate: 90deg }
+#bottom-right-marker { top: var(--page-height); left: var(--page-width); rotate: 180deg }
+#bottom-left-marker { top: var(--page-height); left: 0px; rotate: -90deg }
 
 .stamp {
 	filter: drop-shadow(1px 1px 2px #21120c77);
@@ -103,8 +106,8 @@ main {
 		/*Set the size of the magnifier glass:*/
 		width: 200px;
 		aspect-ratio: 1;
-		left: -50px;
-		top: 470px;
+		left: -57px;
+		top: 453px;
 		img {
 			cursor: initial;
 			rotate: 35deg;
@@ -133,6 +136,7 @@ main:after {
 }
 
 /* window background image */
+.wrapper:has(> .window) { position: absolute; }
 .window {
 	position: relative;
 	pointer-events: none;
@@ -161,6 +165,9 @@ main:after {
 .window.window-70:before { width: 70%; height: 70%; top: 15%; left: 15%; }
 .window.window-60:before { width: 60%; height: 60%; top: 20%; left: 20%; }
 .window.window-50:before { width: 50%; height: 50%; top: 25%; left: 25%; }
+.window.window-40:before { width: 40%; height: 40%; top: 30%; left: 30%; }
+.window.window-30:before { width: 30%; height: 30%; top: 35%; left: 35%; }
+.window.window-20:before { width: 20%; height: 20%; top: 40%; left: 40%; }
 .window.window-round:before { border-radius: 50%; }
 
 #medieval-frame-rotate { transition: transform 1s; }
@@ -186,7 +193,6 @@ main img, nav a, nav button {
 
 .pot {
 	position: absolute;
-	z-index: 1;
 	width: fit-content;
 	.front { border-radius: 46%; width: 80%; left: 12%; }
 	.front img { left: -15%; }
@@ -227,7 +233,7 @@ button:active .hover-hide, button:focus-visible .hover-hide, button:focus .hover
 
 .book { z-index: 1; }
 
-.spoons { position: absolute; }
+.spoons { position: absolute; z-index: 2; }
 .spoons * {
 	top: 0;
 	left: 0;

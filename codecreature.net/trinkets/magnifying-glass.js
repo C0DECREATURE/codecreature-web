@@ -21,6 +21,16 @@ function magnify(imgID, zoom) {
   bw = 3;
   w = glass.offsetWidth / 2;
   h = glass.offsetHeight / 2;
+	
+	// set initial background position
+	(()=>{
+		let computedStyle = window.getComputedStyle(glass);
+		let left = Number(computedStyle.getPropertyValue("left").replaceAll("px",""));
+		left = (-1 * left * zoom) - w - 53;
+		let top = Number(computedStyle.getPropertyValue("top").replaceAll("px",""));
+		top = (-1 * top * zoom) - h - 53;
+		glass.style.backgroundPosition = left + "px " + top + "px";
+	})();
 
   /* Execute a function when someone moves the magnifier glass over the image: */
   glass.addEventListener("mousemove", moveMagnifier);
