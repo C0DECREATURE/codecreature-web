@@ -26,9 +26,9 @@ function magnify(imgID, zoom) {
 	(()=>{
 		let computedStyle = window.getComputedStyle(glass);
 		let left = Number(computedStyle.getPropertyValue("left").replaceAll("px",""));
-		left = (-1 * left * zoom) - w - 53;
+		left = (-1 * left * zoom) - w - bw;
 		let top = Number(computedStyle.getPropertyValue("top").replaceAll("px",""));
-		top = (-1 * top * zoom) - h - 53;
+		top = (-1 * top * zoom) - h - bw;
 		glass.style.backgroundPosition = left + "px " + top + "px";
 	})();
 
