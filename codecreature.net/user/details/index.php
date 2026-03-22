@@ -73,7 +73,7 @@ require_once "../pronouns-update.php";
 				})();
 			</script>
 			
-			<p>user features have not been integrated anywhere else in the site yet! come back later</p>
+			<p>user features are currently integrated into the <a href="/games/worm-race">worm games</a> and <a href="/chat">chat rooms</a>!</p>
 			
 			<section id="user-settings">
 				
