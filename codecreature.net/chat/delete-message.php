@@ -7,8 +7,6 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/chat-functions.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$response = [];
-	
 	$error_text = $message_id = $table_name = "";
 	
 	// check for chat table name
