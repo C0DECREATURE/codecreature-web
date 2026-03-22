@@ -1,10 +1,12 @@
 <?php
 
-// Initialize the session
-session_start();
+// Initialize the session if not already started
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
 
 // Include chat database connection file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/connect.php";
+// Include user database functions
+require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
 $logged_in = false;
 $user_id = '0';
@@ -81,6 +83,7 @@ if (isset($_POST['submit'])){
     <!-- chat code -->
 		<script>
 			<?php echo 'const chatTableName = "'.$chat_table.'";'; ?>
+			<?php echo 'const userAuth = "'. getAuthorization($user_id) .'";'; ?>
 			<?php
 				$oldest_message = 1;
 				// get id of oldest message in database
@@ -92,7 +95,7 @@ if (isset($_POST['submit'])){
 			?>
 		</script>
     <script src="/chat/liveChat.js"></script>
-		
+    <script src="/chat/messageFunctions.js"></script>
 </head>
 <body>
 	<main class="chatbox">
@@ -114,6 +117,13 @@ if (isset($_POST['submit'])){
 		</header>
 		<section class="messages" id="messages">
 			<button id="load-older" class="hidden" onclick="loadOlderChat();">load older messages</button>
+			
+			<div id="right-click-menu" class="right-click-menu hidden">
+				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
+				<button id="right-click-edit">Edit</button>
+				<button id="right-click-delete" onclick="deleteMessage(this.parentNode.dataset.messageId);">Delete</button>
+			</div>
+			<script>document.addEventListener("click",hideRightClickMenus);</script>
 		</section>
 		
 		<form id="new-message" method="POST">

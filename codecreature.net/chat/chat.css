@@ -93,6 +93,25 @@ button.open-page-settings {
 	text-align: right;
 }
 
+.right-click-menu {
+	position: absolute;
+	background: var(--bubble-bg);
+	display: flex; flex-direction: column;
+	align-items: flex-start;
+	gap: .3em;
+	padding: .5em .75em;
+	margin-top: 10px;
+	margin-left: 5px;
+	box-shadow: 4px 6px var(--blue);
+	border-radius: 0 1rem 1rem 1rem;
+	border: 3px var(--blue) solid;
+	button:hover { color: var(--d-blue); }
+}
+.customCursor .right-click-menu {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
 .messages {
 	display: flex;
 	flex-flow: column-reverse nowrap;

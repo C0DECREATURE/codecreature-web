@@ -83,11 +83,12 @@ $result = mysqli_query($chat_conn, $sql);
 
 while ($row = mysqli_fetch_array($result))
 	{
-	?>
-<div class="message <?php echo (
+		$own_message = (
 			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
 			|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
-		) ? 'self' : ''; ?> <?php echo getAuthorization($row['user_id']);
+		) ? true : false;
+	?>
+<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo getAuthorization($row['user_id']);
 	?>"
 	id="message-<?php echo $row['id']; ?>">
 	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
@@ -109,10 +110,17 @@ while ($row = mysqli_fetch_array($result))
 	</div>
 </div>
 <script>
-	// assign text and alt text for all typing quirk elements in the message that was just loaded
 	(()=>{
-		<?php echo "let tqParentElement = document.getElementById('message-".$row['id']."');"; ?>
-		tqAlts(tqParentElement);
+		<?php echo "let message = document.getElementById('message-".$row['id']."');"; ?>
+		// assign text and alt text for all typing quirk elements in the message that was just loaded
+		tqAlts(message);
+		// open special message right click menu on right clicking message
+		message.addEventListener("contextmenu",(e)=>{
+			<?php
+				$own_message_txt = $own_message ? 'true' : 'false';
+				echo "messageRightClick(e, ".$row['id'].", ". $own_message_txt .");";
+			?>
+		});
 	})();
 </script>
 	<?php
