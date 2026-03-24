@@ -7,122 +7,43 @@ $user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : "0";
 
 // Include chat database connection file
 require_once "connect.php";
+// Include chat functions file
+require_once $_SERVER['DOCUMENT_ROOT']."/chat/chat-functions.php";
 
 // include user database file (functions to access user info based on user id)
 // getIcon(), getUsername()
 require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
 
+// Include chat bbcode settings file
+require_once "bbcode.php";
+
 /*************************************/
 /* SETTINGS */
 $load_limit = 50; // maximum number of messages to load at once
 
-
-/*************************************/
-/* BBCODE PARSER */
-require_once $_SERVER['DOCUMENT_ROOT'].'/codefiles/nbbc-3.0.0/Loader.php';
-use Nbbc\BBCode;
-$bbcode = new BBCode;
-
-// set the directory to find smileys
-$bbcode->ClearSmileys();
-$bbcode->SetSmileyDir("/graphix/emojis"); /* DEBUG it's looking for them locally still..?? */
-$bbcode->AddSmiley(":heart:","heart.png");
-$bbcode->AddSmiley(":brokenheart:","broken_heart.png");
-$bbcode->AddSmiley(":right:","arrow_right.png");
-$bbcode->AddSmiley(":left:","arrow_left.png");
-$bbcode->AddSmiley(":up:","arrow_up.png");
-$bbcode->AddSmiley(":down:","arrow_down.png");
-
-// automatically detect and style links
-$bbcode->SetDetectURLs(true);
-$bbcode->SetURLPattern('<a href="/url?redirect={$url/h}">{$text/h}</a>');
-
-// remove default rules I don't want included in chat messages
-$bbcode->AddRule('alt',[
-		'mode' => BBCode::BBCODE_MODE_ENHANCED,
-		'template' => '<span class="tq" data-a="{$_default}">{$_content}</span>',
-		'class' => 'inline',
-		'content' => 'BBCODE_REQUIRED',
-		'allow_in' => ['listitem', 'block', 'columns', 'inline', 'link']
-]);
-$bbcode->AddRule('e',[
-		'mode' => BBCode::BBCODE_MODE_ENHANCED,
-		'template' => '<span class="tq-e" data-a="{$_default}">{$_content}</span>',
-		'class' => 'inline',
-		'content' => 'BBCODE_REQUIRED',
-		'allow_in' => ['listitem', 'block', 'columns', 'inline', 'link']
-]);
-
-// remove default rules I don't want included in chat messages
-$bbcode->RemoveRule('acronym');
-$bbcode->RemoveRule('font');
-$bbcode->RemoveRule('code');
-$bbcode->RemoveRule('email');
-$bbcode->RemoveRule('wiki');
-$bbcode->RemoveRule('columns');
-
-/*************************************/
-
 $chat_table = $_GET['chat_table'];
+if (!isValidChatTable($chat_table)) throw new Exception('Invalid chatroom name "'.$chat_table.'"');
 
-$oldest_message = 1;
-// get id of oldest message in database
-$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$chat_table." ORDER BY date LIMIT 1;");
-mysqli_stmt_execute($sql);
-mysqli_stmt_bind_result($sql, $oldest_message_id);
-while (mysqli_stmt_fetch($sql)) { $oldest_message = $oldest_message_id; }
+// if a single message id was specified, only load that one
+if (isset($_GET['message_id'])) {
+	$message_id = intval($_GET['message_id']);
+	$message = getMessage($message_id,$chat_table);
+	include "load-message.php";
+// if no single message id was specified, load a range of messages
+} else {
+	// id of oldest message in the table
+	$oldest_message = getOldestMessageId($chat_table);
+	// only loads messages with id newer than $_GET['from']
+	// if $_GET['from'] not set, loads any messages
+	$from = isset($_GET['from']) ? $_GET['from'] : 0;
+	// if $_GET['to'] parameter given, only loads messages older than $_GET['to']
+	$sql_to = isset($_GET['to']) ? " AND id < ".$_GET['to'] : "";
+	// statement to get messages
+	$sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$load_limit.";";
+	$result = mysqli_query($chat_conn, $sql);
 
-// only loads messages with id newer than $_GET['from']
-// if $_GET['from'] not set, loads any messages
-$from = isset($_GET['from']) ? $_GET['from'] : 0;
-// if $_GET['to'] parameter given, only loads messages older than $_GET['to']
-$sql_to = isset($_GET['to']) ? " AND id < ".$_GET['to'] : "";
-// statement to get messages
-$sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$load_limit.";";
-$result = mysqli_query($chat_conn, $sql);
-
-while ($row = mysqli_fetch_array($result))
-	{
-		$own_message = (
-			($user_id == "0" && $row['user_id'] == "0" && $row['IP_address'] == $user_IP)
-			|| ($user_id != "0" && $row['user_id'] == $_SESSION["id"])
-		) ? true : false;
-	?>
-<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo getAuthorization($row['user_id']);
-	?>"
-	id="message-<?php echo $row['id']; ?>">
-	<img class="icon" src="<?php echo getIcon($row['user_id']); ?>" alt="">
-	
-	<div class="bubble">
-		<header>
-			<span class="username"><?php echo getUsername($row['user_id']); ?></span>
-			<span class="pronouns" title="pronouns"><?php
-				$pronouns = getPronouns($row['user_id']);
-				echo !empty($pronouns) ? "(".$pronouns.")" : "";
-			?></span>
-			<span class="date">
-				<?php echo date('y/m/d h:i', (int)$row['date'] - (int)$_GET['timezone-offset'] ); ?>
-			</span>
-		</header>
-		<div class="content"><?php
-			echo $bbcode->Parse($row['message']);
-		?></div>
-	</div>
-</div>
-<script>
-	(()=>{
-		<?php echo "let message = document.getElementById('message-".$row['id']."');"; ?>
-		// assign text and alt text for all typing quirk elements in the message that was just loaded
-		tqAlts(message);
-		// open special message right click menu on right clicking message
-		message.addEventListener("contextmenu",(e)=>{
-			<?php
-				$own_message_txt = $own_message ? 'true' : 'false';
-				echo "messageRightClick(e, ".$row['id'].", ". $own_message_txt .");";
-			?>
-		});
-	})();
-</script>
-	<?php
+	while ($message = mysqli_fetch_array($result)) {
+		include "load-message.php";
 	}
+}
 ?>

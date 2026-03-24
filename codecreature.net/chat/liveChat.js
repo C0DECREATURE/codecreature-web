@@ -12,12 +12,9 @@ Date.prototype.stdTimezoneOffset = function () {
 	var jul = new Date(this.getFullYear(), 6, 1);
 	return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
 }
-Date.prototype.isDstObserved = function () {
-	return this.getTimezoneOffset() < this.stdTimezoneOffset();
-}
 
 let localDate = new Date();
-let timezoneOffset = (localDate.getTimezoneOffset() + 60) * 60;
+let timezoneOffset = localDate.getTimezoneOffset() * 60;
 
 function getOldestLoadedMessage() {
 	let messages = document.getElementsByClassName('message');
@@ -32,7 +29,8 @@ function getLatestLoadedMessage() {
 	return latestMsg;
 }
 
-function loadChat(){
+var initialLoad = true;
+function loadChat(repeat){
 	let latestMsg = getLatestLoadedMessage();
 	
 	var content;
@@ -42,7 +40,15 @@ function loadChat(){
 			updateLoadOlder();
 	});
 	
-	setTimeout(loadChat, 2000);
+	if (!initialLoad) {
+		let messages = document.getElementsByClassName('message');
+		for (let i = 0; i < messages.length; i++) {
+			refreshMessage(messages[i].id.replaceAll('message-',''));
+		}
+	}
+	
+	initialLoad = false;
+	if (repeat !== false) setTimeout(loadChat, 2000);
 }
 
 function loadOlderChat() {

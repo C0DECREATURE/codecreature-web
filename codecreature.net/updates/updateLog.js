@@ -25,8 +25,28 @@ const updateLog = [
 			<p>this has been the goal for an extremely long time and i'm really hyped to have it working. %%i% think this should make the whole experience more rewarding!</p>
 			<p>the seasons are spring, summer, fall, and winter. each is 3 months long. the current worm race beta season will run until the end of %A%May\\may%, after which it will start the standard season cycle with summer 2026!</p>
 			<p>top users for each season will also be registered %E%:33%</p>
+			<p>in addition %%2% the css updates needed for the new features, %%i% also made some edits %%2% clean up some details on existing areas!</p>
 		`
 	},*/
+	{
+		date: new Date('2026-03-24T05:25'),
+		authors: ['emery'],
+		tags: ['chat','minor'],
+		summary: `
+			chat message edit, delete, & report
+		`,
+		details: `
+			<p>
+				assuming everything worked correctly, you should be able to delete or edit your own chat messages and report messages from other users! currently accessed via right-clicking; will create a better and more accessible system later. mods and admins also have the ability to delete other users' messages, though that means nothing to most of you.
+			</p>
+			<p>
+				%%i% don't currently feel like doing the work necessary to prevent certain kinds of malicious behavior, so logged out users don't have permission to edit or delete their own messages.
+			</p>
+			<p>
+				also fixed it so the page doesn't refresh when you send a message. neat
+			</p>
+		`
+	},
 	{
 		date: new Date('2026-03-19T04:30'),
 		authors: ['emery'],

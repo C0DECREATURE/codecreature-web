@@ -45,10 +45,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						$message_contents = $message['message'];
 						$sql = "INSERT INTO reports
 										(chat_table, user_id, message_id, message, reporter_id, reporter_IP)
-										VALUES
-										('".$table_name."', $message_user_id, $message_id, '".$message_contents."', $user_id, '".$user_IP."')";
+										VALUES ( ? , ? , ? , ? , ? , ? )";
 						if ($stmt = mysqli_prepare($chat_conn, $sql)) {
+							// bind variables to prepared statement
+							mysqli_stmt_bind_param($stmt, "siisis", $param_table_name, $param_user_id, $param_message_id, $param_message, $param_reporter_id, $param_reporter_IP);
+							$param_table_name = $table_name;
+							$param_user_id = $message_user_id;
+							$param_message_id = $message_id;
+							$param_message = $message_contents;
+							$param_reporter_id = $user_id;
+							$param_reporter_IP = $user_IP;
+							// attempt to execute
 							if(!mysqli_stmt_execute($stmt)) { $error_text = "Could not connect to database. Please try again later."; }
+							// Close statement
+							mysqli_stmt_close($stmt);
 						}
 					}
 				} else { $error_text = "Duplicate message ID found in database."; }
@@ -56,8 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			} else{
 				$error_text = "Could not connect to database. Please try again later.";
 			}
-			// Close statement
-			mysqli_stmt_close($stmt);
 		}
 	}
 	

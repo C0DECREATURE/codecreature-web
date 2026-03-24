@@ -5,6 +5,8 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 
 // Include chat database connection file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/connect.php";
+// Include chat functions file
+require_once $_SERVER['DOCUMENT_ROOT']."/chat/chat-functions.php";
 // Include user database functions
 require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
@@ -21,30 +23,6 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	$user_icon = $_SESSION["user_icon"];
 }
 
-if (isset($_POST['submit'])){
-	// if message text is not empty
-	if (!empty(trim($_REQUEST['message']))) {
-		// Escape user inputs for security
-		$message = mysqli_real_escape_string(
-			$chat_conn, $_REQUEST['message']
-		);
-		
-		// strip HTML tags from message
-		$message = strip_tags($message);
-		
-		date_default_timezone_set('America/New_York'); // EST
-		$date = time();
-			
-		// Attempt insert query execution
-		$sql = "INSERT INTO $chat_table (user_id, IP_address, message, date) 
-								VALUES ('$user_id', '$user_IP', '$message', '$date')";
-		if (mysqli_query($chat_conn, $sql)) {
-			;
-		} else {
-			echo "ERROR: Message not sent!!!";
-		}
-	}
-}
 ?>
 
 <!DOCTYPE html>
@@ -82,16 +60,10 @@ if (isset($_POST['submit'])){
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- chat code -->
 		<script>
-			<?php echo 'const chatTableName = "'.$chat_table.'";'; ?>
-			<?php echo 'const userAuth = "'. getAuthorization($user_id) .'";'; ?>
 			<?php
-				$oldest_message = 1;
-				// get id of oldest message in database
-				$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$chat_table." ORDER BY date LIMIT 1;");
-				mysqli_stmt_execute($sql);
-				mysqli_stmt_bind_result($sql, $oldest_message_id);
-				while (mysqli_stmt_fetch($sql)) { $oldest_message = $oldest_message_id; }
-				echo 'const oldestMessageId = '.$oldest_message.';';
+				echo 'const chatTableName = "'.$chat_table.'";';
+				echo 'const userAuth = "'. getAuthorization($user_id) .'";';
+				echo 'const oldestMessageId = '. getOldestMessageId($chat_table) .';';
 			?>
 		</script>
     <script src="/chat/liveChat.js"></script>
@@ -116,24 +88,102 @@ if (isset($_POST['submit'])){
 			</div>
 		</header>
 		<section class="messages" id="messages">
+			<!--load older messages button-->
 			<button id="load-older" class="hidden" onclick="loadOlderChat();">load older messages</button>
 			
+			<!--right click message edit menu-->
 			<div id="right-click-menu" class="right-click-menu hidden">
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
-				<button id="right-click-edit">Edit</button>
+				<!--edit-->
+				<button id="right-click-edit" 
+				onclick="openMessageEditor(this.parentNode.dataset.messageId);">
+					Edit
+				</button>
+				<!--delete-->
 				<button id="right-click-delete" onclick="deleteMessage(this.parentNode.dataset.messageId);">Delete</button>
 			</div>
 			<script>document.addEventListener("click",hideRightClickMenus);</script>
+			
+			<!--message edit popup-->
+			<form popover id="edit-message">
+				<header><h3>Edit Message</h3></header>
+				<div class="content">
+					<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>"></textarea>
+					<div class="bottom-buttons">
+						<button class="cancel" onclick="this.closest('form').hidePopover();">cancel</button>
+						<button class="submit" id="edit-message-submit" type="submit">update</button>
+					</div>
+				</div>
+			</form>
+			<script>
+				function openMessageEditor(messageId) {
+					let msgEl = document.getElementById('message-' + messageId);
+					let form = document.getElementById('edit-message');
+					let textArea = document.getElementById('edit-message-new-text');
+					
+					form.showPopover();
+					form.dataset.messageId = messageId;
+					
+					// put message contents in editor text area
+					textArea.value = "";
+					const xhr = new XMLHttpRequest();
+					xhr.open("POST", "/chat/get-message.php", true);
+					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					// do stuff when request finishes
+					xhr.onreadystatechange = () => {
+						if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+							if (xhr.responseText != '') {
+								let msg = JSON.parse(xhr.responseText)["message"];
+								msg = msg.replaceAll("[br]","\n");
+								textArea.value = msg;
+							} else {
+								alert("Something went wrong! Try again later.");
+							}
+						}
+					};
+					// send the variables
+					xhr.send(`message-id=${messageId}&chat-table=${chatTableName}`);
+					
+					textArea.focus();
+				}
+				
+				(()=>{
+					let form = document.getElementById('edit-message');
+					
+					document.getElementById("edit-message-new-text").addEventListener("keypress", (e)=>{
+						if (e.key === "Enter" && !e.shiftKey) {
+							e.preventDefault();
+							document.getElementById("edit-message-submit").click();
+						}
+					});
+					
+					form.addEventListener("submit", function(event){
+						event.preventDefault();
+						let formProps = Object.fromEntries(new FormData(form));
+						editMessage(form.dataset.messageId,formProps['new-message']);
+						form.hidePopover();
+					});
+				})();
+			</script>
+			
 		</section>
 		
-		<form id="new-message" method="POST">
-			<script>
-				let localDate = new Date();
-				document.getElementById('timezone-offset').value = localDate.getTimezoneOffset() * 60;
-			</script>
-			<input id="message-input" type="text" name="message" minlength="1" maxlength="400" autocomplete="off"></input>
+		<form id="new-message" method="POST" action="/chat/send-message.php">
+			<input type="hidden" name="chat-table" value="<?php echo $chat_table; ?>"></input>
+			<input id="message-input" type="text" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></input>
 			<button type="submit" name="submit">send</button>
 		</form>
+		<script>
+				(()=>{
+					let form = document.getElementById('new-message');
+					
+					form.addEventListener("submit", function(event){
+						event.preventDefault();
+						let formProps = Object.fromEntries(new FormData(form));
+						sendMessage(formProps['message']);
+					});
+				})();
+			</script>
 	</main>
 		
 </body></html>

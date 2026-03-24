@@ -7,8 +7,7 @@ function messageRightClick(e,id,ownMessage) {
 	e.preventDefault();
 	hideRightClickMenus();
 	// show/hide the message edit option
-	//let canEdit = ownMessage;
-	let canEdit = false; // DEBUG - temp unti edit feature added
+	let canEdit = ownMessage;
 	let editOpt = document.getElementById("right-click-edit");
 	if (canEdit) editOpt.classList.remove('hidden'); else editOpt.classList.add('hidden');
 	// show/hide the message delete option
@@ -25,6 +24,56 @@ function messageRightClick(e,id,ownMessage) {
 	menu.style.top = e.pageY + "px";
 	menu.classList.remove('hidden');
 	menu.dataset.messageId = id;
+}
+
+// submit new message
+function sendMessage(message) {
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "/chat/send-message.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// do stuff when request finishes
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			if (xhr.responseText != '') {
+				let response = JSON.parse(xhr.responseText);
+				// if an error occurred, give an alert with error message
+				if (response["error"] && response["error"] != '') alert('Error sending message:\n' + response["error"]);
+				// if sending was successful, clear input and load new chat messages
+				else {
+					document.getElementById('message-input').value = "";
+					loadChat(false);
+				}
+			} else {
+				alert("Something went wrong! Try again later.");
+			}
+		}
+	};
+	// send the variables
+	xhr.send(`chat-table=${chatTableName}&message=${message}`);
+}
+
+// edit message with given id
+// replaces existing message body with new string
+function editMessage(id,newText) {
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "/chat/edit-message.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// do stuff when request finishes
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			if (xhr.responseText != '') {
+				let response = JSON.parse(xhr.responseText);
+				// if an error occurred, give an alert with error message
+				if (response["error"] && response["error"] != '') alert('Error editing message:\n' + response["error"]);
+				// if editing was successful, update the message element
+				else refreshMessage(id);
+			} else {
+				alert("Something went wrong! Try again later.");
+			}
+		}
+	};
+	// send the variables
+	xhr.send(`message-id=${id}&chat-table=${chatTableName}&new-message=${newText}`);
 }
 
 // delete message with given id
@@ -62,4 +111,68 @@ function reportMessage(id) {
 	};
 	// send the variables
 	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+}
+
+function refreshMessage(id) {
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "/chat/get-message.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// do stuff when request finishes
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			if (xhr.responseText != '') {
+				let message = JSON.parse(xhr.responseText);
+				let el = document.getElementById(`message-${id}`);
+				
+				if (message["exists"] == "false") {
+					let del = document.createElement('div');
+					del.classList.add('deleted');
+					if (el.classList.contains('self')) del.classList.add('self');
+					del.innerHTML = "(message deleted)";
+					el.after(del);
+					el.remove();
+				} else {
+					let html = message["message-HTML"];
+					el.querySelector('.content').innerHTML = html;
+					tqAlts(el);
+					
+					if (message["edited"] && message["edited"] != '') el.querySelector('.edited').classList.remove('hidden');
+					
+					// update date display text
+					el.querySelector('.date-text').innerHTML = formatMessageDisplayDate(message["date"]);
+				}
+			} else {
+				alert("Couldn't load message.");
+			}
+		}
+	};
+	// send the variables
+	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+}
+
+function formatMessageDisplayDate(seconds) {
+	let date = new Date(Number(seconds) * 1000);
+	let curDate = new Date();
+	// get the composite parts
+	let year = date.getFullYear();
+	let month = date.getMonth();
+	let day = date.getDate();
+	let hour = date.getHours();
+	let minute = date.getMinutes();
+	// figure out how much detail to show
+	let show = 'hour';
+	if (curDate.getFullYear() !== year) show = 'year';
+	else if (curDate.getDate() !== day) show = 'day';
+	// modify year to 2 digit format
+	year = year.toString().substring(2);
+	// modify hour into am/pm format
+	let ampm = hour < 12 ? "am" : "pm";
+	hour = hour > 12 ? hour - 12 : hour == 0 ? 12 : hour;
+	// prepend zero to single digit minutes
+	minute = minute < 10 ? "0"+minute : minute;
+	// return text string
+	let str = `${hour}:${minute}${ampm}`;
+	if (show == 'year') str = `${year}/${month}/${day} ${str}`;
+	else if (show == 'day') str = `${month}/${day} ${str}`;
+	return str;
 }

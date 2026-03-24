@@ -112,6 +112,53 @@ button.open-page-settings {
 	margin-left: 20px;
 }
 
+[popover] {
+	background: none;
+	padding: none;
+	border: none;
+	color: var(--blue);
+}
+[popover] > * {
+	border: 4px var(--blue) solid;
+}
+[popover] > header {
+	background: var(--green);
+	padding: .5rem;
+	border-bottom: none;
+	border-radius: 1rem 1rem 0 0;
+	h3 { margin: 0; }
+}
+[popover] > .content {
+	background: var(--white);
+	border-top: none;
+	padding: .5rem;
+	border-radius: 0 0 1rem 1rem;
+}
+#edit-message .content { display: flex; flex-direction: column; }
+#edit-message textarea {
+	resize: none;
+	background: none; border: none;
+	width: min(25em,90vw);
+	height: min(7em, 60vh);
+	padding: .5em;
+	font-family: inherit;
+	color: inherit;
+}
+#edit-message textarea:focus { outline: none; }
+#edit-message .bottom-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	button {
+		border-radius: 1em;
+		padding: .15em .6em;
+	}
+	.cancel { background: var(--red); color: var(--white); }
+	.cancel:hover { background: var(--pink); }
+	.submit { background: var(--blue); color: var(--white); }
+	.submit:hover { background: var(--green); }
+}
+
 .messages {
 	display: flex;
 	flex-flow: column-reverse nowrap;
@@ -126,8 +173,9 @@ button.open-page-settings {
 /* put the load older messages button at top of page */
 #load-older { order: 1000; }
 
+.message, .deleted { width: min(90%, 40rem); }
+
 .message {
-	width: min(90%, 40rem);
 	display: flex;
 	gap: .5rem;
 	font-size: 1rem;
@@ -138,10 +186,11 @@ button.open-page-settings {
 	margin-bottom: 4px;
 	border-radius: 1rem 1rem 1rem 0;
 }
-.message.self {
-	border-radius: 1rem 1rem 0 1rem;
-	margin-left: auto;
-}
+.message.self { border-radius: 1rem 1rem 0 1rem; }
+.message.self, .deleted.self { margin-left: auto; }
+.deleted.self { text-align: right; }
+
+.deleted { font-style: italic; }
 
 .message .bubble { width: 100%; }
 .message .bubble header {
@@ -179,19 +228,18 @@ button.open-page-settings {
 	color: var(--username);
 }
 
-.message .pronouns {
+.message .pronouns, .message .date {
 	font-size: .9em;
-	color: var(--pronouns);
 	opacity: 0.75;
 	line-height: 1.15em;
 	margin-top:.15em;
+	
 }
-
+.message .pronouns { color: var(--pronouns); }
 .message .date {
 	flex-grow: 1;
 	text-align: right;
 	font-style: italic;
-	opacity: 0.75;
 }
 
 #new-message {
