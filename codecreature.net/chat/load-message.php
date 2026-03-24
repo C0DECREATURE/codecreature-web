@@ -31,7 +31,7 @@ if (empty($message['error'])) {
 			</span>
 		</header>
 		<div class="content"><?php
-			echo $bbcode->Parse($message['message']);
+			echo htmlspecialchars_decode($bbcode->Parse($message['message']));
 		?></div>
 	</div>
 </div>

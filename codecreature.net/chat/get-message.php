@@ -16,7 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	$message = getMessage($message_id, $table_name);
 	
-	if (empty($message["error"])) $message["message-HTML"] = $bbcode->Parse($message['message']);
+	if (empty($message["error"])) {
+		$message["message"] = htmlspecialchars_decode($message['message']);
+		$message["message-HTML"] = $bbcode->Parse($message['message']);
+	}
 	
 	echo json_encode($message);
 }

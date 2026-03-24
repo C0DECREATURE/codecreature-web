@@ -33,12 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	// check for new message text
 	if (!isset($_REQUEST['message']) || empty(trim($_REQUEST['message']))) {
-		$error_text = "Message body cannot be blank.";
+		// Escape user inputs for security
+		$message = mysqli_real_escape_string(
+			$chat_conn, cleanMessageText(trim($_REQUEST['message']))
+		);
+		if (empty($message)) $error_text = "Message body cannot be blank.";
 	} else {
 		// Escape user inputs for security
 		$message = mysqli_real_escape_string(
 			$chat_conn, cleanMessageText(trim($_REQUEST['message']))
 		);
+		if (empty($message)) $error_text = "Message body cannot be blank.";
 	}
 	
 	date_default_timezone_set('America/New_York'); // EST

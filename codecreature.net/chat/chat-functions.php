@@ -130,7 +130,7 @@ function cleanMessageText($str) {
 	// convert enter key to line break
 	$str = preg_replace("/\\n/","[br]",$str);
 	// strip HTML tags from message
-	$str = strip_tags($str);
+	$str = htmlspecialchars($str);
 	// make sure message is under the character limit
 	$str = substr($str,0,$max_message_length);
 	// return modified message
