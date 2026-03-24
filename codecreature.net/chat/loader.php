@@ -1,6 +1,6 @@
 <?php
-// Initialize the session
-session_start();
+// Initialize the session if not already started
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
 
 $user_IP = $_SERVER['REMOTE_ADDR'];
 $user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : "0";
