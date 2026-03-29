@@ -24,14 +24,15 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="widateh=device-widateh, initial-scale=1.0">
-    <title>worm chat</title>
-		<meta name="description" content="Worm games chat room">
-		<meta name="keywords" content="worm, game, chat, forum, discussion, message">
+    <title><?php echo $chatroom_name; ?> chat</title>
+		<meta name="description" content=
+			"<?php echo empty($meta_description) ? "Chat room on codecreature.net." : $meta_description; ?>">
+		<meta name="keywords" content=
+			"<?php echo empty($meta_keywords) ? "" : $meta_keywords.", "; ?>chat, forum, discussion, message">
 		<meta name="author" content="codecreature">
 		
 		<!-- universal base javascript -->
