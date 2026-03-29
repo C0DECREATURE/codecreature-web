@@ -1,0 +1,3 @@
+# Allow Google bot crawlers
+User-agent: *
+Allow: /
