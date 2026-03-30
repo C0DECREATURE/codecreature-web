@@ -109,7 +109,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 			<form popover id="edit-message">
 				<header><h3>Edit Message</h3></header>
 				<div class="content">
-					<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>"></textarea>
+					<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
 					<div class="bottom-buttons">
 						<button class="cancel" onclick="this.closest('form').hidePopover();">cancel</button>
 						<button class="submit" id="edit-message-submit" type="submit">update</button>
