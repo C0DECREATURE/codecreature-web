@@ -13,21 +13,23 @@ const updateLog = [
 		`
 	},
 */
-	/*{
-		date: new Date(''),
+	{
+		date: new Date('2026-03-30T05:23'),
 		authors: ['emery','prax'],
 		tags: ['games','worm race'],
 		summary: `
-			worm race race seasons are here!
+			the big worm race seasons update!
 		`,
 		details: `
 			<p>worm race now has <strong>seasons</strong> in addition to the all-time race!!!!</p>
-			<p>this has been the goal for an extremely long time and i'm really hyped to have it working. %%i% think this should make the whole experience more rewarding!</p>
-			<p>the seasons are spring, summer, fall, and winter. each is 3 months long. the current worm race beta season will run until the end of %A%May\\may%, after which it will start the standard season cycle with summer 2026!</p>
-			<p>top users for each season will also be registered %E%:33%</p>
-			<p>in addition %%2% the css updates needed for the new features, %%i% also made some edits %%2% clean up some details on existing areas!</p>
+			<p>this has been the goal for an extremely long time and i'm really pleased to have finally had the time to do it. %%i% think this should make the whole experience more rewarding, especially if %%ur% fav worm hasn't done well in the past!</p>
+			<p>the beta race season will run until the end of %A%May\\may%, after which it will start a standard 3 month season cycle with summer 2026.</p>
+			<h3>css adjustments</h3>
+			<p>in addition %%2% the obvious updates needed for the new features, %%u% may notice some very minor visual changes on existing areas. nothing too jarring %%i% think</p>
+			<h3>future of worm race</h3>
+			<p>the only big thing left to do, other than fix any bugs this update causes, is to make a trophy case for each worm to display a consolidated list of its wins. then i'll be fully shifting gears %%2% other projects indefinitely - finishing the fishing minigame maybe?</p>
 		`
-	},*/
+	},
 	{
 		date: new Date('2026-03-24T05:25'),
 		authors: ['emery'],
