@@ -44,6 +44,8 @@ function loadChat(repeat){
 			updateLoadOlder();
 	});
 	
+	/* DEBUG temprarily removing this because I need to find a way that doesn't involve an insane number of POST requests
+	
 	// if an initial set of messages has been loaded, refresh the existing messages
 	if (initialLoaded) {
 		let messages = document.getElementsByClassName('message');
@@ -51,6 +53,8 @@ function loadChat(repeat){
 			refreshMessage(messages[i].id.replaceAll('message-',''));
 		}
 	}
+	
+	*/
 	
 	initialLoaded = true;
 	if (repeat !== false) setTimeout(loadChat, 4000);
