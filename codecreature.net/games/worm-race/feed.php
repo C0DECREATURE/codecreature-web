@@ -10,7 +10,7 @@ getAllData();
 getFeedLogData();
 
 // whether race is in maintenance mode
-$maintenance_mode = true;
+$maintenance_mode = false;
 
 // error text for if feeding goes wrong
 $feed_err = $maintenance_mode ? "Worm race is currently down for maintenance!<br>Come back soon." : "";
