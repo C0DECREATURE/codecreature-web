@@ -112,17 +112,22 @@ main > .right {
 	}
 	&:nth-child(2n) { .button, .description { --bg: var(--green); } }
 	a.button {
-		background: var(--dd-blue);
+		position: relative;
 		width: 88px;
 		flex-shrink: 0;
 		height: 31px;
-		color: var(--l-blue);
+		color: var(--d-purple);
+		font-weight: bold;
 		text-align: center;
-		img { width: auto; max-height: 100%; max-width: 100%; }
-		&:link, &:visited {
-			color: var(--l-blue);
-			display: block;
+		img {
+			width: auto;
+			max-height: 100%;
+			max-width: 100%;
+			position: absolute;
+			top: 50%; left: 50%;
+			transform: translate(-50%,-50%);
 		}
+		&:link, &:visited { color: inherit; display: block; }
 	}
 	.description {
 		font-size: .85rem;
