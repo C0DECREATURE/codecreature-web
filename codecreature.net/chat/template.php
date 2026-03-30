@@ -68,7 +68,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 			?>
 		</script>
     <script src="/chat/liveChat.js"></script>
-    <script src="/chat/messageFunctions.js"></script>
+    <script src="/chat/chatFunctions.js"></script>
 </head>
 <body>
 	<main class="chatbox">
