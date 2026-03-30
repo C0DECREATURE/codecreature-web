@@ -105,14 +105,17 @@ getAllData();
 			?>
 			<section id="win-text">
 				<?php
+				function getWinTextName($w) {
+					echo '<span class="wrapper" style="
+									--color: var(--'.$w["color_dark"].');
+									--color-light: var(--'.$w["color_light"].');">
+										<span class="name text-outline-2px">'.$w["name"].'</span>
+									</span>';
+				}
 				$count = count($cur_winners); 
 				if ($count > 1) {
 					for ($i = 0; $i < $count; $i++) {
-						echo '<span class="wrapper" style="
-									--color: var(--'.$cur_winners[$i]["color_dark"].');
-									--color-light: var(--'.$cur_winners[$i]["color_light"].');">
-										<span class="name text-outline-2px">'.$cur_winners[$i]["name"].'</span>
-									</span>';
+						echo getWinTextName($cur_winners[$i]);
 						if ($i == $count - 2) { echo " and "; }
 					}
 					if ($active_season["ongoing"] == "true") {
@@ -121,13 +124,8 @@ getAllData();
 				} else {
 					$cur_winner = $cur_winners[0];
 					$win_text = $active_season["ongoing"] == "true" ? $cur_winner["win_text"] : $cur_winner["win_text_past"];
-					echo '
-						<span class="wrapper" style="
-						--color: var(--'.$cur_winner["color_dark"].');
-						--color-light: var(--'.$cur_winner["color_light"].');">
-							<span class="name text-outline-2px">'.$cur_winner["name"].'</span>
-						</span>
-						<span>'.$win_text.'!</span>'
+					echo getWinTextName($cur_winner);
+					echo '<span>'.$win_text.'!</span>'
 					;
 				}
 				
