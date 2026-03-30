@@ -1,4 +1,4 @@
-<header style="background-image: url('<?php echo $image_path ?>banner.svg');">
+<header id="header-banner" style="background-image: url('<?php echo $image_path ?>banner.svg');">
 	<a href="<?php echo $worm_race_path ?>" class="header-link">
 		<h1 class="sr-only">Worm Race</h1>
 		<h3 id="banner-subtitle">Feed a Worm</h3>

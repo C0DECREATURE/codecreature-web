@@ -9,6 +9,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<title>spread the worm</title>
+		<meta name="description" content="Link to the worm race from your site.">
+		<meta name="keywords" content="share,propaganda,buttons,worms,worm,worm game,worms game">
+		<meta name="author" content="codecreature">
 		
 		<!-- prevent warnings popup on this page -->
 		<script>var showWarnings = false;</script>
@@ -35,6 +38,9 @@
 		<link href="../style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="share.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- worm race functions -->
+		<script src="/games/worm-race/wormFunctions.js"></script>
 	</head>
 	<body>
 		<!-- menu & navigation -->

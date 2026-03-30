@@ -1,5 +1,23 @@
 :root {
 	--menu-border: max(min(.8vh,.3vw), 3.5px);
+	
+	/* background lines */
+	--diagonal-stripes:
+		repeating-linear-gradient(
+			45deg,
+			rgba(255, 255, 255, .08),
+			rgba(255, 255, 255, .08) 8px,
+			transparent 8px,
+			transparent 16px
+		);
+	--diagonal-stripes-strong:
+		repeating-linear-gradient(
+			45deg,
+			rgba(255, 255, 255, .15),
+			rgba(255, 255, 255, .15) 8px,
+			transparent 8px,
+			transparent 16px
+		);
 }
 
 html, body {
@@ -58,16 +76,7 @@ body {
 	text-align: center;
 	width: min(23vw, 300px);
 	flex-shrink: 0;
-	/* background lines */
-	--bg-strength: 0.15;
-	background:
-		repeating-linear-gradient(
-			45deg,
-			rgba(255, 255, 255, var(--bg-strength)),
-			rgba(255, 255, 255, var(--bg-strength)) 8px,
-			transparent 8px,
-			transparent 16px
-		);
+	background: var(--diagonal-stripes-strong);
 	background-color: var(--green);
 	background-blend-mode: overlay;
 	border-color: var(--dd-blue);
@@ -272,14 +281,7 @@ body {
 }
 .info-box header:has(h2, h3), .info-box .items, .info-box .leaderboard .user-data {
 	/* background lines */
-	background:
-		repeating-linear-gradient(
-			45deg,
-			rgba(255, 255, 255, 0.08),
-			rgba(255, 255, 255, 0.08) min(8px,.8vw),
-			transparent min(8px,.8vw),
-			transparent min(16px,1.6vw)
-	);
+	background: var(--diagonal-stripes);
 	background-color: var(--color-dark);
 	background-blend-mode: screen;
 }
@@ -329,7 +331,7 @@ body {
 	
 	color: var(--white);
 	font-family: "Super Comic", sans-serif;
-	font-size: max(1rem, min(6vw, min(3.5vh, 1.5rem)));
+	font-size: max(1rem, min(6vw, min(3.5vh, 1.75rem)));
 	
 	display: flex;
 	flex-wrap: wrap;

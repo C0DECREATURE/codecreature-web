@@ -9,15 +9,18 @@ date_default_timezone_set('America/New_York');
 $worm_race_path = "/games/worm-race/";
 $image_path = $worm_race_path."images/";
 
+// include season actions file
+require_once "season.php";
+
 // include users connection data
 require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
 // include get username by id function
 require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
 // worm data arrays
-$worms = array();
-$items = array();
-$feed_log = array();
+$worms = [];
+$items = [];
+$feed_log = [];
 $loading = $load_err = "";
 
 function getAllData() {
@@ -29,7 +32,7 @@ function getAllData() {
 
 // get all worm data, insert into $worms array
 function getWormData() {
-	global $worm_conn; global $worms; global $loading; global $load_err;
+	global $worm_conn; global $worms; global $active_season; global $load_err;
 	
 	// get all worm data
 	$sql = "SELECT * FROM worms";
@@ -37,6 +40,12 @@ function getWormData() {
 		// go through each worm row, assign to variables
 		while($row = mysqli_fetch_object($result)) {
 			$worms[] = get_object_vars($row);
+		}
+		// also insert current race season's worm data
+		for ($i = 0; $i < count($worms); $i++) {
+			foreach ($active_season["worms"][$i] as $key => $value) {
+				$worms[$i][$key] = $value;
+			}
 		}
 	} else {
 		$load_err = "Could not fetch worm data. Try again later.";
@@ -90,22 +99,49 @@ function getFeedLogData() {
 // get feed log data in a displayable format
 function getFeedLogDisplay() {
 	global $worms; global $items; global $feed_log;
+	
 	// get all feed log data
 	if ( count($feed_log) == 0 ) {
 		getFeedLogData();
 	}
-	// display the list of users and feedings
-	for ($i = count($feed_log) - 1; $i >= max(0, count($feed_log) - 10); $i-- ) {
-		$l = $feed_log[$i];
-		$worm = $worms[(int)$l["worm"]];
-		$item = $items[$l["item"]]["display_name"];
-		$user = $l["user_id"] == NULL ? "Someone" : getUsername($l["user_id"]);
-		$user_type = $l["user_id"] == NULL ? "anonymous" : "registered";
-		echo '<div class="feed-log-item"><span class="user '.$user_type.'">'.$user.'</span> fed
-					<span class="worm" style="
-						color: var(--'.$worm["color_dark"].');
-					">'.$worm["name"].'</span>
-					a <span class="item">'.$item.'</span></div>';
+	if (empty($feed_log)) {
+		echo '<div class="log-notice">No recent activity!</div>';
+	} else {
+		// display the list of users and feedings
+		for ($i = count($feed_log) - 1; $i >= max(0, count($feed_log) - 10); $i-- ) {
+			$l = $feed_log[$i];
+			$worm = $worms[(int)$l["worm"]];
+			$item = $items[$l["item"]]["display_name"];
+			$user = $l["user_id"] == NULL ? "Someone" : getUsername($l["user_id"]);
+			$user_type = $l["user_id"] == NULL ? "anonymous" : "registered";
+			echo '<div class="feed-log-item"><span class="user '.$user_type.'">'.$user.'</span> fed
+						<span class="worm" style="
+							color: var(--'.$worm["color_dark"].');
+						">'.$worm["name"].'</span>
+						a <span class="item">'.$item.'</span></div>';
+		}
+	}
+}
+
+
+// get season fans in a displayable format
+function getSeasonFansDisplay($season) {
+	if (empty($season["users"])) {
+		echo '<div class="log-notice">No signed in user activity!</div>';
+	} else {
+		echo '<div class="log-subtitle">'.$season["display_name"].'</div>';
+		// display the list of users and feedings
+		$i = 1;
+		foreach ($season["users"] as $id => $count) {
+			$un = getUsername(intval($id));
+			echo '<div class="leaderboard-entry">
+							<span class="rank">#'.$i.'</span>
+							<span class="user">'.$un.'</span>
+							<span class="count">'.$count.'</span>
+						</div>';
+			$i += 1;
+			if ($i > 10) break;
+		}
 	}
 }
 
@@ -178,6 +214,8 @@ function getWormLeaderboard($worm) {
 			}
 		}
 		
+		$leaderboard_table_limit = 5;
+		
 		// convert array into columns
 		$users  = array_column($helpers, 'username');
 		$counts  = array_column($helpers, 'count');
@@ -186,7 +224,7 @@ function getWormLeaderboard($worm) {
 		array_multisort($counts, SORT_DESC, $users, SORT_ASC, $helpers);
 		// output the top helpers as a table
 		$helper_table = "<div class='table'>";
-		for ($i = 0; $i < 5; $i++) {
+		for ($i = 0; $i < $leaderboard_table_limit; $i++) {
 			$display_count = $i + 1;
 			if ($i < count($helpers)) {
 				$action_count = $counts[$i];
@@ -206,7 +244,7 @@ function getWormLeaderboard($worm) {
 				}
 				$helper_table = $helper_table."<div class='row'><span><small>#</small>".$display_count."</span><span>".$users[$i]."</span><span>".$action_count."</span></div>";
 			} else {
-				$helper_table = $helper_table."<div class='row'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
+				$helper_table = $helper_table."<div class='row' style='visibility:hidden;'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$helper_table = $helper_table."</div>";
@@ -219,12 +257,12 @@ function getWormLeaderboard($worm) {
 		array_multisort($counts, SORT_DESC, $users, SORT_ASC, $hurters);
 		// output the top hurters as a table
 		$hurter_table = "<div class='table'>";
-		for ($i = 0; $i < 5; $i++) {
+		for ($i = 0; $i < $leaderboard_table_limit; $i++) {
 			$display_count = $i + 1;
 			if ($i < count($hurters)) {
 				$hurter_table = $hurter_table."<div class='row'><span><small>#</small>".$display_count."</span><span>".$users[$i]."</span><span>".$counts[$i]."</span></div>";
 			} else {
-				$hurter_table = $hurter_table."<div class='row'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
+				$hurter_table = $hurter_table."<div class='row' style='visibility:hidden;'><span><small>#</small>".$display_count."</span><span></span><span></span></div>";
 			}
 		}
 		$hurter_table = $hurter_table."</div>";
@@ -273,112 +311,4 @@ function getUserWormLeaderboard($worm) {
 	}
 	echo $user_table;
 }
-
 ?>
-
-<script>
-	let canFeed = true;
-
-	// enable/disable feed button based on current conditions
-	function updateFeedButton(color) {
-		let form = document.getElementById(color);
-		let btn = form.querySelector('.feed-button');
-		
-		// check if an item is selected
-		let itemSelected = false;
-		let itemInputs = form.querySelectorAll('.item-input');
-		for (let i = 0; i < itemInputs.length; i++) {
-			if (itemInputs[i].checked) itemSelected = true;
-		}
-		
-		let hovertext = btn.querySelector('.tooltip-text');
-		// if item has been selected and cooldown is over
-		if ( itemSelected && canFeed ) {
-			btn.classList.remove('tooltip');
-			hovertext.innerHTML = '';
-			btn.disabled = false;
-		}
-		// else disable button
-		else {
-			btn.classList.add('tooltip');
-			btn.disabled = true;
-			if ( !canFeed ) hovertext.innerHTML = 'too soon to feed again!';
-			else if ( !itemSelected ) hovertext.innerHTML = 'select an item first';
-		}
-	}
-	// update all feed buttons
-	function updateFeedButtons() {
-		let forms = document.getElementsByClassName('worm-details')
-		for (let i = 0; i < forms.length; i++) {
-			updateFeedButton(forms[i].id);
-		}
-	}
-	
-	function openDetailBox(id) {
-		// update the URL (no refresh)
-		let newUrl = new URL(window.location.href);
-		newUrl.pathname = newUrl.pathname.replaceAll('/racetrack','');
-		newUrl.hash = '#' + id;
-		if (window.location.pathname.includes('/racetrack')) window.location = newUrl;
-		else window.history.pushState({}, "", newUrl);
-		// display appropriate tabs
-		let tabs = document.getElementsByClassName('tab');
-		for (let i = 0; i < tabs.length; i++) {
-			if (tabs[i].id == id) { tabs[i].classList.add('show'); }
-			else { tabs[i].classList.remove('show'); }
-		}
-		hideFans(id);
-	}
-	
-	// functions to hide or show a worm's leaderboard section
-	function hideFans(wormColor) {
-		let detailBox = document.getElementById(wormColor);
-		// show main sections
-		let mainTabSections = detailBox.getElementsByClassName('main-worm-tab');
-		for (let i = 0; i < mainTabSections.length; i++) mainTabSections[i].classList.remove('hidden');
-		// hide leaderboard
-		document.getElementById(wormColor+'-fans').classList.add('hidden');
-		// change button text
-		detailBox.querySelector('.leaderboard-button').innerHTML = 'fans';
-	}
-	function showFans(wormColor) {
-		let detailBox = document.getElementById(wormColor);
-		// hide main sections
-		let mainTabSections = detailBox.getElementsByClassName('main-worm-tab');
-		for (let i = 0; i < mainTabSections.length; i++) mainTabSections[i].classList.add('hidden');
-		// hide leaderboard
-		document.getElementById(wormColor+'-fans').classList.remove('hidden');
-		// change button text
-		detailBox.querySelector('.leaderboard-button').innerHTML = 'worm';
-	}
-	function toggleFans(wormColor) {
-		let fans = document.getElementById(wormColor+'-fans');
-		if (fans.classList.contains('hidden')) { showFans(wormColor); }
-		else { hideFans(wormColor); }
-	}
-	
-	// update the URL (no refresh) based on search params
-	// intended to convert old links to valid new ones
-	function updateUrl() {
-		let wormParam = new URLSearchParams(window.location.search).get("worm");
-		// if url parameters includes a value for worm and that result is a valid worm, open that worm
-		if (wormParam) {
-			let hash = "";
-			
-			// DEBUG: failed to do this with php, maybe try again later. clunky style for now
-			if (wormParam == "0") hash = "#pink";
-			else if (wormParam == "1") hash = "#orange";
-			else if (wormParam == "2") hash = "#yellow";
-			else if (wormParam == "3") hash = "#green";
-			else if (wormParam == "4") hash = "#blue";
-			else if (wormParam == "5") hash = "#purple";
-			if (hash != "") {
-				let newUrl = new URL(window.location.href);
-				newUrl.search = "";
-				newUrl.hash = hash;
-				history.replaceState(null, null, newUrl);
-			}
-		}
-	}
-	
-</script>

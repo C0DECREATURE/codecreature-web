@@ -1,3 +1,39 @@
+#header-banner { z-index: 2; }
+
+/******************************************************************************************
+	CURRENT WINNER TEXT
+******************************************************************************************/
+
+#win-text {
+	width: min(100%, 90vw);
+	flex-shrink: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	justify-content: center;
+	align-items: center;
+	background: var(--diagonal-stripes);
+	background: var(--dd-blue);
+	color: var(--white);
+	border-radius: 1rem;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	
+	padding: .65em 1em;
+	text-transform: uppercase;
+	
+	.name {
+		font-family: "Super Comic", sans-serif;
+		letter-spacing: .08em;
+		color: var(--white);
+		text-shadow: 2px 3px var(--dd-blue);
+		background: var(--color);
+		border: .1em var(--color-light) solid;
+		padding: .2em .5em;
+		border-radius: 1em;
+	}
+	span:not(.name) { font-weight: bold; }
+}
+
 /******************************************************************************************
 	RACE
 ******************************************************************************************/
@@ -5,8 +41,8 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	margin: 0 auto;
-	--padding: min(1vw, 1vh);
+	margin: 1.5% auto 0 auto;
+	--padding: min(1.2vw, 1.2vh);
 	gap: var(--padding);
 	padding: 0 var(--padding) 0 calc(var(--padding)*2);
 	/* narrower when updates sticky note displayed */
@@ -16,38 +52,100 @@
 	img { pointer-events: none; user-select: none; }
 }
 
+.wrapper:has(> #race-tracks) {
+	@media screen and (width >= 933px) {
+		width: 55%;
+		min-width: 600px;
+		max-width: min(100vh, 90vw);
+	}
+	@media screen and (width < 933px) {
+		width: min(90vw, 600px);
+		max-height: 75vh;
+	}
+	
+	display: flex;
+	flex-direction: column;
+	
+	--border-radius: 1.5rem;
+	
+	> header {
+		position: relative;
+		
+		text-align: center;
+		background: var(--dd-blue);
+		color: var(--white);
+		width: 100%;
+		border-radius: var(--border-radius) var(--border-radius) 0 0;
+		border-bottom: none;
+		moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+		padding: .5em .75em .25em .75em;
+		
+		font-size: max(1rem, min(1.25rem, 5vw));
+		
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	.title { flex-grow: 1; }
+	
+	i.svg-icon {
+		background: var(--white);
+	}
+	.i-caret-down {
+		height: .6em;
+		margin: 0 0 .05em .25em;
+	}
+	
+	.header-side { width: 4em; }
+	.header-side:first-of-type { text-align: left; text-transform: uppercase; }
+	.header-side:last-of-type { text-align: right; }
+	@media screen and (width < 700px) {
+		.title { order: -1; }
+		.header-side { width: 50%; }
+		
+	}
+}
+
+#season-select, ::picker(#season-select) { appearance: base-select; }
+#season-select {
+	border: none;
+  background: var(--dd-blue);
+	color: var(--white);
+	font-family: "Super Comic", sans-serif;
+	text-shadow: .1em .1em var(--dd-blue);
+	font-size: max(1rem,min(1.5em,6vw));
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: .08em;
+	padding: .1em 1em;
+  padding: none;
+  transition: 0.4s;
+	text-align: center;
+}
+option {
+	font-size: .75em;
+	color: inherit;
+	font-weight: bold;
+}
+
 #race-tracks {
 	user-select: none;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: flex-start;
-	position: relative;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
-	margin-bottom: var(--padding);
-	padding: 0 2%;
-	aspect-ratio: 3/2;
+	background: rgba(255,255,255,.8);
 	
-	@media screen and (width >= 933px) {
-		width: 55%;
-		min-width: 600px;
-		max-width: min(700px, 90vw);
-	}
-	@media screen and (width < 933px) {
-		width: min(90vw, 600px);
-		max-height: 75vh;
-	}
-}
-#race-tracks:before {
-	content: '';
-	position: absolute;
-	z-index: -1;
+	border: var(--menu-border) var(--white) solid;
+	border-top: none;
+	border-radius: 0 0 var(--border-radius) var(--border-radius);
+	
+	padding: 0 2.5% 0 3%;
+	
 	width: 100%;
-	height: 100%;
-	left: -.5%;
-	border-radius: 2rem;
-	background: var(--white);
-	opacity: .8;
+	aspect-ratio: 3/2;
+	flex-grow: 1;
 }
 
 .race-row {
@@ -116,54 +214,36 @@
 }
 
 /******************************************************************************************
-	WINNER TEXT
-******************************************************************************************/
-
-#win-text {
-	position: relative;
-	width: 100%;
-	text-align: center;
-	padding: .5em 1em;
-	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
-	margin-top: .7em;
-	
-	color: var(--dd-blue);
-	text-transform: uppercase;
-	
-	background-color: var(--white);
-	border-bottom: max(3px, calc(var(--menu-border)*.75)) var(--blue) solid;
-	
-	.name {
-		font-family: "Super Comic", sans-serif;
-		letter-spacing: .05em;
-		color: var(--white);
-		text-shadow: 2px 3px var(--dd-blue);
-		background: var(--color);
-		border: .1em var(--color-light) solid;
-		padding: .2em .5em;
-		border-radius: 1em;
-	}
-	span:not(.name) { font-weight: bold; }
-}
-
-/******************************************************************************************
 	RECENT FEEDINGS
 ******************************************************************************************/
 
-#feed-log {
-	width: 100%;
-	flex-shrink: 0;
-	height: fit-content;
-	
+#activity {
 	margin: 1rem auto;
-	width: min(90%, 30rem);
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+}
+
+#feed-log, #leaderboard {
+	flex-shrink: 0;
+	height: auto;
 	
 	.details {
-		padding: .25em 0 1em 0;
+		padding: .25em 0 .75em 0;
 	}
-	
-	.feed-log-item { padding: .2em 1em .2em 1em; }
-	.feed-log-item:nth-child(even) { background: rgb(var(--blue-rgb),0.15); }
+	.main-container {
+		height: fit-content;
+	}
+}
+
+#leaderboard {
+	width: min(90%, 22rem);
+}
+
+#feed-log {
+	width: min(90%, 32rem);
 	
 	.user.registered {
 		font-weight: bold;
@@ -178,6 +258,31 @@
 	}
 }
 
+.feed-log-item, .leaderboard-entry { padding: .2em 1em .2em 1em; }
+.feed-log-item:nth-of-type(even), .leaderboard-entry:nth-of-type(even) { background: rgb(var(--blue-rgb),0.15); }
+
+.leaderboard-entry {
+	font-size: 1.05em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	.rank { width: 1.75em; }
+	:last-child {
+		flex-grow: 1;
+		text-align: right;
+	}
+}
+
+/* notice for things like empty feed log */
+.log-notice, .log-subtitle {
+	color: var(--d-blue);
+	font-size: 1.15em;
+	font-weight: bold;
+	text-align: center;
+	padding: .6em 1em .2em 1em;
+}
+.log-subtitle { text-transform: uppercase; padding-top: .25em; }
+
 /******************************************************************************************
 	WORM STATS
 ******************************************************************************************/
@@ -188,19 +293,17 @@
 	text-align: center;
 	display: flex; flex-flow: row wrap;
 	justify-content: center; align-items: center;
-	padding: 0 var(--padding);
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 	gap: var(--padding);
 	min-width: min(90%,max(40%, 400px));
-	max-width: 90%;
+	max-width: 90vw;
 }
 /* worm stat block */
 .worm-stats {
 	padding: var(--padding);
-	margin-bottom: var(--padding);
 	/* put the border/padding inside instead of outside */
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-	border-radius: 1em;
+	border-radius: 1rem;
 	border: max(2px, calc(var(--menu-border)*.75)) var(--white) solid;
 	color: var(--white);
 	text-align: center;
@@ -209,15 +312,7 @@
 	max-height: max(20vh, 12rem);
 	flex-shrink: 1; flex-grow: 1;
 	webkit-box-sizing: border-box; box-sizing: border-box;
-	/* background lines */
-	background:
-		repeating-linear-gradient(
-			45deg,
-			rgba(255, 255, 255, 0.08),
-			rgba(255, 255, 255, 0.08) min(8px,.8vw),
-			transparent min(8px,.8vw),
-			transparent min(16px,1.6vw)
-		);
+	background: var(--diagonal-stripes);
 	background-color: var(--bg);
 	background-blend-mode: screen;
 }

@@ -9,8 +9,11 @@ require_once "worm-functions.php";
 getAllData();
 getFeedLogData();
 
-// empty variables for storing data
-$feed_err = "";
+// whether race is in maintenance mode
+$maintenance_mode = true;
+
+// error text for if feeding goes wrong
+$feed_err = $maintenance_mode ? "Worm race is currently down for maintenance!<br>Come back soon." : "";
 
 // processing feed data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -54,32 +57,69 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	// if no errors, feed the worm
 	if(empty($feed_err)){
-		$item_count_col = $item_name."_count";
-		// prep update statement
-		$sql = "UPDATE worms SET ".$item_count_col." = ?, progress = ?, health = ? WHERE id = ?";
-		
-		if ($stmt = mysqli_prepare($worm_conn, $sql)) {
-			// Bind variables to the prepared statement as parameters
-			mysqli_stmt_bind_param($stmt, "iiii", $param_item_count, $param_progress, $param_health, $param_id);
-			$param_item_count = $worm[$item_count_col] + 1;
-			$param_progress = max($worm["progress"] + ( $item["progress"] * $item["progress_effect_".$worm["health"]] ), 0);
-			$param_health = max($worm["health"] + ( $item["health"] * $item["health_effect_".$worm["health"]] ), 0);
-			$param_id = $worm_id;
-			
-			// attempt to execute final feeding statement
-			if(mysqli_stmt_execute($stmt)){
-				$_SESSION["last_feed"] = time();
-				$_SESSION["last_cooldown"] = $item["cooldown"];
-				logFeeding($worm_id,$item_name);
-				// redirect to racetrack page
-				header("location: ".$worm_race_path."racetrack");
-			} else{
-				$feed_err = "<strong>Error</strong>: Could not access worm database.<br>Try again later.";
+		// create a new season row if one doesn't already exist for this season
+		$sql = "SELECT * FROM race WHERE ongoing = true;";
+		if ( $result = mysqli_query($worm_conn,$sql) ) {
+			while($row = mysqli_fetch_object($result)) {
+				$row = get_object_vars($row);
+				$season = getSeason($row["name"]);
+				if ($season["ongoing"] == 'true') feedWormInSeason($season,$worm_id,$item);
 			}
-			
-			// Close statement
-			mysqli_stmt_close($stmt);
+			$_SESSION["last_feed"] = time();
+			$_SESSION["last_cooldown"] = $item["cooldown"];
+			logFeeding($worm_id,$item["name"]);
+			// redirect to racetrack page
+			header("location: ".$worm_race_path."racetrack");
+		} else {
+			//$load_err = "Could not fetch race data. Try again later.";
 		}
+	}
+}
+
+function feedWormInSeason($season,$worm_id,$item) {
+	global $worm_conn; global $items; global $worm_race_path;
+	global $logged_in; global $user_id;
+	
+	$item_count_col = $item["name"]."_count";
+	// current worm data array for the season
+	$worm = $season["worms"][$worm_id];
+	// worm data array for the season after the feeding is completed
+	$w = [];
+	$w["progress"] = max($worm["progress"] + ( $item["progress"] * $item["progress_effect_".$worm["health"]] ), 0);
+	$w["health"] = max($worm["health"] + ( $item["health"] * $item["health_effect_".$worm["health"]] ), 0);
+	foreach ($items as $i) {
+		$count_col = $i["name"]."_count";
+		$w[$count_col] = !empty($worm[$count_col]) ? $worm[$count_col] : 0;
+	}
+	$w[$item_count_col] += 1;
+	// json encode array for insertion
+	$worm_json = json_encode($w);
+	
+	$users = $season["users"];
+	if ($logged_in) {
+		if (isset($users[$_SESSION["id"]])) {
+			$users[$_SESSION["id"]] = intval($users[$_SESSION["id"]]) + 1;
+		} else {
+			$users[$_SESSION["id"]] = 1;
+		}
+	}
+	// sort users by total number of interactions, descending order
+	arsort($users);
+	// json encode users array
+	$users_json = json_encode($users);
+	
+	// prep update statement
+	$sql = "UPDATE race SET worm_".$worm_id." = '".$worm_json."', users = '".$users_json."' WHERE name = '".$season["name"]."';";
+	
+	if ($stmt = mysqli_prepare($worm_conn, $sql)) {
+		// attempt to execute final feeding statement
+		if(mysqli_stmt_execute($stmt)){
+		} else{
+			$feed_err = "<strong>Error</strong>: Could not access worm database.<br>Try again later.";
+		}
+		
+		// Close statement
+		mysqli_stmt_close($stmt);
 	}
 }
 
@@ -185,7 +225,10 @@ function logFeeding($worm,$item) {
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>worm racetrack</title>
+		<title>feeding <?php echo strtolower($worm["name"]); ?>...</title>
+		
+		<!-- prevent warnings popup on this page -->
+		<script>var showWarnings = false;</script>
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20251216"></script>
@@ -203,19 +246,24 @@ function logFeeding($worm,$item) {
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<!--worms common stylesheet-->
+		<link href="/games/worm-common/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--worm race game stylesheet-->
-		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--loading page stylesheet-->
 		<link href="loading.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- worm race functions -->
+		<script src="/games/worm-race/wormFunctions.js"></script>
 	</head>
 	<body>
 		<!-- menu & navigation -->
-		<?php include '/menu.php'; ?>
+		<?php include 'menu.php'; ?>
 		
 		
 		<main id="content-wrapper">
 			<!--main page header-->
-			<?php include '/header.php'; ?>
+			<?php include 'header.php'; ?>
 			
 			<!-- contains all worm content -->
 			<div id="content">
@@ -223,7 +271,7 @@ function logFeeding($worm,$item) {
 			</div>
 			
 			<!--main page footer-->
-			<?php include '/footer.php'; ?>
+			<?php include '../worm-common/footer.php'; ?>
 		</main>
 		
 		<!--worm race updates-->

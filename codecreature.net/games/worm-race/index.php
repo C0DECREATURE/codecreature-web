@@ -12,6 +12,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
 		<title>ultimate worm sport</title>
+		<meta name="description" content="Feed a worm, race to victory.">
+		<meta name="keywords" content="game,worms,worm,feed,worm game,worms game,worms race,worm race,worm racing,worm feeding">
+		<meta name="author" content="codecreature">
 		
 		<!-- check url parameters and such -->
 		<script>updateUrl();</script>
@@ -39,6 +42,9 @@
 		<link href="/games/worm-common/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		
+		<!-- worm race functions -->
+		<script src="/games/worm-race/wormFunctions.js"></script>
 	</head>
 	<body>
 		
