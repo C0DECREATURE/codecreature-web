@@ -16,12 +16,14 @@ Date.prototype.stdTimezoneOffset = function () {
 let localDate = new Date();
 let timezoneOffset = localDate.getTimezoneOffset() * 60;
 
+// returns integer id of oldest message that has been loaded on the page
 function getOldestLoadedMessage() {
 	let messages = document.getElementsByClassName('message');
 	let oldestMsg = 1;
 	if (messages.length > 0) oldestMsg = Number(messages[messages.length - 1].id.replaceAll('message-',''));
 	return oldestMsg;
 }
+// returns integer id of latest message that has been loaded on the page
 function getLatestLoadedMessage() {
 	let messages = document.getElementsByClassName('message');
 	let latestMsg = 0;
@@ -29,7 +31,9 @@ function getLatestLoadedMessage() {
 	return latestMsg;
 }
 
-var initialLoad = true;
+// whether an initial set of messages has already been loaded on the page
+var initialLoaded = false;
+// load all new messages
 function loadChat(repeat){
 	let latestMsg = getLatestLoadedMessage();
 	
@@ -40,14 +44,15 @@ function loadChat(repeat){
 			updateLoadOlder();
 	});
 	
-	if (!initialLoad) {
+	// if an initial set of messages has been loaded, refresh the existing messages
+	if (initialLoaded) {
 		let messages = document.getElementsByClassName('message');
 		for (let i = 0; i < messages.length; i++) {
 			refreshMessage(messages[i].id.replaceAll('message-',''));
 		}
 	}
 	
-	initialLoad = false;
+	initialLoaded = true;
 	if (repeat !== false) setTimeout(loadChat, 4000);
 }
 
