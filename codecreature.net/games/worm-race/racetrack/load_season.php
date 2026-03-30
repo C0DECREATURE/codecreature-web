@@ -63,15 +63,15 @@ getAllData();
 				<div id="race-tracks">
 					<!-- worm race tracks inserted here -->
 					<?php
-						$percent_max = 0;
-						for ($i = 0; $i < count($worms); $i++) {
-							$percent_max = max((int)$worms[$i]["progress"], $percent_max);
+						$max_progress = 0;
+						foreach ($worms as $w) {
+							if ((int)$w["progress"] > $max_progress) $max_progress = $w["progress"];
 						}
 						for ($i = 0; $i < count($worms); $i++) {
 							$cur_worm = $worms[$i];
-							$winner = (int)$cur_worm["progress"] == $percent_max ? " winner" : "";
-							$percent = $percent_max == 0 ? 0 : (int)$cur_worm["progress"] / $percent_max;
-							$css_percent = ($percent*100)-25;
+							$winner = (int)$cur_worm["progress"] == $max_progress ? " winner" : "";
+							$percent = $max_progress == 0 ? 0 : (int)$cur_worm["progress"] / $max_progress;
+							$css_percent = $percent*75;
 							$css_time = $percent * 3;
 							$css_bounce = 1-(.8*$percent);
 							echo '
@@ -101,10 +101,6 @@ getAllData();
 			<!-- CURRENT WINNING WORM BANNER -->
 			<?php
 				$cur_winners = [];
-				$max_progress = 0;
-				foreach ($worms as $w) {
-					if ((int)$w["progress"] > $max_progress) $max_progress = $w["progress"];
-				}
 				foreach ($worms as $w) { if ($w["progress"] == $max_progress) $cur_winners[] = $w; }
 			?>
 			<section id="win-text">
