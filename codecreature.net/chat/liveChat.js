@@ -48,7 +48,7 @@ function loadChat(repeat){
 	}
 	
 	initialLoad = false;
-	if (repeat !== false) setTimeout(loadChat, 2000);
+	if (repeat !== false) setTimeout(loadChat, 4000);
 }
 
 function loadOlderChat() {
