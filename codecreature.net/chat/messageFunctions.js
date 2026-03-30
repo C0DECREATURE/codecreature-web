@@ -142,7 +142,7 @@ function refreshMessage(id) {
 					el.querySelector('.date-text').innerHTML = formatMessageDisplayDate(message["date"]);
 				}
 			} else {
-				alert("Couldn't load message.");
+				alert(`Couldn't load message #${id}.`);
 			}
 		}
 	};
