@@ -14,6 +14,19 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-03-31T03:37'),
+		authors: ['emery'],
+		tags: ['chat','minor'],
+		summary: `
+			chat emojis, copy menu
+		`,
+		details: `
+			<p>chat bbcode now supports custom <a href="/chat/bbcode/#emoji">emojis</a>! very small set for now, will probably add more at some point in the future</p>
+			<p>the right click message menu now includes a copy option</p>
+			<p>also hopefully fixed a bug with sending messages via the enter key on mobile</p>
+		`
+	},
+	{
 		date: new Date('2026-03-30T05:23'),
 		authors: ['emery','prax'],
 		tags: ['games','worm race'],
