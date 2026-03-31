@@ -108,7 +108,7 @@ button.open-page-settings {
 	button:hover { color: var(--d-blue); }
 }
 .customCursor .right-click-menu {
-	margin-top: 20px;
+	margin-top: 15px;
 	margin-left: 20px;
 }
 

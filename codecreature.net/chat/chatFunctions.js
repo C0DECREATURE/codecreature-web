@@ -20,9 +20,9 @@ function messageRightClick(e,id,ownMessage) {
 	if (canReport) reportOpt.classList.remove('hidden'); else reportOpt.classList.add('hidden');
 	// display the right click menu
 	let menu = document.getElementById("right-click-menu");
-	menu.style.left = e.pageX + "px";
-	menu.style.top = e.pageY + "px";
 	menu.classList.remove('hidden');
+	menu.style.left = Math.min(e.pageX, window.innerWidth - $(menu).outerWidth(true)) + "px";
+	menu.style.top = Math.min(e.pageY, window.innerHeight - $(menu).outerHeight(true)) + "px";
 	menu.dataset.messageId = id;
 }
 
