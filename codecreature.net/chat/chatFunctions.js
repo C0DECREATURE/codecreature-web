@@ -55,7 +55,17 @@ function sendMessage(message) {
 // copy message text with given id
 function copyMessage(id) {
 	let msg = document.getElementById(`message-${id}`);
-	if (msg) navigator.clipboard.writeText(msg.querySelector('.content').innerText);
+	if (msg) {
+		// make a temporary copy of the message
+		let el = msg.querySelector('.content').cloneNode(true);
+		// delete screen reader only content from the copy
+		let hiddenContent = el.getElementsByClassName('sr-only');
+		for (let i = 0; i < hiddenContent.length; i++) { hiddenContent[i].remove(); }
+		// copy the modified display text of the temporary copy
+		navigator.clipboard.writeText(el.innerText);
+		// delete the copy
+		el.remove();
+	}
 }
 
 // copy message text with given id
