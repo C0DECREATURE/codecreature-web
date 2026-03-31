@@ -18,7 +18,7 @@ const updateLog = [
 		authors: ['emery','prax'],
 		tags: ['games','worm race'],
 		summary: `
-			the big worm race seasons update!
+			the big <a href="/games/worm-race">worm race</a> seasons update!
 		`,
 		details: `
 			<p>worm race now has <strong>seasons</strong> in addition to the all-time race!!!!</p>
