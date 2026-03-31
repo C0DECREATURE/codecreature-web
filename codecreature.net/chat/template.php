@@ -94,6 +94,12 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 			
 			<!--right click message edit menu-->
 			<div id="right-click-menu" class="right-click-menu hidden">
+				<!--copy-->
+				<button id="right-click-copy" 
+				onclick="copyMessage(this.parentNode.dataset.messageId);">
+					Copy
+				</button>
+				<!--report-->
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
 				<!--edit-->
 				<button id="right-click-edit" 
@@ -151,6 +157,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 				(()=>{
 					let form = document.getElementById('edit-message');
 					
+					// send on enter key
+					// don't send if shift+enter
 					document.getElementById("edit-message-new-text").addEventListener("keypress", (e)=>{
 						if (e.key === "Enter" && !e.shiftKey) {
 							e.preventDefault();
@@ -158,6 +166,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 						}
 					});
 					
+					// submit form without refreshing page
 					form.addEventListener("submit", function(event){
 						event.preventDefault();
 						let formProps = Object.fromEntries(new FormData(form));
@@ -171,13 +180,23 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 		
 		<form id="new-message" method="POST" action="/chat/send-message.php">
 			<input type="hidden" name="chat-table" value="<?php echo $chat_table; ?>"></input>
-			<input id="message-input" type="text" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></input>
-			<button type="submit" name="submit">send</button>
+			<textarea id="message-input" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
+			<button id="new-message-submit" type="submit" name="submit">send</button>
 		</form>
 		<script>
 				(()=>{
 					let form = document.getElementById('new-message');
 					
+					// send on enter key
+					// don't send if shift+enter
+					document.getElementById("message-input").addEventListener("keypress", (e)=>{
+						if (e.key === "Enter" && !e.shiftKey) {
+							e.preventDefault();
+							document.getElementById('new-message-submit').click();
+						}
+					});
+					
+					// submit form without refreshing page
 					form.addEventListener("submit", function(event){
 						event.preventDefault();
 						let formProps = Object.fromEntries(new FormData(form));

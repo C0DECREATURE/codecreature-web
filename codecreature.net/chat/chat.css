@@ -257,6 +257,7 @@ button.open-page-settings {
 	}
 }
 #message-input {
+	resize: none;
 	flex-grow: 1;
 	background: none;
 	color: inherit;

@@ -52,6 +52,15 @@ function sendMessage(message) {
 	xhr.send(`chat-table=${chatTableName}&message=${message}`);
 }
 
+// copy message text with given id
+function copyMessage(id) {
+	let msg = document.getElementById(`message-${id}`);
+	if (msg) {
+		 navigator.clipboard.writeText(msg.querySelector('.content').innerText);
+		 console.log('Copying: '+msg.querySelector('.content').innerText );
+	}
+}
+
 // edit message with given id
 // replaces existing message body with new string
 function editMessage(id,newText) {
