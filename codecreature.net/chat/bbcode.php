@@ -6,7 +6,7 @@ $bbcode = new BBCode;
 
 // set the directory to find smileys
 $bbcode->ClearSmileys();
-$bbcode->SetSmileyDir("/graphix/emojis"); /* DEBUG it's looking for them locally still..?? */
+$bbcode->SetSmileyURL("/graphix/emojis");
 $bbcode->AddSmiley(":heart:","heart.png");
 $bbcode->AddSmiley(":brokenheart:","broken_heart.png");
 $bbcode->AddSmiley(":right:","arrow_right.png");
