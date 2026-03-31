@@ -112,7 +112,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 					Edit
 				</button>
 				<!--delete-->
-				<button id="right-click-delete" onclick="deleteMessage(this.parentNode.dataset.messageId);">Delete</button>
+				<button id="right-click-delete" class="txt-red" onclick="deleteMessage(this.parentNode.dataset.messageId);">Delete</button>
 			</div>
 			<script>document.addEventListener("click",hideRightClickMenus);</script>
 			
