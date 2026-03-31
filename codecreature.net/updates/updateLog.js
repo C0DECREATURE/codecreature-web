@@ -35,7 +35,7 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['chat','minor'],
 		summary: `
-			chat message edit, delete, & report
+			<a href="/chat">chat</a> message edit, delete, & report
 		`,
 		details: `
 			<p>
@@ -78,11 +78,11 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['general'],
 		summary: `
-			fancier hosting, less downtime!
+			fancier hosting, less downtime?
 		`,
 		details: `
 			<p>
-				we've moved to a hosting plan (<a href="https://heliohost.org">heliohost</a>'s morty server) that should have near-zero downtime. no more 502 bad gateway errors (hopefully!!)
+				we've moved to a slightly different hosting plan (<a href="https://heliohost.org">heliohost</a>'s morty server) that should have near-zero downtime. no more 502 bad gateway errors (hopefully!!)
 			</p>
 		`
 	},
@@ -91,7 +91,7 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['chat'],
 		summary: `
-			more message history, chat rules
+			more message history, <a href="/chat/rules">chat rules</a>
 		`,
 		details: `
 			<p>
@@ -130,7 +130,7 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['worm race','games','minor'],
 		summary: `
-			minor worm race CSS edits
+			minor <a href="/games/worm-race">worm race</a> CSS edits
 		`,
 		details: `
 			<p>
@@ -149,7 +149,7 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['chat','minor'],
 		summary: `
-			couple of bbcode acessibility features
+			couple of bbcode accessibility features
 		`,
 		details: `
 			<p>
