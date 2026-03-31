@@ -19,7 +19,7 @@ require_once "bbcode.php";
 
 /*************************************/
 /* SETTINGS */
-$load_limit = 50; // maximum number of messages to load at once
+$load_limit = 25; // maximum number of messages to load at once
 
 $chat_table = $_GET['chat_table'];
 if (!isValidChatTable($chat_table)) throw new Exception('Invalid chatroom name "'.$chat_table.'"');
@@ -54,7 +54,8 @@ while ($message = mysqli_fetch_array($result)) {
 	?>
 	<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo getAuthorization($message['user_id']);
 		?>"
-		id="message-<?php echo $message['id']; ?>">
+		id="message-<?php echo $message['id']; ?>"
+		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
 		<img class="icon" src="<?php echo getIcon($message['user_id']); ?>" alt="">
 		
 		<div class="bubble">

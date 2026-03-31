@@ -99,6 +99,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 				onclick="copyMessage(this.parentNode.dataset.messageId);">
 					Copy
 				</button>
+				<!--copy-->
+				<button id="right-click-copy" 
+				onclick="copyMessageBbcode(this.parentNode.dataset.messageId);">
+					Copy BBCode
+				</button>
 				<!--report-->
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
 				<!--edit-->
@@ -132,24 +137,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 					form.dataset.messageId = messageId;
 					
 					// put message contents in editor text area
-					textArea.value = "";
-					const xhr = new XMLHttpRequest();
-					xhr.open("POST", "/chat/get-message.php", true);
-					xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-					// do stuff when request finishes
-					xhr.onreadystatechange = () => {
-						if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-							if (xhr.responseText != '') {
-								let msg = JSON.parse(xhr.responseText)["message"];
-								msg = msg.replaceAll("[br]","\n");
-								textArea.value = msg;
-							} else {
-								alert("Something went wrong! Try again later.");
-							}
-						}
-					};
-					// send the variables
-					xhr.send(`message-id=${messageId}&chat-table=${chatTableName}`);
+					textArea.value = msgEl.dataset.rawBbcode.replaceAll("[br]","\n");
 					
 					textArea.focus();
 				}

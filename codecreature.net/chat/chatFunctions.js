@@ -55,10 +55,13 @@ function sendMessage(message) {
 // copy message text with given id
 function copyMessage(id) {
 	let msg = document.getElementById(`message-${id}`);
-	if (msg) {
-		 navigator.clipboard.writeText(msg.querySelector('.content').innerText);
-		 console.log('Copying: '+msg.querySelector('.content').innerText );
-	}
+	if (msg) navigator.clipboard.writeText(msg.querySelector('.content').innerText);
+}
+
+// copy message text with given id
+function copyMessageBbcode(id) {
+	let msg = document.getElementById(`message-${id}`);
+	if (msg) navigator.clipboard.writeText(msg.dataset.rawBbcode);
 }
 
 // edit message with given id
