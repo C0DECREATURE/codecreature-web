@@ -1,7 +1,27 @@
 // self executing
 (function(){
+	function isBot(userAgent) {
+		// detect whether the user accessing the page is a bot
+		const robots = new RegExp([
+			/bot/,/spider/,/crawl/,													// GENERAL TERMS
+			/APIs-Google/,/AdsBot/,/Googlebot/,							// GOOGLE ROBOTS
+			/mediapartners/,/Google Favicon/,
+			/FeedFetcher/,/Google-Read-Aloud/,
+			/DuplexWeb-Google/,/googleweblight/,
+			/bing/,/yandex/,/baidu/,/duckduck/,/yahoo/,			// OTHER ENGINES
+			/ecosia/,/ia_archiver/,
+			/facebook/,/instagram/,/pinterest/,/reddit/,		// SOCIAL MEDIA
+			/slack/,/twitter/,/whatsapp/,/youtube/,
+			/screenjesus/,																	// NEOCITIES SCREENSHOTTER
+			/semrush/,																			// OTHER
+		].map((r) => r.source).join("|"),"i");	// build regexp + "i" flag
+		
+		return robots.test(userAgent);
+	}
+	// if the link was to the neocities page, redirect to codecreature.net
 	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
+	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
 	} else if (
 		localStorage.getItem("showWarnings") == "false" &&
 		(typeof showWarnings == 'undefined' || showWarnings != false) &&
@@ -10,16 +30,15 @@
 	) {
 		window.location.href = '/home';
 	// redirect to warnings page immediately if:
-	// warnings not shown yet, user is not Neocities screenshotter, not already redirecting
+	// warnings not shown yet, user is not a bot, not already redirecting
 	} else if (
 		localStorage.getItem("showWarnings") != "false" &&
 		!window.location.search.includes('showWarnings=false') &&
 		(typeof showWarnings == 'undefined' || showWarnings == true) &&
-		navigator.userAgent.toLowerCase() != 'screenjesus' &&
+		!isBot(navigator.userAgent) &&
 		window.location.pathname.replaceAll('/','') != 'warnings' &&
 		window.location.pathname.replaceAll('/','') != ''
 	) {
-		console.log('redirect');
 		let redirect = window.location.pathname + window.location.search;
 		window.location.href = `/?redirect=${redirect}`;
 	}
