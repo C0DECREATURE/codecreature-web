@@ -16,6 +16,8 @@ body {
 	background-attachment: fixed;
 }
 
+.passthrough { pointer-events: none; }
+
 a.home {
 	position: absolute;
 	z-index: 1000;
