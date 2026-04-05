@@ -293,7 +293,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
 					<span class="invalid-feedback"><?php echo $password_err; ?></span>
 				</div>
-				<div class="form-group">
+				<div class="form-group hidden"> <!--DEBUG - hiding while not working-->
 					<input type="checkbox" id="rememberme" name="rememberme">
 					<label for="rememberme">Remember me on this device.</label>
 				</div>

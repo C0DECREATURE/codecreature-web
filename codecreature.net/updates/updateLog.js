@@ -13,6 +13,7 @@ const updateLog = [
 		`
 	},
 */
+	/*not working actually... fine locally but not on morty
 	{
 		date: new Date('2026-04-05T12:57'),
 		authors: ['emery'],
@@ -23,7 +24,7 @@ const updateLog = [
 		details: `
 			<p>i think i managed to get it working so devices can remember user login if you ask them to. basic functionality!</p>
 		`
-	},
+	},*/
 	{
 		date: new Date('2026-03-31T03:37'),
 		authors: ['emery'],
