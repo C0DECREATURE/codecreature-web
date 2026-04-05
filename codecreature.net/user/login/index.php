@@ -45,16 +45,19 @@ function generateRememberToken($length = 32) {
 
 // store a rememberme token for the current user
 // using https://www.bomberbot.com/php/implementing-secure-keep-me-logged-in-functionality-in-php/
-function rememberUser($userId, $remember_token) {
+function rememberUser($user_id, $remember_token) {
 	global $users_conn;
 	
 	$token_hash = hash('sha256', $remember_token);
 	$expires_at = date('Y-m-d H:i:s', strtotime('+60 days'));
 	
-	$stmt = $users_conn->prepare("INSERT INTO remember_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)");
-	$stmt->execute([$userId, $token_hash, $expires_at]);
-	
-	setcookie('remember_token', $remember_token, time() + (30 * 24 * 60 * 60), '/', '', true, true);
+	$sql = "INSERT INTO remember_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)";
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "iss", $user_id, $token_hash, $expires_at);
+		if(mysqli_stmt_execute($stmt)){
+			setcookie('remember_token', $remember_token, time() + (30 * 24 * 60 * 60), '/', '', true, true);
+		}
+	}
 }
 
 // log in the user
@@ -183,7 +186,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             loginUser($id, $username, $authorization, $pronouns, $icon, $last_login, $remember);
 														
                             // Redirect user to welcome page
-                            //header("location: ".$redirect_path.$welcome); // DEBUG not working??
+                            header("location: ".$redirect_path.$welcome); // DEBUG not working??
                         } else{
 														// log the failed login attempt
 														// Prepare an insert statement
