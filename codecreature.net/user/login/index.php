@@ -16,6 +16,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
  
 // Include database connection file
 require_once "../connect.php";
+
+// Include user data storage file
+require_once "store-user.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -34,6 +37,65 @@ $failed_attempts_today = 0; // failed attempts on this day
 $failed_attempts_total = 0; // failed attempts total
 
 date_default_timezone_set('America/New_York'); // EST
+
+// generate a rememberme token
+function generateRememberToken($length = 32) {
+	return bin2hex(random_bytes($length));
+}
+
+// store a rememberme token for the current user
+// using https://www.bomberbot.com/php/implementing-secure-keep-me-logged-in-functionality-in-php/
+function rememberUser($userId, $remember_token) {
+	global $users_conn;
+	
+	$token_hash = hash('sha256', $remember_token);
+	$expires_at = date('Y-m-d H:i:s', strtotime('+60 days'));
+	
+	$stmt = $users_conn->prepare("INSERT INTO remember_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)");
+	$stmt->execute([$userId, $token_hash, $expires_at]);
+	
+	setcookie('remember_token', $remember_token, time() + (30 * 24 * 60 * 60), '/', '', true, true);
+}
+
+// log in the user
+function loginUser($id, $username, $authorization, $pronouns, $icon, $last_login, $remember) {
+	global $users_conn;
+	
+	if(!isset($_SESSION)){session_start();}
+  
+	// if user asked to be remembered, store a token
+	if ($remember) {
+		$remember_token = generateRememberToken();
+		rememberUser($id, $remember_token);
+	}
+	
+	// store the user's unsecured data in session variables
+	storeUser($id, $username, $authorization, $pronouns, $icon);
+	
+	// check if this is the user's first login
+	$welcome = $last_login == NULL ? '?welcome=true' : '';
+	
+	// record the login time
+	$current_date = date('Y-m-d H:i:s');
+	$date_sql = "UPDATE users SET last_login='".$current_date."' WHERE id=".$id;
+	if ($users_conn->query($date_sql) === TRUE) { echo "User last_login updated successfully";
+	} else { echo "Error updating last_login: " . $users_conn->error; }
+	
+	// clear failed login attempts log for this user
+	$delSql = "DELETE FROM login_attempts WHERE username = ?";
+	if($delStmt = mysqli_prepare($users_conn, $delSql)){
+		// Bind variables to the prepared statement as parameters
+		mysqli_stmt_bind_param($delStmt, "s", $username);
+		// Attempt to execute the prepared statement
+		if(mysqli_stmt_execute($delStmt)){
+			echo "Login attempts cleared.";
+		} else{
+			echo "Could not validate user login attempts.";
+		}
+		// Close statement
+		mysqli_stmt_close($delStmt);
+	}
+}
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -113,47 +175,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $authorization, $pronouns, $icon, $last_login);
                     if(mysqli_stmt_fetch($stmt)){
-												// get the current time in sql DATETIME format
-												$current_date = date('Y-m-d H:i:s');
-												
 												
                         if(password_verify($password, $hashed_password)){
+														$remember = false;
+														if (isset($_POST["rememberme"])) { $remember = trim($_POST["rememberme"]) == "on"; }
                             // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
-                            $_SESSION["user_authorization"] = $authorization;                         
-                            $_SESSION["user_pronouns"] = $pronouns;
-                            $_SESSION["user_icon"] = $icon;
-                            
-														// check if this is the user's first login
-														$welcome = $last_login == NULL ? '?welcome=true' : '';
-														
-														// record the login time
-														$date_sql = "UPDATE users SET last_login='".$current_date."' WHERE id=".$id;
-														if ($users_conn->query($date_sql) === TRUE) { echo "User last_login updated successfully";
-														} else { echo "Error updating last_login: " . $users_conn->error; }
-														
-														// clear failed login attempts log for this user
-														$delSql = "DELETE FROM login_attempts WHERE username = ?";
-														if($delStmt = mysqli_prepare($users_conn, $delSql)){
-															// Bind variables to the prepared statement as parameters
-															mysqli_stmt_bind_param($delStmt, "s", $username);
-															// Attempt to execute the prepared statement
-															if(mysqli_stmt_execute($delStmt)){
-																echo "Login attempts cleared.";
-															} else{
-																echo "Could not validate user login attempts.";
-															}
-															// Close statement
-															mysqli_stmt_close($delStmt);
-														}
+                            loginUser($id, $username, $authorization, $pronouns, $icon, $last_login, $remember);
 														
                             // Redirect user to welcome page
-                            header("location: ".$redirect_path.$welcome); // DEBUG not working??
+                            //header("location: ".$redirect_path.$welcome); // DEBUG not working??
                         } else{
 														// log the failed login attempt
 														// Prepare an insert statement
@@ -259,6 +289,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						id="password" name="password"
 						class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
 					<span class="invalid-feedback"><?php echo $password_err; ?></span>
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="rememberme" name="rememberme">
+					<label for="rememberme">Remember me on this device.</label>
 				</div>
 				<div class="form-group">
 					<input type="submit" class="btn btn-green" value="Login">

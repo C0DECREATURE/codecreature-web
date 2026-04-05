@@ -14,6 +14,17 @@ const updateLog = [
 	},
 */
 	{
+		date: new Date('2026-04-05T12:57'),
+		authors: ['emery'],
+		tags: ['users','minor'],
+		summary: `
+			stay logged in
+		`,
+		details: `
+			<p>i think i managed to get it working so devices can remember user login if you ask them to. basic functionality!</p>
+		`
+	},
+	{
 		date: new Date('2026-03-31T03:37'),
 		authors: ['emery'],
 		tags: ['chat','minor'],
