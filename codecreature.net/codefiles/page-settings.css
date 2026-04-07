@@ -64,6 +64,9 @@ button.open-page-settings {
 		margin-top: -.5em;
 	}
 }
+#page-settings-contents h3 {
+	margin: 0 0 .25em 0;
+}
 
 /* close button */
 #page-settings-close-button {
