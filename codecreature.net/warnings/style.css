@@ -160,7 +160,7 @@ body {
 	background: var(--yellow);
 	line-height: 1.15;
 	font-size: min(4rem, 13vw);
-	@media screen and (width >= 600px) and (width < 1000px) { font-size: 8vw; }
+	@media screen and (width >= 600px) and (width < 900px) { font-size: 8vw; }
 }
 
 .main-box > .content {
@@ -247,7 +247,7 @@ body {
 	/* no banner shadow or text shape */
 	.main-box:before, .main-box:after, .main-box > .content:before, .main-box > .content .simplebar-content:before { display: none; }
 }
-@media screen and (aspect-ratio >= 1.15) and (width > 1000px) {
+@media screen and (aspect-ratio >= 1.15) and (width >= 900px) {
 	.main-box > .content { aspect-ratio: 1.35; }
 }
 
