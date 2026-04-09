@@ -320,14 +320,11 @@ const updates = {
 	// if url parameters specifies a sort order
 	if ( urlParams.has('updateSort') ) { updates.sort = urlParams.get('updateSort'); }
 	
-	// check if this page has 'iframe' in its URL parameters
-	// and that iframe parameter is not set to 'false'
-	// if so, add the iframe class to this page's body
-	// loaded from /codefiles/iframe-detector.js
-	iFrameParams();
-	
 	// if this is being displayed in an iframe
-	if ( document.body.classList.contains('iframe') ) showLimit = iFrameShowLimit;
+	if (inIFrame()) {
+		document.body.classList.add('iframe');
+		showLimit = iFrameShowLimit;
+	}
 	
 	// for each update in the log
 	for (let i = 0; i < updateLog.length; i++) {
