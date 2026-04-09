@@ -406,7 +406,7 @@ button.simple:hover, button.simple:focus-visible {
 	margin-top: .5em;
 }
 
-#accessibility > section {
+#accessibility > section, #accessibility .simplebar-content > section {
 	border-top: 2px var(--green) solid;
 }
 
