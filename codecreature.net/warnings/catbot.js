@@ -4,7 +4,7 @@ const catBot = {
 	init: ()=>{
 		catBot.eyes = document.getElementById('catbot-eyes');
 		catBot.wake();
-		catBot.blink(false);
+		if (!isReducedMotion) catBot.blink(false); // don't blink if user prefers reduced motion
 		window.addEventListener('click',catBot.wake);
 	},
 	// make bot blink
