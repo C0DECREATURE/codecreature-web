@@ -45,8 +45,11 @@
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
-	
+<?php
+	$warningOptions = ["flashing","unreality","gore"];
+	$requirements = ["mobile","javascript","iframes"];
+?>
+<body><div class="body-wrapper">
 	<div id="main-box" class="main-box">
 		<header class="banner">
 			<h1>Warning!</h1>
@@ -68,7 +71,6 @@
 				
 				<div class="warning-options">
 					<?php
-						$warningOptions = ["flashing","unreality","gore"];
 						for ($i = 0; $i < count($warningOptions); $i++) {
 							$w = $warningOptions[$i];
 							echo "
@@ -108,13 +110,14 @@
 		
 		<?php
 			// details for each of the warnings options
-			for ($i = 0; $i < count($warningOptions); $i++) {
-				$w = $warningOptions[$i];
+			$detailSections = array_merge($warningOptions,$requirements);
+			for ($i = 0; $i < count($detailSections); $i++) {
+				$s = $detailSections[$i];
 				echo "
-					<div class='content tab warning-option-details' id='$w'>
-					<header><h2>$w</h2></header>
+					<div class='content tab warning-option-details' id='$s'>
+					<header><h2>$s</h2></header>
 				";
-				include "details/$w.php";
+				include "details/$s.php";
 				echo "
 					<button class='big-button back' onclick='openTab(`warnings-form`);'>back</button>
 					</div>
@@ -167,6 +170,20 @@
 		</div>
 		
 		<?php include "side-character.php"; ?>
+	</div>
+	
+	<div class="sub-box">
+		<?php
+			for ($i = 0; $i < count($requirements); $i++) {
+				$r = $requirements[$i];
+				echo "
+					<!-- $r -->
+					<button class='requirement' onclick='openTab(`$r`,false);'>
+						<img src='$r.svg' alt='$r'>
+					</button>
+				";
+			}
+		?>
 	</div>
 	
 	<script>
@@ -246,5 +263,5 @@
 			window.location.href = redirect;
 		}
 	</script>
-</body>
+</div></body>
 </html>

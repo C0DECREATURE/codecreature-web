@@ -45,7 +45,7 @@
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
+<body><div class="body-wrapper">
 	
 	<div id="main-box" class="main-box">
 		<header class="banner">
@@ -183,5 +183,5 @@
 			window.location = redirect;
 		}
 	</script>
-</body>
+</div></body>
 </html>
