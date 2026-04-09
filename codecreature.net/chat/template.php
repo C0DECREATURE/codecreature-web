@@ -10,18 +10,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/chat-functions.php";
 // Include user database functions
 require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
-$logged_in = false;
-$user_id = '0';
+$logged_in = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
+$user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : '0';
 $user_IP = $_SERVER['REMOTE_ADDR'];
-$username = "Anonymous";
-$user_icon = "";
-// Check if the user is already logged in, if yes then redirect to user details page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-	$logged_in = true;
-	$user_id = $_SESSION["id"];
-	$username = $_SESSION["username"];                       
-	$user_icon = $_SESSION["user_icon"];
-}
+$username = getUsername($user_id);
+$user_icon = getIcon($user_id);
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +66,18 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 <body>
 	<main class="chatbox">
 		<header>
-			<a href="/user"><?php echo $logged_in ? $username : 'log in'; ?></a>
+			<button onclick="
+				let user = document.getElementById('user');
+				user.classList.toggle('hidden');
+				if (user.classList.contains('hidden')) {
+					this.innerHTML = this.dataset.label;
+				} else {
+					user.focus();
+					this.innerHTML = 'return to chat';
+				}
+			" data-label="<?php echo $logged_in ? $username : 'log in'; ?>">
+				<?php echo $logged_in ? $username : 'log in'; ?>
+			</button>
 			<button id="page-settings" class="open-page-settings" aria-label="page settings"
 			onclick="togglePageSettings();" onfocusvisible="togglePageSettings();">
 				<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
@@ -88,6 +92,26 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 				<span><a href="/chat/bbcode">BBCode Style Guide</a></span>
 			</div>
 		</header>
+		
+		<iframe id="user" class="hidden" src="/user"></iframe>
+		<script>
+			// whether the user is logged in
+			<?php $bool = $logged_in ? "true" : "false"; echo 'var loggedIn = '. $bool .';'; ?>
+			// when the user iframe loads a new page, check if user login status should change
+			document.getElementById('user').addEventListener('load',()=>{
+				let loc = user.contentWindow.location.pathname;
+				if (loggedIn && loc.includes('/user/login')) {
+					console.log('user logged out!');
+					loggedIn = false;
+					location.reload();
+				} else if (!loggedIn && loc.includes('/user/details')) {
+					console.log('user logged in!');
+					loggedIn = true;
+					location.reload();
+				}
+			});
+		</script>
+		
 		<section class="messages" id="messages">
 			<!--load older messages button-->
 			<button id="load-older" class="hidden" onclick="loadOlderChat();">load older messages</button>

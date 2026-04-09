@@ -159,6 +159,15 @@ button.open-page-settings {
 	.submit:hover { background: var(--green); }
 }
 
+/* user login/details iframe */
+#user {
+	width: 100%;
+	flex-grow: 1;
+}
+.chatbox:has(#user:not(.hidden)) {
+	#messages, #new-message { display: none; }
+}
+
 .messages {
 	display: flex;
 	flex-flow: column-reverse nowrap;
