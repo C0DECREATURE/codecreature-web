@@ -6,14 +6,14 @@ if(!isset($_SESSION)){session_start();}
 // if redirect URL parameter set, use that
 $redirect_path = "/user/details";
 if (isset($_GET['redirect']) && !empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
- 
+
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		echo "logged in";
+		echo "Already logged in!";
     header("location: ".$redirect_path);
     exit;
 }
- 
+
 // Include database connection file
 require_once "../connect.php";
 
@@ -269,13 +269,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<div class="wrapper">
 			<h1>Login</h1>
 			
-			<?php 
+			<?php
 			if(!empty($login_err)){
 				echo '<div class="alert alert-danger">' . $login_err . '</div>';
-			}        
+			}
 			?>
-			
-			<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+			<form id="login-form" action="/user/login/index.php" method="post">
 				<div class="form-group">
 					<label for="username">Username</label>
 					<input
@@ -300,10 +300,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<div class="form-group">
 					<input type="submit" class="btn btn-green" value="Login">
 				</div>
-				<div>or <a href="../register/">sign up</a> now.</div>
-				<p>forgot your username/password?
-					<br>email <a href="mailto:admin@codecreature.net">admin@codecreature.net</a> for assistance.</p>
-			</form>	
+			</form>
+			
+			<div>or <a href="../register/">sign up</a> now.</div>
+			
+			<p>forgot your username/password?
+				<br>email <a href="mailto:admin@codecreature.net">admin@codecreature.net</a> for assistance.</p>
 		</div>
 	</body>
 </html>
