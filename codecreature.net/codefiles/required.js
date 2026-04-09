@@ -54,6 +54,7 @@ function inIFrame() {
 		return true;
 	}
 }
+if (inIFrame()) window.addEventListener('load',()=>{document.body.classList.add('iframe')});
 
 // returns true if a variable is true (boolean) or "true" (string)
 // otherwise returns false

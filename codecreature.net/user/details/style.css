@@ -6,6 +6,8 @@ body > header {
 
 nav { text-align: center; }
 
+.iframe nav { display: none; }
+
 main {
 	max-width: 600px;
 	margin: 0 auto;
