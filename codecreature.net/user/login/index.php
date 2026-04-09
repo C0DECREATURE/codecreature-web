@@ -28,7 +28,7 @@ $username_err = $password_err = $login_err = "";
 $login_err_generic = "Invalid username or password.";
 $login_err_attempts = "Too many failed attempts.<br>Check your username or ";
 $login_err_tomorrow = $login_err_attempts."try again tomorrow.";
-$login_err_contact = $login_err_attempts."contact admin@codecreature.net for assistance.";
+$login_err_contact = $login_err_attempts."email admin@codecreature.net for assistance.";
 
 // limits on failed login attempts
 $daily_attempt_limit = 5; // permitted failed login attempts per day
@@ -300,7 +300,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<div class="form-group">
 					<input type="submit" class="btn btn-green" value="Login">
 				</div>
-				<p>Don't have an account? <a href="../register/">Sign up now</a>.</p>
+				<div>or <a href="../register/">sign up</a> now.</div>
+				<p>forgot your username/password?
+					<br>email <a href="mailto:admin@codecreature.net">admin@codecreature.net</a> for assistance.</p>
 			</form>	
 		</div>
 	</body>
