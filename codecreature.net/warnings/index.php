@@ -201,39 +201,6 @@
 		
 		var optionalCheckboxes = document.getElementsByClassName('warning-option-checkbox');
 		
-		/*
-		function toggleOptionalWarnings() {
-			let btn = document.getElementById('toggle-optional-warnings');
-			// determine new state (checked/unchecked) being applied to checkboxes
-			let state = btn.dataset.state;
-			// check/uncheck boxes
-			for (let box of optionalCheckboxes) { box.checked = state == "check"; }
-			// update the toggle button
-			updateToggleOptionalWarnings(state == "check" ? "uncheck" : "check");
-		}
-		function updateToggleOptionalWarnings(state) {
-			let btn = document.getElementById('toggle-optional-warnings');
-			// update based on new state
-			if (state == "uncheck") {
-				btn.innerHTML = "uncheck all";
-				btn.dataset.state = "uncheck";
-			} else {
-				btn.innerHTML = "check all";
-				btn.dataset.state = "check";
-			}
-		}
-		// if all optional warning boxes checked or unchecked, set toggle button to invert them
-		function updateToggleOptionalWarningsByBoxStates() {
-			let numChecked = 0;
-			for (let b of optionalCheckboxes) { if (b.checked) numChecked += 1; }
-			if (numChecked == optionalCheckboxes.length) updateToggleOptionalWarnings('uncheck');
-			else if (numChecked == 0) updateToggleOptionalWarnings('check');
-		}
-		
-		// when optional warning checkbox clicked, update toggle button
-		for (let box of optionalCheckboxes) { box.addEventListener('change',updateToggleOptionalWarningsByBoxStates); }
-		*/
-		
 		// check/uncheck appropriate boxes based on existing warnings selections
 		(()=>{
 			if (localStorage.getItem('showSpecificWarnings')) {
@@ -243,7 +210,6 @@
 					else box.checked = false;
 				}
 			}
-			//updateToggleOptionalWarningsByBoxStates();
 		})();
 		
 		document.getElementById('warnings-form').addEventListener('submit',(e)=>{
