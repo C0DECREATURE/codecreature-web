@@ -14,7 +14,7 @@
 		<meta name="author" content="codecreature">
 		
 		<!-- prevent warnings popup on this page -->
-		<script>var showWarnings = false;</script>
+		<script>var showMainWarnings = false;</script>
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20251216"></script>

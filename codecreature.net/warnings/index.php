@@ -66,94 +66,61 @@
 					<!--<button type="button" class="simple" id="toggle-optional-warnings" onclick="toggleOptionalWarnings();" data-state="uncheck">uncheck all</button>-->
 				</header>
 				
-				
 				<div class="warning-options">
-					<!-- flashing -->
-					<div class="warning-option">
-						<div class="check-wrapper">
-							<input type="checkbox" id="flashing-option" name="Flashing" class="warning-option-checkbox">
-						</div>
-						<label for="flashing-option">
-							<div class="img"><img src="flashing.png" alt=""></div>
-							<div class="text">flashing</div>
-						</label>
-						<button type="button" class="info" aria-label="more info"
-						onclick="openTab('flashing',true);">?</button>
-					</div>
-					
-					<!-- unreality -->
-					<div class="warning-option">
-						<div class="check-wrapper">
-							<input type="checkbox" id="unreality-option" name="Unreality" class="warning-option-checkbox">
-						</div>
-						<label for="unreality-option">
-							<div class="img"><img src="unreality.png" alt=""></div>
-							<div class="text">unreality</div>
-						</label>
-						<button type="button" class="info" aria-label="more info"
-						onclick="openTab('unreality',true);">?</button>
-					</div>
-					
-					<!-- gore -->
-					<div class="warning-option">
-						<div class="check-wrapper">
-							<input type="checkbox" id="gore-option" name="Gore" class="warning-option-checkbox">
-						</div>
-						<label for="gore-option">
-							<div class="img"><img src="gore.png" alt=""></div>
-							<div class="text">gore</div>
-						</label>
-						<button type="button" class="info" aria-label="more info"
-						onclick="openTab('gore',true);">?</button>
-					</div>
+					<?php
+						$warningOptions = ["flashing","unreality","gore"];
+						for ($i = 0; $i < count($warningOptions); $i++) {
+							$w = $warningOptions[$i];
+							echo "
+								<!-- $w -->
+								<div class='warning-option'>
+									<div class='check-wrapper'>
+										<input type='checkbox' id='$w-option' name='$w' class='warning-option-checkbox'>
+									</div>
+									<label for='$w-option'>
+										<div class='img'><img src='$w.png' alt=''></div>
+										<div class='text'>$w</div>
+									</label>
+									<button type='button' class='info' aria-label='more info'
+									onclick='openTab(`$w`,true);'>?</button>
+								</div>
+							";
+						}
+					?>
 				</div>
 			</section>
 			
-			<section>
+			<section class="big-center">
 				<button type="button" class="simple" id="accessibility-info-button"
 				onclick="openTab('accessibility');">more accessibility options...</button>
 			</section>
 			
-			<div class="content-bottom">
+			<section class="content-bottom">
 				<div class="wrapper">
 					<span>proceed at <u class="tq">ur</u> own risk!!</span>
 				</div>
 				<div class="wrapper">
 					<button type="submit" class="big-button accept">ok!</button>
 				</div>
-			</div>
+			</section>
 			                                                                            
-		</form>     
+		</form>
 		
-		<div class="content tab warning-option-details" id="flashing">
-			<header><h2>flashing</h2></header>
-			
-			<p>
-				rapidly <b>flickering</b> imagery and fast-moving <b>gifs</b> which may affect <u class="tq" data-a="people">ppl</u> with seizures or other visual sensitivity. large <b>moving elements</b> generally respect <u class="tq">ur</u> device's <a target="_blank" href="https://prefers-reduced-motion.com/">reduced motion settings</a>
-			</p>
-			
-			<button class="big-button back" onclick="openTab('warnings-form');">back</button>
-		</div>
-		
-		<div class="content tab warning-option-details" id="unreality">
-			<header><h2>unreality</h2></header>
-			
-			<p>
-				unlabeled fake or misleading content, like <b>conspiracy theories</b>, fake <b>ads</b>, or simulated <b>glitches</b>. these are not designed to be upsetting or malicious
-			</p>
-			
-			<button class="big-button back" onclick="openTab('warnings-form');">back</button>
-		</div>
-		
-		<div class="content tab warning-option-details" id="gore">
-			<header><h2>gore</h2></header>
-			
-			<p>
-				depictions of <b>cartoon injury</b> with stylized flesh, bones, or blood. this also includes <b>candy gore</b>, in which body parts are made of unnatural materials like fruit or candy
-			</p>
-			
-			<button class="big-button back" onclick="openTab('warnings-form');">back</button>
-		</div>
+		<?php
+			// details for each of the warnings options
+			for ($i = 0; $i < count($warningOptions); $i++) {
+				$w = $warningOptions[$i];
+				echo "
+					<div class='content tab warning-option-details' id='$w'>
+					<header><h2>$w</h2></header>
+				";
+				include "details/$w.php";
+				echo "
+					<button class='big-button back' onclick='openTab(`warnings-form`);'>back</button>
+					</div>
+				";
+			}
+		?>
 		
 		<div class="content tab" id="accessibility">
 			<header>
@@ -199,17 +166,7 @@
 			<button class="big-button back" onclick="openTab('warnings-form');">back</button>
 		</div>
 		
-		<img class="side-character shadow" src="/ocs/catnip/images/sitting-chib-outline-dark.png" alt="">
-		<img class="side-character clip" src="/ocs/catnip/images/sitting-chib-outline-light.png" alt="">
-		<div class="side-character main">
-			<div class="wrapper">
-				<img class="screen" src="catnip_screen.png" alt="">
-				<img class="screen" src="catnip_eyes_00.png" alt="">
-				<div id="side-character-face"></div>
-				<img id="side-character-face-overlay" class="screen" src="catnip_screen_overlay.png" alt="" style="display:none;">
-				<img class="" src="/ocs/catnip/images/sitting_chib_body.png" alt="">
-			</div>
-		</div>
+		<?php include "side-character.php"; ?>
 	</div>
 	
 	<script>
@@ -244,6 +201,39 @@
 		
 		var optionalCheckboxes = document.getElementsByClassName('warning-option-checkbox');
 		
+		/*
+		function toggleOptionalWarnings() {
+			let btn = document.getElementById('toggle-optional-warnings');
+			// determine new state (checked/unchecked) being applied to checkboxes
+			let state = btn.dataset.state;
+			// check/uncheck boxes
+			for (let box of optionalCheckboxes) { box.checked = state == "check"; }
+			// update the toggle button
+			updateToggleOptionalWarnings(state == "check" ? "uncheck" : "check");
+		}
+		function updateToggleOptionalWarnings(state) {
+			let btn = document.getElementById('toggle-optional-warnings');
+			// update based on new state
+			if (state == "uncheck") {
+				btn.innerHTML = "uncheck all";
+				btn.dataset.state = "uncheck";
+			} else {
+				btn.innerHTML = "check all";
+				btn.dataset.state = "check";
+			}
+		}
+		// if all optional warning boxes checked or unchecked, set toggle button to invert them
+		function updateToggleOptionalWarningsByBoxStates() {
+			let numChecked = 0;
+			for (let b of optionalCheckboxes) { if (b.checked) numChecked += 1; }
+			if (numChecked == optionalCheckboxes.length) updateToggleOptionalWarnings('uncheck');
+			else if (numChecked == 0) updateToggleOptionalWarnings('check');
+		}
+		
+		// when optional warning checkbox clicked, update toggle button
+		for (let box of optionalCheckboxes) { box.addEventListener('change',updateToggleOptionalWarningsByBoxStates); }
+		*/
+		
 		// check/uncheck appropriate boxes based on existing warnings selections
 		(()=>{
 			if (localStorage.getItem('showSpecificWarnings')) {
@@ -253,6 +243,7 @@
 					else box.checked = false;
 				}
 			}
+			//updateToggleOptionalWarningsByBoxStates();
 		})();
 		
 		document.getElementById('warnings-form').addEventListener('submit',(e)=>{
@@ -265,7 +256,7 @@
 		function acceptWarnings() {
 			// the URL to redirect the user to after they accept the warnings
 			let urlParams = new URL(window.location.href).searchParams;
-			let redirect = urlParams.has("redirect") ? urlParams.get("redirect") : "/";
+			let redirect = urlParams.has("redirect") ? decodeURI(urlParams.get("redirect")) : "/";
 			
 			// don't show general warnings page to this user again
 			localStorage.setItem('seenWarnings', true);
@@ -286,7 +277,7 @@
 			console.log("Now receiving warnings for: "+localStorage.getItem('showSpecificWarnings'));
 			
 			// go to the specified redirect page
-			window.location.href = urlParams.has("redirect") ? urlParams.get("redirect") : "/";
+			window.location.href = redirect;
 		}
 	</script>
 </body>
