@@ -23,7 +23,7 @@
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
 	} else if (
-		localStorage.getItem("seenWarnings") == "true" &&
+		localStorage.getItem("showWarnings") == "true" &&
 		(typeof showWarnings == 'undefined' || showWarnings != false) &&
 		window.location.pathname.replaceAll('/','') == '' &&
 		!window.location.search.includes('showWarnings=true')
@@ -32,7 +32,7 @@
 	// redirect to warnings page immediately if:
 	// warnings not shown yet, user is not a bot, not already redirecting
 	} else if (
-		localStorage.getItem("seenWarnings") != "true" &&
+		localStorage.getItem("showWarnings") != "true" &&
 		!window.location.search.includes('showWarnings=false') &&
 		(typeof showWarnings == 'undefined' || showWarnings == true) &&
 		!isBot(navigator.userAgent) &&
