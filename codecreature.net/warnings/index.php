@@ -50,9 +50,14 @@
 	$requirements = ["mobile","javascript","iframes"];
 ?>
 <body><div class="body-wrapper">
-	<div id="main-box" class="main-box">
-		<header class="banner">
-			<h1>Warning!</h1>
+	<div class="box-wrapper"><div id="main-box" class="main-box">
+		<div class="banner shadow">
+			<svg width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+					<polygon vector-effect="non-scaling-stroke" points="7 0, 93 0, 100 65, 93 100, 7 100, 0 65" />
+			</svg>
+		</div>
+		<header class="banner front">
+			<div class="wrapper"><h1>Warning!</h1></div>
 		</header>
 	
 		<form class="content tab active main" id="warnings-form">
@@ -94,7 +99,7 @@
 			
 			<section class="big-center">
 				<button type="button" class="simple" id="accessibility-info-button"
-				onclick="openTab('accessibility');">more accessibility options...</button>
+				onclick="openTab('accessibility');">more accessibility details...</button>
 			</section>
 			
 			<section class="content-bottom">
@@ -131,12 +136,24 @@
 			</header>
 			
 			<p>
-				i do my best to make the site accessible where i can. keep in mind that it's an experimental art site, some pages prioritize visual aesthetics over function.
+				i do my best to make the site accessible where i can. keep in mind that it is mostly an experimental art project, some pages prioritize aesthetics and silliness over function.
 			</p>
+			<section id="settings">
+				<header><h3>site settings</h3></header>
+				<p>
+					most pages have a <b>gear icon</b> you can click to open the <a onclick="showPageSettings();">settings menu</a>. this includes a section for <b>site-wide accessibility</b> options. choices are saved to your browser and applied to all pages! 
+				</p>
+			</section>
+			<section id="map">
+				<header><h3>map</h3></header>
+				<p>
+					i've mostly designed things to be found by exploring, but the site map (accessible <a href="/map">here</a> after you've accepted the warnings) also displays a near-complete <b>list of pages</b> along with some <b>accessibility status</b> info for each one.
+				</p>
+			</section>
 			<section id="typing-quirks">
 				<header><h3>typing quirks</h3></header>
 				<p>
-					numbers in place of letters, abbreviations, misspellings, and other <b>non-essential text silliness</b> can be disabled via the <b>proper english</b> checkbox in the <a onclick="showPageSettings();">settings menu</a> at the top of the page.
+					numbers in place of letters, abbreviations, misspellings, and other <b>non-essential text silliness</b> can be disabled via the <b>proper english</b> checkbox in the settings menu.
 				</p>
 				<p>
 					<b>screenreaders</b> always receive the proper english version.
@@ -145,19 +162,19 @@
 			<section id="custom-cursors">
 				<header><h3>custom cursors</h3></header>
 				<p>
-					many pages have <b>custom cursors</b>. if you want default cursors instead, check the box in the <a onclick="showPageSettings();">settings menu</a> at the top of the page.
+					many pages have <b>custom cursors</b> for aesthetics. if you want default cursors instead, check the <b>default cursor</b> box in the settings menu.
 				</p>
 			</section>
 			<section id="custom-scrollbars">
 				<header><h3>custom scrollbars</h3></header>
 				<p>
-					some elements use <b>javascript scrollbars</b> (including this one, if you're not using a touchscreen!) check the box in the <a onclick="showPageSettings();">settings menu</a> at the top of the page to disable them. scrollbar CSS styling supported by your browser may still be used.
+					some elements use <b>javascript scrollbars</b> (including this one, if you're not using a touchscreen!) check the <b>default scrollbars</b> box in the settings menu to disable them. scrollbar CSS styling supported by your browser may still be used.
 				</p>
 			</section>
 			<section id="keyboard-navigation">
 				<header><h3>keyboard navigation</h3></header>
 				<p>
-					i have made an effort to test keyboard navigation as much as possible. work in progress pages may not work as well.
+					i have made an effort to test keyboard navigation when i can. work in progress pages may not work as well.
 				</p>
 			</section>
 			<section>
@@ -170,9 +187,9 @@
 		</div>
 		
 		<?php include "side-character.php"; ?>
-	</div>
+	</div></div>
 	
-	<div class="sub-box">
+	<div class="box-wrapper"><div class="sub-box">
 		<?php
 			for ($i = 0; $i < count($requirements); $i++) {
 				$r = $requirements[$i];
@@ -184,7 +201,7 @@
 				";
 			}
 		?>
-	</div>
+	</div></div>
 	
 	<script src="warnings.js?fileversion=20251216"></script>
 </div></body>

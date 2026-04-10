@@ -47,9 +47,14 @@
 </head>
 <body><div class="body-wrapper">
 	
-	<div id="main-box" class="main-box">
-		<header class="banner">
-			<h1>Warning!</h1>
+	<div class="box-wrapper"><div id="main-box" class="main-box">
+		<div class="banner shadow">
+			<svg width='100%' height='100%' viewBox="0 0 100 100" preserveAspectRatio="none">
+					<polygon vector-effect="non-scaling-stroke" points="7 0, 93 0, 100 65, 93 100, 7 100, 0 65" />
+			</svg>
+		</div>
+		<header class="banner front">
+			<div class="wrapper"><h1>Warning!</h1></div>
 		</header>
 	
 		<form class="content tab active main" id="warnings-form">
@@ -133,7 +138,7 @@
 		?>
 		
 		<?php include "side-character.php"; ?>
-	</div>
+	</div></div>
 	
 	<script>
 		// initialize custom scrollbars on certain elements
