@@ -206,11 +206,12 @@ nav {
 body.high-contrast {
 	--white: #FFF;
 	--black: #000;
-	--l-gray: #a7a7a7;
+	--l-gray: #d8d8d8;
 	--m-gray: #000;
 	--d-gray: #000;
 	font-weight: bold;
 	> .handbook > .page * { color: var(--black); }
 	.quote .body { color: var(--black) !important; }
 	nav a { color: var(--white); }
+	.page-settings span { font-weight: normal; }
 }
