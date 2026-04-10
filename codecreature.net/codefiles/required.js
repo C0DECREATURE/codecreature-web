@@ -55,18 +55,25 @@
 		const url = new URL(location);
 		url.searchParams.delete("showWarnings");
 		history.pushState({}, "", url);
-	} else if (!isBot(navigator.userAgent) && localStorage.getItem("showSpecificWarnings")) {
+	} else if (!isBot(navigator.userAgent)) {
 		// if list of specific warnings for this page exists
 		if (typeof specificWarnings !== 'undefined') {
-			let storedWarnings = JSON.parse(localStorage.getItem("showSpecificWarnings").toLowerCase());
 			let warnings = [];
-			// remove any that the user has opted to ignore
-			specificWarnings.forEach((warning)=>{
-				if (storedWarnings.includes(warning.toLowerCase())) warnings.push(warning);
-			});
+			let storedWarningsStr = localStorage.getItem("showSpecificWarnings");
+			// users with no preferences set default to view all page-specific warnings
+			if (!storedWarningsStr) {
+				warnings = specificWarnings;
+			} else {
+				// get array of stored warnings
+				let storedWarnings = JSON.parse(storedWarningsStr.toLowerCase());
+				// remove any that the user has opted to ignore
+				specificWarnings.forEach((warning)=>{
+					if (storedWarnings.includes(warning.toLowerCase())) warnings.push(warning);
+				});
+			}
 			// if there are still warnings, show a popup
 			if (warnings.length > 0) {
-				window.location.href = `/warnings/specific.php?redirect=${curPage}&warnings=${warnings.toString()}&back=${encodeURI(document.referrer)}`;
+				window.location.href = `/warnings/specific.php?redirect=${curPage}&warnings=${warnings.toString().toLowerCase()}&back=${encodeURI(document.referrer)}`;
 			}
 		}
 	}
