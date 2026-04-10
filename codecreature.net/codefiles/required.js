@@ -19,7 +19,12 @@
 		return robots.test(userAgent);
 	}
 	function isNeocitiesBot(userAgent) { return userAgent.toLowerCase() == 'screenjesus'; }
-	function isIndexPage() { return window.location.pathname.replaceAll('/','') == ''; }
+	function isIndexPage() {
+		return (
+			window.location.pathname.replaceAll('/','') == ''
+			|| window.location.pathname.replaceAll('/','') == 'index.html'
+		);
+	}
 	
 	// current page
 	let curPage = encodeURI(window.location.pathname + window.location.search);
