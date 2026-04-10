@@ -1,3 +1,12 @@
+// on page load, if a valid tab is named in the location hash then open it
+(()=>{
+	let hash = window.location.hash.replaceAll('#','');
+	if (hash.length > 1) {
+		let el = document.getElementById(hash);
+		if (el && el.classList.contains('tab')) openTab(hash);
+	}
+})();
+
 // on page load, initialize custom scrollbars on certain elements
 (()=>{
 	if (typeof customScrollbarsOn !== 'undefined' && customScrollbarsOn) {
@@ -33,8 +42,13 @@ function openTab(id,updateFace) {
 	// scroll to top
 	document.getElementById(id).scrollTo(0,0);
 	if (typeof customScrollbarsOn !== 'undefined' && customScrollbarsOn) {
-		document.getElementById(id).querySelector('.simplebar-content-wrapper').scrollTo(0,0);
+		let simplebarWrapper = document.getElementById(id).querySelector('.simplebar-content-wrapper');
+		if (simplebarWrapper) simplebarWrapper.scrollTo(0,0);
 	}
+	// update window hash (blank if it's the default page)
+	let url = new URL(window.location);
+	url.hash = id == 'warnings-form' ? '' : `#${id}`;
+	history.replaceState("", "", url.href);
 	// update robot cat's face
 	let faceImg = updateFace ? id + '.png' : '';
 	document.getElementById('side-character-face').style.backgroundImage = `url('${faceImg}')`;
