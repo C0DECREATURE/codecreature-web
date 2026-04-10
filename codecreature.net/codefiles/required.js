@@ -47,7 +47,7 @@
 	} else if (
 		localStorage.getItem("seenWarnings") != "true" &&
 		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
-		(!isBot(navigator.userAgent) || (isNeocitiesBot(userAgent) && isIndexPage()) ) &&
+		(!isBot(navigator.userAgent) || (isNeocitiesBot(navigator.userAgent) && isIndexPage()) ) &&
 		!window.location.pathname.includes('/warnings')
 	) {
 		window.location.href = `/warnings?redirect=${curPage}`;
