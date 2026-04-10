@@ -39,7 +39,13 @@ const comic = {
 			302, 307, 308, 317, 329, 342, 346, 348, 356, 360, 363
 		],
 		'1981': [
-			6, 10, 15, 16, 22, 32, 37, 39, 44, 51, 52, 55, 57, 66
+			6, 10, 15, 16, 22, 32, 37, 39, 44, 51, 52, 55, 57, 66, 67, 72, 83, 85, 94,
+			111, 132, 134, 135, 139, 147, 148, 153, 168, 171, 175,
+			208, 211, 253, 256, 287, 292, 298,
+			303, 304, 312, 325
+		],
+		'1982': [
+			30, 50
 		// ^^^ left off here
 		],
 		'2024': [ 327 ]
@@ -84,7 +90,7 @@ const comic = {
 		url.searchParams.set('year',comic.year);
 		url.searchParams.set('num',comic.num);
 		url.searchParams.set('favorites',comic.showFavorites);
-		history.pushState({}, "", url);
+		history.replaceState({}, "", url);
 		// update the page title
 		document.title = `garf archive ${comic.year} #${comic.num+1}`;
 	},
