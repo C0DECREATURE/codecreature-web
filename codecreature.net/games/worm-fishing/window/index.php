@@ -6,7 +6,7 @@
 		<title>Worm Fishing</title>
 		
 		<!--game window stylesheet-->
-		<link href="../window.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="../window.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>

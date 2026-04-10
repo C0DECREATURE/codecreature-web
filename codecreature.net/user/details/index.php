@@ -28,29 +28,29 @@ require_once "../pronouns-update.php";
 		<title>user <?php echo htmlspecialchars($_SESSION["username"]); ?></title>
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<script src="/codefiles/required.js?fileversion=20260410"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20251216"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('ComicSansMS','SuperComic','Yet R');</script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20251216"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20251216" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
 		
 		<!--user common stylesheet-->
-		<link href="../style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
 		<nav>

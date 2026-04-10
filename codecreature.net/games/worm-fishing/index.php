@@ -16,9 +16,9 @@ require_once "../worm-common/users.php";
 		<script>var showMainWarnings = false;</script>
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20251216"></script>
+		<script src="/codefiles/required.js?fileversion=20260410"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -27,14 +27,14 @@ require_once "../worm-common/users.php";
 		<script>fonts.load('YetR','Super Comic');</script>
 		
 		<!-- svg icons -->
-		<link href="/graphix/svg-icons/svg-icons-new.css?fileversion=20251216" rel="stylesheet" type="text/css"></link>
+		<link href="/graphix/svg-icons/svg-icons-new.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--worms common stylesheet-->
-		<link href="/games/worm-common/style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="/games/worm-common/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20251216" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 	</head>
 	<body>
 		<!--main page footer-->

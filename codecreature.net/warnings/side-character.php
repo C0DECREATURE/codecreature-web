@@ -9,4 +9,4 @@
 		<img class="" src="/ocs/catnip/images/sitting_chib_body.png" alt="">
 	</div>
 </div>
-<script src="catbot.js?fileversion=20251216"></script>
+<script src="catbot.js?fileversion=20260410"></script>
