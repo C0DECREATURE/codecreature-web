@@ -18,6 +18,8 @@
 		
 		return robots.test(userAgent);
 	}
+	function isNeocitiesBot(userAgent) { return userAgent.toLowerCase() == 'screenjesus'; }
+	function isIndexPage() { return window.location.pathname.replaceAll('/','') == ''; }
 	
 	// current page
 	let curPage = encodeURI(window.location.pathname + window.location.search);
@@ -29,7 +31,7 @@
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
 	} else if (
-		window.location.pathname.replaceAll('/','') == '' &&
+		isIndexPage() &&
 		localStorage.getItem("seenWarnings") == "true" &&
 		(typeof showMainWarnings == 'undefined' || showMainWarnings != false) &&
 		urlParams.get('showWarnings') != 'true'
@@ -40,7 +42,7 @@
 	} else if (
 		localStorage.getItem("seenWarnings") != "true" &&
 		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
-		!isBot(navigator.userAgent) &&
+		(!isBot(navigator.userAgent) || (isNeocitiesBot(userAgent) && isIndexPage()) ) &&
 		!window.location.pathname.includes('/warnings')
 	) {
 		window.location.href = `/warnings?redirect=${curPage}`;
