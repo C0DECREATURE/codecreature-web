@@ -4,10 +4,10 @@
 <svg
    version="1.1"
    id="svg1"
-   width="400"
+   width="187.81076"
    height="250"
-   viewBox="0 0 400 250"
-   sodipodi:docname="mobile-x.svg"
+   viewBox="0 0 187.81076 250"
+   sodipodi:docname="mobile.svg"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,14 +23,14 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="0.708"
-     inkscape:cx="124.29379"
+     inkscape:cx="-72.033898"
      inkscape:cy="118.64407"
      inkscape:window-width="1600"
      inkscape:window-height="930"
      inkscape:window-x="-6"
      inkscape:window-y="-6"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1" />
+     inkscape:current-layer="svg1" />
   <defs
      id="defs1">
     <clipPath
@@ -43,7 +43,13 @@
     </clipPath>
   </defs>
   <g
-     id="g1">
+     id="g1"
+     transform="translate(-195.95332,1.332953)">
+    <path
+       id="path5"
+       style="fill:none;stroke:#c3f92e;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+       d="m 302.34293,197.82338 a 12.48423,12.48423 0 0 1 -12.48423,12.48423 12.48423,12.48423 0 0 1 -12.48423,-12.48423 12.48423,12.48423 0 0 1 12.48423,-12.48423 12.48423,12.48423 0 0 1 12.48423,12.48423 z M 238.42367,46.015141 V 169.8587 H 341.29373 V 46.51451 Z M 363.76408,226.78426 H 215.95332 V 20.549834 h 147.81076 z"
+       inkscape:label="outline" />
     <path
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
        d="M 364.03762,227.70983 H 216.22686 V 21.475397 h 147.81076 z"
@@ -67,13 +73,8 @@
        inkscape:label="button" />
     <path
        id="path7-5"
-       style="fill:none;stroke:#5911b4;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       style="fill:none;stroke:#5911b4;stroke-width:14;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;paint-order:fill markers stroke"
        d="m 302.34293,197.82338 a 12.48423,12.48423 0 0 1 -12.48423,12.48423 12.48423,12.48423 0 0 1 -12.48423,-12.48423 12.48423,12.48423 0 0 1 12.48423,-12.48423 12.48423,12.48423 0 0 1 12.48423,12.48423 z M 238.42367,46.015141 V 169.8587 H 341.29373 V 46.51451 Z M 363.76408,226.78426 H 215.95332 V 20.549834 h 147.81076 z"
        inkscape:label="outline" />
-    <path
-       style="fill:#ff54a0;fill-opacity:1;stroke:#f60055;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:0.996078;paint-order:fill markers stroke"
-       d="m 35.310734,86.097609 53.672317,40.607331 -56.144067,45.55085 46.257061,33.19209 35.663845,-54.02542 57.9096,50.49435 19.73852,-43.74982 -56.69363,-36.87981 52.39576,-42.494052 -29.91805,-41.071225 -48.72881,61.08757 -49.081926,-50.49435 z"
-       id="path1"
-       inkscape:label="X" />
   </g>
 </svg>

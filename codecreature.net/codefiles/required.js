@@ -18,29 +18,64 @@
 		
 		return robots.test(userAgent);
 	}
+	function isNeocitiesBot(userAgent) { return userAgent.toLowerCase() == 'screenjesus'; }
+	function isIndexPage() { return window.location.pathname.replaceAll('/','') == ''; }
+	
+	// current page
+	let curPage = encodeURI(window.location.pathname + window.location.search);
+	
+	let urlParams = new URL(window.location.href).searchParams;
+	
 	// if the link was to the neocities page, redirect to codecreature.net
 	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
 	} else if (
-		localStorage.getItem("showWarnings") == "false" &&
-		(typeof showWarnings == 'undefined' || showWarnings != false) &&
-		window.location.pathname.replaceAll('/','') == '' &&
-		!window.location.search.includes('showWarnings=true')
+		isIndexPage() &&
+		localStorage.getItem("seenWarnings") == "true" &&
+		(typeof showMainWarnings == 'undefined' || showMainWarnings != false) &&
+		urlParams.get('showWarnings') != 'true'
 	) {
 		window.location.href = '/home';
 	// redirect to warnings page immediately if:
 	// warnings not shown yet, user is not a bot, not already redirecting
 	} else if (
-		localStorage.getItem("showWarnings") != "false" &&
-		!window.location.search.includes('showWarnings=false') &&
-		(typeof showWarnings == 'undefined' || showWarnings == true) &&
-		!isBot(navigator.userAgent) &&
-		window.location.pathname.replaceAll('/','') != 'warnings' &&
-		window.location.pathname.replaceAll('/','') != ''
+		localStorage.getItem("seenWarnings") != "true" &&
+		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
+		(!isBot(navigator.userAgent) || (isNeocitiesBot(userAgent) && isIndexPage()) ) &&
+		!window.location.pathname.includes('/warnings')
 	) {
-		let redirect = window.location.pathname + window.location.search;
-		window.location.href = `/?redirect=${redirect}`;
+		window.location.href = `/warnings?redirect=${curPage}`;
+	}
+	// if this page was loaded with a request to hide warnings
+	else if ( urlParams.get('showWarnings') == 'false' )	{
+		// if showWarnings search parameter is set to false, clear it from the URL
+		// this makes sure that if a user copies the link from their browser to send to someone else,
+		// the warnings will still be shown to the new user
+		const url = new URL(location);
+		url.searchParams.delete("showWarnings");
+		history.pushState({}, "", url);
+	} else if (!isBot(navigator.userAgent)) {
+		// if list of specific warnings for this page exists
+		if (typeof specificWarnings !== 'undefined') {
+			let warnings = [];
+			let storedWarningsStr = localStorage.getItem("showSpecificWarnings");
+			// users with no preferences set default to view all page-specific warnings
+			if (!storedWarningsStr) {
+				warnings = specificWarnings;
+			} else {
+				// get array of stored warnings
+				let storedWarnings = JSON.parse(storedWarningsStr.toLowerCase());
+				// remove any that the user has opted to ignore
+				specificWarnings.forEach((warning)=>{
+					if (storedWarnings.includes(warning.toLowerCase())) warnings.push(warning);
+				});
+			}
+			// if there are still warnings, show a popup
+			if (warnings.length > 0) {
+				window.location.href = `/warnings/specific.php?redirect=${curPage}&warnings=${warnings.toString().toLowerCase()}&back=${encodeURI(document.referrer)}`;
+			}
+		}
 	}
 })();
 

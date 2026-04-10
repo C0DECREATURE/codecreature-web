@@ -26,6 +26,27 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-10T05:25'),
+		authors: ['prax','emery'],
+		tags: ['warnings'],
+		summary: `
+			<a href="/warnings">warnings</a> rewrite!!
+		`,
+		details: `
+			<p>the warnings page has some new functionality plus a css rewrite!!</p>
+			<p>now supports opt-in page-specific warnings, so if %%u% %A%don't\\dont% want %%2% %%b% subjected %%2% the kind of intense visual assault %%u% get on pages like <a href="/graphix">graphix</a>, %%u% can still browse the rest of the site no %A%problem\\purroblem% %E%:33%</p>
+			<p align="center">
+				<img src="images/warnings_2026_04_10.jpg" alt="Screenshot of the updated warnings page. It has a bit more detail about general site content, and includes checkboxes for optional warnings to receive in the future. The caution tape banner at the top now has a dark outline that wraps behind the container.">
+			</p>
+			<p>also so many things %%abt% the old css were driving me insane so we just. redid it. it was so old and weird that doing it from scratch was faster lol. the biggest deal %%2% me %A%personally\\purrsonally% is that it uses 100% javascript-free css styling, <strong>INCLUDING</strong> the borders behind the robo cat and the top banner!! %%u% do not %A%want to\\wanna% know how much misery we experienced over those when we %A%first\\furst% attempted it</p>
+			<p align="center">
+				<img class="tall" src="images/warnings_2026_04_10_mobile.jpg" alt="New mobile warnings layout. It is simpler and the content takes up a larger portion of the screen.">
+				<br>mobile layout is also a %A%little\\lil% easier %%2% use %%i% think
+			</p>
+			<p>%A%there's\\theres% a few more visual things we might %A%update\\upd8% someday but at least the most important things %%r% done</p>
+		`
+	},
+	{
 		date: new Date('2026-03-31T03:37'),
 		authors: ['emery'],
 		tags: ['chat','minor'],

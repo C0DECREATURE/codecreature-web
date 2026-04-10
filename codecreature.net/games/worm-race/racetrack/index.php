@@ -17,7 +17,7 @@
 		<meta name="author" content="codecreature">
 		
 		<!-- prevent warnings popup on this page -->
-		<script>var showWarnings = false;</script>
+		<script>var showMainWarnings = false;</script>
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

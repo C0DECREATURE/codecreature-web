@@ -1,153 +1,90 @@
-// element variables
-var miniInfo, bigInfo, mainContent;
+// on page load, if a valid tab is named in the location hash then open it
+(()=>{
+	let hash = window.location.hash.replaceAll('#','');
+	if (hash.length > 1) {
+		let el = document.getElementById(hash);
+		if (el && el.classList.contains('tab')) openTab(hash);
+	}
+})();
 
-// when window loads
-window.addEventListener("load", function(){
-	// assign elements to variables
-	miniInfo = document.getElementById("mini-info");
-	bigInfo = document.getElementById("big-info");
-	mainContent = document.getElementById("main-content");
-	cornerImg = document.getElementById("cornerimg").querySelector('img');
-	
-	// position corner image
-	updateCornerImagePos();
-	
-	// initiate blinking timer
-	cornerImgBlink(false);
-	// check if corner image should be asleep every second
-	resetCornerImgWakeup();
-	const cornerImgSleepLoop = setInterval(checkCornerImgSleep, 1000);
-	
-	// jump to info section if relevant hash in url
-	// DEBUG - this is broken so it's commented for now
-	if(location.hash) { showBigInfo(location.hash.replace("#","")) }
-	//if(location.hash) { location.hash="" }
+// on page load, initialize custom scrollbars on certain elements
+(()=>{
+	if (typeof customScrollbarsOn !== 'undefined' && customScrollbarsOn) {
+		var mainBoxContents = document.getElementById('main-box').getElementsByClassName('content');
+		for (let el of mainBoxContents) {
+			new SimpleBar(el, {
+				autoHide: false,
+			});
+		}
+	}
+})();
+
+var optionalCheckboxes = document.getElementsByClassName('warning-option-checkbox');
+
+// on page load, check/uncheck appropriate boxes based on existing warnings selections
+(()=>{
+	if (localStorage.getItem('showSpecificWarnings')) {
+		let arr = JSON.parse(localStorage.getItem('showSpecificWarnings'));
+		for (let box of optionalCheckboxes) {
+			if (arr.includes(box.name)) box.checked = true;
+			else box.checked = false;
+		}
+	}
+})();
+
+// open specified tab of main box content
+function openTab(id,updateFace) {
+	// clear active tabs
+	let tabs = document.getElementsByClassName('tab');
+	for (let tab of tabs) tab.classList.remove('active');
+	// set specified tab as active
+	document.getElementById(id).classList.add('active');
+	// scroll to top
+	document.getElementById(id).scrollTo(0,0);
+	if (typeof customScrollbarsOn !== 'undefined' && customScrollbarsOn) {
+		let simplebarWrapper = document.getElementById(id).querySelector('.simplebar-content-wrapper');
+		if (simplebarWrapper) simplebarWrapper.scrollTo(0,0);
+	}
+	// update window hash (blank if it's the default page)
+	let url = new URL(window.location);
+	url.hash = id == 'warnings-form' ? '' : `#${id}`;
+	history.replaceState("", "", url.href);
+	// update robot cat's face
+	let faceImg = updateFace ? id + '.png' : '';
+	document.getElementById('side-character-face').style.backgroundImage = `url('${faceImg}')`;
+	document.getElementById('side-character-face-overlay').style.display = updateFace ? '' : 'none';
+}
+
+document.getElementById('warnings-form').addEventListener('submit',(e)=>{
+	e.preventDefault();
+	acceptWarnings();
 });
 
-// show the mini popup for given element
-function showMiniInfo(src) {
-	if (cornerImgSleeping == true) { cornerImgWake(); }
-	if (cornerImg.src != cornerImgExcitedSrc) { cornerImgExcited(); } // excited expression
+// this function is called when the user clicks the button to accept warnings
+// it saves the "don't show again" setting and redirects the user to the requested page
+function acceptWarnings() {
+	// the URL to redirect the user to after they accept the warnings
+	let urlParams = new URL(window.location.href).searchParams;
+	let redirect = urlParams.has("redirect") ? decodeURI(urlParams.get("redirect")) : "/";
 	
-	var newTxt = "";
-	if ( typeof(src) == "string" ) { newTxt = src }
-	else if (src.classList.contains('warninglink')) { newTxt = "click 4 more info"; }
-	else if (src.classList.contains("javascript")) { newTxt = "javascript required"; }
-	else if (src.classList.contains("mobile")) { newTxt = "some pages are not mobile friendly!"; }
-	else { newTxt = ":3"; }
+	// don't show general warnings page to this user again
+	localStorage.setItem('seenWarnings', true);
+	// save the date when warnings were accepted, in Unix epoch time
+	let d = new Date();
+	let time = d.getTime();
+	localStorage.setItem('acceptedWarningsTime', time);
 	
-	miniInfo.querySelector('.text').innerHTML = newTxt;
-	miniInfo.style.visibility = "visible";
-}
-
-function hideMiniInfo() {
-	cornerImgDefault(); // reset expression
-	miniInfo.style.visibility = "hidden";
-	miniInfo.querySelector('.text').innerHTML = "";
-}
-
-function showBigInfo(name) {
-	var validId = false;
-	
-	var infoElements = bigInfo.getElementsByClassName("info");
-	for (var i = 0; i < infoElements.length; i++) {
-		if (infoElements[i].id == name) { validId = true; infoElements[i].classList.remove('hidden'); }
-		else { infoElements[i].classList.add('hidden'); }
+	// check which page-specific warnings to show in the future
+	let futureWarnings = [];
+	for (let box of optionalCheckboxes) {
+		if (box.checked) { futureWarnings.push(box.name); }
 	}
+	futureWarnings = JSON.stringify(futureWarnings);
 	
-	if (validId) {
-		mainContent.classList.add("hidden");
-		bigInfo.classList.remove("hidden");
-		//bigInfo.scrollTo(0,0);
-		bigInfo.querySelector('header').innerHTML = name;
-	}
-}
-
-function showMainContent() {
-	mainContent.classList.remove("hidden");
-	bigInfo.classList.add("hidden");
-	mainContent.scrollTo(0,0);
-	window.location.hash='';
-};
-
-// position clipped corner image elements based on corner image position
-function updateCornerImagePos() {
-	var back = document.getElementById('cornerimg-back'),
-		overlap = document.getElementById('cornerimg-overlap'),
-		box = document.getElementById('content-box'),
-		backRect = back.getBoundingClientRect(),
-		overlapRect = overlap.getBoundingClientRect(),
-		offsetTop = backRect.top - overlapRect.top
-			- Number(window.getComputedStyle(overlap).bottom.replace('px','')),
-		offsetRight = backRect.right - overlapRect.right
-			- Number(window.getComputedStyle(overlap).right.replace('px',''));
-	overlap.style.bottom = "-" + offsetTop + "px";
-	overlap.style.right = "-" + offsetRight + "px";
-}
-window.addEventListener('resize', function(event) { updateCornerImagePos(); }, true);
-
-// image path names for corner image
-var cornerImgSrcPath = "/ocs/catnip/images/sitting-chib";
-var cornerImgDefaultSrc = cornerImgSrcPath + ".png";
-var cornerImgBlinkSrc = cornerImgSrcPath + "-blink.png";
-var cornerImgExcitedSrc = cornerImgSrcPath + "-excited.png";
-var cornerImgSleeping = false;
-
-// make corner image blink
-// if display == false, don't blink but reset blink timer
-function cornerImgBlink(display,prevTime) {
-	// if corner image is currently in default state
-	if (
-		display != false &&
-		cornerImg.src.replace(window.location.protocol+"//"+window.location.hostname,"") == cornerImgDefaultSrc
-		&& cornerImgSleeping == false
-	) {
-		// set to blink image
-		cornerImg.src = cornerImgBlinkSrc;
-		// reset after .2 seconds
-		setTimeout(function () { cornerImgDefault(); }, 200);
-	}
-	// blink again in a random amount of time
-	var randomTime;
-	// if last blink was short, make this one longer
-	if (prevTime < 1000 ) { randomTime = Math.floor((Math.random()*3000)+2000) }
-	// otherwise blink in .7-7 seconds
-	else { randomTime = Math.floor((Math.random()*4300)+700) }
+	// save page-specific warnings to browser storage
+	localStorage.setItem('showSpecificWarnings', futureWarnings);
+	console.log("Now receiving warnings for: "+localStorage.getItem('showSpecificWarnings'));
 	
-	// set blink timer to run this function again
-	setTimeout(function(){cornerImgBlink(true,randomTime)},randomTime);
-}
-function cornerImgExcited() { cornerImg.src = cornerImgExcitedSrc; }
-function cornerImgDefault() { cornerImg.src = cornerImgDefaultSrc; }
-function cornerImgSleep() { showMiniInfo("zzz..."); cornerImgSleeping = true; cornerImg.src = cornerImgBlinkSrc; }
-function cornerImgWake() {
-	// reset sleep timer
-	resetCornerImgWakeup();
-	// reset image
-	cornerImgDefault();
-	// hide the sleep speech bubble
-	hideMiniInfo();
-	// update sleeping variable
-	cornerImgSleeping = false;
-}
-// log time of every click
-window.addEventListener("click", function(){
-	if (cornerImgSleeping) { cornerImgWake(); }
-	else { resetCornerImgWakeup(); }
-});
-function resetCornerImgWakeup() { sessionStorage.setItem("lastCornerImgWakeup",new Date().getTime()); }
-// check if corner image should be asleep
-function checkCornerImgSleep() {
-	var diff = Math.abs(sessionStorage.getItem("lastCornerImgWakeup") - new Date().getTime());
-	// if it has been more than 8 seconds since last interaction, sleep
-	if (diff > 8000) { cornerImgSleep(); }
-}
-
-function okButton() {
-	// log that user has accepted warnings on this browser
-	localStorage.setItem('showWarnings', false );
-	// go to redirect page if specified, otherwise go home
-	const urlParams = new URL(window.location.href).searchParams;
-	if ( urlParams.has("redirect") ) { window.location.href = urlParams.get("redirect") }
-	else { window.location.href = "/home" }
+	// go to the specified redirect page
+	window.location.href = redirect;
 }
