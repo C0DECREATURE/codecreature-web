@@ -1,6 +1,6 @@
 // self executing
 (function(){
-	function isBot(userAgent) {
+	function isBot() {
 		// detect whether the user accessing the page is a bot
 		const robots = new RegExp([
 			/bot/,/spider/,/crawl/,													// GENERAL TERMS
@@ -16,9 +16,9 @@
 			/semrush/,																			// OTHER
 		].map((r) => r.source).join("|"),"i");	// build regexp + "i" flag
 		
-		return robots.test(userAgent);
+		return robots.test(navigator.userAgent);
 	}
-	function isNeocitiesBot(userAgent) { return userAgent.toLowerCase() == 'screenjesus'; }
+	function isNeocitiesBot() { return navigator.userAgent.toLowerCase() == 'screenjesus'; }
 	function isIndexPage() {
 		return (
 			window.location.pathname.replaceAll('/','') == ''
@@ -34,6 +34,15 @@
 	// if the link was to the neocities page, redirect to codecreature.net
 	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
+	// redirect to warnings page immediately if:
+	// warnings not shown yet, user is not a bot, not already redirecting
+	} else if (
+		localStorage.getItem("seenWarnings") != "true" &&
+		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
+		(!isBot() || (isNeocitiesBot() && isIndexPage()) ) &&
+		!window.location.pathname.includes('/warnings')
+	) {
+		window.location.href = `/warnings?redirect=${curPage}`;
 	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
 	} else if (
 		isIndexPage() &&
@@ -42,25 +51,15 @@
 		urlParams.get('showWarnings') != 'true'
 	) {
 		window.location.href = '/home';
-	// redirect to warnings page immediately if:
-	// warnings not shown yet, user is not a bot, not already redirecting
-	} else if (
-		localStorage.getItem("seenWarnings") != "true" &&
-		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
-		(!isBot(navigator.userAgent) || (isNeocitiesBot(navigator.userAgent) && isIndexPage()) ) &&
-		!window.location.pathname.includes('/warnings')
-	) {
-		window.location.href = `/warnings?redirect=${curPage}`;
-	}
 	// if this page was loaded with a request to hide warnings
-	else if ( urlParams.get('showWarnings') == 'false' )	{
+	} else if ( urlParams.get('showWarnings') == 'false' )	{
 		// if showWarnings search parameter is set to false, clear it from the URL
 		// this makes sure that if a user copies the link from their browser to send to someone else,
 		// the warnings will still be shown to the new user
 		const url = new URL(location);
 		url.searchParams.delete("showWarnings");
 		history.pushState({}, "", url);
-	} else if (!isBot(navigator.userAgent)) {
+	} else if (!isBot()) {
 		// if list of specific warnings for this page exists
 		if (typeof specificWarnings !== 'undefined') {
 			let warnings = [];
