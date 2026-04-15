@@ -2,6 +2,9 @@ Options +Indexes
 
 ErrorDocument 404 /not_found.html
 
+################################
+# REDIRECTS
+
 Redirect 301 /login /user/login
 Redirect 301 /register /user/register
 
@@ -23,3 +26,12 @@ Redirect 301 /toybox /games/toybox
 Redirect 301 /games/wormrace /games/worm-race
 Redirect 301 /wormrace /games/worm-race
 Redirect 301 /worm-race /games/worm-race
+
+################################
+# URL REWRITING
+Options +FollowSymLinks
+RewriteEngine on
+
+# redirect /u/sampleUser to /user/profile.php?username=sampleUser
+RewriteRule ^u/(.*) user/profile/index.php?username=$1
+RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
