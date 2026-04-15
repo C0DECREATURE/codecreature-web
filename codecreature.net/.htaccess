@@ -29,6 +29,7 @@ Redirect 301 /worm-race /games/worm-race
 
 ################################
 # URL REWRITING
+# Commented because Heliohost doesn't seem to support this, works fine on localhost
 #Options +FollowSymLinks
 #RewriteEngine on
 
