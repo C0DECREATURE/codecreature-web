@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-15T05:57'),
+		authors: ['emery'],
+		tags: ['games','worm race','users','minor'],
+		summary: `
+			<a href="/user/details#game-privacy">user game privacy</a> setting
+		`,
+		details: `
+			<p>
+				option added to the user settings page to make gameplay activity private! this means your gameplay stats won't show up in leaderboards, recent activity, etc. just in case anyone wants the benefits of logged in play without being subjected to the mortifying ordeal of being known.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-04-10T05:25'),
 		authors: ['prax','emery'],
 		tags: ['warnings'],

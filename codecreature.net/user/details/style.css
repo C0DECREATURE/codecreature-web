@@ -50,12 +50,6 @@ section.settings-block {
 	}
 	> .content-wrapper {
 		padding: .5em .75em;
-		
-		> section:not(:last-child) {
-			border-bottom: 2px var(--blue) solid;
-			padding-bottom: 10px;
-			margin-bottom: 20px;
-		}
 	}
 }
 
@@ -109,4 +103,19 @@ section.settings-block {
 	position: relative;
 	left: 50%; transform: translateX(-50%);
 	margin-top: 20px;
+}
+
+.form-section:not(:is(:last-of-type)) {
+	border-bottom: 2px var(--blue) solid;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.form-section .info {
+	font-style: italic;
+}
+
+label {
+	font-weight: bold;
+	color: var(--l-blue);
 }

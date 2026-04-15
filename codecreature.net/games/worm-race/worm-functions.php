@@ -112,7 +112,7 @@ function getFeedLogDisplay() {
 			$l = $feed_log[$i];
 			$worm = $worms[(int)$l["worm"]];
 			$item = $items[$l["item"]]["display_name"];
-			$user = $l["user_id"] == NULL ? "Someone" : getUsername($l["user_id"]);
+			$user = ($l["user_id"] == NULL || getUserGamePrivacy($l["user_id"]) == "private") ? "Someone" : getUsername($l["user_id"]);
 			$user_type = $l["user_id"] == NULL ? "anonymous" : "registered";
 			echo '<div class="feed-log-item"><span class="user '.$user_type.'">'.$user.'</span> fed
 						<span class="worm" style="
@@ -133,14 +133,16 @@ function getSeasonFansDisplay($season) {
 		// display the list of users and feedings
 		$i = 1;
 		foreach ($season["users"] as $id => $count) {
-			$un = getUsername(intval($id));
-			echo '<div class="leaderboard-entry">
-							<span class="rank">#'.$i.'</span>
-							<span class="user">'.$un.'</span>
-							<span class="count">'.$count.'</span>
-						</div>';
-			$i += 1;
-			if ($i > 10) break;
+			if (getUserGamePrivacy(intval($id)) == "public") {
+				$un = getUsername(intval($id));
+				echo '<div class="leaderboard-entry">
+								<span class="rank">#'.$i.'</span>
+								<span class="user">'.$un.'</span>
+								<span class="count">'.$count.'</span>
+							</div>';
+				$i += 1;
+				if ($i > 10) break;
+			}
 		}
 	}
 }
@@ -195,21 +197,23 @@ function getWormLeaderboard($worm) {
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
 			if (!empty($row[$worm_row])) {
-				$username = getUsername($row["user_id"]);
-				
-				$actions = json_decode($row[$worm_row]);
-				$actions = get_object_vars(json_decode($row[$worm_row]));
-				if ($actions["total_help"] > 0) {
-					$helpers[] = [
-						"username" => $username,
-						"count" => $actions["total_help"]
-					];
-				}
-				if ($actions["total_hurt"] > 0) {
-					$hurters[] = [
-						"username" => $username,
-						"count" => $actions["total_hurt"]
-					];
+				if (getUserGamePrivacy($row["user_id"]) == "public") {
+					$username = getUsername($row["user_id"]);
+					
+					$actions = json_decode($row[$worm_row]);
+					$actions = get_object_vars(json_decode($row[$worm_row]));
+					if ($actions["total_help"] > 0) {
+						$helpers[] = [
+							"username" => $username,
+							"count" => $actions["total_help"]
+						];
+					}
+					if ($actions["total_hurt"] > 0) {
+						$hurters[] = [
+							"username" => $username,
+							"count" => $actions["total_hurt"]
+						];
+					}
 				}
 			}
 		}

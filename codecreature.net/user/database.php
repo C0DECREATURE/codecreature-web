@@ -144,6 +144,33 @@ function getAuthorization($id) {
 	}
 }
 
+function getUserGamePrivacy($id) {
+	global $users_conn;
+	
+	if (gettype($id) == "string") { $id = intval($id); }
+	
+	if ($id == 0 || empty($id)) {
+		return "public";
+	} else {
+		// prepared statement to get game privacy setting for user
+		$sql = "SELECT game_privacy FROM users WHERE id = ?";
+		if($stmt = mysqli_prepare($users_conn, $sql)){
+			mysqli_stmt_bind_param($stmt, "i", $param_id);
+			$param_id = $id;
+			
+			if(mysqli_stmt_execute($stmt)){
+				mysqli_stmt_bind_result($stmt, $privacy);
+				while (mysqli_stmt_fetch($stmt)) {
+					if (empty($privacy)) { $privacy = "public"; }
+					return $privacy;
+				}
+			} else{
+			}
+			mysqli_stmt_close($stmt);
+		}
+	}
+}
+
 function getIcon($id) {
 	global $users_conn;
 	

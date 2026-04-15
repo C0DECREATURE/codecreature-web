@@ -9,12 +9,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	exit;
 }
 
+// Include user database functions file
+require_once "../database.php";
+
 // Include password functions file
 require_once "../password-functions.php";
 // Include icon update functions file
 require_once "../icon-update.php";
-// Include pronouns update functions file
-require_once "../pronouns-update.php";
+// Include display update functions file
+require_once "../display-update.php";
 
 ?>
  
@@ -157,10 +160,15 @@ require_once "../pronouns-update.php";
 					<header><h2>update display info</h2></header>
 					<div class="content-wrapper">
 						<!-- user pronouns -->
-						<form name="pronouns" action="../pronouns-update.php" method="post">
-							<div>
-								pronouns:
-								<input type="text" name="pronouns" maxlength="<?php echo $pronouns_length; ?>"></input>
+						<form name="pronouns" action="../display-update.php" method="post">
+							<div class="form-section">
+								<input type="checkbox" name="game-privacy" id="game-privacy" <?php echo getUserGamePrivacy($_SESSION["id"]) == "private" ? "checked" : ""; ?>></input>
+								<label for="game-privacy">make gameplay activity private</label>
+								<div class="info">hide your username from leaderboards, recent activity, etc.</div>
+							</div>
+							<div class="form-section">
+								<label for="pronouns-input">pronouns:</label>
+								<input type="text" id="pronouns-input" name="pronouns" maxlength="<?php echo $pronouns_length; ?>" value="<?php echo $_SESSION["user_pronouns"]; ?>"></input>
 							</div>
 							<input type="submit" class="btn btn-green" value="update">
 						</form>
@@ -173,7 +181,7 @@ require_once "../pronouns-update.php";
 					
 					<div class="content-wrapper">
 						<!--reset password form-->
-						<section id="reset-password">
+						<section id="reset-password" class="form-section">
 							<form name="reset-password" action="../password-reset.php" method="POST">
 								<input type="hidden" name="form" value="reset-password"></input>
 								<div class="form-group">
@@ -211,8 +219,10 @@ require_once "../pronouns-update.php";
 								</div>
 							</form>
 						</section>
-						<!--logout button-->
-						<a href="../logout.php" class="btn btn-danger">Log Out</a>
+						<section id="logout" class="form-section">
+							<!--logout button-->
+							<a href="../logout.php" class="btn btn-danger form-section">Log Out</a>
+						</section>
 					</div>
 				</section>
 				

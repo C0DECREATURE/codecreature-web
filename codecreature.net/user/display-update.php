@@ -21,7 +21,7 @@ function updatePronouns($new_pronouns) {
 	global $users_conn, $pronouns, $pronouns_err, $pronouns_success, $pronouns_length;
 	
 	$pronouns = "";
-	// if icon has been given, set it
+	// if pronouns have been given, set them
 	if (isset($new_pronouns)) $pronouns = trim($new_pronouns);
 	
 	if (strlen(trim($pronouns)) > $pronouns_length) {
@@ -53,15 +53,41 @@ function updatePronouns($new_pronouns) {
 			mysqli_stmt_close($stmt);
 		}
 	}
+}
+
+function updateGamePrivacy($private) {
+	// empty variables for storing data
+	global $users_conn;
+	echo $private;
+	$privacy = (empty($private) || $private == "off") ? "public" : "private";
+	echo $privacy;
 	
-	// Close connection
-	mysqli_close($users_conn);
+	// Prepare an update statement
+	$sql = "UPDATE users SET game_privacy = ? WHERE id = ?";
 	
-	// redirect to user details page
-	header("Location: /user/details");
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "si", $param_privacy, $param_id);
+		$param_privacy = $privacy;
+		$param_id = $_SESSION["id"];
+		
+		// Attempt to execute the prepared statement
+		if(mysqli_stmt_execute($stmt)){
+		} else{
+			echo "Oops! Something went wrong. Please try again later.";
+		}
+		
+		// Close statement
+		mysqli_stmt_close($stmt);
+	}
 }
 
 // update icon when form posts to this page
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	updatePronouns($_POST["pronouns"]);
+	
+	$private = isset($_POST["game-privacy"]) ? $_POST["game-privacy"] : "off";
+	updateGamePrivacy($private);
+	
+	// redirect to user details page
+	header("Location: /user/details");
 }
