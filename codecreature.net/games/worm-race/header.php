@@ -6,8 +6,8 @@
 </header>
 
 <script>
-	(()=>{
-		function updateTime() {
+	if (typeof headerCooldownInterval == "undefined") {
+		function updateHeaderTime() {
 			let cooldown = Number(sessionStorage.getItem("cooldown")) - 1;
 			sessionStorage.setItem("cooldown", cooldown);
 			
@@ -15,7 +15,7 @@
 			if (cooldown <= 0) {
 				canFeed = true;
 				updateFeedButtons();
-				clearInterval(cooldownInterval);
+				clearInterval(headerCooldownInterval);
 				displayText = "Feed a Worm";
 			} else {
 				canFeed = false;
@@ -33,10 +33,10 @@
 					sessionStorage.setItem("cooldown",'.
 						max($_SESSION["last_feed"] + $_SESSION["last_cooldown"] - time(), 0)
 					.');
-					let cooldownInterval = setInterval(updateTime, 1000);
-					updateTime();
+					headerCooldownInterval = setInterval(updateHeaderTime, 1000);
+					updateHeaderTime();
 				';
 			}
 		?>
-	})();
+	};
 </script>

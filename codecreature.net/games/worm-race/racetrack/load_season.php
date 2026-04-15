@@ -12,10 +12,7 @@ if (!empty($_GET['season'])) {
 getAllData();
 ?>
 
-<div id="content">
-	<!--main page header-->
-	<?php include '../header.php'; ?>
-	
+<div id="season">
 	<!-- worm race section -->
 	<section id="race">
 		<!-- screen reader navigation -->

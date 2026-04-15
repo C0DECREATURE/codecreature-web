@@ -53,20 +53,24 @@
 		<?php include '../menu.php'; ?>
 		
 		<main id="content-wrapper">
-			
-			<!-- contains all worm content -->
-			<?php include "load_season.php"; ?>
-			
-			<script>
-				function loadSeasonRacetrack(season) {
-					console.log('Loading racetrack for season "'+season+'"');
-					var content;
-					$.get("load_season.php?season=" + season, function(data){
-							content = data;
-							$('#content').replaceWith(content);
-					});
-				}
-			</script>
+			<div id="content">
+				<!--main page header-->
+				<?php include '../header.php'; ?>
+				
+				<!-- contains all worm content -->
+				<?php include "load_season.php"; ?>
+				
+				<script>
+					function loadSeasonRacetrack(season) {
+						console.log('Loading racetrack for season "'+season+'"');
+						var content;
+						$.get("load_season.php?season=" + season, function(data){
+								content = data;
+								$('#season').replaceWith(content);
+						});
+					}
+				</script>
+			</div>
 			
 			<!--main page footer-->
 			<?php include '../../worm-common/footer.php'; ?>
