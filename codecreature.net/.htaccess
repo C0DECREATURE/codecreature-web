@@ -29,9 +29,9 @@ Redirect 301 /worm-race /games/worm-race
 
 ################################
 # URL REWRITING
-Options +FollowSymLinks
-RewriteEngine on
+#Options +FollowSymLinks
+#RewriteEngine on
 
 # redirect /u/sampleUser to /user/profile.php?username=sampleUser
-RewriteRule ^u/(.*) user/profile/index.php?username=$1
-RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
+#RewriteRule ^u/(.*) user/profile/index.php?username=$1
+#RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
