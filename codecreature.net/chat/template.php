@@ -179,8 +179,8 @@ $user_icon = getIcon($user_id);
 					});
 					
 					// submit form without refreshing page
-					form.addEventListener("submit", function(event){
-						event.preventDefault();
+					form.addEventListener("submit", function(e){
+						e.preventDefault();
 						let formProps = Object.fromEntries(new FormData(form));
 						editMessage(form.dataset.messageId,formProps['new-message']);
 						form.hidePopover();
@@ -192,7 +192,7 @@ $user_icon = getIcon($user_id);
 		
 		<form id="new-message" method="POST" action="/chat/send-message.php">
 			<input type="hidden" name="chat-table" value="<?php echo $chat_table; ?>"></input>
-			<textarea id="message-input" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
+			<textarea id="message-input" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off" placeholder="type a message..."></textarea>
 			<button id="new-message-submit" type="submit" name="submit">send</button>
 		</form>
 		<script>
@@ -209,8 +209,8 @@ $user_icon = getIcon($user_id);
 					});
 					
 					// submit form without refreshing page
-					form.addEventListener("submit", function(event){
-						event.preventDefault();
+					form.addEventListener("submit", function(e){
+						e.preventDefault();
 						let formProps = Object.fromEntries(new FormData(form));
 						sendMessage(formProps['message']);
 					});
