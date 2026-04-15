@@ -35,6 +35,9 @@
 		<meta name="keywords" content="user,profile,userpage,<?php echo $user["username"]; ?>">
 		<meta name="author" content="codecreature">
 		
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="<?php echo $icon; ?>">
+		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
 		<!-- universal base css -->
