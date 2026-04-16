@@ -96,7 +96,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
-			<textarea id="edit-summary" name="new-summary" value=""><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
+			<textarea id="edit-summary" name="new-summary" value="" maxlength="1000"><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
 			<button type="button" class="btn btn-red" onclick="toggleEdit();">cancel</button>
 			<button type="submit" class="btn btn-green">update</button>
 		</form>
