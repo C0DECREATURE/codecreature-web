@@ -18,19 +18,20 @@ function updateSummary($summary) {
 	// if icon has been given, set it
 	if(!empty(trim($summary))){
 		$summary = urlencode(htmlspecialchars($summary));
-		echo $summary;
 	} else {
-		$summary_err = "No icon selected.";
+		$summary = "";
 	}
 			
 	// Check input errors before updating the database
 	if(empty($summary_err)){
 		// Prepare an update statement
-		$sql = "UPDATE profiles SET summary = ? WHERE id = ?";
+		$id = $_POST["user_id"];
+		$sql = "INSERT INTO profiles (id, summary) VALUES (?, ?)
+				ON DUPLICATE KEY UPDATE summary = ?";
 		
 		if($stmt = mysqli_prepare($users_conn, $sql)){
 			// Bind variables to the prepared statement as parameters
-			mysqli_stmt_bind_param($stmt, "si", $param_summary, $param_id);
+			mysqli_stmt_bind_param($stmt, "iss", $param_id, $param_summary, $param_summary);
 			
 			// Set parameters
 			$param_summary = $summary;
