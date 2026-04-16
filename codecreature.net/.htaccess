@@ -29,10 +29,12 @@ Redirect 301 /worm-race /games/worm-race
 
 ################################
 # URL REWRITING
-# Commented because Heliohost doesn't seem to support this, works fine on localhost
-#Options +FollowSymLinks
-#RewriteEngine on
+
+# following line commented because it breaks Heliohost
+# Options +FollowSymLinks
+
+RewriteEngine on
 
 # redirect /u/sampleUser to /user/profile.php?username=sampleUser
-#RewriteRule ^u/(.*) user/profile/index.php?username=$1
-#RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
+RewriteRule ^u/(.*) user/profile/index.php?username=$1
+RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
