@@ -1,31 +1,38 @@
 <?php
-	require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
-	
-	$param_username = urldecode($_GET['username']);
-	$id = getIdByUsername($param_username);
-	// get user's public data array
-	$user = getPublicUserData($id);
-	$username = $user['username'];
-	$pronouns = $user['pronouns'];
-	$icon = $user['icon'];
-	
-	if (empty($id) || $id == 0) {
-		header("location: /user/profile/not-found");
+require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
+
+// Initialize the session if not already started
+if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
+
+$param_username = urldecode($_GET['username']);
+$id = getIdByUsername($param_username);
+// get user's public data array
+$user = getPublicUserData($id);
+$username = $user['username'];
+$pronouns = $user['pronouns'];
+$icon = $user['icon'];
+
+if (empty($id) || $id == 0) {
+	header("location: /user/profile/not-found");
+}
+
+// get the user's profile details
+$sql = "SELECT summary FROM profiles WHERE id = ?";
+if($stmt = mysqli_prepare($users_conn, $sql)){
+	mysqli_stmt_bind_param($stmt, "i", $id);
+	if(mysqli_stmt_execute($stmt)){
+		mysqli_stmt_bind_result($stmt, $summary);
+		mysqli_stmt_fetch($stmt);
+		$summary = urldecode($summary);
+	} else{
+		$summary = "";
 	}
-	
-	// get the user's profile details
-	$sql = "SELECT summary FROM profiles WHERE id = ?";
-	if($stmt = mysqli_prepare($users_conn, $sql)){
-		mysqli_stmt_bind_param($stmt, "i", $id);
-		if(mysqli_stmt_execute($stmt)){
-			mysqli_stmt_bind_result($stmt, $summary);
-			mysqli_stmt_fetch($stmt);
-		} else{
-			$summary = "";
-		}
-		// Close statement
-		mysqli_stmt_close($stmt);
-	}
+	// Close statement
+	mysqli_stmt_close($stmt);
+}
+
+// Include chat bbcode settings file
+require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 ?>
 <html lang="en"><head>
     <meta charset="UTF-8">
@@ -71,8 +78,28 @@
 		</header>
 		
 		<section class="<?php echo empty($summary) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
-			<?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?>
+			<div class="text">
+				<?php echo empty($summary) ? "This user hasn't written a summary!" : $bbcode->Parse($summary); ?>
+			</div>
+			<?php echo $id == $_SESSION["id"] ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
+			<script>
+				function toggleEdit() {
+					document.getElementById('summary').classList.toggle('hidden');
+					let editForm = document.getElementById('edit-summary-form');
+					editForm.classList.toggle('hidden');
+					if (!editForm.classList.contains('hidden')) {
+						editForm.querySelector('textarea').focus();
+					}
+				}
+			</script>
 		</section>
+		
+		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
+			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
+			<textarea id="edit-summary" name="new-summary" value=""><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
+			<button type="button" class="btn btn-red" onclick="toggleEdit();">cancel</button>
+			<button type="submit" class="btn btn-green">update</button>
+		</form>
 		
 		<nav>
 			<a class="btn btn-green" href="/">home</a>
