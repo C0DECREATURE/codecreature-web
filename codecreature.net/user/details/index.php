@@ -162,7 +162,7 @@ $user = getPublicUserData($_SESSION['id']);
 				</section>
 				
 				<section class="settings-block" id="pronouns">
-					<header><h2>update display info</h2></header>
+					<header><h2>display options</h2></header>
 					<div class="content-wrapper">
 						<!-- user pronouns -->
 						<form name="pronouns" action="../display-update.php" method="post">
