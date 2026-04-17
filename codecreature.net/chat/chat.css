@@ -225,11 +225,24 @@ button.open-page-settings {
 	font-weight: bold;
 	font-size: 1.25em;
 	color: var(--username);
+	text-transform: uppercase;
 }
 .message.admin .username { color: var(--admin); }
 .message.admin { border: 4px var(--admin-border) solid; }
 .message.moderator .username { color: var(--mod); }
 .message.moderator { border: 4px var(--mod-border) solid; }
+.message.admin { .username:before, .username:after { background: url('/graphix/emojis/star.png'); }}
+.message.moderator { .username:before, .username:after { background: url('/graphix/emojis/heart.png'); }}
+.message.admin, .message.moderator { .username:before, .username:after {
+	content: '';
+	display: inline-block;
+	width: .85em;
+	aspect-ratio: 1;
+	background-size: 100%;
+	margin-right: .1em;
+}}
+.message.admin, .message.moderator { .username:before { margin-right: .1em; }}
+.message.admin, .message.moderator { .username:after { margin-left: .1em; }}
 
 .message .username {
 	font-weight: bold;
