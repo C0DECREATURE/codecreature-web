@@ -66,23 +66,41 @@ function getMessageModifyErr($message_id, $table_name) {
 				// store result
 				mysqli_stmt_store_result($stmt);
 				if (mysqli_stmt_num_rows($stmt) == 1) {
-					if ($user_auth != "moderator" && $user_auth != "admin") {
-						// bind result variables
+					// bind result variables
+					if (mysqli_stmt_fetch($stmt)) {
 						mysqli_stmt_bind_result($stmt, $message_user_id);
-						if (mysqli_stmt_fetch($stmt) && intval($message_user_id) != intval($user_id)) {
+						
+						/*
+						$message_auth = getAuthorization($message_user_id);
+						$bool = (getAuthorization($message_user_id) == "admin" && $user_auth != "admin") ? "true" : "false";
+						$error_text = "message_id = ".$message_id.", message_user_id = ".$message_user_id.", user_id = ".$user_id.", message_auth = ".$message_auth.", user_auth = ".$user_auth;
+						*/
+						// DEBUG something is going wrong, $message_user_id comes up blank
+						// check if user has appropriate authorization
+						if (
+							intval($message_user_id) != intval($user_id)
+							&& (
+								( $user_auth != "moderator" && $user_auth != "admin" )
+								|| (getAuthorization($message_user_id) == "admin" && $user_auth != "admin")
+							)
+						) {
 							$error_text = "You don't have permission to modify that message.";
 						}
+					} else {
+						$error_text = "Couldn't fetch from the database. Please try again later.";
 					}
 				} elseif (mysqli_stmt_num_rows($stmt) == 0) {
 					$error_text = "Couldn't find the message.";
 				} //else { $error_text = "Duplicate message ID found in database."; } // can't have this if using for edit
 				
 			} else{
-				$error_text = "Could not connect to database. Please try again later.";
+				$error_text = "Couldn't connect to database. Please try again later.";
 			}
 			// Close statement
 			mysqli_stmt_close($stmt);
-		}
+		} else{
+				$error_text = "Couldn't prepare database statement. Please try again later.";
+			}
 	}
 	
 	return $error_text;
