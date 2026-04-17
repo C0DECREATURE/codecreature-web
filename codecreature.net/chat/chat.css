@@ -227,6 +227,9 @@ button.open-page-settings {
 	color: var(--username);
 	text-transform: uppercase;
 }
+.message a.username:hover {
+	text-decoration: underline;
+}
 .message.admin .username { color: var(--admin); }
 .message.admin { border: 4px var(--admin-border) solid; }
 .message.moderator .username { color: var(--mod); }
@@ -249,6 +252,12 @@ button.open-page-settings {
 	font-size: 1.25em;
 	color: var(--username);
 }
+
+.message.pink { .username, .pronouns { color: var(--pink); }}
+.message.orange { .username, .pronouns { color: var(--d-orange); }}
+.message.green { .username, .pronouns { color: var(--d-green); }}
+.messageg.blue { .username, .pronouns { color: var(--blue); }}
+.message.purple { .username, .pronouns { color: var(--purple); }}
 
 .message .pronouns, .message .date {
 	font-size: .9em;
@@ -304,39 +313,6 @@ button.open-page-settings {
 	color: var(--green);
 	opacity: 1;
 }
-
-/***********************************************/
-/*   BBCODE & MESSAGE CONTENTS   */
-
-/* spoiler text */
-.bbcode_spoiler:not(:hover) {
-	background: var(--blue);
-	color: var(--blue);
-}
-.bbcode_spoiler::selection { background: var(--blue); color: var(--white); }
-
-/* quotes */
-.bbcode_quote {
-	margin: .25em 0;
-}
-.bbcode_quote_head {
-	background: var(--l-blue);
-	padding: .25em .5em;
-	border-radius: .5em .5em 0 0;
-}
-.bbcode_quote_body {
-	padding: .3em .5em;
-	border: 2px var(--l-blue) solid;
-	border-top: none;
-	border-radius: 0 0 .5em .5em;
-}
-
-.bbcode_smiley {
-	max-height: 1em;
-	margin: 0 -.1em -.1em -.1em;
-}
-img + .bbcode_smiley { margin-left: 0; }
-.bbcode_smiley:has(+ img) { margin-right: 0; }
 
 .message .content img {
 	max-width: 100%;

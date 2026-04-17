@@ -62,10 +62,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<!--bbcode stylesheet-->
+		<link href="/chat/bbcode.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="/user/profile/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
+<body class="<?php echo $user['color']; ?>">
 	<div class="main-container">
 		<header class="username-header">
 			<img id="icon" src="<?php echo $icon; ?>">
@@ -96,13 +98,13 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
-			<textarea id="edit-summary" name="new-summary" value="" maxlength="1000"><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
+			<textarea id="edit-summary" name="new-summary" value="" maxlength="2000"><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
 			<button type="button" class="btn btn-red" onclick="toggleEdit();">cancel</button>
 			<button type="submit" class="btn btn-green">update</button>
 		</form>
 		
 		<nav>
-			<a class="btn btn-green" href="/">home</a>
+			<a class="btn btn-default" href="/">home</a>
 		</nav>
 	</div>
 </body>

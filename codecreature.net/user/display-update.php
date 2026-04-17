@@ -56,11 +56,9 @@ function updatePronouns($new_pronouns) {
 }
 
 function updateGamePrivacy($private) {
-	// empty variables for storing data
 	global $users_conn;
-	echo $private;
+	
 	$privacy = (empty($private) || $private == "off") ? "public" : "private";
-	echo $privacy;
 	
 	// Prepare an update statement
 	$sql = "UPDATE users SET game_privacy = ? WHERE id = ?";
@@ -81,12 +79,36 @@ function updateGamePrivacy($private) {
 	}
 }
 
+function updateColor($color) {
+	global $users_conn;
+	
+	// Prepare an update statement
+	$sql = "UPDATE users SET color = ? WHERE id = ?";
+	
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "si", $param_color, $param_id);
+		$param_color = $color;
+		$param_id = $_SESSION["id"];
+		
+		// Attempt to execute the prepared statement
+		if(mysqli_stmt_execute($stmt)){
+		} else{
+			echo "Oops! Something went wrong. Please try again later.";
+		}
+		
+		// Close statement
+		mysqli_stmt_close($stmt);
+	}
+}
+
 // update icon when form posts to this page
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	updatePronouns($_POST["pronouns"]);
 	
 	$private = isset($_POST["game-privacy"]) ? $_POST["game-privacy"] : "off";
 	updateGamePrivacy($private);
+	
+	updateColor($_POST["color"]);
 	
 	// redirect to user details page
 	header("Location: /user/details");

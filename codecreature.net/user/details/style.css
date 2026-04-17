@@ -13,6 +13,28 @@ main {
 	margin: 0 auto;
 }
 
+.pink h1 {
+	color: var(--pink);
+	strong { color: var(--l-pink); }
+}
+.orange h1 {
+	color: var(--d-orange);
+	strong { color: var(--orange); }
+}
+.green h1 {
+	color: var(--d-green);
+	strong { color: var(--l-green); }
+}
+.blue h1 {
+	color: var(--blue);
+	strong { color: var(--l-blue); }
+}
+.purple h1 {
+	color: var(--d-blue);
+	strong { color: var(--purple); }
+}
+
+
 #user-settings {
 	display: flex;
 	flex-direction: column;
@@ -51,6 +73,26 @@ section.settings-block {
 	> .content-wrapper {
 		padding: .5em .75em;
 	}
+}
+.pink section.settings-block {
+	border-color: var(--pink);
+	> header { background: var(--pink); }
+}
+.orange section.settings-block {
+	border-color: var(--d-orange);
+	> header { background: var(--d-orange); }
+}
+.green section.settings-block {
+	border-color: var(--d-green);
+	> header { background: var(--d-green); }
+}
+.blue section.settings-block {
+	border-color: var(--blue);
+	> header { background: var(--blue); }
+}
+.purple section.settings-block {
+	border-color: var(--purple);
+	> header { background: var(--purple); }
 }
 
 .icon-selections {
@@ -119,3 +161,22 @@ label {
 	font-weight: bold;
 	color: var(--l-blue);
 }
+
+/* color picker dropdown */
+select, ::picker(select) { appearance: base-select; }
+#color-select {
+	padding: .25em .35em;
+	border-radius: .5em;
+	border: 2px var(--d-pink) solid;
+}
+#color-select, #color-select option { font-weight: bold; }
+option[value=pink], #color-select:has(option[value=pink]:checked) { background: var(--l-pink); color: var(--d-pink); }
+#color-select:has(option[value=pink]:checked) { border-color: var(--d-pink); }
+option[value=orange], #color-select:has(option[value=orange]:checked) { background: var(--orange); color: var(--d-pink); }
+#color-select:has(option[value=orange]:checked) { border-color: var(--d-pink); }
+option[value=green], #color-select:has(option[value=green]:checked) { background: var(--green); color: var(--dd-green); }
+#color-select:has(option[value=green]:checked) { border-color: var(--dd-green); }
+option[value=blue], #color-select:has(option[value=blue]:checked) { background: var(--l-blue); color: var(--blue); }
+#color-select:has(option[value=blue]:checked) { border-color:  var(--blue); }
+option[value=purple], #color-select:has(option[value=purple]:checked) { background: var(--purple); color: var(--d-purple); }
+#color-select:has(option[value=purple]:checked) { border: var(--d-purple); }

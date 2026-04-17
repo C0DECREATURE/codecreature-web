@@ -26,6 +26,28 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-17T09:48'),
+		authors: ['emery','prax'],
+		tags: ['games','worm race','users','minor'],
+		summary: `
+			user profiles, couple new emojis
+		`,
+		details: `
+			<p align="center">
+				<img src="images/userprofile_2026_04_17.jpg" alt="Screenshot of user profile for codecreature. It displays the user icon, username, and pronouns. Below, there is a customizable text area for a user description. The styling is simple and similar to the main pages on the site.">
+			</p>
+			<p>
+				simple user %A%profile\\purrofile% now exist at /u/username (e.g. <a href="/u/codecreature">/u/codecreature</a>)! this serves zero %A%purpose\\purrpose% %%i% just wanted to learn how %%2% do it. uses bbcode if %%u% wanna get fancy with it!!
+			</p>
+			<p>
+				%%u% can also set a <a href="/user/details#color-select">color style</a> %%4% %%ur% %A%profile\\purrofile%, chat username, etc
+			</p>
+			<p>
+				finally, a couple new emojis added %%2% the <a href="/chat/bbcode#emoji">bbcode</a> %E%:33c%
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-04-15T05:57'),
 		authors: ['emery'],
 		tags: ['games','worm race','users','minor'],

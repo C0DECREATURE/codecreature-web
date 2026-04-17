@@ -19,6 +19,8 @@ require_once "../icon-update.php";
 // Include display update functions file
 require_once "../display-update.php";
 
+$user = getPublicUserData($_SESSION['id']);
+
 ?>
  
 <!DOCTYPE html>
@@ -55,13 +57,13 @@ require_once "../display-update.php";
 		<!--this page's stylesheet-->
 		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 </head>
-<body>
+<body class="<?php echo $user["color"]; ?>">
 		<nav>
 			<a href="/" class="btn btn-green">Home</a>
 		</nav>
 		
 		<header>
-			<h1><span id="greeting">hello</span>, <strong><?php echo htmlspecialchars($_SESSION["username"]); ?></strong>!</h1>
+			<h1><span id="greeting">hello</span>, <strong><?php echo htmlspecialchars($user["username"]); ?></strong>!</h1>
 		</header>
 		
 		<main>
@@ -83,21 +85,24 @@ require_once "../display-update.php";
 				<section class="settings-block" id="details">
 					<header><h2>user details</h2></header>
 					<div class="content-wrapper">
-						<img class="user-icon" src="/user/icons/<?php echo $_SESSION['user_icon']; ?>.png" alt="">
+						<img class="user-icon" src="<?php echo $user['icon']; ?>" alt="">
 						<div class="info">
 							<div class="username">
 								username:
-								<span class="value"><?php echo htmlspecialchars($_SESSION["username"]); ?></span>
+								<span class="value"><?php echo htmlspecialchars($user["username"]); ?></span>
 							</div>
 							<div class="pronouns">
 								pronouns:
 								<span class="value"><?php
-									echo !empty(htmlspecialchars($_SESSION["user_pronouns"])) ? htmlspecialchars($_SESSION["user_pronouns"]) : "unspecified";
+									echo !empty(htmlspecialchars($user["pronouns"])) ? htmlspecialchars($user["pronouns"]) : "unspecified";
 								?></span>
 							</div>
 							<div class="authorization">
 								authorization level:
-								<span class="value <?php echo htmlspecialchars($_SESSION["user_authorization"]); ?>"><?php echo htmlspecialchars($_SESSION["user_authorization"]); ?></span>
+								<span class="value <?php echo htmlspecialchars($user["authorization"]); ?>"><?php echo htmlspecialchars($user["authorization"]); ?></span>
+							</div>
+							<div>
+								<a href="/u/<?php echo htmlspecialchars($user["username"]); ?>">view profile</a>
 							</div>
 						</div>
 					</div>
@@ -162,13 +167,23 @@ require_once "../display-update.php";
 						<!-- user pronouns -->
 						<form name="pronouns" action="../display-update.php" method="post">
 							<div class="form-section">
-								<input type="checkbox" name="game-privacy" id="game-privacy" <?php echo getUserGamePrivacy($_SESSION["id"]) == "private" ? "checked" : ""; ?>></input>
+								<input type="checkbox" name="game-privacy" id="game-privacy" <?php echo getUserGamePrivacy($user["id"]) == "private" ? "checked" : ""; ?>></input>
 								<label for="game-privacy">make gameplay activity private</label>
 								<div class="info">hide your username from leaderboards, recent activity, etc.</div>
 							</div>
 							<div class="form-section">
+								<label for="color-select">color style:</label>
+								<select name="color" id="color-select">
+									 <option value="pink" <?php echo $user["color"] == "pink" ? "selected" : "" ?>>pink</option>
+									 <option value="orange" <?php echo $user["color"] == "orange" ? "selected" : "" ?>>orange</option>
+									 <option value="green" <?php echo $user["color"] == "green" ? "selected" : "" ?>>green</option>
+									 <option value="blue" <?php echo $user["color"] == "blue" ? "selected" : "" ?>>blue</option>
+									 <option value="purple" <?php echo $user["color"] == "purple" ? "selected" : "" ?>>purple</option>
+								</select>
+							</div>
+							<div class="form-section">
 								<label for="pronouns-input">pronouns:</label>
-								<input type="text" id="pronouns-input" name="pronouns" maxlength="<?php echo $pronouns_length; ?>" value="<?php echo $_SESSION["user_pronouns"]; ?>"></input>
+								<input type="text" id="pronouns-input" name="pronouns" maxlength="<?php echo $pronouns_length; ?>" value="<?php echo $user["pronouns"]; ?>"></input>
 							</div>
 							<input type="submit" class="btn btn-green" value="update">
 						</form>

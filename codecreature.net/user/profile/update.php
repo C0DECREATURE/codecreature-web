@@ -17,7 +17,7 @@ function updateSummary($summary) {
 	
 	// if icon has been given, set it
 	if (!empty(trim($summary))) {
-		$summary = mb_substr($summary, 0 , 1000);
+		$summary = mb_substr($summary, 0 , 2100);
 		$summary = urlencode(htmlspecialchars($summary));
 	} else {
 		$summary = "";

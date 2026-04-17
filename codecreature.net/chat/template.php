@@ -46,7 +46,8 @@ $user_icon = getIcon($user_id);
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		
+		<!--bbcode stylesheet-->
+		<link href="/chat/bbcode.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
 		<link href="/chat/chat.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		

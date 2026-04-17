@@ -9,10 +9,14 @@ body {
 	text-align: center;
 }
 
+a, a:link, a:visited { color: var(--d-blue); }
+a:hover { color: var(--purple); }
+
 .main-container {
 	width: min(100%, 500px);
 	margin: 0 auto;
 	background: var(--l-green);
+	color: var(--blue);
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -26,6 +30,27 @@ body {
 	padding: .5rem;
 	background: var(--blue);
 	color: var(--white);
+}
+
+.pink {
+	.username-header, .btn-default { background: var(--pink); }
+	.btn-default:hover { background: var(--l-pink); }
+}
+.orange {
+	.username-header, .btn-default { background: var(--d-orange); }
+	.btn-default:hover { background: var(--orange); }
+}
+.green {
+	.username-header, .btn-default { background: var(--d-green); }
+	.btn-default:hover { background: var(--green); }
+}
+.blue {
+	.username-header, .btn-default { background: var(--blue); }
+	.btn-default:hover { background: var(--l-blue); }
+}
+.purple {
+	.username-header, .btn-default { background: var(--purple); }
+	.btn-default:hover { background: var(--l-purple); }
 }
 .username-header #icon {
 	height: 4em;

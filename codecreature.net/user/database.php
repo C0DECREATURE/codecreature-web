@@ -21,7 +21,7 @@ function getPublicUserData($id) {
 		$user["authorization"] = "user";
 	} else {
 		// prepared statement to get icon for user
-		$sql = "SELECT username, pronouns, icon, authorization FROM users WHERE id = ?";
+		$sql = "SELECT username, pronouns, icon, authorization, color FROM users WHERE id = ?";
 		
 		if($stmt = mysqli_prepare($users_conn, $sql)){
 			// Bind variables to the prepared statement as parameters
@@ -31,13 +31,14 @@ function getPublicUserData($id) {
 			// Attempt to execute the prepared statement
 			if(mysqli_stmt_execute($stmt)){
 				// bind result variables
-				mysqli_stmt_bind_result($stmt, $username, $pronouns, $icon, $authorization);
+				mysqli_stmt_bind_result($stmt, $username, $pronouns, $icon, $authorization, $color);
 				// fetch values
 				while (mysqli_stmt_fetch($stmt)) {
 					$user["username"] = $username;
 					$user["pronouns"] = $pronouns;
 					$user["icon"] = getIconPath($icon);
 					$user["authorization"] = getModifiedAuthorization($authorization);
+					$user["color"] = $color;
 				}
 			} else{
 				echo "Could not retrieve user data.";

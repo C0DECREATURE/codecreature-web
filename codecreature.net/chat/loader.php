@@ -54,7 +54,10 @@ while ($message = mysqli_fetch_array($result)) {
 			|| ($user_id != "0" && $message_user['id'] == $_SESSION["id"])
 		) ? true : false;
 	?>
-	<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo $message_user['authorization'];
+	<div class="message<?php
+			echo $own_message ? ' self' : '';
+			echo !empty($message_user['color']) ? " ".$message_user['color'] : "";
+			echo " ".$message_user['authorization'];
 		?>"
 		id="message-<?php echo $message['id']; ?>"
 		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
@@ -62,7 +65,7 @@ while ($message = mysqli_fetch_array($result)) {
 		
 		<div class="bubble">
 			<header>
-				<span class="username"><?php echo $message_user['username']; ?></span>
+				<a class="username" href="/u/<?php echo $message_user['username']; ?>" target="_blank"><?php echo $message_user['username']; ?></a>
 				<span class="pronouns" title="pronouns"><?php
 					$pronouns = $message_user['pronouns'];
 					echo !empty($pronouns) ? "(".$pronouns.")" : "";
