@@ -13,6 +13,13 @@ $bbcode->AddSmiley(":right:","arrow_right.png");
 $bbcode->AddSmiley(":left:","arrow_left.png");
 $bbcode->AddSmiley(":up:","arrow_up.png");
 $bbcode->AddSmiley(":down:","arrow_down.png");
+$bbcode->AddSmiley(":star:","star.png");
+$bbcode->AddSmiley(":jeremy:","worm_pink.png");
+$bbcode->AddSmiley(":pretzel:","worm_orange.png");
+$bbcode->AddSmiley(":stringcheese:","worm_yellow.png");
+$bbcode->AddSmiley(":matilda:","worm_green.png");
+$bbcode->AddSmiley(":poolnoodle:","worm_blue.png");
+$bbcode->AddSmiley(":microplastics:","worm_purple.png");
 
 // automatically detect and style links
 $bbcode->SetDetectURLs(true);
