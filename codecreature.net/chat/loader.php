@@ -44,25 +44,27 @@ if (isset($_GET['message_id'])) {
 
 $result = mysqli_query($chat_conn, $sql);
 
+
 while ($message = mysqli_fetch_array($result)) {
+	$message_user = getPublicUserData($message['user_id']);
 	if (empty($message['error'])) {
 		// determine whether the current user sent this message
 		$own_message = (
-			($user_id == "0" && $message['user_id'] == "0" && $message['IP_address'] == $user_IP)
-			|| ($user_id != "0" && $message['user_id'] == $_SESSION["id"])
+			($user_id == "0" && $message_user['id'] == "0" && $message['IP_address'] == $user_IP)
+			|| ($user_id != "0" && $message_user['id'] == $_SESSION["id"])
 		) ? true : false;
 	?>
-	<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo getAuthorization($message['user_id']);
+	<div class="message <?php echo $own_message ? 'self' : ''; ?> <?php echo $message_user['authorization'];
 		?>"
 		id="message-<?php echo $message['id']; ?>"
 		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
-		<img class="icon" src="<?php echo getIcon($message['user_id']); ?>" alt="">
+		<img class="icon" src="<?php echo $message_user['icon']; ?>" alt="">
 		
 		<div class="bubble">
 			<header>
-				<span class="username"><?php echo getUsername($message['user_id']); ?></span>
+				<span class="username"><?php echo $message_user['username']; ?></span>
 				<span class="pronouns" title="pronouns"><?php
-					$pronouns = getPronouns($message['user_id']);
+					$pronouns = $message_user['pronouns'];
 					echo !empty($pronouns) ? "(".$pronouns.")" : "";
 				?></span>
 				<span class="date">

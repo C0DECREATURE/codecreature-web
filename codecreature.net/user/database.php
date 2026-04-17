@@ -12,13 +12,16 @@ function getPublicUserData($id) {
 	
 	$user = [];
 	
+	$user["id"] = $id;
+	
 	if (empty($id)) {
 		$user["username"] = "";
 		$user["pronouns"] = "";
 		$user["icon"] = getIconPath("");
+		$user["authorization"] = "user";
 	} else {
 		// prepared statement to get icon for user
-		$sql = "SELECT username, pronouns, icon FROM users WHERE id = ?";
+		$sql = "SELECT username, pronouns, icon, authorization FROM users WHERE id = ?";
 		
 		if($stmt = mysqli_prepare($users_conn, $sql)){
 			// Bind variables to the prepared statement as parameters
@@ -28,12 +31,13 @@ function getPublicUserData($id) {
 			// Attempt to execute the prepared statement
 			if(mysqli_stmt_execute($stmt)){
 				// bind result variables
-				mysqli_stmt_bind_result($stmt, $username, $pronouns, $icon);
+				mysqli_stmt_bind_result($stmt, $username, $pronouns, $icon, $authorization);
 				// fetch values
 				while (mysqli_stmt_fetch($stmt)) {
 					$user["username"] = $username;
 					$user["pronouns"] = $pronouns;
 					$user["icon"] = getIconPath($icon);
+					$user["authorization"] = getModifiedAuthorization($authorization);
 				}
 			} else{
 				echo "Could not retrieve user data.";
@@ -131,8 +135,7 @@ function getAuthorization($id) {
 				mysqli_stmt_bind_result($stmt, $auth);
 				// fetch values
 				while (mysqli_stmt_fetch($stmt)) {
-					if (empty($auth)) { $auth = "user"; }
-					return $auth;
+					return getModifiedAuthorization($auth);
 				}
 			} else{
 				echo "Could not retrieve user authorization.";
@@ -142,6 +145,10 @@ function getAuthorization($id) {
 			mysqli_stmt_close($stmt);
 		}
 	}
+}
+function getModifiedAuthorization($auth) {
+	if (empty($auth)) { $auth = "user"; }
+	return $auth;
 }
 
 function getUserGamePrivacy($id) {
