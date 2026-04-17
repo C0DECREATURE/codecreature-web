@@ -28,7 +28,7 @@ const updateLog = [
 	{
 		date: new Date('2026-04-17T09:48'),
 		authors: ['emery','prax'],
-		tags: ['games','worm race','users','minor'],
+		tags: ['users','chat','minor'],
 		summary: `
 			user profiles, couple new emojis
 		`,
