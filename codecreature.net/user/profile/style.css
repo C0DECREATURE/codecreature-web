@@ -104,6 +104,7 @@ nav {
 #summary.empty {
 	font-style: italic;
 }
+
 #edit-summary-button {
 	display: block;
 	position: absolute;
@@ -132,4 +133,17 @@ nav {
 #edit-summary:focus, #edit-summary:active { outline: 3px var(--d-blue) solid; }
 #summary, #edit-summary-form {
 	.btn { margin-top: 10px; }
+}
+#edit-summary-form .links, #edit-summary-form .buttons {
+	text-align: center;
+}
+#edit-summary-form .links {
+	a, a:link, a:visited {
+		color: var(--d-blue);
+	}
+	a:hover, a:focus-visible {
+		color: var(--purple);
+		text-decoration: underline;
+	}
+	margin-top: .5em;
 }
