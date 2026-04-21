@@ -83,7 +83,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 			<div class="text">
 				<?php echo empty($summary) ? "This user hasn't written a summary!" : $bbcode->Parse($summary); ?>
 			</div>
-			<?php echo $id == $_SESSION["id"] ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
+			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>
 				function toggleEdit() {
 					document.getElementById('summary').classList.toggle('hidden');
