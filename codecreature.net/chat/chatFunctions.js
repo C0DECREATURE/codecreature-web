@@ -26,30 +26,37 @@ function messageRightClick(e,id,ownMessage) {
 	menu.dataset.messageId = id;
 }
 
+// whether a message is currently being sent
+var sendingMessage = false;
 // submit new message
 function sendMessage(message) {
-	const xhr = new XMLHttpRequest();
-	xhr.open("POST", "/chat/send-message.php", true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// do stuff when request finishes
-	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if (xhr.responseText != '') {
-				let response = JSON.parse(xhr.responseText);
-				// if an error occurred, give an alert with error message
-				if (response["error"] && response["error"] != '') alert('Error sending message:\n' + response["error"]);
-				// if sending was successful, clear input and load new chat messages
-				else {
-					document.getElementById('message-input').value = "";
-					loadChat(false);
+	if (!sendingMessage) {
+		sendingMessage = true;
+		const xhr = new XMLHttpRequest();
+		xhr.open("POST", "/chat/send-message.php", true);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// do stuff when request finishes
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				sendingMessage = false;
+				document.getElementById('new-message-submit').disabled = false;
+				if (xhr.responseText != '') {
+					let response = JSON.parse(xhr.responseText);
+					// if an error occurred, give an alert with error message
+					if (response["error"] && response["error"] != '') alert('Error sending message:\n' + response["error"]);
+					// if sending was successful, clear input and load new chat messages
+					else {
+						document.getElementById('message-input').value = "";
+						loadChat(false);
+					}
+				} else {
+					alert("Something went wrong! Try again later.");
 				}
-			} else {
-				alert("Something went wrong! Try again later.");
 			}
-		}
-	};
-	// send the variables
-	xhr.send(`chat-table=${chatTableName}&message=${message}`);
+		};
+		// send the variables
+		xhr.send(`chat-table=${chatTableName}&message=${message}`);
+	}
 }
 
 // copy message text with given id

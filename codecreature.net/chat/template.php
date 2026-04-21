@@ -204,16 +204,21 @@ $user_icon = getIcon($user_id);
 					// don't send if shift+enter
 					document.getElementById("message-input").addEventListener("keypress", (e)=>{
 						if (e.key === "Enter" && !e.shiftKey) {
-							e.preventDefault();
-							document.getElementById('new-message-submit').click();
+							if (!sendingMessage) {
+								e.preventDefault();
+								document.getElementById('new-message-submit').click();
+							}
 						}
 					});
 					
 					// submit form without refreshing page
 					form.addEventListener("submit", function(e){
-						e.preventDefault();
-						let formProps = Object.fromEntries(new FormData(form));
-						sendMessage(formProps['message']);
+						if (!sendingMessage) {
+							document.getElementById('new-message-submit').disabled = true;
+							e.preventDefault();
+							let formProps = Object.fromEntries(new FormData(form));
+							sendMessage(formProps['message']);
+						}
 					});
 				})();
 			</script>
