@@ -29,27 +29,27 @@ $user_icon = getIcon($user_id);
 		<meta name="author" content="codecreature">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<script src="/codefiles/required.js?fileversion=20260421"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260421" rel="stylesheet" type="text/css"></link>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260421"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260421"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('Yet R','Super Comic')</script>
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260421" id="svg-icons-js"></script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260421" rel="stylesheet" type="text/css" media="all">
 		<!--bbcode stylesheet-->
-		<link href="/chat/bbcode.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/bbcode.css?fileversion=20260421" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
-		<link href="/chat/chat.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/chat.css?fileversion=20260421" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
