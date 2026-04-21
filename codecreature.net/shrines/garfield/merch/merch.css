@@ -85,7 +85,7 @@
 				drop-shadow(0 0 2px var(--white))
 				drop-shadow(0 0 2px var(--white));
 			outline: 0px;
-			transform: scale(1.1);
+			scale: 1.1;
 		} }
 	}
 	
