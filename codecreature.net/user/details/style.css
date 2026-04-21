@@ -1,3 +1,7 @@
+body {
+	font-family: 'Yet R', sans-serif;
+}
+
 body > header {
 	font-family: 'Super Comic', sans-serif;
 	strong { color: var(--l-blue); }
@@ -13,27 +17,46 @@ main {
 	margin: 0 auto;
 }
 
-.pink h1 {
-	color: var(--pink);
-	strong { color: var(--l-pink); }
+.pink {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-pink); }
+	label, legend { color: var(--l-pink); }
+	h1, .form-section .info {
+		color: var(--pink);
+		strong { color: var(--l-pink); }
+	}
 }
-.orange h1 {
-	color: var(--d-orange);
-	strong { color: var(--orange); }
+.orange {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-orange); }
+	label, legend { color: var(--orange); }
+	h1, .form-section .info {
+		color: var(--d-orange);
+		strong { color: var(--orange); }
+	}
 }
-.green h1 {
-	color: var(--d-green);
-	strong { color: var(--l-green); }
+.green {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-green); }
+	label, legend { color: var(--green); }
+	h1, .form-section .info {
+		color: var(--d-green);
+		strong { color: var(--l-green); }
+	}
 }
-.blue h1 {
-	color: var(--blue);
-	strong { color: var(--l-blue); }
+.blue {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-blue); }
+	label, legend { color: var(--l-blue); }
+	h1, .form-section .info {
+		color: var(--blue);
+		strong { color: var(--l-blue); }
+	}
 }
-.purple h1 {
-	color: var(--d-blue);
-	strong { color: var(--purple); }
+.purple {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--m-purple); }
+	label, legend { color: var(--l-purple); }
+	h1, .form-section .info {
+		color: var(--d-blue);
+		strong { color: var(--purple); }
+	}
 }
-
 
 #user-settings {
 	display: flex;
@@ -157,7 +180,7 @@ section.settings-block {
 	font-style: italic;
 }
 
-label {
+label, legend {
 	font-weight: bold;
 	color: var(--l-blue);
 }
@@ -180,3 +203,51 @@ option[value=blue], #color-select:has(option[value=blue]:checked) { background: 
 #color-select:has(option[value=blue]:checked) { border-color:  var(--blue); }
 option[value=purple], #color-select:has(option[value=purple]:checked) { background: var(--purple); color: var(--d-purple); }
 #color-select:has(option[value=purple]:checked) { border: var(--d-purple); }
+
+/* flag selection checkboxes */
+.flags fieldset {
+	border-style: solid;
+	border-radius: .5em;
+}
+.flags fieldset:not(:first-child) { margin-top: .5em; }
+.flags .option-wrapper {
+	padding: .25em;
+	width: min(100%,max(10em,min(49%, 50vw)));
+	margin: .1em 0;
+}
+.flags .option-wrapper input { display: none; }
+.flags .option-wrapper:not(:has(input:checked),:hover,:focus-visible) {
+	opacity: .6;
+}
+.flags .option-wrapper:has(input:checked) label {
+	position: relative;
+	outline: 4px var(--white) solid;
+	&:after {
+		content: '';
+		position: absolute;
+		display: block;
+		top: -2px; left: -2px;
+		width: 100%; height: 100%;
+		border: 2px var(--d-purple) solid;
+	}
+}
+.flags label {
+	display: inline-block;
+	padding: .25em .75em;
+	box-sizing: border-box;
+	width: 100%;
+	background-size: 100% 100%;
+	background-color: var(--dd-purple);
+	background-blend-mode: lighten;
+	image-rendering: pixelated; /* keep background images sharp when scaled */
+	--text-shadow-color: var(--dd-purple);
+	--text-shadow-2px: 
+		-1px -1px 0 var(--text-shadow-color), 1px -1px 0 var(--text-shadow-color), -1px 1px 0 var(--text-shadow-color), 1px 1px 0 var(--text-shadow-color),
+		-2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color), -2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color),
+		0 -2px 0 var(--text-shadow-color), 0 -2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color),
+		-2px -1px 0 var(--text-shadow-color), 2px -1px 0 var(--text-shadow-color), -2px 1px 0 var(--text-shadow-color), 2px 1px 0 var(--text-shadow-color),
+		-1px -2px 0 var(--text-shadow-color), 1px -2px 0 var(--text-shadow-color), -1px 2px 0 var(--text-shadow-color), 1px 2px 0 var(--text-shadow-color),
+		-2px -2px 0 var(--text-shadow-color), 2px -2px 0 var(--text-shadow-color), -2px 2px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color);
+	color: white;
+	text-shadow: var(--text-shadow-2px);
+}

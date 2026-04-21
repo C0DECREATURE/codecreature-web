@@ -19,7 +19,7 @@ require_once "../icon-update.php";
 // Include display update functions file
 require_once "../display-update.php";
 
-$user = getPublicUserData($_SESSION['id']);
+$user = getPublicUserData($_SESSION['id'],true);
 
 ?>
  
@@ -30,7 +30,7 @@ $user = getPublicUserData($_SESSION['id']);
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>user <?php echo htmlspecialchars($_SESSION["username"]); ?></title>
+		<title>user settings</title>
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
@@ -161,17 +161,18 @@ $user = getPublicUserData($_SESSION['id']);
 					</div>
 				</section>
 				
-				<section class="settings-block" id="pronouns">
+				<section class="settings-block">
 					<header><h2>display options</h2></header>
 					<div class="content-wrapper">
-						<!-- user pronouns -->
 						<form name="pronouns" action="../display-update.php" method="post">
-							<div class="form-section">
+							<!-- user game privacy -->
+							<div id="game-privacy" class="form-section">
 								<input type="checkbox" name="game-privacy" id="game-privacy" <?php echo getUserGamePrivacy($user["id"]) == "private" ? "checked" : ""; ?>></input>
 								<label for="game-privacy">make gameplay activity private</label>
 								<div class="info">hide your username from leaderboards, recent activity, etc.</div>
 							</div>
-							<div class="form-section">
+							<!-- user display color -->
+							<div id="color" class="form-section">
 								<label for="color-select">color style:</label>
 								<select name="color" id="color-select">
 									 <option value="pink" <?php echo $user["color"] == "pink" ? "selected" : "" ?>>pink</option>
@@ -181,9 +182,83 @@ $user = getPublicUserData($_SESSION['id']);
 									 <option value="purple" <?php echo $user["color"] == "purple" ? "selected" : "" ?>>purple</option>
 								</select>
 							</div>
-							<div class="form-section">
+							<!-- user pronouns -->
+							<div id="pronouns" class="form-section">
 								<label for="pronouns-input">pronouns:</label>
 								<input type="text" id="pronouns-input" name="pronouns" maxlength="<?php echo $pronouns_length; ?>" value="<?php echo $user["pronouns"]; ?>"></input>
+							</div>
+							<!-- user pronouns -->
+							<div id="flags" class="form-section flags">
+								<?php
+									$genderFlags = [
+										["flag"=>"agender"],
+										["flag"=>"autigender-blank"],
+										["flag"=>"boygirl"],
+										["flag"=>"catgender-blank"],
+										["flag"=>"genderqueer"],
+										["flag"=>"nonbinary"],
+										["flag"=>"transgender"],
+										["flag"=>"transfeminine","text"=>"transfem"],
+										["flag"=>"transgender","text"=>"trans woman"],
+										["flag"=>"transmasculine","text"=>"transmasc"],
+										["flag"=>"transgender","text"=>"trans man"],
+									];
+									for($i = 0; $i < count($genderFlags); $i++) $genderFlags[$i]["type"] = "gender";
+									$otherFlags = [
+										["flag"=>"aroace"],
+										["flag"=>"aromantic"],
+										["flag"=>"asexual"],
+										["flag"=>"demisexual"],
+										["flag"=>"bi"],
+										["flag"=>"gay"],
+										["flag"=>"lesbian"],
+										["flag"=>"vincian","text"=>"mlm"],
+										["flag"=>"pan"],
+										["flag"=>"polyamorous-blank"],
+										["flag"=>"queer"],
+										["flag"=>"sapphic-blank"],
+										["flag"=>"system"],
+									];
+									function getFlagText($f) {
+										return !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$f["flag"]);
+									}
+									// get the user's current flags
+									$user_flaglist = [];
+									if (!empty($user["flags"])) {
+										foreach($user["flags"] as $f) { $user_flaglist[] = getFlagText($f); }
+									}
+									// create checkbox for given flag
+									// check the checkbox if flag in user's current flags
+									function insertFlagCheckbox($f) {
+										global $user_flaglist;
+										$value = json_encode($f);
+										$flag = $f["flag"];
+										$text = getFlagText($f);
+										$checked = in_array($text,$user_flaglist) ? " checked" : "";
+										echo "
+											<button class='option-wrapper' type='button' onclick=this.querySelector('input').click();>
+												<input type='checkbox' id='flags-$text' name='flags[]' value='$value'$checked></input>
+												<label for='flags-$text' style=background-image:url('/graphix/flags/$flag.png');>
+													$text
+												</label>
+											</button>
+										";
+									}
+								?>
+								<fieldset>
+									<legend>gender flags</legend>
+									<?php
+										// create gender flag checkboxes
+										foreach($genderFlags as $f) { insertFlagCheckbox($f); }
+									?>
+								</fieldset>
+								<fieldset>
+									<legend>other flags</legend>
+									<?php
+										// create other flag checkboxes
+										foreach($otherFlags as $f) { insertFlagCheckbox($f); }
+									?>
+								</fieldset>  
 							</div>
 							<input type="submit" class="btn btn-green" value="update">
 						</form>

@@ -5,7 +5,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/connect.php";
 
 // returns an array of all user data that is safe to have 100% publicly accessible
 // (e.g. no passwords, emails, etc)
-function getPublicUserData($id) {
+// DEBUG: $getProfile should default to false, but it's not registering the optional parameter for some reason..???
+function getPublicUserData($id,$getProfile=true) {
 	global $users_conn;
 	
 	if (gettype($id) == "string") { $id = intval($id); }
@@ -48,6 +49,25 @@ function getPublicUserData($id) {
 			mysqli_stmt_close($stmt);
 		}
 	}
+	
+	if ($getProfile) {
+		$sql = "SELECT summary, flags FROM profiles WHERE id = ?";
+		if($stmt = mysqli_prepare($users_conn, $sql)){
+			mysqli_stmt_bind_param($stmt, "i", $id);
+			if(mysqli_stmt_execute($stmt)){
+				mysqli_stmt_bind_result($stmt, $summary, $flags);
+				mysqli_stmt_fetch($stmt);
+				$user["summary"] = urldecode($summary);
+				$user["flags"] = json_decode($flags,true);
+			} else{
+				$user["summary"] = "";
+				$user["flags"] = [];
+			}
+			// Close statement
+			mysqli_stmt_close($stmt);
+		}
+	}
+	
 	return $user;
 }
 

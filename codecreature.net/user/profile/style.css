@@ -7,6 +7,9 @@ body, html {
 
 body {
 	text-align: center;
+	font-family: 'Yet R', sans-serif;
+	--border-width: .25rem;
+	--border-color: var(--dd-purple);
 }
 
 a, a:link, a:visited { color: var(--d-blue); }
@@ -20,6 +23,8 @@ a:hover { color: var(--purple); }
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	border: var(--border-width) var(--border-color) solid;
+	border-top: none; border-bottom: none;
 }
 
 .username-header {
@@ -67,7 +72,7 @@ h1 {
 }
 #pronouns {
 	font-style: italic;
-	margin-top: -.5em;
+	margin-top: -.2em;
 }
 
 nav {
@@ -88,7 +93,7 @@ nav {
 }
 #summary .text, #edit-summary {
 	width: 100%;
-	padding: .5em .75em;
+	padding: .75em 1em;
 	height: auto;
 }
 #summary, #edit-summary-form {

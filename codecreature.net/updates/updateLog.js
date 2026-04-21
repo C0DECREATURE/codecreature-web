@@ -26,9 +26,25 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-21T10:12'),
+		authors: ['emery'],
+		tags: ['users','minor'],
+		summary: `
+			user <a href="/user/details#flags">identity flag settings</a>
+		`,
+		details: `
+			<p>
+				added an <a href="/user/details#flags">identity flag setting option</a> in the user menu! they display as %A%little\\lil% ribbons on the sides of user profiles (only on wide screens for now, the css for narrow screens is fighting me a bit)
+			</p>
+			<p>
+				options are currently biased in favor of our own identities, if there's something you want added feel free to drop a comment and I'll probably add it
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-04-17T09:48'),
 		authors: ['emery','prax'],
-		tags: ['users','chat','minor'],
+		tags: ['users','chat','new page'],
 		summary: `
 			user profiles, couple new emojis
 		`,
@@ -40,7 +56,7 @@ const updateLog = [
 				simple user %A%profile\\purrofile% now exist at /u/username (e.g. <a href="/u/codecreature">/u/codecreature</a>)! this serves zero %A%purpose\\purrpose% %%i% just wanted to learn how %%2% do it. uses bbcode if %%u% wanna get fancy with it!!
 			</p>
 			<p>
-				%%u% can also set a <a href="/user/details#color-select">color style</a> %%4% %%ur% %A%profile\\purrofile%, chat username, etc
+				%%u% can also set a <a href="/user/details#color">color style</a> %%4% %%ur% %A%profile\\purrofile%, chat username, etc
 			</p>
 			<p>
 				finally, a couple new emojis added %%2% the <a href="/chat/bbcode#emoji">bbcode</a> %E%:33c%

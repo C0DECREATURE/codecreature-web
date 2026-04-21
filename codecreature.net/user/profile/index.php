@@ -5,7 +5,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
 
 $param_username = urldecode($_GET['username']);
-$id = getIdByUsername($param_username);
+// get array of user details, including profile info
+$id = getIdByUsername($param_username,true);
 // get user's public data array
 $user = getPublicUserData($id);
 $username = $user['username'];
@@ -14,21 +15,6 @@ $icon = $user['icon'];
 
 if (empty($id) || $id == 0) {
 	header("location: /user/profile/not-found");
-}
-
-// get the user's profile details
-$sql = "SELECT summary FROM profiles WHERE id = ?";
-if($stmt = mysqli_prepare($users_conn, $sql)){
-	mysqli_stmt_bind_param($stmt, "i", $id);
-	if(mysqli_stmt_execute($stmt)){
-		mysqli_stmt_bind_result($stmt, $summary);
-		mysqli_stmt_fetch($stmt);
-		$summary = urldecode($summary);
-	} else{
-		$summary = "";
-	}
-	// Close statement
-	mysqli_stmt_close($stmt);
 }
 
 // Include chat bbcode settings file
@@ -50,7 +36,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load("Super Comic");</script>
+		<script>fonts.load("Super Comic","Yet R");</script>
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
@@ -64,6 +50,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--bbcode stylesheet-->
 		<link href="/chat/bbcode.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<!--identity ribbons stylesheet-->
+		<link href="/user/profile/ribbons.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
 		<link href="/user/profile/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -79,9 +67,44 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 			</div>
 		</header>
 		
-		<section class="<?php echo empty($summary) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
+		<?php
+			if (!empty($user["flags"])) {
+				// sort flags by category
+				$genderFlags = [];
+				$otherFlags = [];
+				foreach($user["flags"] as $f) {
+					if (!empty($f["type"]) && $f["type"] == "gender") $genderFlags[] = $f;
+					else $otherFlags[] = $f;
+				}
+			?>
+			<section id="ribbons" aria-label="identity ribbons">
+				<section id="ribbons-left" class="ribbons left" aria-label="gender identities">
+					<?php
+						foreach($genderFlags as $f) {
+							$flag = $f["flag"];
+							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
+							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag.png');><div class='wrapper'><span>$text</span></div></button>";
+						}
+					?>
+				</section>
+				<section id="ribbons-right" class="ribbons right" aria-label="other identities">
+					<?php
+						foreach($otherFlags as $f) {
+							$flag = $f["flag"];
+							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
+							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag.png');><div class='wrapper'><span>$text</span></div></button>";
+						}
+					?>
+				</section>
+			</section>
+			<?php
+			}
+		?>
+		
+		
+		<section class="<?php echo empty($user["summary"]) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
 			<div class="text">
-				<?php echo empty($summary) ? "This user hasn't written a summary!" : $bbcode->Parse($summary); ?>
+				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : $bbcode->Parse($user["summary"]); ?>
 			</div>
 			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>
@@ -98,7 +121,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
-			<textarea id="edit-summary" name="new-summary" value="" maxlength="2000"><?php echo empty($summary) ? "This user hasn't written a summary!" : $summary; ?></textarea>
+			<textarea id="edit-summary" name="new-summary" value="" maxlength="2000"><?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : $user["summary"]; ?></textarea>
 			<button type="button" class="btn btn-red" onclick="toggleEdit();">cancel</button>
 			<button type="submit" class="btn btn-green">update</button>
 		</form>

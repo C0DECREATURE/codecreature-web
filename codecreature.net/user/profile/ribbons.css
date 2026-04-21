@@ -1,0 +1,137 @@
+/* ribbons area */
+#ribbons {
+	position: relative;
+	@media screen and (width < 870px) { display: flex; }
+	font-size: min(5vw,1.5rem);
+}
+.ribbons {
+	--triangle-width: 1.25em;
+	--border-width: .25rem;
+	--border-color: var(--dd-purple);
+	--side-padding: calc(var(--triangle-width) + 2*var(--border-width));
+	display: flex; flex-direction: column;
+	gap: .5em;
+	width: fit-content;
+	text-align: center;
+	overflow: hidden;
+	padding-left: var(--side-padding);
+}
+@media screen and (width >= 870px) {
+	.ribbons {
+		position: absolute;
+		top: .5rem;
+	}
+	.ribbons.left {
+		right: 100%;
+	}
+	.ribbons.right {
+		left: 100%;
+		padding-left: 0;
+		padding-right: var(--side-padding);
+	}
+}
+/* DEBUG - struggling to get these to work properly on narrow screens. hiding for now */
+@media screen and (width < 870px) { #ribbons { display: none; } }
+
+@media screen and (width < 870px) {
+	#ribbons {
+		margin-bottom: -9em;
+	}
+	.ribbons {
+		rotate: -90deg;
+		z-index: 100;
+		width: 50%;
+		flex-shrink: 1;
+		justify-content: center;
+	}
+	.ribbons.left { margin-top: calc(-.5em + 2px + var(--border-width)); }
+	.ribbons.right { margin-top: calc(-.5em + 2px + var(--border-width)); }
+}
+
+.ribbons *, .ribbons ::after, .ribbons ::before {
+	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* individual ribbon */
+.ribbon {
+	position: relative;
+	padding: .3em 1em;
+	width: 8em;
+	border: var(--border-width) var(--border-color) solid;
+	transform: translateX(calc(100% - .5em));
+	border-right: none; border-left: none;
+	background-size: 100% 100%;
+	background-color: var(--border-color); background-blend-mode: lighten;
+	transition: transform .4s;
+	@media (prefers-reduced-motion: reduce) { transition: transform 0s; }
+}
+.ribbon::before {
+	content: '';
+	position: absolute;
+	left: 0; top: 0;
+	display: block;
+	width: 100%; height: 100%;
+	z-index: -1;
+}
+.ribbon::before, .ribbon::after {
+	background: inherit;
+	background-color: inherit; background-blend-mode: inherit;
+}
+@media screen and (width >= 870px) {
+	.right .ribbon { transform: translateX(calc(-100% + .5em)) scaleX(-100%); }
+	.right .ribbon::before { transform: scaleX(-100%); }
+	.right .ribbon span { display: inline-block; transform: scaleX(-100%); }
+}
+.ribbon {
+	--text-shadow-color: var(--border-color);
+	--text-shadow-2px: 
+		-1px -1px 0 var(--text-shadow-color), 1px -1px 0 var(--text-shadow-color), -1px 1px 0 var(--text-shadow-color), 1px 1px 0 var(--text-shadow-color),
+		-2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color), -2px 0 0 var(--text-shadow-color), 2px 0 0 var(--text-shadow-color),
+		0 -2px 0 var(--text-shadow-color), 0 -2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color), 0 2px 0 var(--text-shadow-color),
+		-2px -1px 0 var(--text-shadow-color), 2px -1px 0 var(--text-shadow-color), -2px 1px 0 var(--text-shadow-color), 2px 1px 0 var(--text-shadow-color),
+		-1px -2px 0 var(--text-shadow-color), 1px -2px 0 var(--text-shadow-color), -1px 2px 0 var(--text-shadow-color), 1px 2px 0 var(--text-shadow-color),
+		-2px -2px 0 var(--text-shadow-color), 2px -2px 0 var(--text-shadow-color), -2px 2px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color);
+	color: white;
+	text-shadow: var(--text-shadow-2px);
+}
+.ribbon:hover, .ribbon:focus-visible, .ribbon:active {
+	transform: translateX(0);
+	outline: none;
+}
+
+@media screen and (width >= 870px) {
+	.right .ribbon:hover, .right .ribbon:focus-visible, .ribbon:active { transform: translateX(0) scaleX(-100%); }
+}
+
+/* triangle shapes */
+.ribbon::after {
+	content: '';
+	display: block; position: absolute;
+	top: calc(-1 * var(--border-width)); 
+	height: calc(100% + 2*var(--border-width));
+	width: var(--triangle-width);
+	border: inherit;
+	clip-path: polygon(0 0, 98% 0, 98% 100%, 0 100%, 98% 50%);
+	right: calc(100% - 2px);
+}
+
+/* angled edge borders - ::after is top, ::before is bottom */
+.ribbon > .wrapper::after, .ribbon > .wrapper::before {
+	content: '';
+	z-index: 1;
+	display: block;
+	position: absolute;
+	width: auto;
+	height: calc(73% + 2*var(--border-width));
+	right: calc(100% + 3*var(--border-width));
+	border-left: var(--border-width) var(--border-color) solid;
+	rotate: -45deg;
+}
+.ribbon > .wrapper::after {
+	bottom: calc(52% - 2*var(--border-width));
+	border-top: var(--border-width) transparent solid;
+}
+.ribbon > .wrapper::before {
+	top: calc(52% - 2*var(--border-width));
+	border-bottom: var(--border-width) transparent solid; rotate: 45deg;
+}

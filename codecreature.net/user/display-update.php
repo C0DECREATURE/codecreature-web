@@ -101,9 +101,34 @@ function updateColor($color) {
 	}
 }
 
+function updateFlags($flags) {
+	global $users_conn;
+	
+	// Prepare an update statement
+	$sql = "INSERT INTO profiles (id, flags) VALUES(?, ?)
+					ON DUPLICATE KEY UPDATE flags = ?";
+	
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "iss", $param_id, $flags, $flags);
+		$param_id = $_SESSION["id"];
+		
+		// Attempt to execute the prepared statement
+		if(mysqli_stmt_execute($stmt)){
+		} else{
+			echo "Oops! Something went wrong. Please try again later.";
+		}
+		
+		// Close statement
+		mysqli_stmt_close($stmt);
+	}
+}
+
 // update icon when form posts to this page
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 	updatePronouns($_POST["pronouns"]);
+	
+	for($i = 0; $i < count($_POST["flags"]); $i++) $_POST["flags"][$i] = json_decode($_POST["flags"][$i],true);
+	updateFlags(json_encode($_POST["flags"]));
 	
 	$private = isset($_POST["game-privacy"]) ? $_POST["game-privacy"] : "off";
 	updateGamePrivacy($private);
