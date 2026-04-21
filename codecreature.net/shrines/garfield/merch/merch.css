@@ -1,3 +1,5 @@
+.center { position: relative; }
+
 .container {
 	margin: 0 auto;
 	max-width: min(700px,80%);
@@ -141,4 +143,36 @@
 .fiv-content .alt {
 	opacity: 0.65;
 	font-size: 0.9em;
+}
+
+.pendulum-clock {
+	@media screen and (width > 1500px) {
+		position: absolute;
+		z-index: 1;
+		top: 50px; left: calc(50% + min(430px, 21vw));
+	}
+	width: min(60%,270px);
+	margin: 0 auto;
+}
+.pendulum-clock img {
+	filter: drop-shadow(-5px 10px 8px rgba(100,60,31,.5));
+}
+.pendulum-clock .tail {
+	position: relative;
+	width: 25%;
+	margin: 0 auto;
+	margin-top: -115%;
+	padding-top: 100%;
+	z-index: -1;
+	@media (prefers-reduced-motion: no-preference) {
+		animation-name: clockPendulum;
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
+}
+@keyframes clockPendulum {
+	from { rotate: -10deg; }
+	to { rotate: 10deg; }
 }
