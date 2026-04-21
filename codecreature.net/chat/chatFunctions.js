@@ -81,46 +81,56 @@ function copyMessageBbcode(id) {
 	if (msg) navigator.clipboard.writeText(msg.dataset.rawBbcode);
 }
 
+// array of message ids currently being modified
+var modifyingMessages = [];
 // edit message with given id
 // replaces existing message body with new string
 function editMessage(id,newText) {
-	const xhr = new XMLHttpRequest();
-	xhr.open("POST", "/chat/edit-message.php", true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// do stuff when request finishes
-	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if (xhr.responseText != '') {
-				let response = JSON.parse(xhr.responseText);
-				// if an error occurred, give an alert with error message
-				if (response["error"] && response["error"] != '') alert('Error editing message:\n' + response["error"]);
-				// if editing was successful, update the message element
-				else refreshMessage(id);
-			} else {
-				alert("Something went wrong! Try again later.");
+	if (modifyingMessages[id] == null) {
+		modifyingMessages[id] = true;
+		const xhr = new XMLHttpRequest();
+		xhr.open("POST", "/chat/edit-message.php", true);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// do stuff when request finishes
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				modifyingMessages[id] = null;
+				if (xhr.responseText != '') {
+					let response = JSON.parse(xhr.responseText);
+					// if an error occurred, give an alert with error message
+					if (response["error"] && response["error"] != '') alert('Error editing message:\n' + response["error"]);
+					// if editing was successful, update the message element
+					else refreshMessage(id);
+				} else {
+					alert("Something went wrong! Try again later.");
+				}
 			}
-		}
-	};
-	// send the variables
-	xhr.send(`message-id=${id}&chat-table=${chatTableName}&new-message=${newText}`);
+		};
+		// send the variables
+		xhr.send(`message-id=${id}&chat-table=${chatTableName}&new-message=${newText}`);
+	}
 }
 
 // delete message with given id
 function deleteMessage(id) {
-	const xhr = new XMLHttpRequest();
-	xhr.open("POST", "/chat/delete-message.php", true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// do stuff when request finishes
-	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			// if an error occurred, give an alert with error message
-			if (xhr.responseText != '') alert('Error deleting message:\n' + xhr.responseText);
-			// if deleting was successful, delete the message element
-			else document.getElementById('message-'+id).remove();
-		}
-	};
-	// send the variables
-	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+	if (modifyingMessages[id] == null) {
+		modifyingMessages[id] = true;
+		const xhr = new XMLHttpRequest();
+		xhr.open("POST", "/chat/delete-message.php", true);
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// do stuff when request finishes
+		xhr.onreadystatechange = () => {
+			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+				modifyingMessages[id] = null;
+				// if an error occurred, give an alert with error message
+				if (xhr.responseText != '') alert('Error deleting message:\n' + xhr.responseText);
+				// if deleting was successful, delete the message element
+				else document.getElementById('message-'+id).remove();
+			}
+		};
+		// send the variables
+		xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+	}
 }
 
 // report message with given id
