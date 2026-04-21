@@ -1,8 +1,63 @@
-<h2>not mine</h2>
-<a href="https://www.familiars.io/">familiars.io</a> - pokemon-like multiplayer pixel game where you fight and catch familiars
-<a href="http://quiz.ravenblack.net/blood.pl?biter=prax">ravenblack's vampire city</a>
-<a href="https://sadgrl.online/magnet-poetry/">magnet poetry</a>
-
-<p>pokemon</p>
-<a href="https://www.pokeclicker.com/">pokeclicker</a>
-<a href="https://pokefarm.com/user/purraxis">pokefarm</a>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>games</title>
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		
+		<!-- fonts -->
+		<script>fonts.load("Comic Sans MS","Super Comic");</script>
+		
+		<!--base stylesheet-->
+		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
+		<!--this page's stylesheet-->
+		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="/codefiles/jquery.lettering.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".txt-rainbow").lettering(); /* automatically put each letter in a <span> */
+			});
+		</script>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header>
+			<h1 class="txt-rainbow">GAMES</h1>
+			<p class="txt-yellow">things you can play, mostly in <u class="tq">ur</u> browser!!</p>
+		</header>
+		
+		<section class="link-list" id="mine">
+			<h3 class="txt-rainbow">codecreature games</h3>
+			<div><a class="txt-red" href="worm-race">worm race &#8605;</a> feed worms</div>
+			<div><a class="txt-orange" href="worm-fishing">worm fishing (wip) &#8605;</a> minigame (currently desktop only)</div>
+			<div><a class="txt-yellow" href="/drawbox">drawbox (wip) &#8605;</a> simple doodling tool</div>
+			<div><a class="txt-green" href="toybox">toybox (major wip) &#8605;</a> dress up and arrange my plushies</div>
+		</section>
+		
+		<section class="link-list" id="others">
+			<h3 class="txt-rainbow">elsewhere</h3>
+			<div><a class="txt-purple" href="https://www.familiars.io/">familiars.io &#8605;</a> pokemon-like multiplayer pixel game where you fight and catch familiars</div>
+			<div><a class="txt-pink" href="http://quiz.ravenblack.net/blood.pl?biter=prax">vampires &#8605;</a> ravenblack's vampire city</div>
+			<div><a class="txt-red" href="https://sadgrl.online/magnet-poetry/">magnet poetry &#8605;</a></div>
+			<div><a class="txt-orange" href="https://www1.flightrising.com/clan-profile/258198">flight rising &#8605;</a> virtual pet game about breeding dragons</div>
+		</section>
+		
+		<section class="link-list" id="pokemon">
+			<h3 class="txt-rainbow">pokemon</h3>
+			<div><a class="txt-yellow" href="https://www.pokeclicker.com/">pokeclicker &#8605;</a></div>
+			<div><a class="txt-green"href="https://pokefarm.com/user/purraxis">pokefarm &#8605;</a> raise eggs!</div>
+		</section>
+		
+		<a id="home-button" class="btn btn-green" href="/home">home</a>
+	</body>
+	<!--------------END BODY------------->
+</html>
