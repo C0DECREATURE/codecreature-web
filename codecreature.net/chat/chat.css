@@ -293,6 +293,9 @@ button.open-page-settings {
 	&:hover, &:focus, &:focus-visible {
 		color: var(--send-hover);
 	}
+	&:disabled span {
+		color: var(--d-green);
+	}
 }
 #message-input {
 	resize: none;

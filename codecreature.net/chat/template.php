@@ -194,7 +194,7 @@ $user_icon = getIcon($user_id);
 		<form id="new-message" method="POST" action="/chat/send-message.php">
 			<input type="hidden" name="chat-table" value="<?php echo $chat_table; ?>"></input>
 			<textarea id="message-input" name="message" minlength="1" maxlength="<?php echo $max_message_length; ?>" autocomplete="off" placeholder="type a message..."></textarea>
-			<button id="new-message-submit" type="submit" name="submit">send</button>
+			<button id="new-message-submit" type="submit" name="submit"><span>send</span></button>
 		</form>
 		<script>
 				(()=>{
