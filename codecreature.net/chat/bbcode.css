@@ -27,3 +27,5 @@
 }
 img + .bbcode_smiley { margin-left: 0; }
 .bbcode_smiley:has(+ img) { margin-right: 0; }
+
+.bbcode_list { margin: 0; }
