@@ -225,7 +225,6 @@ button.open-page-settings {
 	font-weight: bold;
 	font-size: 1.25em;
 	color: var(--username);
-	text-transform: uppercase;
 }
 .message a.username:hover {
 	text-decoration: underline;
