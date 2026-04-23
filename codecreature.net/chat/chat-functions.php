@@ -44,51 +44,6 @@ function getOldestMessageId($table_name) {
 
 // check for errors in current user attempting to modify a message
 // make sure message exists, no duplicate message id, user has permission to modify
-/*
-function getMessageModifyErr($message_id, $table_name) {
-	global $chat_conn; global $user_id; global $user_auth; global $logged_in;
-	
-	$error_text = "";
-	
-	// if the current user is logged out, no modify permissions
-	if (!$logged_in) {
-		$error_text = "Logged out users can't modify messages, sorry!";
-	} else if (!isValidChatTable($table_name)) {
-		$error_text = 'Invalid chatroom "'.$table_name.'"';
-	// if the current user is logged in
-	} else {
-		$sql = "SELECT user_id FROM $table_name WHERE id = ?";
-		if($stmt = mysqli_prepare($chat_conn, $sql)){
-			// bind variables to prepared statement
-			mysqli_stmt_bind_param($stmt, "i", $param_message_id);
-			$param_message_id = $message_id;
-			// attempt to execute
-			if(mysqli_stmt_execute($stmt)){
-				// store result
-				mysqli_stmt_store_result($stmt);
-				if (mysqli_stmt_num_rows($stmt) == 1) {
-					if ($user_auth != "moderator" && $user_auth != "admin") {
-						// bind result variables
-						mysqli_stmt_bind_result($stmt, $message_user_id);
-						if (mysqli_stmt_fetch($stmt) && intval($message_user_id) != intval($user_id)) {
-							$error_text = "You don't have permission to modify that message.";
-						}
-					}
-				} elseif (mysqli_stmt_num_rows($stmt) == 0) {
-					$error_text = "Couldn't find the message.";
-				} //else { $error_text = "Duplicate message ID found in database."; } // can't have this if using for edit
-				
-			} else{
-				$error_text = "Could not connect to database. Please try again later.";
-			}
-			// Close statement
-			mysqli_stmt_close($stmt);
-		}
-	}
-	
-	return $error_text;
-}
-*/
 function getMessageModifyErr($message_id, $table_name) {
 	global $chat_conn; global $user_id; global $user_auth; global $logged_in;
 	
@@ -116,53 +71,30 @@ function getMessageModifyErr($message_id, $table_name) {
 					if (mysqli_stmt_fetch($stmt)) {
 						$not_own_message = intval($message_user_id) != intval($user_id);
 						$user_not_authorized = $user_auth != "moderator" && $user_auth != "admin";
-						$is_admin_message = (
+						$is_locked_mod_message = (
+																	$not_own_message
+																	&& getAuthorization($message_user_id) == "moderator"
+																	&& $user_auth != "admin"
+																);
+						$is_locked_admin_message = (
 																	getAuthorization($message_user_id) == "admin"
 																	&& $user_auth != "admin"
 																);
 						if ($not_own_message && $user_not_authorized) {
 							$error_text = "Standard users cannot modify other users' messages.";
-						} else if ($is_admin_message) {
-							$error_text = $user_auth."s do not have permission to modify admin messages.";
+						} else if ($is_locked_admin_message) {
+							$error_text = ucfirst($user_auth)."s do not have permission to modify admin messages.";
+						} else if ($is_locked_mod_message) {
+							if ($user_auth == "moderator") {
+								$error_text = ucfirst($user_auth)."s do not have permission to modify other moderator's messages.";
+							} else {
+								$error_text = ucfirst($user_auth)."s do not have permission to modify moderator messages.";
+							}
 						}
 					}
 				} elseif (mysqli_stmt_num_rows($stmt) == 0) {
 					$error_text = "Couldn't find the message.";
 				} //else { $error_text = "Duplicate message ID found in database."; } // can't have this if using for edit
-				/*
-				// store result
-				mysqli_stmt_store_result($stmt);
-				if (mysqli_stmt_num_rows($stmt) == 1) {
-					// bind result variables
-					if (mysqli_stmt_fetch($stmt)) {
-						mysqli_stmt_bind_result($stmt, $message_user_id);
-						$message_auth = getAuthorization($message_user_id);
-						
-						$bool = (getAuthorization($message_user_id) == "admin" && $user_auth != "admin") ? "true" : "false";
-						$error_text = "message_id = ".$message_id.", message_user_id = ".$message_user_id.", user_id = ".$user_id.", message_auth = ".$message_auth.", user_auth = ".$user_auth;
-						
-						// DEBUG something is going wrong, $message_user_id comes up blank
-						// check if user has appropriate authorization
-						$not_own_message = intval($message_user_id) != intval($user_id);
-						$user_not_authorized = $user_auth != "moderator" && $user_auth != "admin";
-						$is_admin_message = (
-																	isset($message_user_id)
-																	&& getAuthorization($message_user_id) == "admin"
-																	&& $user_auth != "admin"
-																);
-						if ($not_own_message && $user_not_authorized) {
-							//$error_text = "Standard users cannot modify other users' messages.";
-						}
-						if ($is_admin_message) {
-							//$error_text = "Moderators do not have permission to modify admin messages.";
-						}
-					} else {
-						$error_text = "Couldn't fetch from the database. Please try again later.";
-					}
-				} elseif (mysqli_stmt_num_rows($stmt) == 0) {
-					$error_text = "Couldn't find the message.";
-				} //else { $error_text = "Duplicate message ID found in database."; } // can't have this if using for edit
-				*/
 			} else{
 				$error_text = "Couldn't connect to database. Please try again later.";
 			}
