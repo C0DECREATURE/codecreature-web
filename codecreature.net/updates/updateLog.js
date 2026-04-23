@@ -26,6 +26,22 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-21T05:37'),
+		authors: ['prax'],
+		tags: ['shrines','garfield','minor'],
+		summary: `
+			new <a href="/shrines/garfield/merch">garf clock</a>
+		`,
+		details: `
+			<p>
+				swinging pendulum clock for <a href="/shrines/garfield/merch">garfield</a>!! %%i% thought %%abt% making it show the current time but then %%i% came %%2% my senses. so it does not do that.
+			</p>
+			<p>
+				also a few other small merch %A%updates\\upd8s%. %%ive% %N%b33n% trying %%2% get %A%accurate\\accur8% info on the merch %%im% adding but its %%rly% hard actually, a lot of stuff has ©1978 on it but %A%that's\\thats% NOT when it was made %E%:'33%
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-04-21T10:12'),
 		authors: ['emery'],
 		tags: ['users','minor'],
