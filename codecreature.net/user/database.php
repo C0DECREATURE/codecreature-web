@@ -57,7 +57,7 @@ function getPublicUserData($id,$getProfile=true) {
 			if(mysqli_stmt_execute($stmt)){
 				mysqli_stmt_bind_result($stmt, $summary, $flags);
 				mysqli_stmt_fetch($stmt);
-				$user["summary"] = urldecode($summary);
+				$user["summary"] = htmlspecialchars_decode(urldecode($summary));
 				$user["flags"] = json_decode($flags,true);
 			} else{
 				$user["summary"] = "";
