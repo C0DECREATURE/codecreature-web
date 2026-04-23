@@ -166,7 +166,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 					<div class="content-wrapper">
 						<form name="pronouns" action="../display-update.php" method="post">
 							<!-- user game privacy -->
-							<div id="game-privacy" class="form-section">
+							<div class="form-section">
 								<input type="checkbox" name="game-privacy" id="game-privacy" <?php echo getUserGamePrivacy($user["id"]) == "private" ? "checked" : ""; ?>></input>
 								<label for="game-privacy">make gameplay activity private</label>
 								<div class="info">hide your username from leaderboards, recent activity, etc.</div>
