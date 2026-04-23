@@ -55,7 +55,7 @@ function sendMessage(message) {
 			}
 		};
 		// send the variables
-		xhr.send(`chat-table=${chatTableName}&message=${message}`);
+		xhr.send(`chat-table=${chatTableName}&message=${encodeURIComponent(message)}`);
 	}
 }
 
