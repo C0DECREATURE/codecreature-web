@@ -13,14 +13,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 $logged_in = false;
 $user_id = '0';
 $user_IP = $_SERVER['REMOTE_ADDR'];
-$username = "Anonymous";
-$user_icon = "";
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	$logged_in = true;
-	$user_id = $_SESSION["id"];
-	$username = $_SESSION["username"];                       
-	$user_icon = $_SESSION["user_icon"];
+	$user_id = intval($_SESSION["id"]);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,15 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	// check for new message text
 	if (!isset($_REQUEST['message']) || empty(trim($_REQUEST['message']))) {
-		// Escape user inputs for security
-		$message = mysqli_real_escape_string(
-			$chat_conn, cleanMessageText(trim($_REQUEST['message']))
-		);
-		if (empty($message)) $error_text = "Message body cannot be blank.";
+		$error_text = "Message body cannot be blank.";
 	} else {
 		// Escape user inputs for security
 		$message = mysqli_real_escape_string(
-			$chat_conn, cleanMessageText(trim($_REQUEST['message']))
+			$chat_conn, cleanMessageText($_REQUEST['message'])
 		);
 		if (empty($message)) $error_text = "Message body cannot be blank.";
 	}
