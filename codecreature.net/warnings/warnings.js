@@ -63,16 +63,13 @@ document.getElementById('warnings-form').addEventListener('submit',(e)=>{
 // this function is called when the user clicks the button to accept warnings
 // it saves the "don't show again" setting and redirects the user to the requested page
 function acceptWarnings() {
-	// the URL to redirect the user to after they accept the warnings
-	let urlParams = new URL(window.location.href).searchParams;
-	let redirect = urlParams.has("redirect") ? decodeURI(urlParams.get("redirect")) : "/";
-	
 	// don't show general warnings page to this user again
-	localStorage.setItem('seenWarnings', true);
+	let seenWarnings = true;
+	localStorage.setItem('seenWarnings', seenWarnings);
 	// save the date when warnings were accepted, in Unix epoch time
 	let d = new Date();
-	let time = d.getTime();
-	localStorage.setItem('acceptedWarningsTime', time);
+	let acceptedWarningsTime = d.getTime();
+	localStorage.setItem('acceptedWarningsTime', acceptedWarningsTime);
 	
 	// check which page-specific warnings to show in the future
 	let futureWarnings = [];
@@ -85,6 +82,31 @@ function acceptWarnings() {
 	localStorage.setItem('showSpecificWarnings', futureWarnings);
 	console.log("Now receiving warnings for: "+localStorage.getItem('showSpecificWarnings'));
 	
-	// go to the specified redirect page
-	window.location.href = redirect;
+	// if a user is logged in, update user's settings in the database
+	updateWarningsDatabase(seenWarnings,acceptedWarningsTime,futureWarnings);
+	
+}
+
+// update user's settings in the database
+function updateWarningsDatabase(seenWarnings,acceptedWarningsTime,futureWarnings) {
+	// the URL to redirect the user to after they accept the warnings
+	let urlParams = new URL(window.location.href).searchParams;
+	let redirect = urlParams.has("redirect") ? decodeURI(urlParams.get("redirect")) : "/";
+	
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "/user/page-settings-update.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// do stuff when request finishes
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			if (xhr.responseText != '') {
+				// if a response was given, give an alert with response
+				alert(xhr.responseText);
+			}
+			// go to the specified redirect page
+			window.location.href = redirect;
+		}
+	};
+	// send the variables
+	xhr.send(`updateType=warnings&seenWarnings=${seenWarnings}&acceptedWarningsTime=${acceptedWarningsTime}&showSpecificWarnings=${futureWarnings}`);
 }

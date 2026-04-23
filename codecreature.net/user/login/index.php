@@ -4,8 +4,8 @@ if(!isset($_SESSION)){session_start();}
 
 // get path to redirect to after login
 // if redirect URL parameter set, use that
-$redirect_path = "/user/details";
-if (!empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
+$redirect_path = "/user/page-settings-get.php";
+if (!empty($_GET['redirect'])) { $redirect_path = $redirect_path.$_GET['redirect']; }
 
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
