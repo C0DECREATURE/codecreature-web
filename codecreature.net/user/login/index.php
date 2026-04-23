@@ -5,13 +5,13 @@ if(!isset($_SESSION)){session_start();}
 // get path to redirect to after login
 // if redirect URL parameter set, use that
 $redirect_path = "/user/details";
-if (isset($_GET['redirect']) && !empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
+if (!empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
 
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-		echo "Already logged in!";
-    header("location: ".$redirect_path);
-    exit;
+	echo "Already logged in!";
+	header("location: ".$redirect_path);
+	exit;
 }
 
 // Include database connection file
@@ -62,7 +62,7 @@ function rememberUser($user_id, $remember_token) {
 
 // log in the user
 function loginUser($id, $username, $authorization, $pronouns, $icon, $last_login, $remember) {
-	global $users_conn;
+	global $users_conn, $redirect_path;
 	
 	if(!isset($_SESSION)){session_start();}
   
@@ -76,13 +76,12 @@ function loginUser($id, $username, $authorization, $pronouns, $icon, $last_login
 	storeUser($id, $username, $authorization, $pronouns, $icon);
 	
 	// check if this is the user's first login
-	$welcome = $last_login == NULL ? '?welcome=true' : '';
+	$redirect_path = $last_login == NULL ? $redirect_path.'?welcome=true' : $redirect_path;
 	
 	// record the login time
 	$current_date = date('Y-m-d H:i:s');
 	$date_sql = "UPDATE users SET last_login='".$current_date."' WHERE id=".$id;
-	if ($users_conn->query($date_sql) === TRUE) { echo "User last_login updated successfully";
-	} else { echo "Error updating last_login: " . $users_conn->error; }
+	if ($users_conn->query($date_sql) !== TRUE) { echo "Error updating last_login: " . $users_conn->error; }
 	
 	// clear failed login attempts log for this user
 	$delSql = "DELETE FROM login_attempts WHERE username = ?";
@@ -90,9 +89,7 @@ function loginUser($id, $username, $authorization, $pronouns, $icon, $last_login
 		// Bind variables to the prepared statement as parameters
 		mysqli_stmt_bind_param($delStmt, "s", $username);
 		// Attempt to execute the prepared statement
-		if(mysqli_stmt_execute($delStmt)){
-			echo "Login attempts cleared.";
-		} else{
+		if(!mysqli_stmt_execute($delStmt)){
 			echo "Could not validate user login attempts.";
 		}
 		// Close statement
@@ -182,11 +179,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
 														$remember = false;
 														if (isset($_POST["rememberme"])) { $remember = trim($_POST["rememberme"]) == "on"; }
-                            // Password is correct, so start a new session
+                            // password is correct, log in
                             loginUser($id, $username, $authorization, $pronouns, $icon, $last_login, $remember);
 														
                             // Redirect user to welcome page
-                            header("location: ".$redirect_path.$welcome); // DEBUG not working??
+														header("location: ".$redirect_path);
                         } else{
 														// log the failed login attempt
 														// Prepare an insert statement
