@@ -112,8 +112,9 @@ function getFeedLogDisplay() {
 			$l = $feed_log[$i];
 			$worm = $worms[(int)$l["worm"]];
 			$item = $items[$l["item"]]["display_name"];
-			$user = ($l["user_id"] == NULL || getUserGamePrivacy($l["user_id"]) == "private") ? "Someone" : getUsername($l["user_id"]);
-			$user_type = $l["user_id"] == NULL ? "anonymous" : "registered";
+			$isAnonymous = $l["user_id"] == NULL || getUserGamePrivacy($l["user_id"]) == "private";
+			$user = $isAnonymous ? "Someone" : getUsername($l["user_id"]);
+			$user_type = $isAnonymous ? "anonymous" : "registered";
 			echo '<div class="feed-log-item"><span class="user '.$user_type.'">'.$user.'</span> fed
 						<span class="worm" style="
 							color: var(--'.$worm["color_dark"].');

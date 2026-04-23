@@ -16,7 +16,7 @@ function getPublicUserData($id,$getProfile=true) {
 	$user["id"] = $id;
 	
 	if (empty($id)) {
-		$user["username"] = "";
+		$user["username"] = "Anonymous";
 		$user["pronouns"] = "";
 		$user["icon"] = getIconPath("");
 		$user["authorization"] = "user";
