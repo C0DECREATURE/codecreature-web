@@ -71,7 +71,6 @@
 			<section id="optional-warnings">
 				<header>
 					<h3>enable warnings for...</h3>
-					<!--<button type="button" class="simple" id="toggle-optional-warnings" onclick="toggleOptionalWarnings();" data-state="uncheck">uncheck all</button>-->
 				</header>
 				
 				<div class="warning-options">
