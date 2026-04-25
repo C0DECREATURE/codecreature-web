@@ -11,7 +11,7 @@
 	--background: none;
 	--border: 1px var(--accent) dashed;
 	
-	button {
+	.fiv-button {
 		z-index: 2;
 		position: absolute;
 		color: var(--text);

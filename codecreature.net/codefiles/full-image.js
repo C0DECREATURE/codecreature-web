@@ -61,15 +61,15 @@ const fullImageView = {
 			this.element.innerHTML = `
 				<div id="fiv-clicker"></div>
 				
-				<button id="fiv-close" aria-label="close full image view">
+				<button id="fiv-close" aria-label="close full image view" class="fiv-button">
 					<i class="svg-icon svg-icon-outline svg-icon-bold" data-icon="rounded-x"></i>
 				</button>
 				
-				<button id="fiv-prev" aria-label="previous full view image">
+				<button id="fiv-prev" aria-label="previous full view image" class="fiv-button">
 					<i class="svg-icon svg-icon-solid" data-icon="rounded-caret-left"></i>
 				</button>
 				
-				<button id="fiv-next" aria-label="next full view image">
+				<button id="fiv-next" aria-label="next full view image" class="fiv-button">
 					<i class="svg-icon svg-icon-solid" data-icon="rounded-caret-right"></i>
 				</button>
 				
