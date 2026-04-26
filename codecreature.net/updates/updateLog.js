@@ -953,8 +953,8 @@ const updateLog = [
 		details: `
 			<p>small improvements and additions to the <a href="/links">links</a>, blood paintings added to the <a href="/shrines/homestuck/shipping">homestuck ship wall</a> plus improved styling for the <a href="/shrines/homestuck/playlists">playlists</a>, a couple new <a href="/graphix">graphics</a> plus layout adjustments, and some additional styling and improved hitboxes for <a href="/ocs/vex">vex</a>! busy times</p>
 			<p align="center">
-				<img src="images/homestuck-shipping-2025-08-18.jpg" alt="" style="width:48%">
-				<img src="images/vex-2025-08-18.jpg" alt="" style="width:48%">
+				<img src="images/homestuck_shipping_2025_08_18.avif" alt="" style="width:48%">
+				<img src="images/vex_2025_08_18.avif" alt="" style="width:48%">
 				<br>red flavor. graphic design is my passion
 			</p>
 			<p align="center">
@@ -1227,7 +1227,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="images/vex-2024-12-15.jpg" alt="screenshot of vex page showing new layout. the fonts have all been customized, some colors have been altered, and the menu has been moved from the left to the center.">
+				<img src="images/vex_2024_12_15.avif" alt="screenshot of vex page showing new layout. the fonts have all been customized, some colors have been altered, and the menu has been moved from the left to the center.">
 			</p>
 			<p>key on <a href="/ocs/vex">vex's character page</a> is now clickable 2 unlock the coffin!! it "picks up" the key so %%u% can use it on the coffin (unless %A%you're\\ur% on touch devices, then it just opens the coffin instantly.) also did a small layout adjustmet and font %A%update\\upd8%, plus balloon animal button</p>
 		`
@@ -1239,7 +1239,7 @@ const updateLog = [
 			new wip page %%4% my oc <a href="/ocs/vex">vex</a>
 		`,
 		details: `
-			<p align="center"><img src="images/vex-2024-12-09.png" alt="screenshot of my new page. the title reads "vex the vampire clown."  it has a text information section on the left and a character art gallery on the right, with a large coffin in the center wrapped in chains and a padlock. there is a small key in the lower right corner. it has a red background with dramatic yellow and red accents."></p>
+			<p align="center"><img src="images/vex_2024_12_09.avif" alt="screenshot of my new page titled 'vex the vampire clown.'  it has a text information section on the left and a character art gallery on the right, with a large coffin in the center wrapped in chains and a padlock. there is a small key in the lower right corner. it has a red background with dramatic yellow and red accents."></p>
 			<p>working on a new oc page for my clown creature <a href="/ocs/vex">vex</a>!!!! %%im% hoping %%2% do better interactive features %A%later\\l8r% but %%4% now the coffin wiggles on hover and opens/closes on click!! the hitbox is too big %A%right now\\rn% %%pls% ignore that
 		`
 	},
