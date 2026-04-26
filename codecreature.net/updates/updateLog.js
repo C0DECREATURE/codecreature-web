@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-06T18:04'),
+		authors: ['prax','emery'],
+		tags: ['general','minor'],
+		summary: `
+			avif files...
+		`,
+		details: `
+			<p>found out about avif files recently, %%im% switching some things over %%2% that (like all the screenshots here in the updates) %%4% improved file size and quality!! %A%won't\\wont% be so jpeg artifacty anymore %E%B33%</p>			
+		`
+	},
+	{
 		date: new Date('2026-04-21T05:37'),
 		authors: ['prax'],
 		tags: ['shrines','garfield','minor'],
@@ -66,7 +77,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="images/userprofile_2026_04_17.jpg" alt="Screenshot of user profile for codecreature. It displays the user icon, username, and pronouns. Below, there is a customizable text area for a user description. The styling is simple and similar to the main pages on the site.">
+				<img src="images/userprofile_2026_04_17.avif" alt="Screenshot of user profile for codecreature. It displays the user icon, username, and pronouns. Below, there is a customizable text area for a user description. The styling is simple and similar to the main pages on the site.">
 			</p>
 			<p>
 				simple user %A%profile\\purrofile% now exist at /u/username (e.g. <a href="/u/codecreature">/u/codecreature</a>)! this serves zero %A%purpose\\purrpose% %%i% just wanted to learn how %%2% do it. uses bbcode if %%u% wanna get fancy with it!!
@@ -103,11 +114,11 @@ const updateLog = [
 			<p>the warnings page has some new functionality plus a css rewrite!!</p>
 			<p>now supports opt-in page-specific warnings, so if %%u% %A%don't\\dont% want %%2% %%b% subjected %%2% the kind of intense visual assault %%u% get on pages like <a href="/graphix">graphix</a>, %%u% can still browse the rest of the site no %A%problem\\purroblem% %E%:33%</p>
 			<p align="center">
-				<img src="images/warnings_2026_04_10.jpg" alt="Screenshot of the updated warnings page. It has a bit more detail about general site content, and includes checkboxes for optional warnings to receive in the future. The caution tape banner at the top now has a dark outline that wraps behind the container.">
+				<img src="images/warnings_2026_04_10.avif" alt="Screenshot of the updated warnings page. It has a bit more detail about general site content, and includes checkboxes for optional warnings to receive in the future. The caution tape banner at the top now has a dark outline that wraps behind the container.">
 			</p>
 			<p>also so many things %%abt% the old css were driving me insane so we just. redid it. it was so old and weird that doing it from scratch was faster lol. the biggest deal %%2% me %A%personally\\purrsonally% is that it uses 100% javascript-free css styling, <strong>INCLUDING</strong> the borders behind the robo cat and the top banner!! %%u% do not %A%want to\\wanna% know how much misery we experienced over those when we %A%first\\furst% attempted it</p>
 			<p align="center">
-				<img class="tall" src="images/warnings_2026_04_10_mobile.jpg" alt="New mobile warnings layout. It is simpler and the content takes up a larger portion of the screen.">
+				<img class="tall" src="images/warnings_2026_04_10_mobile.avif" alt="New mobile warnings layout. It is simpler and the content takes up a larger portion of the screen.">
 				<br>mobile layout is also a %A%little\\lil% easier %%2% use %%i% think
 			</p>
 			<p>%A%there's\\theres% a few more visual things we might %A%update\\upd8% someday but at least the most important things %%r% done</p>
@@ -330,7 +341,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="images/worm_fishing_2026_02_16.jpg" alt="Screenshot of worm fishing">
+				<img src="images/worm_fishing_2026_02_16.avif" alt="Screenshot of worm fishing">
 				<br>Game window is now transparent with sketched in foreground/background elements
 			</p>
 			<p>Health potions added, worm movement has been adjusted, and larger fish species are prevented from spawning too close together. Also basic navigation buttons so you aren't trapped on the page!</p>
@@ -2010,7 +2021,7 @@ const updateLog = [
 				the landing page is kinda-sorta mobile %A%friendly\\furiendly% now, with some minor kinks that %N%n33d% %%2% %%b% worked out. more %A%importantly\\impurrtantly% it also works on %A%different\\diffurent% browser window sizes!!
 			</p>
 			<p align="center">
-				<img src="https://i.imgur.com/ZIgCxRt.png" alt="screenshot of the landing page mobile layout" class="tall">
+				<img src="images/warnings_2023_11_07.avif" alt="screenshot of the landing page mobile layout" class="tall">
 				<br>idk if mobile neocities users exist but %%i% hope %A%you're\\ur% happy.
 				<br>this shaved years off my life
 			</p>
@@ -2047,7 +2058,7 @@ const updateLog = [
 			</p>
 			
 			<p align="center">
-				<img src="https://i.imgur.com/Tr9llPn.png" alt="screenshot of the 404 error page showing dozens of overlapping error popups">
+				<img src="images/404_2023_11_06.avif" alt="screenshot of the 404 error page showing dozens of overlapping error popups">
 				<br>this is what good web design looks like. this is what the %%ppl% want.
 			</p>
 		`
@@ -2060,14 +2071,14 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="https://i.imgur.com/jE6M1Zo.png"
+				<img src="images/warnings_2023_11_05.avif"
 					alt="screenshot of the landing page. it has a large caution tape warning label at the top, and icons warning for flashing, gore, and unreality. a robot cat sits to one side. the background is a colorful pawprints and stars pattern" width="45%">
-				<img src="https://i.imgur.com/eeW4CYu.png" 
+				<img src="images/warnings_2023_11_05_detail.avif" 
 					alt="another screenshot of the landing page, showing the detail screen for the gore warning" width="45%">
 				<br>warning %%4% things that dont even exist yet. its the %A%responsible\\respawnsible% thing %%2% do
 			</p>
 			<p align="center">
-				<img src="https://i.imgur.com/1USRMUs.png"
+				<img src="images/404_2023_11_05.avif"
 					alt="screenshot of the 404 error page. a heavily glitched cartoon dog sits on a 90s computer monitor. the background is a glitchy bluescreen. beside it is a popup styled to look like an old Windows error message">
 				<br>works just like %%ur% real pc %E%:33%
 			</p>
