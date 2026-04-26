@@ -825,10 +825,10 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="images/snailfish_2025_09_15.jpg" alt="A screenshot of the new snailfish aquarium layout. It includes an aquarium with a pale pink snailfish, a poster of a snail, a hadal zone diagram, a jar of fish food with a shrimp label, and a model of the Nautilus deep sea vehicle. The sketches have a smooth cartoonish style and use a limited color palette of blues, pinks, yellows, oranges.">
+				<img src="images/snailfish_2025_09_15.avif" alt="A screenshot of the new snailfish aquarium layout. It includes an aquarium with a pale pink snailfish, a poster of a snail, a hadal zone diagram, a jar of fish food with a shrimp label, and a model of the Nautilus deep sea vehicle. The sketches have a smooth cartoonish style and use a limited color palette of blues, pinks, yellows, oranges.">
 			</p>
 			<p>
-				Working on the <a href="/shrines/snailfish">snailfish</a> page a bit, new color palette, new sketches, and some layout adjustments! Art is still sketchy but it's a closer approximation than the previous version. Can't do the final art until I have my tablet again, but hopefully soon I'd like to work on some content additions, better navigation between screens, and video updates.
+				Working on the <a href="/shrines/snailfish">snailfish</a> page a bit, new color palette, new sketches, and some layout adjustments! Art is still sketchy but it's a closer approximation than the previous version. Can't do the final art until I have my tablet again, but hopefully soon! I'd like to work on some content additions, better navigation between screens, and video updates.
 			</p>
 		`
 	},
@@ -1352,7 +1352,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="https://i.imgur.com/l41kQ4m.png" alt="sketch of a pale orange, shrimp-like crustacean.">
+				<img src="images/snailfish_2024_03_09_amphipod.png" alt="sketch of a pale orange, shrimp-like crustacean.">
 				<br>amphipods is bugs
 			</p>
 			<p>
@@ -1444,8 +1444,8 @@ const updateLog = [
 				working on a <u class="tq" data-a="proper">purroper</u> layout %%4% my <a href="/shrines/snailfish">hadal snailfish shrine</a>!! <u class="tq">abt</u> half the main page elements <u class="tq">r</u> <u class="tq" data-a="positioned">pawsitioned</u> so far <u class="tq">w</u> <u class="tq" data-a="temporary">tempurrary</u> sketch art. still deciding on the colors and compiling more fish research <u class="tq-e">:33c</u>
 			</p>
 			<p align="center">
-				<img src="https://i.imgur.com/2dYItDp.png" alt="grayscale sketch of planned layout." class="tall">
-				<img src="https://i.imgur.com/rbg80ct.png" alt="screenshot showing progress of actual snailfish page code." class="tall">
+				<img src="images/snailfish_2024_03_01_sketch.avif" alt="grayscale sketch of planned layout." class="tall">
+				<img src="images/snailfish_2024_03_01.avif" alt="screenshot showing progress of actual snailfish page code." class="tall">
 				<br>plan is coming <u class="tq" data-a="together">2gether</u>
 			</p>
 		`
