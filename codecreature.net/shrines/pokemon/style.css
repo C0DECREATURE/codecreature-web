@@ -1,0 +1,23 @@
+body {
+	background-image: url('/shrines/pokemon/images/snorunt_fabric_pattern.avif');
+	background-size: 600px;
+	margin: 0; padding: 0;
+}
+
+main {
+	background: white;
+	width: min(100%, 450px);
+	margin: 0 auto;
+	padding: 10px 20px;
+	mox-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+main > header, nav { text-align: center; }
+
+li, li a {
+	display: flex;
+	flex-align: center;
+	justify-content: flex-start;
+	gap: .5em;
+}
+li img { max-height: 36px; }
