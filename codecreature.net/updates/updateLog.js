@@ -405,7 +405,7 @@ const updateLog = [
 		details: `
 			<p>wanted a place to collect weird %A%little\\lil% stuff %%i% find. <a href="/trinkets">trinket time</a>. more to come.</p>
 			<p align="center">
-				<img src="images/trinkets_2026_02_06.jpg" alt="Screenshot of the trinkets page. It has various weird antique objects and drawings arranged randomly on an old forest tapestry background.">
+				<img src="images/trinkets_2026_02_06.avif" alt="Screenshot of the trinkets page. It has various weird antique objects and drawings arranged randomly on an old forest tapestry background.">
 			</p>
 			<p>not remotely mobile friendly, but %%i% may make it scale for screen size eventually</p>
 		`
