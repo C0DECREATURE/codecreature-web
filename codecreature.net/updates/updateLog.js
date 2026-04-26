@@ -33,7 +33,7 @@ const updateLog = [
 			avif files...
 		`,
 		details: `
-			<p>found out about avif files recently, %%im% switching some things over %%2% that (like all the screenshots here in the updates) %%4% improved file size and quality!! %A%won't\\wont% be so jpeg artifacty anymore %E%B33%</p>			
+			<p>found out about avif files recently, %%im% switching some things over %%2% that (like all the screenshots here in the updates) %%4% improved file size compared %%2% the jpgs %E%B33%</p>			
 		`
 	},
 	{
