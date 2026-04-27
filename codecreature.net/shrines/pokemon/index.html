@@ -12,70 +12,75 @@
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
 		<!-- fonts -->
-		<script>fonts.load();</script>
+		<script>fonts.load('Pokemon Classic');</script>
 		
 		<!--this page's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
 	<!-----------BODY------------------->
-	<body>
-		<main>
-			<nav>
-				<a href="cards">cards</a>
-				|
-				<a href="/">home</a>
-			</nav>
-			
+	<body><div class="main-container">
+		<nav>
+			<a href="cards">cards</a>
+			<img src="images/sprites/sm/pokeball_crop.webp" alt="">
+			<a href="/">home</a>
+		</nav>
+		
+		<main class="content">
 			<header>
 				<h1>Pokémon</h1>
 			</header>
 			
-			<h3>unlicensed games</h3>
-			<ul>
-				<li><img src="images/sprites/pokeball.png" alt=""> <a href="https://www.pokeclicker.com/">pokéclicker</a></li>
-				<li><img src="images/sprites/pokeball.png" alt=""> <a href="https://pokefarm.com/user/purraxis">pokéfarm</a></li>
-			</ul>
+			<section id="games" class="links">
+				<h3>unlicensed games</h3>
+				<ul>
+					<li><img src="images/sprites/sm/pokeball.webp" alt=""> <a href="https://www.pokeclicker.com/">PokéClicker</a></li>
+					<li><img src="images/sprites/sm/pokeball.webp" alt=""> <a href="https://pokefarm.com/user/purraxis">PokéFarm</a></li>
+				</ul>
+			</section>
 			
-			<a href="https://pfq.link/?X8bqR"><img src="https://pfq.link/?X8bqR=party.png" alt="starkist the snorunt"></a>
-			<a href="https://pfq.link/?X3GMl"><img src="https://pfq.link/?X3GMl=party.png" alt="fork the porygon"></a>
-			<a href="https://pfq.link/?56Vxz"><img src="https://pfq.link/?56Vxz=party.png" alt="hairbrush the tangela"></a>
-			<a href="https://pfq.link/?XfDfT"><img src="https://pfq.link/?XfDfT=party.png" alt="felony the perrserker"></a>
-			<a href="https://pfq.link/?XDLvj"><img src="https://pfq.link/?XDLvj=party.png" alt="chlorine the buizel"></a>
-			<a href="https://pfq.link/?XDVmJ"><img src="https://pfq.link/?XDVmJ=party.png" alt="breakfast the togekiss"></a>
+			<div id="pokefarm-minis">
+				<a class="pokefarm-mini" href="https://pfq.link/?X8bqR"><img src="https://pfq.link/?X8bqR=party.png" alt="starkist the snorunt"></a>
+				<a class="pokefarm-mini" href="https://pfq.link/?X3GMl"><img src="https://pfq.link/?X3GMl=party.png" alt="fork the porygon"></a>
+				<a class="pokefarm-mini" href="https://pfq.link/?56Vxz"><img src="https://pfq.link/?56Vxz=party.png" alt="hairbrush the tangela"></a>
+				<a class="pokefarm-mini" href="https://pfq.link/?XfDfT"><img src="https://pfq.link/?XfDfT=party.png" alt="felony the perrserker"></a>
+				<a class="pokefarm-mini" href="https://pfq.link/?XDLvj"><img src="https://pfq.link/?XDLvj=party.png" alt="chlorine the buizel"></a>
+				<a class="pokefarm-mini" href="https://pfq.link/?XDVmJ"><img src="https://pfq.link/?XDVmJ=party.png" alt="breakfast the togekiss"></a>
+			</div>
 			
 			<h3>faves</h3>
 			<ul>
-				<li><img src="images/sprites/snorunt.png" alt="" title="starkist"> snorunt!!</li>
-				<li><img src="images/sprites/buizel.png" alt="" title="chlorine"> buizel</li>
-				<li><img src="images/sprites/tangela.png" alt="" title="hairbrush"> tangela</li>
-				<li><img src="images/sprites/perrserker.png" alt="" title="felony"> perrserker</li>
-				<li><img src="images/sprites/minior.png" alt="" title="zig"> minior</li>
-				<li><img src="images/sprites/porygon.png" alt="" title="fork"> porygon</li>
-				<li><img src="images/sprites/porygonZ.png" alt="" title="spork"> porygon Z</li>
-				<li><img src="images/sprites/mew.png" alt=""> mew</li>
-				<li><img src="images/sprites/abra.png" alt="" title="celexa"> abra</li>
-				<li><img src="images/sprites/togekiss.png" alt="" title="breakfast"> togekiss</li>
-				<li><img src="images/sprites/gengar.png" alt="" title="jolly rancher"> gengar</li>
-				<li><img src="images/sprites/pokeball.png" alt=""> tatsugiri</li>
-				<li><img src="images/sprites/blacephalon.png" alt=""> blacephalon</li>
+				<li>
+					<img src="images/sprites/sm/snorunt.webp" alt="" title="starkist">
+					snorunt!!
+					<a href="cards"><img src="images/sprites/sm/card.webp" alt="cards"></a>
+				</li>
+				<li><img src="images/sprites/sm/buizel.webp" alt="" title="chlorine"> buizel</li>
+				<li><img src="images/sprites/sm/tangela.webp" alt="" title="hairbrush"> tangela</li>
+				<li><img src="images/sprites/sm/perrserker.webp" alt="" title="felony"> perrserker</li>
+				<li><img src="images/sprites/sm/minior.webp" alt="" title="zig"> minior</li>
+				<li><img src="images/sprites/sm/porygon.webp" alt="" title="fork"> porygon</li>
+				<li><img src="images/sprites/sm/porygonZ.webp" alt="" title="spork"> porygon Z</li>
+				<li><img src="images/sprites/sm/mew.webp" alt=""> mew</li>
+				<li><img src="images/sprites/sm/abra.webp" alt="" title="celexa"> abra</li>
+				<li><img src="images/sprites/sm/togekiss.webp" alt="" title="breakfast"> togekiss</li>
+				<li><img src="images/sprites/sm/gengar.webp" alt="" title="jolly rancher"> gengar</li>
+				<li><img src="images/sprites/sm/blacephalon.webp" alt=""> blacephalon</li>
 			</ul>
 			
 			<h3>kitty cat cafe</h3>
 			<ul>
-				<li><img src="images/sprites/perrserker.png" alt=""> perrserker</li>
-				<li><img src="images/sprites/meowth_shiny.png" alt=""> meowth</li>
-				<li><img src="images/sprites/skitty.png" alt=""> skitty</li>
-				<li><img src="images/sprites/persian.png" alt=""> persian</li>
-				<li><img src="images/sprites/litten.png" alt=""> litten</li>
-				<li><img src="images/sprites/sprigatito.png" alt=""> sprigatito</li>
-				<li><img src="images/sprites/purrloin.png" alt=""> purrloin</li>
-				<li><img src="images/sprites/delcatty.png" alt=""> delcatty</li>
-				<li><img src="images/sprites/glameow.png" alt=""> glameow</li>
+				<li><img src="images/sprites/sm/perrserker.webp" alt=""> perrserker</li>
+				<li><img src="images/sprites/sm/meowth_shiny.webp" alt=""> meowth</li>
+				<li><img src="images/sprites/sm/skitty.webp" alt=""> skitty</li>
+				<li><img src="images/sprites/sm/persian.webp" alt=""> persian</li>
+				<li><img src="images/sprites/sm/litten.webp" alt=""> litten</li>
+				<li><img src="images/sprites/sm/sprigatito.webp" alt=""><img src="images/sprites/sm/sprigatito9.webp" alt=""> sprigatito</li>
+				<li><img src="images/sprites/sm/purrloin.webp" alt=""> purrloin</li>
+				<li><img src="images/sprites/sm/delcatty.webp" alt=""> delcatty</li>
+				<li><img src="images/sprites/sm/glameow.webp" alt=""> glameow</li>
 			</ul>
 		</main>
-		
-		
-	</body>
+	</div></body>
 	<!--------------END BODY------------->
 </html>

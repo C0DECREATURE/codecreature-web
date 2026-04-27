@@ -1,23 +1,74 @@
+:root {
+	--white: #FFF;
+	--orange: #e08748;
+	--blue: #58b5e8;
+}
+
 body {
 	background-image: url('/shrines/pokemon/images/snorunt_fabric_pattern.avif');
 	background-size: 600px;
 	margin: 0; padding: 0;
+	font-size: 12px;
+	font-family: 'Pokemon Classic', monospace;
 }
 
-main {
-	background: white;
+.main-container {
+	background: var(--white);
 	width: min(100%, 450px);
 	margin: 0 auto;
-	padding: 10px 20px;
 	mox-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
-main > header, nav { text-align: center; }
+nav {
+	background: black;
+	font-weight: bold;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: .25em 1em;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: .5em;
+}
+nav a, nav a:link, nav a:visited {
+	color: var(--white);
+}
+nav a:hover {
+	color: var(--blue);
+}
+nav img {
+	height: 16px;
+}
+
+.main-container > .content {
+	padding: 10px 20px;
+}
+
+.main-container > .content > header {
+	text-align: center;
+}
+
+h1, h2, h3 { text-transform: uppercase; }
+h1 { margin-top: 0; }
 
 li, li a {
 	display: flex;
-	flex-align: center;
+	align-items: center;
 	justify-content: flex-start;
-	gap: .5em;
+	gap: .25em;
 }
-li img { max-height: 36px; }
+li img { max-height: 32px; }
+
+.links li a {
+	font-weight: bold;
+}
+
+#pokefarm-minis {
+	text-align: center;
+}
+.pokefarm-mini {
+	display: inline-block;
+	width: 160px;
+	height: 64px;
+}
