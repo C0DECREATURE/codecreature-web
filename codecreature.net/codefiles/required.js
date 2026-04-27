@@ -26,8 +26,6 @@
 			|| window.location.pathname.replaceAll('/','') == 'index.html'
 		);
 	}
-	// returns boolean - whether the page is currently being shown on the Wayback Machine
-	function isInWayback() { return document.querySelector(`script[src="//archive.org/includes/athena.js"]`) !== null; }
 	
 	// current page
 	let curPage = encodeURI(window.location.pathname + window.location.search);
@@ -43,7 +41,6 @@
 		localStorage.getItem("seenWarnings") != "true" &&
 		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
 		(!isBot() || (isNeocitiesBot() && isIndexPage()) ) &&
-		!isInWayback() &&
 		!window.location.pathname.includes('/warnings') &&
 		urlParams.get('showWarnings') != 'false'
 	) {
