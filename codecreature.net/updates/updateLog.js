@@ -26,14 +26,26 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-04-27T06:20'),
+		authors: ['prax'],
+		tags: ['shrines','pokemon','new page'],
+		summary: `
+			<a href="/shrines/pokemon">pokemon shrine</a>!
+		`,
+		details: `
+			<p>%A%finally\\fiiiiinally% putting a <a href="/shrines/pokemon">pokemon page</a> back %A%together\\2gether% %%4% my precious runts!! and also the others %%i% guess. nothing very fancy yet but %%i% did make a couple custom sprites</p>
+			<p>have some ideas %%4% what %%i% %A%want to\\wanna% do %%w% that section of the site eventually but throwing that on the pile %A%at this point\\atp% lol. a pokemon page was the first test thing %%i% did back when %%i% was starting this whole website %A%project\\purroject% so it needed %%2% exist again in some form</p>
+		`
+	},
+	{
 		date: new Date('2026-04-06T18:04'),
 		authors: ['prax','emery'],
 		tags: ['general','minor'],
 		summary: `
-			avif files...
+			image compression
 		`,
 		details: `
-			<p>found out about avif files recently, %%im% switching some things over %%2% that (like all the screenshots here in the updates) %%4% improved file size and quality!! %A%won't\\wont% be so jpeg artifacty anymore %E%B33%</p>			
+			<p>%%im% switching a bunch of things over %%2% avif or webp files (like all the screenshots here in the updates) %%4% improved file size and quality!! %A%won't\\wont% be so jpeg artifacty anymore %E%B33%</p>			
 		`
 	},
 	{
