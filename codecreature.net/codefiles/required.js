@@ -13,6 +13,7 @@
 			/facebook/,/instagram/,/pinterest/,/reddit/,		// SOCIAL MEDIA
 			/slack/,/twitter/,/whatsapp/,/youtube/,
 			/screenjesus/,																	// NEOCITIES SCREENSHOTTER
+			/archive\.org_bot/,															// WAYBACK MACHINE ARCHIVER
 			/semrush/,																			// OTHER
 		].map((r) => r.source).join("|"),"i");	// build regexp + "i" flag
 		
