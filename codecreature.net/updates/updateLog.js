@@ -38,7 +38,7 @@ const updateLog = [
 		`
 	},
 	{
-		date: new Date('2026-04-06T18:04'),
+		date: new Date('2026-04-26T18:04'),
 		authors: ['prax','emery'],
 		tags: ['general','minor'],
 		summary: `
