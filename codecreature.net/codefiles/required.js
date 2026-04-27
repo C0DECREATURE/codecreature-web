@@ -27,27 +27,25 @@
 		);
 	}
 	// returns boolean - whether the page is currently being shown on the Wayback Machine
-	function isInWayback() {
-		// Check if the Wayback Machine's script exists in the DOM
-		return document.querySelector(`script[src="//archive.org/includes/athena.js"]`) !== null;
-	}
+	function isInWayback() { return document.querySelector(`script[src="//archive.org/includes/athena.js"]`) !== null; }
 	
 	// current page
 	let curPage = encodeURI(window.location.pathname + window.location.search);
-	
+	// url search parameters
 	let urlParams = new URL(window.location.href).searchParams;
 	
 	// if the link was to the neocities page, redirect to codecreature.net
 	if ( window.location.hostname.includes('codecreature.neocities.org') ) {
 		window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
 	// redirect to warnings page immediately if:
-	// warnings not shown yet, user is not a bot, not already redirecting
+	// warnings not shown yet, user is not a bot, not already redirecting, 
 	} else if (
 		localStorage.getItem("seenWarnings") != "true" &&
 		(typeof showMainWarnings == 'undefined' || showMainWarnings == true) &&
 		(!isBot() || (isNeocitiesBot() && isIndexPage()) ) &&
 		!isInWayback() &&
-		!window.location.pathname.includes('/warnings')
+		!window.location.pathname.includes('/warnings') &&
+		urlParams.get('showWarnings') != 'false'
 	) {
 		window.location.href = `/warnings?redirect=${curPage}`;
 	// if warnings page doesn't need to be shown and this is the root directory, redirect to home page
