@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-02T22:00'),
+		authors: ['emery'],
+		tags: ['links'],
+		summary: `
+			bunch of <a href="/links">neighbor links</a> added!
+		`,
+		details: `
+			<p>
+				I added some new neighbors and a couple other scattered links! I've been running behind on this for ages so I've decided to stop adding descriptions for each site. But everybody goes in a big section at the bottom that's always visible, if that makes up for it.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-04-27T06:20'),
 		authors: ['prax'],
 		tags: ['shrines','pokemon','new page'],
