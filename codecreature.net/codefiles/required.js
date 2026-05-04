@@ -83,6 +83,11 @@
 			}
 		}
 	}
+	
+	// if current path contains "index.php" or "index.html", remove that from the url display (for cleanup purposes)
+	if (window.location.pathname.includes("index")) {
+		history.pushState({}, "", window.location.pathname.replaceAll("index.php","").replaceAll("index.html",""));
+	}
 })();
 
 const isReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
