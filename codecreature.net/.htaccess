@@ -35,6 +35,11 @@ Redirect 301 /worm-race /games/worm-race
 
 RewriteEngine on
 
+# redirect /preview or /preview.html to that preview's parent directory
+RewriteRule ^(.*)/preview /$1/ [R=301]
+RewriteRule ^(.*)/preview/ /$1/ [R=301]
+RewriteRule ^(.*)/preview.html /$1/ [R=301]
+
 # redirect /u/sampleUser to /user/profile.php?username=sampleUser
 RewriteRule ^u/(.*) user/profile/index.php?username=$1
 RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
