@@ -3,9 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<script>
-			history.replaceState({}, "", window.location.replaceAll("codecreature.neocities.org","codecreature.net"));
-			history.replaceState({}, "", window.location.pathname.replaceAll("index.php","").replaceAll("index.html",""));
-			location.reload();
+			// if the link was to the neocities page, redirect to codecreature.net
+			if ( window.location.hostname.includes('codecreature.neocities.org') ) {
+				window.location.hostname = window.location.hostname.replace('codecreature.neocities.org','codecreature.net');
+			} else {
+				history.replaceState({}, "", window.location.pathname.replaceAll("index.html",""));
+				location.reload();
+			}
 		</script>
 	</head>
 </html>
