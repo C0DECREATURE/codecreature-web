@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script>window.location = window.location.pathname.replaceAll('preview.html','');</script>
+		<script>
+			history.replaceState({}, "", window.location.replaceAll("codecreature.neocities.org","codecreature.net"));
+			history.replaceState({}, "", window.location.pathname.replaceAll("preview.html",""));
+			location.reload();
+		</script>
 		<meta charset="utf-8">
 	</head>
 </html>
