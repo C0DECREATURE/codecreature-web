@@ -1,5 +1,19 @@
 var dontAutoInitFIV = true;
 
+/* DEBUG - would need to fix the way freezeframe breaks the masonry layout
+// freezeframe object
+var ff;
+// use freezeframe to pause/unpause gifs
+function pauseGifs() {
+	ff.release();
+	document.body.classList.add('pausedGifs');
+}
+function playGifs() {
+	ff.trigger();
+	document.body.classList.remove('pausedGifs');
+}
+*/
+
 function graphixPageInit() {
 	// add full-viewable class to all gallery images
 	var galleries = document.getElementsByClassName('gallery');
@@ -10,6 +24,15 @@ function graphixPageInit() {
 	
 	// run full image setup code
 	fullImageView.init();
+	
+	/* DEBUG - freezeframe issue described above
+	// set up freezeframe for gifs
+	var allGifs = document.querySelectorAll('img[src$=".gif"]');
+	for (let i = 0; i < allGifs.length; i++) {
+		allGifs[i].classList.add('freezeframe');
+	}
+	ff = new freezeframe().freeze();
+	*/
 	
 	// set up background image samples
 	backgrounds = document.getElementsByClassName('bg-image');
@@ -43,13 +66,9 @@ function graphixPageInit() {
 	// set up dividers
 	var dividers = document.getElementsByClassName('image-divider');
 	for ( let i = 0; i < dividers.length; i++ ) {
-		var d = dividers[i];
-		var img = d.querySelector('img');
+		let d = dividers[i];
 		// set the image as the div's background
-		d.style.backgroundImage = 'url("' + img.src + '")';
-		d.style.backgroundRepeat = "repeat-x";
-		// hide the image inside
-		img.style.visibility = 'hidden';
+		d.style.backgroundImage = 'url("' + d.querySelector('img').src + '")';
 		// make clicking the div click the hidden image
 		d.addEventListener('click', function() { this.querySelector('img').click(); } );
 	}
@@ -132,7 +151,6 @@ function setBackgroundButton(btn) {
 function resetBackgroundButton(btn) {
 	btn.dataset.testing = "false";
 	btn.innerHTML = btn.dataset.innerHTML;
-	console.log(btn.dataset.innerHTML);
 }
 // test given background image
 function testBackgroundImage(img) {

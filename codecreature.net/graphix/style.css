@@ -150,11 +150,14 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 			position: relative;
 			img {
 				max-width: 100vw;
+			}
+			> img {
 				position: absolute;
 			}
-			&.center img { left: 50%; top: 0; transform: translateX(-50%); }
-			&.vcenter img { top: 50%; left: 0; transform: translateY(-50%); }
-			&.center.vcenter img { left: 50%; top: 50%; transform: translate(-50%, -50%); }
+			> .ff-container { width: fit-content; height: fit-content; }
+			&.center > * { left: 50%; top: 0; transform: translateX(-50%); }
+			&.vcenter > * { top: 50%; left: 0; transform: translateY(-50%); }
+			&.center.vcenter > * { left: 50%; top: 50%; transform: translate(-50%, -50%); }
 	}
 	/* background image samples */
 	.bg-image {
@@ -221,10 +224,18 @@ img.dark {
 	a img, div img { display: inline-block; }
 }
 
-/* prevent repeat items in dividers from wrapping */
+/* repeating divider images */
 .image-divider {
-	white-space: nowrap;
-	overflow: hidden;
+	background-repeat: repeat-x;
+}
+.image-divider img, .image-divider > * {
+	max-width: 100%;
+}
+body:not(.pausedGifs) .image-divider > * {
+	visibility: hidden;
+}
+body.pausedGifs .image-divider {
+	background-image: none !important;
 }
 
 /***** scrollbar *****/

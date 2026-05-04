@@ -56,6 +56,11 @@
 		<!--hexagon stamps css-->
 		<link href="/graphix/stamps/hexagon/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
+		<!-- freezeframe.js -- DEBUG - issue described in script.js
+		<link rel="stylesheet" href="https://unpkg.com/freezeframe@3.0.10/build/css/freezeframe_styles.min.css">
+		<script type="text/javascript" src="https://unpkg.com/freezeframe@3.0.10/build/js/freezeframe.pkgd.min.js"></script>
+		-->
+		
 		<!-- this page's stylesheet -->
 		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's javascript -->
@@ -95,6 +100,14 @@
 				ok <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> borrow any of these <u class="tq" data-txt="4"><span class="sr-only">for</span><span aria-hidden="true">4</span></u> <u class="tq" data-txt="ur"><span class="sr-only">your</span><span aria-hidden="true">ur</span></u> own use!! <u class="tq" data-txt="pls"><span class="sr-only">please</span><span aria-hidden="true">pls</span></u> rehost, no hotlinking
 				<br>if <u class="tq" data-txt="u"><span class="sr-only">you</span><span aria-hidden="true">u</span></u> want <u class="tq" data-txt="2"><span class="sr-only">to</span><span aria-hidden="true">2</span></u> use something on my site that is NOT on this page, <u class="tq" data-a="please" data-txt="pls"><span class="sr-only">please</span><span aria-hidden="true">pls</span></u> ask <u class="tq" data-a="first" data-txt="1st"><span class="sr-only">first</span><span aria-hidden="true">1st</span></u> <u class="tq" data-a="because" data-txt="bc"><span class="sr-only">because</span><span aria-hidden="true">bc</span></u> <u class="tq" data-a="it's" data-txt="its"><span class="sr-only">it's</span><span aria-hidden="true">its</span></u> <u class="tq" data-a="probably" data-txt="purrobably"><span class="sr-only">probably</span><span aria-hidden="true">purrobably</span></u> something <u class="tq" data-txt="i"><span class="sr-only">i</span><span aria-hidden="true">i</span></u> made custom <u class="tq" data-txt="4"><span class="sr-only">for</span><span aria-hidden="true">4</span></u> myself <u class="tq-e tq" data-txt=":33"><span class="sr-only">smiling kitty emoji</span><span aria-hidden="true">:33</span></u>
 			</p>
+			
+			<!-- DEBUG - issue described in script.js
+			<div id="pause-gifs">
+				<button id="pause-gifs-button" onclick="pauseGifs();">pause gifs</button>
+				<button id="play-gifs-button" onclick="playGifs();">play gifs</button>
+			</div>
+			-->
+			
 		</div>
 		
 		<!-- main content container -->
@@ -107,7 +120,7 @@
 					</header>
 					<div class="gallery block-grid">
 						<img src="/graphix/stamps/autistic_endeavors.gif" alt="'good luck in your autistic endeavors' stamp in black text on wood grain background">
-						<img src="/graphix/stamps/borgor.gif" alt="stamp of a shark with a burger body. small text above reads 'borgor'">
+						<img src="/graphix/stamps/borgor.gif" class="freezeframe" alt="stamp of a shark with a burger body. small text above reads 'borgor'">
 						<img src="/graphix/stamps/cat_pupils.gif" alt="stamp of a black cat with its pupils expanding and contracting">
 						<img src="/graphix/stamps/cat_typist.gif" alt="animated stamp of a photorealistic tabby cat typing on an old computer">
 						<img src="/graphix/stamps/fury_devils.png" alt="intentionally misspelled stamp that says 'furys are the devels pets' (furries are the devil's pets) in black and red text with upside-down crosses">
@@ -286,6 +299,7 @@
 					<img src="/graphix/blinkies/rainbow_emoticons.webp" alt="rainbow blinkie that cycles between different text emoticons">
 					<img src="/graphix/blinkies/neon-beast.gif" alt="'neon beast' blinkie with teal text on black and rainbow arcade carpet patterned background">
 					<img src="/graphix/blinkies/scene-welcome-2-my-blog.gif" alt="'welcome 2 my blog' blinkie in leetspeak on a bright rainbow background and checkered border">
+					<img src="/graphix/blinkies/crayon_parade.gif" alt="blinkie with crayons arranged in rainbow order scrolling horizontally forever">
 					<img src="/graphix/blinkies/get-silly.gif" alt="'get silly!' blinkie with rainbow text and background">
 					<img src="/graphix/blinkies/who_needs_drugs.gif" alt="'who needs drugs when you've got blinkies' on wild rainbow background">
 					<div class="img-wrapper center" style="padding-right: 2px;">
@@ -300,6 +314,7 @@
 					<img src="/graphix/blinkies/nyan_cat.gif" alt="nyan cat blinkie with transparent background">
 					<img src="/graphix/blinkies/worm-line.gif" alt="blinkie with line of rainbow fluffy worms and transparent background">
 					<img src="/graphix/blinkies/wonder_bread.gif" alt="wonder bread blinkie showing the classic wonder bread packaging with red text and large primary-colored dots">
+					<img src="/graphix/blinkies/cd_enthusiast.gif" alt="'compact disk enthusiast' blinkie. it is poorly compressed with spinning CDs on a faded rainbow background">
 					<img src="/graphix/blinkies/get-blinked.gif" alt="'get blinked' blinkie with colorful blinking eyes on black background">
 					<img src="/graphix/blinkies/chronically_ill_static.gif" alt="'chronically ill' blinkie with flashing rainbow text on black TV static background">
 					<img src="/graphix/blinkies/ouroboros.gif" alt="'Ouroboros can have a little Ouroboros as a treat' blinkie">
@@ -316,8 +331,8 @@
 					<img src="/graphix/blinkies/open_24_hours.gif" alt="'Open 24 Hours' neon sign in flashing red on black background">
 					<img src="/graphix/blinkies/brand-new-species.gif" alt="'brand new species' blinkie with red text and black background" data-credit="https://cardinalphlox.tumblr.com/post/758300367650947072/">
 					<!-- orange -->
-					<img src="/graphix/blinkies/garf-is-genderqueer.gif" alt="'garfield is genderqueer' blinkie with nonbinary flag border">
 					<img src="/graphix/blinkies/wasp_friend.gif" alt="'wasp friend' blinkie with wasp and heart in orange text on black background">
+					<img src="/graphix/blinkies/garf-is-genderqueer.gif" alt="'garfield is genderqueer' blinkie with nonbinary flag border">
 					<img src="/graphix/blinkies/figment_of_your_imagination.gif" alt="'this blinkie is a figment of your imagination' blinkie with orange background">
 					<img src="/graphix/blinkies/rowr.gif" alt="'rowr' blinkie with scratching paw and orange background">
 					<img src="/graphix/blinkies/cheez-its.gif" alt="'cheez-itz' blinkie with spinning cheez-it crackers"
@@ -341,7 +356,11 @@
 					<img src="/graphix/blinkies/i-heart-pokemon.gif" alt="'i heart pokemon' blinkie in pokemon font with pokeball and pikachu on yellow background">
 					<img src="/graphix/blinkies/splatoon-i-eat-ink.gif" alt="'i eat ink! yum' blinkie with splatoon squids on yellow and purple background">
 					<!-- green -->
+					<img src="/graphix/blinkies/boldly_going_nowhere.gif" alt="'boldly going nowhere' blinkie with thin black text on yellow-green background">
 					<img src="/graphix/blinkies/radioactive.gif" alt="'radioactive' blinkie with flashing hazard symbols and yellow font on green background">
+					<img src="/graphix/blinkies/animal_crossing.gif" alt="animal crossing blinkie with yellow text, brown background, and green border">
+					<img src="/graphix/blinkies/bellionaire.gif" alt="'bellionaire' blinkie with animal crossing characters and bouncing bell bag icons">
+					<img src="/graphix/blinkies/bingbong.gif" alt="'bing bong' blinkie showing the plush character from Peak on green background">
 					<img src="/graphix/blinkies/nepeta-rawrr.gif" alt="homestuck ':33 < rawrrr' blinkie with leo signs and dark blue border on oliveblood colored background">
 					<img src="/graphix/blinkies/otherworldy-creature-space.gif" alt="'otherworldly creature' blinkie with small neon green text and nebula background">
 					<img src="/graphix/blinkies/cat_blink_green.gif" alt="blinking realistic green cat eyes on black background">
@@ -350,8 +369,10 @@
 					<img src="/graphix/blinkies/install-gender-virus.gif" alt="'install gender virus =>' blinkie with green text on black background">
 					<img src="/graphix/blinkies/creepy_crawly.gif" alt="'creepy crawly' blinkie with black cartoon spider on neon green background">
 					<img src="/graphix/blinkies/autistic_alien.gif" alt="'autistic alien' blinkie with diamond borders on neon green background">
+					<img src="/graphix/blinkies/catnip.gif" alt="'Oooh... catnip!' blinkie with orange cat face on green background">
 					<img src="/graphix/blinkies/buggn.gif" alt="'bugg'n' blinkie with ants on green background">
 					<!-- blue-green/teal -->
+					<img src="/graphix/blinkies/carnivorous_plants.gif" alt="'carnivorous plants' blinkie with potted plants on mint colored background">
 					<img src="/graphix/blinkies/glitch-oh-no.gif" alt="'oh no...' blinkie that looks like it's glitching. it has distressed yellow emojis on a light green background">
 					<img src="/graphix/blinkies/neon-power.gif" alt="'neon power' blinkie with blue and yellow text on striped teal background">
 					<!-- blue -->
@@ -395,6 +416,7 @@
 					<img src="/graphix/blinkies/mspaint_palette.gif" alt="blinkie showing the old default microsoft paint palette">
 					<img src="/graphix/blinkies/im-approaching.gif" alt="'i'm approaching' blinkie with yellow warning signs on gray background">
 					<!-- black -->
+					<img src="/graphix/blinkies/bw_stars.gif" alt="blinkie with small gray and white stars flashing on dark gray background">
 					<img src="/graphix/blinkies/crows.gif" alt="blinkie with line of sitting crows on gray background">
 					<img src="/graphix/blinkies/send-me-your-teeth.gif" alt="'send me your teeth' blinkie with white teeth and text on black background">
 					<img src="/graphix/blinkies/night-owl.gif" alt="'night owl' blinkie with large white stars and black background">
