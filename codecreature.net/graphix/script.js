@@ -165,3 +165,10 @@ function testBackgroundImage(img) {
 	let btns = document.getElementsByClassName('set-background');
 	for (let i = 0; i < btns.length; i++) { resetBackgroundButton(btns[i]); }
 }
+
+function sectionScale2x(el) {
+	let sect = el.closest('section');
+	sect.classList.toggle('scale-2');
+	if (sect.classList.contains('scale-2')) el.innerHTML = '1x';
+	else el.innerHTML = '2x';
+}

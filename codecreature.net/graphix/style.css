@@ -1,5 +1,8 @@
 :root {
 	--black: #000;
+	--white: #fff;
+	--green: #8DF01F;
+	--l-green: #E7FF43;
 	--hh: min(120px,21vw); /* top header height */
 	--section-gap: 10px; /* spacing between .section elements */
 }
@@ -32,6 +35,17 @@ body {
 h1,h2,h3,h4 { font-family: 'DS Digital', 'Courier New', sans-serif; }
 h3 { font-weight: normal; font-size: 2.25em; margin: 0 0 10px 0; }
 h4 { font-weight: normal; font-size: 1.75em; margin: 12px 0 2px 0; }
+
+.summary, .main-container, .fiv-content {
+	a:link, a:visited {
+		color: var(--green);
+		&::before { content: '['; }
+		&::after { content: ']'; }
+	}
+	a:hover {
+		color: var(--l-green);
+	}
+}
 
 /* skip to content button */
 a.skip-to-content { padding: .5em; background: var(--green); color: var(--black); font-weight: bold; font-size: 1.75em; }
@@ -85,11 +99,11 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 /* standard button style */
 .btn {
 	font-family: 'DS Digital', 'Courier New', sans-serif;
-	font-size: 2em;
-	border-radius: 0px;
-	text-shadow: none;
+	font-size: 1.5rem;
 	font-weight: bold;
+	padding: .1em .4em;
 	color: var(--black);
+	background: var(--green);
 }
 
 /* full image view style ovverrides */
@@ -109,6 +123,7 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	border: 1px var(--green) dashed;
 	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 	padding: 15px;
+	position: relative;
 	/* put the border/padding inside instead of outside */
 	box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -126,6 +141,16 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	}
 }
 
+.scale-2 .gallery > * {
+	scale: 2;
+	image-rendering: pixelated;
+}
+.scale-btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
 /* specific section styling */
 :has(> #stamps) {
 	min-width: min(100%, 550px); flex: 2;
@@ -133,10 +158,20 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 		.img-wrapper { width: 99px; height: 56px; }
 	}
 }
+#stamps.scale-2 .gallery > * {
+	margin: 28px 50px;
+}
 #dividers { min-width: min(100%, 550px); flex: 3; }
 #blinkies {
 	min-width: min(100%, 350px); flex: 1;
 	.img-wrapper { width: 150px; height: 20px; }
+}
+#blinkies.scale-2 .gallery > * {
+	margin: 10px 75px;
+}
+.section-wrapper:has(> #buttons) { min-width: min(100%, 400px); flex: 1; }
+#buttons.scale-2 .gallery > * {
+	margin: 15px 44px;
 }
 #bgs { min-width: min(100%, 800px); flex: 3; }
 #deco { min-width: min(100%, 450px); flex: 4; }
@@ -145,9 +180,11 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 	flex: 4;
 	.img-grid img { max-width: max(80px,10%); }
 }
-:has(> #hexagon-stamps) { min-width: min(100%, 395px); flex: 1; }
 #hexagon-stamps {
 	.honeycomb { width: fit-content; margin: 0 auto; }
+}
+#links {
+	width: 100%;
 }
 
 /* compensate for header height when scrolling to images from full view */
@@ -171,6 +208,7 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 				position: absolute;
 			}
 			> .ff-container { width: fit-content; height: fit-content; }
+			> * { left: 0; top: 0; }
 			&.center > * { left: 50%; top: 0; transform: translateX(-50%); }
 			&.vcenter > * { top: 50%; left: 0; transform: translateY(-50%); }
 			&.center.vcenter > * { left: 50%; top: 50%; transform: translate(-50%, -50%); }
