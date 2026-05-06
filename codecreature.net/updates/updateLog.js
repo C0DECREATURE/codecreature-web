@@ -26,6 +26,18 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-06T01:45'),
+		authors: ['prax'],
+		tags: ['graphix'],
+		summary: `
+			new blinkies and stuff
+		`,
+		details: `
+			<p>uploaded some more <a href="/graphix">%A%graphics\\graphix%</a> (especially <a href="/graphix#blinkies">blinkies</a>!!)</p>
+			<p>%%i% also tracked down sources %%4% some of the existing ones and cleaned some compression artifacts off a few %E%:33%</p>
+		`
+	},
+	{
 		date: new Date('2026-05-02T22:00'),
 		authors: ['emery'],
 		tags: ['links'],

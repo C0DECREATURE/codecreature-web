@@ -29,6 +29,7 @@ body {
 	body { background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('/graphix/bg/black-star-flash.gif'); }
 }
 
+h1,h2,h3,h4 { font-family: 'DS Digital', 'Courier New', sans-serif; }
 h3 { font-weight: normal; font-size: 2.25em; margin: 0 0 10px 0; }
 h4 { font-weight: normal; font-size: 1.75em; margin: 12px 0 2px 0; }
 
@@ -64,7 +65,22 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 .navlinks-dropdown > :last-child { padding-bottom: 0.15em; }
 
 /* summary text at the top */
-.summary { padding-top: calc(var(--hh) + 1em); width: min(1000px, 100%); margin: 0px auto; }
+.summary {
+	padding-top: calc(var(--hh) + 1em);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5em;
+}
+.summary h4 { margin-top: 0; }
+.summary > * {
+	@media screen and (width > 600px) { width: min(500px, 45%); }
+	max-width: 100%;
+}
+#rules ol {
+	margin-top: 0;
+	text-align: left;
+}
 
 /* standard button style */
 .btn {

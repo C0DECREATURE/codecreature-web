@@ -19,7 +19,9 @@ function graphixPageInit() {
 	var galleries = document.getElementsByClassName('gallery');
 	for ( let i = 0; i < galleries.length; i++ ) {
 		var images = galleries[i].getElementsByTagName('img');
-		for ( let i = 0; i < images.length; i++ ) { images[i].classList.add('full-viewable'); }
+		for ( let i = 0; i < images.length; i++ ) {
+			if (!images[i].classList.contains('no-full-view')) images[i].classList.add('full-viewable');
+		}
 	}
 	
 	// run full image setup code
