@@ -42,9 +42,10 @@
 				<div class="container-box" id="my-button">	
 					<header><h2>my button</h2></header>
 					<div class="content">
-						<a href="/graphix/site-buttons/codecreature.png" download><img src="/graphix/site-buttons/codecreature.png">
+						<a href="/graphix/site-buttons/codecreature.png" download="codecreature.png"><img src="/graphix/site-buttons/codecreature.png"></a>
+						<a href="/graphix/site-buttons/codecreature_animated.gif" download="codecreature.gif"><img src="/graphix/site-buttons/codecreature_animated.gif"></a>
 						<br>
-						click <u class="tq">2</u> download</a>
+						(click a button <u class="tq">2</u> download it)
 						<br><u class="tq">pls</u> rehost! if you add me, let me know so i can list <u class="tq">u</u> as a neighbor <u class="tq-e">:33</u>
 					</div>
 				</div>
@@ -63,7 +64,7 @@
 			<div class="main-container container-box" id="coding-resources">
 				<header><h2>coding resources</h2></header>
 				<div class="content">
-					includes any <u class="tq" data-a="tutorials">2torials</u> or code i used on this site,
+					includes any tutorials or code i used on this site,
 						<br>plus whatever else seemed useful!!
 					<p>if its not on here i <u class="tq" data-a="probably">purrobably</u> did it from scratch
 						<br>and/or cobbled it together from scraps off w3schools and stackoverflow</p>
@@ -73,20 +74,6 @@
 						<div class="body">
 							<a href="/codefiles/ACNLclock">ACNL clock widget</a>
 							free widget to put an animal crossing themed clock on your site!
-						</div>
-					</section>
-					
-					<section>
-						<header><h3>neocities</h3></header>
-						<div class="body">
-							<a href="https://neocities.org">neocities</a>
-							free static web host! super easy to get started if <u class="tq">u</u> wanna try making a site
-							
-							<a href="https://github.com/marketplace/actions/deploy-to-neocities">deploy to neocities</a>
-							github action to easily update your site from a github repository. highly recommend this
-							
-							<a href="https://control-neocities-thumbnail.neocities.org/">control neocities thumbnail</a>
-							how to manipulate what the neocities screenshotter sees
 						</div>
 					</section>
 					
@@ -151,18 +138,32 @@
 					</section>
 					
 					<section>
+						<header><h3>neocities</h3></header>
+						<div class="body">
+							<a href="https://neocities.org">neocities</a>
+							free static web host! super easy <u class="tq">2</u> get started if <u class="tq">u</u> wanna try making a site
+							
+							<a href="https://github.com/marketplace/actions/deploy-to-neocities">deploy to neocities</a>
+							github action <u class="tq">2</u> easily update <u class="tq">ur</u> site from a github repository. highly recommend
+							
+							<a href="https://control-neocities-thumbnail.neocities.org/">control neocities thumbnail</a>
+							how <u class="tq">2</u> manipulate what the neocities screenshotter sees
+						</div>
+					</section>
+					
+					<section>
 						<header><h3>fun stuff</h3></header>
 						<div class="body">
 							
 							<a href="https://underwhite.neocities.org/tutorials/orbit">orbiting CSS</a>
-							<u class="tq" data-a="tutorial">2torial</u> <u class="tq">4</u> css orbiting effect by underwhite
+							tutorial <u class="tq">4</u> css orbiting effect by underwhite
 							
 							<a href="https://pixelcorners.lukeb.co.uk/" target="_blank">pixelcorners</a>
 							<u class="tq" data-a="generates">gener8s</u> <u class="tq" data-a="pixelated">pixel8d</u> rounded corners <u class="tq">4</u>
 							css elements
 							
 							<a href="https://foolishdeveloper.com/animated-eyes-follow-mouse-cursor-in-javascript/">following eyes</a>
-							javascript <u class="tq" data-a="tutorial">2torial</u> <u class="tq">4</u> making eyes that follow the cursor
+							javascript tutorial <u class="tq">4</u> making eyes that follow the cursor
 						</div>
 					</section>
 					
