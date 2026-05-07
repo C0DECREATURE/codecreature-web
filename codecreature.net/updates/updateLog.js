@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-06T20:07'),
+		authors: ['emery'],
+		tags: ['graphix'],
+		summary: `
+			2x scale button for several <a href="/graphix">%A%graphics\\graphix%</a> sections
+		`,
+		details: `
+			<p>inspect those pixels! also uploaded some more of our blinkie collection backlog</p>
+		`
+	},
+	{
 		date: new Date('2026-05-06T01:45'),
 		authors: ['prax'],
 		tags: ['graphix'],
