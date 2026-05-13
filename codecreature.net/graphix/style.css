@@ -220,8 +220,10 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 		.inner {
 			width: 100%;
 			padding-top: 80%;
+			background-size: min(100%,100px);
 		}
 	}
+	.bg-image.w-50 .inner { background-size: min(50%,50px); }
 }
 
 /* add white outline to dark images */

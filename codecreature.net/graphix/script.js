@@ -46,7 +46,6 @@ function graphixPageInit() {
 		let inner = document.createElement('div');
 		inner.classList.add('inner');
 		inner.style.backgroundImage = 'url("' + img.src + '")';
-		inner.style.backgroundSize = 'min(100%, 100px)';
 		b.appendChild(inner);
 		// hide the image inside
 		img.style.display = 'none';
