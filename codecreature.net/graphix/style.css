@@ -153,7 +153,7 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 
 /* specific section styling */
 :has(> #stamps) {
-	min-width: min(100%, 550px); flex: 2;
+	min-width: min(100%, 550px); flex: 3;
 	#stamps {
 		.img-wrapper { width: 99px; height: 56px; }
 	}
@@ -161,15 +161,15 @@ button.open-page-settings { i, svg { fill: var(--green); stroke: var(--green); }
 #stamps.scale-2 .gallery > * {
 	margin: 28px 50px;
 }
-#dividers { min-width: min(100%, 550px); flex: 3; }
+#dividers { min-width: min(100%, 550px); flex: 4; }
 #blinkies {
-	min-width: min(100%, 350px); flex: 1;
+	min-width: min(100%, 492px); flex: 2;
 	.img-wrapper { width: 150px; height: 20px; }
 }
 #blinkies.scale-2 .gallery > * {
 	margin: 10px 75px;
 }
-.section-wrapper:has(> #buttons) { min-width: min(100%, 400px); flex: 1; }
+.section-wrapper:has(> #buttons) { min-width: min(100%, 400px); flex: 2; }
 #buttons.scale-2 .gallery > * {
 	margin: 15px 44px;
 }
