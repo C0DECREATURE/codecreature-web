@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-13T02:39'),
+		authors: ['emery'],
+		tags: ['new page','paintings'],
+		summary: `
+			new <a href="/paintings">painting diary</a>!
+		`,
+		details: `
+			<p>
+				Going on a journey of learning how to paint by doing a random painting once a week. Expecting to start painting over canvases sooner or later, so the diary will be good for saving progress.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-05-06T20:07'),
 		authors: ['emery'],
 		tags: ['graphix'],
