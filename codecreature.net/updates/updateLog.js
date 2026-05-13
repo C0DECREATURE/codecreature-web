@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-13T04:08'),
+		authors: ['emery'],
+		tags: ['graphix','minor'],
+		summary: `
+			a few more <a href="/graphix">%A%graphics\\graphix%</a>
+		`,
+		details: `
+			<p>couple dozen more stamps, blinkies, and backgrounds added. improved some alt text. also adjusted the layout since the blinkies section was getting pretty long.</p>
+		`
+	},
+	{
 		date: new Date('2026-05-13T02:39'),
 		authors: ['emery'],
 		tags: ['new page','paintings'],
