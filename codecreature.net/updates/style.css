@@ -48,6 +48,8 @@ img { max-width: 100% }
 img.tall { max-height: max(300px,min(90vh,500px)); }
 img.mini { max-height: 1em; }
 
+figure { text-align: center; }
+
 /* scrollbar */
 ::-webkit-scrollbar { width: 15px; } /* width */
 ::-webkit-scrollbar-track { /* Track */
