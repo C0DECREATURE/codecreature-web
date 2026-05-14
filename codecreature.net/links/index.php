@@ -245,6 +245,9 @@
 							<header><h3>tools & games</h3></header>
 							<div class="body">
 								
+								<a href="https://rarebit.neocities.org/">rarebit</a>
+								free open-source JS/HTML webcomic template
+								
 								<a href="https://unicornycopia.com/ezm/">electric zine maker</a>
 								really fun little tool to make digital zines and collages! free or pay what you want on <a class="inline" href="https://alienmelon.itch.io/electric-zine-maker">itch.io</a>
 								
@@ -307,6 +310,13 @@
 					<section>
 						<header><h3>fave indie sites</h3></header>
 						<p class="body">fellow <u class="tq" data-a="personal">purrsonal</u> pages from around the web, mostly hosted on neocities!</p>
+						<!-- antiamorous -->
+						<div class="site">
+							<a href="https://drumanekotoonlab.monster/" class="button" target="_blank">
+								<img src="/graphix/site-buttons/drumanekotoonlab.png" alt="Umaneko Toon Lab"></a>
+							<div class="description"><span>
+								tech themed cat laboratory! very graphic art style. available in <u class="tq" data-a="English">english</u> and <u class="tq" data-a="Japanese">japanese</u></span></div>
+						</div>
 						<!-- antiamorous -->
 						<div class="site">
 							<a href="https://antiamorous.neocities.org" class="button" target="_blank">
