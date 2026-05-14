@@ -26,6 +26,26 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-14T04:56'),
+		authors: ['emery','prax'],
+		tags: ['graphix','trinkets','minor'],
+		summary: `
+			snorunt <a href="/graphix#hexagon-stamps">hex stamps</a>, pokemon book in <a href="/trinkets">trinkets</a>
+		`,
+		details: `
+			<p>just a few small updates! the pokemon book links %%2% my pokemon page. also added a couple more regular stamps %%2% the collection</p>
+			<figure>
+				<img src="/graphix/stamps/hexagon/snorunt_bounce.gif" alt="">
+				<img src="/graphix/stamps/hexagon/snorunt_bounce_text.gif" alt="">
+				<img src="/graphix/stamps/hexagon/snorunt_bounce_texture.gif" alt="">
+				<img src="/graphix/stamps/hexagon/snorunt_sprite_blue.png" alt="">
+				<img src="/graphix/stamps/hexagon/snorunt_sprite_orange.png" alt="">
+				<img src="/graphix/stamps/hexagon/snorunt_blast.gif" alt="">
+				<figcaption>runt stamps... %A%please\\pls% runt with me</figcaption>
+			</figure>
+		`
+	},
+	{
 		date: new Date('2026-05-13T04:08'),
 		authors: ['emery'],
 		tags: ['graphix','minor'],
