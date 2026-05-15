@@ -30,13 +30,14 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['trinkets'],
 		summary: `
-			<a href="/trinkets">trinkets</a> credits section added
+			<a href="/trinkets">trinkets</a> credits section added, dragging fixed
 		`,
 		details: `
 			<figure>
 				<img src="/trinkets/images/wax_c.png" alt="A gold wax seal with the letter C on it.">
 				<figcaption>look for this monogrammed seal to see where stuff came from</figcaption>
 			</figure>
+			<p>few new trinkets in there as well. also it's no longer possible to drag the page out of bounds by moving too fast. no more peeking beyond the edges for you people</p>
 		`
 	},
 	{
