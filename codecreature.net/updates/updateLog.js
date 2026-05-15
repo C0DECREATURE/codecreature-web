@@ -26,6 +26,20 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-14T22:07'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			<a href="/trinkets">trinkets</a> credits section added
+		`,
+		details: `
+			<figure>
+				<img src="/trinkets/images/wax_c.png" alt="A gold wax seal with the letter C on it.">
+				<figcaption>look for this monogrammed seal to see where stuff came from</figcaption>
+			</figure>
+		`
+	},
+	{
 		date: new Date('2026-05-14T04:56'),
 		authors: ['emery','prax'],
 		tags: ['graphix','trinkets','minor'],
