@@ -30,12 +30,13 @@
 	
 	<!-----------BODY------------------->
 	<body>
+		<base target="_blank"><!-- open links in new tab unless otherwise specified -->
+		
 		<nav>
 			<p class="sr-only">Sorry, this page is not screen reader friendly!</p>
-			<a class="skip-to-content" tabindex="-1" href="#content">skip to content</a>
-			<a tabindex="-1" href="/" class="home">
-				<img src="images/house_charm.png" alt="home">
-				<div class="popout"><span>Home</span></div>
+			<a href="/" target="_self" class="home glow-focus">
+				<img src="images/house_charm.png">
+				<div class="paper-popout"><span>Home</span></div>
 			</a>
 		</nav>
 		
@@ -53,6 +54,67 @@
 				<img class="stamp" src="images/stamp_denmark_cat.png" alt="" style="rotate:-3deg; left: -70px; top: -69px;">
 				<img class="stamp" src="images/stamp_korean_tiger.png" alt="" style="left: 173px; top: 47px;">
 				<p style="left: 21px; top: 16px;">Click and drag to explore...</p>
+			</div>
+			
+			<button id="credit-button" popovertarget="credits" class="glow-focus">
+				<img src="images/wax_c.png">
+				<div class="paper-popout"><span>Credits</span></div>
+			</button>
+			<div popover id="credits">
+				<h2>Credits</h2>
+				
+				<h4>General</h4>
+					Many images obtained from <a href="https://snailspng.tumblr.com/">snailspng</a> and <a href="https://oldjewelryfeed.tumblr.com/">oldjewelryfeed</a> on Tumblr.
+					<br>Most images edited by me in some way.
+				
+				<h4>Books</h4>
+				<ul>
+					<li>Pokémon book cover: <a href="https://www.stollart.com/poknatomy">PokéNatomy</a> by Christopher Stoll</li>
+					<li>Pokémon book interior: <a href="https://bulbapedia.bulbagarden.net/wiki/After_the_Rain_With_You">After the Rain With You</a> official novel</li>
+					<li>"De La Sphere" illustrations by Allain Manesson Mallet, 17th century</li>
+				</ul>
+				
+				<h4>Illustrations</h4>
+				<ul>
+					<li>"Leg Plan of the Baby" illustration by <a href="https://www.biodiversitylibrary.org/item/38683#page/172/mode/1up">Daniel Carter Beard</a>, 1915</li>
+					<li>"Can I Kill That Fly?" illustration by Ivor Cutler for the International Times, Nov 1966</li>
+					<li>Anthill illustration by <a href="https://snailspng.tumblr.com/post/749142717930586112">snailspng</a> from the British Library's manuscript collection</li>
+					<li>Row of bugs painting by <a href="https://www.instagram.com/snighilarium">snighilarium</a></li>
+					<li>Toad with human face from cover of <a href="https://www.abebooks.com/Witchcraft-England-Hole-Christina-Batsford-1947/31230000754/bd">Witchcraft in England</a></li>
+				</ul>
+				
+				<h4>Objects</h4>
+				<ul>
+					<li>"Hey" bronze hand with face by <a href="https://kenlittle.com/">Ken Little</a>, 1996</li>
+					<li>Blue and gold celestial shapes from mirror by <a href="https://www.1stdibs.com/furniture/mirrors/sunburst-mirrors/mid-modern-century-mirror-atelier-mithe-espelt/id-f_30910182/">atelier Mithe Espelt</a></li>
+					<li>Medieval-style carved circle from 1950s-60s, sold on <a href="https://www.1stdibs.com/furniture/mirrors/wall-mirrors/medieval-inspired-sunburst-mirror-polychrome-carved-wood/id-f_34436452/">1stDibs</a></li>
+					<li>Cast iron owl incense burner from Japan, 1950s</li>
+					<li>Glass eye by <a href="https://jarisheese.blogspot.com/2010/09/eye-button.html">Jari Sheese</a>, 2010</li>
+					<li>Emerald salamander brooch from <a href="https://www.thejewelleryeditor.com/images/cheapsidehoardexhibition17/">The Jewellery Editor</a>, originally 16th-17th century</li>
+				</ul>
+				
+				<h4>Tapestries</h4>
+				<ul>
+					<li>Large background tapestry from Belgium, 1920s, sold on <a href="https://www.1stdibs.com/furniture/wall-decorations/tapestry/large-belgium-tapestry/id-f_14025072/">1stDibs</a></li>
+					<li>Bird tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Blue-William-Morris-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
+					<li>Red tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Red-William-Morris-Horizontal-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
+				</ul>
+				
+				<h4>Other</h4>
+				<ul>
+					<li>Brown paper tape from <a href="https://www.hiclipart.com/free-transparent-background-png-clipart-qbxrv">HiClipart</a></li>
+				</ul>
+				
+				<h4>My Images</h4>
+				Photos I took myself of objects I own. Free to use for non-commercial purposes. Credit appreciated but not required.
+				<ul>
+					<li>Koi fish charm</li>
+					<li>Antique spoons</li>
+					<li>Dark green stone orb</li>
+					<li>Hedgehog salt shaker</li>
+				</ul>
+				
+				<br><button class="close" popovertarget="credits">Close</button>
 			</div>
 			
 			<img src="images/tapestry_floral_green.png" alt="" style="rotate: 5deg; left: 27px; top: 635px;">
@@ -136,7 +198,7 @@
 			</button>
 			
 			<!-- POKEMON BOOK -->
-			<a href="/shrines/pokemon" class="book" style="rotate: -8deg; left: 311px; top: 1605px;">
+			<a href="/shrines/pokemon" target="_self" class="book" style="rotate: -8deg; left: 311px; top: 1605px;">
 				<div class="back"><img src="images/pokemon_cover.png" alt=""></div>
 				<div class="page page6"><img src="images/pokemon_page_4.png" alt=""></div><!--#4-->
 				<div class="page page5"><img src="images/pokemon_page_3.png" alt=""></div><!--#3-->
@@ -163,7 +225,7 @@
 			</button>
 			
 			<!-- CELESTIAL BOOK -->
-			<div class="book" style="rotate: 10deg; left: 1740px; top: 689px;" tabindex="6">
+			<div class="book" style="rotate: 10deg; left: 1740px; top: 689px;">
 				<div class="back"><img src="images/book_astronomy_observation.png" alt=""></div>
 				<div class="page page6"><img src="images/mallet_page_4.png" alt=""></div><!--#4-->
 				<div class="page page5"><img src="images/mallet_page_3.png" alt=""></div><!--#3-->

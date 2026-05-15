@@ -12,7 +12,6 @@ body {
   position: absolute;
 	width: 230px;
   height: 300px;
-  cursor: pointer;
   backface-visibility: visible;
 }
 
