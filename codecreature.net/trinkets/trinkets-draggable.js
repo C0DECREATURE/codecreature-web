@@ -39,18 +39,22 @@ function dragElement(elmnt) {
 			// lock dragging to prevent going too far off screen
 			let top = elmnt.offsetTop - pos2;
 			let left = elmnt.offsetLeft - pos1;
-			// lock top left corner
-			let topLeftRect = document.getElementById("top-left-marker").getBoundingClientRect();
-			if (topLeftRect.top > 0) { top = Math.min(Number(elmnt.style.top.replaceAll("px","")), top); }
-			if (topLeftRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
-			// lock bottom right corner
+			
+			// get bottom right corner marker
 			let bottomRightRect = document.getElementById("bottom-right-marker").getBoundingClientRect();
-			if (window.innerHeight - bottomRightRect.bottom > 0) {
-				top = Math.max(Number(elmnt.style.top.replaceAll("px","")), top);
-			}
-			if (bottomRightRect.right - window.innerWidth < 0) {
-				left = Math.max(Number(elmnt.style.left.replaceAll("px","")), left);
-			}
+			// prevent dragging too far up
+			let curTop = Number(elmnt.style.top.replaceAll("px",""));
+			let maxTopMove = bottomRightRect.bottom - window.innerHeight;
+			top = Math.max(top, curTop-maxTopMove);
+			// prevent dragging too far left
+			let curLeft = Number(elmnt.style.left.replaceAll("px",""));
+			let maxLeftMove = bottomRightRect.right - window.innerWidth;
+			left = Math.max(left, curLeft-maxLeftMove);
+			// prevent dragging too far down
+			top = Math.min(top, 0);
+			// prevent dragging too far right
+			left = Math.min(left, 0);
+			
 			//if (bottomRightRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
 			// set the element's new position:
 			elmnt.style.top = top + "px";
