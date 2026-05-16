@@ -1,7 +1,15 @@
 :root {
 	--white: #FFF;
+	--black: #000;
 	--orange: #e08748;
 	--blue: #58b5e8;
+}
+
+.page-settings {
+	--color: var(--white);
+	--accent: var(--orange);
+	font-size: 16px;
+	label { font-weight: bold; }
 }
 
 body {
@@ -10,6 +18,11 @@ body {
 	margin: 0; padding: 0;
 	font-size: 12px;
 	font-family: 'Pokemon Classic', monospace;
+}
+
+body.customCursor {
+	cursor: url("/graphix/cursors/snorunt.png"), auto;
+	:link, button, label, input { cursor: url("/graphix/cursors/snorunt_pointer.png"), auto; } 
 }
 
 .main-container {
