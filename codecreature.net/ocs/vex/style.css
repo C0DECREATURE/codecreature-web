@@ -213,7 +213,7 @@ nav {
 	--accent: var(--yellow);
 }
 /* page settings icon button */
-#page-settings {
+#page-settings-button {
 	font-size: .8em; margin-top: -.2em; padding: 0px;
 	&:hover { --open-button-fill: var(--yellow); }
 }

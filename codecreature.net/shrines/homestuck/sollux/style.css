@@ -41,21 +41,21 @@ body.customCursor {
 }
 
 /* page settings button */
-div:has(> #page-settings) {
+div:has(> #page-settings-button) {
 	position: relative;
 	margin-left: auto;
   --s: min(2.5rem, 10vw);  /* size  */
 	--h: calc(var(--s)*1.1547);
 	width: var(--s); height: var(--h);
 }
-#page-settings, div:has(> #page-settings)::after {
+#page-settings-button, div:has(> #page-settings-button)::after {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
 }
 /* hexagon shadow */
-div:has(> #page-settings)::after {
+div:has(> #page-settings-button)::after {
 	width: 100%;
 	height: 100%;
 	content: '';
@@ -63,7 +63,7 @@ div:has(> #page-settings)::after {
 	z-index: -1;
 	left: -2px; top: 7px;
 }
-#page-settings {
+#page-settings-button {
 	background: var(--red);
 	border-radius: 0;
 	padding: .5rem;

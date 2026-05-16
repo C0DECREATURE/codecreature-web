@@ -11,7 +11,7 @@
 }
 
 /* the settings area */
-.page-settings {
+#page-settings {
 	z-index: 1000;
 	position: fixed;
 	top: 0; right: 0;
@@ -19,15 +19,11 @@
 	font-family: 'Courier New', serif;
 	color: var(--color);
 }
-/* small screens */
-@media screen and (width < 350px) {
-	.page-settings:not(:has(.page-settings-contents.hidden)) {  }
-}
 /* if the page is in an iframe */
-.iframe .page-settings { display: none; }
+.iframe #page-settings { display: none; }
 
 /* button that opens the settings */
-button.open-page-settings {
+#page-settings-button {
 	position: relative;
 	top: 5px; right: 5px;
 	color: var(--open-button-fill); background: var(--open-button-background);
