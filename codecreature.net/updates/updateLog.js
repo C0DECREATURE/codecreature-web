@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-15T21:52'),
+		authors: ['emery'],
+		tags: ['general','minor'],
+		summary: `
+			adjusted the page settings system
+		`,
+		details: `
+			<p>made my page settings button a little easier to work with under the hood. no visual or functional changes, but you might need to do a hard refresh if things are displaying weird. i <em>think</em> i got all the relevant pages updated, but let me know if you spot one that's off!</p>
+		`
+	},
+	{
 		date: new Date('2026-05-14T22:07'),
 		authors: ['emery'],
 		tags: ['trinkets'],
