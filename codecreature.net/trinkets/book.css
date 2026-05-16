@@ -15,7 +15,7 @@ body {
   backface-visibility: visible;
 }
 
-.book > * {
+.book .page, .book .front, .book .back {
   transform-style: preserve-3d;
   position: absolute;
   width: 230px;

@@ -2,6 +2,12 @@
 	--page-width: 1920px;
 	--page-height: 1800px;
 	--text: #47341a;
+	--link-text: #32556a;
+	--link-hover: #131745;
+	--shadow: drop-shadow(4px 4px 3px #21120c88);
+	--paper-color: #dfd4ac;
+	--cursor: url("cursor_arrow.png"), auto;
+	--cursor-pointer: url("cursor_pointer.png"), auto;
 }
 
 body, html {
@@ -10,50 +16,75 @@ body, html {
 	color: var(--text);
 }
 
+body.customCursor {
+	cursor: url("/graphix/cursors/victorian_arrow.png"), auto;
+	a, label, input, button { cursor: url("/graphix/cursors/victorian_hand.png"), pointer; }
+}
+
 .passthrough { pointer-events: none; }
 
-main img, #credit-button, nav a, nav button {
-	position: absolute;
-	user-select: none;
-}
-nav img, main img, #credit-button, nav a, nav button, #credits { filter: drop-shadow(4px 4px 3px #21120c88); }
+img { user-select: none; }
+main img, #credit-button, .navbutton { position: absolute; }
+nav img, main img, #credit-button, .navbutton, #credits { filter: var(--shadow); }
 
+nav {
+	position: relative;
+	z-index: 1000;
+}
+
+/* paper tape popout on hover */
 .paper-popout {
 	z-index: -1;
 	position: absolute;
-	left: 90%; top: 50%; transform: translateY(-50%);
+	top: 50%; transform: translateY(-50%);
 	overflow: hidden;
 	font-family: 'Victorian Parlor', serif;
 	font-size: 2rem;
+	width: fit-content;
+	pointer-events: none;
+	filter: var(--shadow);
 	span {
 		color: var(--text);
-		display: block;
-		transform: translateX(-100%);
-		padding: .1em .6em .1em .75em;
+		display: inline-block;
+		padding: .1em calc(.5em + 10px);
 		transition: transform .8s;
+		text-wrap: nowrap;
 		background-image: url('images/paper_tape.png');
 		background-size: auto 100%;
-		background-position-x: right;
 		webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
 	}
 }
-:has(> .paper-popout) { &:hover, &:active, &:focus-visible { .paper-popout span { transform: translateX(0%); } } }
+.paper-popout:not(.left) { /* pop out to right (default) */
+	left: calc(100% - 10px);
+	span { transform: translateX(-100%); background-position-x: right; }
+}
+.paper-popout.left { /* pop out to left */
+	right: calc(100% - 10px);
+	span { transform: translateX(100%); background-position-x: left; }
+}
+:has(> .paper-popout) { &:hover, &:active, &:focus-visible {
+	.paper-popout { pointer-events: initial; }
+	.paper-popout span { transform: translateX(0%); } }
+}
 
+/* glow on keyboard focus */
 .glow-focus:focus-visible img, img.glow-focus:focus-visible, button:focus-visible img {
 	filter: drop-shadow(0px 0px 10px #fff8df);
 }
 .glow-focus:focus-visible, button:focus-visible { outline: none; }
 .book:focus-visible { .back, .front { filter: drop-shadow(0px 0px 20px #fff8df); } }
 
-.home {
-	z-index: 1000;
-	left: 16px; top: 16px;
-	@media screen and (width < 600px) { left: 10px; top: 10px; transform: scale(.75); }
+/* fixed pos navigation buttons */
+.navbutton {
+	margin: min(16px, 2vw);
+	width: max(50px, min(20vw, 125px));
+	img { max-width: 100%; }
 }
-.home:hover img, .home:active img, .home:focus-visible img {
+.navbutton:hover img, .navbutton:active img, .navbutton:focus-visible img {
 	transform: scale(1.1);
 	@media screen and (width < 600px) { transform: scale(1.333); }
 }
+.home { left: -5px; top: -5px; }
 
 #credit-button {
 	z-index: 950;
@@ -61,7 +92,6 @@ nav img, main img, #credit-button, nav a, nav button, #credits { filter: drop-sh
 	top: 20px;
   left: 595px;
 	rotate: 5deg;
-	cursor: pointer;
 	border-radius: 40%;
 	img { position: initial; pointer-events: none; filter: none !important; }
 }
@@ -93,15 +123,15 @@ nav img, main img, #credit-button, nav a, nav button, #credits { filter: drop-sh
 	overflow: auto;
 	padding: 1.5em 1em;
 	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
-	background: #e9d1ac;
+	background: #e4d1ac; /* DEBUG - can't use var(--paper-color) because popover is above sepia overlay */
 	box-shadow: inset 3px 8px 5px #21120c99;
 }
 #credits .wrapper :first-child { margin-top: 0; }
 #credits h4 { margin-bottom: 0; }
 #credits h2 { font-size: 2.25em; font-family: 'Victorian Parlor', serif; margin-bottom: 0; }
 #credits ul { margin: 0; }
-#credits a, #credits button { font-style: italic; font-weight: bold; color: #3b4246; }
-#credits a:hover, #credits button:hover { color: #15183b; }
+#credits a, #credits button { font-style: italic; font-weight: bold; color: var(--link-text); }
+#credits a:hover, #credits button:hover { color: var(--link-hover); }
 #credits .close { font-size: 1.75em; font-family: 'Victorian Parlor', serif; }
 
 main {
@@ -133,7 +163,6 @@ main {
 		z-index: 1;
 		cursor: none;
 		border-radius: 50%;
-		cursor: none;
 		/*Set the size of the magnifier glass:*/
 		width: 200px;
 		aspect-ratio: 1;
@@ -157,7 +186,7 @@ main {
 /* sepia color overlay */
 body:after {
 	content: '';
-	z-index: 2000;
+	z-index: 5000;
 	position: absolute;
 	top: 0; left: 0;
 	width: 100%; height: 100%;

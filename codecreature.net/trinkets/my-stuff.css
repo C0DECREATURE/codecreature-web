@@ -9,6 +9,32 @@ body {
 button:focus-visible { outline: none; }
 button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 
+.page-settings {
+	--open-button-fill: none;
+	--open-button-background: none;
+	--open-button-border: none;
+	--background: var(--paper-color);
+	--border: none;
+	--outline: 0px;
+	--color: var(--text);
+	--accent: var(--text);
+}
+#page-settings-button { padding: 0; margin: 0; }
+#page-settings-button .paper-popout {
+	line-height: initial;
+	right: calc(100% - 22px);
+	clip-path: polygon(0% 0%, 100% 0%, 95% 35%, 95% 65%, 100% 100%, 0% 100%);
+	span { padding-right: calc(.5em + 22px); }
+}
+#page-settings-contents {
+	border-radius: 0;
+	filter: var(--shadow);
+	padding-top: 1.5em;
+	label { font-weight: bold; }
+	button { color: var(--link-text); }
+	button:hover { color: var(--link-hover); }
+}
+
 #intro {
 	position: absolute;
 	z-index: 900;
