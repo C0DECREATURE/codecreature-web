@@ -58,15 +58,15 @@ body, html {
 	}
 	#page-settings-contents { font-size: 1.15rem; }
 }
-button.open-page-settings, #page-settings-contents {
+#page-settings-button, #page-settings-contents {
 	--open-button-fill: var(--header-text);
 	--open-button-background: none;
 	--open-button-border: none;
 	--color: inherit;
 	--accent: var(--d-blue);
 }
-button.open-page-settings:hover * { fill: var(--header-hover); stroke: var(--header-hover); }
-button.open-page-settings {
+#page-settings-button:hover * { fill: var(--header-hover); stroke: var(--header-hover); }
+#page-settings-button {
   position: relative;
 	margin: -.3em;
 	padding: 0 .25em;
