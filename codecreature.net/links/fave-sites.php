@@ -1,7 +1,9 @@
 <!-- FAVE SITES -->
 <section>
 	<header><h3>fave indie sites</h3></header>
-	<p class="body">fellow <u class="tq" data-a="personal">purrsonal</u> pages from around the web, mostly hosted on neocities!</p>
+	<p class="body">
+		fellow <u class="tq" data-a="personal">purrsonal</u> pages from around the web, mostly hosted on neocities! presented in <u class="tq" data-a="programatically">purrogramatically</u> random order
+	</p>
 	<?php
 		function addDetailedSiteButton($site) {
 			$name = $site["name"];
@@ -17,6 +19,18 @@
 		}
 		
 		$faves = [
+			[ // oliveen
+				"name" => "oliveen",
+				"url" => "https://olliveen.neocities.org/",
+				"button" => "oliveen.gif",
+				"description" => "gorgeous site with lots of interesting things to explore! <u class='tq'>ive</u> spent a LOT of time on here its <u class='tq' data='great'>gr8</u>",
+			],
+			[ // Umaneko Toon Lab
+				"name" => "Umaneko Toon Lab",
+				"url" => "https://drumanekotoonlab.monster/",
+				"button" => "drumanekotoonlab.png",
+				"description" => "tech themed cat laboratory! very graphic art style. available in <u class='tq' data-a='English'>english</u> and <u class='tq' data-a='Japanese'>japanese</u>",
+			],
 			[ // antiamorous
 				"name" => "antiamorous",
 				"url" => "https://antiamorous.neocities.org",
@@ -127,6 +141,9 @@
 			],
 		];
 		
+		// randomize order
+		shuffle($faves);
+		// add the site pages
 		foreach($faves as $site) { addDetailedSiteButton($site); }
 	?>
 </section>
@@ -145,6 +162,9 @@
 			],
 		];
 		
+		// randomize order
+		shuffle($dead);
+		// add the site pages
 		foreach($dead as $site) { addDetailedSiteButton($site); }
 	?>
 </section>

@@ -307,156 +307,7 @@
 				<header><h2>site buttons</h2></header>
 				<div class="content">
 					<!-- FAVE SITES -->
-					<section>
-						<header><h3>fave indie sites</h3></header>
-						<p class="body">fellow <u class="tq" data-a="personal">purrsonal</u> pages from around the web, mostly hosted on neocities!</p>
-						<!-- antiamorous -->
-						<div class="site">
-							<a href="https://drumanekotoonlab.monster/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/drumanekotoonlab.png" alt="Umaneko Toon Lab"></a>
-							<div class="description"><span>
-								tech themed cat laboratory! very graphic art style. available in <u class="tq" data-a="English">english</u> and <u class="tq" data-a="Japanese">japanese</u></span></div>
-						</div>
-						<!-- antiamorous -->
-						<div class="site">
-							<a href="https://antiamorous.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/antiamorous.gif" alt="antiamorous"></a>
-							<div class="description"><span>
-								colorful art site with custom assets on every page and a sorta grungy-grimy feel</span></div>
-						</div>
-						<!-- cheepfish -->
-						<div class="site">
-							<a href="https://cheepfish.neocities.org/" class="button" target="_blank">
-								<img loading="lazy" src="/graphix/site-buttons/cheepfish.gif" alt="cheep fish"></a>
-							<div class="description"><span>
-								fish themed site with lots of art and fun page designs</span></div>
-						</div>
-						<!-- roguepebble -->
-						<div class="site">
-							<a href="https://roguepebble.neocities.org/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/roguepebble.gif" alt="rogue pebble"></a>
-							<div class="description"><span>
-								goth art site with a slick black and red theme and interactive elements</span></div>
-						</div>
-						<!-- sinproexe -->
-						<div class="site">
-							<a href="https://sinproexe.net/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/sinproexe.gif" alt="SPE web"></a>
-							<div class="description"><span>
-								bright colors, cool css effects, tons of art, and <a href="https://mindscape.zip/" class="inline">games</a>!</span></div>
-						</div>
-						<!-- itpuddle -->
-						<div class="site">
-							<a href="https://itpuddle.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/itpuddle.png" alt="it puddle"></a>
-							<div class="description"><span>
-								interactive art site with a huge variety of content, including art, games, comics, and more!</span></div>
-						</div>
-						<!-- kyrn0v -->
-						<div class="site">
-							<a href="https://kyrn0v.neocities.org" class="button" target="_blank">
-<img src="https://kyrn0v.neocities.org/kAssets/kyrn0vgraphics/kNeoLinkButtons/kyrn0vbtn/kyrn0vlinkmebtn.gif" alt="kyrn0v">
-      </a>
-							<div class="description"><span>
-								cool pink site with interactive elements (check out their <a class="inline" href="https://kyrn0v.neocities.org/ktoybox">toybox</a>!)</span></div>
-						</div>
-						<!-- antikrist -->
-						<div class="site">
-							<a href="https://antikrist.lol/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/antikrist.png" alt="antikrist"></a>
-							<div class="description"><span>
-								variety of content including marine biology, cooking, and pixel art</span></div>
-						</div>
-						<!-- gnomes -->
-						<div class="site">
-							<a href="https://gnomes.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/gnomes.gif" alt="gnomes"></a>
-							<div class="description"><span>
-								gnomes all the way down</span></div>
-						</div>
-						<!-- moonkitty -->
-						<div class="site">
-							<a href="https://moonkitty.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/moonkitty.jpg" alt="moon kitty"></a>
-							<div class="description"><span>
-								dark industrial 3D modeled navigation rooms, hidden pages to explore</span></div>
-						</div>
-						<!-- ninacti0n -->
-						<div class="site">
-							<a href="https://ninacti0n.neocities.org/" class="button" target="_blank">
-								<img src="https://i.imgur.com/KpuHaqO.gif" alt="ninacti0n"></a>
-							<div class="description"><span>
-								art site packed with color, dithering effects, and lots of cool little side pages</span></div>
-						</div>
-						<!-- yapi.lol -->
-						<div class="site">
-							<a href="https://yapi.lol/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/yapilol.gif" alt="yapi"></a>
-							<div class="description"><span>
-								alien themed, vaporwave style, page of custom art freebies</span></div>
-						</div>
-						<!-- alienheadshitkid -->
-						<div class="site">
-							<a href="https://alienheadshitkid.neocities.org/" class="button" target="_blank" style="font-size: .65rem">
-								<img src="/graphix/site-buttons/alienheadshitkid.png" alt="alien head shit kid"></a>
-							<div class="description"><span>
-								3D-modeled pages with a fun alien mascot!</span></div>
-						</div>
-						<!-- goblincat -->
-						<div class="site">
-							<a href="https://goblincat.neocities.org/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/goblincat.png" alt="goblin cat"></a>
-							<div class="description"><span>
-								gothic curiosities pixel art theme, tons of excellent comics and games</span></div>
-						</div>
-						<!-- kiophen -->
-						<div class="site">
-							<a href="https://mileshouse.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/kiophen.gif" alt="kiophen"></a>
-							<div class="description"><span>
-								bubbly Y2K theme, incredible pixel animations, coding resources, and pokemon</span></div>
-						</div>
-						<!-- espy.world -->
-						<div class="site">
-							<a href="https://espy.world" class="button" target="_blank">
-								<img src="/graphix/site-buttons/espyworld.gif" alt="espy.world"></a>
-							<div class="description"><span>
-								alien tech style, lots of dithering, excellent art</span></div>
-						</div>
-						<!-- syntheticfruits -->
-						<div class="site">
-							<a href="https://syntheticfruits.neocities.org/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/syntheticfruits.gif" alt="synthetic fruits"></a>
-							<div class="description"><span>
-								pastel retro anime theme, very well executed</span></div>
-						</div>
-						<!-- kittymanya -->
-						<div class="site">
-							<a href="https://kittymanya.neocities.org" class="button" target="_blank">
-								<img src="/graphix/site-buttons/kittymanya.gif" alt="kitty manya"></a>
-							<div class="description"><span>
-								eye strain neon furry site, busy in a good way</span></div>
-						</div>
-						<!-- ghostofsnails -->
-						<div class="site">
-							<a href="https://ghostofsnails.neocities.org/" class="button" target="_blank">
-								<img src="/graphix/site-buttons/ghostofsnails.png" alt="ghost of snails"></a>
-							<div class="description"><span>
-								spooky ghost castle (new-ish site but <u class="tq">i</u> love the vibes!)</span></div>
-						</div>
-					</section>
-					<!-- DEAD SITES -->
-					<section>
-						<header><h3>graveyard</h3></header>
-						<p class="body">these sites no longer exist, but can be viewed on the internet archive's wayback machine!</p>
-						<!-- sugarforbrains -->
-						<div class="site">
-							<a href="https://web.archive.org/web/20250203042242/https://sugarforbrains.neocities.org/" class="button" target="_blank">
-								<img src="https://i.imgur.com/ucYRMX5.gif" alt="sugar for brains"></a>
-							<div class="description"><span>
-								super fun, colorful site with games and art! this was one of my biggest <u class="tq" data-a="inspirations">inspurrations</u> <u class="tq">4</u> starting this website</span></div>
-						</div>
-					</section>
+					<?php include "fave-sites.php"; ?>
 				</div>
 				<!-- end content -->
 			</div>
@@ -470,6 +321,9 @@
 				</header>
 				<div class="marquee-wrapper">
 					<div class="marquee-track">
+						<!-- oliveen -->
+						<a href="https://olliveen.neocities.org/" class="button" target="_blank">
+							<img src="/graphix/site-buttons/oliveen.gif" alt="oliveen"></a>
 						<!-- lordofscreens -->
 						<a href="https://lordofscreens.neocities.org/" class="button" target="_blank">
 							<img src="/graphix/site-buttons/lordofscreens.gif" alt="lord of screens"></a>
