@@ -1,6 +1,6 @@
 :root {
-	--page-width: 1920px;
-	--page-height: 1800px;
+	--page-width: 2130px;
+	--page-height: 2024px;
 	--text: #47341a;
 	--link-text: #32556a;
 	--link-hover: #131745;
@@ -137,7 +137,7 @@ nav {
 main {
 	position: relative;
 	width: 100%; height: 100%;
-	overflow: hidden;
+  overflow: auto;
 	
 	@media screen and (width < 600px) {
 		width: 118%; left: -9%;
@@ -151,9 +151,9 @@ main {
 	z-index: 999;
 }
 #top-left-marker { top: 0px; left: 0px; }
-#top-right-marker { top: 0px; left: var(--page-width); rotate: 90deg }
-#bottom-right-marker { top: var(--page-height); left: var(--page-width); rotate: 180deg }
-#bottom-left-marker { top: var(--page-height); left: 0px; rotate: -90deg }
+#top-right-marker { top: 0px; left: var(--page-width); transform: translateY(100%); rotate: 90deg; }
+#bottom-right-marker { top: var(--page-height); left: var(--page-width); transform: translate(100%,100%); rotate: 180deg }
+#bottom-left-marker { top: var(--page-height); left: 0px; transform: translateX(100%); rotate: -90deg }
 
 #shadow-box {
 	position: relative;
@@ -196,12 +196,17 @@ body:after {
 	pointer-events: none;
 }
 
+main, #drag-wrapper {
+	width: var(--page-width);
+	height: var(--page-height);
+	
+}
+
 /* section behind the window that gets dragged */
 #drag-wrapper {
 	position: absolute;
 	top: 0px; left: 0px;
-	width: 2000%;
-	height: 2000%;
+	overflow: hidden;
 }
 
 .background-layer {
