@@ -1,11 +1,11 @@
 // Make the element draggable:
 dragElement(document.getElementById("drag-wrapper"));
 
-/* whether the page can currently be dragged */
-let pageDraggable = true;
+// whether the page can currently be dragged
+pageDraggable = true;
  
 function dragElement(elmnt) {
-	// move the DIV from anywhere inside the DIV:
+	// drag from anywhere in the element
 	elmnt.addEventListener('mousedown', dragMouseDown);
 	elmnt.addEventListener('touchstart', dragMouseDown);
 
@@ -23,7 +23,7 @@ function dragElement(elmnt) {
 			document.addEventListener('mousemove', elementDrag);
 		}
 	}
-
+	
 	function elementDrag(e) {
 		if (pageDraggable) {
 			e = e || window.event;
