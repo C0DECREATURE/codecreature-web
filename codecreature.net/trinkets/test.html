@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>drag test</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="favicon.gif">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		
+		<!-- page settings -->
+		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		
+		<style>
+			:root {
+				--page-width: 2130px;
+				--page-height: 2024px;
+				--text: #47341a;
+				--link-text: #32556a;
+				--link-hover: #131745;
+				--shadow: drop-shadow(4px 4px 3px #21120c88);
+				--paper-color: #dfd4ac;
+				--cursor: url("cursor_arrow.png"), auto;
+				--cursor-pointer: url("cursor_pointer.png"), auto;
+			}
+			.corner {
+				position: absolute;
+				z-index: 999;
+			}
+			#top-left-marker { top: 0px; left: 0px; }
+			#top-right-marker { top: 0px; left: var(--page-width); transform: translateY(100%); rotate: 90deg; }
+			#bottom-right-marker { top: var(--page-height); left: var(--page-width); transform: translate(100%,100%); rotate: 180deg }
+			#bottom-left-marker { top: var(--page-height); left: 0px; transform: translateX(100%); rotate: -90deg }
+			
+			
+			/* section behind the window that gets dragged */
+			#drag-wrapper {
+				position: absolute;
+				top: 0px; left: 0px;
+				overflow: auto;
+				scroll-behavior: smooth;
+				background: black;
+				font-size: 400px;
+			}
+			/* Hide scrollbar for Chrome, Safari and Opera */
+			body:not(.defaultScrollbars) #drag-wrapper::-webkit-scrollbar {
+				display: none;
+			}
+			/* Hide scrollbar for IE, Edge and Firefox */
+			body:not(.defaultScrollbars) #drag-wrapper {
+				-ms-overflow-style: none;  /* IE and Edge */
+				scrollbar-width: none;  /* Firefox */
+			}
+		</style>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<main>
+			<div id="drag-wrapper">
+				<img id="top-left-marker" class="corner" src="images/corner.png" alt="">
+				<img id="top-right-marker" class="corner" src="images/corner.png" alt="">
+				<img id="bottom-left-marker" class="corner" src="images/corner.png" alt="">
+				<img id="bottom-right-marker" class="corner" src="images/corner.png" alt="">
+				content
+			</div>
+		</main>
+	</body>
+	<!--------------END BODY------------->
+	
+	<!-- script to enable the dragging movement -->
+	<script src="trinkets-draggable.js?fileversion=20260410"></script>
+</html>

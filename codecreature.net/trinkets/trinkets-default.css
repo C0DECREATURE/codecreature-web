@@ -198,15 +198,14 @@ body:after {
 
 main, #drag-wrapper {
 	width: var(--page-width);
-	height: var(--page-height);
-	
+	height: var(--page-height);	
 }
 
 /* section behind the window that gets dragged */
 #drag-wrapper {
 	position: absolute;
 	top: 0px; left: 0px;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .background-layer {
