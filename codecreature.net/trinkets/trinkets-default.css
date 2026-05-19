@@ -16,7 +16,7 @@ body, html {
 	color: var(--text);
 }
 
-body.customCursor {
+body:not(.defaultCursor) {
 	cursor: url("/graphix/cursors/victorian_arrow.png"), auto;
 	a, label, input, button { cursor: url("/graphix/cursors/victorian_hand.png"), pointer; }
 }
