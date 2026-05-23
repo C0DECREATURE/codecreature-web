@@ -24,10 +24,13 @@
 		<link href="book.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's scripts -->
 		<script src="magnifying-glass.js?fileversion=20260410"></script>
+		<script src="loading.js?fileversion=20260410"></script>
 	</head>
 	
 	<!-----------BODY------------------->
 	<body>
+		<div class="effect-layers el-1"></div> <div class="effect-layers el-2"></div> <div class="effect-layers el-3"></div>
+		
 		<base target="_blank"><!-- open links in new tab unless otherwise specified -->
 		
 		<nav>
@@ -43,282 +46,415 @@
 				</button>
 			</div>
 		</nav>
+			
+		<div id="load-screen"><div class="wrapper">
+			<img src="images/waiting_room.png" alt="">
+			<br>Loading...
+		</div></div>
 		
-		<main><div id="drag-wrapper">
+		<main><div id="drag-wrapper" class="hidden"> <!-- hidden until images load -->
 			<img id="top-left-marker" class="corner" src="images/corner.png" alt="">
 			<img id="top-right-marker" class="corner" src="images/corner.png" alt="">
 			<img id="bottom-left-marker" class="corner" src="images/corner.png" alt="">
 			<img id="bottom-right-marker" class="corner" src="images/corner.png" alt="">
 			
-			<div id="intro">
-				<img src="images/envelope.png" alt="" style="">
-				<img class="stamp" src="images/stamp_polska.png" alt="" style="rotate: 5deg; left: -116px; top: -101px;">
-				<img class="stamp" src="images/stamp_felis_cattus.png" alt="" style="left: -182px; top: -89px;">
-				<img class="stamp" src="images/stamp_mongolia_cat.png" alt="" style="rotate: 7deg; left: -181px; top: 97px;">
-				<img class="stamp" src="images/stamp_denmark_cat.png" alt="" style="rotate:-3deg; left: -70px; top: -69px;">
-				<img class="stamp" src="images/stamp_korean_tiger.png" alt="" style="left: 173px; top: 47px;">
-				<p style="left: 21px; top: 16px;">Click and drag to explore...</p>
-			</div>
-			
-			<button id="credit-button" popovertarget="credits" class="glow-focus">
-				<img src="images/wax_c.png">
-				<div class="paper-popout"><span>Credits</span></div>
-			</button>
-			<div popover id="credits"><div class="wrapper">
-				<h2>Credits</h2>
+			<!--section to move around when I need to make more space -->
+			<div class="repositioner">
 				
-					<br>Many images obtained from <a href="https://snailspng.tumblr.com/">snailspng</a> and <a href="https://oldjewelryfeed.tumblr.com/">oldjewelryfeed</a> on Tumblr.
-					<br>Most images edited by me in some way.
+				<div id="intro">
+					<img src="images/envelope.png" alt="" style="left: -269px; top: -147px; scale: .800;">
+					<img class="stamp" src="images/stamp_polska.png" alt="" style="rotate: 5deg; left: -116px; top: -101px;">
+					<img class="stamp" src="images/stamp_felis_cattus.png" alt="" style="left: -182px; top: -89px;">
+					<img class="stamp" src="images/stamp_mongolia_cat.png" alt="" style="rotate: 7deg; left: -181px; top: 97px;">
+					<img class="stamp" src="images/stamp_denmark_cat.png" alt="" style="rotate:-3deg; left: -70px; top: -69px;">
+					<img class="stamp" src="images/stamp_korean_tiger.png" alt="" style="left: 173px; top: 47px;">
+					<p style="left: 21px; top: 16px;">Click and drag to explore...</p>
+				</div>
 				
-				<h4>Books</h4>
-				<ul>
-					<li>Pokémon book cover: <a href="https://www.stollart.com/poknatomy">PokéNatomy</a> by Christopher Stoll</li>
-					<li>Pokémon book interior: <a href="https://bulbapedia.bulbagarden.net/wiki/After_the_Rain_With_You">After the Rain With You</a> official novel</li>
-					<li>"De La Sphere" illustrations by Allain Manesson Mallet, 17th century</li>
-				</ul>
-				
-				<h4>Illustrations & Photography</h4>
-				<ul>
-					<li>Insect illustrations by <a href="https://www.biodiversitylibrary.org/item/38683#page/172/mode/1up">Daniel Carter Beard</a>, 1915: "Leg Plan of the Baby" caterpillar, "cut-worms," caged beetle</li>
-					<li>"Can I Kill That Fly?" illustration by Ivor Cutler for the <a href="https://archive.org/details/InternationalTimes1966/IT_1966-11-28_B-IT-Volume-1_Iss-4">International Times</a>, Nov 1966</li>
-					<li>Anthill illustration by <a href="https://snailspng.tumblr.com/post/749142717930586112">snailspng</a> from the British Library's manuscript collection</li>
-					<li>Row of bugs painting by <a href="https://www.instagram.com/snighilarium">snighilarium</a></li>
-					<li>Toad with human face from cover of <a href="https://www.abebooks.com/Witchcraft-England-Hole-Christina-Batsford-1947/31230000754/bd">Witchcraft in England</a></li>
-					<li><a href="https://discardingimages.tumblr.com/post/132951782198">Cygnus the Swan constellation</a> from 1447 Italian manuscript</li>
-					<li>Pair of night sky rooftop photos by <a href="https://www.janasojka.art/">Janja Sojka</a></li>
-				</ul>
-				
-				<h4>Objects</h4>
-				<ul>
-					<li>"Hey" bronze hand with face by <a href="https://kenlittle.com/">Ken Little</a>, 1996</li>
-					<li>Blue and gold celestial shapes from mirror by <a href="https://www.1stdibs.com/furniture/mirrors/sunburst-mirrors/mid-modern-century-mirror-atelier-mithe-espelt/id-f_30910182/">atelier Mithe Espelt</a></li>
-					<li>Medieval-style carved circle from 1950s-60s, sold on <a href="https://www.1stdibs.com/furniture/mirrors/wall-mirrors/medieval-inspired-sunburst-mirror-polychrome-carved-wood/id-f_34436452/">1stDibs</a></li>
-					<li>Cast iron owl incense burner from Japan, 1950s</li>
-					<li>Folded hands gold daguerreotype pin from the 1850s, <a href="https://vintagenewsdaily.com/abolitionist-button-ca-1850s/">possibly abolitionist</a></li>
-					<li>Glass eye by <a href="https://jarisheese.blogspot.com/2010/09/eye-button.html">Jari Sheese</a>, 2010</li>
-					<li>Emerald salamander brooch from <a href="https://www.thejewelleryeditor.com/images/cheapsidehoardexhibition17/">The Jewellery Editor</a>, originally 16th-17th century</li>
-					<li>Glass <a href="https://animus-inviolabilis.tumblr.com/post/118391779252">star pendant with lock</a> by Raymond Roussel, 1923. Contains a star-shaped cookie.</li>
-					<li>Gold ship pendant by <a href="https://www.metmuseum.org/art/collection/search/197151">Alfred André</a>, late 19th century</li>
-					<li>Coffin doily by <a href="https://www.etsy.com/se-en/listing/1096629893">CreativeWorksByAnnie</a> (you can make one!)</li>
-				</ul>
-				
-				<h4>Tapestries</h4>
-				<ul>
-					<li>Large background tapestry from Belgium, 1920s, sold on <a href="https://www.1stdibs.com/furniture/wall-decorations/tapestry/large-belgium-tapestry/id-f_14025072/">1stDibs</a></li>
-					<li>Bird tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Blue-William-Morris-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
-					<li>Red tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Red-William-Morris-Horizontal-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
-				</ul>
-				
-				<h4>Other</h4>
-				<ul>
-					<li>Brown paper tape from <a href="https://www.hiclipart.com/free-transparent-background-png-clipart-qbxrv">HiClipart</a></li>
-					<li>Arrow cursor image from an <a href="https://www.1stdibs.com/jewelry/necklaces/pendant-necklaces/antique-diamond-arrow-pendant-14k-gold/id-j_26000222/">antique diamond arrow pendant</a>, early 20th century</li>
-					<li>Hand cursor image from charm by <a href="https://licensedtocharm.com/products/frida-kahlo-silver-pointing-hand-charm">Licensed to Charm</a></li>
-				</ul>
-				
-				<h4>My Images</h4>
-				Photos I took myself of objects I own. Free to use for non-commercial purposes. Credit appreciated but not required.
-				<ul>
-					<li>Koi fish charm</li>
-					<li>Antique spoons</li>
-					<li>Dark green stone orb</li>
-					<li>Hedgehog salt shaker</li>
-				</ul>
-				
-				<br><button class="close" popovertarget="credits">Close</button>
-			</div></div>
-			<!-- end credits -->
-			
-			<img src="images/louis_wain.png" alt="" style="left: 1923px; top: 300px; rotate: -60deg;">
-			
-			<img src="images/tapestry_floral_green.png" alt="" style="rotate: 5deg; left: 27px; top: 635px;">
-			<img src="images/tapestry_floral_red.png" alt="" style="rotate: -4deg; left: 1393px; top: 580px;">
-			
-			<div id="shadow-box" class="img-magnifier-container">
-				<img id="shadow-box-img" src="images/shadow_box.png" alt="" width="457" height="1041">
-			</div>
-			<script>
-				/* Execute the magnify function: */
-				magnify("shadow-box-img", 2);
-			</script> 
-			
-			<img src="images/coffin_doily.png" alt="" style="rotate: -11deg; left: 1522px; top: 735px;">
-			
-			<!-- gold sun rays window -->
-			<div class="wrapper" style="left: 1456px; top: 353px;"><div class="window window-20 window-round">
-				<img src="images/sun_window.png" alt="">
-			</div></div>
-			
-			<img src="images/bug_pearls.png" alt="" style="top: 594px; left: 461px;">
-			
-			<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -8deg; left: 327px; top: 338px;">
-			
-			<img src="images/ant_hill.png" alt="" style="rotate: 3deg; left: 1129px; top: 61px;">
-			<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
-			<img src="images/star_goose.png" alt="" style="left: -63px; top: 1307px;">
-			<img src="images/toad_freak.png" alt="" style="left: 855px; top: 539px;">
-			<img src="images/bug_paper_dolls.png" alt="" style="left: 992px; top: 1900px;">
-			<img src="images/kill_that_fly.png" alt="" style="left: 675px; top: 780px;">
-			<img src="images/unicorn_shield.png" alt="" style="left: 648px; top: 149px;">
-			<img src="images/medieval_harpy.png" alt="" style="left: 1395px; top: 39px;">
-			<img src="images/thin_lamb.png" alt="" style="rotate: -5deg; left: 1103px; top: 371px;">
-			<img src="images/felt_cat.png" alt="" style="left: 1489px; top: 120px;">
-			<img src="images/mirror_blue_star.png" alt="" style="top: 295px; left: 1272px;">
-			<img src="images/stone_orb.png" alt="" style="left: 1382px; top: 279px;">
-			<img src="images/cut_worms.png" alt="" style="left: 1271px; top: 730px;">
-			<img src="images/iron_owl.png" alt="" style="left: 1049px; top: 684px;">
-			<img src="images/hands_pin.png" alt="" style="z-index: -1; rotate: 15deg; left: 1188px; top: 653px;">
-			<img src="images/night_photo.jpg" alt="" style="rotate: -12deg; left: 1925px; top: 1318px;">
-			
-			<!-- smiling face ceramic hand -->
-			<button id="hey-hand" class="clipped" style="left: 89px; top: 368px;">
-				<img src="images/face_hand_smile.png" alt="">
-				<img class="hover-hide" src="images/face_hand.png" alt="">
-			</button>
-			
-			<img src="images/etoile.png" class="passthrough" alt="" style="left: 50px; top: 542px; rotate: -20deg;">
-			
-			<!-- gold rectangle window -->
-			<div class="wrapper" style="left: 1547px; top: 1252px;"><div class="window window-80">
-				<img src="images/gold_frame.png" alt="" style="width:265px;">
-			</div></div>
-			<img src="images/ceramic_cat.png" alt="" style="left: 1661px; top: 1377px;">
-			
-			<img src="images/skeleton_gaze.png" alt="" style="left: 1911px; top: 962px;">
-			<img src="images/ivory_ring.png" alt="" style="left: 1739px; top: 1111px;">
-			<img src="images/bead_red_swirl.png" alt="" style="left: 754px; top: 464px;">
-			<img src="images/beetle_cage.png" alt="" style="left: 775px; top: 1347px;">
-			<img src="images/key_bird.png" alt="" style="rotate: -50deg; left: 753px; top: 1372px;">
-			<img src="images/louisville_bottle.png" alt="" style="left: 15px; top: 1585px;">
-			<img src="images/kind_to_animals.png" alt="" style="left: 12px; top: 814px;">
-			
-			<!-- round pearl painted eye brooch -->
-			<button style="left: 1480px;top: 1570px;">
-				<img src="images/pearl_eye_left.png" alt="" style="border-radius: 50%;">
-				<img class="hover-hide" src="images/pearl_eye.png" alt="" style="border-radius: 50%;">
-			</button>
-			
-			<img src="images/koi_charm.png" alt="" style="rotate: -10deg; left: 523px; top: 1470px;">
-			<img class="passthrough" src="images/hedgehog_shaker.png" alt="" style="left: 1434px; top: 1751px;">
-			<img src="images/green_orb.png" alt="" style="left: 1865px; top: 1511px;">
-			
-			<!-- spoons stack -->
-			<div class="spoons" style="left: 1806px; top: 35px;">
-				<img src="images/spoon_3.png" alt="">
-				<img src="images/spoon_2.png" alt="">
-				<img src="images/spoon_1.png" alt="">
-			</div>
-			
-			<img src="images/lily_perfume.png" alt="" style="left: 808px; top: 364px;">
-			<img src="images/fat_caterpillar.png" alt="" style="rotate: 10deg; left: 1873px; top: 1827px;">
-			<img src="images/centiworm.png" alt="" style="left: 799px; top: 976px;">
-			<img src="images/dark_cicada.png" alt="" style="left: 2016px; top: 804px; rotate: -34deg;">
-			
-			<img src="images/ship_chain.png" alt="" style="z-index: -1; left: 1720px; top: 1362px;">
-			<div id="ship" style="left: 1577px; top: 1638px;">
-				<img class="passthrough" src="images/ornate_ship.png" alt="">
-			</div>
-			
-			<!-- EGG DOLL -->
-			<button id="egg-doll" class="clipped" style="rotate: 15deg; left: 480px; top: 1023px;">
-				<img src="images/egg_doll_blink.png" alt="">
-				<img class="hover-hide" src="images/egg_doll.png" alt="" style="border-radius: 50%;">
-			</button>
-			
-			<!-- POKEMON BOOK -->
-			<a href="/shrines/pokemon" target="_self" class="book" style="rotate: -8deg; left: 311px; top: 1605px;">
-				<div class="back"><img src="images/pokemon_cover.png" alt=""></div>
-				<div class="page page6"><img src="images/pokemon_page_4.png" alt=""></div><!--#4-->
-				<div class="page page5"><img src="images/pokemon_page_3.png" alt=""></div><!--#3-->
-				<div class="page page4"><img src="images/book_page_5.png" alt=""></div><!--#5-->
-				<div class="page page3"><img src="images/book_page_2.png" alt=""></div><!--#2-->
-				<div class="page page2"><img src="images/book_page_1.png" alt=""></div><!--#6-->
-				<div class="page page1"><img src="images/book_page_1.png" alt=""></div><!--#1-->
-				<div class="front"><img src="images/pokemon_cover.png" alt=""></div>
-				<div class="paper-popout"><span>Pokemon Shrine</span></div>
-			</a>
-			
-			<!-- TINY TOPPERS -->
-			<img src="images/button_ivory.png" style="left: 708px; top: 489px;" alt="">
-			<img src="images/ammonite_worm.png" alt="" style="left: 1478px; top: 460px;">
-			<img src="images/suits_die.png" alt="" style="left: 739px; top: 1575px;">
-			<img src="images/swan_bead.png" alt="" style="rotate: 20deg; left: 2023px; top: 639px;">
-			
-			<img src="images/mirror_blue_star_sm.png" alt="" style="top: 548px; left: 303px;">
-			<img src="images/mirror_blue_sun.png" alt="" style="top: 538px; left: 712px;">
-			<img src="images/mirror_silver_moon.png" alt="" style="top: 975px; left: 634px;">
-			
-			<!-- FINGER POT -->
-			<div class="pot" style="left: 666px; top: 1676px;">
-				<img class="back" src="images/finger_pot_back.png" alt="">
-				<div class="contents"><div class="content-wrapper">
-					<img src="images/taxidermy_rat.png" alt="">
+				<button id="credit-button" popovertarget="credits" class="glow-focus link">
+					<img src="images/wax_c.png">
+					<div class="paper-popout"><span>Credits</span></div>
+				</button>
+				<div popover id="credits"><div class="wrapper">
+					<h2>Credits</h2>
+					
+					<h4>Transparent PNG Blogs</h4>
+					These are some of my favorites for sourcing things!
+					<ul>
+						<li><a href="https://snailspng.tumblr.com/">snailspng</a></li>
+						<li><a href="https://oldjewelryfeed.tumblr.com/">oldjewelryfeed</a></li>
+						<li><a href="https://www.tumblr.com/lupineshieldmaiden">lupineshieldmaiden</a></li>
+					</ul>
+					
+					<h4>Books</h4>
+					<ul>
+						<li>Pokémon cover: <a href="https://www.stollart.com/poknatomy">PokéNatomy</a> by Christopher Stoll</li>
+						<li>Pokémon interior: <a href="https://bulbapedia.bulbagarden.net/wiki/After_the_Rain_With_You">After the Rain With You</a>, illustrations by Kihara Misaki</li>
+						<li>"De La Sphere" illustrations from <a href="https://archive.org/details/descriptiondelun01mall">Description de l'Univers</a> by Allain Manesson Mallet, 1683</li>
+						<li><a href="https://archive.org/details/ChroniclesOfThePhotographsOfSpiritualBeings">Chronicles of Spirit Photography</a> by Georgiana Houghton, 1882</li>
+					</ul>
+					
+					<h4>Illustrations & Photography</h4>
+					<ul>
+						<li>Insect illustrations by <a href="https://www.biodiversitylibrary.org/item/38683#page/172/mode/1up">Daniel Carter Beard</a>, 1915: "Leg Plan of the Baby" caterpillar, "cut-worms," caged beetle</li>
+						<li>"Can I Kill That Fly?" illustration by Ivor Cutler for the <a href="https://archive.org/details/InternationalTimes1966/IT_1966-11-28_B-IT-Volume-1_Iss-4">International Times</a>, Nov 1966</li>
+						<li>Hand with thorns and flower from <a href="https://www.sothebys.com/en/buy/auction/2023/contemporary-curated-4/despues-de-todo-solo-estamos-aqui-una-vez-iii">painting by Felipe Baeza</a>, 2023, in support of the <a href="https://www.aliforneycenter.org/">Ali Forney Center</a> for queer youth</li>
+						<li>Anthill illustration by <a href="https://snailspng.tumblr.com/post/749142717930586112">snailspng</a> from the British Library's manuscript collection</li>
+						<li>Row of gold bugs on pink background by <a href="https://www.instagram.com/snighilarium">snighilarium</a></li>
+						<li>Toad with human face from cover of <a href="https://www.abebooks.com/Witchcraft-England-Hole-Christina-Batsford-1947/31230000754/bd">Witchcraft in England</a></li>
+						<li><a href="https://discardingimages.tumblr.com/post/132951782198">Cygnus the Swan constellation</a> from 1447 Italian manuscript</li>
+						<li>Pair of night sky rooftop photos by <a href="https://www.janasojka.art/">Janja Sojka</a></li>
+						<li>Snailfish illustration from <a href="https://www.semanticscholar.org/paper/Pseudoliparis-swirei-sp.-nov.%3A-A-newly-discovered-Gerringer-Linley/65db5d619bf5d5816bbafde17e9140ce98ea9612#extracted?utm_source=direct_link">Pseudoliparis swirei</a> description paper, drawn by Thomas D. Linley, <a href="https://wallpapers.com/png/vintage-blank-paper-texture-jmlfjlkexmkwxuub.html">paper texture</a> by by slomr2 from Wallpapers.com</li>
+					</ul>
+					
+					<h4>Objects</h4>
+					<ul>
+						<li>"Hey" bronze hand with face by <a href="https://kenlittle.com/">Ken Little</a>, 1996</li>
+						<li>Glass <a href="https://animus-inviolabilis.tumblr.com/post/118391779252">star pendant with lock</a> by Raymond Roussel, 1923. Contains a star-shaped cookie.</li>
+						<li>Royal lion puppet by <a href="https://www.catjohnston.com/">Cat Johnston</a></li>
+						<li>Blue and gold celestial shapes from mirror by <a href="https://www.1stdibs.com/furniture/mirrors/sunburst-mirrors/mid-modern-century-mirror-atelier-mithe-espelt/id-f_30910182/">atelier Mithe Espelt</a></li>
+						<li>Medieval-style carved circle from 1950s-60s, sold on <a href="https://www.1stdibs.com/furniture/mirrors/wall-mirrors/medieval-inspired-sunburst-mirror-polychrome-carved-wood/id-f_34436452/">1stDibs</a></li>
+						<li>Cast iron owl incense burner from Japan, 1950s</li>
+						<li>Folded hands gold daguerreotype pin from the 1850s, <a href="https://vintagenewsdaily.com/abolitionist-button-ca-1850s/">possibly abolitionist</a></li>
+						<li>Glass eye by <a href="https://jarisheese.blogspot.com/2010/09/eye-button.html">Jari Sheese</a>, 2010</li>
+						<li>Emerald salamander brooch from <a href="https://www.thejewelleryeditor.com/images/cheapsidehoardexhibition17/">The Jewellery Editor</a>, originally 16th-17th century</li>
+						<li>Gold ship pendant by <a href="https://www.metmuseum.org/art/collection/search/197151">Alfred André</a>, late 19th century</li>
+						<li>Coffin doily by <a href="https://www.etsy.com/se-en/listing/1096629893">CreativeWorksByAnnie</a> (you can make one!)</li>
+						<li>Glass shark egg with dried flowers by <a href="https://www.andreaspencerglass.com/">Andrea Spencer Glass</a></li>
+						<li>Stained glass insect lamp by <a href="https://www.instagram.com/p/DB1caqyuGHp/">cady_the_creator</a></li>
+						<!-- Not yet added --
+						<li>Red-brown ceramic cat from the Zsolnay Workshop, c. 1908, sold on <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/animal-sculptures/symbolist-cat/id-f_34435752/">1stDibs</a></li>
+						<li>Brass lobster box from late 1800s, sold on <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/animal-sculptures/very-large-antique-victorian-brass-lobster-form-box/id-f_30319362/">1stDibs</a></li>
+						-->
+					</ul>
+					
+					<h4>Tapestries</h4>
+					<ul>
+						<li>Large background tapestry from Belgium, 1920s, sold on <a href="https://www.1stdibs.com/furniture/wall-decorations/tapestry/large-belgium-tapestry/id-f_14025072/">1stDibs</a></li>
+						<li>Lady and the Unicorn tapestry by <a href="https://www.walltapestry.com/Lady-and-the-Unicorn-A-Mon-Seul-Desir-I-French-Wall-Tapestry">WallTapestry.com</a> based on A Mon Seul Desir I, originally woven 1511</li>
+						<li>Bird tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Blue-William-Morris-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
+						<li>Red tree tapestry by <a href="https://www.walltapestry.com/Tree-of-Life-Red-William-Morris-Horizontal-Belgian-Wall-Tapestry">WallTapestry.com</a> based on an 1879 William Morris design</li>
+					</ul>
+					
+					<h4>Misc</h4>
+					<ul>
+						<li>Load screen 'Waiting Room' railway sign from 1920s, sold on <a href="https://www.1stdibs.com/furniture/folk-art/signs/early-timber-iron-general-waiting-room-railway-sign/id-f_35573692/">1stDibs</a></li>
+						<li>Brown paper tape from <a href="https://www.hiclipart.com/free-transparent-background-png-clipart-qbxrv">HiClipart</a></li>
+						<li>Arrow cursor image from an <a href="https://www.1stdibs.com/jewelry/necklaces/pendant-necklaces/antique-diamond-arrow-pendant-14k-gold/id-j_26000222/">antique diamond arrow pendant</a>, early 20th century</li>
+						<li>Hand cursor image from charm by <a href="https://licensedtocharm.com/products/frida-kahlo-silver-pointing-hand-charm">Licensed to Charm</a></li>
+						<li>Black wing from <a href="https://www.pngarts.com/explore/70962/download/70961">PNG Arts</a></li>
+					</ul>
+					
+					<h4>My Images</h4>
+					Photos I took myself of objects I own. Free to use for non-commercial purposes. Credit appreciated but not required.
+					<ul>
+						<li>Koi fish charm</li>
+						<li>Antique spoons</li>
+						<li>Dark green stone orb</li>
+						<li>Hedgehog salt shaker</li>
+					</ul>
+					
+					<h4>Other Notes</h4>
+					<ul>
+						<li>Ammonite with carved snake head is an English <a href="https://www.realyorkshireblog.com/post/whitby-s-snakestones-and-the-legend-of-st-hilda">snakestone</a>, based on the legend of St. Hilda</li>
+					</ul>
+					
+					<br><button class="close" popovertarget="credits">Close</button>
 				</div></div>
-				<button class="front" onclick="console.log(click);"><img src="images/finger_pot_front.png" alt=""></button>
+				<!-- end credits -->
+				
+				<button id="palette-button" popovertarget="palettes" class="container glow-focus link" style="left: 58px; top: 223px; scale: .800;">
+					<img src="images/moon_inkpot.png" alt="">
+					<div class="paper-popout"><span>Palette Options</span></div>
+				</button>
+				<div popover id="palettes"><div class="wrapper">
+					<h2>Palettes</h2>
+					<div>
+						<button class="palette-option" popovertarget="palettes" data-name="default">Default</button>
+						<button class="palette-option" popovertarget="palettes" data-name="sepia">Sepia</button>
+						<button class="palette-option" popovertarget="palettes" data-name="gray">Grayscale</button>
+						<button class="palette-option" popovertarget="palettes" data-name="neon">Neon</button>
+						<button class="palette-option" popovertarget="palettes" data-name="none">None</button>
+						
+						<script>
+							(()=>{
+								curPalette = 'color-default';
+								function setPagePalette(name) {
+								}
+								let buttons = document.getElementsByClassName('palette-option');
+								for (let i = 0; i < buttons.length; i++) {
+									buttons[i].addEventListener('click',()=>{
+										document.body.classList.remove(curPalette);
+										curPalette = 'color-' + buttons[i].dataset.name;
+										document.body.classList.add(curPalette);
+									
+									});
+								}
+							})();
+						</script>
+					</div>
+					<br><button class="close" popovertarget="palettes">Close</button>
+				</div></div>
+				
+				<img src="images/louis_wain.png" alt="" style="left: 1923px; top: 300px; rotate: -60deg;">
+				<img src="images/scenery_clouds.png" alt="" style="left: 1500px; top: 1642px;">
+				
+				<!-- BACK LAYER TAPESTRIES -->
+				<img src="images/tapestry_floral_green.png" alt="" style="rotate: 5deg; left: 27px; top: 635px;">
+				<img src="images/tapestry_floral_red.png" alt="" style="rotate: -4deg; left: 1393px; top: 580px;">
+				<img src="images/tapestry_lady_unicorn.png" alt="" style="rotate: 24deg; left: -612px; top: 1417px;">
+				<img src="images/crochet_star.png" alt="" style="rotate: -8deg; left: -700px; top: -290px;">
+				
+				<img src="images/beetle_cage.png" alt="" style="left: 786px; top: 1342px;">
+				<img id="tarot-fool" src="images/tarot_fool.png" alt="" style="rotate: -38deg; left: 1017px; top: 1413px; scale:.800;">
+				<img src="images/koi_charm.png" alt="" style="rotate: -10deg; left: 523px; top: 1470px;">
+				
+				<div id="shadow-box" class="img-magnifier-container">
+					<img id="shadow-box-img" src="images/shadow_box.png" alt="" width="457" height="1041">
+				</div>
+				
+				<img src="images/coffin_doily.png" alt="" style="rotate: -11deg; left: 1534px; top: 645px; scale: .800;">
+				<img src="images/black_wing.png" alt="" style="rotate: 13deg; left: 1310px; top: 953px; scale: .800;">
+				
+				<!-- GOLD SUN RAYS WINDOW -->
+				<div class="wrapper" style="left: 1465px; top: 340px;"><div class="window window-20 window-round">
+					<div class="window-scene"></div>
+					<img src="images/sun_window.png" alt="">
+				</div></div>
+				
+				<img src="images/bug_pearls.png" alt="" style="top: 594px; left: 461px;">
+				
+				<img src="images/fish_fossil.png" alt="" style="rotate: 18deg; left: 532px; top: -125px; scale: 0.800;">
+				<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -8deg; left: 327px; top: 338px;">
+				<img src="images/ant_hill.png" alt="" style="rotate: 3deg; left: 1129px; top: 61px;">
+				<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
+				<img src="images/toad_freak.png" alt="" style="left: 855px; top: 539px;">
+				<img src="images/bug_paper_dolls.png" alt="" style="left: 992px; top: 1900px;">
+				<img src="images/kill_that_fly.png" alt="" style="left: 675px; top: 780px;">
+				<img src="images/unicorn_shield.png" alt="" style="left: 648px; top: 149px;">
+				<img src="images/medieval_harpy.png" alt="" style="left: 1395px; top: 39px;">
+				<img src="images/felt_cat.png" alt="" style="left: 1489px; top: 120px;">
+				<img src="images/magnus_spider.png" alt="" style="left: 1638px; top: -98px; rotate: 16deg; scale: 0.800;">
+				<img src="images/mirror_blue_star.png" alt="" style="top: 295px; left: 1272px;">
+				<img src="images/stone_orb.png" alt="" style="left: 1382px; top: 279px;">
+				<img src="images/thin_lamb.png" alt="" style="rotate: -5deg; left: 1092px; top: 367px;">
+				<img src="images/cut_worms.png" alt="" style="left: 1271px; top: 730px;">
+				<img src="images/iron_owl.png" alt="" style="left: 1049px; top: 684px;">
+				<img src="images/hands_pin.png" alt="" style="z-index: -1; rotate: 15deg; left: 1188px; top: 653px;">
+				<img src="images/night_photo.jpg" alt="" style="rotate: -12deg; left: 1925px; top: 1318px;">
+				
+				<img src="images/nebra_disc.png" alt="" style="left: -278px; top: 491px; scale:.800;">
+				<!-- SMILING FACE CERAMIC HAND -->
+				<button id="hey-hand" class="clipped interactive container" style="left: 57px; top: 348px; scale: .800;">
+					<img src="images/face_hand_smile.png" alt="">
+					<img class="hover-hide" src="images/face_hand.png" alt="">
+				</button>
+				<img src="images/etoile.png" class="passthrough" alt="" style="left: 11px; top: 510px; rotate: -20deg; scale: .800;">
+				<img src="images/key_bird.png" alt="" style="rotate: -78deg; left: -67px; top: 335px;">
+				
+				<img src="images/wilhelm_pantomime.png" alt="" style="left: -345px; top: -183px; scale: .7;">
+				<!-- CELESTIAL BOOK -->
+				<button class="book interactive container" style="width: 220px; height: 310px; rotate: -11deg; left: -129px; top: 49px;">
+					<div class="back"><img src="images/books/astronomy_observation.png" alt=""></div>
+					<!-- inner pages here, in reverse order -->
+					<div class="page pageInner"><img src="images/books/mallet_11.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_02.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_48.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_34.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_24.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_23.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/mallet_title.png" alt=""></div>
+					<div class="page pageInner flip"><img src="images/books/mallet_cover.png" alt=""></div>
+					<!-- end inner pages -->
+					<div class="page page4"><img src="images/books/mallet_blank_5.png" alt=""></div><!--#5-->
+					<div class="page page3"><img src="images/books/mallet_blank_2.png" alt=""></div><!--#2-->
+					<div class="page page2"><img src="images/books/mallet_blank_1.png" alt=""></div><!--#6-->
+					<div class="page page1"><img src="images/books/mallet_blank_1.png" alt=""></div><!--#1-->
+					<div class="front"><img src="images/books/astronomy_observation.png" alt=""></div>
+				</button>
+				
+				<!-- MORAVIAN STAR WINDOW -->
+				<div class="wrapper" style="left: -395px; top: 362px;"><div class="window window-50 window-round">
+					<div class="window-scene"></div>
+					<img src="images/moravian_star_frame.png" alt="" style="width:272px;">
+				</div></div>
+				
+				<img src="images/bead_red_swirl.png" alt="" style="left: 754px; top: 464px;">
+				<img src="images/key_star.png" alt="" style="rotate: -50deg; left: 732px; top: 1337px; scale:.800;">
+				
+				<!----------------- LEFT SIDE ------------------>
+				<img src="images/shark_egg.png" alt="" style="rotate: -24deg; left: -420px; top: 506px; scale: .800;">
+				<a id="snailfish" class="interactive container glow-focus" href="/shrines/snailfish" style="rotate: -10deg; left: -393px; top: 983px;">
+					<div class="paper-popout top"><span>Snailfish</span></div>
+					<img src="images/snailfish_swirei.png" alt="">
+				</a>
+				<img src="images/greek_star_necklace.png" class="passthrough" alt="" style="rotate: -45deg; left: -513px; top: 929px; scale: .800;">
+				<img src="images/cat_bite.jpg" alt="" style="rotate: 21deg; left: -180px; top: 835px; scale: .800;">
+				<img src="images/kind_to_animals.png" alt="" style="left: -30px; top: 804px; scale: .800;">
+				
+				<!----------------- BOTTOM LEFT ------------------>
+				<img src="images/star_goose.png" alt="" style="left: -63px; top: 1307px;">
+				<img src="images/soprano_scream.png" alt="" style="rotate: 19deg; left: 53px; top: 1770px;">
+				<img src="images/swan_bead.png" alt="" style="rotate: 20deg; left: 229px; top: 1727px;">
+				<img src="images/louisville_bottle.png" alt="" style="left: -38px; top: 1708px; scale: .800;">
+				<img src="images/fat_ant.png" alt="" style="left: 243px; top: 1857px; rotate: 130deg;">
+				<div id="insect-lamp" class="container clipped" onclick="this.querySelector('.light').classList.toggle('hidden');" style="left: -312px; top: 1226px;">
+					<div class="light"></div>
+					<img src="images/insect_lamp.png" alt="">
+				</div>
+				<img src="images/ancient_idol.png" alt="" style="left: -354px; top: 1760px; scale: .800;">
+				<img src="images/suits_die.png" alt="" style="left: -243px; top: 1888px;">
+				
+				<!-- POKEMON BOOK -->
+				<a href="/shrines/pokemon" class="book" style="rotate: -8deg; left: 311px; top: 1605px;">
+					<div class="back"><img src="images/books/pokemon_cover.png" alt=""></div>
+					<!-- inner pages here, in reverse order -->
+					<div class="page pageInner"><img src="images/books/pokemon_2.png" alt=""></div>
+					<div class="page pageInner flip"><img src="images/books/pokemon_1.png" alt=""></div>
+					<!-- end inner pages -->
+					<div class="page page4"><img src="images/books/blank_5.png" alt=""></div><!--#5-->
+					<div class="page page3"><img src="images/books/blank_2.png" alt=""></div><!--#2-->
+					<div class="page page2"><img src="images/books/blank_1.png" alt=""></div><!--#6-->
+					<div class="page page1"><img src="images/books/blank_1.png" alt=""></div><!--#1-->
+					<div class="front"><img src="images/books/pokemon_cover.png" alt=""></div>
+					<div class="paper-popout"><span>Pokemon Shrine</span></div>
+				</a>
+				
+				<!----------------- BOTTOM RIGHT ------------------>
+				<!-- GOLD RECTANGLE WINDOW -->
+				<div class="wrapper" style="left: 1536px; top: 1239px;"><div class="window window-80">
+					<div class="window-scene"></div>
+					<img src="images/gold_frame.png" alt="" style="width:280px;">
+				</div></div>
+				<img src="images/ceramic_cat.png" alt="" style="left: 1661px; top: 1382px;">
+				
+				<!-- ROUND PEARL PAINTED EYE BROOCH -->
+				<button style="left: 1489px; top: 1565px;">
+					<img src="images/pearl_eye_left.png" alt="" style="border-radius: 50%;">
+					<img class="hover-hide" src="images/pearl_eye.png" alt="" style="border-radius: 50%;">
+				</button>
+				
+				<img class="passthrough" src="images/hedgehog_shaker.png" alt="" style="left: 1445px; top: 1795px;">
+				<img src="images/green_orb.png" alt="" style="left: 1865px; top: 1511px;">
+				<img src="images/fat_caterpillar.png" alt="" style="rotate: 10deg; left: 1873px; top: 1827px;">
+				
+				<!----------------- TOP RIGHT ------------------>
+				<!-- SPOONS STACK -->
+				<button class="spoons interactive container" style="left: 1806px; top: 35px;">
+					<img src="images/spoon_3.png" alt="">
+					<img src="images/spoon_2.png" alt="">
+					<img src="images/spoon_1.png" alt="">
+				</button>
+				
+				<img src="images/lily_perfume.png" alt="" style="left: 808px; top: 364px;">
+				<img src="images/centiworm.png" alt="" style="left: 799px; top: 976px;">
+				
+				<img src="images/green_glass_lanterns.png" alt="" style="left: 1485px; top: -200px; scale: .800;">
+				
+				<img src="images/ornate_ship_chain.png" alt="" style="z-index: -1; left: 1720px; top: 1390px; scale: .800;">
+				<div id="ship" style="left: 1540px; top: 1636px; scale: .800;">
+					<img class="passthrough" src="images/ornate_ship.png" alt="">
+				</div>
+				
+				<!-- EGG DOLL -->
+				<button id="egg-doll" class="clipped" style="rotate: 15deg; left: 480px; top: 1023px;">
+					<img src="images/egg_doll_blink.png" alt="">
+					<img class="hover-hide" src="images/egg_doll.png" alt="" style="border-radius: 50%;">
+				</button>
+				
+				<!-- TINY TOPPERS -->
+				<img src="images/button_ivory.png" style="left: 708px; top: 489px;" alt="">
+				<img src="images/ammonite_worm.png" alt="" style="left: 1478px; top: 460px;">
+				
+				<img src="images/mirror_blue_star_sm.png" alt="" style="top: 548px; left: 303px;">
+				<img src="images/mirror_blue_sun.png" alt="" style="top: 538px; left: 712px;">
+				<img src="images/mirror_silver_moon.png" alt="" style="top: 975px; left: 634px;">
+				
+				<!-- FINGER POT -->
+				<div class="pot" style="left: 666px; top: 1676px;">
+					<img class="back" src="images/finger_pot_back.png" alt="">
+					<div class="contents"><div class="content-wrapper">
+						<img src="images/taxidermy_rat.png" alt="">
+					</div></div>
+					<button class="front" onclick="console.log(click);"><img src="images/finger_pot_front.png" alt=""></button>
+				</div>
+				
+				<img src="images/skeleton_gaze.png" alt="" style="left: 1911px; top: 962px;">
+				<img src="images/ivory_ring.png" alt="" style="left: 1739px; top: 1111px;">
+				<img src="images/dark_cicada.png" alt="" style="left: 2016px; top: 804px; rotate: -34deg;">
+				
+				<!-- DICE BOX -->
+				<button class="dice-box" style="rotate: -25deg; left: 1523px; top: 1097px; scale: .800;">
+					<img class="inner" src="images/dice_box_inner.png" alt="">
+					<img class="outer" src="images/dice_box_outer.png" alt="">
+				</button>
+				
+				<!-- SPIRIT PHOTOGRAPHY BOOK -->
+				<button id="spirit-book" class="book interactive container" style="width: 220px; height: 330px; rotate: 10deg; left: 1750px; top: 676px;">
+					<div class="back"><img src="images/books/spirit_photography.png" alt=""></div>
+					<!-- inner pages here, in reverse order -->
+					<div class="page pageInner"><img src="images/books/spirit_photography_3.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/spirit_photography_blank.png" alt=""></div>
+					<div class="page pageInner"><img src="images/books/spirit_photography_2.png" alt=""></div>
+					<div class="page pageInner flip"><img src="images/books/spirit_photography_1.png" alt=""></div>
+					<!-- end inner pages -->
+					<div class="page page5"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#3-->
+					<div class="page page3"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#2-->
+					<div class="page page1"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#1-->
+					<div class="page page2"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#6-->
+					<div class="page page4"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#5-->
+					<div class="page page6"><img src="images/books/spirit_photography_blank.png" alt=""></div><!--#4-->
+					<div class="front"><img src="images/books/spirit_photography.png" alt=""></div>
+				</button>
+				
+				<!-- FOLLOWING EYES -->
+				<!-- bottom left eye -->
+				<div class="eye-wrapper" style="rotate: -10deg; left: 292px; top: 1459px; scale: .800;">
+					<img class="bottom" src="images/eye_bead_bottom.png" alt="">
+					<img class="pupil" src="images/eye_bead_center.png" alt="">
+					<img class="top" src="images/eye_bead_top.png" alt="">
+				</div>
+				<!-- top right eye -->
+				<div class="eye-wrapper" style="rotate:15deg; left: 1940px; top: 135px; scale: .800;">
+					<img src="images/gem_snake.png" alt="" style="rotate: -8deg; left: -80px; top: 37px;">
+					<img class="bottom" src="images/eye_bead_bottom.png" alt="">
+					<img class="pupil" src="images/eye_bead_center.png" alt="">
+					<img class="top" src="images/eye_bead_top.png" alt="">
+				</div>
+				<!-- following eye script -->
+				<script src="follow-eye.js?fileversion=20260410"></script>
+				
+				<!-- MEDIEVAL SPINNING WINDOW -->
+				<div class="wrapper" style="left: -50px; top: 930px; border-radius: 50%;"><div class="window window-50 window-round" style="overflow: hidden;">
+					<div class="window-scene"></div>
+					<img class="outer" id="medieval-frame-rotate" src="images/medieval_frame_outer.png" alt=""
+						style="pointer-events: initial; transform: rotate(0deg);">
+					<img class="inner" src="images/medieval_frame_inner.png" alt="">
+				</div></div>
+				<!-- rotate medieval frame outer part on hover -->
+				<script>
+					(()=>{
+						let f = document.getElementById('medieval-frame-rotate');
+						let container = document.getElementById('medieval-frame-rotate').parentNode;
+						container.addEventListener("mouseenter", rotateFrame);
+						container.addEventListener("touchstart", rotateFrame);
+						function rotateFrame() {
+							let r = Number(f.style.transform.replaceAll("rotate(","").replaceAll("deg)","").replaceAll(" ",""));
+							r += 45;
+							f.style.transform = "rotate(" + r + "deg)";
+						}
+					})();
+				</script>
+				
+				<!-- TOP EDGE -->
+				<img src="images/tall_tapestries.png" alt="" style="left: 758px; top: -122px;">
 			</div>
-			
-			<!-- DICE BOX -->
-			<button class="dice-box" style="rotate: -25deg; left: 1557px; top: 1123px;">
-				<img class="inner" src="images/dice_box_inner.png" alt="">
-				<img class="outer" src="images/dice_box_outer.png" alt="">
-			</button>
-			
-			<!-- CELESTIAL BOOK -->
-			<div class="book" style="rotate: 10deg; left: 1740px; top: 689px;">
-				<div class="back"><img src="images/book_astronomy_observation.png" alt=""></div>
-				<div class="page page6"><img src="images/mallet_page_4.png" alt=""></div><!--#4-->
-				<div class="page page5"><img src="images/mallet_page_3.png" alt=""></div><!--#3-->
-				<div class="page page4"><img src="images/book_page_5.png" alt=""></div><!--#5-->
-				<div class="page page3"><img src="images/book_page_2.png" alt=""></div><!--#2-->
-				<div class="page page2"><img src="images/book_page_1.png" alt=""></div><!--#6-->
-				<div class="page page1"><img src="images/book_page_1.png" alt=""></div><!--#1-->
-				<div class="front"><img src="images/book_astronomy_observation.png" alt=""></div>
-			</div>
-			
-			<!-- FOLLOWING EYES -->
-			<!-- bottom left eye -->
-			<div class="eye-wrapper" style="rotate: -10deg; left: 294px; top: 1470px;">
-				<img class="bottom" src="images/eye_bead_bottom.png" alt="">
-				<img class="pupil" src="images/eye_bead_center.png" alt="">
-				<img class="top" src="images/eye_bead_top.png" alt="">
-			</div>
-			<img src="images/gem_snake.png" alt="" style="left: 1868px; top: 165px; rotate: 7deg;">
-			<!-- top right eye -->
-			<div class="eye-wrapper" style="rotate:15deg; left: 1941px; top: 139px;">
-				<img class="bottom" src="images/eye_bead_bottom.png" alt="">
-				<img class="pupil" src="images/eye_bead_center.png" alt="">
-				<img class="top" src="images/eye_bead_top.png" alt="">
-			</div>
-			<!-- following eye script -->
-			<script src="follow-eye.js?fileversion=20260410"></script>
-			
-			<!-- WINDOW FRAMES -->
-			<div class="wrapper" style="left: -50px; top: 930px; border-radius: 50%;"><div class="window window-50 window-round" style="overflow: hidden;">
-				<img class="outer" id="medieval-frame-rotate" src="images/medieval_frame_outer.png" alt=""
-					style="pointer-events: initial; transform: rotate(0deg);">
-				<img class="inner" src="images/medieval_frame_inner.png" alt="">
-			</div></div>
-			<!-- rotate medieval frame outer part on hover -->
-			<script>
-				(()=>{
-					let f = document.getElementById('medieval-frame-rotate');
-					let container = document.getElementById('medieval-frame-rotate').parentNode;
-					container.addEventListener("mouseenter", rotateFrame);
-					container.addEventListener("touchstart", rotateFrame);
-					function rotateFrame() {
-						let r = Number(f.style.transform.replaceAll("rotate(","").replaceAll("deg)","").replaceAll(" ",""));
-						r += 45;
-						f.style.transform = "rotate(" + r + "deg)";
-					}
-				})();
-			</script>
-			
-			<!-- TOP EDGE -->
-			<img src="images/tall_tapestries.png" alt="" style="left: 758px; top: -122px;">
 		</div></main>
 	</body>
 	<!--------------END BODY------------->
 	
 	<!-- script to enable the dragging movement -->
 	<script src="trinkets-draggable.js?fileversion=20260410"></script>
+	<!-- script for book behavior -->
+	<script src="book.js?fileversion=20260410"></script>
 </html>

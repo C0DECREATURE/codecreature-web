@@ -26,6 +26,34 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-22T22:02'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			<a href="/trinkets">trinkets</a> expansion
+		`,
+		details: `
+			<figure>
+				<img src="images/trinkets_2026_05_22.avif" alt="screenshot of the expanded trinkets page">
+				<figcaption>Maybe possibly starting to get just a little out of hand.</figcaption>
+			</figure>
+			<p>Bit of room added on the top and left edges of <a href="/trinkets">trinkets</a>! Rearranged and added a bunch of new things to fill the space, areas of the page are starting to develop some themes. There's also an assortment of small additions:</p>
+			<ul>
+				<li>The books support multiple pages, click to flip through if they have them</li>
+				<li>The overlay colors have changed slightly, but there's also an ink bottle you can click to swap between palettes (I don't recommend the neon, but it's there.)</li>
+				<li>The star windows have clouds with a slight parallax effect when you move around</li>
+				<li>Added a link to my wip snailfish page</li>
+				<li>Lamp that clicks on and off</li>
+				<li>Slight improvement to mobile and keyboard navigation, though there's still issues to fix</li>
+			</ul>
+			<figure>
+				<img src="images/trinkets_2026_05_22_loading.avif" alt="">
+				<figcaption>Plus a simple waiting screen for while you wait all those images to load... sorry.</figcaption>
+			</figure>
+			<p>I think that's everything. Probably.</p>
+		`
+	},
+	{
 		date: new Date('2026-05-15T21:52'),
 		authors: ['emery'],
 		tags: ['general','minor'],

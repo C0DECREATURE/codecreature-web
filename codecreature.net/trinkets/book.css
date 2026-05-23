@@ -10,7 +10,7 @@ body {
 .book {
   transform-style: preserve-3d;
   position: absolute;
-	width: 230px;
+	width: 240px;
   height: 300px;
   backface-visibility: visible;
 }
@@ -18,61 +18,39 @@ body {
 .book .page, .book .front, .book .back {
   transform-style: preserve-3d;
   position: absolute;
-  width: 230px;
+  width: 100%;
   height: 100%;
 	top: 0; left: 0;
   transform-origin: left center;
-  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+  transition: transform .5s ease-in-out;
 }
 
-.book .front, .book .back {
-	width: 230px;
-  height: 300px;
-	top: 4px;
-}
+.book .front, .book .back { top: 4px; }
+.book .page { top: 3px; }
 
-.book .page { top: 3px; left: 1px; }
-.book .page3, .book .page4, .book .page5 { left: 2px; }
-
-.book img {
-	height: 100%;
-}
+.book img { height: 100%; }
 .book .front img, .book .back img {
 	top: -2px; left: 0; 
 }
 /* flip first half of pages so they show up correctly */
 .book .page1 img, .book .page3 img, .book .page5 img,  { transform: scaleX(-1); }
 
+.pageInner img { filter: none; }
+
 .book:hover, .book:focus-visible {
-	.front {
-		transform: rotateY(-160deg) scale(1.1);
-		/*box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);*/
-	}
-	.page1 {
-		transform: rotateY(-154deg) scale(1.1);
-		/*box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);*/
-	}
-	.page2 {
-		transform: rotateY(-26deg) scale(1.1);
-		/* box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2); */
-	}
-	.page3 {
-		transform: rotateY(-148deg) scale(1.1);
-		/* box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2); */
-	}
-	.page4 {
-		transform: rotateY(-32deg) scale(1.1);
-		/* box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2); */
-	}
-	.page5 {
-		transform: rotateY(-144deg) scale(1.1);
-		/* box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2); */
-	}
-	.page6 {
-		transform: rotateY(-36deg) scale(1.1);
-		/* box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2); */
-	}
-	.back {
-		transform: rotateY(-20deg) scale(1.1);
-	}
+	.front { transform: rotateY(-160deg) scale(1.1); }
+	
+	.page1 { transform: rotateY(-154deg) scale(1.1); }
+	.page2 { transform: rotateY(-26deg) scale(1.1); }
+	.page3 { transform: rotateY(-149deg) scale(1.1); }
+	.page4 { transform: rotateY(-31deg) scale(1.1); }
+	.page5 { transform: rotateY(-146deg) scale(1.1); }
+	.page6 { transform: rotateY(-34deg) scale(1.1); }
+	
+	.pageInner { transform: rotateY(-36deg) scale(1.1); } /* right side inner (top) */
+	
+	.pageInner.flip { transform: rotateY(-144deg) scale(1.1); } /* left side inner page (top) */
+	.pageInner.flip ~ .pageInner.flip { transform: rotateY(-144.2deg) scale(1.1); } /* left side inner (under) */
+	
+	.back { transform: rotateY(-20deg) scale(1.1); }
 }

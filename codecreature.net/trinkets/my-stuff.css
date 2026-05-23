@@ -1,13 +1,20 @@
 body {
+	background: #593824;
+}
+body:before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: -1000;
+	width: 100%;
+	height: 100%;
 	background-image: url('images/tapestry_forest.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: top left;
 	background-attachment: fixed;
+	opacity: .85;
 }
-
-button:focus-visible { outline: none; }
-button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 
 .page-settings {
 	--open-button-fill: none;
@@ -23,7 +30,7 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 #page-settings-button .paper-popout {
 	line-height: initial;
 	right: calc(100% - 22px);
-	clip-path: polygon(0% 0%, 100% 0%, 95% 35%, 95% 65%, 100% 100%, 0% 100%);
+	clip-path: polygon(0% 0%, 100% 0%, 93% 35%, 93% 65%, 100% 100%, 0% 100%);
 	span { padding-right: calc(.5em + 22px); }
 }
 #page-settings-contents {
@@ -44,9 +51,6 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	font-size: 45px;
 	color: #47341a;
 	background: #fff8df;
-	img {
-		left: -210px; top: -110px;
-	}
 	p {
 		opacity: 0.85;
 		position: absolute;
@@ -60,6 +64,12 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
+#palette-button { z-index: 950; }
+#palette-button .paper-popout { left: 69%; top: 59%; }
+.palette-option {
+	display: block;
+}
+
 /* window background image */
 .wrapper:has(> .window) { position: absolute; }
 .window {
@@ -71,29 +81,27 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	position: absolute;
 	top: 0; left: 0;
 }
-.window > img:first-child {
+.window > img:first-of-type {
 	position: relative;
 }
-.window:before {
-	content: '';
-	display: block;
+.window .window-scene {
 	position: absolute;
 	top: 0; left: 0;
 	width: 100%; height: 100%;
-	background-image: url('/graphix/bg/stars_gold_green.png');
-	background-size: 250px;
+	background-image: url('images/clouds_tile.png'), url('/graphix/bg/stars_gold_green.png');
+	background-size: auto, 275px;
 	background-attachment: fixed;
 	pointer-events: initial;
 }
-.window.window-90:before { width: 90%; height: 90%; top: 5%; left: 5%; }
-.window.window-80:before { width: 80%; height: 80%; top: 10%; left: 10%; }
-.window.window-70:before { width: 70%; height: 70%; top: 15%; left: 15%; }
-.window.window-60:before { width: 60%; height: 60%; top: 20%; left: 20%; }
-.window.window-50:before { width: 50%; height: 50%; top: 25%; left: 25%; }
-.window.window-40:before { width: 40%; height: 40%; top: 30%; left: 30%; }
-.window.window-30:before { width: 30%; height: 30%; top: 35%; left: 35%; }
-.window.window-20:before { width: 20%; height: 20%; top: 40%; left: 40%; }
-.window.window-round:before { border-radius: 50%; }
+.window.window-90 .window-scene { width: 90%; height: 90%; top: 5%; left: 5%; }
+.window.window-80 .window-scene { width: 80%; height: 80%; top: 10%; left: 10%; }
+.window.window-70 .window-scene { width: 70%; height: 70%; top: 15%; left: 15%; }
+.window.window-60 .window-scene { width: 60%; height: 60%; top: 20%; left: 20%; }
+.window.window-50 .window-scene { width: 50%; height: 50%; top: 25%; left: 25%; }
+.window.window-40 .window-scene { width: 40%; height: 40%; top: 30%; left: 30%; }
+.window.window-30 .window-scene { width: 30%; height: 30%; top: 35%; left: 35%; }
+.window.window-20 .window-scene { width: 20%; height: 20%; top: 40%; left: 40%; }
+.window.window-round .window-scene { border-radius: 50%; }
 
 #medieval-frame-rotate { transition: transform 1s; }
 
@@ -110,6 +118,7 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	.front, .front img { position: relative; }
 	.contents {
 		position: absolute;
+		pointer-events: none;
 		width: 62%;
 		left: 21%;
 		bottom: 55%;
@@ -143,12 +152,13 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	top: 0;
 	left: 0;
 	&:first-child { left: -9px; }
+	&:not(:first-child) { position: absolute; }
 	&:nth-child(3) { left: 3px; }
 	transition: transform .5s;
 }
-.spoons:hover {
-	*:nth-child(2) { transform: translate(65px, 76px); }
-	*:nth-child(3) { transform: translate(-55px, 107px); }
+.spoons:hover, .spoons:active, .spoons:focus-visible {
+	:nth-child(2) { transform: translate(65px, 76px); }
+	:nth-child(3) { transform: translate(-55px, 107px); }
 }
 
 /* FOLLOWING EYE */
@@ -164,7 +174,7 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	-webkit-transform-origin: 55% 1%; transform-origin: 55% 1%;
 	transition: transform .15s;
 }
-#ship:hover { animation: ship .8s ease-in-out; }
+#ship:hover, #ship:active, #ship:focus-visible { animation: ship .8s ease-in-out; }
 @keyframes ship {
 	0% { transform: rotate(0deg); }
 	18% { transform: rotate(-3.5deg); }
@@ -172,6 +182,28 @@ button:focus-visible img { filter: drop-shadow(0px 0px 20px #fff8df); }
 	75% { transform: rotate(-1deg); }
 	100% { transform: rotate(0deg); }
 }
+
+/* FOOL TAROT CARD */
+#tarot-fool { transition: transform .75s; }
+#tarot-fool:hover { transform: translateY(-50%); }
+
+/* SNAILFISH LINK */
+#snailfish:hover img { scale: 1.05; }
+
+/* LAMP */
+.light {
+	position: absolute;
+	border-radius: 50%;
+	background: #ffd8a7;
+	width: 120%;
+	transform: translate(-8.3%,-8.3%);
+	aspect-ratio: 1;
+	mix-blend-mode: hard-light;
+	filter: blur(100px);
+	opacity: .3;
+}
+#insect-lamp .light { top: 10%; }
+#insect-lamp:after { clip-path: polygon(32% 5%, 63% 5%, 100% 60%, 100% 65%, 54% 66%, 80% 95%, 68% 100%, 23% 100%, 16% 94%, 42% 66%, 0% 67%, 0% 62%); }
 
 /* containers with clip path interaction area */
 .clipped {
