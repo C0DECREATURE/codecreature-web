@@ -73,6 +73,6 @@ figure .comments > * {
 }
 
 figure > img {
-	max-width: min(90vw,90vh);
-	max-height: 90vh;
+	max-width: min(85vw,85vh);
+	max-height: 85vh;
 }
