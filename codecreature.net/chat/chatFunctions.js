@@ -136,22 +136,22 @@ function deleteMessage(id) {
 // check if newer sibling message exists and is by the same user as the given message
 function newerStackSibling(message) {
 	let sib = message.previousElementSibling;
-	if (
-		sib && message.dataset.uid == sib.dataset.uid
-		&& Math.abs(Number(message.dataset.timestamp) - Number(sib.dataset.timestamp)) < 3600 // less than 1 hour apart
-	) {
+	if (sib && isStackSiblings(message,sib)) {
 		return sib;
 	} else return false;
 }
 // check if older sibling message exists and is by the same user as the given message
 function olderStackSibling(message) {
 	let sib = message.nextElementSibling;
-	if (
-		sib && message.dataset.uid == sib.dataset.uid
-		&& Math.abs(Number(message.dataset.timestamp) - Number(sib.dataset.timestamp)) < 3600 // less than 1 hour apart
-	) {
+	if (sib && isStackSiblings(message,sib)) {
 		return sib;
 	} else return false;
+}
+// check if two messages are by the same user and posted close together in time
+function isStackSiblings(m1,m2) {
+	return m1.dataset.uid !== "0"
+		&& m1.dataset.uid == m2.dataset.uid
+		&& Math.abs(Number(m1.dataset.timestamp) - Number(m2.dataset.timestamp)) < 3600 // less than 1 hour apart
 }
 
 // delete the LOCAL HTML element of a message only (no permission check required)
