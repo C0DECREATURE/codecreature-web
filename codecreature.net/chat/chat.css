@@ -182,15 +182,15 @@ body, html {
 /* put the load older messages button at top of page */
 #load-older { order: 1000; }
 
-.message { width: min(88%, 40rem); }
-
 .message {
 	--icon-height: 3rem;
 	display: flex;
 	align-items: flex-end;
 	gap: .5rem;
+	width: min(88%, 40rem);
 	font-size: 1rem;
 	margin-bottom: 4px;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 }
 .message.self { flex-direction: row-reverse; margin-left: auto; }
 
@@ -200,6 +200,8 @@ body, html {
 	font-style: italic;
 	text-align: center;
 }
+.deleted { padding-left: var(--icon-height); }
+.deleted.self { padding-left: 0; padding-right: var(--icon-height); }
 
 .message > * { box-shadow: 4px 6px var(--bubble-shadow); }
 
