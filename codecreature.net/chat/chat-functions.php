@@ -145,14 +145,14 @@ function getMessage($message_id, $table_name) {
 // clean up & secure message text input
 function cleanMessageText($str) {
 	global $max_message_length;
-	
+	// remove trailing spaces
 	$str = trim($str);
+	// make sure message is under the character limit
+	$str = substr($str,0,$max_message_length);
 	// convert enter key to line break
 	$str = preg_replace("/\\n/","[br]",$str);
 	// strip HTML tags from message
 	$str = htmlspecialchars($str);
-	// make sure message is under the character limit
-	$str = substr($str,0,$max_message_length);
 	// return modified message
 	return $str;
 }

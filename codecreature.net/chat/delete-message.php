@@ -26,7 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// if still no errors...
 	// delete the message
 	if (empty($error_text)) {
-		$sql = "DELETE FROM $table_name WHERE id = ?";
+		$time = time();
+		$sql = "UPDATE $table_name SET message = NULL, date = NULL, edited = $time, deleted = 1 WHERE id = ?";
 		if($stmt = mysqli_prepare($chat_conn, $sql)){
 			// bind variables to prepared statement
 			mysqli_stmt_bind_param($stmt, "i", $param_message_id);

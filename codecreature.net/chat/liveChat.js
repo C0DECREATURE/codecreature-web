@@ -23,40 +23,54 @@ function getOldestLoadedMessage() {
 	if (messages.length > 0) oldestMsg = Number(messages[messages.length - 1].id.replaceAll('message-',''));
 	return oldestMsg;
 }
-// returns integer id of latest message that has been loaded on the page
-function getLatestLoadedMessage() {
-	let messages = document.getElementsByClassName('message');
-	let latestMsg = 0;
-	if (messages.length > 0) latestMsg = Number(messages[0].id.replaceAll('message-',''));
-	return latestMsg;
-}
 
 // whether an initial set of messages has already been loaded on the page
 var initialLoaded = false;
+// timestamp of last edit check
+var lastEditCheck = Date.now() / 1000;
 // load all new messages
 function loadChat(repeat){
-	let latestMsg = getLatestLoadedMessage();
-	
-	var content;
-	$.get("/chat/loader.php?chat_table=" + chatTableName + "&from=" + latestMsg + "&timezone-offset=" + timezoneOffset, function(data){
-			content = data;
-			$('#messages').prepend(content);
-			updateLoadOlder();
-	});
-	
-	/* DEBUG temprarily removing this because I need to find a way that doesn't involve an insane number of POST requests
-	
-	// if an initial set of messages has been loaded, refresh the existing messages
-	if (initialLoaded) {
-		let messages = document.getElementsByClassName('message');
-		for (let i = 0; i < messages.length; i++) {
-			refreshMessage(messages[i].id.replaceAll('message-',''));
+	if (typeof sendingMessage == 'undefined' || sendingMessage == false) {
+		let messages = document.getElementsByClassName('message','deleted');
+		let latestMsgId = 0;
+		if (messages.length > 0) latestMsgId = Number(messages[0].id.replaceAll('message-',''));
+		
+		let getVars = "chat_table=" + chatTableName + "&from=" + latestMsgId + "&timezone-offset=" + timezoneOffset;
+		var content;
+		$.get("/chat/loader.php?" + getVars, function(data){
+				content = data;
+				$('#messages').prepend(content);
+				updateLoadOlder();
+		});
+		
+		if (initialLoaded) {
+			const xhr = new XMLHttpRequest();
+			xhr.open("POST", "/chat/check-edits.php", true);
+			xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			// do stuff when request finishes
+			xhr.onreadystatechange = () => {
+				if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+					if (xhr.responseText != "") {
+						try {
+							let editedMessages = JSON.parse(xhr.responseText);
+							for (let i = 0; i < editedMessages.length; i++) {
+								console.log('updating message id '+editedMessages[i]);
+								refreshMessage(editedMessages[i]);
+							}
+						} catch (error) {
+							console.error(xhr.responseText);
+						}
+					}
+				}
+			};
+			// send the variables
+			xhr.send(`from=${getOldestLoadedMessage()}&since=${lastEditCheck}&chat-table=${chatTableName}`);
+			// log the new last edit check time
+			lastEditCheck = (Date.now() / 1000) - 5; // 5 seconds of extra just in case of lag
 		}
+		
+		initialLoaded = true;
 	}
-	
-	*/
-	
-	initialLoaded = true;
 	if (repeat !== false) setTimeout(loadChat, 4000);
 }
 

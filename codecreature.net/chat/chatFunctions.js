@@ -125,12 +125,49 @@ function deleteMessage(id) {
 				// if an error occurred, give an alert with error message
 				if (xhr.responseText != '') alert('Error deleting message:\n' + xhr.responseText);
 				// if deleting was successful, delete the message element
-				else document.getElementById('message-'+id).remove();
+				else deleteLocalMessage(id);
 			}
 		};
 		// send the variables
 		xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
 	}
+}
+
+// check if newer sibling message exists and is by the same user as the given message
+function newerStackSibling(message) {
+	let sib = message.previousElementSibling;
+	if (
+		sib && message.dataset.uid == sib.dataset.uid
+		&& Math.abs(Number(message.dataset.timestamp) - Number(sib.dataset.timestamp)) < 3600 // less than 1 hour apart
+	) {
+		return sib;
+	} else return false;
+}
+// check if older sibling message exists and is by the same user as the given message
+function olderStackSibling(message) {
+	let sib = message.nextElementSibling;
+	if (
+		sib && message.dataset.uid == sib.dataset.uid
+		&& Math.abs(Number(message.dataset.timestamp) - Number(sib.dataset.timestamp)) < 3600 // less than 1 hour apart
+	) {
+		return sib;
+	} else return false;
+}
+
+// delete the LOCAL HTML element of a message only (no permission check required)
+function deleteLocalMessage(id) {
+	let message = document.getElementById('message-'+id);
+	// put in 'deleted' placeholder
+	let del = document.createElement('div');
+	del.classList.add('message','deleted');
+	del.id = 'message-'+id;
+	if (message.classList.contains('self')) del.classList.add('self');
+	del.innerHTML = "(message deleted)";
+	message.after(del);
+	// delete the element
+	message.remove();
+	// check if this message is part of a stack by a single user
+	updateMessageStackStatus(id);
 }
 
 // report message with given id
@@ -153,40 +190,68 @@ function reportMessage(id) {
 }
 
 function refreshMessage(id) {
-	const xhr = new XMLHttpRequest();
-	xhr.open("POST", "/chat/get-message.php", true);
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// do stuff when request finishes
-	xhr.onreadystatechange = () => {
-		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-			if (xhr.responseText != '') {
-				let message = JSON.parse(xhr.responseText);
-				let el = document.getElementById(`message-${id}`);
-				
-				if (message["exists"] == "false") {
-					let del = document.createElement('div');
-					del.classList.add('deleted');
-					if (el.classList.contains('self')) del.classList.add('self');
-					del.innerHTML = "(message deleted)";
-					el.after(del);
-					el.remove();
-				} else {
-					let html = message["message-HTML"];
-					el.querySelector('.content').innerHTML = html;
-					tqAlts(el);
-					
-					if (message["edited"] && message["edited"] != '') el.querySelector('.edited').classList.remove('hidden');
-					
-					// update date display text
-					el.querySelector('.date-text').innerHTML = formatMessageDisplayDate(message["date"]);
-				}
+	id = Number(id);
+	let getVars = "chat_table=" + chatTableName + "&message_id=" + id + "&timezone-offset=" + timezoneOffset;
+	var content;
+	$.get("/chat/loader.php?" + getVars, function(data){
+			let message = document.getElementById(`message-${id}`);
+			message.id = "";
+			// insert the refreshed message
+			message.insertAdjacentHTML("afterend",data);
+			// delete the original
+			message.remove();
+			// run setup on the refreshed message
+			let refreshedMessage = document.getElementById(`message-${id}`);
+			messageSetup(id);
+	});
+}
+
+function messageSetup(id) {
+	let message = document.getElementById(`message-${id}`);
+	if (message && !message.classList.contains('deleted')) {
+		message.querySelector('.date-text').innerHTML = formatMessageDisplayDate(message.dataset.timestamp);
+		// assign text and alt text for all typing quirk elements in the message that was just loaded
+		tqAlts(message);
+		// open special message right click menu on right clicking message
+		message.querySelector('.bubble').addEventListener("contextmenu",(e)=>{
+			messageRightClick(e,id,message.classList.contains('self'));
+		});
+		// check if this message is part of a stack by a single user
+		updateMessageStackStatus(id);
+	} else if (!message) {
+		console.error(`Could not locate message with id = ${id} in the DOM`);
+	}
+}
+
+// updates whether the message is in a stack of messages by the same user
+function updateMessageStackStatus(id,updateSiblings) {
+	if (typeof id == 'string') id = id.replaceAll('message-','');
+	let message = document.getElementById(`message-${id}`);
+	
+	if (message) {
+		// update its siblings
+		if (updateSiblings !== false) {
+			console.log('updating sibs');
+			if (message.nextElementSibling) updateMessageStackStatus(message.nextElementSibling.id,false);
+			if (message.previousElementSibling) updateMessageStackStatus(message.previousElementSibling.id,false);
+		}
+		if (!message.classList.contains('deleted')) {
+			let nSS = newerStackSibling(message);
+			let oSS = olderStackSibling(message);
+			// if it's in a stack
+			if (nSS || oSS) {
+				message.classList.add('stack');
+				// if it's at the top of a stack
+				if (nSS) { message.classList.add('stack-top'); }
+				// if it's not at the top of a stack
+				if (oSS) { message.classList.remove('stack-top'); }
 			} else {
-				alert(`Couldn't load message #${id}.`);
+				message.classList.remove('stack','stack-top');
 			}
 		}
-	};
-	// send the variables
-	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+	} else {
+		console.error(`Could not locate message with id = ${id} in the DOM`);
+	}
 }
 
 function formatMessageDisplayDate(seconds) {

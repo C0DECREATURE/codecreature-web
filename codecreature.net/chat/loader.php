@@ -44,22 +44,32 @@ if (isset($_GET['message_id'])) {
 
 $result = mysqli_query($chat_conn, $sql);
 
-
 while ($message = mysqli_fetch_array($result)) {
 	$message_user = getPublicUserData($message['user_id']);
+	
 	if (empty($message['error'])) {
 		// determine whether the current user sent this message
 		$own_message = (
 			($user_id == "0" && $message_user['id'] == "0" && $message['IP_address'] == $user_IP)
 			|| ($user_id != "0" && $message_user['id'] == $_SESSION["id"])
 		) ? true : false;
-	?>
+		
+		$html_id = "message-".$message['id'];
+		$html_own = $own_message ? ' self' : '';
+		
+		if (intval($message['deleted']) == 1) {
+			echo "<div id='$html_id' class='message deleted $html_own'>(message deleted)</div>";
+			continue;
+		} else {
+?>
 	<div class="message<?php
 			echo $own_message ? ' self' : '';
 			echo !empty($message_user['color']) ? " ".$message_user['color'] : "";
 			echo " ".$message_user['authorization'];
 		?>"
 		id="message-<?php echo $message['id']; ?>"
+		data-uid="<?php echo $message['user_id']; ?>"
+		data-timestamp="<?php echo $message['date']; ?>"
 		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
 		<img class="icon" src="<?php echo $message_user['icon']; ?>" alt="">
 		
@@ -79,27 +89,17 @@ while ($message = mysqli_fetch_array($result)) {
 				echo htmlspecialchars_decode($bbcode->Parse($message['message']));
 			?></div>
 		</div>
-	</div>
-	<script>
-		(()=>{
-			<?php echo "let message = document.getElementById('message-".$message['id']."');"; ?>
-			// assign display date
-			<?php
-				$date = $message['date'];
-				echo "message.querySelector('.date-text').innerHTML = formatMessageDisplayDate($date)";
-			?>
-			// assign text and alt text for all typing quirk elements in the message that was just loaded
-			tqAlts(message);
-			// open special message right click menu on right clicking message
-			message.addEventListener("contextmenu",(e)=>{
+		<script>
+			(()=>{
 				<?php
 					$own_message_txt = $own_message ? 'true' : 'false';
-					echo "messageRightClick(e, ".$message['id'].", ". $own_message_txt .");";
+					echo "messageSetup(".$message['id'].")";
 				?>
-			});
-		})();
-	</script>
-		<?php
+			})();
+		</script>
+	</div>
+<?php
+		}
 	} else echo $message["error"];
 }
 

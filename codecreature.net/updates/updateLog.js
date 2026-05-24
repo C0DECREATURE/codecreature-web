@@ -26,6 +26,18 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-24T06:59'),
+		authors: ['emery'],
+		tags: ['chat','minor'],
+		summary: `
+			small adjustments to <a href="/chat">chat</a>
+		`,
+		details: `
+			<p>Edited messages now update live for others (without making a ridiculous number of requests per minute like it used to), messages sent less than an hour apart by the same user have condensed styling, and the message length limit for the sending box actually matches the backend so long messages aren't cut short behind the scenes anymore.</p>
+			<p>Also, deleted messages now appear permanently to all users as an anonymous "message deleted" indicator. Subject to change based on feedback!</p>
+		`
+	},
+	{
 		date: new Date('2026-05-22T22:02'),
 		authors: ['emery'],
 		tags: ['trinkets'],
