@@ -35,7 +35,7 @@ function getOldestMessageId($table_name) {
 		throw new Exception('Invalid chatroom name "'.$table_name.'"');
 	} else {
 		// get id of oldest message in database
-		$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$table_name." ORDER BY date LIMIT 1;");
+		$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$table_name." WHERE date IS NOT NULL ORDER BY date LIMIT 1;");
 		mysqli_stmt_execute($sql);
 		mysqli_stmt_bind_result($sql, $oldest_message_id);
 		while (mysqli_stmt_fetch($sql)) { return $oldest_message_id; }
