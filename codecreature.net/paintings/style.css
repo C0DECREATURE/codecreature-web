@@ -73,6 +73,11 @@ figure .comments > * {
 }
 
 figure > img {
-	max-width: min(85vw,80vh);
+	width: 100%;
+	max-width: min(90vw,80vh);
 	max-height: 80vh;
+}
+
+.card.short > img {
+	max-height: 65vh;
 }
