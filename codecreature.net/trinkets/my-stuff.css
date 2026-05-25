@@ -16,6 +16,14 @@ body:before {
 	opacity: .85;
 }
 
+#drag-wrapper {
+	top: -100px; left: -400px;
+}
+.repositioner {
+	top: 100px;
+	left: 400px;
+}
+
 .page-settings {
 	--open-button-fill: none;
 	--open-button-background: none;
@@ -297,7 +305,8 @@ body:before {
 
 /* FOOL TAROT CARD */
 #tarot-fool { transition: transform .75s; }
-#tarot-fool:hover { transform: translateY(-50%); }
+#tarot-fool:hover { transform: translateY(-45%); }
+#tarot-fool .paper-popout { top: 55%; }
 
 /* SNAILFISH LINK */
 #snailfish:hover img { scale: 1.05; }
@@ -317,17 +326,6 @@ body:before {
 #insect-lamp .light { top: 10%; }
 #insect-lamp:after { clip-path: polygon(32% 5%, 63% 5%, 100% 60%, 100% 65%, 54% 66%, 80% 95%, 68% 100%, 23% 100%, 16% 94%, 42% 66%, 0% 67%, 0% 62%); }
 
-/* containers with clip path interaction area */
-.clipped {
-	pointer-events: none;
-	&:after {
-		pointer-events: initial;
-		content: '';
-		display: block; position: absolute; top: 0; left: 0;
-		width: 100%; height: 100%;
-	}
-	img:not(.hover-hide) { position: relative; }
-}
 #hey-hand:after {
 	clip-path: polygon(26% 1%, 71% 0%, 100% 23%, 100% 32%, 85% 57%, 79% 100%, 38% 100%, 38% 83%, 0% 57%, 0% 50%, 32% 50%);
 }

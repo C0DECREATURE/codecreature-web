@@ -4,6 +4,6 @@ window.addEventListener('load', ()=>{
 		document.getElementById('drag-wrapper').classList.remove('hidden');
 		document.getElementById('load-screen').classList.add('hidden');/* Execute the magnify function: */
 		// execute magnifier function
-		magnify("shadow-box-img", 2);
+		if (typeof magnify != "undefined") magnify("shadow-box-img", 2);
 	});
 });

@@ -78,11 +78,12 @@ function dragElement(elmnt) {
 		elmnt.style.top = top + "px";
 		elmnt.style.left = left + "px";
 		
-		let windowScenes = document.getElementsByClassName('window-scene');
+		let parallax2 = document.querySelectorAll('.window-scene,.parallax');
+		console.log(parallax2.length);
 		let scale = .07;
-		for (let i = 0; i < windowScenes.length; i++) {
-			windowScenes[i].style.backgroundPositionX = `${left*scale}px, 0px`;
-			windowScenes[i].style.backgroundPositionY = `${top*scale}px, 0px`;
+		for (let i = 0; i < parallax2.length; i++) {
+			parallax2[i].style.backgroundPositionX = `${left*scale}px, 0px`;
+			parallax2[i].style.backgroundPositionY = `${top*scale}px, 0px`;
 		}
 	}
 

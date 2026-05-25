@@ -189,21 +189,18 @@ main {
 /* section behind the window that gets dragged */
 #drag-wrapper {
 	position: absolute;
-	top: -100px; left: -400px;
-	width: 2000%;
-	height: 2000%;
+	width: var(--page-width);
+	height: var(--page-height);
 }
 
-.repositioner {
-	position: relative;
-	top: 100px;
-	left: 400px;
-}
+.repositioner { position: relative; }
 
 .background-layer {
 	mix-blend-mode: multiply;
 	opacity: 0.5;
 }
+
+.parallax { background-attachment: fixed; }
 
 :has(> .hover-hide) {
 	position: absolute;
@@ -215,6 +212,18 @@ main {
 .hover-hide {
 	filter: none;
 	left: 0; top: 0;
+}
+
+/* containers with clip path interaction area */
+.clipped {
+	pointer-events: none;
+	&:after {
+		pointer-events: initial;
+		content: '';
+		display: block; position: absolute; top: 0; left: 0;
+		width: 100%; height: 100%;
+	}
+	img:not(.hover-hide) { position: relative; }
 }
 
 #load-screen {

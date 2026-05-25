@@ -1,0 +1,82 @@
+:root {
+	--page-width: 1920px;
+	--page-height: 1080px;
+	--text: #000;
+	--link-text: #32556a;
+	--link-hover: #131745;
+	--shadow: drop-shadow(4px 4px 3px #21120c88);
+	--paper-color: #dfd4ac;
+	--cursor: url("cursor_arrow.png"), auto;
+	--cursor-pointer: url("cursor_pointer.png"), auto;
+}
+
+body {
+	background: #000;
+}
+body:before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: -1000;
+	width: 100%;
+	height: 100%;
+	background-image: url('/graphix/bg/arcade-circles.png');
+	background-size: min(500px,50vw);
+	background-repeat: repeat;
+	background-position: top left;
+	background-attachment: fixed;
+	opacity: .85;
+}
+
+.page-settings {
+	--open-button-fill: none;
+	--open-button-background: none;
+	--open-button-border: none;
+	--background: var(--paper-color);
+	--border: none;
+	--outline: 0px;
+	--color: var(--text);
+	--accent: var(--text);
+}
+#page-settings-button { padding: 0; margin: 0; }
+#page-settings-button .paper-popout {
+	line-height: initial;
+	right: calc(100% - 22px);
+	span { padding-right: calc(.5em + 22px); }
+}
+#page-settings-contents {
+	border-radius: 0;
+	filter: var(--shadow);
+	padding-top: 1.5em;
+	label { font-weight: bold; }
+	button { color: var(--link-text); }
+	button:hover { color: var(--link-hover); }
+}
+
+#intro {
+	position: absolute;
+	z-index: 900;
+	left: 365px; top: 165px;
+	display: block;
+	font-family: "Victorian Parlor", serif;
+	font-size: 45px;
+	color: #47341a;
+	background: #fff8df;
+	p {
+		opacity: 0.85;
+		position: absolute;
+		width: 8em;
+		top: 50%; left: 50%;
+		transform: translate(-50%,-50%);
+	}
+}
+
+.water-blob {
+	position: absolute;
+	width: 900px; height: 900px;
+	background-image: url('/graphix/bg/water.jpg'),
+										url('/graphix/bg/pool_tiles.jpg');
+	background-blend-mode: hard-light;
+	background-size: 300px, 400px;
+	mask: url('clip-paths/water-blob.svg');
+}
