@@ -20,17 +20,19 @@ a.child-page {
 	color: inherit;
 	font-weight: bold;
 	font-size: 1.15em;
+}
+a.child-page .bubble {
 	border: 4px var(--bubble-bg) solid;
 }
-a.child-page:hover {
+a.child-page .bubble:hover {
 	color: var(--d-green);
 	background: var(--l-green);
 	border-color: var(--green);
 }
-a.child-page:active {
+a.child-page:active .bubble {
 	transform: translate(4px, 6px);
 	box-shadow: none;
 }
-.child-page:nth-of-type(odd) {
+.child-page:nth-of-type(odd) .bubble {
 	border-radius: 1rem 1rem 0 1rem;
 }
