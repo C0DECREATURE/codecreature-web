@@ -36,7 +36,7 @@ const updateLog = [
 			<figure>
 				<img src="images/trinkets_2026_05_25.avif" alt="Screenshot of the the trinkets palette menu. An antique paint-splattered palette on the left has buttons for various color options. Tucked under it on the right is a gold-framed painting of several cats.">
 			</figure>
-			<p>The trinkets palette selection menu is decorative instead of just sad text!</p>
+			<p>The trinkets palette selection menu is decorative instead of just sad text! It's also now possible to move around with the keyboard arrow keys.</p>
 		`
 	},
 	{

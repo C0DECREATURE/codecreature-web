@@ -12,6 +12,18 @@ function dragElement(elmnt) {
 	// move the DIV from anywhere inside the DIV:
 	elmnt.addEventListener('mousedown', dragMouseDown);
 	elmnt.addEventListener('touchstart', dragMouseDown);
+	document.addEventListener('keydown', function(e) {
+		if (pageDraggable) {
+			e = e || window.event;
+			
+			let keyDragSpeed = 10;
+			if (e.code == "ArrowRight" || e.code == "ArrowLeft" || e.code == "ArrowUp" || e.code == "ArrowDown") e.preventDefault();
+			if (e.code == "ArrowRight") dragElementBy(keyDragSpeed,0);
+			if (e.code == "ArrowLeft") dragElementBy(keyDragSpeed * -1,0);
+			if (e.code == "ArrowUp") dragElementBy(0,keyDragSpeed * -1);
+			if (e.code == "ArrowDown") dragElementBy(0,keyDragSpeed);
+		}
+	});
 
 	function dragMouseDown(e) {
 		if (pageDraggable) {
@@ -37,36 +49,40 @@ function dragElement(elmnt) {
 			dy = mouseY - (e.clientY || e.targetTouches[0].pageY);
 			mouseX = (e.clientX || e.targetTouches[0].pageX);
 			mouseY = (e.clientY || e.targetTouches[0].pageY);
-			// lock dragging to prevent going too far off screen
-			let top = elmnt.offsetTop - dy;
-			let left = elmnt.offsetLeft - dx;
-			
-			// get bottom right corner marker
-			let bottomRightRect = document.getElementById("bottom-right-marker").getBoundingClientRect();
-			// prevent dragging too far up
-			let curTop = Number(elmnt.style.top.replaceAll("px",""));
-			let maxTopMove = bottomRightRect.bottom - window.innerHeight;
-			top = Math.max(top, curTop-maxTopMove);
-			// prevent dragging too far left
-			let curLeft = Number(elmnt.style.left.replaceAll("px",""));
-			let maxLeftMove = bottomRightRect.right - window.innerWidth;
-			left = Math.max(left, curLeft-maxLeftMove);
-			// prevent dragging too far down
-			top = Math.min(top, 0);
-			// prevent dragging too far right
-			left = Math.min(left, 0);
-			
-			//if (bottomRightRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
-			// set the element's new position:
-			elmnt.style.top = top + "px";
-			elmnt.style.left = left + "px";
-			
-			let windowScenes = document.getElementsByClassName('window-scene');
-			let scale = .07;
-			for (let i = 0; i < windowScenes.length; i++) {
-				windowScenes[i].style.backgroundPositionX = `${left*scale}px, 0px`;
-				windowScenes[i].style.backgroundPositionY = `${top*scale}px, 0px`;
-			}
+			dragElementBy(dx,dy);
+		}
+	}
+	
+	function dragElementBy(dx,dy) {
+		// lock dragging to prevent going too far off screen
+		let top = elmnt.offsetTop - dy;
+		let left = elmnt.offsetLeft - dx;
+		
+		// get bottom right corner marker
+		let bottomRightRect = document.getElementById("bottom-right-marker").getBoundingClientRect();
+		// prevent dragging too far up
+		let curTop = Number(elmnt.style.top.replaceAll("px",""));
+		let maxTopMove = bottomRightRect.bottom - window.innerHeight;
+		top = Math.max(top, curTop-maxTopMove);
+		// prevent dragging too far left
+		let curLeft = Number(elmnt.style.left.replaceAll("px",""));
+		let maxLeftMove = bottomRightRect.right - window.innerWidth;
+		left = Math.max(left, curLeft-maxLeftMove);
+		// prevent dragging too far down
+		top = Math.min(top, 0);
+		// prevent dragging too far right
+		left = Math.min(left, 0);
+		
+		//if (bottomRightRect.left > 0) { left = Math.min(Number(elmnt.style.left.replaceAll("px","")), left); }
+		// set the element's new position:
+		elmnt.style.top = top + "px";
+		elmnt.style.left = left + "px";
+		
+		let windowScenes = document.getElementsByClassName('window-scene');
+		let scale = .07;
+		for (let i = 0; i < windowScenes.length; i++) {
+			windowScenes[i].style.backgroundPositionX = `${left*scale}px, 0px`;
+			windowScenes[i].style.backgroundPositionY = `${top*scale}px, 0px`;
 		}
 	}
 

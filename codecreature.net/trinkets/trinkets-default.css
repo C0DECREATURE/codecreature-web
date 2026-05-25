@@ -51,22 +51,6 @@ nav {
 .effect-layers.el-1 { background: #806050; mix-blend-mode: color; opacity: .22; }
 .effect-layers.el-2 { background: #633b35; mix-blend-mode: color-burn; opacity: .05; }
 .effect-layers.el-3 { background: #5d4a49; mix-blend-mode: overlay; opacity: .1; }
-/* color "palette" alternates */
-.color-none { .effect-layers { display: none; } }
-.color-sepia {
-	.effect-layers.el-1 { background: #704c2e; mix-blend-mode: color; opacity: .45; }
-	.effect-layers.el-2, .effect-layers.el-3 { opacity: 0; }
-}
-.color-gray {
-	.effect-layers.el-1 { background: #000; mix-blend-mode: saturation; opacity: 1; }
-	.effect-layers.el-2 { mix-blend-mode: color-dodge; opacity: 0.1; }
-	.effect-layers.el-3 { background: #999; mix-blend-mode: overlay; opacity: 1; }
-}
-.color-neon {
-	.effect-layers.el-1 { background: #ffcaab; mix-blend-mode: soft-light; opacity: 0.25; }
-	.effect-layers.el-3 { background: #21233d; mix-blend-mode: color-dodge; opacity: .25; }
-	.effect-layers.el-2 { background: #f00; mix-blend-mode: saturation; opacity: .5; }
-}
 
 /* paper tape popout on hover */
 .paper-popout {
@@ -201,34 +185,6 @@ main {
 #top-right-marker { top: 0px; left: var(--page-width); rotate: 90deg }
 #bottom-right-marker { top: var(--page-height); left: var(--page-width); rotate: 180deg }
 #bottom-left-marker { top: var(--page-height); left: 0px; rotate: -90deg }
-
-#shadow-box {
-	position: relative;
-	left: 1050px; top: 760px;
-	.img-magnifier-glass {
-		position: absolute;
-		z-index: 1;
-		cursor: none;
-		border-radius: 50%;
-		/*Set the size of the magnifier glass:*/
-		width: 220px;
-		aspect-ratio: 1;
-		left: 25px;
-		top: 211px;
-		img {
-			cursor: initial;
-			rotate: 42deg;
-      width: 104%;
-      left: -39%;
-      top: -16%;
-      filter: drop-shadow(5px 7px 4px #21120c99);
-			pointer-events: none;
-		}
-	}
-}
-.img-magnifier-container {
-	position: relative;
-}
 
 /* section behind the window that gets dragged */
 #drag-wrapper {
