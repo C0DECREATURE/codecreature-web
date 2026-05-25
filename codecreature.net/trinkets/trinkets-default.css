@@ -36,7 +36,7 @@ nav {
 	z-index: 1000;
 }
 
-::backdrop { background: #21120c; mix-blend-mode: multiply; opacity: .4; }
+::backdrop { background: #21120c; mix-blend-mode: multiply; opacity: .6; }
 
 .link:hover img, .link:active img, .link:focus-visible img { transform: scale(1.1); }
 
@@ -59,7 +59,7 @@ nav {
 }
 .color-gray {
 	.effect-layers.el-1 { background: #000; mix-blend-mode: saturation; opacity: 1; }
-	.effect-layers.el-2 { opacity: 0.2; }
+	.effect-layers.el-2 { mix-blend-mode: color-dodge; opacity: 0.1; }
 	.effect-layers.el-3 { background: #999; mix-blend-mode: overlay; opacity: 1; }
 }
 .color-neon {
@@ -174,18 +174,18 @@ nav {
 	overflow: auto;
 	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
 	box-shadow: inset 3px 8px 5px #21120c99;
+	background: #e4d1ac; /* DEBUG - can't use var(--paper-color) because popover is above sepia overlay */
 }
 #credits ul { margin: 0; }
-[popover] a, [popover] button { font-style: italic; font-weight: bold; color: var(--link-text); }
-[popover] a:hover, [popover] button:hover { color: var(--link-hover); }
+#credits a, #credits button { font-style: italic; font-weight: bold; color: var(--link-text); }
+#credits a:hover, #credits button:hover { color: var(--link-hover); }
 [popover] .wrapper {
 	padding: 1.5em 1em;
-	background: #e4d1ac; /* DEBUG - can't use var(--paper-color) because popover is above sepia overlay */
 }
 [popover] .wrapper :first-child { margin-top: 0; }
 [popover] h4 { margin-bottom: 0; }
 [popover] h2 { font-size: 2.25em; font-family: 'Victorian Parlor', serif; margin-bottom: 0; }
-[popover] .close { font-size: 1.75em; font-family: 'Victorian Parlor', serif; }
+#credits .close { font-size: 1.75em; font-family: 'Victorian Parlor', serif; }
 
 main {
 	position: relative;

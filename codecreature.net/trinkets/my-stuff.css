@@ -64,11 +64,78 @@ body:before {
 	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
+#palettes { pointer-events: none; }
+#palettes button, #palettes .bg { pointer-events: initial; }
+#palettes * { overflow: visible; }
+#palettes .wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: min(900px,100vw);
+	height: 100vh;
+}
+#palettes .paint-palette .bg {
+	clip-path: polygon(26% 0%, 70% 0%, 100% 22%, 100% 62%, 63% 100%, 20% 100%, 0% 90%, 0% 71%, 25% 67%, 0% 51%, 0% 25%);
+}
+#palettes .paint-palette, #palettes .preview {
+	position: relative;
+	width: min(80vw,max(300px,49%));
+	max-width: fit-content;
+}
+#palettes .paint-palette { rotate: 8deg; }
+/* overlap palette and preview on wide screens */
+@media screen and (width >= 600px) {
+	#palettes .paint-palette { right: -6%; top: -5%; }
+	#palettes .preview { left: -6%; bottom: -5%; z-index: -1; }
+}
+#palettes .bg {
+	position: relative;
+	max-width: 100%; max-height: 75vh;
+	filter: var(--shadow);
+}
+#palettes .preview .effect-layers {
+	width: 54%;
+  height: 58%;
+  top: 20%;
+  left: 23%;
+}
+#palettes .options {
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
+	padding: 12% 8% 43% 25%;
+	font-size: max(1.5rem,min(5vh,min(4vw,40px)));
+	font-family: 'Paint Hand', sans-serif;
+	line-height: 1.5em;
+}
+#palettes .paint-palette button {
+	text-align: center;
+	color: var(--paper-color);
+	background-size: 100% 100%;
+	text-transform: lowercase;
+}
+#palettes .paint-palette button.palette-option:hover, #palettes .close:hover { scale: 1.1; color: #fff; }
+#palettes .paint-palette button.palette-option {
+	display: block;
+	position: relative;
+	margin-bottom: .1em;
+	padding: .2em 1em;
+}
+#palettes .paint-palette button.palette-option:nth-child(1) { right: -5%; background-image: url('images/paint_1.png'); }
+#palettes .paint-palette button.palette-option:nth-child(2) { right: -27%; background-image: url('images/paint_2.png'); }
+#palettes .paint-palette button.palette-option:nth-child(3) { right: -33%; background-image: url('images/paint_3.png'); }
+#palettes .paint-palette button.palette-option:nth-child(4) { right: -31%; background-image: url('images/paint_4.png'); }
+#palettes .paint-palette button.palette-option:nth-child(5) { right: -22%; background-image: url('images/paint_5.png'); color: var(--text); }
+#palettes .close {
+	position: absolute; bottom: 4%;
+	background-image: url('images/paint_6.png');
+	padding: .2em .5em;
+}
+/* button to open palette popup */
 #palette-button { z-index: 950; }
 #palette-button .paper-popout { left: 69%; top: 59%; }
-.palette-option {
-	display: block;
-}
 
 /* window background image */
 .wrapper:has(> .window) { position: absolute; }

@@ -1,0 +1,2 @@
+@font-face { font-family: "Paint Hand"; font-display: swap; src: local('Paint Hand'), url('/fonts/PaintHand/PaintHand.ttf'); }
+.txt-painthand { font-family: "Paint Hand", sans-serif; }

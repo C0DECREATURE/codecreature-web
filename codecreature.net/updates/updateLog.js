@@ -26,6 +26,20 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-25T07:54'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			fancy <a href="/trinkets">trinkets</a> palette
+		`,
+		details: `
+			<figure>
+				<img src="images/trinkets_2026_05_25.avif" alt="Screenshot of the the trinkets palette menu. An antique paint-splattered palette on the left has buttons for various color options. Tucked under it on the right is a gold-framed painting of several cats.">
+			</figure>
+			<p>The trinkets palette selection menu is decorative instead of just sad text!</p>
+		`
+	},
+	{
 		date: new Date('2026-05-24T06:59'),
 		authors: ['emery'],
 		tags: ['chat','minor'],
