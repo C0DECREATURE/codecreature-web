@@ -25,7 +25,7 @@ body:not(.defaultCursor) {
 .passthrough, .corner { pointer-events: none; }
 
 .container { position: absolute; }
-.container img { position: relative; }
+.container img:first-of-type { position: relative; }
 
 img { user-select: none; }
 main img, #credit-button, .navbutton { position: absolute; }
@@ -48,13 +48,11 @@ nav {
 	width: 100%; height: 100%;
 	pointer-events: none;
 }
-.effect-layers.el-1 { background: #806050; mix-blend-mode: color; opacity: .22; }
-.effect-layers.el-2 { background: #633b35; mix-blend-mode: color-burn; opacity: .05; }
-.effect-layers.el-3 { background: #5d4a49; mix-blend-mode: overlay; opacity: .1; }
+/* color "palette" alternates */
+.color-none .effect-layers { display: none; }
 
 /* paper tape popout on hover */
 .paper-popout {
-	z-index: -1;
 	position: absolute;
 	overflow: hidden;
 	font-family: 'Victorian Parlor', serif;
@@ -127,7 +125,7 @@ nav {
   left: 595px;
 	rotate: 5deg;
 	border-radius: 40%;
-	img { position: initial; pointer-events: none; filter: none !important; }
+	img { position: relative; pointer-events: none; filter: none !important; }
 }
 [popover] {
 	position: fixed;
@@ -202,16 +200,22 @@ main {
 
 .parallax { background-attachment: fixed; }
 
-:has(> .hover-hide) {
+:has(> .hover-hide), :has(> .hover-show) {
 	position: absolute;
-	img { position: absolute; }
+	filter: var(--shadow);
+	img { left: 0; top: 0; filter: none; }
+}
+.hover-hide { }
+:has(> .hover-hide) {
 	&:hover, &:focus-visible, &:focus, &:active {
 		.hover-hide { opacity: 0; }
 	}
 }
-.hover-hide {
-	filter: none;
-	left: 0; top: 0;
+.hover-show { opacity: 0; }
+:has(> .hover-show) {
+	&:hover, &:focus-visible, &:focus, &:active {
+		.hover-show { opacity: 1; }
+	}
 }
 
 /* containers with clip path interaction area */

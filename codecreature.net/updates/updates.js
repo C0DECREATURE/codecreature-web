@@ -271,7 +271,10 @@ const updates = {
 		// make images in detail area full viewable
 		for (let img of Array.from(details.querySelectorAll('img'))) {
 			let parType = img.parentNode.nodeName;
-			if (!parType || (parType.toLowerCase() != 'button' && parType.toLowerCase() != 'button')) {
+			if (
+				(!parType || (parType.toLowerCase() != 'button' && parType.toLowerCase() != 'button'))
+				&& !img.classList.contains('no-full-view')
+			) {
 				img.classList.add('full-viewable');
 			}
 		}

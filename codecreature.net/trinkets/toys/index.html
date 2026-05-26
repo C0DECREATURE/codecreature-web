@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<title>silly trinkets</title>
+		<title>toy trinkets</title>
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="../favicon.ico">
 		<link rel="icon" type="image/png" sizes="16x16" href="../favicon16.png">
@@ -17,7 +17,7 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('');</script>
+		<script>fonts.load('Halogen');</script>
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
@@ -31,26 +31,26 @@
 	
 	<!-----------BODY------------------->
 	<body>
-		<div class="effect-layers el-1"></div> <div class="effect-layers el-2"></div> <div class="effect-layers el-3"></div>
+		<div class="effect-layers el-1"></div>
 		
 		<base target="_blank"><!-- open links in new tab unless otherwise specified -->
 		
 		<nav>
 			<p class="sr-only">Sorry, this page is not screen reader friendly!</p>
 			<a href="/" target="_self" class="navbutton home glow-focus">
-				<img src="images/house_charm.png">
 				<div class="paper-popout"><span>Home</span></div>
+				<img class="sticker" src="/graphix/stickers/birdhouse.png" alt="">
 			</a>
 			<div id="page-settings" class="page-settings">
 				<button id="page-settings-button" class="navbutton open-page-settings glow-focus" aria-label="page settings">
+					<div class="paper-popout left" style="right: calc(88% - 10px);"><span>Settings</span></div>
 					<img src="images/gear.png" alt="settings">
-					<div class="paper-popout left"><span>Settings</span></div>
 				</button>
 			</div>
 		</nav>
 			
 		<div id="load-screen"><div class="wrapper">
-			<img src="images/waiting_room.png" alt="">
+			<img src="../images/waiting_room.png" alt="">
 			<br>Loading...
 		</div></div>
 		
@@ -63,24 +63,22 @@
 			<!--section to move around when I need to make more space -->
 			<div class="repositioner">
 				
+				
 				<div id="intro">
 					<img src="images/envelope.png" alt="" style="left: -269px; top: -147px; scale: .800;">
 					<p style="left: 21px; top: 16px;">Click and drag to explore...</p>
 				</div>
 				
-				<button id="credit-button" popovertarget="credits" class="glow-focus link">
-					<img src="images/x.png" style="image-rendering: pixelated;">
+				<button id="credit-button" popovertarget="credits" class="sticker glow-focus link" style="top: 66px; left: 560px;">
 					<div class="paper-popout"><span>Credits</span></div>
+					<img src="/graphix/stickers/mrs-grossman-floppy-yellow.png">
 				</button>
 				<div popover="" id="credits"><div class="wrapper">
 					<h2>Credits</h2>
 					
-					<h4>Transparent PNG Blogs</h4>
-					These are some of my favorites for sourcing things!
+					<h4>Backgrounds</h4>
 					<ul>
-						<li><a href="https://snailspng.tumblr.com/">snailspng</a></li>
-						<li><a href="https://oldjewelryfeed.tumblr.com/">oldjewelryfeed</a></li>
-						<li><a href="https://www.tumblr.com/lupineshieldmaiden">lupineshieldmaiden</a></li>
+						<li><a href="https://internetbee.neocities.org/graphics/patterns#beady-faces">Perler bead smiley faces</a> by internetbee</li>
 					</ul>
 					
 					<h4>Misc</h4>
@@ -92,19 +90,27 @@
 				</div></div>
 				<!-- end credits -->
 				
+				<img src="images/collage_stars.png" alt="" style="left: 770px; top: 499px; scale: 0.800; rotate: -23deg;">
+				
 				<div style="position: absolute; rotate: 11deg; left: 731px; top: -85px; width: 700px; height: 700px; background-image: url('/graphix/bg/perler_smiles_green.png'); background-size: 300px; mask: url('clip-paths/perler-blob.svg');"></div>
 				
-				<div class="water-blob parallax parallax-2" style="rotate: 11deg; left: 38px; top: 226px;"></div>
+				<div class="water-blob parallax parallax-reverse" data-parallax-scale="-.2" style="rotate: 11deg; left: 38px; top: 226px; background-position: 0px 0px, 122px 0px, 61px 0px;"></div>
 				
-				<img src="images/inflatable_chair.png" alt="" style="left: 557px; top: 454px; scale: 0.8;">
-				<img src="images/agate_goo.png" alt="" style="left: 465px; top: 384px; scale: 0.8;">
-				<img src="images/cloud_cube.png" alt="" style="left: 2px; top: 360px; scale: 0.8;">
+				<img src="images/inflatable_chair.png" alt="" style="left: 533px; top: 509px; scale: 0.800;">
+				<img src="images/agate_goo.png" alt="" style="left: 465px; top: 384px; scale: 0.800;">
+				<img src="images/cloud_cube.png" alt="" style="left: 2px; top: 360px; scale: 0.800;">
 				<img src="images/mantis_goggles.png" alt="" style="left: 195px; top: 514px;">
 				
-				<img src="images/funky_stars.png" alt="" style="left: 815px; top: -73px; scale: 0.8;">
-				<img src="images/sea_angel_globe.png" alt="" style="left: 649px; top: 45px; scale: 0.8;">
+				<img src="images/sea_angel_globe.png" alt="" style="left: 649px; top: 45px; scale: 0.800;">
 				
-				<img src="images/citrus_kitty.png" alt="" style="left: 1096px; top: 188px;">
+				<img class="sticker" src="/graphix/stickers/dbgci_cat_butterfly.png" alt="" style="left: 1295px; top: 187px; rotate: 9deg; scale: -1 1;">
+				<img src="images/citrus_kitty.png" alt="" style="left: 1114px; top: 224px;">
+				<img src="images/beads_meow.png" alt="" style="left: 1140px; top: 123px; rotate: 20deg;">
+				<a id="garfield" href="/shrines/garfield/merch" class="container glow-focus" style="left: 1285px; top: 407px;">
+					<div class="paper-popout left" style="right: calc(92% - 10px);"><span>Garfield</span></div>
+					<img src="/shrines/garfield/images/merch/vinyl_smile.png" alt="" style="width:160px;">
+				</a>
+			
 			</div>
 		</div></main>
 	</body>

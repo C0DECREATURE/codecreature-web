@@ -78,12 +78,23 @@ function dragElement(elmnt) {
 		elmnt.style.top = top + "px";
 		elmnt.style.left = left + "px";
 		
-		let parallax2 = document.querySelectorAll('.window-scene,.parallax');
-		console.log(parallax2.length);
-		let scale = .07;
-		for (let i = 0; i < parallax2.length; i++) {
-			parallax2[i].style.backgroundPositionX = `${left*scale}px, 0px`;
-			parallax2[i].style.backgroundPositionY = `${top*scale}px, 0px`;
+		let defaultScale = .07;
+		let parallaxElements = document.querySelectorAll('.parallax,.window-scene');
+		for (let i = 0; i < parallaxElements.length; i++) {
+			let el = parallaxElements[i];
+			let bgs = window.getComputedStyle(el, false).backgroundImage.split(",");
+			let elScale = el.dataset.parallaxScale ? el.dataset.parallaxScale : defaultScale;
+			// farthest background doesn't move
+			let bgPos = `0px 0px`;
+			// parallax-reverse = as backgrounds get closer to foreground, they move LESS
+			if (el.classList.contains('parallax-reverse')) {
+				for (let b = 1; b < bgs.length; b++) { bgPos = `${bgPos}, ${left*(elScale/b)}px ${top*(elScale/b)}px`; }
+			// default: as backgrounds get closer to foreground, they move MORE
+			} else {
+				for (let b = bgs.length; b > 1; b--) { bgPos = `${left*(elScale/b)}px ${top*(elScale/b)}px, ${bgPos}`; }
+			}
+			// set the element style
+			parallaxElements[i].style.backgroundPosition = bgPos;
 		}
 	}
 

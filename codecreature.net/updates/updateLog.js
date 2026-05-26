@@ -27,6 +27,24 @@ const updateLog = [
 	},*/
 	{
 		date: new Date('2026-05-25T07:54'),
+		authors: ['prax'],
+		tags: ['trinkets','new page'],
+		summary: `
+			new <a href="/trinkets/toys">toys subpage</a> for trinkets
+		`,
+		details: `
+			<figure>
+				<img src="images/trinkets_toys_2026_05_26.avif" alt="Screenshot of the the new trinkets toys page featuring various colorful toys and objects. The background is mostly black, with large blob islands of color behind some of the objects.">
+			</figure>
+			<p>trinkets needed a section %%4% silly colorful things!! %%i% have a lot of stuff %%2% add %A%later\\l8r% %E%:33c%</p>
+			<figure>
+				<img class="no-full-view" src="/trinkets/images/jack_box_open.png" alt="">
+				<figcaption>%%u% get there from regular trinkets via this jack in the box</figcaption>
+			</figure>
+		`
+	},
+	{
+		date: new Date('2026-05-25T07:54'),
 		authors: ['emery'],
 		tags: ['trinkets'],
 		summary: `
@@ -115,12 +133,12 @@ const updateLog = [
 		details: `
 			<p>just a few small updates! the pokemon book links %%2% my pokemon page. also added a couple more regular stamps %%2% the collection</p>
 			<figure>
-				<img src="/graphix/stamps/hexagon/snorunt_bounce.gif" alt="">
-				<img src="/graphix/stamps/hexagon/snorunt_bounce_text.gif" alt="">
-				<img src="/graphix/stamps/hexagon/snorunt_bounce_texture.gif" alt="">
-				<img src="/graphix/stamps/hexagon/snorunt_sprite_blue.png" alt="">
-				<img src="/graphix/stamps/hexagon/snorunt_sprite_orange.png" alt="">
-				<img src="/graphix/stamps/hexagon/snorunt_blast.gif" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_bounce.gif" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_bounce_text.gif" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_bounce_texture.gif" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_sprite_blue.png" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_sprite_orange.png" alt="">
+				<img class="no-full-view" src="/graphix/stamps/hexagon/snorunt_blast.gif" alt="">
 				<figcaption>runt stamps... %A%please\\pls% runt with me</figcaption>
 			</figure>
 		`
@@ -797,8 +815,8 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="/graphix/bumperstickers/louis_wain_happy.png" alt="Digital bumper sticker of Louis Wain's last painting. It reads 'I am happy because everyone loves me' beside a blue and red painting of a smiling cat.">
-				<img src="/graphix/stamps/louis_wain_orange.png" alt="Stamp of Louis Wain's painting of a happy orange tabby cat on a green background.">
+				<img class="no-full-view" src="/graphix/bumperstickers/louis_wain_happy.png" alt="Digital bumper sticker of Louis Wain's last painting. It reads 'I am happy because everyone loves me' beside a blue and red painting of a smiling cat.">
+				<img class="no-full-view" src="/graphix/stamps/louis_wain_orange.png" alt="Stamp of Louis Wain's painting of a happy orange tabby cat on a green background.">
 			</p>
 			<p>added a few images %%2% the <a href="/graphix">graphix page</a>, including a couple %A%little\\lil% %A%Louis Wain\\louis wain% things %%i% made %%bc% %%i% love him</p>
 		`
@@ -944,7 +962,7 @@ const updateLog = [
 			new <a href="/graphix#stickers">stickers</a>!
 		`,
 		details: `
-			<p align="center"><img src="/graphix/stickers/dbgci_cat_plush.png" alt=""></p>
+			<p align="center"><img class="no-full-view" src="/graphix/stickers/dbgci_cat_plush.png" alt=""></p>
 			<p>added some fresh stickers to the <a href="/graphix#stickers">graphix page</a> %E%:33%</p>
 		`
 	},
@@ -1211,15 +1229,15 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="/graphix/icons/favicon-16.png" alt="">
-				<img src="/graphix/icons/favicon-32.png" alt="">
-				<img src="/graphix/icons/favicon-48.png" alt="">
-				<img src="/graphix/site-buttons/codecreature.png" alt="codecreature pixel button">
+				<img class="no-full-view" src="/graphix/icons/favicon-16.png" alt="">
+				<img class="no-full-view" src="/graphix/icons/favicon-32.png" alt="">
+				<img class="no-full-view" src="/graphix/icons/favicon-48.png" alt="">
+				<img class="no-full-view" src="/graphix/site-buttons/codecreature.png" alt="codecreature pixel button">
 				<br>finally in a pixel art mood, so we made some favicons and a site button!! if you wanna use the button, please save your own copy (the hosting is fine but the directory is likely to change depending on my impulse control)
 			</p>
 			<p align="center">
 				also a small personal edit of the homestuck <a href="https://mspaintadventures.fandom.com/wiki/Ministrife" target="_blank">ministrife</a> pixel art
-				<br><img src="/graphix/prax/prax_ministrife.png" alt="">
+				<br><img class="no-full-view" src="/graphix/prax/prax_ministrife.png" alt="">
 			</p>
 		`
 	},
@@ -1705,7 +1723,7 @@ const updateLog = [
 		date: new Date('2023-11-30T12:00'),
 		tags: ['worm race','games','minor'],
 		summary: `
-			winners get <a href="/games/worm-race">crowns</a> <img src="/games/worm-race/crown.png" alt="" class="mini">
+			winners get <a href="/games/worm-race">crowns</a> <img src="/games/worm-race/images/crown.png" alt="" class="no-full-view mini">
 		`,
 		details: `
 			<p align="center"><img src="https://i.imgur.com/tJvNU78.png" alt="purple fuzzy worm wearing a gold crown"></p>
@@ -1814,7 +1832,7 @@ const updateLog = [
 		`,
 		details: `
 			<p align="center">
-				<img src="/games/worm-race/bg.png" alt="tiling background image featuring fuzzy worms intertwined with colorful shapes">
+				<img src="/games/worm-race/images/bg.png" alt="tiling background image featuring fuzzy worms intertwined with colorful shapes">
 				<br>smooth and clean <u class="tq-e">:33</u>
 			</p>
 		`
@@ -1837,7 +1855,12 @@ const updateLog = [
 		summary: `
 			worm race chatbox + loading <u class="tq-nep">scr33n</u> <a href="/games/worm-race">worm march</a>
 			<br>
-			<img src="/games/worm-race/pink_racer.png" alt="" class="mini"><img src="/games/worm-race/orange_racer.png" alt="" class="mini"><img src="/games/worm-race/yellow_racer.png" alt="" class="mini"><img src="/games/worm-race/green_racer.png" alt="" class="mini"><img src="/games/worm-race/blue_racer.png" alt="" class="mini"><img src="/games/worm-race/purple_racer.png" alt="" class="mini">
+			<img src="/games/worm-race/images/pink_racer.png" alt="" class="mini no-full-view">
+			<img src="/games/worm-race/images/orange_racer.png" alt="" class="mini no-full-view">
+			<img src="/games/worm-race/images/yellow_racer.png" alt="" class="mini no-full-view">
+			<img src="/games/worm-race/images/green_racer.png" alt="" class="mini no-full-view">
+			<img src="/games/worm-race/images/blue_racer.png" alt="" class="mini no-full-view">
+			<img src="/games/worm-race/images/purple_racer.png" alt="" class="mini no-full-view">
 		`,
 		details: `
 			<p align="center"><img src="https://i.imgur.com/swbRgaD.png" alt="screenshot showing rows of rainbow worms on the loading screen">
@@ -1992,12 +2015,12 @@ const updateLog = [
 				after a whole <u class="tq-nep">w33k</u> of downtime, the <a href="/games/worm-race">worms rise again</a>!! stats reset one last time but %%ill% try %%2% back them up more often going <u class="tq" data-a="forward">furward</u>
 			</p>
 			<p align="center">
-				<img src="/games/worm-race/pink_racer.png" alt="" width="15%">
-				<img src="/games/worm-race/orange_racer.png" alt="" width="15%">
-				<img src="/games/worm-race/yellow_racer.png" alt="" width="15%">
-				<img src="/games/worm-race/green_racer.png" alt="" width="15%">
-				<img src="/games/worm-race/blue_racer.png" alt="" width="15%">
-				<img src="/games/worm-race/purple_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/pink_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/orange_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/yellow_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/green_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/blue_racer.png" alt="" width="15%">
+				<img src="/games/worm-race/images/purple_racer.png" alt="" width="15%">
 			</p>
 			<p>
 				basically i was running dozens of database read/write requests per user per minute, which is bad. had %%2% rewrite the whole php code and half the javascript from scratch (again) and then <u class="tq" data-a="navigate">navig8</u> a whole new host service but the fresh code is way more efficient!! %%u% just gotta refresh the page %%4% health updates if %%u% have had the worm details <u class="tq-nep">scr33n</u> sitting up for a while, no big deal. but <u class="tq">pls</u> dont spam refresh the page lol, it also %A%updates\\upd8s% when %%u% <u class="tq-nep">f33d</u> a worm.
@@ -2011,16 +2034,16 @@ const updateLog = [
 				now i can get back %%2% the actual planned updates, like more art stuff!! finalized the item icons %%4% a start <u class="tq-e">:33</u>
 			</p>
 			<p align="center">
-				<img src="/games/worm-race/apple.png" alt="drawing of a golden apple" width="20%">
-				<img src="/games/worm-race/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
-				<img src="/games/worm-race/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
-				<img src="/games/worm-race/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
+				<img src="/games/worm-race/images/apple.png" alt="drawing of a golden apple" width="20%">
+				<img src="/games/worm-race/images/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
+				<img src="/games/worm-race/images/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
+				<img src="/games/worm-race/images/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
 				</p>
 			<p align="center">
-				<img src="/games/worm-race/icon-movement-1.png" alt="small icon of a green arrow">
-				<img src="/games/worm-race/icon-movement-2.png" alt="small icon of a double arrow">
-				<img src="/games/worm-race/icon-health-pos.png" alt="small icon of a pink heart">
-				<img src="/games/worm-race/icon-health-neg.png" alt="small icon of a purple broken heart">
+				<img src="/games/worm-race/images/icon-movement-1.png" alt="small icon of a green arrow">
+				<img src="/games/worm-race/images/icon-movement-2.png" alt="small icon of a double arrow">
+				<img src="/games/worm-race/images/icon-health-pos.png" alt="small icon of a pink heart">
+				<img src="/games/worm-race/images/icon-health-neg.png" alt="small icon of a purple broken heart">
 				</p>
 			<p>
 				there's also some fancy new UI! <u class="tq" data-a="proper">propurr</u> health bar, more <u class="tq" data-a="informative">infurmative</u> health effects section, and the race looks a %A%little\\lil% bit nicer</p>
@@ -2052,7 +2075,7 @@ const updateLog = [
 		date: new Date('2023-11-15T11:00'),
 		tags: ['games','worm race'],
 		summary: `
-			added <a href="/games/worm-race">worm health system</a> <img src="/games/worm-race/icon-health-pos.png" alt="" class="mini">
+			added <a href="/games/worm-race">worm health system</a> <img src="/games/worm-race/images/icon-health-pos.png" alt="" class="mini">
 		`,
 		details: `
 			<p>worm race health system is up, <a href="/games/worm-race">sabotage is now on the table</a> <u class="tq-e">B33</u></p>

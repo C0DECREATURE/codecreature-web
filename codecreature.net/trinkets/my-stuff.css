@@ -72,8 +72,11 @@ body:before {
 	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
+/* color adjustment layers */
+.effect-layers.el-1 { background: #806050; mix-blend-mode: color; opacity: .22; }
+.effect-layers.el-2 { background: #633b35; mix-blend-mode: color-burn; opacity: .05; }
+.effect-layers.el-3 { background: #5d4a49; mix-blend-mode: overlay; opacity: .1; }
 /* color "palette" alternates */
-.color-none { .effect-layers { display: none; } }
 .color-sepia {
 	.effect-layers.el-1 { background: #704c2e; mix-blend-mode: color; opacity: .45; }
 	.effect-layers.el-2, .effect-layers.el-3 { opacity: 0; }
@@ -310,6 +313,9 @@ body:before {
 
 /* SNAILFISH LINK */
 #snailfish:hover img { scale: 1.05; }
+
+/* JACK IN THE BOX CHARM */
+#jack-box .paper-popout { top: 60%; margin-left: -15%; }
 
 /* LAMP */
 .light {

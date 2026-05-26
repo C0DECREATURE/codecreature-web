@@ -5,28 +5,18 @@
 	--link-text: #32556a;
 	--link-hover: #131745;
 	--shadow: drop-shadow(4px 4px 3px #21120c88);
-	--paper-color: #dfd4ac;
+	--paper-color: #fff;
 	--cursor: url("cursor_arrow.png"), auto;
 	--cursor-pointer: url("cursor_pointer.png"), auto;
 }
 
 body {
 	background: #000;
+	font-family: 'Halogen', 'Comic Sans MS', 'Comic Sans', sans-serif;
 }
-body:before {
-	content: '';
-	display: block;
-	position: absolute;
-	z-index: -1000;
-	width: 100%;
-	height: 100%;
-	background-image: url('/graphix/bg/arcade-circles.png');
-	background-size: min(500px,50vw);
-	background-repeat: repeat;
-	background-position: top left;
-	background-attachment: fixed;
-	opacity: .85;
-}
+
+/* color adjustment layers */
+.effect-layers.el-1 { background: #f00; mix-blend-mode: saturation; opacity: .2; }
 
 .page-settings {
 	--open-button-fill: none;
@@ -38,7 +28,10 @@ body:before {
 	--color: var(--text);
 	--accent: var(--text);
 }
-#page-settings-button { padding: 0; margin: 0; }
+#page-settings-button {
+	width: max(50px, min(25vw, 150px));
+	padding: 0; margin: 0;
+}
 #page-settings-button .paper-popout {
 	line-height: initial;
 	right: calc(100% - 22px);
@@ -56,27 +49,28 @@ body:before {
 #intro {
 	position: absolute;
 	z-index: 900;
-	left: 365px; top: 165px;
+	left: 180px; top: 100px;
 	display: block;
-	font-family: "Victorian Parlor", serif;
-	font-size: 45px;
-	color: #47341a;
-	background: #fff8df;
-	p {
-		opacity: 0.85;
-		position: absolute;
-		width: 8em;
-		top: 50%; left: 50%;
-		transform: translate(-50%,-50%);
-	}
+	font-size: 32px;
+	color: #text;
+	background: var(--paper-color);
+	padding: 1em;
+	p { margin: 0; }
+}
+
+.sticker, #credit-button.sticker {
+	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
 .water-blob {
 	position: absolute;
 	width: 900px; height: 900px;
 	background-image: url('/graphix/bg/water.jpg'),
-										url('/graphix/bg/pool_tiles.jpg');
+										url('/graphix/bg/pool_tiles.jpg'),
+										none;
 	background-blend-mode: hard-light;
 	background-size: 300px, 400px;
 	mask: url('clip-paths/water-blob.svg');
 }
+
+#garfield:hover img, #garfield:focus img, #garfield:focus-visible img { scale: 1.1; }
