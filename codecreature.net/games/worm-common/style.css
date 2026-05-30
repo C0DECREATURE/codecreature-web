@@ -262,6 +262,16 @@ body {
 	header button:hover { color: var(--blue); }
 	
 	iframe { flex-grow: 1; }
+	
+	.iframe-load-preview {
+		position: absolute;
+		z-index: -1;
+		top: 50%;
+		width: 100%;
+		text-align: center;
+		color: var(--d-blue);
+		font-size: 1.75em;
+	}
 }
 
 /******************************************************************************************
