@@ -87,7 +87,6 @@ function loadOlderChat() {
 	
 }
 function updateLoadOlder() {
-	console.log(oldestMessageId, getOldestLoadedMessage());
 	if (oldestMessageId < getOldestLoadedMessage()) {
 		document.getElementById('load-older').classList.remove('hidden');
 	} else {
