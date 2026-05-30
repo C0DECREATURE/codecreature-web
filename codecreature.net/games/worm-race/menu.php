@@ -8,7 +8,6 @@
 	</header>
 	
 	<nav id="menu-buttons">
-		<a href="/">site home</a>
 		<a href="<?php echo $worm_race_path ?>">feed worms</a>
 		<a href="<?php echo $worm_race_path ?>racetrack">racetrack</a>
 		<a href="<?php echo $worm_race_path ?>guide">guide</a>
@@ -17,6 +16,7 @@
 		<button id="open-updates" onclick="">
 			updates
 		</button>
+		<a href="/">site home</a>
 	</nav>
 	<script>
 		(()=>{
