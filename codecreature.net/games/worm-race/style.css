@@ -341,11 +341,10 @@
 		@media screen and (
 			(aspect-ratio >= 2.75)
 			or ((width < 1000px) and (height < 500px))
-			or (width < 260px)
+			or (width < 500px)
 		){
 			justify-content: center;
 			align-items: center;
-			flex-direction: column-reverse;
 			gap: .5em;
 			background: none;
 			padding: 0px;
@@ -353,8 +352,10 @@
 				background: var(--dd-blue);
 				padding: .5em 1em;
 				border-radius: var(--border-radius);
-				width: 7em;
+				width: 30%;
+				text-align: center;
 			}
+			.wrapper { width: min(8em, 100%); }
 		}
 	}
 }
@@ -459,7 +460,9 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		height: 5em;
+		height: auto;
+		min-height: 5em;
+		@media screen and (width < 400px) { padding: .5em .25em; }
 		font-size: max(1rem, min(4vh, min(1.4rem, 4vw)));
 		flex-grow: 0;
 		color: var(--white);
@@ -564,6 +567,57 @@
 	.user-data .drink:before { background-image: url('images/drink.png'); }
 	.user-data .heal:before { background-image: url('images/heal.png'); }
 	.user-data .poison:before { background-image: url('images/poison.png'); }
+}
+
+.trophies {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1em;
+	gap: 1em;
+	justify-content: center;
+	align-items: center;
+	
+	img {
+		max-width: 100%;
+		display: block;
+		pointer-events: none;
+	}
+	
+	.average-trophy {
+		position: relative;
+		width: min(100%, max(180px,40%));
+		flex-grow: 1;
+	}
+	.average-trophy img { position: absolute; top: 0; left: 0; }
+	.average-trophy img:nth-child(2) { position: relative; }
+	.average-trophy:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 10%; left: 10%;
+		width: 80%;
+		aspect-ratio: 1;
+		background: var(--color);
+		border-radius: 50%;
+		opacity: .5;
+	}
+	
+	.wrapper {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 1em;
+		min-width: min(300px, 100%);
+		width: calc(60% - 2em);
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	.trophy {
+		width: min(90%, max(calc(33% - 1em), 100px));
+		flex-grow: 1;
+		text-align: center;
+	}
 }
 
 

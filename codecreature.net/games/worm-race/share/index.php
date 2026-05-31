@@ -94,9 +94,11 @@
 					</div>
 					
 					<footer>
-						<a href="../">
-							<i class="svg-icon i-caret-left"></i> back
-						</a>
+						<div class="wrapper">
+							<a href="../">
+								<i class="svg-icon i-caret-left"></i> back
+							</a>
+						</div>
 					</footer>
 				</section>
 				

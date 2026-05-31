@@ -219,7 +219,7 @@ function getWormLeaderboard($worm) {
 			}
 		}
 		
-		$leaderboard_table_limit = 5;
+		$leaderboard_table_limit = 6;
 		
 		// convert array into columns
 		$users  = array_column($helpers, 'username');

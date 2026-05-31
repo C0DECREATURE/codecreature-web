@@ -48,34 +48,24 @@ function openDetailBox(id) {
 		if (tabs[i].id == id) { tabs[i].classList.add('show'); }
 		else { tabs[i].classList.remove('show'); }
 	}
-	hideFans(id);
+	showWormTab(id,'main-worm-tab');
 }
 
-// functions to hide or show a worm's leaderboard section
-function hideFans(wormColor) {
-	let detailBox = document.getElementById(wormColor);
-	// show main sections
-	let mainTabSections = detailBox.getElementsByClassName('main-worm-tab');
-	for (let i = 0; i < mainTabSections.length; i++) mainTabSections[i].classList.remove('hidden');
-	// hide leaderboard
-	document.getElementById(wormColor+'-fans').classList.add('hidden');
-	// change button text
-	detailBox.querySelector('.leaderboard-button').innerHTML = 'fans';
+// functions to hide or show a worm's tab sections (leaderboard, main, trophies)
+function showWormTab(wormColor,tab) {
+	if (tab == "details" || tab == "items") { tab = "main-worm-tab"; }
+	// hide all tabs
+	hideWormTabs(wormColor);
+	// show leaderboard
+	let tabs = document.getElementById(wormColor).getElementsByClassName(tab);
+	for (let i = 0; i < tabs.length; i++) tabs[i].classList.remove('hidden');
 }
-function showFans(wormColor) {
+// hide all worm tabs
+function hideWormTabs(wormColor) {
 	let detailBox = document.getElementById(wormColor);
-	// hide main sections
-	let mainTabSections = detailBox.getElementsByClassName('main-worm-tab');
-	for (let i = 0; i < mainTabSections.length; i++) mainTabSections[i].classList.add('hidden');
-	// hide leaderboard
-	document.getElementById(wormColor+'-fans').classList.remove('hidden');
-	// change button text
-	detailBox.querySelector('.leaderboard-button').innerHTML = 'worm';
-}
-function toggleFans(wormColor) {
-	let fans = document.getElementById(wormColor+'-fans');
-	if (fans.classList.contains('hidden')) { showFans(wormColor); }
-	else { hideFans(wormColor); }
+	// hide tabs sections
+	let tabs = detailBox.getElementsByClassName('tab');
+	for (let i = 0; i < tabs.length; i++) tabs[i].classList.add('hidden');
 }
 
 // update the URL (no refresh) based on search params

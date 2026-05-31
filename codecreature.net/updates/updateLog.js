@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-05-31T03:06'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			<a href="/games/worm-race">worm</a> trophy cases
+		`,
+		details: `
+			<p>Added a trophy section to display how many seasons each worm has won! Sketch art for now, just wanted to get something in there before the season rolls over tomorrow :)</p>
+		`
+	},
+	{
 		date: new Date('2026-05-25T07:54'),
 		authors: ['prax'],
 		tags: ['trinkets','new page'],

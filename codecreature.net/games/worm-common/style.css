@@ -341,18 +341,36 @@ body {
 	
 	color: var(--white);
 	font-family: "Super Comic", sans-serif;
-	font-size: max(1rem, min(6vw, min(3.5vh, 1.75rem)));
+	font-size: max(1rem, min(4vw, min(3.5vh, 1.75rem)));
 	
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	gap: 5%;
+	> :first-child, > :last-child { flex-grow: 1; }
+	> :first-child { text-align: left; }
+	> :last-child:not(:first-child) { text-align: right; }
+	
+	> .wrapper { moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box; }
+	
+	@media screen and (width < 500px) and ((aspect-ratio < 2.75) or (height >= 500px)) {
+		justify-content: space-around;
+		> .wrapper {
+			width: 50%;
+			flex-shrink: 0;
+		}
+	}
+	@media screen and (width < 300px) {
+		> .wrapper { width: 100%; flex-shrink: 0; }
+		.back-button-wrapper { order: -1; }
+		.feed-button-wrapper { order: -2; }
+	}
 	
 	button, input[type=submit], a, a:link, a:visited {
+		display: inline-block;
 		background: none; border: none; color: inherit; font-size: inherit; font-family: inherit;
 	}
-	button:hover, input[type=submit]:hover, a:hover {
-		transform: scale(110%);
-	}
+	button:hover, input[type=submit]:hover, a:hover { scale: 1.1; }
 	.svg-icon { background: var(--white); }
 }
 .info-box > .main-container > .details {
