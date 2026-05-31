@@ -329,9 +329,8 @@ body, html {
 	opacity: 1;
 }
 
-.message .content img {
-	max-width: 100%;
-}
+.message .content { word-wrap: break-word; }
+.message .content img { max-width: 100%; }
 
 /* stack of messages by one user */
 .message.stack-top { }

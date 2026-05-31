@@ -76,10 +76,16 @@ while ($message = mysqli_fetch_array($result)) {
 		<div class="bubble">
 			<header>
 				<a class="username" href="/u/<?php echo $message_user['username']; ?>" target="_blank"><?php echo $message_user['username']; ?></a>
-				<span class="pronouns" title="pronouns"><?php
+				<?php
+				$pronouns = $message_user["pronouns"];
+				if (!empty($pronouns)) { ?>
+					<span class="pronouns" title="pronouns"><?php
 					$pronouns = $message_user['pronouns'];
-					echo !empty($pronouns) ? "(".$pronouns.")" : "";
-				?></span>
+					echo !empty($pronouns) ? "(".$pronouns.")" : ""; ?>
+						</span>
+					
+				<?php } ?>
+				
 				<span class="date">
 					<span class="edited <?php echo empty($message['edited']) ? "hidden" : ""; ?>">(edited) </span>
 					<span class="date-text"></span>

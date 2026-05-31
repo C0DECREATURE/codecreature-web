@@ -131,7 +131,6 @@
 				$highest = array_search(max($win_history),$win_history) + 1;
 				
 				$type = $highest < 4 ? "trophy" : "ribbon";
-				echo $highest;
 				
 				echo "<div class='average-trophy'>"
 							. "<img src='images/" . $type . "_base_" . $highest . ".png' "
