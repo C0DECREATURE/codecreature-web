@@ -128,13 +128,14 @@
 			<?php
 				$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
 				$win_history = json_decode($cur_worm["win_counts"],false);
-				$highest_key = array_search(max($win_history),$win_history);
+				$highest = array_search(max($win_history),$win_history) + 1;
 				
-				$type = $highest_key + 1 < 4 ? "trophy" : "ribbon";
+				$type = $highest < 4 ? "trophy" : "ribbon";
+				echo $highest;
 				
 				echo "<div class='average-trophy'>"
-							. "<img src='images/" . $type . "_base_" . $highest_key + 1 . ".png' "
-							. "alt='" . $trophy_nums[$highest_key] . " place" . "'>"
+							. "<img src='images/" . $type . "_base_" . $highest . ".png' "
+							. "alt='" . $trophy_nums[$highest - 1] . " place" . "'>"
 							. "<img src='images/trophy_base_" . $cur_worm["color"] . ".png' alt=''>"
 							. "</div>";
 			?>
