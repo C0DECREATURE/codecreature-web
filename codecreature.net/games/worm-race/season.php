@@ -164,7 +164,6 @@ function seasonIsOngoing($season) {
 		
 		for ($i = 0; $i < count($season_worms); $i++) {
 			$season_worms[$i]["place"] = 0;
-			echo "<div style='margin-top:100px;'></div>";
 			if ($i > 0) {
 				for ($j = 0; $j < count($season_worms); $j++) {
 					if ($season_worms[$j]["progress"] > $season_worms[$i]["progress"]) {
@@ -174,7 +173,6 @@ function seasonIsOngoing($season) {
 					}
 				}
 			}
-			echo "<br>Place found: ".$season_worms[$i]["place"]."<br>";
 			$win_counts[intval($season_worms[$i]["id"])][intval($season_worms[$i]["place"])] += 1;
 		}
 		// update the trophy counts for the worm
