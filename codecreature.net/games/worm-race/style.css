@@ -607,14 +607,14 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		gap: 1em;
+		gap: .5em;
 		min-width: min(300px, 100%);
 		width: calc(60% - 2em);
 		font-size: 1.5rem;
 		font-weight: bold;
 	}
 	.trophy {
-		width: min(90%, max(calc(33% - 1em), 100px));
+		width: min(90%, max(calc(33% - .5em), 50px));
 		flex-grow: 1;
 		text-align: center;
 	}

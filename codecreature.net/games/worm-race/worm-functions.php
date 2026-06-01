@@ -80,8 +80,8 @@ function getFeedLogData() {
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
 			
-			if ( $row['date'] < (time() - 86400) ) {
-				// delete log data older than 1 day
+			if ( $row['date'] < (time() - 172800) ) {
+				// delete log data older than 48 hours
 				$del_sql = "DELETE FROM feed_log WHERE id=".$row['id'];
 				if ($worm_conn->query($del_sql) !== TRUE) {
 					$load_err = "Error deleting feed log record: " . $worm_conn->error;

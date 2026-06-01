@@ -130,17 +130,66 @@ function seasonIsOngoing($season) {
 	
 	$ongoing = $season["ongoing"] ? "true" : "false";
 	
+	// if season has ended and hasn't been processed yet
 	if ($season["ongoing"] == true && !empty($season["end_time"]) && getSeasonTimeRemaining($season) <= 0) {
 		$ongoing = 'false';
-		// create a new season row if one doesn't already exist for this season
+		// save ongoing status in the database
 		$sql = "UPDATE race SET ongoing = ".$ongoing." WHERE name = '".$season["name"]."';";
 		if($stmt = mysqli_prepare($worm_conn, $sql)){
 			if(!mysqli_stmt_execute($stmt)){ echo "ERROR: Could not update race ongoing status."; }
 			mysqli_stmt_close($stmt);
 		}
-	} else if ($season["ongoing"] == false && !empty($season["end_time"]) && getSeasonTimeRemaining($season) > 0) {
+		
+		// get existing worm win data
+		$win_counts = [];
+		$sql = "SELECT win_counts FROM worms;";
+		if ( $result = mysqli_query($worm_conn,$sql) ) {
+			while($row = mysqli_fetch_object($result)) {
+				$row = get_object_vars($row);
+				$win_counts[] = json_decode($row["win_counts"]);
+			}
+		} else { echo "Could not fetch worm trophy data"; }
+		
+		// get the winner rankings for the season being processed
+		$season_worms = [];
+		for ($i = 0; $i < count($win_counts); $i++) {
+			$w = json_decode($season["worm_".$i],true);
+			$season_worms[] = ["id" => $i, "progress" => $w["progress"]];
+		}
+		// sort the winner rankings in descending order
+		function prog_sort($a, $b) {
+			return $a["progress"] < $b["progress"];
+		}
+		usort($season_worms,"prog_sort");
+		
+		for ($i = 0; $i < count($season_worms); $i++) {
+			$season_worms[$i]["place"] = 0;
+			echo "<div style='margin-top:100px;'></div>";
+			if ($i > 0) {
+				for ($j = 0; $j < count($season_worms); $j++) {
+					if ($season_worms[$j]["progress"] > $season_worms[$i]["progress"]) {
+						$season_worms[$i]["place"] = $season_worms[$j]["place"] + 1;
+					} else {
+						break;
+					}
+				}
+			}
+			echo "<br>Place found: ".$season_worms[$i]["place"]."<br>";
+			$win_counts[intval($season_worms[$i]["id"])][intval($season_worms[$i]["place"])] += 1;
+		}
+		// update the trophy counts for the worm
+		for ($i = 0; $i < count($win_counts); $i++) {
+			$sql = "UPDATE worms SET win_counts = '" . json_encode($win_counts[$i]) . "' WHERE id = $i";
+			if($stmt = mysqli_prepare($worm_conn, $sql)) {
+				if(!mysqli_stmt_execute($stmt)){ echo "ERROR: Could not update worm trophies."; }
+				mysqli_stmt_close($stmt);
+			}
+		}
+		
+	} // if season is ongoing
+	else if ($season["ongoing"] == false && !empty($season["end_time"]) && getSeasonTimeRemaining($season) > 0) {
 		$ongoing = 'true';
-		// create a new season row if one doesn't already exist for this season
+		// save ongoing status in the database
 		$sql = "UPDATE race SET ongoing = ".$ongoing." WHERE name = '".$season["name"]."';";
 		if($stmt = mysqli_prepare($worm_conn, $sql)){
 			if(!mysqli_stmt_execute($stmt)){ echo "ERROR: Could not update race ongoing status."; }
