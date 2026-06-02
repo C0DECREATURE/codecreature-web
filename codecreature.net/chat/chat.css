@@ -211,6 +211,7 @@ body, html {
 	background: var(--bubble-bg);
 	border-radius: 1rem 1rem 1rem 0;
 	flex-grow: 1;
+	width: 100%; /* DEBUG not working here but works in inspect?? */
 }
 .message.self .bubble { border-radius: 1rem 1rem 0 1rem; }
 
@@ -239,6 +240,7 @@ body, html {
 	font-weight: bold;
 	font-size: 1.25em;
 	color: var(--username);
+	flex-shrink: 0;
 }
 .message a.username:hover {
 	text-decoration: underline;

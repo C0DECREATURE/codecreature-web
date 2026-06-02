@@ -242,7 +242,7 @@ body {
 	border-right: none;
 	background: var(--l-blue);
 	border-radius: 1rem 0 0 0;
-	width: min(100vw, 32rem);
+	width: min(100vw, 33rem);
 	height: min(80vh, 42rem);
 	overflow: hidden;
 	
