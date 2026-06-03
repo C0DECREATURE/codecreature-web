@@ -125,31 +125,50 @@
 		</div>
 		
 		<div class="tab trophies hidden">
-			<?php
-				$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
-				$win_history = json_decode($cur_worm["win_counts"],false);
-				$highest = array_search(max($win_history),$win_history) + 1;
-				
-				$type = $highest < 4 ? "trophy" : "ribbon";
-				
-				echo "<div class='average-trophy'>"
-							. "<img src='images/" . $type . "_base_" . $highest . ".png' "
-							. "alt='" . $trophy_nums[$highest - 1] . " place" . "'>"
-							. "<img src='images/trophy_base_" . $cur_worm["color"] . ".png' alt=''>"
-							. "</div>";
-			?>
-			<div class="wrapper">
+			<div class="top">
 				<?php
 					$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
 					$win_history = json_decode($cur_worm["win_counts"],false);
-					for ($w = 0; $w < count($win_history); $w++) {
-						$num = $w + 1;
-						echo "<div class='trophy'>"
-									. "<img src='images/trophy_" . $num . ".png' alt='"
-									. $trophy_nums[$w] . " place" . "'>"
-									. $win_history[$w] . "</div>";
-					};
+					$highest = array_search(max($win_history),$win_history) + 1;
 					
+					$type = $highest < 4 ? "trophy" : "ribbon";
+					
+					echo "<div class='average-trophy'>"
+								. "<img src='images/" . $type . "_base_" . $highest . ".png' "
+								. "alt='" . $trophy_nums[$highest - 1] . " place" . "'>"
+								. "<img src='images/trophy_base_" . $cur_worm["color"] . ".png' alt=''>"
+								. "</div>";
+				?>
+				<div class="wrapper">
+					<?php
+						$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
+						$win_history = json_decode($cur_worm["win_counts"],false);
+						for ($w = 0; $w < count($win_history); $w++) {
+							$num = $w + 1;
+							echo "<div class='trophy'>"
+										. "<img src='images/trophy_" . $num . ".png' alt='"
+										. $trophy_nums[$w] . " place" . "'>"
+										. $win_history[$w] . "</div>";
+						};
+						
+					?>
+				</div>
+			</div>
+			<div class="awards">
+				<?php
+					$awards = $cur_worm["awards"];
+					
+					if (count($awards) == 0) {
+						echo "<div class='text'>No special awards!</div>";
+					} else {
+						for ($a = 0; $a < count($awards); $a++) {
+							echo "<a href='guide#awards' class='award tooltip'>
+											<img src='images/award_" . str_replace(" ","_",strtolower($awards[$a])) . ".png'
+												alt='" . $awards[$a] . "'>
+											<span class='tooltip-text'>" . $awards[$a] . "</span>
+										</a>";
+						};
+					}
 				?>
 			</div>
 		</div>

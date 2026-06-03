@@ -289,30 +289,32 @@ body {
 	@media screen and (width >= 1000px) { max-width: min(78%,700px); }
 	@media screen and (width < 1000px) { max-width: min(700px,90%); }
 }
-.info-box header:has(h2, h3), .info-box .items, .info-box .leaderboard .user-data {
+.info-box header:has(h2, h3), .info-box .subheader, .info-box .items, .info-box .leaderboard .user-data, .trophies .awards {
 	/* background lines */
 	background: var(--diagonal-stripes);
 	background-color: var(--color-dark);
 	background-blend-mode: screen;
 }
-.info-box header:has(h2, h3) {
+.info-box header:has(h2, h3), .info-box .subheader {
 	width: 100%;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
-	border: var(--border);
-	border-bottom: none;
-	border-radius: var(--border-radius) var(--border-radius) 0 0;
-	overflow: hidden;
-	line-height: 1.9em;
-	font-size: max(1rem,min(5vh,min(2.5rem, 5.25vw)));
 	font-family: "Super Comic", sans-serif;
 	letter-spacing: .05em;
 	text-transform: uppercase;
 	text-align: center;
 	color: var(--white);
 	text-shadow: .08em .08em var(--dd-blue);
+	font-size: max(1rem,min(5vh,min(2.5rem, 5.25vw)));
 	h2, h3 { font-weight: inherit; margin: 0; }
 	h2 { font-size: 1em; }
 	h3 { font-size: .8em; }
+}
+.info-box header:has(h2, h3) {
+	line-height: 1.9em;
+	border: var(--border);
+	border-bottom: none;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+	overflow: hidden;
 }
 .info-box > header:before {
 	content: "";
@@ -320,6 +322,9 @@ body {
 	width: 100%;
 	height: 1rem;
 	background: white;
+}
+.info-box .subheader {
+	line-height: 1.25em;
 }
 
 .info-box .main-container {

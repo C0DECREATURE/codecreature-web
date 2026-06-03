@@ -67,6 +67,41 @@
 							<hr>
 							<p>low <span class="health caps">health</span> makes apples and battery juice <b>weaker</b>, and makes poison <b>stronger</b>. when you click an item, it shows the effects based on the selected worm's current health.</p>
 						</div>
+						
+						<div class="subheader">
+							<h3>Awards</h3>
+						</div>
+						
+						<div class="details">
+							<p>worms can earn special awards for their achievements! one-time awards, like Underdog, can only be held by one worm at a time, except in case of a tie.</p>
+							<hr>
+							<div id="awards">
+								<div class="award">
+									<img src="../images/award_most_kinnable.png" alt="">
+									<div class="name">Most Kinnable</div>
+									<div class="description">
+										highest number of users with this worm as their icon
+									</div>
+								</div>
+								
+								<div class="award">
+									<img src="../images/award_doctors_away.png" alt="">
+									<div class="name">Doctors Away</div>
+									<div class="description">
+										highest number of apples relative to total items eaten
+									</div>
+								</div>
+								
+								<div class="award">
+									<img src="../images/award_underdog.png" alt="">
+									<div class="name">Underdog</div>
+									<div class="description">
+										win first place after coming in last the previous season
+									</div>
+								</div>
+								
+							</div>
+						</div>
 					</div>
 					
 					<footer>

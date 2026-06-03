@@ -4,8 +4,15 @@
 
 #guide {
 	height: fit-content;
+	
+	.main-container {
+		height: auto;
+		max-height: max(52vh, 350px);
+		overflow-y: auto;
+	}
+	
 	.details {
-		max-height: 100%;
+		overflow-y: visible;
 		width: 100%;
 		font-size: max(1rem, min(4vh, min(1.15em, 4vw)));
 		display: flex;
@@ -22,6 +29,10 @@
 		border-bottom-width: 2px;
 		border-radius: 2px;
 		box-shadow: none;
+	}
+	
+	h3 {
+		margin: .25em 0;
 	}
 	
 	span.caps { text-transform: uppercase; }
@@ -66,17 +77,30 @@
 		color: var(--purple);
 		&:before { background-image: url('../images/poison.png'); }
 	}
-	span.item {
+	span.item, .award .name {
 		font-weight: bold;
 		text-transform: uppercase;
-		&:before {
-			content: '';
-			display: inline-block;
-			width: 1.2em;
-			height: 1.2em;
-			margin-bottom: -.2em;
-			margin-right: .2em;
-			background-size: 100%;
-		}
 	}
+	span.item:before {
+		content: '';
+		display: inline-block;
+		width: 1.2em;
+		height: 1.2em;
+		margin-bottom: -.2em;
+		margin-right: .2em;
+		background-size: 100%;
+	}
+	
+	#awards {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: .75em;
+	}
+	.award {
+		text-align: center;
+		width: min(90%, max(calc(33% - .4em), 140px));
+	}
+	.award .name { color: var(--d-blue); }
+	.award img { max-width: 100%; }
 }

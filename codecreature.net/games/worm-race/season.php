@@ -62,7 +62,7 @@ function getSeason($name,$display_name="",$end_time='NULL') {
 			}
 		}
 	} else {
-		//$load_err = "Could not fetch race data. Try again later.";
+		$load_err = "Could not fetch race data. Try again later.";
 	}
 	
 	// decode users json array
@@ -124,6 +124,17 @@ function getCurSeason() {
 	}
 }
 
+// get the data for the previous season
+function getPrevSeason($season) {
+	global $seasons_list;
+	
+	foreach($seasons_list as $key => $value) {
+		if ($season["name"] == $value["name"]) {
+			return getSeason($seasons_list[$key + 1]["name"]);
+		}
+	}
+}
+
 // update ongoing status of given season
 function seasonIsOngoing($season) {
 	global $worm_conn;
@@ -150,12 +161,68 @@ function seasonIsOngoing($season) {
 			}
 		} else { echo "Could not fetch worm trophy data"; }
 		
-		// get the winner rankings for the season being processed
+		// get the winning progress for the season being processed
 		$season_worms = [];
+		$highest_progress = 0;
 		for ($i = 0; $i < count($win_counts); $i++) {
 			$w = json_decode($season["worm_".$i],true);
+			if ($w["progress"] > $highest_progress) { $highest_progress = $w["progress"]; }
 			$season_worms[] = ["id" => $i, "progress" => $w["progress"]];
 		}
+		
+		// get the losing progress of the season BEFORE the season being processed
+		$prevSeason = getPrevSeason($season = $season);
+		$prev_season_worms = [];
+		$lowest_progress = '';
+		for ($i = 0; $i < count($win_counts); $i++) {
+			$w = json_decode($prevSeason["worm_".$i],true);
+			if (empty($lowest_progress) || $w["progress"] < $lowest_progress) { $lowest_progress = $w["progress"]; }
+			$prev_season_worms[] = ["id" => $i, "progress" => $w["progress"]];
+		}
+		
+		// get existing worm awards array
+		$all_awards = [];
+		$sql = "SELECT awards FROM worms;";
+		if ($result = mysqli_query($worm_conn,$sql)) {
+			while($row = mysqli_fetch_object($result)) {
+				$row = get_object_vars($row);
+				$all_awards[] = json_decode($row["awards"],true);
+			}
+		} else { echo "ERROR: Could not get stored worm awards."; }
+		
+		// assign underdog award
+		for ($i = 0; $i < count($win_counts); $i++) {
+			if (
+				$prev_season_worms[$i]["progress"] == $lowest_progress
+				&& $season_worms[$i]["progress"] == $highest_progress
+			) {
+				if(!in_array('Underdog',$all_awards[$i])) $all_awards[$i][] = "Underdog";
+			} else {
+				$all_awards[$i] = array_diff($all_awards[$i], array('Underdog'));
+			}
+			
+			echo "WORM #".$i."<br>";
+			echo "prev progress: ".$prev_season_worms[$i]["progress"]."<br>";
+			echo "cur progress: ".$season_worms[$i]["progress"]."<br>";
+			echo "awards: " . json_encode($all_awards[$i]) ."<br><hr>";
+			
+			$sql = "UPDATE worms
+								SET win_counts = '" . json_encode($win_counts[$i]) . "',
+										awards = '" . json_encode($all_awards[$i]) . "'
+								WHERE id = $i";
+			if($stmt = mysqli_prepare($worm_conn, $sql)) {
+				if(!mysqli_stmt_execute($stmt)){ echo "ERROR: Could not update worm trophies."; }
+				mysqli_stmt_close($stmt);
+			}
+			
+			if (
+				$season_worms[$i]["progress"] == $highest_progress
+				&& $prev_season_worms[$i]["progress"] == $lowest_progress
+			) {
+				
+			}
+		}
+		
 		// sort the winner rankings in descending order
 		function prog_sort($a, $b) {
 			return $a["progress"] < $b["progress"];

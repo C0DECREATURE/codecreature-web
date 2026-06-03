@@ -362,7 +362,7 @@
 	
 /* feedable item buttons */
 .worm-details {
-	.items, .leaderboard .user-data {
+	.items, .leaderboard .user-data, .trophies .awards {
 		border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
 		border: min(.6rem,calc(var(--menu-border) * 2)) var(--white) solid;
 		moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
@@ -570,9 +570,12 @@
 }
 
 .trophies {
+	font-size: 1.5rem;
+}
+.trophies .top {
 	display: flex;
 	flex-wrap: wrap;
-	padding: 1em;
+	padding: 1em; padding-bottom: 0;
 	gap: 1em;
 	justify-content: center;
 	align-items: center;
@@ -585,8 +588,7 @@
 	
 	.average-trophy {
 		position: relative;
-		width: min(100%, max(180px,40%));
-		flex-grow: 1;
+		width: min(100%, max(180px,34%));
 	}
 	.average-trophy img { position: absolute; top: 0; left: 0; }
 	.average-trophy img:nth-child(2) { position: relative; }
@@ -607,16 +609,32 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		gap: .5em;
 		min-width: min(300px, 100%);
-		width: calc(60% - 2em);
-		font-size: 1.5rem;
+		width: calc(53% - 2em);
 		font-weight: bold;
 	}
 	.trophy {
-		width: min(90%, max(calc(33% - .5em), 50px));
+		width: min(90%, max(calc(33% - .5em), 90px));
 		flex-grow: 1;
 		text-align: center;
+	}
+}
+.trophies .awards {
+	text-align: center;
+	color: var(--white);
+	padding: .5em;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	justify-content: center;
+	
+	.award { width: min(90%, max(12%, 75px)); }
+	.award img { max-width: 100%;	}
+	.award .tooltip-text { bottom: 117%; }
+	
+	.text {
+		text-shadow: 2px 2px var(--dd-blue);
+		line-height: 2;
 	}
 }
 

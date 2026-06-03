@@ -30,6 +30,22 @@ const updateLog = [
 		authors: ['emery'],
 		tags: ['games','worm race'],
 		summary: `
+			<a href="/games/worm-race/guide#awards">special awards</a> for worms
+		`,
+		details: `
+			<figure>
+				<img src="/games/worm-race/images/award_most_kinnable.png" alt="Round stamp with anonymous user icon in blue and purple.">
+				<img src="/games/worm-race/images/award_doctors_away.png" alt="Round stamp with apple icon in orange and green.">
+				<img src="/games/worm-race/images/award_underdog.png" alt="Round stamp with dog head icon in pink and yellow.">
+			</figure>
+			<p>3 special worm awards to start! Check out the <a href="/games/worm-race/guide#awards">guide</a> for details. Awards are displayed in the worm's trophy section.</p>
+		`
+	},
+	{
+		date: new Date('2026-05-31T03:06'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
 			<a href="/games/worm-race">worm</a> trophy cases
 		`,
 		details: `

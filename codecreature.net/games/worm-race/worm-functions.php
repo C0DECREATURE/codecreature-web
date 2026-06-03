@@ -26,6 +26,7 @@ $loading = $load_err = "";
 function getAllData() {
 	$loading = true;
 	getWormData();
+	getWormAwards();
 	getItemData();
 	$loading = false;
 }
@@ -33,13 +34,17 @@ function getAllData() {
 // get all worm data, insert into $worms array
 function getWormData() {
 	global $worm_conn; global $worms; global $active_season; global $load_err;
+	global $users_conn;
 	
 	// get all worm data
-	$sql = "SELECT * FROM worms";
+	$sql = "SELECT * FROM worms;";
 	if ( $result = mysqli_query($worm_conn,$sql) ) {
 		// go through each worm row, assign to variables
 		while($row = mysqli_fetch_object($result)) {
-			$worms[] = get_object_vars($row);
+			$arr = get_object_vars($row);
+			// convert awards to array
+			$arr["awards"] =  json_decode($arr["awards"], true);
+			$worms[] = $arr;
 		}
 		// also insert current race season's worm data
 		for ($i = 0; $i < count($worms); $i++) {
@@ -47,8 +52,50 @@ function getWormData() {
 				$worms[$i][$key] = $value;
 			}
 		}
+		
 	} else {
 		$load_err = "Could not fetch worm data. Try again later.";
+	}
+}
+
+function getWormAwards() {
+	global $worms; global $active_season; global $users_conn;
+	
+	for ($i = 0; $i < count($worms); $i++) {
+		// get users with this worm as their icon
+		$sql = "SELECT COUNT(icon) as count
+							FROM users
+							WHERE icon = 'worm_". $worms[$i]["color"] ."';";
+		if ( $result = mysqli_query($users_conn,$sql) ) {
+			// store the result in the worm objects
+			$row = $result->fetch_assoc();
+			$worms[$i]['kins'] = $row['count'];
+		} else { $load_err = "Could not fetch user data. Try again later."; }
+	}
+	
+	// find highest kin, highest apples
+	$highest_icons = 0; // number of users with worm as their icon
+	$highest_apple_percent = 0; // highest percent of apples
+	for ($i = 0; $i < count($worms); $i++) {
+		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] > $highest_icons) {
+			$highest_icons = $worms[$i]['kins'];
+		}
+		$total_items = $worms[$i]['apple_count'] + $worms[$i]['drink_count'] + $worms[$i]['poison_count'] + $worms[$i]['heal_count'];
+		$worms[$i]["apple_percent"] = $total_items > 0 ? $worms[$i]['apple_count'] / $total_items : 0;
+		if ($worms[$i]["apple_percent"] > $highest_apple_percent) {
+			$highest_apple_percent = $worms[$i]["apple_percent"];
+		}
+	}
+	// assign awards
+	for ($i = 0; $i < count($worms); $i++) {
+		// icons award
+		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] == $highest_icons) {
+			$worms[$i]['awards'][] = 'Most Kinnable';
+		}
+		// apples award
+		if (!empty($worms[$i]["apple_percent"]) && $worms[$i]["apple_percent"] == $highest_apple_percent) {
+			$worms[$i]['awards'][] = 'Doctors Away';
+		}
 	}
 }
 
