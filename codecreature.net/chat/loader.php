@@ -44,6 +44,8 @@ if (isset($_GET['message_id'])) {
 
 $result = mysqli_query($chat_conn, $sql);
 
+$prev_deleted = 0;
+
 while ($message = mysqli_fetch_array($result)) {
 	$message_user = getPublicUserData($message['user_id']);
 	
@@ -58,9 +60,16 @@ while ($message = mysqli_fetch_array($result)) {
 		$html_own = $own_message ? ' self' : '';
 		
 		if (intval($message['deleted']) == 1) {
-			echo "<div id='$html_id' class='message deleted $html_own'>(message deleted)</div>";
+			$str = "(message deleted)";
+			if ($prev_deleted > 0) {
+				$str = "(" . $prev_deleted + 1 . " messages deleted)"
+							. "<script>document.getElementById('$html_id').previousSibling.style.display = 'none';</script>";
+			}
+			echo "<div id='$html_id' class='message deleted $html_own'>$str</div>";
+			$prev_deleted += 1;
 			continue;
 		} else {
+			$prev_deleted = 0;
 ?>
 	<div class="message<?php
 			echo $own_message ? ' self' : '';
