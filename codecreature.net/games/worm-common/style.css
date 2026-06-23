@@ -280,6 +280,7 @@ body {
 .info-box {
 	--color: var(--blue);
 	--color-dark: var(--blue);
+	--color-light: var(--green);
 	--border-radius: 1.5rem;
 	--border-radius-sm: calc(var(--border-radius) - var(--menu-border));
 	--border: calc(var(--menu-border) * 1.15) var(--dd-blue) solid;
@@ -294,6 +295,9 @@ body {
 	background: var(--diagonal-stripes);
 	background-color: var(--color-dark);
 	background-blend-mode: screen;
+}
+.info-box .subheader {
+	background-color: var(--color-light);
 }
 .info-box header:has(h2, h3), .info-box .subheader {
 	width: 100%;

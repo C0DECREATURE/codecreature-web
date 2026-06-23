@@ -73,9 +73,9 @@
 						</div>
 						
 						<div class="details">
-							<p>worms can earn special awards for their achievements! one-time awards, like Underdog, can only be held by one worm at a time, except in case of a tie.</p>
+							<p>worms can earn special awards for their achievements! awards can only be held by one worm at a time, except in case of a tie.</p>
 							<hr>
-							<div>
+							<div class="awards">
 								<div class="award">
 									<img src="../images/award_most_kinnable.png" alt="">
 									<div class="name">Most Kinnable</div>

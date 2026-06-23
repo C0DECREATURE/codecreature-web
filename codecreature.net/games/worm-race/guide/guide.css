@@ -91,7 +91,7 @@
 		background-size: 100%;
 	}
 	
-	#awards {
+	.awards {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
