@@ -272,4 +272,106 @@ function getPronouns($id) {
 	}
 }
 
+function isBannedIP($IP) {
+	global $users_conn;
+	
+	$del_sql = "DELETE FROM ban_list WHERE expiration <= ". time() .";";
+	if (mysqli_query($users_conn, $del_sql)) {}
+	
+	$isBanned = false;
+	$IP = trim($IP);
+	// get expiration date of any ban list rows for given IP address
+	$sql = "SELECT id, expiration FROM ban_list WHERE IP_address = ? ;";
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "s", $IP);
+		
+		if(mysqli_stmt_execute($stmt)){
+			mysqli_stmt_bind_result($stmt, $id, $expiration);
+			while (mysqli_stmt_fetch($stmt)) {
+				// if ban expires in the future or has no expiration, this IP is banned
+				if (empty($expiration) || $expiration > time()) { $isBanned = true; }
+			}
+		}
+		mysqli_stmt_close($stmt);
+	}
+	
+	return $isBanned;
+}
+function isBannedUser($id) {
+	global $users_conn;
+	
+	$del_sql = "DELETE FROM ban_list WHERE expiration <= ". time() .";";
+	if (mysqli_query($users_conn, $del_sql)) {}
+	
+	$isBanned = false;
+	// get expiration date of any ban list rows for given user ID
+	$sql = "SELECT id, expiration FROM ban_list WHERE user_id = ? ;";
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		mysqli_stmt_bind_param($stmt, "i", $id);
+		
+		if(mysqli_stmt_execute($stmt)){
+			mysqli_stmt_bind_result($stmt, $id, $expiration);
+			while (mysqli_stmt_fetch($stmt)) {
+				// if ban expires in the future or has no expiration, this IP is banned
+				if (empty($expiration) || $expiration > time()) { $isBanned = true; }
+			}
+		}
+		mysqli_stmt_close($stmt);
+	}
+	
+	return $isBanned;
+}
+
+function getBanInfo($type, $value) {
+	global $users_conn;
+	
+	// delete expired bans from the table
+	$del_sql = "DELETE FROM ban_list WHERE expiration <= ". time() .";";
+	if (mysqli_query($users_conn, $del_sql)) {}
+	
+	$banInfo = $highest_expiration = $highest_reason = "";
+	
+	// get expiration date of any ban list rows for given user ID
+	$sql = "SELECT expiration, reason FROM ban_list WHERE $type = ? ;";
+	if($stmt = mysqli_prepare($users_conn, $sql)){
+		$param_type = $type == "user_id" ? "i" : "s";
+		mysqli_stmt_bind_param($stmt, $param_type, $value);
+		
+		if(mysqli_stmt_execute($stmt)){
+			mysqli_stmt_bind_result($stmt, $expiration, $reason);
+			while (mysqli_stmt_fetch($stmt)) {
+				// if ban expires in the future or has no expiration, this IP is banned
+				if (empty($expiration)) {
+					$highest_expiration = "forever";
+					$highest_reason = $reason;
+					break;
+				} else if ($expiration > time() && $expiration > $highest_expiration) {
+					$highest_expiration = $expiration;
+					$highest_reason = $reason;
+				}
+			}
+		}
+		mysqli_stmt_close($stmt);
+	}
+	if (!empty($highest_expiration)) {
+		$banInfo = [];
+		$banInfo["type_text"] = $type == "user_id" ? "account" : "IP address";
+		$banInfo["reason"] = $highest_reason;
+		// get text describing ban duration
+		if ($highest_expiration == "forever") { $banInfo["expire_text"] = "forever";
+		} else {
+			$time = $highest_expiration - time();
+			$time_unit = "second";
+			if ($time > 86400) { $time = $time / 86400; $time_unit = "day"; }
+			else if ($time > 3600) { $time = $time / 3600; $time_unit = "hour"; }
+			else if ($time > 60) { $time = $time / 60; $time_unit = "minute"; }
+			$time = floor($time);
+			if ($time > 1) $time_unit = $time_unit . "s";
+			$banInfo["expire_text"] = "$time $time_unit";
+		}
+	}
+	return $banInfo;
+	
+}
+
 ?>

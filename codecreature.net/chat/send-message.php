@@ -41,6 +41,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	date_default_timezone_set('America/New_York'); // EST
 	$date = time();
 	
+	// if user is logged in, check if they're banned
+	$ban = "";
+	if ($logged_in) { $ban = getBanInfo("user_id",$user_id); 
+	// if user is logged out, check if IP is banned
+	} else if (!$logged_in) { $ban = getBanInfo("IP_address",$user_IP); }
+	// if user is banned, send error message
+	if (!empty($ban)) {
+		$error_text = "Your ". $ban["type_text"] ." is banned from sending messages."
+			."\nTime remaining: ". $ban["expire_text"]
+			."\nReason: ". $ban["reason"] .
+			"\n\nEmail admin@codecreature.net if you believe this is an error.";
+	}
+	
 	if (empty($error_text)) {
 		// Attempt insert query execution
 		$sql = "INSERT INTO $table_name (user_id, IP_address, message, date) 

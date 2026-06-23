@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-22T21:53'),
+		authors: ['emery'],
+		tags: ['users','minor'],
+		summary: `
+			get banned
+		`,
+		details: `
+			<p>Set up a proper system for banning users and IP addresses from chat.</p>
+			<p>Also, multiple deleted chat messages in a row should stack (e.g. "10 messages deleted").</p>
+			<p>You can guess why, lol.</p>
+		`
+	},
+	{
 		date: new Date('2026-05-31T03:06'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
@@ -35,7 +48,7 @@ const updateLog = [
 		details: `
 			<figure>
 				<img src="/games/worm-race/images/award_most_kinnable.png" alt="Round stamp with anonymous user icon in blue and purple.">
-				<img src="/games/worm-race/images/award_doctors_away.png" alt="Round stamp with apple icon in orange and green.">
+				<img src="/games/worm-race/images/award_certified_organic.png" alt="Round stamp with apple icon in orange and green.">
 				<img src="/games/worm-race/images/award_underdog.png" alt="Round stamp with dog head icon in pink and yellow.">
 			</figure>
 			<p>3 special worm awards to start! Check out the <a href="/games/worm-race/guide#awards">guide</a> for details. Awards are displayed in the worm's trophy section.</p>
