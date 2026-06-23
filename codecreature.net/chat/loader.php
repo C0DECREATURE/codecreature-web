@@ -62,7 +62,8 @@ while ($message = mysqli_fetch_array($result)) {
 		if (intval($message['deleted']) == 1) {
 			$str = "(message deleted)";
 			if ($prev_deleted > 0) {
-				$str = "(" . $prev_deleted + 1 . " messages deleted)"
+				$del_str = $prev_deleted + 1;
+				$str = "(" . $del_str . " messages deleted)"
 							. "<script>document.getElementById('$html_id').previousSibling.style.display = 'none';</script>";
 			}
 			echo "<div id='$html_id' class='message deleted $html_own'>$str</div>";
