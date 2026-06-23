@@ -81,14 +81,14 @@ while ($message = mysqli_fetch_array($result)) {
 		data-uid="<?php echo $message['user_id']; ?>"
 		data-timestamp="<?php echo $message['date']; ?>"
 		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
-		<a class="icon" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?>>
+		<a class="icon" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?> target="_top">
 			<img src="<?php echo $message_user['icon']; ?>" alt="">
 		</a>
 		
 		<div class="bubble">
 			<header>
 				<a class="username" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?>
-					target="_blank"><?php echo $message_user['username']; ?></a>
+					target="_top"><?php echo $message_user['username']; ?></a>
 				<?php
 				$pronouns = $message_user["pronouns"];
 				if (!empty($pronouns)) { ?>
