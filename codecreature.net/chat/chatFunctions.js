@@ -193,8 +193,10 @@ function reportMessage(id) {
 
 
 // report message with given id
-function banMessageAuthor(id) {
+function banMessageAuthor(id,reason,duration,includeIP) {
 	console.log('Banning author of message #' + id + '...'); // DEBUG temp
+	
+	if (typeof reason == "undefined") { reason = "None given." }
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", "/chat/ban-message.php", true);
@@ -208,7 +210,7 @@ function banMessageAuthor(id) {
 		}
 	};
 	// send the variables
-	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+	xhr.send(`message-id=${id}&chat-table=${chatTableName}&ban-reason=${reason}&ban-duration=${duration}&include-IP=${includeIP}`);
 }
 
 function refreshMessage(id) {
@@ -253,7 +255,6 @@ function updateMessageStackStatus(id,updateSiblings) {
 	if (message) {
 		// update its siblings
 		if (updateSiblings !== false) {
-			console.log('updating sibs');
 			if (message.nextElementSibling) updateMessageStackStatus(message.nextElementSibling.id,false);
 			if (message.previousElementSibling) updateMessageStackStatus(message.previousElementSibling.id,false);
 		}

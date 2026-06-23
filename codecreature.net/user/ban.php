@@ -25,12 +25,12 @@ if (!empty($_SESSION["id"])) {
 
 if (empty($error)) {
 	// Process form data when form is submitted
-	if($_SERVER["REQUEST_METHOD"] == "POST" && (!empty($_POST["ban_user_id"]) || !empty($_POST["ban_IP_address"])) ) {
+	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		// Get posted variables
-		$ban_user_id = trim($_POST["ban_user_id"]);
-		$ban_IP = trim($_POST["ban_IP_address"]);
-		$ban_reason = trim($_POST["ban_reason"]);
-		$duration = trim($_POST["ban_duration"]);
+		if (!empty($_REQUEST["ban-user-id"])) $ban_user_id = trim($_REQUEST["ban-user-id"]);
+		if (!empty($_REQUEST["ban-IP-address"])) $ban_IP = trim($_REQUEST["ban-IP-address"]);
+		if (!empty($_REQUEST["ban-reason"])) $ban_reason = trim($_REQUEST["ban-reason"]);
+		if (!empty($_REQUEST["ban-duration"])) $duration = trim($_REQUEST["ban-duration"]);
 	}
 
 	if (!empty($duration)) {
@@ -41,7 +41,7 @@ if (empty($error)) {
 		$duration =  intval(substr(trim($duration), 0, -1)) * $multiplier;
 	}
 
-	if (empty($ban_reason)) { $ban_reason = "None given."; }
+	if (empty($ban_reason)) { $ban_reason = "Unspecified."; }
 
 	// Ensure user details have been provided
 	if (empty($ban_user_id) && empty($ban_IP)) { $error = "No user provided."; }
@@ -55,29 +55,31 @@ if (empty($error)) {
 	if (empty($error)) {
 		if (!empty($duration)) { $ban_expiration = time() + $duration; }
 		
-		// if IP address given
-		if (!empty($ban_IP)) {
-			// Insert user id into ban list
-			$sql = "INSERT INTO ban_list ( IP_address, reason, expiration ) VALUES ( ? , ? , ? );";
-			if($stmt = mysqli_prepare($users_conn, $sql)){
-				mysqli_stmt_bind_param($stmt, "ssi", $ban_IP, $ban_reason, $ban_expiration);
-				if(!mysqli_stmt_execute($stmt)){ $error = "IP ban execution failed. Please try again later."; }
-				mysqli_stmt_close($stmt);
-				$message = $message . "Banned IP address " . $ban_IP;
-			} else { $error = "IP ban statement preparation failed. Please try again later."; }
-		}
-		
 		// if user id given
 		if (!empty($ban_user_id)) {
 			// Insert user id into ban list
-			$sql = "INSERT INTO ban_list ( user_id, reason, expiration ) VALUES ( ? , ? , ? );";
+			$sql = "INSERT INTO ban_list ( reporter_id, user_id, reason, expiration ) VALUES ( ? , ? , ? , ? );";
 			if($stmt = mysqli_prepare($users_conn, $sql)){
-				mysqli_stmt_bind_param($stmt, "isi", $ban_user_id, $ban_reason, $ban_expiration);
+				mysqli_stmt_bind_param($stmt, "iisi", $_SESSION["id"], $ban_user_id, $ban_reason, $ban_expiration);
 				if(!mysqli_stmt_execute($stmt)){ $error = "User ban execution failed. Please try again later."; }
 				mysqli_stmt_close($stmt);
 				if (!empty($message)) $message = $message . "\n";
-				$message = $message . "Banned user ID #" . $ban_user_id;
+				$message = $message . "Banned " . getUsername($ban_user_id) . " (user ID #" . $ban_user_id .").";
 			} else { $error = "User ban statement preparation failed. Please try again later."; }
+		}
+		
+		// if IP address given
+		if (!empty($ban_IP)) {
+			if (!empty($ban_user_id)) { $ban_reason = $ban_reason . " (based on user #". $ban_user_id .")"; }
+			// Insert user id into ban list
+			$sql = "INSERT INTO ban_list ( reporter_id, IP_address, reason, expiration ) VALUES ( ? , ? , ? , ? );";
+			if($stmt = mysqli_prepare($users_conn, $sql)){
+				mysqli_stmt_bind_param($stmt, "issi", $_SESSION["id"], $ban_IP, $ban_reason, $ban_expiration);
+				if(!mysqli_stmt_execute($stmt)){ $error = "IP ban execution failed. Please try again later."; }
+				mysqli_stmt_close($stmt);
+				if (!empty($message)) $message = $message . "\n";
+				$message = $message . "Banned user IP address.";
+			} else { $error = "IP ban statement preparation failed. Please try again later."; }
 		}
 		
 		// Close connection

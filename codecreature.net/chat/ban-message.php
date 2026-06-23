@@ -17,8 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$message = getMessage($message_id, $table_name);
 	
 	if (empty($message["error"])) {
-		$ban_IP = $message["IP_address"];
-		if (!empty($message["user_id"])) $ban_user_id = $message["user_id"];
+		// ban user if logged in, ban IP address if not logged in
+		if (!empty($message["user_id"])) { $ban_user_id = $message["user_id"]; }
+		if (empty($message["user_id"]) || (!empty($_REQUEST['include-IP']) && $_REQUEST['include-IP'] == "on")) {
+			$ban_IP = $message["IP_address"];
+		}
 		// add the banning file
 		include $_SERVER['DOCUMENT_ROOT']."/user/ban.php";
 	} else { echo $message["error"]; }

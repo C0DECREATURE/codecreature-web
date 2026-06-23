@@ -15,6 +15,7 @@ $user_id = isset($_SESSION["id"]) ? $_SESSION["id"] : '0';
 $user_IP = $_SERVER['REMOTE_ADDR'];
 $username = getUsername($user_id);
 $user_icon = getIcon($user_id);
+$user_auth = getAuthorization($user_id);
 
 ?>
 <!DOCTYPE html>
@@ -131,7 +132,7 @@ $user_icon = getIcon($user_id);
 				<!--report-->
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
 				<!--report-->
-				<button id="right-click-ban" class="txt-red" onclick="banMessageAuthor(this.parentNode.dataset.messageId);">Ban User</button>
+				<button id="right-click-ban" class="txt-red" onclick="openBanMenu(this.parentNode.dataset.messageId);">Ban User</button>
 				<!--edit-->
 				<button id="right-click-edit" 
 				onclick="openMessageEditor(this.parentNode.dataset.messageId);">
@@ -143,7 +144,7 @@ $user_icon = getIcon($user_id);
 			<script>document.addEventListener("click",hideRightClickMenus);</script>
 			
 			<!--message edit popup-->
-			<form popover id="edit-message">
+			<form popover id="edit-message" class="popup-menu">
 				<header><h3>Edit Message</h3></header>
 				<div class="content">
 					<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
@@ -189,6 +190,77 @@ $user_icon = getIcon($user_id);
 					});
 				})();
 			</script>
+			
+			<?php
+			// only load banning option if user is a mod or admin
+			if ($user_auth == "moderator" || $user_auth == "admin") { ?>
+			<!--ban user popup-->
+			<form popover id="ban-user" class="popup-menu">
+				<header><h3>Banning User: <span class="name"></span></h3></header>
+				<div class="content">
+					<div class="form-section">
+						Reason:
+						<input type="text" id="ban-reason" name="reason" maxlength="100" placeholder="Type a short explanation"></input>
+					</div>
+					<div class="form-section" id="ban-IP-section">
+						<input type="checkbox" id="ban-IP" name="include-IP"></input>
+						<label for="ban-IP">Also ban anonymous users from this address</label>
+					</div>
+					<div class="form-section">
+						Ban Duration:
+						<div>
+							<input type="radio" name="duration" value="1d" id="duration-1"></input>
+							<label for="duration-1">1 day</label>
+						</div>
+						<div>
+							<input type="radio" name="duration" value="7d" id="duration-7"></input>
+							<label for="duration-7">7 days</label>
+						</div>
+						<div>
+							<input type="radio" name="duration" value="30d" id="duration-30"></input>
+							<label for="duration-30">30 days</label>
+						</div>
+						<div>
+							<input type="radio" name="duration" value="" id="duration-forever" checked></input>
+							<label for="duration-forever">Forever</label>
+						</div>
+					</div>
+					<div class="bottom-buttons">
+						<button type="button" class="cancel" onclick="this.closest('form').hidePopover();">cancel</button>
+						<button class="submit" id="ban-user-submit" type="submit">ban</button>
+					</div>
+				</div>
+			</form>
+			<script>
+				function openBanMenu(messageId) {
+					let msgEl = document.getElementById('message-' + messageId);
+					let form = document.getElementById('ban-user');
+					
+					form.showPopover();
+					form.dataset.messageId = messageId;
+					if (msgEl.dataset.uid == "0") { document.getElementById('ban-IP-section').classList.add('hidden');
+					} else { document.getElementById('ban-IP-section').classList.remove('hidden'); }
+					form.reset();
+					// put username in menu
+					form.querySelector('.name').innerHTML = msgEl.querySelector(".username").innerHTML;
+					
+					form.focus();
+				}
+				
+				(()=>{
+					let form = document.getElementById('ban-user');
+					
+					// submit form without refreshing page
+					form.addEventListener("submit", function(e){
+						e.preventDefault();
+						let formProps = Object.fromEntries(new FormData(form));
+						console.log(formProps["include-IP"]);
+						banMessageAuthor(form.dataset.messageId,formProps["reason"],formProps["duration"],formProps["include-IP"]);
+						form.hidePopover();
+					});
+				})();
+			</script>
+			<?php } ?>
 			
 		</section>
 		
