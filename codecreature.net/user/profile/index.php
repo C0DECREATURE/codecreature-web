@@ -32,28 +32,28 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<link rel="icon" type="image/x-icon" href="<?php echo $icon; ?>">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<script src="/codefiles/required.js?fileversion=20260623"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260623" rel="stylesheet" type="text/css"></link>
 		
 		<script>fonts.load("Super Comic","Yet R");</script>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260623"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260623"></script>
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260623" id="svg-icons-js"></script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260623" rel="stylesheet" type="text/css" media="all">
 		<!--bbcode stylesheet-->
-		<link href="/chat/bbcode.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/bbcode.css?fileversion=20260623" rel="stylesheet" type="text/css" media="all">
 		<!--identity ribbons stylesheet-->
-		<link href="/user/profile/ribbons.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/ribbons.css?fileversion=20260623" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="/user/profile/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/style.css?fileversion=20260623" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user['color']; ?>">
 	<div class="main-container">
