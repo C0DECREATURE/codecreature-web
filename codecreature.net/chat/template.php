@@ -130,6 +130,8 @@ $user_icon = getIcon($user_id);
 				</button>
 				<!--report-->
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
+				<!--report-->
+				<button id="right-click-ban" class="txt-red" onclick="banMessageAuthor(this.parentNode.dataset.messageId);">Ban User</button>
 				<!--edit-->
 				<button id="right-click-edit" 
 				onclick="openMessageEditor(this.parentNode.dataset.messageId);">

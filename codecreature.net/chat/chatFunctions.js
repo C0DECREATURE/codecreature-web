@@ -18,6 +18,10 @@ function messageRightClick(e,id,ownMessage) {
 	let canReport = !ownMessage;
 	let reportOpt = document.getElementById("right-click-report");
 	if (canReport) reportOpt.classList.remove('hidden'); else reportOpt.classList.add('hidden');
+	// show/hide the ban user option
+	let canBan = !ownMessage && (userAuth == "moderator" || userAuth == "admin");
+	let banOpt = document.getElementById("right-click-ban");
+	if (canBan) banOpt.classList.remove('hidden'); else banOpt.classList.add('hidden');
 	// display the right click menu
 	let menu = document.getElementById("right-click-menu");
 	menu.classList.remove('hidden');
@@ -172,10 +176,28 @@ function deleteLocalMessage(id) {
 
 // report message with given id
 function reportMessage(id) {
-	console.log('Reporting message #' + id + '...'); // DEBUG temp
-	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", "/chat/report-message.php", true);
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// do stuff when request finishes
+	xhr.onreadystatechange = () => {
+		if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+			// alert with the response
+			if (xhr.responseText != '') alert(xhr.responseText);
+			else alert('Error: No response. Try again later.');
+		}
+	};
+	// send the variables
+	xhr.send(`message-id=${id}&chat-table=${chatTableName}`);
+}
+
+
+// report message with given id
+function banMessageAuthor(id) {
+	console.log('Banning author of message #' + id + '...'); // DEBUG temp
+	
+	const xhr = new XMLHttpRequest();
+	xhr.open("POST", "/chat/ban-message.php", true);
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// do stuff when request finishes
 	xhr.onreadystatechange = () => {
