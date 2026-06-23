@@ -102,5 +102,5 @@
 		width: min(90%, max(calc(33% - .4em), 140px));
 	}
 	.award .name { color: var(--d-blue); }
-	.award img { max-width: 100%; }
+	.award img { max-width: min(100%, 100px); }
 }
