@@ -68,14 +68,14 @@
 							<p>low <span class="health caps">health</span> makes apples and battery juice <b>weaker</b>, and makes poison <b>stronger</b>. when you click an item, it shows the effects based on the selected worm's current health.</p>
 						</div>
 						
-						<div class="subheader">
+						<div class="subheader" id="awards">
 							<h3>Awards</h3>
 						</div>
 						
 						<div class="details">
 							<p>worms can earn special awards for their achievements! one-time awards, like Underdog, can only be held by one worm at a time, except in case of a tie.</p>
 							<hr>
-							<div id="awards">
+							<div>
 								<div class="award">
 									<img src="../images/award_most_kinnable.png" alt="">
 									<div class="name">Most Kinnable</div>
