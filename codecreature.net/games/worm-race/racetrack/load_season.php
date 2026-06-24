@@ -128,8 +128,52 @@ getAllData();
 				
 				?>
 			</section>
+			
+			<a id="awards" href="../guide#awards" aria-label="worm awards">
+				<?php
+					function getAwardId($name) { return "award-".strtolower(str_replace("'","",str_replace(" ","-",$name))); }
+					function getAwardImage($name) { return "award_".strtolower(str_replace(" ","_",$name)).".png"; }
+					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Underdog','Most Kinnable',"Creature's Pet"];
+					for ($i = 0; $i < count($awards); $i++) {
+						echo "
+							<div id='".getAwardId($awards[$i])."' class='award tooltip'>
+								<img src=../images/".getAwardImage($awards[$i])." alt=`$awards[$i]`>
+								<span class='tooltip-text'>$awards[$i]: Nobody</span>
+							</div>
+						";
+					}
+				?>
+				<script>
+					<?php
+						for ($i = 0; $i < count($worms); $i++) {
+							$awards = $worms[$i]["awards"];
+							for ($a = 0; $a < count($awards); $a++) {
+								echo "(()=>{
+									let award = document.getElementById('". getAwardId($awards[$a]) ."');
+									if (award.dataset.worm == undefined) {
+										award.querySelector('.tooltip-text').innerHTML = `".$awards[$a].": ".$worms[$i]['name']."`;
+										award.style.background = 'var(--". $worms[$i]["color"] .")';
+										// log that this award has been assigned to a worm
+										award.dataset.worm = '". $worms[$i]["color"] ."';
+									} else { // if award already assigned to at least one other worm
+										award.dataset.worm += ',". $worms[$i]["color"] ."';
+										let awardedTo = award.dataset.worm.split(',');
+										let bg = 'linear-gradient(to bottom';
+										for (let i = 0; i < awardedTo.length; i++) {
+											bg += ', var(--' + awardedTo[i] + ')';
+										}
+										award.style.background = bg + ')';
+										award.querySelector('.tooltip-text').innerHTML += ', ".$worms[$i]['name']."';
+									}
+								})();";
+							}
+						}
+					?>
+				</script>
+			</a>
+			
 		</div>
-		
+		<!--end race content-->
 	</section>
 	
 	<div id="activity">

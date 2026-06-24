@@ -35,6 +35,33 @@
 }
 
 /******************************************************************************************
+	AWARDS
+******************************************************************************************/
+#awards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	pointer-events: none;
+}
+#awards * { pointer-events: initial; }
+#awards .award {
+	width: min(60px, 30%);
+	background: var(--white);
+	border-radius: 50%;
+	padding: 8px;
+	border: calc(var(--menu-border) * .75) var(--white) solid;
+	img { max-width: 100%; }
+}
+#awards .award:not([data-worm]) img {
+	opacity: .5;
+}
+#awards .award .tooltip-text {
+	bottom: calc(100% + 6px);
+	font-size: 1em;
+}
+
+/******************************************************************************************
 	RACE
 ******************************************************************************************/
 .race-content {

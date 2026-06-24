@@ -78,6 +78,7 @@ function getWormAwards() {
 	$highest_apple_percent = 0; // highest percent of apples
 	$highest_drink_percent = 0; // highest percent of energy drinks
 	$highest_poison_percent = 0; // highest percent of poisons
+	$highest_heal_percent = 0; // highest percent of health potions
 	for ($i = 0; $i < count($worms); $i++) {
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] > $highest_icons) {
 			$highest_icons = $worms[$i]['kins'];
@@ -89,6 +90,8 @@ function getWormAwards() {
 		if ($worms[$i]["drink_percent"] > $highest_drink_percent) { $highest_drink_percent = $worms[$i]["drink_percent"]; }
 		$worms[$i]["poison_percent"] = $total_items > 0 ? $worms[$i]['poison_count'] / $total_items : 0;
 		if ($worms[$i]["poison_percent"] > $highest_poison_percent) { $highest_poison_percent = $worms[$i]["poison_percent"]; }
+		$worms[$i]["heal_percent"] = $total_items > 0 ? $worms[$i]['heal_count'] / $total_items : 0;
+		if ($worms[$i]["heal_percent"] > $highest_heal_percent) { $highest_heal_percent = $worms[$i]["heal_percent"]; }
 	}
 	// assign awards
 	for ($i = 0; $i < count($worms); $i++) {
@@ -107,6 +110,10 @@ function getWormAwards() {
 		// poisons award
 		if (!empty($worms[$i]["poison_percent"]) && $worms[$i]["poison_percent"] == $highest_poison_percent) {
 			$worms[$i]['awards'][] = 'Most Despised';
+		}
+		// health potions award
+		if (!empty($worms[$i]["heal_percent"]) && $worms[$i]["heal_percent"] == $highest_heal_percent) {
+			$worms[$i]['awards'][] = 'Private Insurance';
 		}
 	}
 }

@@ -26,6 +26,24 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-24T04:46'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			racetrack <a href="/games/worm-race/racetrack#awards">worm awards</a>
+		`,
+		details: `
+			<p>Worm awards are now displayed on the racetrack page! Background color and hover tooltip name display the current recipient.</p>
+			<p>Also, added a few more.</p>
+			<figure>
+				<img src="/games/worm-race/images/award_caffeine_addict.png" alt="Round battery juice stamp in teal and yellow.">
+				<img src="/games/worm-race/images/award_most_despised.png" alt="Round skull stamp in green and purple.">
+				<img src="/games/worm-race/images/award_private_insurance.png" alt="Round heart potion stamp in pink.">
+				<img src="/games/worm-race/images/award_creature's_pet.png" alt="Round pet collar stamp in orange and yellow.">
+			</figure>
+		`
+	},
+	{
 		date: new Date('2026-06-22T21:53'),
 		authors: ['emery'],
 		tags: ['users','minor'],
@@ -47,9 +65,9 @@ const updateLog = [
 		`,
 		details: `
 			<figure>
-				<img src="/games/worm-race/images/award_most_kinnable.png" alt="Round stamp with anonymous user icon in blue and purple.">
-				<img src="/games/worm-race/images/award_certified_organic.png" alt="Round stamp with apple icon in orange and green.">
-				<img src="/games/worm-race/images/award_underdog.png" alt="Round stamp with dog head icon in pink and yellow.">
+				<img src="/games/worm-race/images/award_most_kinnable.png" alt="Round anonymous user icon stamp in blue and purple.">
+				<img src="/games/worm-race/images/award_certified_organic.png" alt="Round apple stamp in orange and green.">
+				<img src="/games/worm-race/images/award_underdog.png" alt="Round dog head stamp in pink and yellow.">
 			</figure>
 			<p>3 special worm awards to start! Check out the <a href="/games/worm-race/guide#awards">guide</a> for details. Awards are displayed in the worm's trophy section.</p>
 		`

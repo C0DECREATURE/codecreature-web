@@ -76,13 +76,6 @@
 							<p>worms can earn special awards for their achievements! awards can only be held by one worm at a time, except in case of a tie.</p>
 							<hr>
 							<div class="awards">
-								<div class="award">
-									<img src="../images/award_most_kinnable.png" alt="">
-									<div class="name">Most Kinnable</div>
-									<div class="description">
-										highest number of users with this worm as their icon
-									</div>
-								</div>
 								
 								<div class="award">
 									<img src="../images/award_certified_organic.png" alt="">
@@ -101,6 +94,14 @@
 								</div>
 								
 								<div class="award">
+									<img src="../images/award_private_insurance.png" alt="">
+									<div class="name">Private Insurance</div>
+									<div class="description">
+										highest number of health potions relative to total items eaten
+									</div>
+								</div>
+								
+								<div class="award">
 									<img src="../images/award_most_despised.png" alt="">
 									<div class="name">Most Despised</div>
 									<div class="description">
@@ -113,6 +114,22 @@
 									<div class="name">Underdog</div>
 									<div class="description">
 										win first place after coming in last the previous season
+									</div>
+								</div>
+								
+								<div class="award">
+									<img src="../images/award_most_kinnable.png" alt="">
+									<div class="name">Most Kinnable</div>
+									<div class="description">
+										highest number of users with this worm as their icon
+									</div>
+								</div>
+								
+								<div class="award">
+									<img src="../images/award_creature's_pet.png" alt="">
+									<div class="name">Creature's Pet</div>
+									<div class="description">
+										receive excessive favoritism from the admins
 									</div>
 								</div>
 								
