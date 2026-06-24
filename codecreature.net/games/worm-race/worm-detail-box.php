@@ -163,7 +163,7 @@
 					} else {
 						for ($a = 0; $a < count($awards); $a++) {
 							echo "<a href='guide#awards' class='award tooltip'>
-											<img src='images/award_" . str_replace(" ","_",strtolower($awards[$a])) . ".png'
+											<img src=images/award_" . str_replace(" ","_",strtolower($awards[$a])) . ".png
 												alt='" . $awards[$a] . "'>
 											<span class='tooltip-text'>" . $awards[$a] . "</span>
 										</a>";
