@@ -81,7 +81,7 @@
 									<img src="../images/award_certified_organic.png" alt="">
 									<div class="name">Certified Organic</div>
 									<div class="description">
-										highest number of apples relative to total items eaten
+										highest number of apples relative to race progress
 									</div>
 								</div>
 								
@@ -89,7 +89,7 @@
 									<img src="../images/award_caffeine_addict.png" alt="">
 									<div class="name">Caffeine Addict</div>
 									<div class="description">
-										highest number of drinks relative to total items eaten
+										highest number of drinks relative to race progress
 									</div>
 								</div>
 								
@@ -97,7 +97,7 @@
 									<img src="../images/award_private_insurance.png" alt="">
 									<div class="name">Private Insurance</div>
 									<div class="description">
-										highest number of health potions relative to total items eaten
+										highest number of health potions relative to race progress
 									</div>
 								</div>
 								
@@ -105,7 +105,7 @@
 									<img src="../images/award_most_despised.png" alt="">
 									<div class="name">Most Despised</div>
 									<div class="description">
-										highest number of poisons relative to total items eaten
+										highest number of poisons relative to race progress
 									</div>
 								</div>
 								
