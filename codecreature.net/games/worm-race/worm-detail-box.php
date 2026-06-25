@@ -41,56 +41,23 @@
 		
 		<div class="items main-worm-tab tab">
 			<div class="buttons">
-				<div class="item-wrapper"><div>
-					<?php $cur_item = $items["apple"]; ?>
-					<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
-						name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
-						data-display-name="<?php echo $cur_item["display_name"]; ?>"
-						data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
-						data-progress="<?php echo $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]]; ?>"
-						data-health="<?php echo $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]]; ?>"
-						data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
-						required>
-					<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
-				</div></div>
-				<div class="item-wrapper"><div>
-					<?php $cur_item = $items["drink"]; ?>
-					<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
-						name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
-						data-display-name="<?php echo $cur_item["display_name"]; ?>"
-						data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
-						data-progress="<?php echo $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]]; ?>"
-						data-health="<?php echo $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]]; ?>"
-						data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
-						required>
-					<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
-				</div></div>
-				<div class="item-wrapper"><div>
-					<?php $cur_item = $items["poison"]; ?>
-					<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
-						name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
-						data-display-name="<?php echo $cur_item["display_name"]; ?>"
-						data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
-						data-progress="<?php echo $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]]; ?>"
-						data-health="<?php echo $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]]; ?>"
-						data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
-						<?php echo $cur_worm["health"] == 0 && $cur_worm["progress"] == 0 ? 'disabled' : '' ?>
-						required>
-					<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
-				</div></div>
-				<div class="item-wrapper"><div>
-					<?php $cur_item = $items["heal"]; ?>
-					<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
-						name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
-						data-display-name="<?php echo $cur_item["display_name"]; ?>"
-						data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
-						data-progress="<?php echo $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]]; ?>"
-						data-health="<?php echo $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]]; ?>"
-						data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
-						<?php echo $cur_worm["health"] == 4 ? 'disabled' : '' ?>
-						required>
-					<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
-				</div></div>
+				<?php foreach ($items as $cur_item) {
+					$adjusted_progress = $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]];
+					$adjusted_health = $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]];?>
+					<div class="item-wrapper"><div>
+						<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
+							name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
+							data-display-name="<?php echo $cur_item["display_name"]; ?>"
+							data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
+							data-progress="<?php echo $adjusted_progress; ?>"
+							data-health="<?php echo $adjusted_health; ?>"
+							data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
+							required
+							<?php if ($adjusted_health + $adjusted_progress == 0) echo "disabled"; ?>
+						>
+						<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
+					</div></div>
+				<?php } ?>
 			</div>
 			<div class="description empty">
 				<div class="empty-text">Select an Item</div>
@@ -132,25 +99,23 @@
 					$highest = array_search(max($win_history),$win_history) + 1;
 					
 					$type = $highest < 4 ? "trophy" : "ribbon";
-					
-					echo "<div class='average-trophy'>"
-								. "<img src='images/" . $type . "_base_" . $highest . ".png' "
-								. "alt='" . $trophy_nums[$highest - 1] . " place" . "'>"
-								. "<img src='images/trophy_base_" . $cur_worm["color"] . ".png' alt=''>"
-								. "</div>";
 				?>
+					<div class="average-trophy">
+						<img src="images/<?php echo $type; ?>_base_<?php echo $highest; ?>.png"
+							alt="<?php echo $trophy_nums[$highest - 1]; ?> place">
+						<img src="images/trophy_base_<?php echo $cur_worm["color"]; ?>.png" alt="">
+					</div>
 				<div class="wrapper">
 					<?php
-						$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
-						$win_history = json_decode($cur_worm["win_counts"],false);
 						for ($w = 0; $w < count($win_history); $w++) {
 							$num = $w + 1;
-							echo "<div class='trophy'>"
-										. "<img src='images/trophy_" . $num . ".png' alt='"
-										. $trophy_nums[$w] . " place" . "'>"
-										. $win_history[$w] . "</div>";
+							?>
+							<div class="trophy">
+								<img src="images/trophy_<?php echo $num; ?>.png" alt="<?php echo $trophy_nums[$w]; ?> place">
+									<?php echo $win_history[$w]; ?>
+							</div>
+							<?php
 						};
-						
 					?>
 				</div>
 			</div>
@@ -239,7 +204,7 @@
 				let health = Number(itemInputs[i].dataset.health);
 				if ( health > 0 ) stats += " / +"+health;
 				else if ( health < 0 ) stats += " / "+health;
-				stats += '<img src="'+imagePath+'icon-health-pos.png" alt="health">';
+				if (health != 0) stats += '<img src="'+imagePath+'icon-health-pos.png" alt="health">';
 				// add the text
 				form.querySelector(".info").querySelector(".stats").innerHTML = stats;
 				
