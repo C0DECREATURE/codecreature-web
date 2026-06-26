@@ -64,6 +64,8 @@ $user_auth = getAuthorization($user_id);
 		</script>
     <script src="/chat/liveChat.js"></script>
     <script src="/chat/chatFunctions.js"></script>
+		
+		<base target="_top">
 </head>
 <body>
 	<main class="chatbox">
@@ -89,8 +91,8 @@ $user_auth = getAuthorization($user_id);
 			</button>
 			<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
 				<!--page settings go here-->
-				<span><a href="/chat/rules">Chatroom Rules</a></span>
-				<span><a href="/chat/bbcode">BBCode Style Guide</a></span>
+				<span><a href="/chat/rules" target="_self">Chatroom Rules</a></span>
+				<span><a href="/chat/bbcode" target="_self">BBCode Style Guide</a></span>
 			</div>
 		</header>
 		
