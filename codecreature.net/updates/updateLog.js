@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-26T03:59'),
+		authors: ['emery'],
+		tags: ['new page'],
+		summary: `
+			<a href="/fridge">fridge</a>
+		`,
+		details: `
+			fridge
+		`
+	},
+	{
 		date: new Date('2026-06-24T04:46'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
