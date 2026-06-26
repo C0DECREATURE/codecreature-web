@@ -16,9 +16,6 @@
 		<meta name="keywords" content="game,worms,worm,feed,worm game,worms game,worms race,worm race,worm racing,worm feeding">
 		<meta name="author" content="codecreature">
 		
-		<!-- check url parameters and such -->
-		<script>updateUrl();</script>
-		
 		<!-- prevent warnings popup on this page -->
 		<script>var showMainWarnings = false;</script>
 		
@@ -45,6 +42,9 @@
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js?fileversion=20260531"></script>
+		
+		<!-- check url parameters and such -->
+		<script>updateUrl();</script>
 	</head>
 	<body>
 		

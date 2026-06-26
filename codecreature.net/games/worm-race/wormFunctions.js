@@ -41,7 +41,7 @@ function openDetailBox(id) {
 	newUrl.pathname = newUrl.pathname.replaceAll('/racetrack','');
 	newUrl.hash = '#' + id;
 	if (window.location.pathname.includes('/racetrack')) window.location = newUrl;
-	else window.history.pushState({}, "", newUrl);
+	else window.history.replaceState({}, "", newUrl);
 	// display appropriate tabs
 	let tabs = document.getElementsByClassName('tab');
 	for (let i = 0; i < tabs.length; i++) {
@@ -75,7 +75,6 @@ function updateUrl() {
 	// if url parameters includes a value for worm and that result is a valid worm, open that worm
 	if (wormParam) {
 		let hash = "";
-		
 		// DEBUG: failed to do this with php, maybe try again later. clunky style for now
 		if (wormParam == "0") hash = "#pink";
 		else if (wormParam == "1") hash = "#orange";
@@ -87,7 +86,7 @@ function updateUrl() {
 			let newUrl = new URL(window.location.href);
 			newUrl.search = "";
 			newUrl.hash = hash;
-			history.replaceState(null, null, newUrl);
+			history.replaceState(null, '', newUrl);
 		}
 	}
 }
