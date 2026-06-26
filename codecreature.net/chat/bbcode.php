@@ -14,12 +14,12 @@ $bbcode->AddSmiley(":left:","arrow_left.png");
 $bbcode->AddSmiley(":up:","arrow_up.png");
 $bbcode->AddSmiley(":down:","arrow_down.png");
 $bbcode->AddSmiley(":star:","star.png");
-$bbcode->AddSmiley(":jeremy:","worm_pink.png");
-$bbcode->AddSmiley(":pretzel:","worm_orange.png");
-$bbcode->AddSmiley(":stringcheese:","worm_yellow.png");
-$bbcode->AddSmiley(":matilda:","worm_green.png");
-$bbcode->AddSmiley(":poolnoodle:","worm_blue.png");
-$bbcode->AddSmiley(":microplastics:","worm_purple.png");
+$bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");
+$bbcode->AddSmiley(":pretzel:","worm_orange.png"); $bbcode->AddSmiley(":Pretzel:","worm_orange.png");
+$bbcode->AddSmiley(":stringcheese:","worm_yellow.png"); $bbcode->AddSmiley(":StringCheese:","worm_yellow.png"); $bbcode->AddSmiley(":string_cheese:","worm_yellow.png"); $bbcode->AddSmiley(":string-cheese:","worm_yellow.png");
+$bbcode->AddSmiley(":matilda:","worm_green.png"); $bbcode->AddSmiley(":Matilda:","worm_green.png");
+$bbcode->AddSmiley(":poolnoodle:","worm_blue.png"); $bbcode->AddSmiley(":PoolNoodle:","worm_blue.png"); $bbcode->AddSmiley(":pool_noodle:","worm_blue.png"); $bbcode->AddSmiley(":pool-noodle:","worm_blue.png");
+$bbcode->AddSmiley(":microplastics:","worm_purple.png"); $bbcode->AddSmiley(":Microplastics:","worm_purple.png");
 
 // automatically detect and style links
 $bbcode->SetDetectURLs(true);
