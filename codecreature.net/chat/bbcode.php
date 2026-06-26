@@ -15,6 +15,12 @@ $bbcode->AddSmiley(":up:","arrow_up.png");
 $bbcode->AddSmiley(":down:","arrow_down.png");
 $bbcode->AddSmiley(":star:","star.png");
 
+$bbcode->AddSmiley(":smile:","kitty_happy.png"); $bbcode->AddSmiley(":happy:","kitty_happy.png"); $bbcode->AddSmiley(":smiley:","kitty_happy.png");
+$bbcode->AddSmiley(":sad:","kitty_sad.png");
+$bbcode->AddSmiley(":cry:","kitty_cry.png"); $bbcode->AddSmiley(":crying:","kitty_cry.png");
+$bbcode->AddSmiley(":hearteyes:","kitty_heart_eyes.png"); $bbcode->AddSmiley(":heart_eyes:","kitty_heart_eyes.png");
+$bbcode->AddSmiley(":cool:","kitty_cool.png"); $bbcode->AddSmiley(":sunglasses:","kitty_sunglasses.png");
+
 $bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");
 $bbcode->AddSmiley(":pretzel:","worm_orange.png"); $bbcode->AddSmiley(":Pretzel:","worm_orange.png");
 $bbcode->AddSmiley(":stringcheese:","worm_yellow.png"); $bbcode->AddSmiley(":StringCheese:","worm_yellow.png"); $bbcode->AddSmiley(":string_cheese:","worm_yellow.png"); $bbcode->AddSmiley(":string-cheese:","worm_yellow.png");
