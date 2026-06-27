@@ -157,4 +157,22 @@ function cleanMessageText($str) {
 	return $str;
 }
 
+function replaceEmojis($str) {
+	$str = str_replace("🙂",":smile:",$str);
+	$str = str_replace("🙁",":sad:",$str);
+	$str = str_replace("☹️",":sad:",$str);
+	$str = str_replace("😭",":cry:",$str);
+	$str = str_replace("😎",":cool:",$str);
+	$str = str_replace("😍",":hearteyes:",$str);
+	$str = str_replace("😻",":hearteyes:",$str);
+	$str = str_replace("⭐️",":star:",$str);
+	$str = str_replace("🩷",":heart:",$str);
+	$str = str_replace("💔",":brokenheart:",$str);
+	$str = str_replace("⬆️",":up:",$str);
+	$str = str_replace("⬇️",":down:",$str);
+	$str = str_replace("⬅️",":left:",$str);
+	$str = str_replace("➡️",":right:",$str);
+	return $str;
+}
+
 ?>

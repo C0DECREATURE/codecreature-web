@@ -105,7 +105,7 @@ while ($message = mysqli_fetch_array($result)) {
 				</span>
 			</header>
 			<div class="content"><?php
-				echo htmlspecialchars_decode($bbcode->Parse($message['message']));
+				echo htmlspecialchars_decode($bbcode->Parse(replaceEmojis($message['message'])));
 			?></div>
 		</div>
 		<script>
