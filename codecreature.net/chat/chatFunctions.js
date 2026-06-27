@@ -7,11 +7,11 @@ function messageRightClick(e,id,ownMessage) {
 	e.preventDefault();
 	hideRightClickMenus();
 	// show/hide the message edit option
-	let canEdit = ownMessage;
+	let canEdit = ownMessage && loggedIn;
 	let editOpt = document.getElementById("right-click-edit");
 	if (canEdit) editOpt.classList.remove('hidden'); else editOpt.classList.add('hidden');
 	// show/hide the message delete option
-	let canDelete = ownMessage || userAuth == "moderator" || userAuth == "admin";
+	let canDelete = loggedIn && (ownMessage || userAuth == "moderator" || userAuth == "admin");
 	let deleteOpt = document.getElementById("right-click-delete");
 	if (canDelete) deleteOpt.classList.remove('hidden'); else deleteOpt.classList.add('hidden');
 	// show/hide the message report option
@@ -19,7 +19,7 @@ function messageRightClick(e,id,ownMessage) {
 	let reportOpt = document.getElementById("right-click-report");
 	if (canReport) reportOpt.classList.remove('hidden'); else reportOpt.classList.add('hidden');
 	// show/hide the ban user option
-	let canBan = !ownMessage && (userAuth == "moderator" || userAuth == "admin");
+	let canBan = !ownMessage && loggedIn && (userAuth == "moderator" || userAuth == "admin");
 	let banOpt = document.getElementById("right-click-ban");
 	if (canBan) banOpt.classList.remove('hidden'); else banOpt.classList.add('hidden');
 	// display the right click menu

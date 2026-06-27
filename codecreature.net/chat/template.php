@@ -133,7 +133,7 @@ $user_auth = getAuthorization($user_id);
 				</button>
 				<!--report-->
 				<button id="right-click-report" class="txt-red" onclick="reportMessage(this.parentNode.dataset.messageId);">Report</button>
-				<!--report-->
+				<!--ban-->
 				<button id="right-click-ban" class="txt-red" onclick="openBanMenu(this.parentNode.dataset.messageId);">Ban User</button>
 				<!--edit-->
 				<button id="right-click-edit" 
@@ -145,53 +145,55 @@ $user_auth = getAuthorization($user_id);
 			</div>
 			<script>document.addEventListener("click",hideRightClickMenus);</script>
 			
-			<!--message edit popup-->
-			<form popover id="edit-message" class="popup-menu">
-				<header><h3>Edit Message</h3></header>
-				<div class="content">
-					<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
-					<div class="bottom-buttons">
-						<button class="cancel" onclick="this.closest('form').hidePopover();">cancel</button>
-						<button class="submit" id="edit-message-submit" type="submit">update</button>
+			<?php if ($logged_in) { ?>
+				<!--message edit popup-->
+				<form popover id="edit-message" class="popup-menu">
+					<header><h3>Edit Message</h3></header>
+					<div class="content">
+						<textarea id="edit-message-new-text" name="new-message" maxlength="<?php echo $max_message_length; ?>" autocomplete="off"></textarea>
+						<div class="bottom-buttons">
+							<button class="cancel" type="button" onclick="this.closest('form').hidePopover();">cancel</button>
+							<button class="submit" id="edit-message-submit" type="submit">update</button>
+						</div>
 					</div>
-				</div>
-			</form>
-			<script>
-				function openMessageEditor(messageId) {
-					let msgEl = document.getElementById('message-' + messageId);
-					let form = document.getElementById('edit-message');
-					let textArea = document.getElementById('edit-message-new-text');
+				</form>
+				<script>
+					function openMessageEditor(messageId) {
+						let msgEl = document.getElementById('message-' + messageId);
+						let form = document.getElementById('edit-message');
+						let textArea = document.getElementById('edit-message-new-text');
+						
+						form.showPopover();
+						form.dataset.messageId = messageId;
+						
+						// put message contents in editor text area
+						textArea.value = msgEl.dataset.rawBbcode.replaceAll("[br]","\n");
+						
+						textArea.focus();
+					}
 					
-					form.showPopover();
-					form.dataset.messageId = messageId;
-					
-					// put message contents in editor text area
-					textArea.value = msgEl.dataset.rawBbcode.replaceAll("[br]","\n");
-					
-					textArea.focus();
-				}
-				
-				(()=>{
-					let form = document.getElementById('edit-message');
-					
-					// send on enter key
-					// don't send if shift+enter
-					document.getElementById("edit-message-new-text").addEventListener("keypress", (e)=>{
-						if (e.key === "Enter" && !e.shiftKey) {
+					(()=>{
+						let form = document.getElementById('edit-message');
+						
+						// send on enter key
+						// don't send if shift+enter
+						document.getElementById("edit-message-new-text").addEventListener("keypress", (e)=>{
+							if (e.key === "Enter" && !e.shiftKey) {
+								e.preventDefault();
+								document.getElementById("edit-message-submit").click();
+							}
+						});
+						
+						// submit form without refreshing page
+						form.addEventListener("submit", function(e){
 							e.preventDefault();
-							document.getElementById("edit-message-submit").click();
-						}
-					});
-					
-					// submit form without refreshing page
-					form.addEventListener("submit", function(e){
-						e.preventDefault();
-						let formProps = Object.fromEntries(new FormData(form));
-						editMessage(form.dataset.messageId,formProps['new-message']);
-						form.hidePopover();
-					});
-				})();
-			</script>
+							let formProps = Object.fromEntries(new FormData(form));
+							editMessage(form.dataset.messageId,formProps['new-message']);
+							form.hidePopover();
+						});
+					})();
+				</script>
+			<?php } ?>
 			
 			<?php
 			// only load banning option if user is a mod or admin
