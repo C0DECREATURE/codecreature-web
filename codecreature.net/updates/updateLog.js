@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-29T01:19'),
+		authors: ['emery'],
+		tags: ['general','worm race','minor'],
+		summary: `
+			color palette corrections
+		`,
+		details: `
+			<p>Realized that the color palettes across some pages (particularly <a href="/games/worm-race">worm race</a>) has drifted over time, and couldn't unsee the inconsistencies. Made very slight changes to correct this, most notably the pinks, purples, and blues. Wouldn't make an update about it but I know y'all are autistic and don't want to scare anyone with unannounced changes lol</p>
+		`
+	},
+	{
 		date: new Date('2026-06-26T03:59'),
 		authors: ['emery'],
 		tags: ['new page'],
@@ -33,7 +44,7 @@ const updateLog = [
 			<a href="/fridge">fridge</a>
 		`,
 		details: `
-			fridge
+			<p>fridge</p>
 		`
 	},
 	{
