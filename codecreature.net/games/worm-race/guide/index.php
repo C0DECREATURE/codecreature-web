@@ -110,10 +110,18 @@
 								</div>
 								
 								<div class="award">
+									<img src="../images/award_reigning_champion.png" alt="">
+									<div class="name">Reigning Champion</div>
+									<div class="description">
+										winner of the previous season
+									</div>
+								</div>
+								
+								<div class="award">
 									<img src="../images/award_underdog.png" alt="">
 									<div class="name">Underdog</div>
 									<div class="description">
-										win first place after coming in last the previous season
+										loser of the previous season
 									</div>
 								</div>
 								

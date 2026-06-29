@@ -129,48 +129,60 @@ getAllData();
 				?>
 			</section>
 			
-			<a id="awards" href="../guide#awards" aria-label="worm awards">
+			<div id="awards" aria-label="worm awards">
 				<?php
 					function getAwardId($name) { return "award-".strtolower(str_replace("'","",str_replace(" ","-",$name))); }
 					function getAwardImage($name) { return "award_".strtolower(str_replace(" ","_",$name)).".png"; }
-					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Underdog','Most Kinnable',"Creature's Pet"];
+					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Reigning Champion','Underdog','Most Kinnable'];
 					for ($i = 0; $i < count($awards); $i++) {
-						echo "
-							<div id='".getAwardId($awards[$i])."' class='award tooltip'>
-								<img src=../images/".getAwardImage($awards[$i])." alt=`$awards[$i]`>
-								<span class='tooltip-text'>$awards[$i]: Nobody</span>
-							</div>
-						";
+						?>
+						<button id="<?php echo getAwardId($awards[$i]); ?>" class="award tooltip">
+							<img src="../images/<?php echo getAwardImage($awards[$i]); ?>" alt="<?php echo $awards[$i]; ?>">
+							<span class='tooltip-text'><?php echo $awards[$i]; ?>: Nobody</span>
+						</button>
+						<?php
 					}
 				?>
 				<script>
 					<?php
-						for ($i = 0; $i < count($worms); $i++) {
-							$awards = $worms[$i]["awards"];
-							for ($a = 0; $a < count($awards); $a++) {
-								echo "(()=>{
-									let award = document.getElementById('". getAwardId($awards[$a]) ."');
-									if (award.dataset.worm == undefined) {
-										award.querySelector('.tooltip-text').innerHTML = `".$awards[$a].": ".$worms[$i]['name']."`;
-										award.style.background = 'var(--". $worms[$i]["color"] .")';
-										// log that this award has been assigned to a worm
-										award.dataset.worm = '". $worms[$i]["color"] ."';
-									} else { // if award already assigned to at least one other worm
-										award.dataset.worm += ',". $worms[$i]["color"] ."';
-										let awardedTo = award.dataset.worm.split(',');
-										let bg = 'linear-gradient(to bottom';
-										for (let i = 0; i < awardedTo.length; i++) {
-											bg += ', var(--' + awardedTo[i] + ')';
-										}
-										award.style.background = bg + ')';
-										award.querySelector('.tooltip-text').innerHTML += ', ".$worms[$i]['name']."';
-									}
-								})();";
+					for ($i = 0; $i < count($worms); $i++) {
+						$cur_worm_awards = $worms[$i]["awards"];
+						for ($a = 0; $a < count($cur_worm_awards); $a++) {
+							?>
+					(()=>{
+						<?php echo "
+						let award = document.getElementById('". getAwardId($cur_worm_awards[$a]) ."');
+						let awardName = `". $cur_worm_awards[$a] ."`;
+						let wormColor = `". $worms[$i]["color"] ."`;
+						let wormName = `". $worms[$i]["name"] ."`;
+						"; ?>
+						// if the award element exists
+						if (award) {
+							// if no worm has been assigned to this award yet
+							if (award.dataset.worm == undefined) {
+								award.querySelector('.tooltip-text').innerHTML = awardName + ": " + wormName;
+								award.style.background = 'var(--' + wormColor + ')';
+								// log that this award has been assigned to a worm
+								award.dataset.worm = wormColor;
+							// if award already assigned to at least one other worm
+							} else {
+								award.dataset.worm += "," + wormColor;
+								let awardedTo = award.dataset.worm.split(',');
+								let bg = 'linear-gradient(to bottom';
+								for (let i = 0; i < awardedTo.length; i++) {
+									bg += ', var(--' + awardedTo[i] + ')';
+								}
+								award.style.background = bg + ')';
+								award.querySelector('.tooltip-text').innerHTML += ", " + wormName;
 							}
 						}
+					})();
+							<?php
+						}
+					}
 					?>
 				</script>
-			</a>
+			</div>
 			
 		</div>
 		<!--end race content-->

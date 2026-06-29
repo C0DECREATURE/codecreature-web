@@ -170,6 +170,7 @@ function seasonIsOngoing($season) {
 			$season_worms[] = ["id" => $i, "progress" => $w["progress"]];
 		}
 		
+		/* OLD UNDERDOG (win first place after coming in last the previous season)
 		// get the losing progress of the season BEFORE the season being processed
 		$prevSeason = getPrevSeason($season = $season);
 		$prev_season_worms = [];
@@ -222,6 +223,7 @@ function seasonIsOngoing($season) {
 				
 			}
 		}
+		*/
 		
 		// sort the winner rankings in descending order
 		function prog_sort($a, $b) {

@@ -73,7 +73,21 @@ function getWormAwards() {
 		} else { $load_err = "Could not fetch user data. Try again later."; }
 	}
 	
-	// find highest kin, highest apples
+	if ($active_season["name"] != "all_time" && $active_season["name"] != "alpha") {
+		// find winning and losing progress of previous season
+		$prevSeason = getPrevSeason($season = $active_season);
+		$prev_season_worms = [];
+		$prev_lowest_progress = '';
+		$prev_highest_progress = '';
+		for ($i = 0; $i < count($worms); $i++) {
+			$w = json_decode($prevSeason["worm_".$i],true);
+			if (empty($prev_lowest_progress) || $w["progress"] < $prev_lowest_progress) { $prev_lowest_progress = $w["progress"]; }
+			if (empty($prev_highest_progress) || $w["progress"] > $prev_highest_progress) { $prev_highest_progress = $w["progress"]; }
+			$prev_season_worms[] = ["id" => $i, "progress" => $w["progress"]];
+		}
+	}
+	
+	// find highest kin, highest items
 	$highest_icons = 0; // number of users with worm as their icon
 	$highest_apple_percent = 0; // highest percent of apples
 	$highest_drink_percent = 0; // highest percent of energy drinks
@@ -111,6 +125,14 @@ function getWormAwards() {
 		// health potions award
 		if (!empty($worms[$i]["heal_percent"]) && $worms[$i]["heal_percent"] == $highest_heal_percent) {
 			$worms[$i]['awards'][] = 'Private Insurance';
+		}
+		if ($active_season["name"] != "all_time" && $active_season["name"] != "alpha") {
+			// underdog and reigning champion award
+			if ($prev_season_worms[$i]['progress'] == $prev_lowest_progress) {
+				$worms[$i]['awards'][] = 'Underdog';
+			} else if (!empty($prev_season_worms[$i]['progress']) && $prev_season_worms[$i]['progress'] == $prev_highest_progress) {
+				$worms[$i]['awards'][] = 'Reigning Champion';
+			}
 		}
 		// icons award
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] == $highest_icons) {

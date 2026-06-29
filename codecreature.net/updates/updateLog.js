@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-29T19:12'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			<a href="/games/worm-race">worm race</a> award adjustments, poison effect increase
+		`,
+		details: `
+			<p>Poison now does -50 progress on worms with zero health, equivalent to one Battery Juice at full health. Hate is as strong as love <img src="/graphix/emojis/broken_heart.png" class="mini no-full-view" alt="broken heart"></p>
+			<figure><img src="/games/worm-race/images/award_reigning_champion.png" alt="Round gold crown stamp in red and yellow."></figure>
+			<p>The Underdog award now goes to the loser of the previous season, and there is an equivalent award for last season's winner! Additionally, the Creature's Pet award no longer displays on the racetrack, only on the worm's trophy page.</p>
+		`
+	},
+	{
 		date: new Date('2026-06-29T01:19'),
 		authors: ['emery'],
 		tags: ['general','worm race','minor'],
