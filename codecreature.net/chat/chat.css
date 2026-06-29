@@ -188,8 +188,9 @@ body, html {
 	--icon-height: 3rem;
 	display: flex;
 	align-items: flex-end;
-	gap: .5rem;
-	width: min(88%, 40rem);
+	--gap: .5rem;
+	gap: var(--gap);
+	width: min(90%, 40rem);
 	font-size: 1rem;
 	margin-bottom: 4px;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
@@ -213,7 +214,7 @@ body, html {
 	background: var(--bubble-bg);
 	border-radius: 1rem 1rem 1rem 0;
 	flex-grow: 1;
-	width: 100%; /* DEBUG not working here but works in inspect?? */
+	width: calc(100% - var(--icon-height) - var(--gap));
 }
 .message.self .bubble { border-radius: 1rem 1rem 0 1rem; }
 
