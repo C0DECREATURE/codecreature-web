@@ -31,9 +31,12 @@ nav {
 	scale: 1.1;
 }
 
-.full-image-view { color: white; }
-.fiv-content {
-	background: white;
-	color: black;
-	a, a:link, a:visited { color: #69916d; }
+.full-image-view {
+	color: white;
+	.fiv-content {
+		background: white;
+		color: black;
+		a, a:link, a:visited { color: #69916d; }
+		.text { margin-top: 0; padding-top: 0; }
+	}
 }
