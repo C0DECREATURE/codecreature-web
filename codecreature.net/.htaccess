@@ -30,10 +30,12 @@ Redirect 301 /worm-race /games/worm-race
 ################################
 # URL REWRITING
 
-# following line commented because it breaks Heliohost
-# Options +FollowSymLinks
-
 RewriteEngine on
+
+# prevent hotlinking images and files
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)codecreature.net/.*$ [NC]
+RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|pdf)$ -
 
 # redirect /preview or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview /$1/ [R=301]
