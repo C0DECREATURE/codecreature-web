@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$_SESSION["last_cooldown"] = $item["cooldown"];
 			logFeeding($worm_id,$item["name"]);
 			// redirect to racetrack page
-			//header("location: ".$worm_race_path."racetrack");
+			if (empty($feed_err)) header("location: ".$worm_race_path."racetrack");
 		} else {
 			$feed_err = "Could not fetch race data. Try again later.";
 		}
