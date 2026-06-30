@@ -163,6 +163,8 @@ function updateWormDaily($worm_id,$progress_amount) {
 		$feed_err = "Could not fetch daily data. Try again later.";
 	}
 	
+	echo "<br>Current progress = $cur_progress / Progress amount = $progress_amount <br>";
+	
 	// if no errors
 	if (empty($feed_err)) {
 		// if no daily entry for current day, make one
