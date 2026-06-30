@@ -64,7 +64,7 @@
 							</div>
 							<div class="share-btn-section">
 								<span><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></span>
-								<textarea rows="2" cols="60" name="static worm race button code"><a href="https://i.postimg.cc/bJFVbKML/button.png" aria-label="worm race"><img src="https://i.imgur.com/5Lbp7Id.png" alt=""></a></textarea>
+								<textarea rows="2" cols="60" name="static worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></a></textarea>
 							</div>
 							<div class="share-btn-section">
 								<span><img src="https://i.postimg.cc/631bRDSr/button_pink.png" alt=""></span>
