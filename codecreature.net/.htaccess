@@ -34,10 +34,9 @@ RewriteEngine on
 
 # prevent hotlinking images and files
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^(https?://)(www\.)codecreature.net/.*$ [NC]
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)codecreature.neocities.org/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !(http)?s?(:\/\/)?(www\.)?codecreature.net\/.*$ [NC]
 # block these file types from hotlinking
-RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|svg|pdf)$ - [F,NC,L]
+RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|svg|pdf)$ https://i.postimg.cc/C1nLcrXG/hotlink-blocked.png [NC,L]
 
 # redirect /preview or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview /$1/ [R=301]
