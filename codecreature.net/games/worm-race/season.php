@@ -170,61 +170,6 @@ function seasonIsOngoing($season) {
 			$season_worms[] = ["id" => $i, "progress" => $w["progress"]];
 		}
 		
-		/* OLD UNDERDOG (win first place after coming in last the previous season)
-		// get the losing progress of the season BEFORE the season being processed
-		$prevSeason = getPrevSeason($season = $season);
-		$prev_season_worms = [];
-		$lowest_progress = '';
-		for ($i = 0; $i < count($win_counts); $i++) {
-			$w = json_decode($prevSeason["worm_".$i],true);
-			if (empty($lowest_progress) || $w["progress"] < $lowest_progress) { $lowest_progress = $w["progress"]; }
-			$prev_season_worms[] = ["id" => $i, "progress" => $w["progress"]];
-		}
-		
-		// get existing worm awards array
-		$all_awards = [];
-		$sql = "SELECT awards FROM worms;";
-		if ($result = mysqli_query($worm_conn,$sql)) {
-			while($row = mysqli_fetch_object($result)) {
-				$row = get_object_vars($row);
-				$all_awards[] = json_decode($row["awards"],true);
-			}
-		} else { echo "ERROR: Could not get stored worm awards."; }
-		
-		// assign underdog award
-		for ($i = 0; $i < count($win_counts); $i++) {
-			if (
-				$prev_season_worms[$i]["progress"] == $lowest_progress
-				&& $season_worms[$i]["progress"] == $highest_progress
-			) {
-				if(!in_array('Underdog',$all_awards[$i])) $all_awards[$i][] = "Underdog";
-			} else {
-				$all_awards[$i] = array_diff($all_awards[$i], array('Underdog'));
-			}
-			
-			echo "WORM #".$i."<br>";
-			echo "prev progress: ".$prev_season_worms[$i]["progress"]."<br>";
-			echo "cur progress: ".$season_worms[$i]["progress"]."<br>";
-			echo "awards: " . json_encode($all_awards[$i]) ."<br><hr>";
-			
-			$sql = "UPDATE worms
-								SET win_counts = '" . json_encode($win_counts[$i]) . "',
-										awards = '" . json_encode($all_awards[$i]) . "'
-								WHERE id = $i";
-			if($stmt = mysqli_prepare($worm_conn, $sql)) {
-				if(!mysqli_stmt_execute($stmt)){ echo "ERROR: Could not update worm trophies."; }
-				mysqli_stmt_close($stmt);
-			}
-			
-			if (
-				$season_worms[$i]["progress"] == $highest_progress
-				&& $prev_season_worms[$i]["progress"] == $lowest_progress
-			) {
-				
-			}
-		}
-		*/
-		
 		// sort the winner rankings in descending order
 		function prog_sort($a, $b) {
 			return $a["progress"] < $b["progress"];
