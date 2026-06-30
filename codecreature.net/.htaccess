@@ -35,7 +35,18 @@ RewriteEngine on
 # prevent hotlinking images and files
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)codecreature.net/.*$ [NC]
-RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|pdf)$ - [F,NC,L]
+# Allow Google
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?google\. [NC]
+# Allow Bing
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?bing\. [NC]
+# Allow DuckDuckGo
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?duckduckgo\. [NC]
+# Allow Yahoo
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yahoo\. [NC]
+# Allow Yandex
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yandex\. [NC]
+# block these file types from hotlinking
+RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|svg|pdf)$ - [F,NC,L]
 
 # redirect /preview or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview /$1/ [R=301]
