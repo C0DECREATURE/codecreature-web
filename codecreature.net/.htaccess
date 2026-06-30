@@ -34,8 +34,8 @@ RewriteEngine on
 
 # prevent hotlinking images and files
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https://(www\.)codecreature.net/.*$ [NC]
-RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|pdf)$ -
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)codecreature.net/.*$ [NC]
+RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|pdf)$ - [F,NC,L]
 
 # redirect /preview or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview /$1/ [R=301]
@@ -45,7 +45,6 @@ RewriteRule ^(.*)/preview.html /$1/ [R=301]
 # redirect /u/sampleUser to /user/profile.php?username=sampleUser
 RewriteRule ^u/(.*) user/profile/index.php?username=$1
 RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
-
 
 # redirect /x-chat to /chat/x
 RewriteRule ^(.*)-chat /chat/$1
