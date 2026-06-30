@@ -57,12 +57,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	// if no errors, feed the worm
 	if(empty($feed_err)){
-		// create a new season row if one doesn't already exist for this season
+		// feed the worm in all ongoing seasons
 		$sql = "SELECT * FROM race WHERE ongoing = true;";
 		if ( $result = mysqli_query($worm_conn,$sql) ) {
 			while($row = mysqli_fetch_object($result)) {
 				$row = get_object_vars($row);
+				// get the season's info, end it if it shouldn't still be ongoing
 				$season = getSeason($row["name"]);
+				// if the season has been validated, feed the worm in that season
 				if ($season["ongoing"] == 'true') feedWormInSeason($season,$worm_id,$item);
 			}
 			$_SESSION["last_feed"] = time();
@@ -77,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 
 function feedWormInSeason($season,$worm_id,$item) {
-	global $worm_conn; global $items; global $worm_race_path;
+	global $worm_conn; global $items;
 	global $logged_in; global $user_id;
 	
 	$item_count_col = $item["name"]."_count";
