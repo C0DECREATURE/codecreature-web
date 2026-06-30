@@ -154,8 +154,8 @@ function updateWormDaily($worm_id,$progress_amount) {
 			// if any of the values for this day are higher than a worm's current best day,
 			// update that worm's best_day
 			for ($i = 0; $i < count($worms); $i++) {
-				if ($worms[$i]["best_day"] < $row["worm_". $i]) {
-					$new_progress = $i == $worm_id ? $row["worm_". $i] + $progress_amount : $row["worm_". $i];
+				$new_progress = $i == $worm_id ? $row["worm_". $i] + $progress_amount : $row["worm_". $i];
+				if ($worms[$i]["best_day"] < $new_progress) {
 					updateBestDay($i, $new_progress);
 				}
 			}
