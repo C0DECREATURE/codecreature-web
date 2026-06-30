@@ -163,14 +163,13 @@ function updateWormDaily($worm_id,$progress_amount) {
 		$feed_err = "Could not fetch daily data. Try again later.";
 	}
 	
-	echo "<br>Current progress = $cur_progress / Progress amount = $progress_amount <br>";
-	
 	// if no errors
 	if (empty($feed_err)) {
+		$new_progress = $cur_progress + $progress_amount;
 		// if no daily entry for current day, make one
 		$sql = "INSERT INTO dailies (date, worm_". $worm_id .")
-							VALUES ('".$today."', ". $cur_progress + $progress_amount .")
-							ON DUPLICATE KEY UPDATE worm_". $worm_id ." = ". $cur_progress + $progress_amount;
+							VALUES ('".$today."', ". $new_progress .")
+							ON DUPLICATE KEY UPDATE worm_". $worm_id ." = ". $new_progress;
 		if (!mysqli_query($worm_conn,$sql) ) {
 			$feed_err = "Could not update daily data. Try again later.";
 		}
