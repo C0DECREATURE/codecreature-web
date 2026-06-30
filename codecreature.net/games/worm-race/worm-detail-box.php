@@ -126,7 +126,7 @@
 					
 					if (count($awards) == 0) {
 						?>
-						<div class='text'>No special awards!</div>;
+						<div class='text'>No special awards!</div>
 						<?php
 					} else {
 						for ($a = 0; $a < count($awards); $a++) {
