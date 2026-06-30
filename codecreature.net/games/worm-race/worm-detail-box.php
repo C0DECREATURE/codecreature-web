@@ -117,6 +117,7 @@
 							<?php
 						};
 					?>
+					<div class="best-day">Best Day: <b><?php echo $cur_worm["best_day"]; ?><img src="images/icon-progress-1.png" alt="progress"></b></div>
 				</div>
 			</div>
 			<div class="awards">
@@ -124,7 +125,9 @@
 					$awards = $cur_worm["awards"];
 					
 					if (count($awards) == 0) {
-						echo "<div class='text'>No special awards!</div>";
+						?>
+						<div class='text'>No special awards!</div>;
+						<?php
 					} else {
 						for ($a = 0; $a < count($awards); $a++) {
 							echo "<a href='guide#awards' class='award tooltip'>

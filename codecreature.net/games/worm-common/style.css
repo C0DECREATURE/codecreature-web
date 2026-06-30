@@ -135,7 +135,7 @@ body {
 	@media screen and (width < 1000px) {
 		z-index: 1000;
 		width: 100%;
-		font-size: max(1rem, min(2rem, 4vh));
+		font-size: max(1rem, min(2rem, 3vh));
 		
 		> header {
 			text-align: left;

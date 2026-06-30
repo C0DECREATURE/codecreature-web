@@ -87,15 +87,19 @@ function getWormAwards() {
 		}
 	}
 	
-	// find highest kin, highest items
+	// find highest kin, highest items, highest best day progress
 	$highest_icons = 0; // number of users with worm as their icon
 	$highest_apple_percent = 0; // highest percent of apples
 	$highest_drink_percent = 0; // highest percent of energy drinks
 	$highest_poison_percent = 0; // highest percent of poisons
 	$highest_heal_percent = 0; // highest percent of health potions
+	$highest_best_day = 0; // highest progress in a single day
 	for ($i = 0; $i < count($worms); $i++) {
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] > $highest_icons) {
 			$highest_icons = $worms[$i]['kins'];
+		}
+		if (!empty($worms[$i]['best_day']) && $worms[$i]['best_day'] > $highest_best_day) {
+			$highest_best_day = $worms[$i]['best_day'];
 		}
 		if ($worms[$i]['progress'] > 0) {
 			$worms[$i]["apple_percent"] = $worms[$i]['apple_count'] / $worms[$i]['progress'];
@@ -133,6 +137,10 @@ function getWormAwards() {
 			} else if (!empty($prev_season_worms[$i]['progress']) && $prev_season_worms[$i]['progress'] == $prev_highest_progress) {
 				$worms[$i]['awards'][] = 'Reigning Champion';
 			}
+		}
+		// best day award
+		if (!empty($worms[$i]['best_day']) && $worms[$i]['best_day'] == $highest_best_day) {
+			$worms[$i]['awards'][] = 'Sprint Master';
 		}
 		// icons award
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] == $highest_icons) {

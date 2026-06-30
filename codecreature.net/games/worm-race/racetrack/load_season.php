@@ -133,7 +133,7 @@ getAllData();
 				<?php
 					function getAwardId($name) { return "award-".strtolower(str_replace("'","",str_replace(" ","-",$name))); }
 					function getAwardImage($name) { return "award_".strtolower(str_replace(" ","_",$name)).".png"; }
-					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Reigning Champion','Underdog','Most Kinnable'];
+					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Reigning Champion','Underdog','Sprint Master','Most Kinnable'];
 					for ($i = 0; $i < count($awards); $i++) {
 						?>
 						<button id="<?php echo getAwardId($awards[$i]); ?>" class="award tooltip">
@@ -174,6 +174,10 @@ getAllData();
 								}
 								award.style.background = bg + ')';
 								award.querySelector('.tooltip-text').innerHTML += ", " + wormName;
+							}
+							if (awardName == "Sprint Master") {
+								<?php echo "bestDay = ". $worms[$i]["best_day"] .";"; ?>
+								award.querySelector('.tooltip-text').innerHTML += " (" + bestDay + ")";
 							}
 						}
 					})();

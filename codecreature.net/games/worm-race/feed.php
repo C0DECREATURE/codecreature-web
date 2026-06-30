@@ -73,21 +73,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			// redirect to racetrack page
 			header("location: ".$worm_race_path."racetrack");
 		} else {
-			//$load_err = "Could not fetch race data. Try again later.";
+			$feed_err = "Could not fetch race data. Try again later.";
 		}
 	}
 }
 
 function feedWormInSeason($season,$worm_id,$item) {
-	global $worm_conn; global $items;
+	global $worm_conn; global $items; global $cur_season;
 	global $logged_in; global $user_id;
 	
 	$item_count_col = $item["name"]."_count";
 	// current worm data array for the season
 	$worm = $season["worms"][$worm_id];
+	// progress change of the given Item
+	$progress_amount = $item["progress"] * $item["progress_effect_".$worm["health"]];
 	// worm data array for the season after the feeding is completed
 	$w = [];
-	$w["progress"] = max($worm["progress"] + ( $item["progress"] * $item["progress_effect_".$worm["health"]] ), 0);
+	$w["progress"] = max($worm["progress"] + $progress_amount, 0);
 	$w["health"] = max($worm["health"] + ( $item["health"] * $item["health_effect_".$worm["health"]] ), 0);
 	foreach ($items as $i) {
 		$count_col = $i["name"]."_count";
@@ -110,9 +112,13 @@ function feedWormInSeason($season,$worm_id,$item) {
 	// json encode users array
 	$users_json = json_encode($users);
 	
-	// prep update statement
-	$sql = "UPDATE race SET worm_".$worm_id." = '".$worm_json."', users = '".$users_json."' WHERE name = '".$season["name"]."';";
+	// if this is the current season, update the daily
+	if ($season["name"] == $cur_season["name"]) {
+		updateWormDaily($worm_id,$progress_amount);
+	}
 	
+	// season update statement
+	$sql = "UPDATE race SET worm_".$worm_id." = '".$worm_json."', users = '".$users_json."' WHERE name = '".$season["name"]."';";
 	if ($stmt = mysqli_prepare($worm_conn, $sql)) {
 		// attempt to execute final feeding statement
 		if(mysqli_stmt_execute($stmt)){
@@ -123,6 +129,63 @@ function feedWormInSeason($season,$worm_id,$item) {
 		// Close statement
 		mysqli_stmt_close($stmt);
 	}
+}
+
+function updateWormDaily($worm_id,$progress_amount) {
+	global $worm_conn; global $worms; global $feed_err;
+	
+	// ensure integers only
+	$worm_id = intval($worm_id);
+	$progress_amount = intval($progress_amount);
+	
+	// today's date in SQL format
+	$today = date("Y-m-d");
+	// given worm's current progress for today
+	$cur_progress = 0;
+	// get all the existing daily rows
+	$sql = "SELECT * FROM dailies";
+	if ( $result = mysqli_query($worm_conn,$sql) ) {
+		while($row = mysqli_fetch_object($result)) {
+			$row = get_object_vars($row);
+			// if the row is for today, update the current progress
+			if ($row["date"] == $today) {
+				$cur_progress = $row["worm_". $worm_id];
+			}
+			// if any of the values for this day are higher than a worm's current best day,
+			// update that worm's best_day
+			for ($i = 0; $i < count($worms); $i++) {
+				if ($worms[$i]["best_day"] < $row["worm_". $i]) {
+					updateBestDay($i,$row["worm_". $i]);
+				}
+			}
+		}
+	} else {
+		$feed_err = "Could not fetch daily data. Try again later.";
+	}
+	
+	// if no errors
+	if (empty($feed_err)) {
+		// if no daily entry for current day, make one
+		$sql = "INSERT INTO dailies (date, worm_". $worm_id .")
+							VALUES ('".$today."', ". $cur_progress + $progress_amount .")
+							ON DUPLICATE KEY UPDATE worm_". $worm_id ." = ". $cur_progress + $progress_amount;
+		if (!mysqli_query($worm_conn,$sql) ) {
+			$feed_err = "Could not update daily data. Try again later.";
+		}
+		
+		// if still no errors
+		if (empty($feed_err)) {
+			// delete all old dailies
+			$sql = "DELETE FROM dailies WHERE date != '". $today ."'";
+			if (!mysqli_query($worm_conn,$sql) ) {}
+		}
+	}
+}
+
+function updateBestDay($worm_id,$progress) {
+	global $worm_conn;
+	$sql = "UPDATE worms SET best_day = ". $progress ." WHERE id = ". $worm_id .";";
+	if (!mysqli_query($worm_conn,$sql) ) {}
 }
 
 function logFeeding($worm,$item) {

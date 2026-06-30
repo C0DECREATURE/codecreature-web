@@ -26,8 +26,8 @@
 	}
 	/* banner and link hidden on worm details page for small screens */
 	@media screen and (
-		((aspect-ratio < .61) and (aspect-ratio >= .5))
-		or (aspect-ratio >= 2.75)
+		((aspect-ratio < .61) and (aspect-ratio >= .45))
+		or (aspect-ratio >= 2.70)
 		or ((width < 1000px) and (aspect-ratio >= 1))
 	){
 		/*#content { align-items: center; }*/
@@ -74,7 +74,7 @@
 		align-items: center;
 		@media screen and (
 			((aspect-ratio < .61) and (aspect-ratio >= .5))
-			or (aspect-ratio >= 2.75)
+			or (aspect-ratio >= 2.70)
 			or ((width < 1000px) and (aspect-ratio >= 1))
 		){ align-items: center; }
 	}
@@ -124,7 +124,7 @@
 ******************************************************************************************/
 
 .info-box.popup.worm-details.show {
-	@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+	@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 		display: flex;
 		gap: 1rem;
 	}
@@ -132,7 +132,7 @@
 .info-box.popup.worm-details:has(.main-worm-tab:not(.hidden)) {
 	header h2, header h3 {
 		@media screen and (aspect-ratio >= .61)
-			and (((width < 1000px) and (height >= 500px)) or ((width > 1000px) and (aspect-ratio < 2.75)))
+			and (((width < 1000px) and (height >= 500px)) or ((width > 1000px) and (aspect-ratio < 2.70)))
 		{
 			width: 70%;
 			margin-left: auto;
@@ -141,8 +141,8 @@
 	}
 }
 
-.info-box.popup.worm-details:has(.leaderboard:not(.hidden)) {
-	@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+.info-box.popup.worm-details:has(.leaderboard:not(.hidden), .trophies:not(.hidden)) {
+	@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 		header:has(h2), header:has(h3) {
 			display: none;
 		}
@@ -157,19 +157,22 @@
 		width: 1100px;
 		max-width: 90%;
 	}
-	@media screen and (aspect-ratio >= .61) and (aspect-ratio < 2.75) and (width >= 1000px) {
+	@media screen and (aspect-ratio >= .61) and (aspect-ratio < 2.70) and (width >= 1000px) {
 		width: min(720px,80%);
 		min-width: min(650px, 90vh);
 	}
 	
-	@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+	@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 		margin: auto 0;
 		padding: 1rem;
 		moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 		height: 80vh;
+		width: 100%;
 		justify-content: center;
 		align-items: center;
 		header h2 { min-width: 12em; }
+		
+		footer { width: 8em; flex-shrink: 0; }
 	}
 	
 	/* allow clicking through to banner links */
@@ -205,14 +208,14 @@
 			padding: .5rem;
 		}
 		
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			max-width: 50vh;
 			margin-bottom: .25em;
 		}
 		@media screen and (
 			(aspect-ratio >= .61)
 			and (
-				((aspect-ratio < 2.75) and (width >= 1000px))
+				((aspect-ratio < 2.70) and (width >= 1000px))
 				or ((height >= 500px) and (width < 1000px))
 			)
 		){
@@ -220,7 +223,7 @@
 			position: relative;
 			margin: -5% 0 -40% -15%;
 		}
-		@media screen and (aspect-ratio < .61) { width: 60%; margin: 0 auto 2% auto; }
+		@media screen and (aspect-ratio < .61) { width: min(60%,30vh); margin: 0 auto 2% auto; }
 		@media screen and (aspect-ratio < 1) and (aspect-ratio >= .61) { margin: -8% 0 -40% -13%; }
 		@media screen and (aspect-ratio >= 1.3) and (width < 1000px) and (height >= 500px) {
 			margin: 0% 0% -40% -15%;
@@ -229,7 +232,7 @@
 		/* heights where banner is hidden (minus extra wide view) */
 		@media screen and (
 			((aspect-ratio < .61) and (aspect-ratio >= .5))
-			or ((width < 1000px) and (aspect-ratio >= 1) and (aspect-ratio < 2.75))
+			or ((width < 1000px) and (aspect-ratio >= 1) and (aspect-ratio < 2.70))
 		){
 			margin-top: -3%;
 		}
@@ -243,7 +246,7 @@
 	
 	.main-container.worm-main {
 		justify-content: space-between;
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			@media screen and (width >= 1000px) { width: 32vw; }
 			@media screen and (width < 1000px) { width: 100%; }
 			border-top: var(--border);
@@ -256,11 +259,11 @@
 		background: var(--white);
 		border: var(--border);
 		border-top: none; 
-		@media screen and (((width >= 1000px) and (aspect-ratio < 2.75)) or ((width < 1000px) and (height >= 500px))) {
+		@media screen and (((width >= 1000px) and (aspect-ratio < 2.70)) or ((width < 1000px) and (height >= 500px))) {
 			--border-radius: min(1em, max(3vh, .7em));
 			border-bottom: none;
 		}
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			border-radius: 0 0 var(--border-radius) var(--border-radius);
 			border-bottom: var(--border);
 		}
@@ -280,10 +283,10 @@
 		@media screen and (aspect-ratio < .61) {
 			width: 100%;
 		}
-		@media screen and (aspect-ratio < 2.75) {
+		@media screen and (aspect-ratio < 2.70) {
 			height: max(1.5em, min(2.5em, 6vh));
 		}
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			width: 100%;
 			border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
 			height: 10vh;
@@ -318,28 +321,26 @@
 	.details {
 		color: var(--color-dark);
 		font-size: max(1rem, min(4vw, 3vh));
-	}
-	.details {
 		display: flex; flex-direction: column;
 		justify-content: center;
 		@media screen and (aspect-ratio >= .61) {
 			width: 55%;
 			margin-left: auto;
 		}
-		@media screen and ((aspect-ratio < .61) or (aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio < .61) or (aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			width: 100%;
 			text-align: center;
 			flex-grow: 1;
 		}
 		
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			font-size: max(.8rem, min(vw,5vh));
 		}
 	}
 	
 	> footer {
 		@media screen and (
-			(aspect-ratio >= 2.75)
+			(aspect-ratio >= 2.70)
 			or ((width < 1000px) and (height < 500px))
 			or (width < 500px)
 		){
@@ -350,12 +351,23 @@
 			padding: 0px;
 			> * {
 				background: var(--dd-blue);
-				padding: .5em 1em;
+				padding: min(.5em,1.5vw) 1em;
 				border-radius: var(--border-radius);
-				width: 30%;
+				min-width: 30%;
 				text-align: center;
 			}
 			.wrapper { width: min(8em, 100%); }
+		}
+		
+		@media screen and ((aspect-ratio >= 2.7 / 1) or ((width < 1000px) and (height < 500px))) {
+			> * { width: 100%; }
+		}
+		@media screen and (width < 500px) {
+			> * { flex-grow: 1; }
+			.back-button-wrapper, .feed-button-wrapper { order: -1; }
+		}
+		@media screen and (width < 300px) {
+			.back-button-wrapper, .feed-button-wrapper { width: 100%; }
 		}
 	}
 }
@@ -380,10 +392,10 @@
 	}
 	.item-wrapper {
 		position: relative;
-		@media screen and (aspect-ratio < 2.75) {
+		@media screen and (aspect-ratio < 2.70) {
 			max-width: min(12vh,min(100px,25%)); min-width: min(40px, 50%);
 		}
-		@media screen and ((aspect-ratio >= 2.75) or ((width < 1000px) and (height < 500px))) {
+		@media screen and ((aspect-ratio >= 2.70) or ((width < 1000px) and (height < 500px))) {
 			max-width: min(50%, 20vh);
 		}
 		flex-grow: 1;
@@ -485,7 +497,6 @@
 	.items .description:not(.empty) .empty-text { display: none; }
 }
 
-
 .leaderboard {
 	color: var(--color-dark);
 	font-size: min(1.5rem, max(1rem, min(3vw, 3vh)));
@@ -571,16 +582,21 @@
 
 .trophies {
 	font-size: 1.5rem;
+	color: var(--color-dark);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 .trophies .top {
+	flex-grow: 1;
 	display: flex;
 	flex-wrap: wrap;
-	padding: 1em; padding-bottom: 0;
+	padding: .25em 1em 0 1em;
 	gap: 1em;
 	justify-content: center;
 	align-items: center;
 	
-	img {
+	.average-trophy img, .trophy img {
 		max-width: 100%;
 		display: block;
 		pointer-events: none;
@@ -588,7 +604,7 @@
 	
 	.average-trophy {
 		position: relative;
-		width: min(100%, max(180px,34%));
+		width: min(30vh, min(100%, max(180px,34%)));
 	}
 	.average-trophy img { position: absolute; top: 0; left: 0; }
 	.average-trophy img:nth-child(2) { position: relative; }
@@ -614,15 +630,24 @@
 		font-weight: bold;
 	}
 	.trophy {
-		width: min(90%, max(calc(33% - .5em), 90px));
-		flex-grow: 1;
+		width: min(17vh, min(90%, max(calc(33% - .5em), 90px)));
+		flex-grow: 0;
 		text-align: center;
+	}
+}
+.trophies .best-day {
+	text-align: center;
+	font-size: .9em;
+	font-weight: normal;
+	img {
+		height: 1.25em;
+    margin-bottom: -.15em;
 	}
 }
 .trophies .awards {
 	text-align: center;
 	color: var(--white);
-	padding: .5em;
+	padding: .25em;
 	display: flex;
 	flex-wrap: wrap;
 	gap: .5em;

@@ -81,7 +81,7 @@
 									<img src="../images/award_certified_organic.png" alt="">
 									<div class="name">Certified Organic</div>
 									<div class="description">
-										highest number of apples relative to race progress
+										most apples relative to race progress
 									</div>
 								</div>
 								
@@ -89,7 +89,7 @@
 									<img src="../images/award_caffeine_addict.png" alt="">
 									<div class="name">Caffeine Addict</div>
 									<div class="description">
-										highest number of drinks relative to race progress
+										most drinks relative to race progress
 									</div>
 								</div>
 								
@@ -97,7 +97,7 @@
 									<img src="../images/award_private_insurance.png" alt="">
 									<div class="name">Private Insurance</div>
 									<div class="description">
-										highest number of health potions relative to race progress
+										most health potions relative to race progress
 									</div>
 								</div>
 								
@@ -105,7 +105,15 @@
 									<img src="../images/award_most_despised.png" alt="">
 									<div class="name">Most Despised</div>
 									<div class="description">
-										highest number of poisons relative to race progress
+										most poisons relative to race progress
+									</div>
+								</div>
+								
+								<div class="award">
+									<img src="../images/award_sprint_master.png" alt="">
+									<div class="name">Sprint Master</div>
+									<div class="description">
+										most progress gained in a single day
 									</div>
 								</div>
 								
@@ -129,7 +137,7 @@
 									<img src="../images/award_most_kinnable.png" alt="">
 									<div class="name">Most Kinnable</div>
 									<div class="description">
-										highest number of users with this worm as their icon
+										most users with this worm as their icon
 									</div>
 								</div>
 								
@@ -137,7 +145,7 @@
 									<img src="../images/award_creature's_pet.png" alt="">
 									<div class="name">Creature's Pet</div>
 									<div class="description">
-										receive excessive favoritism from the admins
+										admins' favorite worm
 									</div>
 								</div>
 								
