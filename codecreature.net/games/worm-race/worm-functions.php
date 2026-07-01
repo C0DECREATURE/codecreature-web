@@ -212,7 +212,9 @@ function getFeedLogDisplay() {
 			$isAnonymous = $l["user_id"] == NULL || getUserGamePrivacy($l["user_id"]) == "private";
 			$user = $isAnonymous ? "Someone" : getUsername($l["user_id"]);
 			$user_type = $isAnonymous ? "anonymous" : "registered";
-			echo '<div class="feed-log-item"><span class="user '.$user_type.'">'.$user.'</span> fed
+			$linkTag = $isAnonymous ? "<span" : "<a href='/u/$user'";
+			$linkTagEnd = $isAnonymous ? "</span>" : "</a>";
+			echo '<div class="feed-log-item">'.$linkTag.' class="user '.$user_type.'">'.$user.$linkTagEnd.' fed
 						<span class="worm" style="
 							color: var(--'.$worm["color_dark"].');
 						">'.$worm["name"].'</span>
