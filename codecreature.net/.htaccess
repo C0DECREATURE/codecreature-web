@@ -50,7 +50,7 @@ RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yahoo\. [NC]
 # Allow Yandex
 RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yandex\. [NC]
 # block all other sites from hotlinking these file types
-RewriteRule \.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|php|png|avif|svg|webp|pdf)$ https://i.postimg.cc/C1nLcrXG/hotlink-blocked.png [NC,L]
+RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|pdf)$ https://i.postimg.cc/C1nLcrXG/hotlink-blocked.png [NC,L]
 
 # redirect /preview or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview /$1/ [R=301]
