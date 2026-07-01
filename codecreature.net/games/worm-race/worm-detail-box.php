@@ -100,10 +100,10 @@
 					
 					$type = $highest < 4 ? "trophy" : "ribbon";
 				?>
-					<div class="average-trophy">
+					<div class="average-trophy<?php echo $type == "ribbon" ? " ribbon" : ""; ?>">
 						<img src="images/<?php echo $type; ?>_base_<?php echo $highest; ?>.png"
 							alt="<?php echo $trophy_nums[$highest - 1]; ?> place">
-						<img src="images/trophy_base_<?php echo $cur_worm["color"]; ?>.png" alt="">
+						<img src="images/<?php echo $type; ?>_base_<?php echo $cur_worm["color"]; ?>.png" alt="">
 					</div>
 				<div class="wrapper">
 					<?php

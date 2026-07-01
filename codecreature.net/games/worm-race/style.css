@@ -612,12 +612,16 @@
 		content: '';
 		display: block;
 		position: absolute;
-		top: 10%; left: 10%;
-		width: 80%;
+		top: 16%; left: 7%;
+    width: 86%;
 		aspect-ratio: 1;
 		background: var(--color);
 		border-radius: 50%;
 		opacity: .5;
+	}
+	.average-trophy.ribbon:before {
+		top: 11%; left: 0%;
+    width: 100%;
 	}
 	
 	.wrapper {
