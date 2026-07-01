@@ -26,6 +26,22 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-06-30T20:39'),
+		authors: ['emery'],
+		tags: ['general','minor'],
+		summary: `
+			hotlinking blocked
+		`,
+		details: `
+			<figure>
+				<img src="https://i.postimg.cc/C1nLcrXG/hotlink-blocked.png" alt="Small pixel art screen with my logo and the text 'Hotlinking blocked, download and rehost!'">
+				<figcaption>Unauthorized hotlinks will now display a placeholder instead!</figcaption>
+			</figure>
+			<p>Since I pay for my own hosting and am getting increasing amounts of traffic, I want to make extra sure that hotlinked images don't end up eating into my usage capacity. Hasn't been an issue so far, but safer to prevent it in advance (plus it prevents any surprise breakage in other peoples' sites going forward.)</p>
+			<p>Codecreature says... <em>"Always download and rehost images from small websites!"</em></p>
+		`
+	},
+	{
 		date: new Date('2026-06-29T19:12'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
