@@ -1,0 +1,49 @@
+body {
+	background-color: var(--l-purple);
+}
+main > .left, main > .right {
+	background-image: url('../images/garfield_bg_purple_2x.jpg');
+}
+
+main > .center > .container {
+	padding: 1rem 1rem 3rem 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+	justify-content: center;
+}
+
+.game {
+	background: white;
+	border: var(--default-border);
+	padding: 1em;
+	box-shadow: -3px 3px var(--black);
+}
+.game > header, .game .description { margin-bottom: .5em; }
+.game > header {
+	font-family: 'Ad Lib', 'Garfield', sans-serif;
+	h2 { font-size: 1.65em; margin: 0; }
+}
+.game .description { display: flex; font-size: .9em; }
+.game .description > * { display: block; width: 0; flex-grow: 1; }
+.game .preview {
+	display: inline-block;
+	position: relative;
+}
+.game .preview:hover img {
+	opacity: 0.5;
+}
+.game .preview:hover:after {
+	content: 'Open Game';
+	font-family: 'Ad Lib', 'Garfield', sans-serif;
+	text-transform: uppercase;
+	font-size: 1.5em;
+	color: black;
+	position: absolute;
+	width: 100%;
+	bottom: 50%; left: 0;
+	filter: drop-shadow(0 0 1px white);
+}
+.game .preview img {
+	max-height: 250px;
+}

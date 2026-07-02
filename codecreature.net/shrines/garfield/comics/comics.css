@@ -18,7 +18,7 @@ main > .center {
 main > .center > .content-wrapper {
 	position: relative;
 	background: var(--white);
-	border: 3px var(--black) solid;
+	border: var(--default-border);
 	padding-bottom: 1rem;
 	
 	box-sizing: border-box;

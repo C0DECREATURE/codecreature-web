@@ -48,7 +48,7 @@ const comic = {
 			30, 50, 53, 60, 73, 79, 85, 91, 95, 105, 111
 		// ^^^ left off here
 		],
-		'2024': [ 327 ]
+		//'2024': [ 327 ]
 	},
 	// internet archive source
 	iaSrc: `https://ia801700.us.archive.org/BookReader/BookReaderImages.php?zip=/3/items/garfield-complete/`,

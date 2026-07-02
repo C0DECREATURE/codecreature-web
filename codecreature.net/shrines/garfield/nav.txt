@@ -3,8 +3,8 @@
 	<a class="yellowbutton" href="/shrines/garfield">Garfield</a>
 	<a class="yellowbutton" href="/shrines/garfield/comics">Archive</a>
 	<a class="yellowbutton" href="/shrines/garfield/merch">Merch</a>
-	<a class="yellowbutton" href="/shrines/garfield/posters">Posters</a>
-	<a class="yellowbutton" href="https://www.bgreco.net/garfield/" target="_blank">Generator</a>
+	<a class="yellowbutton hidden" href="/shrines/garfield/posters">Posters</a>
+	<a class="yellowbutton" href="/shrines/garfield/games">Games</a>
 	<a class="yellowbutton" href="/shrines">Shrines</a>
 	<a class="yellowbutton" href="/">Home</a>
 </nav>
