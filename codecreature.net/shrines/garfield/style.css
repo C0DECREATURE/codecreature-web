@@ -162,11 +162,12 @@ main {
 		
 		a, a:link, a:visited, button {
       display: block;
-      width: max(130%,11.5vw);
-			margin-left: -.75rem;
-      font-size: max(.75rem,1.2vw);
+      width: max(150%,10.5vw);
+			margin-left: -1.5rem;
+      font-size: max(.75rem,1.3vw);
       border-radius: 0 1em 1em 0;
       padding: .3em .6em .2em .5em;
+			box-sizing: border-box;
 		}
 		a:before, button:before {
 			content: '';
@@ -188,9 +189,10 @@ main {
 			&:after {
 				content: '';
 				position: absolute;
-				left: -8%; bottom: 50%;
+				left: -4%; bottom: calc(100% - 1px);
+				transform: translateY(11%);
 				width: 100%;
-				padding-bottom: 70%;
+				padding-bottom: 77%;
 				background-image: url('images/button_topper.png');
 				background-size: contain;
 				background-repeat: no-repeat;
