@@ -19,9 +19,7 @@ main > .center > .content-wrapper {
 	position: relative;
 	background: var(--white);
 	border: 3px var(--black) solid;
-	padding-bottom: 2.5rem;
-	@media screen and (width >= 800px) { min-height: min(550px,55vw); }
-	@media screen and (width < 800px) { min-height: min(550px,65vw); }
+	padding-bottom: 1rem;
 	
 	box-sizing: border-box;
 	
@@ -133,7 +131,7 @@ main > .center > footer {
 	display: block;
 	font-family:'Ad Lib','Garfield',sans-serif;
 	text-transform: uppercase;
-	img { display: block; }
+	img, span { display: block; }
 }
 @media screen and (width < 1100px) {
 	#next { transform: translateX(6%); }
@@ -159,3 +157,4 @@ main > .center > footer {
 		span { right: 65%; }
 	}
 }
+#prev:hover span, #next:hover span { scale: 1.1; }
