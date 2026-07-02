@@ -45,7 +45,7 @@ const comic = {
 			303, 304, 312, 325
 		],
 		'1982': [
-			30, 50
+			30, 50, 53, 60, 73, 79
 		// ^^^ left off here
 		],
 		'2024': [ 327 ]
@@ -60,21 +60,6 @@ const comic = {
 		// load image from internet archive
 		document.getElementById(comic.id).src =
 			`${comic.iaSrc}Garfield%20${comic.year}_jp2.zip&file=Garfield%20${comic.year}_jp2/Garfield%20${comic.year}_${comic.urlNum()}.jp2&id=garfield-complete&scale=1&rotate=0`;
-		/* test - using bgreco
-			// format year
-			let y = comic.year.toString().substring(2,4);
-			// format month
-			let m = comic.month + 1;
-			m = m.toString();
-			if (m.length < 2) m = "0" + m;
-			// format day
-			let d = comic.day.toString();
-			if (d.length < 2) d = "0" + d;
-			// load image
-			document.getElementById(comic.id).src =
-				`https://www.bgreco.net/garfield/panel.gif?urldate=${y}${m}${d}&year=${comic.year.toString()}&frame=0
-				`;
-		*/
 		document.getElementById('comic-wrapper').querySelector('figcaption').innerHTML = `${comic.year} #${comic.num+1}`
 		// add class indicating favorite
 		if ( comic.isFavorite() ) { document.getElementById('comic-wrapper').classList.add('favorite'); }
