@@ -13,7 +13,7 @@ Redirect 301 /sollux /shrines/homestuck/sollux
 Redirect 301 /nepeta /shrines/homestuck/nepeta
 Redirect 301 /homestuck-ships /shrines/homestuck/shipping
 
-Redirect 301 /shrines/garf /shrines/garfield
+Redirect 301 /shrines/garf /garfield
 Redirect 301 /garfield /shrines/garfield
 
 Redirect 301 /teeth /shrines/teeth
@@ -32,6 +32,7 @@ Redirect 301 /worm-race /games/worm-race
 
 RewriteEngine on
 
+#############
 # prevent hotlinking images and files
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !(http)?s?(:\/\/)?localhost\/.*$ [NC]
@@ -51,16 +52,13 @@ RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yahoo\. [NC]
 RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?yandex\. [NC]
 # block all other sites from hotlinking these file types
 RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|pdf)$ https://i.postimg.cc/C1nLcrXG/hotlink-blocked.png [NC,L]
+#############
 
-# redirect /preview or /preview.html to that preview's parent directory
-RewriteRule ^(.*)/preview /$1/ [R=301]
-RewriteRule ^(.*)/preview/ /$1/ [R=301]
-RewriteRule ^(.*)/preview.html /$1/ [R=301]
+# /u/sampleUser actually displays /user/profile.php?username=sampleUser
+RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
 
-# redirect /u/sampleUser to /user/profile.php?username=sampleUser
-RewriteRule ^u/(.*) user/profile/index.php?username=$1
-RewriteRule ^u/(.*)/ user/profile/index.php?username=$1
+# /x-chat redirects to /chat/x
+RewriteRule ^(.*)-chat/? /chat/$1
 
-# redirect /x-chat to /chat/x
-RewriteRule ^(.*)-chat /chat/$1
-RewriteRule ^(.*)-chat/ /chat/$1
+# redirect /preview /preview/ or /preview.html to that preview's parent directory
+RewriteRule ^(.*)/preview(\.html)?/? /$1/ [R=301,L]
