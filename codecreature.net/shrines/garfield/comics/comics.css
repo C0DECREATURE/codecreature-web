@@ -6,17 +6,24 @@ main {
 	> .left, > .right {
 		background-image: url('../images/garfield_bg_blue_2x.jpg');
 	}
-	
 	.right #newspaper { display: none; }
 }
 
-main > .center > .wrapper {
+main > .center {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 1em;
+}
+
+main > .center > .content-wrapper {
 	position: relative;
 	background: var(--white);
 	border: 3px var(--black) solid;
 	padding-bottom: 2.5rem;
 	@media screen and (width >= 800px) { min-height: min(550px,55vw); }
 	@media screen and (width < 800px) { min-height: min(550px,65vw); }
+	
+	box-sizing: border-box;
 	
 	height: fit-content;
 	width: min(700px,100%);
@@ -41,6 +48,18 @@ main > .center > .wrapper {
 				-2px -2px 0 var(--text-shadow-color), 2px -2px 0 var(--text-shadow-color), -2px 2px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color)
 		}
 	}
+}
+
+main > .center > footer {
+	font-size: .65em;
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	flex-grow: 1;
+	color: #077dad;
+	a, a:link, a:visited { color: #1da1d2; }
+	a:hover { color: inherit; }
+	span { display: block; width: 100%; position: absolute; bottom: 0; }
 }
 
 #comic-insert {
