@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-02T04:28'),
+		authors: ['prax'],
+		tags: ['garfield'],
+		summary: `
+			<a href="/shrines/garfield/games">garfield games</a>!!
+		`,
+		details: `
+			<p>collecting some <a href="/shrines/garfield/games">garf browser games</a> from around the internet %E%:33%</p>
+		`
+	},
+	{
 		date: new Date('2026-06-30T20:39'),
 		authors: ['emery'],
 		tags: ['general','minor'],
