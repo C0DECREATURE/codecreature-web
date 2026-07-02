@@ -58,7 +58,9 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
 
 # /x-chat redirects to /chat/x
-RewriteRule ^(.*)-chat/? /chat/$1
+RewriteRule ^(.*)-chat/? /chat/$1/index.php
+# specific chat redirects
+RewriteRule ^games/worm-race/chat/?$ /chat/worms/index.php
 
 # redirect /preview /preview/ or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview(\.html)?/? /$1/ [R=301,L]
