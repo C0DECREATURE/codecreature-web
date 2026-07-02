@@ -42,8 +42,6 @@ function sendMessage(message) {
 		// do stuff when request finishes
 		xhr.onreadystatechange = () => {
 			if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-				sendingMessage = false;
-				document.getElementById('new-message-submit').disabled = false;
 				if (xhr.responseText != '') {
 					let response = JSON.parse(xhr.responseText);
 					// if an error occurred, give an alert with error message
@@ -51,10 +49,19 @@ function sendMessage(message) {
 					// if sending was successful, clear input and load new chat messages
 					else {
 						document.getElementById('message-input').value = "";
+						// reset sending message flag
+						sendingMessage = false;
+						document.getElementById('new-message-submit').disabled = false;
+						// load new messages
 						loadChat(false);
 					}
 				} else {
 					alert("Something went wrong! Try again later.");
+				}
+				// if sending message flag still hasn't been reset, reset it
+				if (sendingMessage) {
+					sendingMessage = false;
+					document.getElementById('new-message-submit').disabled = false;
 				}
 			}
 		};

@@ -26,11 +26,15 @@ function getOldestLoadedMessage() {
 
 // whether an initial set of messages has already been loaded on the page
 var initialLoaded = false;
+// whether a new set of messages is currently being loaded
+var chatIsLoading = false;
 // timestamp of last edit check
 var lastEditCheck = Date.now() / 1000;
 // load all new messages
 function loadChat(repeat){
-	if (typeof sendingMessage == 'undefined' || sendingMessage == false) {
+	if ((typeof sendingMessage == 'undefined' || sendingMessage == false) && chatIsLoading == false) {
+		chatIsLoading = true;
+		
 		let messages = document.getElementsByClassName('message','deleted');
 		let latestMsgId = 0;
 		if (messages.length > 0) latestMsgId = Number(messages[0].id.replaceAll('message-',''));
@@ -41,6 +45,8 @@ function loadChat(repeat){
 				content = data;
 				$('#messages').prepend(content);
 				updateLoadOlder();
+				// flag that loading is complete
+				chatIsLoading = false;
 		});
 		
 		if (initialLoaded) {
@@ -54,7 +60,7 @@ function loadChat(repeat){
 						try {
 							let editedMessages = JSON.parse(xhr.responseText);
 							for (let i = 0; i < editedMessages.length; i++) {
-								console.log('updating message id '+editedMessages[i]);
+								console.log('updating message id #'+editedMessages[i]);
 								refreshMessage(editedMessages[i]);
 							}
 						} catch (error) {
@@ -67,9 +73,12 @@ function loadChat(repeat){
 			xhr.send(`from=${getOldestLoadedMessage()}&since=${lastEditCheck}&chat-table=${chatTableName}`);
 			// log the new last edit check time
 			lastEditCheck = (Date.now() / 1000) - 5; // 5 seconds of extra just in case of lag
+		} else {
+			// flag that loading is complete
+			chatIsLoading = false;
+			// flag that initial message set has loaded
+			initialLoaded = true;
 		}
-		
-		initialLoaded = true;
 	}
 	if (repeat !== false) setTimeout(loadChat, 4000);
 }
