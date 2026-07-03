@@ -26,6 +26,24 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-03T01:32'),
+		authors: ['emery','prax'],
+		tags: ['garfield'],
+		summary: `
+			<a href="/shrines/garfield/">garfield</a> on your phone
+		`,
+		details: `
+			<figure>
+				<img class="tall" src="images/garfield_2026_07_03_mobile.jpg" alt="Screenshot of the new condensed mobile menu for Garfield pages.">
+				<figcaption>garf shrine is mostly mobile friendly now!</figcaption>
+			</figure>
+			<p>also a bit more <a href="/shrines/garfield/merch">merch</a>, including some fancy DVD cases that pop out on hover/keyboard focus! click them %%2% watch seasons #2 through #5 of the garfield and friends TV show on the internet archive. not sure where season #1 is</p>
+			<figure><img src="images/garfield_2026_07_03_dvd.jpg" alt=""></figure>
+			
+			<p>merch shelf still needs reworking to be more responsive %%2% screen sizes but %%im% gonna keep procrastinating that %%4% now</p>
+		`
+	},
+	{
 		date: new Date('2026-07-02T04:28'),
 		authors: ['prax'],
 		tags: ['garfield'],
@@ -34,6 +52,7 @@ const updateLog = [
 		`,
 		details: `
 			<p>collecting some <a href="/shrines/garfield/games">garf browser games</a> from around the internet %E%:33%</p>
+			<figure><img src="images/garfield_2026_07_02.jpg" alt=""></figure>
 		`
 	},
 	{
