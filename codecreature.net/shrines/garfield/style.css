@@ -103,14 +103,14 @@ a.skip-to-content {
 /* header logo */
 #logo {
 	max-width: min(600px,90%);
-	max-height: max(16vh,100px);
+	max-height: max(17vh,100px);
 	&:hover, &:focus-visible {
 		filter: hue-rotate(15deg) saturate(80%) brightness(120%) contrast(120%);
 	}
 	user-select: none;
 }
 a:has(#logo) {
-	display: block;
+	display: inline-block;
 	height: fit-content;
 }
 

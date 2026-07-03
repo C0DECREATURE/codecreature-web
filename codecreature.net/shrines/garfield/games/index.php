@@ -43,6 +43,8 @@
 			</div>
 			
 			<div class="center">
+				<header><h1><a href="/shrines/garfield"><img id="logo" src="../images/logo.png" alt="Garfield"></a></h1></header>
+				
 				<div class="container">
 					
 					<?php
