@@ -97,8 +97,43 @@
 						
 						<!-- shelf 2 -->
 						<tr>
-							<td class="item med">
-								<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
+							<td class="item">
+								<div class="dvd-container">
+									<a class="dvd" target="_blank">
+										<div class="front">
+											<img class="no-full-view" src="../images/merch/garfield_and_friends_front_1.png" alt="Garfield and Friends Vol 1"></div>
+										<img class="left-side no-full-view" src="../images/merch/garfield_and_friends_side_1.png" alt="">
+										<div class="top" style="background:#0182d9"></div>
+									</a>
+									
+									<a class="dvd" target="_blank" href="https://archive.org/details/036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz">
+										<div class="front">
+											<img class="no-full-view" src="../images/merch/garfield_and_friends_front_2.png" alt="Garfield and Friends Vol 2"></div>
+										<img class="left-side no-full-view" src="../images/merch/garfield_and_friends_side_2.png" alt="">
+										<div class="top" style="background:#e7065d"></div>
+									</a>
+									
+									<a class="dvd" target="_blank" href="https://archive.org/details/056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz">
+										<div class="front">
+											<img class="no-full-view" src="../images/merch/garfield_and_friends_front_3.png" alt="Garfield and Friends Vol 3"></div>
+										<img class="left-side no-full-view" src="../images/merch/garfield_and_friends_side_3.png" alt="">
+										<div class="top" style="background:#139451"></div>
+									</a>
+									
+									<a class="dvd" target="_blank" href="https://archive.org/details/068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz">
+										<div class="front">
+											<img class="no-full-view" src="../images/merch/garfield_and_friends_front_4.png" alt="Garfield and Friends Vol 4"></div>
+										<img class="left-side no-full-view" src="../images/merch/garfield_and_friends_side_4.png" alt="">
+										<div class="top" style="background:#63449e"></div>
+									</a>
+									
+									<a class="dvd" target="_blank" href="https://archive.org/details/088ghostofachanceroygetssackedrevengeofthelivinglunchdvdripxvidphz">
+										<div class="front">
+											<img class="no-full-view" src="../images/merch/garfield_and_friends_front_5.png" alt="Garfield and Friends Vol 5"></div>
+										<img class="left-side no-full-view" src="../images/merch/garfield_and_friends_side_5.png" alt="">
+										<div class="top" style="background:#f76509"></div>
+									</a>
+								</div>
 							</td>
 							
 							<td class="item">
@@ -167,6 +202,23 @@
 									data-caption="1991 Sunbeam Digital Alarm Clock">
 							</td>
 						</tr>
+						
+						<!-- shelf 5 -->
+						<tr>
+							<td class="item med">
+								<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
+							</td>
+							
+							<td class="item">
+							</td>
+							
+							<td class="item">
+							</td>
+							
+							<td class="item">
+							</td>
+						</tr>
+						
 						<!-- end of shelf items -->
 					</tbody>
 				</table>
@@ -176,7 +228,9 @@
 						let items = document.getElementById('shelves').getElementsByClassName('item');
 						for (let i = 0; i < items.length; i++) {
 							let images = items[i].getElementsByTagName('img');
-							for (let j = 0; j < images.length; j++) { images[j].classList.add('full-viewable'); }
+							for (let j = 0; j < images.length; j++) {
+								if (!images[j].classList.contains('no-full-view')) images[j].classList.add('full-viewable');
+							}
 						}
 					})();
 				</script>
