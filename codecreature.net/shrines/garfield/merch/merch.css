@@ -9,6 +9,8 @@
 	margin: 1rem auto;
 	width: fit-content;
   border-spacing: 0;
+	position: relative;
+  z-index: 1;
 	
 	--size: min(170px,20vw);
 	
@@ -145,6 +147,10 @@
 	font-size: 0.9em;
 }
 
+.wall-hanging img, img.wall-hanging, #shelves {
+	filter: drop-shadow(-5px 10px 8px rgba(100,60,31,.5));
+}
+
 .pendulum-clock {
 	@media screen and (width > 1500px) {
 		position: absolute;
@@ -153,9 +159,7 @@
 	}
 	width: min(60%,270px);
 	margin: 0 auto;
-}
-.pendulum-clock img {
-	filter: drop-shadow(-5px 10px 8px rgba(100,60,31,.5));
+	display: inline-block;
 }
 .pendulum-clock .tail {
 	position: relative;
@@ -175,6 +179,17 @@
 @keyframes clockPendulum {
 	from { rotate: -10deg; }
 	to { rotate: 10deg; }
+}
+
+#balloon-embroidery {
+	width: min(17%,220px);
+  rotate: 1.5deg;
+	@media screen and (width > 1500px) {
+		position: absolute;
+		z-index: 0;
+		top: 80px;
+		right: calc(50% + min(370px, 22.5vw));
+	}
 }
 
 
