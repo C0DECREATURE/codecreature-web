@@ -28,6 +28,8 @@
 		border-radius: 1rem;
 		padding-top: 1.5rem;
 		font-family: 'Comic Sans MS', 'Comic Sans', sans-serif;
+		margin: 2em 1em 0 0;
+		max-width: min(90vw, 18.5em);
 		label, button {
 			font-family: 'Garfield', 'Comic Sans MS', 'Comic Sans', sans-serif;
 			font-weight: bold;
