@@ -223,6 +223,8 @@
 }
 
 .dvd-container .dvd:link:hover, .dvd-container .dvd:focus-visible {
+  -webkit-transform: rotate3d(-.2,1,-.1,37deg) translate3d(-96%,-6%,calc(var(--height) * 0.4));
+  -moz-transform: rotate3d(-.2,1,-.1,37deg) translate3d(-96%,-6%,calc(var(--height) * 0.4));
   transform: rotate3d(-.2,1,-.1,37deg) translate3d(-96%,-6%,calc(var(--height) * 0.4));
 }
 
