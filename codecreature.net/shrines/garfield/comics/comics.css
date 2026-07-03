@@ -26,7 +26,7 @@ main > .center > .content-wrapper {
 	height: fit-content;
 	width: min(700px,100%);
 	max-width: 100%;
-	margin: max(1rem,5vh) auto;
+	margin: min(4vw,max(1rem,5vh)) auto;
 	
 	> header {
 		h1 { margin-bottom: 0; }
@@ -51,7 +51,7 @@ main > .center > .content-wrapper {
 main > .center > footer {
 	font-size: .65em;
 	position: relative;
-	width: 100%;
+	width: 60%;
 	margin: 0 auto;
 	flex-grow: 1;
 	color: #077dad;
@@ -64,16 +64,16 @@ main > .center > footer {
 	position: relative;
 	z-index: 1;
 	display: block;
-	margin: 0 auto 1rem auto;
+	margin: 0 auto;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 	max-width: min(600px,100%);
 	user-select: none;
 }
 #comic-wrapper {
 	position: relative;
-	min-height: min(220px,25vw);
+	min-height: min(220px,32vw);
 	width: 94%;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
 	
 	figcaption {
 		position: relative;
@@ -103,7 +103,7 @@ main > .center > footer {
 		content: 'Loading...';
 		position: absolute;
 		left: 0; top: 0;
-		line-height: min(200px,20vw);
+		line-height: min(220px,25vw);
 		width: 100%;
 		height: 100%;
 	}
@@ -117,7 +117,7 @@ main > .center > footer {
 	z-index: 3;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 }
 
@@ -125,15 +125,21 @@ main > .center > footer {
 	height: fit-content;
 	font-size: max(.75rem,min(1rem,2vw));
 	border-radius: 1em;
+	max-width: 35vw;
 }
 
 #prev, #next {
 	display: block;
+	position: absolute;
 	font-family:'Ad Lib','Garfield',sans-serif;
 	text-transform: uppercase;
+	max-width: 30vw;
 	img, span { display: block; }
 }
+#next { right: 0; }
+#prev { left: 0; }
 @media screen and (width < 1100px) {
+	#prev, #next { top: -23%; }
 	#next { transform: translateX(6%); }
 	#prev { transform: translateX(-6%); }
 }
@@ -149,11 +155,11 @@ main > .center > footer {
 		}
 	}
 	#next {
-		transform: translateX(48%);
+		transform: translateX(108%);
 		span { left: 65%; }
 	}
 	#prev {
-		transform: translateX(-48%);
+		transform: translateX(-108%);
 		span { right: 65%; }
 	}
 }

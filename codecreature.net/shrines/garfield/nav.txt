@@ -1,3 +1,5 @@
+<button id="open-nav-button" class="open-page-settings" onclick="document.getElementById('nav-wrapper').classList.toggle('show');"></button>
+
 <nav>
 	<div class="sr-only">Navigation</div>
 	<a class="yellowbutton" href="/shrines/garfield">Garfield</a>

@@ -10,7 +10,7 @@
 	width: fit-content;
   border-spacing: 0;
 	
-	--size: min(170px,19vw);
+	--size: min(170px,20vw);
 	
 	.item {
 		width: var(--size);
