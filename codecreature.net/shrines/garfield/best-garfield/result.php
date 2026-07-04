@@ -1,0 +1,199 @@
+<?php
+
+// include database connection file
+require_once $_SERVER['DOCUMENT_ROOT']."/codefiles/poll-connect.php";
+// include list of best garfield options
+require_once $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/best-garfield/options.php";
+
+// Check if name is empty or invalid
+$error = "";
+$name = trim($_GET["name"]);
+$pollData = [];
+if(empty($name)){
+	$error = "Please make a selection first!";
+} else if (!in_array($name, $garfields)) {
+	$error = "Invalid Garfield selection!";
+} else {
+	$votedFor = !empty($_COOKIE["bestGarfieldVoted"]) ? json_decode($_COOKIE["bestGarfieldVoted"],true) : [];
+	$alreadyVoted = in_array($name, $votedFor);
+	if (!$alreadyVoted) {
+		// add one vote for this option , or create a row for it if one doesn't exist
+		$sql = "INSERT INTO best_garfield (name, votes)
+							VALUES ( ? , 1 )
+							ON DUPLICATE KEY UPDATE votes = votes + 1";
+		if($stmt = mysqli_prepare($poll_conn, $sql)){
+			mysqli_stmt_bind_param($stmt, "s", $name);
+			if(mysqli_stmt_execute($stmt)) {
+				// store that user has voted for this garfield
+				$votedFor[] = $name;
+				$json = json_encode($votedFor);
+				setcookie("bestGarfieldVoted", $json);
+			} else {
+				$error = "Could not submit vote. Please try again later.";
+			}
+			mysqli_stmt_close($stmt);
+		}
+	}
+}
+
+// get poll data
+$sql = "SELECT * FROM best_garfield";
+if ($result = mysqli_query($poll_conn,$sql)) {
+	while($row = mysqli_fetch_object($result)) {
+		$row = get_object_vars($row);
+		$pollData[$row["name"]] = $row["votes"];
+	}
+} else {
+	$error = "Could not load poll data. Please try again later.";
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>best garfield</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/garfield/favicon.gif">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20260704"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20260704" rel="stylesheet" type="text/css"></link>
+		
+		<script>fonts.load('Garfield','Ad Lib')</script>
+		
+		<!-- svg icons -->
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260704" id="svg-icons-js"></script>
+		<!-- page settings -->
+		<script src="/codefiles/page-settings.min.js?fileversion=20260704"></script>
+		<!-- typing quirk alt text -->
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260704"></script>
+		
+		<!--this page's stylesheet-->
+		<link href="/shrines/garfield/style.css?fileversion=20260704" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20260704" rel="stylesheet" type="text/css" media="all">
+		
+		<?php if (!empty($error)) {
+			echo "<script>alert('ERROR: $error');</script>";
+			echo "<script>window.location = '/best-garfield'</script>";
+		} ?>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<a class="skip-to-content" href="#content">skip to content</a>
+		
+		<main>
+			<div id="nav-wrapper" class="left">
+				<?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/nav.txt"; ?>
+			</div>
+			
+			<div class="center">
+				<div id="content" class="container"><!-- anchor for keyboard nav -->
+					
+					<section class="results">
+						<h3 class="sr-only">Results</h3>
+						
+						<div class="poll-bars">
+							<div id="status"><span>
+								<?php echo $alreadyVoted ? "You already voted for this Garf!" : "Your vote has been counted!"; ?>
+							</span></div>
+							<?php
+								foreach ($garfields as $g) {
+									$votes = !empty($pollData[$g]) ? $pollData[$g] : 0;
+									$percentage = count($pollData) > 0 ? $votes / max($pollData) * 100 : 0;
+									$class = in_array($g, $votedFor) ? " fav" : "";
+									echo "
+										<div class='row'>
+											<div class='col'>
+												<img src='".getImgSrc($g)."' alt='$g' title='$g'>
+											</div>
+											<div class='col'>
+												<div class='bar$class' style='width:".$percentage."%;'>
+													<div class='votes'>$votes</div>
+												</div>
+											</div>
+										</div>";
+								}
+								
+							?>
+						</div>
+					</section>
+					<!-- end results section -->
+					
+					<section class="share">
+						<h3 class="sr-only">Share</h3>
+						<p>Download this image to share!</p>
+						<canvas id="canvas" width="220" height="285"></canvas>
+						<script>
+							<?php 
+								echo "var pollResponse = `".$name."`;";
+								echo "var imgSrc = '". getImgSrc($name) ."';";
+							?>
+							const canvas = document.getElementById("canvas");
+							const ctx = canvas.getContext("2d");
+							
+							var borderWidth = 3;
+							var rounded = 2;
+							var padding = 10;
+							var shadow = 3;
+							var width = 200;
+							
+							canvas.width = width + (padding * 2);
+							
+							ctx.fillStyle = "white";
+							ctx.fillRect(borderWidth, borderWidth, canvas.width - (borderWidth * 2), canvas.height - (borderWidth * 2));
+							
+							const img = new Image();
+							img.addEventListener("load", () => {
+								ctx.drawImage(img, padding, padding);
+							});
+							img.src = imgSrc;
+							
+							// draw black outline
+							ctx.strokeStyle = "black";
+							ctx.lineWidth = borderWidth;
+							ctx.beginPath();
+							ctx.roundRect(2, 2, canvas.width - 4, canvas.height - 4, [5]);
+							ctx.stroke();
+							
+							// draw text
+							ctx.fillStyle = "black";
+							ctx.font = "13px Garfield";
+							var textString = "My favorite Garfield is...", textWidth = ctx.measureText(textString).width;
+							ctx.fillText(textString, (canvas.width/2) - (textWidth / 2), 200 + (padding * 3));
+							
+							textString = pollResponse;
+							if (!isNaN(Number(textString))) textString += " Comics";
+							let bigFont = 19, shrink = true;
+							while (shrink) {
+								ctx.font = bigFont + "px Garfield";
+								textWidth = ctx.measureText(textString).width;
+								if (textWidth < (canvas.width - (padding * 2))) shrink = false;
+								else bigFont -= 1;
+							}
+							ctx.fillText(textString , (canvas.width/2) - (textWidth / 2), 200 + (padding * 3) + 23);
+							
+							
+							ctx.fillStyle = "black";
+							ctx.font = "12px Garfield";
+							textString = "What's yours?"; textWidth = ctx.measureText(textString).width;
+							ctx.fillText(textString , (canvas.width/2) - (textWidth / 2), 200 + (padding * 3) + 42);
+						</script>
+						<p class="directions">Replace "PATH" with your image link.</p>
+						<textarea readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+					</section>
+					<!-- end share section -->
+				</div>
+			</div>
+			
+			<div id="right-bar-wrapper" class="right">
+				<?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/right.txt"; ?>
+			</div>
+		</main>
+		
+	</body>
+	<!--------------END BODY------------->
+</html>

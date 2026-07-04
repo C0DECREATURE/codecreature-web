@@ -13,6 +13,7 @@
 	--d-purple: #660066;
 	--sidebar-color: #32ca97;
 	--default-border: 3px var(--black) solid;
+	--default-shadow: -3px 3px var(--black);
 }
 
 .page-settings, #open-nav-button {
@@ -48,7 +49,7 @@
   font-size: 2rem;
   line-height: 0;
   border-radius: 50%;
-	box-shadow: -3px 3px var(--black);
+	box-shadow: var(--default-shadow);
 	&:hover { --open-button-fill: var(--red); background: var(--white); }
 }
 #open-nav-button { left: 5px; aspect-ratio: 1; width: 1.25em; }
@@ -233,6 +234,7 @@ main {
 	}
 	
 	> .center {
+		position: relative;
 		flex-grow: 1;
 		min-width: 0;
 		text-align: center;
@@ -300,6 +302,20 @@ main {
 			padding-top: 0;
 			img { max-width: 100%; }
 		}
+	}
+}
+
+#best-garfield {
+	@media screen and (width >= 1200px) {
+		position: absolute;
+		right: 3%; top: 180px;
+		max-width: 20%
+	}
+	@media screen and (width < 1200px) {
+		img { max-width: 50%; }
+		display: block;
+		margin-top: 1em;
+		text-align: center;
 	}
 }
 

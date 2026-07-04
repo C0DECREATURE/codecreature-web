@@ -17,7 +17,7 @@ main > .center > .container {
 	background: white;
 	border: var(--default-border);
 	padding: 1em;
-	box-shadow: -3px 3px var(--black);
+	box-shadow: var(--default-shadow);
 }
 .game > header, .game .description { margin-bottom: .5em; }
 .game > header {

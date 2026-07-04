@@ -57,6 +57,10 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 # /u/sampleUser actually displays /user/profile.php?username=sampleUser
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
 
+
+# /u/sampleUser actually displays /user/profile.php?username=sampleUser
+RewriteRule ^best-garfield/?(.*) /shrines/garfield/best-garfield/$1
+
 # /x-chat redirects to /chat/x
 RewriteRule ^(.*)-chat/? /chat/$1/index.php
 # specific chat redirects
