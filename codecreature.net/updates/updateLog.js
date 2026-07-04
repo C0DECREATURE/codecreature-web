@@ -26,6 +26,20 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-04T05:57'),
+		authors: ['prax'],
+		tags: ['garfield','new page'],
+		summary: `
+			best garfield <a href="/best-garfield">poll</a>
+		`,
+		details: `
+			<figure>
+				<a href="/best-garfield"><img class="no-full-view" src="/shrines/garfield/images/best_garfield_1980.png" alt="My favorite Garfield is 1980! Whats yours?"></a>
+				<figcaption>which is best? %%u% decide</figcaption>
+			</figure>
+		`
+	},
+	{
 		date: new Date('2026-07-03T01:32'),
 		authors: ['emery','prax'],
 		tags: ['garfield'],
