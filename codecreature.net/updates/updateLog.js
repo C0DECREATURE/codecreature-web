@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-05T04:47'),
+		authors: ['emery'],
+		tags: ['garfield','minor'],
+		summary: `
+			view garfield <a href="/best-garfield/results">poll results</a> without voting
+		`,
+		details: `
+			<p>got annoyed that %%i% couldn't view the results easily</p>
+		`
+	},
+	{
 		date: new Date('2026-07-04T05:57'),
 		authors: ['prax'],
 		tags: ['garfield','new page'],
