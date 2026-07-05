@@ -48,22 +48,22 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		<link rel="icon" type="image/x-icon" href="/shrines/garfield/favicon.gif">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260704"></script>
+		<script src="/codefiles/required.js?fileversion=20260705"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260704" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260705" rel="stylesheet" type="text/css"></link>
 		
 		<script>fonts.load('Garfield','Ad Lib')</script>
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260704" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260705" id="svg-icons-js"></script>
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260704"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260705"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260704"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260705"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="/shrines/garfield/style.css?fileversion=20260704" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20260704" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/style.css?fileversion=20260705" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20260705" rel="stylesheet" type="text/css" media="all">
 		
 		<?php if (!empty($error)) {
 			echo "<script>alert('ERROR: $error');</script>";
