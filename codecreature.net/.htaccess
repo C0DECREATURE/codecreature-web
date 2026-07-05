@@ -13,7 +13,7 @@ Redirect 301 /sollux /shrines/homestuck/sollux
 Redirect 301 /nepeta /shrines/homestuck/nepeta
 Redirect 301 /homestuck-ships /shrines/homestuck/shipping
 
-Redirect 301 /shrines/garf /garfield
+Redirect 301 /shrines/garf /garfield/
 Redirect 301 /garfield /shrines/garfield
 
 Redirect 301 /teeth /shrines/teeth
@@ -62,7 +62,6 @@ RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
 RewriteRule ^best-garfield/results/?(.*) /shrines/garfield/best-garfield/result.php?name=$1
 RewriteRule ^best-garfield/vote/(.)(.*) /shrines/garfield/best-garfield/result.php?name=$1$2&voted=true
 RewriteRule ^best-garfield/?(.*) /shrines/garfield/best-garfield/$1
-RewriteRule ^garfield/?(.*) /shrines/garfield/$1?fileversion=0
 
 # /x-chat redirects to /chat/x
 RewriteRule ^(.*)-chat/? /chat/$1/index.php
