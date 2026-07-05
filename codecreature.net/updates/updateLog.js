@@ -34,6 +34,7 @@ const updateLog = [
 		`,
 		details: `
 			<p>got annoyed that %%i% couldn't view the results easily</p>
+			<p>also made some <a href="/graphix#stamps">garf stamps</a> from comic panels %%i% like, will probably do more eventually!</p>
 		`
 	},
 	{

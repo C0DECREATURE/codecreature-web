@@ -215,21 +215,23 @@ main {
 	}
 	
 	> .right {
+		overflow-y: hidden;
 		margin-right: 1.2rem;
 		/* hide right bar on small screens */
 		@media screen and (width < 800px) { display: none; }
 		
 		#stamps {
-			width: 100%; height: 100%;
+			height: 100%;
+		}
+		#stamps .marquee-wrapper {
+			margin: 0 auto;
+		}
+		#stamps .marquee-track, #stamps .marquee-track-2 noindex {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			justify-content: center;
 			gap: 5px;
-		}
-		
-		&:has(.comics) #stamps {
-			height: 80%;
+			padding-top: 5px;
 		}
 	}
 	
@@ -359,4 +361,49 @@ main {
 		padding: .15em;
 		font-size: 1.75rem;
 	}
+}
+
+.right #stamps .pause-button {
+	width: 100%;
+	background: var(--sidebar-color);
+	font-size: .9rem;
+	padding: .25em .5em .2em .5em;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+	border-bottom: var(--default-border);
+}
+.right #stamps .pause-button:after { content: 'pause'; }
+.right #stamps.pause .pause-button:after { content: 'play'; }
+.marquee-wrapper {
+	width: 99px;
+	height: 100%;
+  position: relative;
+  overflow-y: hidden;
+  @media screen and (prefers-reduced-motion: reduce) {
+		overflow-y: auto;
+		padding-right: 15px;
+		margin-right: -15px;
+	}
+}
+.marquee-wrapper:has(:focus-visible), .pause .marquee-wrapper {
+	.marquee-track, .marquee-track-2 {
+		animation-play-state: paused;
+	}
+}
+.marquee-track, .marquee-track-2 {
+	min-height: 100%;
+  position: absolute;
+  will-change: transform;
+  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee 15s linear infinite; }
+}
+.marquee-track-2 {
+  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee2 15s linear infinite; }
+  @media screen and (prefers-reduced-motion: reduce) { display: none; }
+}
+@keyframes marquee {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}
+@keyframes marquee2 {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0%); }
 }

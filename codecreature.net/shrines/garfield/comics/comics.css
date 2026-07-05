@@ -1,3 +1,7 @@
+:root {
+	--sidebar-color: var(--d-blue);
+}
+
 body {
 	background: var(--blue);
 }

@@ -1,3 +1,7 @@
+:root {
+	--sidebar-color: var(--purple);
+}
+
 body {
 	background-color: var(--l-purple);
 }

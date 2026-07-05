@@ -1,10 +1,31 @@
-<section id="stamps">
-	<img src="/graphix/stamps/garf-yknow.png" alt="">
-	<img src="/graphix/stamps/not-immune-to-propoganda-garf.png" alt="">
-	<img src="/graphix/stamps/garfsplat.png" alt="">
-	<img src="/graphix/stamps/garf_caffeine.png" alt="">
-	<img src="/graphix/stamps/garf_pirate.gif" alt="">
+<section id="stamps" class="pause">
+	<button class="pause-button" onclick="document.getElementById('stamps').classList.toggle('pause');"></button>
+	<div class="marquee-wrapper" onclick="document.getElementById('stamps').classList.toggle('pause');">
+		<div class="marquee-track">
+			<img src="/graphix/stamps/garf-yknow.png" alt="">
+			<img src="/graphix/stamps/not-immune-to-propoganda-garf.png" alt="">
+			<img src="/graphix/stamps/garfsplat.png" alt="">
+			<img src="/graphix/stamps/garf_caffeine.png" alt="">
+			<img src="/graphix/stamps/garf_pirate.gif" alt="">
+			<img src="/graphix/stamps/garf_soup.png" alt="">
+			<img src="/graphix/stamps/garf_grump.png" alt="">
+			<img src="/graphix/stamps/garf_nap_attack.png" alt="">
+			<img src="/graphix/stamps/garf_sunbeam.png" alt="">
+			<img src="/graphix/stamps/garf_tp.png" alt="">
+		</div>
+		<div class="marquee-track-2"></div>
+	</div>
 </section>
+<script>
+	// self-executing function to set up marquee
+	(()=>{
+		let marquee = document.getElementById("stamps").querySelector(".marquee-wrapper");
+		let duplicate = document.createElement("noindex"); // hide duplicate content from bots
+		duplicate.ariaHidden = "true"; // hide duplicate track from screenreaders
+		duplicate.innerHTML = marquee.querySelector(".marquee-track").innerHTML;
+		marquee.querySelector(".marquee-track-2").appendChild(duplicate);
+	})();
+</script>
 
 <a id="newspaper" href="/shrines/garfield/comics/?year=random&num=today">
 	<header>
