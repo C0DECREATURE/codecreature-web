@@ -58,8 +58,11 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
 
 
-# /u/sampleUser actually displays /user/profile.php?username=sampleUser
+# /best-garfield redirects to poll
+RewriteRule ^best-garfield/results/?(.*) /shrines/garfield/best-garfield/result.php?name=$1
+RewriteRule ^best-garfield/vote/(.)(.*) /shrines/garfield/best-garfield/result.php?name=$1$2&voted=true
 RewriteRule ^best-garfield/?(.*) /shrines/garfield/best-garfield/$1
+RewriteRule ^garfield/?(.*) /shrines/garfield/$1?fileversion=0
 
 # /x-chat redirects to /chat/x
 RewriteRule ^(.*)-chat/? /chat/$1/index.php

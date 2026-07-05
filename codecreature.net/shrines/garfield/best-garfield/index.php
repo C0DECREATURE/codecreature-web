@@ -47,7 +47,7 @@
 				<div class="container">
 					
 					<div id="content"><!-- anchor for keyboard nav -->
-						<form id="form" action="/best-garfield/result.php">
+						<form id="form" action="/best-garfield/vote.php">
 							<h2>which garfield is best?</h2>
 							<div class="options-container">
 							<?php
@@ -70,6 +70,7 @@
 							?>
 							</div>
 							<button class="yellowbutton" type="submit">Vote!</button>
+							<a class="yellowbutton" type="button" href="/best-garfield/results">Results</a>
 							<script>
 								let form = document.getElementById('form');
 								form.addEventListener('submit',(e)=>{

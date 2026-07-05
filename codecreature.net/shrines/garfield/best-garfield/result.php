@@ -5,35 +5,25 @@ require_once $_SERVER['DOCUMENT_ROOT']."/codefiles/poll-connect.php";
 // include list of best garfield options
 require_once $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/best-garfield/options.php";
 
-// Check if name is empty or invalid
 $error = "";
-$name = trim($_GET["name"]);
+$name = "";
 $pollData = [];
-if(empty($name)){
-	$error = "Please make a selection first!";
-} else if (!in_array($name, $garfields)) {
-	$error = "Invalid Garfield selection!";
-} else {
-	$votedFor = !empty($_COOKIE["bestGarfieldVoted"]) ? json_decode($_COOKIE["bestGarfieldVoted"],true) : [];
-	$alreadyVoted = in_array($name, $votedFor);
-	if (!$alreadyVoted) {
-		// add one vote for this option , or create a row for it if one doesn't exist
-		$sql = "INSERT INTO best_garfield (name, votes)
-							VALUES ( ? , 1 )
-							ON DUPLICATE KEY UPDATE votes = votes + 1";
-		if($stmt = mysqli_prepare($poll_conn, $sql)){
-			mysqli_stmt_bind_param($stmt, "s", $name);
-			if(mysqli_stmt_execute($stmt)) {
-				// store that user has voted for this garfield
-				$votedFor[] = $name;
-				$json = json_encode($votedFor);
-				setcookie("bestGarfieldVoted", $json);
-			} else {
-				$error = "Could not submit vote. Please try again later.";
-			}
-			mysqli_stmt_close($stmt);
-		}
+$voted = false;
+// which garfs this user has voted for in the past
+$votedFor = !empty($_COOKIE["bestGarfieldVoted"]) ? json_decode($_COOKIE["bestGarfieldVoted"],true) : [];
+// Check if name is empty or invalid
+if (!empty($_GET["name"])) {
+	$name = str_replace("-"," ",trim($_GET["name"]));
+	// if this is a valid garf
+	if (!in_array($name, $garfields)) {
+		$error = "Invalid Garfield selection!";
+	// Check if the user is voting or just viewing results
+	} else if(!empty($_GET["voted"]) && trim($_GET["voted"]) == "true") {
+		$voted = true;
+		$alreadyVoted = in_array($name, $votedFor);
 	}
+} else {
+	$name = "1980";
 }
 
 // get poll data
@@ -97,9 +87,13 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 						<h3 class="sr-only">Results</h3>
 						
 						<div class="poll-bars">
-							<div id="status"><span>
-								<?php echo $alreadyVoted ? "You already voted for this Garf!" : "Your vote has been counted!"; ?>
-							</span></div>
+							<?php
+								if ($voted) {
+									echo "<div id='status'><span>";
+									echo $voted && $alreadyVoted ? "You already voted for this Garf!" : "Your vote has been counted!";
+									echo "</span></div>";
+								}
+							?>
 							<?php
 								foreach ($garfields as $g) {
 									$votes = !empty($pollData[$g]) ? $pollData[$g] : 0;
@@ -125,7 +119,8 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 					
 					<section class="share">
 						<h3 class="sr-only">Share</h3>
-						<p>Download this image to share!</p>
+						<p><?php echo $voted ? "Download this image to share!" : "Vote to get your own share image!"; ?></p>
+						<?php if (!empty($name)) { ?>
 						<canvas id="canvas" width="220" height="285"></canvas>
 						<script>
 							<?php 
@@ -182,8 +177,14 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 							textString = "What's yours?"; textWidth = ctx.measureText(textString).width;
 							ctx.fillText(textString , (canvas.width/2) - (textWidth / 2), 200 + (padding * 3) + 42);
 						</script>
-						<p class="directions">Replace "PATH" with your image link.</p>
-						<textarea readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+						<?php
+						}
+						if ($voted) { ?>
+							<p class="directions">Replace "PATH" with your image link.</p>
+							<textarea readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+						<?php } else { // if not voted ?>
+							<p><a href="/best-garfield" class="yellowbutton">Vote now!</a></p>
+						<?php } // end if/else statement ?>
 					</section>
 					<!-- end share section -->
 				</div>
