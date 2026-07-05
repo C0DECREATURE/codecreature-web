@@ -32,7 +32,7 @@ if (!in_array(trim($_REQUEST["name"]), $garfields)) {
 				// store that user has voted for this garfield
 				$votedFor[] = $name;
 				$json = json_encode($votedFor);
-				setcookie("bestGarfieldVoted", $json);
+				setcookie("bestGarfieldVoted", $json, time() + (60 * 60 * 24 * 365 * 5));
 			} else {
 				$error = "Could not submit vote. Please try again later.";
 			}
