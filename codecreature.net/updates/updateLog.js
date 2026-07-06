@@ -26,8 +26,23 @@ const updateLog = [
 		`
 	},*/
 	{
-		date: new Date('2026-07-05T04:47'),
+		date: new Date('2026-07-06T04:53'),
 		authors: ['emery'],
+		tags: ['garfield','graphix','minor'],
+		summary: `
+			tiling camo garf wallpaper
+		`,
+		details: `
+			<figure>
+				<img src="/graphix/bg/garf_camouflage.png" alt="Tiling pattern of Garfield the cat's orange and black fur, with a Garfield camouflaged between the stripes.">
+			</figure>
+			<p>have been thinking %%abt% <a href='/shrines/garfield/comics/?year=1981&num=130'>this comic</a>, wanted %%2% make it tile. %A%don't\\dont% ask what %%im% going %%2% use it for, %%i% %A%haven't\\havent% gotten that far yet (free %%2% use if %%u% have an idea %%4% %A%yourself\\urself%!!)</p>
+			<p>%A%it's\\its% in the <a href="/graphix/#bgs">backgrounds</a> graphix section if %%u% wanna test it out</p>
+		`
+	},
+	{
+		date: new Date('2026-07-05T04:47'),
+		authors: ['prax','emery'],
 		tags: ['garfield','minor'],
 		summary: `
 			view garfield <a href="/best-garfield/results">poll results</a> without voting
