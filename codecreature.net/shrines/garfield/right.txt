@@ -40,3 +40,11 @@
 		<img src="https://dailycomicsonline.com/wp-content/uploads/2025/08/3512063.gif" alt="">
 	</div>
 </a>
+
+
+
+<script>
+	document.querySelector('main').querySelector('.center').addEventListener('click',()=>{
+		document.getElementById('nav-wrapper').classList.remove('show');
+	});
+</script>

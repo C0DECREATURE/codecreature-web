@@ -343,6 +343,17 @@ main {
 			}
 			#open-nav-button:after { content: 'X'; }
 		}
+		&:has(#nav-wrapper.show) .center:after {
+			content: '';
+			z-index: 98;
+      display: block;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0; left: 0;
+      opacity: .5;
+      background: var(--black);
+		}
 		&:has(#nav-wrapper.show) .right {
 			display: initial;
 			right: 0;
