@@ -87,7 +87,7 @@
 						[
 							"title" => "Lasagna from Heaven",
 							"year" => 2004,
-							"description" => "Remake of an earlier browser game from 1996. It's difficult.",
+							"description" => "Remake of an earlier game from 1996. It's difficult.",
 							"src" => "https://archive.org/details/lasagna_game_swf",
 							"preview" => "https://archive.org/serve/lasagna_game_swf/lasagna_game_swf_screenshot.gif",
 						],
