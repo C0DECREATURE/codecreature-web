@@ -16,6 +16,14 @@ main > .center > .container {
 	gap: 1em;
 	justify-content: center;
 }
+main > .center > header a {
+	position: relative;
+}
+#hopping-garf {
+	position: absolute;
+	right: -32px;
+  bottom: 19%;
+}
 
 .game {
 	background: white;

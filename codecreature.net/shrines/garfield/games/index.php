@@ -9,29 +9,29 @@
 		<link rel="icon" type="image/x-icon" href="../favicon.gif">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<script src="/codefiles/required.js?fileversion=20260707"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260707" rel="stylesheet" type="text/css"></link>
 		
 		<script>fonts.load('Garfield','Ad Lib')</script>
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260707" id="svg-icons-js"></script>
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260707"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260707"></script>
 		
 		<!-- load jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260410"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260707"></script>
 		<!-- load navigation -->
 		<script> $(function(){ $("#nav-wrapper").load("../nav.txt"); }); </script> 
 		<!-- load right bar -->
 		<script> $(function(){ $("#right-bar-wrapper").load("/shrines/garfield/right.txt"); }); </script> 
 		
 		<!--this page's stylesheet-->
-		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		<link href="games.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20260707" rel="stylesheet" type="text/css" media="all">
+		<link href="games.css?fileversion=20260707" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
 	<!-----------BODY------------------->
@@ -43,7 +43,9 @@
 			</div>
 			
 			<div class="center">
-				<header><h1><a href="/shrines/garfield"><img id="logo" src="../images/logo.png" alt="Garfield"></a></h1></header>
+				<header>
+					<h1><a href="/shrines/garfield"><img id="logo" src="../images/logo.png" alt="Garfield"><img id="hopping-garf" src="/graphix/deco/garf_hop.png" alt=""></a></h1>
+				</header>
 				
 				<div class="container">
 					

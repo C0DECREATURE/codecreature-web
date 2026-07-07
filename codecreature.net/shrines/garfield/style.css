@@ -102,12 +102,12 @@ a.skip-to-content {
 }
 
 /* header logo */
+a:hover #logo, a:focus-visible #logo {
+	filter: hue-rotate(15deg) saturate(80%) brightness(120%) contrast(120%);
+}
 #logo {
 	max-width: min(600px,90%);
 	max-height: max(17vh,100px);
-	&:hover, &:focus-visible {
-		filter: hue-rotate(15deg) saturate(80%) brightness(120%) contrast(120%);
-	}
 	user-select: none;
 }
 a:has(#logo) {
@@ -167,6 +167,9 @@ main {
 	#nav-ad {
 		max-width: 90%;
 		@media screen and (height < 500px) { display: none; }
+	}
+	#napping-garf {
+		position: absolute; bottom: -3px; left: 25px; transform: scaleX(-1);
 	}
 	nav {
 		display: flex;

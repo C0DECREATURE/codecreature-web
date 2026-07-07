@@ -12,5 +12,6 @@
 </nav>
 
 <div id="nav-ad">
-	<img src="/shrines/garfield/images/checks_ad.gif">
+	<img src="/shrines/garfield/images/checks_ad.gif" alt="">
+	<img id="napping-garf" src="/graphix/deco/garf_nap.png" alt="">
 </div>

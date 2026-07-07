@@ -11,8 +11,10 @@
 			<img src="/graphix/stamps/garf_grump.png" alt="">
 			<img src="/graphix/stamps/garf_nap_attack.png" alt="">
 			<img src="/graphix/stamps/garf_sunbeam.png" alt="">
+			<img src="/graphix/stamps/garf_chainsaw.png" alt="">
 			<img src="/graphix/stamps/garf_tp.png" alt="">
 			<img src="/graphix/stamps/garf_electricity.png" alt="">
+			<img src="/graphix/stamps/garf_soup.png" alt="">
 			<img src="/graphix/stamps/garf_flying.png" alt="">
 		</div>
 		<div class="marquee-track-2"></div>
