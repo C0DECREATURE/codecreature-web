@@ -19,6 +19,12 @@
 		}
 		
 		$faves = [
+			[ // maya.land
+				"name" => "maya.land",
+				"url" => "https://maya.land",
+				"button" => "mayaland.gif",
+				"description" => "",
+			],
 			[ // oliveen
 				"name" => "oliveen",
 				"url" => "https://olliveen.neocities.org/",
