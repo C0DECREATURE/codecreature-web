@@ -169,7 +169,7 @@ main {
 		@media screen and (height < 500px) { display: none; }
 	}
 	#napping-garf {
-		position: absolute; bottom: -3px; left: 25px; transform: scaleX(-1);
+		position: absolute; bottom: 0; left: 25px; transform: scaleX(-1);
 	}
 	nav {
 		display: flex;
