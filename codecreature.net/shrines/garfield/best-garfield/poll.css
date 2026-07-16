@@ -1,10 +1,11 @@
-h2 {
+h2, h3 {
 	font-family: 'Ad Lib', 'Garfield', 'Comic Sans MS', sans-serif;
 	text-transform: uppercase;
-	font-size: 1.75rem;
 }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.6rem; margin-top: .5em; }
 
-.options-container {
+.options {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;

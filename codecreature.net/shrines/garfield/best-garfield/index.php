@@ -52,19 +52,32 @@
 							<div class="options-container">
 							<?php
 							require_once $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/best-garfield/options.php";
-							foreach ($garfields as $g) {
-								$simple = getSimpleName($g);
-								$opt = "opt-" . str_replace(" ","-",$simple);
-								$img = getImgSrc($g);
+							foreach ($garfield_types as $name => $list) {
 								?>
-								<div class="option">
-									<div class="checkbox"></div>
-									<label for="<?php echo $opt; ?>">
-										<img src="<?php echo $img; ?>" alt="">
-										<span class="name"><?php echo $g; ?></span>
-									</label>
-									<input type="radio" id="<?php echo $opt; ?>" name="name" value="<?php echo $g; ?>" required></input>
-								</div>
+								<section class="type">
+									<?php if ($name != "Comics") { ?>
+										<header><h3><?php echo $name; ?></h3></header>
+									<?php } ?>
+									<div class="options">
+									<?php
+									foreach ($list as $g) {
+										$simple = getSimpleName($g);
+										$opt = "opt-" . str_replace(" ","-",$simple);
+										$img = getImgSrc($g);
+										?>
+											<div class="option">
+												<div class="checkbox"></div>
+												<label for="<?php echo $opt; ?>">
+													<img src="<?php echo $img; ?>" alt="">
+													<span class="name"><?php echo $g; ?></span>
+												</label>
+												<input type="radio" id="<?php echo $opt; ?>" name="name" value="<?php echo $g; ?>" required></input>
+											</div>
+									<?php
+									}
+									?>
+									</div>
+								</section>
 								<?php
 							}
 							?>

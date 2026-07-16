@@ -33,6 +33,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		$row = get_object_vars($row);
 		$pollData[$row["name"]] = $row["votes"];
 	}
+	arsort($pollData); // sort descending
 } else {
 	$error = "Could not load poll data. Please try again later.";
 }
@@ -87,29 +88,34 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 						<h3 class="sr-only">Results</h3>
 						
 						<div class="poll-bars">
-							<?php
-								if ($voted) {
-									echo "<div id='status'><span>";
-									echo $voted && $alreadyVoted ? "You already voted for this Garf!" : "Your vote has been counted!";
-									echo "</span></div>";
-								}
-							?>
+							<div id='status'><span>
+							<?php if ($voted) { ?>
+								<div class="subtext">You voted for</div>
+								<div class="main"><?php echo $name; ?></div>
+							<?php } else { ?>
+								<div class="main">Results</div>
+							<?php } ?>
+							</span></div>
 							<?php
 								foreach ($garfields as $g) {
-									$votes = !empty($pollData[$g]) ? $pollData[$g] : 0;
+									if (empty($pollData[$g])) $pollData[$g] = 0;
+								}
+								foreach ($pollData as $g => $votes) {
 									$percentage = count($pollData) > 0 ? $votes / max($pollData) * 100 : 0;
 									$class = in_array($g, $votedFor) ? " fav" : "";
-									echo "
-										<div class='row'>
-											<div class='col'>
-												<img src='".getImgSrc($g)."' alt='$g' title='$g'>
+									?>
+									<div class="row">
+										<button class="col tooltip">
+											<img src="<?php echo getImgSrc($g); ?>" alt="<?php echo $g; ?>">
+											<div class="tooltip-text"><?php echo $g; ?></div>
+										</button>
+										<div class="col">
+											<div class="bar<?php echo $class; ?>" style="width:<?php echo $percentage; ?>%;">
+												<div class="votes"><?php echo $votes; ?></div>
 											</div>
-											<div class='col'>
-												<div class='bar$class' style='width:".$percentage."%;'>
-													<div class='votes'>$votes</div>
-												</div>
-											</div>
-										</div>";
+										</div>
+									</div>
+									<?php
 								}
 								
 							?>

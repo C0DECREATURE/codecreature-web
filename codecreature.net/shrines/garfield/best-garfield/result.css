@@ -10,11 +10,13 @@
 	}
 }
 
-#status { display: flex; }
-#status > * {
-	width: 0; flex-grow: 1;
-	font-size: .9em;
-	padding: .5em 0;
+#status {
+	text-transform: uppercase;
+	padding: .25em 0;
+}
+#status .main {
+	font-family: 'Ad Lib', 'Garfield', 'Comic Sans MS', sans-serif;
+	font-size: 1.5em;
 }
 
 .poll-bars {
@@ -26,6 +28,7 @@
 	@media screen and (width < 650px) { width: 85vw; }
 	@media screen and (width >= 650px) and (height > 600px) { max-height: 90vh; overflow-y: auto; }
 	padding: 8px;
+	padding-top: 12px;
 	margin: 0 auto;
 	.row { display: flex; align-items: center; }
 	img { width: max(2em,5vh); flex-shrink: 0; }
@@ -43,7 +46,6 @@
 		border-radius: 0 .5em .5em 0;
 		min-width: calc(1.6em + 4px);
 	}
-	.bar.fav { background: var(--red); }
 	.votes {
 		position: absolute;
 		right: 0; top: 50%; transform: translateY(-50%);
@@ -56,7 +58,6 @@
 		background: var(--yellow);
 		width: fit-content;
 	}
-	.fav .votes { background: var(--yellow); }
 }
 
 .share {
@@ -75,3 +76,45 @@
 	border-radius: 1em;
 	font-size: 1.25rem;
 }
+
+/* thought bubble tooltip */
+.poll-bars .tooltip { position: relative; }
+.poll-bars .tooltip .tooltip-text, .poll-bars .tooltip .tooltip-text:after, .poll-bars .tooltip .tooltip-text:before {
+	background: var(--white);
+	border: 2px var(--black) solid;
+}
+.poll-bars .tooltip .tooltip-text {
+	position: absolute;
+	z-index: 1000;
+	bottom: calc(100% + .5em);
+	left: 60%;
+	text-align: center;
+	font-size: 0.85em;
+	border-radius: 2em;
+	padding: .75em 1.25em .6em 1.25em;
+	display:none;
+	pointer-events: none;
+}
+/* dots at bottom */
+.poll-bars .tooltip .tooltip-text::before, .poll-bars .tooltip .tooltip-text::after {
+	content: " ";
+	position: absolute;
+	left: max(1em,2.5vh);
+	aspect-ratio: 1;
+	border-radius: 50%;
+}
+.poll-bars .tooltip .tooltip-text::before {
+	top: calc(100% + .6em);
+	width: .4em;
+	transform: translateX(-140%);
+}
+.poll-bars .tooltip .tooltip-text::after {
+	top: calc(100% - .2em);
+	width: .7em;
+	transform: translateX(-60%);
+}
+
+.row:hover .tooltip-text, .tooltip:focus-visible .tooltip-text, .tooltip:active .tooltip-text {
+  display: block;
+}
+.poll-bars .tooltip:focus-visible { outline: none; }
