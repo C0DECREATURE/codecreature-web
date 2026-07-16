@@ -26,6 +26,18 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-15T22:56'),
+		authors: ['emery'],
+		tags: ['garfield','minor'],
+		summary: `
+			new <a href="/best-garfield">garf poll options</a>
+		`,
+		details: `
+			<p>added a few more canon garfs, plus gorefield by request! tried very hard to find an image that captures the essence of gorf without being overly upsetting to perceive</p>
+			<p>also adjusted styling a little, it's split by category now and also the poll results bars are a little fancier & sorted with the winner at the top</p>
+		`
+	},
+	{
 		date: new Date('2026-07-06T04:53'),
 		authors: ['emery'],
 		tags: ['garfield','graphix','minor'],
