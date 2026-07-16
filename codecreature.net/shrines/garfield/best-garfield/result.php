@@ -64,6 +64,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		
 		<!--this page's stylesheet-->
 		<link href="/shrines/garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/best-garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
 		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
 		
 		<?php if (!empty($error)) {

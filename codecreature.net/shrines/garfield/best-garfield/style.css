@@ -1,0 +1,10 @@
+:root {
+	--sidebar-color: #e24688;
+}
+
+body {
+	background-color: #ffcad2;
+}
+main > .left, main > .right {
+	background-image: url('/shrines/garfield/images/garfield_bg_pink_2x.png');
+}

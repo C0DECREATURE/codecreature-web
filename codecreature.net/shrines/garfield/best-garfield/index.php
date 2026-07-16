@@ -32,6 +32,7 @@
 		
 		<!--this page's stylesheet-->
 		<link href="/shrines/garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/best-garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
 		<link href="/shrines/garfield/best-garfield/poll.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
