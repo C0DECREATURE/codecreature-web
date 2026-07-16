@@ -57,7 +57,7 @@
 							"year" => 2003,
 							"description" => "",
 							"src" => "https://archive.org/details/comiccreator",
-							"preview" => "https://archive.org/serve/comiccreator/comiccreator_screenshot.jpg",
+							"preview" => "../images/games/comic_creator_2003.png",
 						],
 						[
 							"title" => "Comic Creator (New)",
@@ -68,15 +68,15 @@
 						[
 							"title" => "Scary Scavenger Hunt",
 							"year" => 2002,
-							"description" => "A Halloween classic! Played with your keyboard.",
+							"description" => "A Halloween classic! Played with your keyboard. Pretty long.",
 							"src" => "https://www.friv.com/z/games/scaryscavengerhunt/game.html",
-							"preview" => "https://archive.org/download/garfields-scary-scavenger-hunt/thumbnail.png",
+							"preview" => "../images/games/scary_scavenger_hunt.png",
 						],
 						[
 							"title" => "Amazing Garfield",
 							"description" => "Garfield performs an impressive card trick!",
 							"src" => "https://archive.org/details/amazinggarfield_swf",
-							"preview" => "https://archive.org/serve/amazinggarfield_swf/amazinggarfield2.jpg",
+							"preview" => "../images/games/amazing_garfield.png",
 						],
 						[
 							"title" => "Dream Racers",
@@ -85,11 +85,25 @@
 							"preview" => "https://flashmuseum.org/wp-content/uploads/2023/05/Garfields-Dream-Racers_Gameplay.png",
 						],
 						[
+							"title" => "Beat the Cheese",
+							"year" => 2004,
+							"description" => "Whack-a-mole with mice.",
+							"src" => "https://classicgamesfree.com/flash/beat-the-cheese",
+							"preview" => "../images/games/beat_the_cheese.png",
+						],
+						[
 							"title" => "Lasagna from Heaven",
 							"year" => 2004,
 							"description" => "Remake of an earlier game from 1996. It's difficult.",
 							"src" => "https://archive.org/details/lasagna_game_swf",
 							"preview" => "https://archive.org/serve/lasagna_game_swf/lasagna_game_swf_screenshot.gif",
+						],
+						[
+							"title" => "Bean Me",
+							"year" => 2000,
+							"description" => "More of an interactive video. Referenced in the comic <a href='http://localhost/shrines/garfield/comics/?year=2000&num=250'>here</a>.",
+							"src" => "https://flashmuseum.org/bean-me/",
+							"preview" => "../images/games/bean_me.png",
 						],
 						[
 							"title" => "Mix and Match",
