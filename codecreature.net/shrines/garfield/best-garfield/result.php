@@ -91,7 +91,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 							<div id='status'><span>
 							<?php if ($voted) { ?>
 								<div class="subtext">You voted for</div>
-								<div class="main"><?php echo $name; ?></div>
+								<div class="main"><?php echo is_numeric($name) ? $name." Comics" : $name; ?></div>
 							<?php } else { ?>
 								<div class="main">Results</div>
 							<?php } ?>
