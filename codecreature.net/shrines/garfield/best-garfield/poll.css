@@ -5,6 +5,10 @@ h2, h3 {
 h2 { font-size: 2rem; }
 h3 { font-size: 1.6rem; margin-top: .5em; }
 
+.options-container {
+	margin: 0 auto;
+	max-width: 1300px;
+}
 .options {
 	display: flex;
 	flex-wrap: wrap;
