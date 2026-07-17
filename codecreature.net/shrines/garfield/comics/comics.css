@@ -123,14 +123,19 @@ main > .center > footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 6px;
 }
 
 #toggle-favorites {
+	max-width: 35vw;
+	width: 10em;
+}
+#comic-nav .yellowbutton {
 	height: fit-content;
 	font-size: max(.75rem,min(1rem,2vw));
 	border-radius: 1em;
-	max-width: 35vw;
 }
+.yellowbutton svg { height: 1em; }
 
 #prev, #next {
 	display: block;
@@ -150,7 +155,6 @@ main > .center > footer {
 @media screen and (width >= 1100px) {
 	#prev, #next {
 		display: block;
-		position: relative;
 		font-family:'Ad Lib','Garfield',sans-serif;
 		span {
 			position: absolute;
@@ -159,11 +163,11 @@ main > .center > footer {
 		}
 	}
 	#next {
-		transform: translateX(108%);
+		transform: translateX(49%);
 		span { left: 65%; }
 	}
 	#prev {
-		transform: translateX(-108%);
+		transform: translateX(-49%);
 		span { right: 65%; }
 	}
 }

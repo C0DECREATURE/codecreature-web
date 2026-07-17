@@ -161,7 +161,7 @@ const comic = {
 		let button = document.getElementById('toggle-favorites'); // toggle favorites button
 		let subtitle = document.getElementById('page-subtitle'); // subtitle of page
 		if (comic.showFavorites) {
-			button.innerHTML = 'Show All Comics';
+			button.innerHTML = 'All Comics';
 			subtitle.innerHTML = 'My Favorites';
 			// if the current comic is not favorited, jump to next favorite
 			if (!comic.isFavorite()) {
@@ -169,9 +169,30 @@ const comic = {
 				comic.nextFavorite();
 			}
 		} else {
-			button.innerHTML = 'Show My Favorites';
+			button.innerHTML = 'My Favorites';
 			subtitle.innerHTML = 'Comics Archive';
 		}
+	},
+	// load a random comic
+	random: ()=>{
+		// get url search parameters, if favorites = true then get random favorited comic
+		let urlParams = new URLSearchParams(window.location.search);
+		if (comic.showFavorites) comic.randomFavorite();
+		// if favorites is not set or not = true then load any random comic
+		else {
+			let firstTime = comic.firstDate.getTime();
+			let lastTime = comic.lastDate.getTime();
+			let rDate = new Date(firstTime + Math.random() * (lastTime - firstTime));
+			// set date values and load comic
+			comic.set(rDate,true);
+		}
+	},
+	// load a random favorited comic
+	randomFavorite: ()=>{
+		function randomFromArr(arr) { return arr[Math.floor(Math.random()*arr.length)]; };
+		comic.year = randomFromArr(Object.keys(comic.favorites));
+		comic.num = randomFromArr(comic.favorites[comic.year]);
+		comic.load();
 	},
 	// fix any issues with num/year exceeding bounds
 	fixDates: ()=>{
