@@ -36,7 +36,7 @@
 	.col:last-child {
 		text-align: left;
 		flex-grow: 1;
-		padding-right: 1em;
+		padding-right: 2em;
 	}
 	.bar {
 		position: relative;
@@ -44,12 +44,11 @@
 		background: var(--black);
 		height: .5em;
 		border-radius: 0 .5em .5em 0;
-		min-width: calc(1.6em + 4px);
+		padding-left: calc(1.6em + 4px);
 	}
 	.votes {
 		position: absolute;
 		right: 0; top: 50%; transform: translateY(-50%);
-		margin-left: 1em;
 		min-width: 1.15em;
 		text-align: center;
 		border-radius: 1.25em;
