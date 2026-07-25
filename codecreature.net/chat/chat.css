@@ -28,6 +28,23 @@ body, html {
 	--font: 'Yet R', sans-serif;
 }
 
+/***** scrollbar *****/
+/* Firefox settings */
+* { scrollbar-color: var(--l-blue) var(--blue); }
+/* width */
+::-webkit-scrollbar { width: 12px; }
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px var(--d-blue);
+	background-color: var(--blue);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--l-blue);
+	border-radius: 9px;
+}
+/***** end scrollbar *****/
+
 .chatbox {
 	background: var(--bg);
 	width: 100%;
