@@ -1,0 +1,6 @@
+iframe {
+	border: none;
+	aspect-ratio: 1920/1080;
+	width: 100%;
+	max-width: 1080px;
+}

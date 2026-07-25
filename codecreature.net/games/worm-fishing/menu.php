@@ -8,8 +8,9 @@
 	</header>
 	
 	<nav id="menu-buttons">
-		<a href="/">site home</a>
 		<a href="../worm-race">worm race</a>
+		<a href="../worm-stocks">stocks</a>
+		<a href="/">site home</a>
 	</nav>
 	<script>
 		(()=>{

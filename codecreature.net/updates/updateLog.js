@@ -26,6 +26,26 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-25T15:12'),
+		authors: ['emery'],
+		tags: ['games','worm stocks','worm race','new page'],
+		summary: `
+			<a href="/games/worm-stocks">jeremy's stock market</a> game
+		`,
+		details: `
+			<figure>
+				<img src="images/worm_stocks_2026_07_25.png" alt=""></a>
+				<figcaption>help that worm commit fraud</figcaption>
+			</figure>
+			<p>
+				Basic gameplay structure is in for the new <a href="/games/worm-stocks">stock market</a> game! Needs proper art, some layout things, plus I have more features I'm hoping to add. The chart also needs to scale correctly when the numbers get high, been a bit difficult to get that going. But playable for now!
+			</p>
+			<p>
+				Drop a note in <a href="/chat/worms">worm chat</a> if you have any gameplay feedback or find any bugs.
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-07-15T22:56'),
 		authors: ['emery'],
 		tags: ['garfield','minor'],

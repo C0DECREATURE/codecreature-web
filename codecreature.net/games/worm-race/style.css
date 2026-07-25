@@ -671,15 +671,15 @@
 /******************************************************************************************
 	UPDATES
 ******************************************************************************************/
-@media screen and (width >= 1000px) and (height >= 750px) {
+@media screen and (width >= 1000px) and (height >= 790px) {
 	/* hide the button to open updates */
 	#open-updates { display: none; }
 }
 .updates {
-	@media screen and (width >= 1000px) and (height >= 750px) {
+	@media screen and (width >= 1000px) and (height >= 790px) {
 		width: min(min(29vw, 50vh), 345px);
 	}
-	@media screen and ((width < 1000px) or (height < 750px)) and (height >= 400px) {
+	@media screen and ((width < 1000px) or (height < 790px)) and (height >= 400px) {
 		width: min(90vw,max(min(30vh,70vw), 350px));
 		transform: translate(-50%,-50%);
 	}
@@ -716,10 +716,10 @@
 		rotate: -8deg;
 		left: 2%; bottom: 5%;
 	}
-	@media screen and ((width < 1000px) or (height < 750px)) {
+	@media screen and ((width < 1000px) or (height < 790px)) {
 		&:not(.open) { display: none; }
 	}
-	@media screen and ((width < 1000px) or (height < 750px)) and (height >= 400px) {
+	@media screen and ((width < 1000px) or (height < 790px)) and (height >= 400px) {
 		rotate: -4deg;
 		left: 56%; top: 48%;
 	}
@@ -742,7 +742,7 @@
 			padding: .45em;
 			border: calc(var(--menu-border) * .9) var(--dd-blue) solid;
 			box-shadow: 0 var(--menu-border) 0 rgba(var(--d-blue-rgb), .4);
-			@media screen and ((width >= 1000px) and (height >= 750px)) { display: none; }
+			@media screen and ((width >= 1000px) and (height >= 790px)) { display: none; }
 		}
 		.close .svg-icon { background: var(--white); }
 	}
@@ -756,10 +756,10 @@
 		font-family: "Super Comic", sans-serif;
 		letter-spacing: 0.1em;
 		
-		@media screen and (width >= 1000px) and (height >= 750px) {
+		@media screen and (width >= 1000px) and (height >= 790px) {
 			font-size: min(1.2em, 2vw); 
 		}
-		@media screen and ((width < 1000px) or (height < 750px)) {
+		@media screen and ((width < 1000px) or (height < 790px)) {
 			font-size: min(1.2em, 5.5vw); 
 		}
 		a, a:link { color: inherit; }
@@ -780,19 +780,19 @@
 	clip-path: polygon(5% 0, 100% 0, 100% 98%, 0% 100%);
 	pointer-events: none;
 	
-	@media screen and (width >= 1000px) and (height >= 750px) {
+	@media screen and (width >= 1000px) and (height >= 790px) {
 		opacity: 1;
 		mix-blend-mode: color-burn;
 		rotate: -7deg;
 		left: 0.5%; bottom: 3%;
 	}
-	@media screen and ((width < 1000px) or (height < 750px)) {
+	@media screen and ((width < 1000px) or (height < 790px)) {
 		opacity: 0.4;
 		mix-blend-mode: multiply;
 		rotate: -2deg;
 		left: 51%; top: 51%;
 	}
 }
-@media screen and ((width < 1000px) or (height < 750px)) {
+@media screen and ((width < 1000px) or (height < 790px)) {
 	#updates-container:not(.open) + .updates.shadow { display: none; }
 }
