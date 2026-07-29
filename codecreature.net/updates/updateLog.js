@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-29T18:54'),
+		authors: ['emery','prax'],
+		tags: ['garfield'],
+		summary: `
+			working light switch and clock hands on the <a href="/shrines/garfield/merch">garf merch</a> page
+		`,
+		details: `
+			<p>the big pendulum clock works!! light switch makes everything dark except the lamps - one lamp added so far, but I have a few more I'm currently editing to add %E%:)%</p>
+		`
+	},
+	{
 		date: new Date('2026-07-25T15:12'),
 		authors: ['emery'],
 		tags: ['games','worm stocks','worm race','new page'],

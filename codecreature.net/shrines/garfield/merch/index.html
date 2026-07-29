@@ -66,9 +66,15 @@
 									data-caption="1989 McDonald’s Happy Meal toy">
 							</td>
 						-->
+						<!-- top row -->
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
 						<!-- shelf 1 -->
 						<tr>
-							
 							<td class="item small"><div class="wrapper">
 								<img src="../images/merch/mcdonalds_scooter_02.png" alt="A small plastic Garfield and Odie riding a bright red moped. Garfield is waving."
 									data-caption="1989 McDonald’s Happy Meal toy">
@@ -137,7 +143,8 @@
 							</td>
 							
 							<td class="item">
-								<img src="../images/merch/coin_bank.png" alt="A coin bank of Garfield sitting up, crossing his arms with a smirk">
+								<img src="../images/merch/plush_mcdonalds.png" alt="Smiling Garfield plush wearing a red McDonald's visor, tie, and striped shirt. He has a Garfield and Company paper tag on his ear."
+									data-caption="1988 McDonald's Manager Plush by Dakin<br>This toy was only available to employees and never sold at retail!">
 							</td>
 							
 							<td class="item">
@@ -146,9 +153,10 @@
 									style="margin-bottom: -1%; margin-left: -10%; rotate: -6deg;">
 							</td>
 							
-							<td class="item">
-								<img src="../images/merch/plush_mcdonalds.png" alt="Smiling Garfield plush wearing a red McDonald's visor, tie, and striped shirt. He has a Garfield and Company paper tag on his ear."
-									data-caption="1988 McDonald's Manager Plush by Dakin<br>This toy was only available to employees and never sold at retail!">
+							<td class="item lamp">
+								<div class="glow"></div>
+								<img class="off" style="padding-left: 8%;" src="../images/merch/lamp_merchoid_moon.png" alt="">
+								<img class="on" style="padding-left: 8%;" src="../images/merch/lamp_merchoid_moon_on.png" alt="">
 							</td>
 						</tr>
 						
@@ -206,6 +214,7 @@
 						<!-- shelf 5 -->
 						<tr>
 							<td class="item">
+								<img src="../images/merch/coin_bank.png" alt="A coin bank of Garfield sitting up, crossing his arms with a smirk">
 							</td>
 							
 							<td class="item med">
@@ -218,6 +227,8 @@
 							</td>
 							
 							<td class="item">
+								<img src="../images/merch/kidrobot_wiper.png" alt=""
+									data-caption="Screen Wipe Plush by Kidrobot">
 							</td>
 						</tr>
 						
@@ -237,11 +248,50 @@
 					})();
 				</script>
 				
-				<img id="balloon-embroidery" class="wall-hanging" src="../images/merch/balloon_embroidery.png" alt="">
+				<img id="balloon-embroidery" class="wall-hanging thin-shadow" src="../images/merch/balloon_embroidery.png" alt="">
 				
 				<div class="pendulum-clock wall-hanging">
 					<img class="body" src="../images/merch/clock_sunbeam_pendulum.png" alt="">
+					<img id="pendulum-clock-second" class="hands" src="../images/merch/clock_sunbeam_pendulum_second.png" alt="">
+					<img id="pendulum-clock-minute" class="hands" src="../images/merch/clock_sunbeam_pendulum_minute.png" alt="">
+					<img id="pendulum-clock-hour" class="hands" src="../images/merch/clock_sunbeam_pendulum_hour.png" alt="">
+					<img class="hands center" src="../images/merch/clock_sunbeam_pendulum_center.png" alt="">
 					<div class="tail"><img src="../images/merch/clock_sunbeam_pendulum_tail.png" alt=""></div>
+					
+					<script>
+						(()=>{
+							let date = new Date();
+							let hours = date.getHours();
+							let minutes = date.getMinutes();
+							let seconds = date.getSeconds();
+							
+							var secDeg = seconds * 6;
+							var minuteDeg = (minutes * 6) + (seconds * .1);
+							var hourDeg = (hours * 30) + (minutes * .5);
+							
+							var secondHand = document.getElementById("pendulum-clock-second");
+							var minuteHand = document.getElementById("pendulum-clock-minute");
+							var hourHand = document.getElementById("pendulum-clock-hour");
+							function rotateClock() {
+								secDeg += 6;
+								minuteDeg += 0.1;
+								hourDeg += 0.1 / 60;
+								secondHand.style.rotate = secDeg + "deg";
+								minuteHand.style.rotate = minuteDeg + "deg";
+								hourHand.style.rotate = hourDeg + "deg";
+								setTimeout(rotateClock,1000)
+							}
+							rotateClock();
+						})();
+					</script>
+				</div>
+				
+				<div id="light-switch" class="wall-hanging" onclick="document.body.classList.toggle('lights-off');">
+					<div class="wrapper">
+						<img class="plate thin-shadow" src="../images/merch/switch_plate_flower.png" alt="">
+						<img class="off" src="../images/merch/switch_plate_flower_off.png" alt="">
+						<img class="on" src="../images/merch/switch_plate_flower_on.png" alt="">
+					</div>
 				</div>
 				
 			</div>
