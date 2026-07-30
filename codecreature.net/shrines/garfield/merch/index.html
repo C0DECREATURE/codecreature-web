@@ -143,13 +143,14 @@
 							</td>
 							
 							<td class="item">
-								<img src="../images/merch/plush_mcdonalds.png" alt="Smiling Garfield plush wearing a red McDonald's visor, tie, and striped shirt. He has a Garfield and Company paper tag on his ear."
-									data-caption="1988 McDonald's Manager Plush by Dakin<br>This toy was only available to employees and never sold at retail!">
+								<img src="../images/merch/plush_well_loved.png" alt=""
+									data-caption="Well-loved Garfield<br><a href='https://knowyourmeme.com/memes/well-loved-garfield-plush'>he's so special to me</a>"
+									style="rotate: -8deg; margin-bottom: -1%;">
 							</td>
 							
 							<td class="item">
 								<img src="../images/merch/plush_01.png" alt="A fat, smiling Garfield plush in a sitting pose."
-									data-caption="1981 Plush by Dakin<br>This is the plush from the well-loved Garfield meme!"
+									data-caption="1981 Plush by Dakin<br>The well-loved Garfield plush in mint condition!"
 									style="margin-bottom: -1%; margin-left: -10%; rotate: -6deg;">
 							</td>
 							
@@ -168,20 +169,26 @@
 							</td>
 							
 							<td class="item">
-								<img src="../images/merch/clock_belly_02.png" alt=""
-									data-caption="1980s Alarm Clock<br>He plays various childrens' songs with meowing sound effects! An older version used his nose as the alarm button, but the later versions have the button on top of his head."
-									style="padding-bottom: 2%;">
-							</td>
-							
-							<td class="item">
-								<img src="../images/merch/coin_bank_feed.png" alt="A coin bank of Garfield sitting with a fork and knife raised. He is wearing a red bandana that reads 'Feed the kitty.'"
-									data-caption="1981 Ceramic Coin Bank by Enesco">
+								<div id="belly-clock-2" class="wrapper analog-clock">
+									<img src="../images/merch/clock_belly_02.png" alt=""
+										data-caption="1980s Alarm Clock<br>He plays various childrens' songs with meowing sound effects! An older version used his nose as the alarm button, but the later versions have the button on top of his head."
+										style="padding-bottom: 2%;">
+									<img class="clock-hands minute" src="../images/merch/clock_belly_02_minute.png" alt="">
+									<img class="clock-hands hour" src="../images/merch/clock_belly_02_hour.png" alt="">
+									<img class="clock-hands center" src="../images/merch/clock_belly_02_center.png" alt="">
+									<img class="clock-hands second" src="../images/merch/clock_belly_02_second.png" alt="">
+								</div>
 							</td>
 							
 							<td class="item med">
 								<img src="../images/merch/yoyo.png" alt="A yo-yo in original packaging. The toy is blue and red with a smiling 3D Garfield in the center. The packaging shows Garfield playing with a yo-yo and assorted black and white comic panels as the background."
 									data-caption="1981 Yo-Yo made by Avon.<br>The same toy design was later repackaged and sold by Spectra Star."
 									style="transform: rotate(4deg); padding-left: 5%; padding-bottom: 5%;">
+							</td>
+							
+							<td class="item">
+								<img src="../images/merch/coin_bank_feed.png" alt="A coin bank of Garfield sitting with a fork and knife raised. He is wearing a red bandana that reads 'Feed the kitty.'"
+									data-caption="1981 Ceramic Coin Bank by Enesco">
 							</td>
 						</tr>
 						
@@ -217,8 +224,9 @@
 								<img src="../images/merch/coin_bank.png" alt="A coin bank of Garfield sitting up, crossing his arms with a smirk">
 							</td>
 							
-							<td class="item med">
-								<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
+							<td class="item">
+								<img src="../images/merch/plush_mcdonalds.png" alt="Smiling Garfield plush wearing a red McDonald's visor, tie, and striped shirt. He has a Garfield and Company paper tag on his ear."
+									data-caption="1988 McDonald's Manager Plush by Dakin<br>This toy was only available to employees and never sold at retail!">
 							</td>
 							
 							<td class="item">
@@ -232,6 +240,22 @@
 							</td>
 						</tr>
 						
+						<!-- shelf 6 -->
+						<tr>
+							<td class="item"></td>
+							
+							<td class="item">
+								<img src="../images/merch/plush_why_me.png" alt=""
+									data-caption="1981 'Why Me?' Plush by Dakin">
+							</td>
+							
+							<td class="item med">
+								<img src="../images/merch/clock_fat.png" alt="A very round smiling plastic Garfield with a small clock in his belly">
+							</td>
+							
+							<td class="item"></td>
+						</tr>
+						
 						<!-- end of shelf items -->
 					</tbody>
 				</table>
@@ -242,7 +266,9 @@
 						for (let i = 0; i < items.length; i++) {
 							let images = items[i].getElementsByTagName('img');
 							for (let j = 0; j < images.length; j++) {
-								if (!images[j].classList.contains('no-full-view')) images[j].classList.add('full-viewable');
+								if (!images[j].classList.contains('no-full-view') && !images[j].classList.contains('clock-hands')) {
+									images[j].classList.add('full-viewable');
+								}
 							}
 						}
 					})();
@@ -250,40 +276,14 @@
 				
 				<img id="balloon-embroidery" class="wall-hanging thin-shadow" src="../images/merch/balloon_embroidery.png" alt="">
 				
-				<div class="pendulum-clock wall-hanging">
+				<div class="analog-clock pendulum-clock wall-hanging">
 					<img class="body" src="../images/merch/clock_sunbeam_pendulum.png" alt="">
-					<img id="pendulum-clock-second" class="hands" src="../images/merch/clock_sunbeam_pendulum_second.png" alt="">
-					<img id="pendulum-clock-minute" class="hands" src="../images/merch/clock_sunbeam_pendulum_minute.png" alt="">
-					<img id="pendulum-clock-hour" class="hands" src="../images/merch/clock_sunbeam_pendulum_hour.png" alt="">
-					<img class="hands center" src="../images/merch/clock_sunbeam_pendulum_center.png" alt="">
+					<img class="clock-hands second" src="../images/merch/clock_sunbeam_pendulum_second.png" alt="">
+					<img class="clock-hands minute" src="../images/merch/clock_sunbeam_pendulum_minute.png" alt="">
+					<img class="clock-hands hour" src="../images/merch/clock_sunbeam_pendulum_hour.png" alt="">
+					<img class="clock-hands center" src="../images/merch/clock_sunbeam_pendulum_center.png" alt="">
 					<div class="tail"><img src="../images/merch/clock_sunbeam_pendulum_tail.png" alt=""></div>
 					
-					<script>
-						(()=>{
-							let date = new Date();
-							let hours = date.getHours();
-							let minutes = date.getMinutes();
-							let seconds = date.getSeconds();
-							
-							var secDeg = seconds * 6;
-							var minuteDeg = (minutes * 6) + (seconds * .1);
-							var hourDeg = (hours * 30) + (minutes * .5);
-							
-							var secondHand = document.getElementById("pendulum-clock-second");
-							var minuteHand = document.getElementById("pendulum-clock-minute");
-							var hourHand = document.getElementById("pendulum-clock-hour");
-							function rotateClock() {
-								secDeg += 6;
-								minuteDeg += 0.1;
-								hourDeg += 0.1 / 60;
-								secondHand.style.rotate = secDeg + "deg";
-								minuteHand.style.rotate = minuteDeg + "deg";
-								hourHand.style.rotate = hourDeg + "deg";
-								setTimeout(rotateClock,1000)
-							}
-							rotateClock();
-						})();
-					</script>
 				</div>
 				
 				<div id="light-switch" class="wall-hanging" onclick="document.body.classList.toggle('lights-off');">
@@ -300,6 +300,37 @@
 			</div>
 		</main>
 		
+		<!-- ANALOG CLOCKS SETUP -->
+		<script>
+			(()=>{
+				let date = new Date();
+				let hours = date.getHours();
+				let minutes = date.getMinutes();
+				let seconds = date.getSeconds();
+				
+				var secDeg = seconds * 6;
+				var minuteDeg = (minutes * 6) + (seconds * .1);
+				var hourDeg = (hours * 30) + (minutes * .5);
+				
+				var clocks = document.getElementsByClassName("analog-clock");
+				
+				function rotateClocks() {
+					// update degrees
+					secDeg += 6;
+					minuteDeg += 0.1;
+					hourDeg += 0.1 / 60;
+					// move clocks
+					for (let i = 0; i < clocks.length; i++) {
+						let clock = clocks[i];
+						clock.querySelector(".second").style.rotate = secDeg + "deg";
+						clock.querySelector(".minute").style.rotate = minuteDeg + "deg";
+						clock.querySelector(".hour").style.rotate = hourDeg + "deg";
+					}
+					setTimeout(rotateClocks,1000)
+				}
+				rotateClocks();
+			})();
+		</script>
 	</body>
 	<!--------------END BODY------------->
 </html>

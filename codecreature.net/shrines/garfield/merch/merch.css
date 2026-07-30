@@ -22,14 +22,14 @@
 		
 		.wrapper {
 			width: 100%;
-			height: 100%;
+			height: min(100%, fit-content);
 			display: flex;
 			justify-content: space-around;
 			align-items: flex-end;
 			gap: 5%;
 			padding-bottom: calc(var(--size)*.05);
 			/* enable children shrinking to fit */
-			> * { min-width: 0; }
+			> * { min-width: 0; max-width: 100%; }
 		}
 		
 		/* middle/default */
@@ -82,15 +82,17 @@
 			max-width: 65%;
 		}
 		
-		> img, .wrapper > img { &:hover, &:focus-visible {
+		> img:hover, > img:focus-visible, .wrapper:has(> img:hover), .wrapper:has(> img:focus-visible) {
+			scale: 1.1;
+		}
+		> img:hover, > img:focus-visible, .wrapper > img:hover, .wrapper > img:focus-visible {
 			filter:
 				drop-shadow(3px 4px 2px rgba(0,0,0,.2))
 				drop-shadow(0 0 3px var(--white))
 				drop-shadow(0 0 2px var(--white))
 				drop-shadow(0 0 2px var(--white));
 			outline: 0px;
-			scale: 1.1;
-		} }
+		}
 	}
 	
 	td:first-of-type { width: calc(var(--size)*.9); }
@@ -160,8 +162,44 @@
 .wall-hanging .thin-shadow, .wall-hanging.thin-shadow {
 	filter: drop-shadow(-2px 4px 3px rgba(100,60,31,.5));
 }
-.pendulum-clock {
+
+#balloon-embroidery {
+	width: min(17%,220px);
+  rotate: 1.5deg;
+	@media screen and (width > 1500px) {
+		position: absolute;
+		z-index: 0;
+		top: 80px;
+		right: calc(50% + min(370px, 22.5vw));
+	}
+}
+
+/*** CLOCKS ***/
+
+.analog-clock {
+	position: relative;
+}
+.analog-clock .clock-hands {
 	pointer-events: none;
+	position: absolute;
+	transform-origin: 50% 100%;
+}
+.analog-clock .center {
+	transform: translateY(50%);
+}
+
+#belly-clock-2 .clock-hands {
+	bottom: 57.4%;
+	left: 66.4%;
+	width: 3.6%;
+}
+#belly-clock-2 .second {
+	transform-origin: 50% 80%;
+	left: 66.6%;
+	bottom: 52.8%;
+}
+
+.pendulum-clock {
 	position: relative;
 	@media screen and (width > 1500px) {
 		position: absolute;
@@ -172,15 +210,10 @@
 	margin: 0 auto;
 }
 
-.pendulum-clock .hands {
-	position: absolute;
-	transform-origin: 50% 100%;
+.pendulum-clock .clock-hands {
 	bottom: 51.8%;
 	left: 51.4%;
 	width: 5.4%;
-}
-.pendulum-clock .center {
-	bottom: 50.7%;
 }
 
 .pendulum-clock .tail {
@@ -203,18 +236,11 @@
 	to { rotate: 10deg; }
 }
 
-#balloon-embroidery {
-	width: min(17%,220px);
-  rotate: 1.5deg;
-	@media screen and (width > 1500px) {
-		position: absolute;
-		z-index: 0;
-		top: 80px;
-		right: calc(50% + min(370px, 22.5vw));
-	}
-}
-
 /*** LIGHTS ***/
+
+:root {
+	--lamp-z-index: 4;
+}
 
 #light-switch {
 	@media screen and (width > 1300px) {
@@ -271,10 +297,10 @@ body:not(.lights-off) #shelves .lamp .glow,
 }
 #shelves .lamp .on {
 	position: relative;
-	z-index: 4;
+	z-index: var(--lamp-z-index);
 }
 .lights-off #shelves .lamp .glow {
-	z-index: 3;
+	z-index: calc(var(--lamp-z-index) - 1);
 	bottom: 10%;
 	background: #f2c58c;
 	mix-blend-mode: overlay;
