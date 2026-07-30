@@ -199,6 +199,13 @@
 	bottom: 52.8%;
 }
 
+#moon-alarm-clock .clock-hands {
+	transform-origin: 50% 74%;
+  bottom: 31.8%;
+  left: 47.5%;
+  width: 6.3%;
+}
+
 .pendulum-clock {
 	position: relative;
 	@media screen and (width > 1500px) {
