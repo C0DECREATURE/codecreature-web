@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<title>Garfield Clocks Demo</title>
+		<!-- favicon -->
+		<link rel="icon" type="image/x-icon" href="/shrines/garfield/favicon.gif">
+		
+		<!-- universal base javascript -->
+		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<!-- universal base css -->
+		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		
+		<script>fonts.load('Garfield');</script>
+		
+		<!--Garfield clock script-->
+		<script id="garfield-clock-script" src="script.min.js"></script>
+		
+		<style>
+			html { height: 100%; }
+			body {
+				margin: 0;
+				text-align: center;
+				color: black;
+				font-family: 'Garfield', 'Comic Sans MS', 'Comic Sans', sans-serif;
+				background: #acfed5;
+				height: auto;
+				min-height: 100%;
+				overflow-y: auto;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			body > section {
+				width: 100%;
+				margin: 0 auto;
+			}
+			
+			#description {
+				width: min(500px,100vw);
+				font-weight: 500;
+				padding: 1em 1.5em;
+				z-index: 2;
+					
+				:first-child { margin-top: 0px; }
+				a { color: black; }
+				a:hover { background: #fcfb7d; }
+				.btn {
+					background: #f69e36;
+					padding: .5em 1em .35em 1em;
+					border-radius: 1em;
+					box-shadow: 0px 5px 0px black;
+					display: inline-block;
+					margin-bottom: 5px;
+					box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+					font-weight: 800;
+					font-size: 1.25em;
+					text-shadow: 1px 1px 0px #f6e1a9;
+					&:active {
+						box-shadow: none;
+						transform: translateY(5px);
+					}
+				}
+			}
+			
+			#previews {
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				gap: 3%;
+				position: relative;
+			}
+			#previews:before {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 250px;
+				left: 0; bottom: 0;
+				background-image: url('/graphix/bg/halftone.png');
+				background-size: 8px;
+				clip-path: polygon(0% 0%, 100% 70%, 100% 100%, 0% 100%);
+				mix-blend-mode: multiply;
+				opacity: .8;
+			}
+			
+			.garfield-analog-clock {
+				width: min(30%, 300px);
+				margin-bottom: -50px;
+			}
+			
+			.background {
+				z-index: -1;
+				border-top: 4px black solid;
+				background: #bea6f7;
+				height: 50px;
+				flex-grow: 1;
+			}
+		</style>
+	</head>
+	
+	<!-----------BODY------------------->
+	<body>
+		<header><h1>Garfield Clocks</h1></header>
+		
+		<section id="description">
+			<p>
+				Free widgets for non-commercial use!
+			</p>
+			<a class="btn" href="https://github.com/C0DECREATURE/garfield-clocks" target="_blank">Github</a>
+			<a class="btn" href="/shrines/garfield">Garfield</a>
+			<a class="btn" href="/">Home</a>
+		</section>
+		
+		<section id="previews">
+			<div id="garfield-pendulum-clock" class="garfield-analog-clock"><div class="wrapper">
+				<div class="tail"><img src="https://i.postimg.cc/7LjDDtcW/clock-sunbeam-pendulum-tail.png" alt=""></div>
+				<img class="main" src="https://i.postimg.cc/bv488VWN/clock-sunbeam-pendulum.png" alt="">
+				<img class="clock-hands second" src="https://i.postimg.cc/hGNggZ6j/clock-sunbeam-pendulum-second.png" alt="">
+				<img class="clock-hands minute" src="https://i.postimg.cc/s2byyHq2/clock-sunbeam-pendulum-minute.png" alt="">
+				<img class="clock-hands hour" src="https://i.postimg.cc/25gmm9MS/clock-sunbeam-pendulum-hour.png" alt="">
+				<img class="clock-hands center" src="https://i.postimg.cc/7LjDDtdP/clock-sunbeam-pendulum-center.png" alt="">
+			</div></div>
+			
+			<div id="garfield-belly-clock" class="garfield-analog-clock"><div class="wrapper">
+				<img src="https://i.postimg.cc/HLFHHvKF/clock-belly-02.png" alt="">
+				<img class="clock-hands minute" src="https://i.postimg.cc/0NhxxX3L/clock-belly-02-minute.png" alt="">
+				<img class="clock-hands hour" src="https://i.postimg.cc/3wz77f6q/clock-belly-02-hour.png" alt="">
+				<img class="clock-hands center" src="https://i.postimg.cc/k5L99YZZ/clock-belly-02-center.png" alt="">
+				<img class="clock-hands second" src="https://i.postimg.cc/RVZYsQpR/clock-belly-02-second.png" alt="">
+			</div></div>
+			
+			<div id="garfield-moon-alarm-clock" class="garfield-analog-clock"><div class="wrapper">
+				<img src="https://i.postimg.cc/wBnHH4ZH/clock-moon-alarm.png" alt="">
+				<img class="clock-hands hour" src="https://i.postimg.cc/0Ngd3FqQ/clock-moon-alarm-hour.png" alt="">
+				<img class="clock-hands minute" src="https://i.postimg.cc/hGNggZ6K/clock-moon-alarm-minute.png" alt="">
+				<img class="clock-hands second" src="https://i.postimg.cc/HLFHHvRp/clock-moon-alarm-second.png" alt="">
+			</div></div>
+		</section>
+		
+		<div class="background"></div>
+	</body>
+	<!--------------END BODY------------->
+</html>

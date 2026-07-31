@@ -26,6 +26,23 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-07-30T19:23'),
+		authors: ['emery'],
+		tags: ['garfield','minor'],
+		summary: `
+			even more working clocks for <a href="/shrines/garfield/merch">garf</a>
+		`,
+		details: `
+			<p><ul>
+				<li>two new working clocks on the shelves</li>
+				<li>"why me?" plush, as suggested by <a href="https://ghostii.online/">ghostii</a></li>
+				<li><a href="https://knowyourmeme.com/memes/well-loved-garfield-plush">well loved garfield</a> plush</li>
+				<li>lightswitch works with keyboard nav</li>
+			</ul></p>
+			<p>also <a href="/codefiles/garfield-clocks">made the clocks easily available</a> if you'd like to put one on your site</p>
+		`
+	},
+	{
 		date: new Date('2026-07-29T18:54'),
 		authors: ['emery','prax'],
 		tags: ['garfield'],

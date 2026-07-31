@@ -207,6 +207,8 @@
 }
 
 .pendulum-clock {
+	pointer-events: none;
+	display: block;
 	position: relative;
 	@media screen and (width > 1500px) {
 		position: absolute;
@@ -216,6 +218,7 @@
 	width: min(60%,270px);
 	margin: 0 auto;
 }
+.pendulum-clock .body, .pendulum-clock .tail { pointer-events: initial; }
 
 .pendulum-clock .clock-hands {
 	bottom: 51.8%;
