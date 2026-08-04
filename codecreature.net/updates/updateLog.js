@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-08-04T14:31'),
+		authors: ['emery'],
+		tags: ['paintings'],
+		summary: `
+			updated <a href="/paintings">painting diary</a>
+		`,
+		details: `
+			<p>Haven't had a lot of access to painting supplies the last couple months, but I'm trying to get back into it regularly again! <a href="/paintings">2 new paintings</a>, plus improved the photo quality and color accuracy on the older stuff.</p>
+		`
+	},
+	{
 		date: new Date('2026-07-30T19:23'),
 		authors: ['emery'],
 		tags: ['garfield','minor'],
