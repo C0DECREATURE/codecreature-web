@@ -60,7 +60,7 @@ const comic = {
 		//'2024': [ 327 ]
 	},
 	// internet archive source
-	iaSrc: `https://ia801700.us.archive.org/BookReader/BookReaderImages.php?zip=/3/items/garfield-complete/`,
+	iaSrc: `https://ia801608.us.archive.org/BookReader/BookReaderImages.php?zip=/0/items/garfield-complete/`,
 	// load image for the current comic
 	load: ()=>{
 		comic.fixDates();
