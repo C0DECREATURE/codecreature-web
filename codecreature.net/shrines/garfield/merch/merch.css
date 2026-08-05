@@ -22,7 +22,8 @@
 		
 		.wrapper {
 			width: 100%;
-			height: min(100%, fit-content);
+			height: fit-content;
+			max-height: 100%;
 			display: flex;
 			justify-content: space-around;
 			align-items: flex-end;
@@ -176,27 +177,17 @@
 
 /*** CLOCKS ***/
 
-.digital-clock, .analog-clock {
-	position: relative;
-}
+.digital-clock, .analog-clock { position: relative; }
 .analog-clock .clock-hands {
 	pointer-events: none;
 	position: absolute;
 	transform-origin: 50% 100%;
 }
-.analog-clock .center {
-	transform: translateY(50%);
-}
+.analog-clock .center { transform: translateY(50%); }
 
-.digital-clock {
-	width: fit-content;
-}
-.digital-clock .numbers, .digital-clock .numbers-blur {
-	position: absolute;
-}
-.digital-clock .blur {
-	filter: blur(.05em);
-}
+.digital-clock { width: fit-content; }
+.digital-clock .numbers, .digital-clock .numbers-blur { position: absolute; }
+.digital-clock .blur { filter: blur(.05em); }
 
 #mouth-clock {
   font-size: min(23px, 2.2vw);
@@ -227,7 +218,17 @@
   aspect-ratio: 1;
   border-radius: 50%;
 }
-#mouth-clock .numbers:before, #mouth-clock .numbers:after { width: .16em; }
+#mouth-clock .numbers:before, #mouth-clock .numbers:after {
+	width: .15em;
+	animation: digitalClockBlink 1s linear infinite;
+}
+@keyframes digitalClockBlink {
+  0%   { opacity: 1; }
+  49.99%   { opacity: 1; }
+  50%   { opacity: 0; }
+  99.99%   { opacity: 0; }
+  100%   { opacity: 1; }
+}
 #mouth-clock .numbers:before { left: 1.6em; top: 21%; }
 #mouth-clock .numbers:after { left: 1.5em; top: 59%; }
 #mouth-clock .pm {
