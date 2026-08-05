@@ -13,7 +13,7 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
-		<script>fonts.load('Garfield');</script>
+		<script>fonts.load('Garfield','DS Digital');</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
@@ -169,7 +169,7 @@
 							</td>
 							
 							<td class="item">
-								<div id="belly-clock-2" class="wrapper analog-clock">
+								<div id="belly-clock-2" class="wrapper clock analog-clock">
 									<img src="../images/merch/clock_belly_02.png" alt=""
 										data-caption="1980s Alarm Clock<br>He plays various childrens' songs with meowing sound effects! An older version used his nose as the alarm button, but the later versions have the button on top of his head."
 										style="padding-bottom: 2%;">
@@ -213,8 +213,14 @@
 							</td>
 							
 							<td class="item">
-								<img src="../images/merch/clock_mouth.png" alt="A plastic alarm clock shaped like Garfield's head with wide eyes and a broad, toothy smile. The clock face is inside his open mouth."
-									data-caption="1991 Sunbeam Digital Alarm Clock">
+								<div id="mouth-clock" class="wrapper clock digital-clock">
+									<img src="../images/merch/clock_mouth.png" alt="A plastic alarm clock shaped like Garfield's head with wide eyes and a broad, toothy smile. The clock face is inside his open mouth."
+										data-caption="1991 Sunbeam Digital Alarm Clock">
+									<div class="numbers"><span class="hour">2</span><span class="minute">41</span></div>
+									<div class="numbers blur"><span class="hour">2</span><span class="minute">41</span></div>
+									<div class="pm"></div>
+									<div class="pm blur"></div>
+								</div>
 							</td>
 						</tr>
 						
@@ -232,7 +238,7 @@
 							</td>
 							
 							<td class="item">
-								<div id="moon-alarm-clock" class="wrapper analog-clock">
+								<div id="moon-alarm-clock" class="wrapper clock analog-clock">
 									<img src="../images/merch/clock_moon_alarm.png" alt=""
 										data-caption="Wind-up Alarm Clock by Zeon<br>clock code available <a href='/codefiles/garfield-clocks'>here</a>!">
 									<img class="clock-hands minute" src="../images/merch/clock_moon_alarm_minute.png" alt="">
@@ -288,7 +294,7 @@
 				
 				<img id="balloon-embroidery" class="wall-hanging thin-shadow" src="../images/merch/balloon_embroidery.png" alt="">
 				
-				<a href="/codefiles/garfield-clocks" class="analog-clock pendulum-clock wall-hanging">
+				<a href="/codefiles/garfield-clocks" class="clock analog-clock pendulum-clock wall-hanging">
 					<img class="body" src="../images/merch/clock_sunbeam_pendulum.png" alt="">
 					<img class="clock-hands second" src="../images/merch/clock_sunbeam_pendulum_second.png" alt="">
 					<img class="clock-hands minute" src="../images/merch/clock_sunbeam_pendulum_minute.png" alt="">
@@ -323,23 +329,44 @@
 				var minuteDeg = (minutes * 6) + (seconds * .1);
 				var hourDeg = (hours * 30) + (minutes * .5);
 				
-				var clocks = document.getElementsByClassName("analog-clock");
+				var analogClocks = document.getElementsByClassName("analog-clock");
 				
-				function rotateClocks() {
+				function rotateAnalogClocks() {
 					// update degrees
 					secDeg += 6;
 					minuteDeg += 0.1;
 					hourDeg += 0.1 / 60;
 					// move clocks
-					for (let i = 0; i < clocks.length; i++) {
-						let clock = clocks[i];
+					for (let i = 0; i < analogClocks.length; i++) {
+						let clock = analogClocks[i];
 						clock.querySelector(".second").style.rotate = secDeg + "deg";
 						clock.querySelector(".minute").style.rotate = minuteDeg + "deg";
 						clock.querySelector(".hour").style.rotate = hourDeg + "deg";
 					}
-					setTimeout(rotateClocks,1000)
+					setTimeout(rotateAnalogClocks,1000)
 				}
-				rotateClocks();
+				rotateAnalogClocks();
+				
+				var digitalClocks = document.getElementsByClassName("digital-clock");
+				function setDigitalClocks() {
+					date = new Date();
+					hours = date.getHours();
+					minutes = date.getMinutes();
+					// adjust for am/pm and midnight
+					let adjustedHours = hours > 12 ? hours - 12 : hours;
+					adjustedHours = hours == 0 ? 12 : adjustedHours;
+					// update numbers
+					for (let i = 0; i < digitalClocks.length; i++) {
+						let numbers = digitalClocks[i].getElementsByClassName("numbers");
+						for (let j = 0; j < numbers.length; j++) {
+							numbers[j].querySelector(".minute").innerHTML = minutes;
+							numbers[j].querySelector(".hour").innerHTML = adjustedHours;
+						}
+						if (hours < 12) digitalClocks[i].classList.add('am');
+					}
+					setTimeout(setDigitalClocks,1000)
+				}
+				setDigitalClocks();
 			})();
 		</script>
 	</body>
