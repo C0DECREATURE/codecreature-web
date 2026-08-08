@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<!-- TEMPLATE
+	<url>
+		<loc>https://www.codecreature.net/</loc>
+		<priority>1.0</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>always,hourly,daily,weekly,monthly,yearly,never</changefreq>
+	</url>
+	-->
+	<url>
+		<loc>https://www.codecreature.net/home/</loc>
+		<priority>1.0</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/map/</loc>
+		<priority>0.8</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/updates/</loc>
+		<priority>0.8</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>daily</changefreq>
+	</url>
+	<!-- GAMES -->
+	<url>
+		<loc>https://www.codecreature.net/games</loc>
+		<priority>0.5</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-race</loc>
+		<priority>1.0</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-race/racetrack</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-race/share</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-race/guide</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	
+</urlset>
