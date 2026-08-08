@@ -13,7 +13,7 @@ Redirect 301 /sollux /shrines/homestuck/sollux
 Redirect 301 /nepeta /shrines/homestuck/nepeta
 Redirect 301 /homestuck-ships /shrines/homestuck/shipping
 
-Redirect 301 /shrines/garf /garfield/
+Redirect 301 /shrines/garf /garfield
 Redirect 301 /garfield /shrines/garfield
 
 Redirect 301 /teeth /shrines/teeth
@@ -33,7 +33,12 @@ Redirect 301 /worm-race /games/worm-race
 RewriteEngine on
 
 #############
-# prevent hotlinking images and files
+
+# Force Trailing Slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)([^/])$        /$1$2/ [L,R=301]
+
+# Prevent Hotlinking (images and files)
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !(http)?s?(:\/\/)?localhost\/.*$ [NC]
 RewriteCond %{HTTP_REFERER} !(http)?s?(:\/\/)?(www\.)?codecreature.net\/.*$ [NC]
@@ -56,7 +61,6 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 
 # /u/sampleUser actually displays /user/profile.php?username=sampleUser
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
-
 
 # /best-garfield redirects to poll
 RewriteRule ^best-garfield/results/?(.*) /shrines/garfield/best-garfield/result.php?name=$1
