@@ -36,6 +36,7 @@ function getWormData() {
 	global $worm_conn; global $worms; global $active_season; global $load_err;
 	global $users_conn;
 	
+	$win_counts = [];
 	// get all worm data
 	$sql = "SELECT * FROM worms;";
 	if ( $result = mysqli_query($worm_conn,$sql) ) {
@@ -44,14 +45,26 @@ function getWormData() {
 			$arr = get_object_vars($row);
 			// convert awards to array
 			$arr["awards"] =  json_decode($arr["awards"], true);
+			// convert win counts to array
+			$arr["win_counts"] = json_decode($arr["win_counts"],false);
+			// save the total value of trophies earned for this worm
+			$win_counts[$arr["id"]] = 0;
+			foreach ($arr["win_counts"] as $key => $value) { $win_counts[$arr["id"]] += $key * $value; }
+			// assign the array to the worm
 			$worms[] = $arr;
 		}
-		// also insert current race season's worm data
+		
+		asort($win_counts);
+		
 		for ($i = 0; $i < count($worms); $i++) {
+			// insert current race season's worm data
 			foreach ($active_season["worms"][$i] as $key => $value) {
 				$worms[$i][$key] = $value;
 			}
+			// assign overall trophy
+			$worms[$i]["overall_trophy"] = array_search($i, array_keys($win_counts));
 		}
+		
 		
 	} else {
 		$load_err = "Could not fetch worm data. Try again later.";

@@ -95,24 +95,24 @@
 			<div class="top">
 				<?php
 					$trophy_nums = ["1st","2nd","3rd","4th","5th","6th"];
-					$win_history = json_decode($cur_worm["win_counts"],false);
-					$highest = array_search(max($win_history),$win_history) + 1;
+					$win_history = $cur_worm["win_counts"];
+					$overall = $cur_worm["overall_trophy"];
 					
-					$type = $highest < 4 ? "trophy" : "ribbon";
+					$type = $overall < 4 ? "trophy" : "ribbon";
 				?>
 					<div class="average-trophy<?php echo $type == "ribbon" ? " ribbon" : ""; ?>">
-						<img src="images/<?php echo $type; ?>_base_<?php echo $highest; ?>.png"
-							alt="<?php echo $trophy_nums[$highest - 1]; ?> place">
+						<img src="images/<?php echo $type; ?>_base_<?php echo $overall; ?>.png"
+							alt="<?php echo $trophy_nums[$overall - 1]; ?> place">
 						<img src="images/<?php echo $type; ?>_base_<?php echo $cur_worm["color"]; ?>.png" alt="">
 					</div>
 				<div class="wrapper">
 					<?php
-						for ($w = 0; $w < count($win_history); $w++) {
+						for ($w = 0; $w < count($cur_worm["win_counts"]); $w++) {
 							$num = $w + 1;
 							?>
 							<div class="trophy">
 								<img src="images/trophy_<?php echo $num; ?>.png" alt="<?php echo $trophy_nums[$w]; ?> place">
-									<?php echo $win_history[$w]; ?>
+									<?php echo $cur_worm["win_counts"][$w]; ?>
 							</div>
 							<?php
 						};
