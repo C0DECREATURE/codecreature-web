@@ -62,7 +62,7 @@ function getWormData() {
 				$worms[$i][$key] = $value;
 			}
 			// assign overall trophy
-			$worms[$i]["overall_trophy"] = array_search($i, array_keys($win_counts));
+			$worms[$i]["overall_trophy"] = array_search($i, array_keys($win_counts)) + 1;
 		}
 		
 		
