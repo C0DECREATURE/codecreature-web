@@ -34,9 +34,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	// Check if item name is empty or invalid
 	if( empty(trim($_POST["item"])) ){
-		$feed_err = "<strong>Error</strong>: No item name submitted.";
+		$feed_err = "No item name submitted.";
 	} else if ( !array_key_exists(trim($_POST["item"]), $items)) {
-		$feed_err = 'Error: Item name "'.trim($_POST["item"]).'" not recognized.';
+		$feed_err = 'Item name "'.trim($_POST["item"]).'" not recognized.';
+	} else if (!in_array($cur_holiday,$items[trim($_POST["item"])]["holidays"])) {
+		$feed_err = $items[trim($_POST["item"])]["display_name"].' is not available during the current holiday!';
 	} else{
 		$item_name = trim($_POST["item"]);
 		// get data for submitted worm as an array
@@ -46,13 +48,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	// Check if worm ID is empty or invalid
 	$worm_id = trim($_POST["worm-id"]);
 	if( !isset($worm_id) ) {
-		$feed_err = "<strong>Error</strong>: No worm ID provided.";
+		$feed_err = "No worm ID provided.";
 	} else if ( !array_key_exists((int)$_POST["worm-id"], $worms)) {
-		$feed_err = 'Error: Worm ID "'.(int)$_POST["worm-id"].'"not recognized.';
+		$feed_err = 'Worm ID "'.(int)$_POST["worm-id"].'"not recognized.';
 	} else {
 		$worm_id = (int)$_POST["worm-id"];
 		// get data for submitted worm as an array
 		$worm = $worms[$worm_id];
+	}
+	if ($item["name"] == "poison" && $worm["id"] == $birthday_worm) {
+		$feed_err = "No poisoning " . $worm["name"] . " during their birthday party!";
 	}
 	
 	// if no errors, feed the worm
@@ -123,7 +128,7 @@ function feedWormInSeason($season,$worm_id,$item) {
 		// attempt to execute final feeding statement
 		if(mysqli_stmt_execute($stmt)){
 		} else{
-			$feed_err = "<strong>Error</strong>: Could not access worm database.<br>Try again later.";
+			$feed_err = "Could not access worm database.<br>Try again later.";
 		}
 		
 		// Close statement
@@ -205,7 +210,7 @@ function logFeeding($worm,$item) {
 		
 		// attempt to execute prepared statement
 		if(!mysqli_stmt_execute($stmt)){
-			$feed_err = "<strong>Error</strong>: Could not access feeding database.<br>Try again later.";
+			$feed_err = "Could not access feeding database.<br>Try again later.";
 		}
 		
 		// Close statement
@@ -243,7 +248,7 @@ function logFeeding($worm,$item) {
 						mysqli_stmt_bind_param($stmt, "i", $param_user_id);
 						$param_user_id = $_SESSION["id"];
 						if(!mysqli_stmt_execute($stmt)){
-							$feed_err = "<strong>Error</strong>: Could not create user data.<br>Try again later.";
+							$feed_err = "Could not create user data.<br>Try again later.";
 						}
 					}
 				}
@@ -274,7 +279,7 @@ function logFeeding($worm,$item) {
 						mysqli_stmt_bind_param($stmt, "i", $param_user_id);
 						$param_user_id = $_SESSION["id"];
 						if(!mysqli_stmt_execute($stmt)){
-							$feed_err = "<strong>Error</strong>: Could not update user data.<br>Try again later.";
+							$feed_err = "Could not update user data.<br>Try again later.";
 						}
 					}
 				}
@@ -284,6 +289,8 @@ function logFeeding($worm,$item) {
 		}
 	}
 }
+
+if (!empty($feed_err)) $feed_err = "<strong>Error</strong>: ".$feed_err;
 
 ?>
 <!doctype html>

@@ -10,7 +10,7 @@
 				<i class="svg-icon i-caret-left"></i>
 			</button>
 			
-			<img src="<?php echo $image_path.$cur_worm["color"].".png" ?>" alt="">
+			<img src="<?php echo $cur_worm["image"] ?>" alt="">
 			
 			<button type="button" onclick="openDetailBox('<?php echo $next_worm["color"] ?>')">
 				<i class="svg-icon i-caret-right"></i>
@@ -42,22 +42,37 @@
 		<div class="items main-worm-tab tab">
 			<div class="buttons">
 				<?php foreach ($items as $cur_item) {
-					$adjusted_progress = $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]];
-					$adjusted_health = $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]];?>
-					<div class="item-wrapper"><div>
-						<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
-							name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
-							data-display-name="<?php echo $cur_item["display_name"]; ?>"
-							data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
-							data-progress="<?php echo $adjusted_progress; ?>"
-							data-health="<?php echo $adjusted_health; ?>"
-							data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
-							required
-							<?php if ($adjusted_health + $adjusted_progress == 0) echo "disabled"; ?>
-						>
-						<label for="<?php echo $cur_item["name"]; ?>-input" class="item"></label>
-					</div></div>
-				<?php } ?>
+					if ($cur_item["active_today"]) {
+						$adjusted_progress = $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]];
+						$adjusted_health = $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]];?>
+						<div class="item-wrapper"><div>
+							<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"
+								name="item" value="<?php echo $cur_item["name"]; ?>" aria-label="<?php echo $cur_item["display_name"]; ?>"
+								data-display-name="<?php echo $cur_item["display_name"]; ?>"
+								data-cooldown="<?php echo $cur_item["cooldown"]; ?>"
+								data-progress="<?php echo $adjusted_progress; ?>"
+								data-health="<?php echo $adjusted_health; ?>"
+								data-flavor-text="<?php echo $cur_item["flavor_text"]; ?>"
+								required
+								<?php
+								if (
+									$adjusted_health + $adjusted_progress == 0
+									|| ($cur_item["name"] == "poison" && $birthday_worm == $cur_worm["id"])
+								)	echo "disabled"; ?>
+							>
+							<label for="<?php echo $cur_item["name"]; ?>-input" class="item"
+								style="
+									background-image:url('<?php echo $cur_item["icon"]; ?>');
+									<?php if ($cur_item["name"] == "cake") {
+										echo "background-color:var(--".$worms[$birthday_worm]["color"].");";
+									} ?>
+								">
+							</label>
+						</div></div>
+						<?php
+					}
+				}
+				?>
 			</div>
 			<div class="description empty">
 				<div class="empty-text">Select an Item</div>

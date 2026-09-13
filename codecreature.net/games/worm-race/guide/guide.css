@@ -77,7 +77,7 @@
 		color: var(--purple);
 		&:before { background-image: url('../images/poison.png'); }
 	}
-	span.item, .award .name {
+	span.item, .award .name, #holiday-details .name {
 		font-weight: bold;
 		text-transform: uppercase;
 	}
@@ -104,4 +104,30 @@
 	.award .name { color: var(--d-blue); }
 	.award .description { font-size: .9em; }
 	.award img { max-width: min(100%, 100px); }
+	
+	#holiday-details a.info {
+		display: inline-block;
+		color: var(--white);
+		border-radius: 50%;
+		height: 1.15em;
+		aspect-ratio: 1;
+		margin-top: -1.3em;
+		font-size: .85em;
+		text-align: center;
+	}
+	#holiday-details a.info:hover { opacity: .75; }
+	#holiday-details a.info:after { content: '?'; }
+	/* worm colors */
+	#holiday-details .jeremy { color: var(--pink); }
+	#holiday-details .jeremy a.info { background: var(--pink); }
+	#holiday-details .pretzel{ color: var(--d-orange); }
+	#holiday-details .pretzel a.info { background: var(--d-orange); }
+	#holiday-details .stringcheese { color: var(--orange); }
+	#holiday-details .stringcheese a.info { background: var(--orange); }
+	#holiday-details .matilda { color: var(--d-green); }
+	#holiday-details .matilda a.info { background: var(--d-green); }
+	#holiday-details .poolnoodle { color: var(--blue); }
+	#holiday-details .poolnoodle a.info { background: var(--blue); }
+	#holiday-details .microplastics { color: var(--purple); }
+	#holiday-details .microplastics a.info { background: var(--purple); }
 }

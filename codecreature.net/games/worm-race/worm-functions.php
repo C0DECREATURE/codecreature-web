@@ -23,11 +23,16 @@ $items = [];
 $feed_log = [];
 $loading = $load_err = "";
 
+// special event variables
+$yesterday = (new DateTime('yesterday'))->format('m-d');
+$tomorrow = (new DateTime('tomorrow'))->format('m-d');
+$cur_holiday = "none";
+$birthday_worm = "";
+
 function getAllData() {
 	$loading = true;
 	getWormData();
 	getWormAwards();
-	getItemData();
 	$loading = false;
 }
 
@@ -35,6 +40,8 @@ function getAllData() {
 function getWormData() {
 	global $worm_conn; global $worms; global $active_season; global $load_err;
 	global $users_conn;
+	global $image_path;
+	global $yesterday; global $tomorrow; global $cur_holiday; global $birthday_worm;
 	
 	$win_counts = [];
 	// get all worm data
@@ -63,9 +70,28 @@ function getWormData() {
 			}
 			// assign overall trophy
 			$worms[$i]["overall_trophy"] = array_search($i, array_keys($win_counts)) + 1;
+			// modified holiday path for worm images
+			$holiday_path = "";
+			// if not leap year, adjust feb 29th
+			if ($worms[$i]["birthday"] == "02-29" && date("L") == 0) $worms[$i]["birthday"] = "02-28";
+			// check for birthdays
+			if (
+				$worms[$i]["birthday"] == date("m-d")
+				|| $worms[$i]["birthday"] == $yesterday
+				|| $worms[$i]["birthday"] == $tomorrow
+			) {
+				$cur_holiday = "birthday";
+				$birthday_worm = $i;
+				$holiday_path = "birthday/";
+			} else $worms[$i]["is_birthday"] = false;
+			// get worm image
+			if ($cur_holiday != "none" && $cur_holiday != "birthday") $holiday_path = "$cur_holiday/";
+			$worms[$i]["image"] = $image_path . $holiday_path . $worms[$i]["color"] . ".png";
 		}
 		
-		
+		// get item data
+		// needs to be done after worms because of birthday check
+		getItemData();
 	} else {
 		$load_err = "Could not fetch worm data. Try again later.";
 	}
@@ -165,14 +191,26 @@ function getWormAwards() {
 // get all item data, insert into $items array
 function getItemData() {
 	global $worm_conn; global $items; global $loading; global $load_err; global $image_path;
+	global $worms; global $cur_holiday; global $birthday_worm;
 	
 	// get all worm data
-	$sql = "SELECT * FROM items";
+	$sql = "SELECT * FROM items ORDER BY display_order";
 	if ( $result = mysqli_query($worm_conn,$sql) ) {
 		// go through each worm row, assign to variables
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
-			$row["icon"] = $image_path.$row["name"].".png";
+			// find out if this item is active today based on current holiday
+			$row["holidays"] = json_decode($row["holidays"],true);
+			if (in_array($cur_holiday,$row["holidays"])) $row["active_today"] = true;
+			else $row["active_today"] = false;
+			// set icon image path
+			if ($row["name"] == "cake" && $row["active_today"]) {
+				$row["display_name"] = $worms[$birthday_worm]["name"]."'s ".$row["display_name"];
+				$row["icon"] = $image_path."birthday/".$row["name"].$birthday_worm.".png";
+			} else {
+				$row["icon"] = $image_path.$row["name"].".png";
+			}
+			// add item to array
 			$items[$row["name"]] = $row;
 		}
 	} else {
@@ -235,7 +273,6 @@ function getFeedLogDisplay() {
 		}
 	}
 }
-
 
 // get season fans in a displayable format
 function getSeasonFansDisplay($season) {

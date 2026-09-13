@@ -151,6 +151,19 @@
 								
 							</div>
 						</div>
+						
+						<div class="subheader" id="holidays">
+							<h3>Holidays</h3>
+						</div>
+						<div class="details" id="holiday-details">
+							<p>worm <b>birthdays</b> are celebrated for 3 days, starting the day before and ending the day after! the birthday worm can't be <span class="item poison">poisoned</span> during their party.</p>
+							<p class="matilda"><span class="name">matilda:</span> february 29th <a class="info" href="https://en.wikipedia.org/wiki/February_29" target="_blank"></a></p>
+							<p class="jeremy"><span class="name">jeremy:</span> april 15th <a class="info" href="https://en.wikipedia.org/wiki/Tax_Day" target="_blank"></a></p>
+							<p class="stringcheese"><span class="name">string cheese:</span> may 13th</p>
+							<p class="poolnoodle"><span class="name">pool noodle:</span> july 2nd <a class="info" href="https://nationaltoday.com/special-recreation-for-the-disabled-day/" target="_blank"></a></p>
+							<p class="pretzel"><span class="name">pretzel:</span> september 8th</p>
+							<p class="microplastics"><span class="name">microplastics:</span> november 7th <a class="info" href="https://patents.google.com/patent/US2094268A/" target="_blank"></a></p>
+						</div>
 					</div>
 					
 					<footer>

@@ -26,6 +26,18 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-09-13T15:31'),
+		authors: ['emery'],
+		tags: ['games','worm race'],
+		summary: `
+			worm <a href="/games/worm-race/guide#holidays">birthdays</a>!
+		`,
+		details: `
+			<p>worm birthdays will be celebrated with cake! birthday worm gets a party hat and is immune to poison.</p>
+			<p>working on some holidays also, stay tuned</p>
+		`
+	},
+	{
 		date: new Date('2026-08-05T11:37'),
 		authors: ['emery'],
 		tags: ['garfield','minor'],
