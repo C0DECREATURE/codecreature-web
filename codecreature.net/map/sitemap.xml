@@ -26,34 +26,96 @@
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>daily</changefreq>
 	</url>
+	<url>
+		<loc>https://www.codecreature.net/warnings/</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/about/</loc>
+		<priority>0.8</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
 	<!-- GAMES -->
 	<url>
-		<loc>https://www.codecreature.net/games</loc>
+		<loc>https://www.codecreature.net/games/</loc>
 		<priority>0.5</priority>
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>monthly</changefreq>
 	</url>
 	<url>
-		<loc>https://www.codecreature.net/games/worm-race</loc>
+		<loc>https://www.codecreature.net/games/worm-race/</loc>
 		<priority>1.0</priority>
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://www.codecreature.net/games/worm-race/racetrack</loc>
+		<loc>https://www.codecreature.net/games/worm-race/racetrack/</loc>
 		<priority>0.7</priority>
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://www.codecreature.net/games/worm-race/share</loc>
+		<loc>https://www.codecreature.net/games/worm-race/share/</loc>
 		<priority>0.7</priority>
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>https://www.codecreature.net/games/worm-race/guide</loc>
+		<loc>https://www.codecreature.net/games/worm-race/guide/</loc>
 		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-fishing/</loc>
+		<priority>0.9</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/games/worm-stocks/</loc>
+		<priority>0.9</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/drawbox/</loc>
+		<priority>0.6</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/toybox/</loc>
+		<priority>0.2</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>yearly</changefreq>
+	</url>
+	<!-- CHAT -->
+	<url>
+		<loc>https://www.codecreature.net/chat/</loc>
+		<priority>0.9</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/chat/general</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>https://www.codecreature.net/chat/worms</loc>
+		<priority>0.7</priority>
+		<lastmod>2026-08-08T14:00-05:00</lastmod>
+		<changefreq>monthly</changefreq>
+	</url>
+	<!-- ART -->
+	<url>
+		<loc>https://www.codecreature.net/shrines/teeth</loc>
+		<priority>0.4</priority>
 		<lastmod>2026-08-08T14:00-05:00</lastmod>
 		<changefreq>monthly</changefreq>
 	</url>
