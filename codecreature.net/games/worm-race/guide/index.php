@@ -162,7 +162,7 @@
 							<p class="stringcheese"><span class="name">string cheese:</span> may 13th</p>
 							<p class="poolnoodle"><span class="name">pool noodle:</span> july 2nd <a class="info" href="https://nationaltoday.com/special-recreation-for-the-disabled-day/" target="_blank"></a></p>
 							<p class="pretzel"><span class="name">pretzel:</span> september 8th</p>
-							<p class="microplastics"><span class="name">microplastics:</span> november 7th <a class="info" href="https://patents.google.com/patent/US2094268A/" target="_blank"></a></p>
+							<p class="microplastics"><span class="name">microplastics:</span> november 22nd <a class="info" href="https://patents.google.com/patent/US2094268A/" target="_blank"></a></p>
 						</div>
 					</div>
 					
