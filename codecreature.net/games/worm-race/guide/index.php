@@ -163,6 +163,14 @@
 							<p class="poolnoodle"><span class="name">pool noodle:</span> july 2nd <a class="info" href="https://nationaltoday.com/special-recreation-for-the-disabled-day/" target="_blank"></a></p>
 							<p class="pretzel"><span class="name">pretzel:</span> september 8th</p>
 							<p class="microplastics"><span class="name">microplastics:</span> november 22nd</p>
+							<hr>
+							<p>other worm holidays are celebrated throughout the year, with special treats and costumes!</p>
+							<p class="jeremy"><span class="name">valentine's day:</span> february 8th to 14th</p>
+							<p class="matilda"><span class="name">april fools:</span> april 1st to 7th</p>
+							<p class="stringcheese"><span class="name">summer solstice:</span> june 16th to 22nd</p>
+							<p class="microplastics"><span class="name">meteor shower:</span> august 10th to 16th</p>
+							<p class="pretzel"><span class="name">halloween:</span> october 25th to 31st</p>
+							<p class="poolnoodle"><span class="name">winter solstice:</span> december 16th to 22nd</p>
 						</div>
 					</div>
 					
