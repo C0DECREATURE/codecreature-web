@@ -401,12 +401,12 @@
 		flex-grow: 1;
 		aspect-ratio: 1;
 	}
-	.item-wrapper > div {
+	.item-wrapper > .item-content {
 		width: 100%; height: 100%;
 		border-radius: 100%;
 		background: var(--white);
 	}
-	.item-wrapper > div > * {
+	.item-wrapper > .item-content > * {
 		position: absolute;
 		margin: 0px;
 		width: 100%; height: 100%;
@@ -414,8 +414,7 @@
 		top: 50%; left: 50%;
 		transform: translate(-50%,-50%) scale(90%);
 	}
-	.item-wrapper:after {
-		content: '';
+	.item-wrapper .effect-icon {
 		display: block;
 		position: absolute;
 		bottom: 0; right: -3%;
@@ -446,26 +445,6 @@
 	.item-wrapper:hover:has(input[type=radio]:not(:disabled)) .item {
 		transform: translate(-50%,-50%);
 	}
-	label[for=apple-input] {
-		background-color: var(--l-green);
-		background-image: url('/games/worm-race/images/apple.png');
-	}
-	.item-wrapper:has(label[for=apple-input]):after { background-image: url('images/icon-progress-1.png'); }
-	label[for=drink-input] {
-		background-color: var(--l-blue);
-		background-image: url('/games/worm-race/images/drink.png');
-	}
-	.item-wrapper:has(label[for=drink-input]):after { background-image: url('images/icon-progress-2.png'); }
-	label[for=heal-input] {
-		background-color: var(--l-pink);
-		background-image: url('/games/worm-race/images/heal.png');
-	}
-	.item-wrapper:has(label[for=heal-input]):after { background-image: url('images/icon-health-pos.png'); }
-	label[for=poison-input] {
-		background-color: var(--green);
-		background-image: url('/games/worm-race/images/poison.png');
-	}
-	.item-wrapper:has(label[for=poison-input]):after { background-image: url('images/icon-health-neg.png'); }
 	.items .description {
 		display: flex;
 		flex-direction: column;

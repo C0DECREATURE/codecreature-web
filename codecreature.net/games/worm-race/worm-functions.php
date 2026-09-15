@@ -29,11 +29,41 @@ $tomorrow = (new DateTime('tomorrow'))->format('m-d');
 $cur_holiday = "none";
 $birthday_worm = "";
 
+// start = first day of event
+// end = last day of event
+$holidays = [
+	//[ "name" => "halloween", "start" => "01-01", "end" => "12-31" ],
+	
+	[ "name" => "hearts", "start" => "02-08", "end" => "02-14" ],
+	[ "name" => "fools", "start" => "04-01", "end" => "04-07" ],
+	[ "name" => "summer", "start" => "06-16", "end" => "06-22" ],
+	[ "name" => "meteors", "start" => "08-10", "end" => "08-16" ],
+	[ "name" => "halloween", "start" => "10-25", "end" => "10-31" ],
+	[ "name" => "winter", "start" => "12-16", "end" => "12-22" ],
+];
+
 function getAllData() {
 	$loading = true;
+	checkHolidays();
 	getWormData();
 	getWormAwards();
 	$loading = false;
+}
+
+// check if it is currently a holiday event
+function checkHolidays() {
+	global $holidays; global $cur_holiday;
+	// get current timestamp and year
+	$time = time();
+	$year = date('Y');
+	// check each holiday
+	for ($i = 0; $i < count($holidays); $i++) {
+		$h = $holidays[$i];
+		$start = strtotime($year."-".$h["start"]." 00:00:00");
+		$end = strtotime($year."-".$h["end"]."11:59:59.999");
+		// if the current time is within the holiday, set cur_holiday to that holiday
+		if ($time > $start && $time < $end) $cur_holiday = $h["name"];
+	}
 }
 
 // get all worm data, insert into $worms array
@@ -86,7 +116,8 @@ function getWormData() {
 			} else $worms[$i]["is_birthday"] = false;
 			// get worm image
 			if ($cur_holiday != "none" && $cur_holiday != "birthday") $holiday_path = "$cur_holiday/";
-			$worms[$i]["image"] = $image_path . $holiday_path . $worms[$i]["color"] . ".png";
+			$worms[$i]["image"] = $image_path.$holiday_path.$worms[$i]["color"].".png";
+			if (!file_exists($_SERVER['DOCUMENT_ROOT'].$worms[$i]["image"])) $worms[$i]["image"] = $image_path.$worms[$i]["color"].".png";
 		}
 		
 		// get item data
