@@ -175,4 +175,10 @@ function replaceEmojis($str) {
 	return $str;
 }
 
+function addUserLinks($str) {
+	$pattern = '/@([a-z0-9_]*)/i';
+	$replacement = '[url=/u/${1}]@${1}[/url]';
+	return preg_replace($pattern,$replacement,$str);
+}
+
 ?>

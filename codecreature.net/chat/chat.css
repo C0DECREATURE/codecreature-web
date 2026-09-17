@@ -111,6 +111,7 @@ body, html {
 }
 
 .right-click-menu {
+	z-index: 2;
 	position: absolute;
 	background: var(--bubble-bg);
 	display: flex; flex-direction: column;
@@ -246,6 +247,11 @@ body, html {
 		flex-direction: column;
 		align-items: flex-start;
 	}
+}
+
+.message .bubble > .content {
+	a, a:link { color: var(--purple); }
+	a:hover { color: var(--d-blue); }
 }
 
 .message .icon {
