@@ -109,22 +109,26 @@ getAllData();
 										<span class="name text-outline-2px">'.$w["name"].'</span>
 									</span>';
 				}
-				$count = count($cur_winners); 
+				$count = count($cur_winners);
+				// determine the win flavor text
+				$win_text = "";
+				if ($count > 1) {
+					if ($active_season["ongoing"] == "true") $win_text = "are neck and neck!";
+					else $win_text = "finished in a tie!";
+				} else {
+					$win_text = $active_season["ongoing"] == "true" ? $cur_winners[0]["win_text"] : $cur_winners[0]["win_text_past"];
+				}
+				// add the winner(s) name(s)
 				if ($count > 1) {
 					for ($i = 0; $i < $count; $i++) {
 						echo getWinTextName($cur_winners[$i]);
 						if ($i == $count - 2) { echo " and "; }
 					}
-					if ($active_season["ongoing"] == "true") {
-						echo '<span> are neck and neck!</span>';
-					} else { echo '<span> finished in a tie!</span>'; }
 				} else {
-					$cur_winner = $cur_winners[0];
-					$win_text = $active_season["ongoing"] == "true" ? $cur_winner["win_text"] : $cur_winner["win_text_past"];
-					echo getWinTextName($cur_winner);
-					echo '<span>'.$win_text.'!</span>'
-					;
+					echo getWinTextName($cur_winners[0]);
 				}
+				// add the win flavor text
+				echo '<span>'.$win_text.'!</span>'
 				
 				?>
 			</section>
@@ -134,10 +138,11 @@ getAllData();
 					function getAwardId($name) { return "award-".strtolower(str_replace("'","",str_replace(" ","-",$name))); }
 					function getAwardImage($name) { return "award_".strtolower(str_replace(" ","_",$name)).".png"; }
 					$awards = ['Certified Organic','Caffeine Addict','Private Insurance','Most Despised','Reigning Champion','Underdog','Sprint Master','Most Kinnable'];
+					if (array_key_exists($cur_holiday,$holidays)) { $awards[] = $holidays[$cur_holiday]["award"]; }
 					for ($i = 0; $i < count($awards); $i++) {
 						?>
 						<button id="<?php echo getAwardId($awards[$i]); ?>" class="award tooltip">
-							<img src="../images/<?php echo getAwardImage($awards[$i]); ?>" alt="<?php echo $awards[$i]; ?>">
+							<img src="../images/awards/<?php echo getAwardImage($awards[$i]); ?>" alt="<?php echo $awards[$i]; ?>">
 							<span class='tooltip-text'><?php echo $awards[$i]; ?>: Nobody</span>
 						</button>
 						<?php
@@ -175,10 +180,22 @@ getAllData();
 								award.style.background = bg + ')';
 								award.querySelector('.tooltip-text').innerHTML += ", " + wormName;
 							}
+								
 							if (awardName == "Sprint Master") {
 								<?php echo "bestDay = ". $worms[$i]["best_day"] .";"; ?>
 								award.querySelector('.tooltip-text').innerHTML += " (" + bestDay + ")";
 							}
+							<?php
+							if (array_key_exists($cur_holiday,$holidays)) {
+								$h = $holidays[$cur_holiday];
+								echo 'else if (awardName == "'.$h["award"].'") {';
+								echo 'var holidayCount = '.$h["worm_".$i].';';
+								?>
+								award.querySelector('.tooltip-text').innerHTML += " (" + holidayCount + ")";
+								<?php
+								echo '}';
+							}
+							?>
 						}
 					})();
 							<?php

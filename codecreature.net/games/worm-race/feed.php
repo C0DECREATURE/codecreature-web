@@ -120,6 +120,7 @@ function feedWormInSeason($season,$worm_id,$item) {
 	// if this is the current season, update the daily
 	if ($season["name"] == $cur_season["name"]) {
 		updateWormDaily($worm_id,$progress_amount);
+		updateHoliday($worm_id,$progress_amount);
 	}
 	
 	// season update statement
@@ -133,6 +134,14 @@ function feedWormInSeason($season,$worm_id,$item) {
 		
 		// Close statement
 		mysqli_stmt_close($stmt);
+	}
+}
+
+function updateHoliday($worm_id,$progress) {
+	global $worm_conn; global $cur_holiday;
+	if ($cur_holiday != "none" && $cur_holiday != "birthday") {
+		$sql = "UPDATE holidays SET worm_$worm_id = worm_$worm_id + $progress WHERE name = '$cur_holiday' ;";
+		if (!mysqli_query($worm_conn,$sql) ) {}
 	}
 }
 
@@ -270,7 +279,7 @@ function logFeeding($worm,$item) {
 					// add to the appropriate counts
 					$arr[$item] += 1;
 					if ($item == "poison") { $arr["total_hurt"] += 1;
-					} else { $arr["total_help"] += 1; }
+					} else if ($item != "halloween_poison") { $arr["total_help"] += 1; }
 					// json encode the array and add to this user's data
 					$arr = json_encode($arr);
 					$sql_update = "UPDATE user_data SET ".$worm_row."='".$arr."' WHERE user_id=?";

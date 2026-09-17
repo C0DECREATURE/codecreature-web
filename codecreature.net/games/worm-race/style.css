@@ -239,6 +239,7 @@
 		/* fit image in container */
 		img {
 			max-width: 100%; max-height: 100%;
+			@media screen and (aspect-ratio < 1) and (width < 1000px) { max-height: 25vh; }
 			pointer-events: none;
 			user-select: none;
 		}
@@ -543,20 +544,15 @@
 		color: var(--color-dark);
 		background: var(--white);
 		border-radius: .5em;
-		padding: .1em .25em .1em .2em;
+		padding: .08em .25em .05em .2em;
 	}
-	.user-data .item:before {
-		content: "";
+	.user-data .item .icon {
 		display: inline-block;
-		height: .9em; aspect-ratio: 1;
-		margin-bottom: -.08em;
-		margin-right: .1em;
+		height: 1em; aspect-ratio: 1;
+		margin-bottom: -.15em;
+		margin-right: .08em;
 		background-size: 100%;
 	}
-	.user-data .apple:before { background-image: url('images/apple.png'); }
-	.user-data .drink:before { background-image: url('images/drink.png'); }
-	.user-data .heal:before { background-image: url('images/heal.png'); }
-	.user-data .poison:before { background-image: url('images/poison.png'); }
 }
 
 .trophies {

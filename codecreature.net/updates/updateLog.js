@@ -216,8 +216,8 @@ const updateLog = [
 		details: `
 			<p>Poison now does -50 progress on worms with zero health, equivalent to one Battery Juice at full health. Hate is as strong as love <img src="/graphix/emojis/broken_heart.png" class="mini no-full-view" alt="broken heart"></p>
 			<figure>
-				<img src="/games/worm-race/images/award_reigning_champion.png" alt="Round gold crown stamp in red and yellow.">
-				<img src="/games/worm-race/images/award_sprint_master.png" alt="Round arrow award in green and white.">
+				<img src="/games/worm-race/images/awards/award_reigning_champion.png" alt="Round gold crown stamp in red and yellow.">
+				<img src="/games/worm-race/images/awards/award_sprint_master.png" alt="Round arrow award in green and white.">
 			</figure>
 			<p>New awards for the winner of the previous season, and the worm with the highest ever progress increase in a single day. The single day data is also displayed in the trophy case.</p>
 			<p>The preexisting Underdog award now goes to the loser of the previous season. Additionally, the Creature's Pet award no longer displays on the racetrack, only on the worm's trophy page.</p>
@@ -256,10 +256,10 @@ const updateLog = [
 			<p>Worm awards are now displayed on the racetrack page! Background color and hover tooltip name display the current recipient.</p>
 			<p>Also, added a few more.</p>
 			<figure>
-				<img src="/games/worm-race/images/award_caffeine_addict.png" alt="Round battery juice stamp in teal and yellow.">
-				<img src="/games/worm-race/images/award_most_despised.png" alt="Round skull stamp in green and purple.">
-				<img src="/games/worm-race/images/award_private_insurance.png" alt="Round heart potion stamp in pink.">
-				<img src="/games/worm-race/images/award_creature's_pet.png" alt="Round pet collar stamp in orange and yellow.">
+				<img src="/games/worm-race/images/awards/award_caffeine_addict.png" alt="Round battery juice stamp in teal and yellow.">
+				<img src="/games/worm-race/images/awards/award_most_despised.png" alt="Round skull stamp in green and purple.">
+				<img src="/games/worm-race/images/awards/award_private_insurance.png" alt="Round heart potion stamp in pink.">
+				<img src="/games/worm-race/images/awards/award_creature's_pet.png" alt="Round pet collar stamp in orange and yellow.">
 			</figure>
 		`
 	},
@@ -285,9 +285,9 @@ const updateLog = [
 		`,
 		details: `
 			<figure>
-				<img src="/games/worm-race/images/award_most_kinnable.png" alt="Round anonymous user icon stamp in blue and purple.">
-				<img src="/games/worm-race/images/award_certified_organic.png" alt="Round apple stamp in orange and green.">
-				<img src="/games/worm-race/images/award_underdog.png" alt="Round dog head stamp in pink and yellow.">
+				<img src="/games/worm-race/images/awards/award_most_kinnable.png" alt="Round anonymous user icon stamp in blue and purple.">
+				<img src="/games/worm-race/images/awards/award_certified_organic.png" alt="Round apple stamp in orange and green.">
+				<img src="/games/worm-race/images/awards/award_underdog.png" alt="Round dog head stamp in pink and yellow.">
 			</figure>
 			<p>3 special worm awards to start! Check out the <a href="/games/worm-race/guide#awards">guide</a> for details. Awards are displayed in the worm's trophy section.</p>
 		`
@@ -2312,10 +2312,10 @@ const updateLog = [
 				now i can get back %%2% the actual planned updates, like more art stuff!! finalized the item icons %%4% a start <u class="tq-e">:33</u>
 			</p>
 			<p align="center">
-				<img src="/games/worm-race/images/apple.png" alt="drawing of a golden apple" width="20%">
-				<img src="/games/worm-race/images/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
-				<img src="/games/worm-race/images/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
-				<img src="/games/worm-race/images/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
+				<img src="/games/worm-race/images/items/apple.png" alt="drawing of a golden apple" width="20%">
+				<img src="/games/worm-race/images/items/drink.png" alt="drawing of a blue drink can with a lightning bolt label" width="20%">
+				<img src="/games/worm-race/images/items/poison.png" alt="drawing of a green poison bottle with a skull label" width="20%">
+				<img src="/games/worm-race/images/items/heal.png" alt="drawing of a pink heart shaped bottle with a teal bandaid label" width="20%">
 				</p>
 			<p align="center">
 				<img src="/games/worm-race/images/icon-movement-1.png" alt="small icon of a green arrow">

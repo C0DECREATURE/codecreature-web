@@ -63,19 +63,19 @@
 	/* items */
 	span.heart {
 		color: var(--pink);
-		&:before { background-image: url('../images/heal.png'); }
+		&:before { background-image: url('../images/items/heal.png'); }
 	}
 	span.apple {
 		color: var(--orange);
-		&:before { background-image: url('../images/apple.png'); }
+		&:before { background-image: url('../images/items/apple.png'); }
 	}
 	span.battery {
 		color: var(--l-blue);
-		&:before { background-image: url('../images/drink.png'); }
+		&:before { background-image: url('../images/items/drink.png'); }
 	}
 	span.poison {
 		color: var(--purple);
-		&:before { background-image: url('../images/poison.png'); }
+		&:before { background-image: url('../images/items/poison.png'); }
 	}
 	span.item, .award .name, #holiday-details .name {
 		font-weight: bold;

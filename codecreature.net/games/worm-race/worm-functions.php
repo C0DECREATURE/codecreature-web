@@ -31,16 +31,7 @@ $birthday_worm = "";
 
 // start = first day of event
 // end = last day of event
-$holidays = [
-	//[ "name" => "halloween", "start" => "01-01", "end" => "12-31" ],
-	
-	[ "name" => "hearts", "start" => "02-08", "end" => "02-14" ],
-	[ "name" => "fools", "start" => "04-01", "end" => "04-07" ],
-	[ "name" => "summer", "start" => "06-16", "end" => "06-22" ],
-	[ "name" => "meteors", "start" => "08-10", "end" => "08-16" ],
-	[ "name" => "halloween", "start" => "10-25", "end" => "10-31" ],
-	[ "name" => "winter", "start" => "12-16", "end" => "12-22" ],
-];
+$holidays = [];
 
 function getAllData() {
 	$loading = true;
@@ -52,18 +43,42 @@ function getAllData() {
 
 // check if it is currently a holiday event
 function checkHolidays() {
-	global $holidays; global $cur_holiday;
+	global $worm_conn; global $holidays; global $cur_holiday;
+	// fetch holiday data
+	$sql = "SELECT * FROM holidays;";
+	if ( $result = mysqli_query($worm_conn,$sql) ) {
+		while($row = mysqli_fetch_object($result)) {
+			$arr = get_object_vars($row);
+			$holidays[$arr["name"]] = $arr;
+		}
+	}
 	// get current timestamp and year
 	$time = time();
 	$year = date('Y');
 	// check each holiday
-	for ($i = 0; $i < count($holidays); $i++) {
-		$h = $holidays[$i];
+	foreach ($holidays as $h) {
 		$start = strtotime($year."-".$h["start"]." 00:00:00");
 		$end = strtotime($year."-".$h["end"]."11:59:59.999");
-		// if the current time is within the holiday, set cur_holiday to that holiday
-		if ($time > $start && $time < $end) $cur_holiday = $h["name"];
+		// if the current time is within the holiday, register that it is current and start in database if needed
+		if ($time > $start && $time < $end) {
+			$cur_holiday = $h["name"];
+			if (!$h["started"]) startHoliday($h["name"]);
+		// if holiday is over, make sure it's ended in database
+		} else if ($h["started"]) endHoliday($h["name"]);
 	}
+}
+
+function startHoliday($name) {
+	global $worm_conn; global $cur_holiday;
+	$cur_holiday = $name;
+	$sql = "UPDATE holidays SET started = 1, worm_0 = 0, worm_1 = 0, worm_2 = 0, worm_3 = 0, worm_4 = 0, worm_5 = 0 WHERE name = '$name';";
+	if (!mysqli_query($worm_conn,$sql) ) {}
+}
+
+function endHoliday($name) {
+	global $worm_conn;
+	$sql = "UPDATE holidays SET started = 0 WHERE name = '$name';";
+	if (!mysqli_query($worm_conn,$sql) ) {}
 }
 
 // get all worm data, insert into $worms array
@@ -117,7 +132,7 @@ function getWormData() {
 			// get worm image
 			if ($cur_holiday != "none" && $cur_holiday != "birthday") $holiday_path = "$cur_holiday/";
 			$worms[$i]["image"] = $image_path.$holiday_path.$worms[$i]["color"].".png";
-			if (!file_exists($_SERVER['DOCUMENT_ROOT'].$worms[$i]["image"])) $worms[$i]["image"] = $image_path.$worms[$i]["color"].".png";
+			//if (!file_exists($_SERVER['DOCUMENT_ROOT'].$worms[$i]["image"])) $worms[$i]["image"] = $image_path.$worms[$i]["color"].".png";
 		}
 		
 		// get item data
@@ -129,7 +144,7 @@ function getWormData() {
 }
 
 function getWormAwards() {
-	global $worms; global $active_season; global $users_conn;
+	global $worms; global $active_season; global $users_conn; global $items; global $holidays;
 	
 	for ($i = 0; $i < count($worms); $i++) {
 		// get users with this worm as their icon
@@ -164,6 +179,7 @@ function getWormAwards() {
 	$highest_poison_percent = 0; // highest percent of poisons
 	$highest_heal_percent = 0; // highest percent of health potions
 	$highest_best_day = 0; // highest progress in a single day
+	$highest_holiday = []; // highest all time counts for each holiday item set
 	for ($i = 0; $i < count($worms); $i++) {
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] > $highest_icons) {
 			$highest_icons = $worms[$i]['kins'];
@@ -180,6 +196,12 @@ function getWormAwards() {
 			if ($worms[$i]["poison_percent"] > $highest_poison_percent) { $highest_poison_percent = $worms[$i]["poison_percent"]; }
 			$worms[$i]["heal_percent"] = $worms[$i]['heal_count'] / $worms[$i]['progress'];
 			if ($worms[$i]["heal_percent"] > $highest_heal_percent) { $highest_heal_percent = $worms[$i]["heal_percent"]; }
+		}
+		// check if this worm has the highest number of holiday items for any holidays
+		foreach ($holidays as $h) {
+			if (empty($highest_holiday[$h["name"]]) || $h["worm_$i"] > $highest_holiday[$h["name"]]) {
+				$highest_holiday[$h["name"]] = $h["worm_$i"];
+			}
 		}
 	}
 	// assign awards
@@ -216,6 +238,12 @@ function getWormAwards() {
 		if (!empty($worms[$i]['kins']) && $worms[$i]['kins'] == $highest_icons) {
 			$worms[$i]['awards'][] = 'Most Kinnable';
 		}
+		// holiday awards
+		foreach ($holidays as $h) {
+			if (!empty($highest_holiday[$h["name"]]) && !empty($h["worm_$i"]) && $h["worm_$i"] == $highest_holiday[$h["name"]]) {
+				$worms[$i]['awards'][] = $h["award"];
+			}
+		}
 	}
 }
 
@@ -239,7 +267,7 @@ function getItemData() {
 				$row["display_name"] = $worms[$birthday_worm]["name"]."'s ".$row["display_name"];
 				$row["icon"] = $image_path."birthday/".$row["name"].$birthday_worm.".png";
 			} else {
-				$row["icon"] = $image_path.$row["name"].".png";
+				$row["icon"] = $image_path."items/".$row["name"].".png";
 			}
 			// add item to array
 			$items[$row["name"]] = $row;
@@ -457,7 +485,7 @@ function getWormLeaderboard($worm) {
 }
 
 function getUserWormLeaderboard($worm) {
-	global $worm_conn; global $logged_in;
+	global $worm_conn; global $logged_in; global $items;
 	$worm_row = "worm_".$worm;
 	$user_table = '<span class="log-in">Log in to view your stats!</span>';
 	if ($logged_in) {
@@ -479,12 +507,18 @@ function getUserWormLeaderboard($worm) {
 						if (!empty($result)) {
 							$actions = json_decode($result);
 							$actions = get_object_vars($actions);
-							$user_table = '
-								<span class="apple item">'.$actions["apple"].' <span class="sr-only">apples</span></span>
-								<span class="drink item">'.$actions["drink"].' <span class="sr-only">battery juices</span></span>
-								<span class="heal item">'.$actions["heal"].' <span class="sr-only">heart potions</span></span>
-								<span class="poison item">'.$actions["poison"].' <span class="sr-only">poisons</span></span>
-							';
+							$user_table = "";
+							foreach ($items as $item) {
+								if (!isset($actions[$item["name"]])) $actions[$item["name"]] = 0;
+								if ($item["active_today"]) {
+									$user_table =
+										$user_table.
+										'<span class="item">
+												<span class="icon" style="background-image: url('.$item["icon"].');"></span>'
+												.$actions[$item["name"]].' <span class="sr-only">'.$item["display_name"].'s</span>
+										</span> ';
+								}
+							}
 						}
 					}
 				}

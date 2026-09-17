@@ -1,4 +1,16 @@
-<header id="header-banner" style="background-image: url('<?php echo $image_path ?>banner.svg');">
+<?php
+	// check if it is currently a holiday event
+	checkHolidays();
+	
+	$banner = "banner.svg";
+	if (isset($holidays) && array_key_exists($cur_holiday,$holidays)) {
+		echo "<script>document.body.classList.add('holiday','$cur_holiday');</script>";
+		$hBanner = $cur_holiday."/".$banner;
+		if (file_exists($_SERVER['DOCUMENT_ROOT'].$image_path.$hBanner)) $banner = $hBanner;
+	}
+?>
+
+<header id="header-banner" style="background-image: url('<?php echo $image_path.$banner ?>');">
 	<a href="<?php echo $worm_race_path ?>" class="header-link">
 		<h1 class="sr-only">Worm Race</h1>
 		<h3 id="banner-subtitle">Feed a Worm</h3>
