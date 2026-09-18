@@ -7,13 +7,23 @@ $bbcode = new BBCode;
 // set the directory to find smileys
 $bbcode->ClearSmileys();
 $bbcode->SetSmileyURL("/graphix/emojis");
-$bbcode->AddSmiley(":heart:","heart.png");
-$bbcode->AddSmiley(":brokenheart:","broken_heart.png");
 $bbcode->AddSmiley(":right:","arrow_right.png");
 $bbcode->AddSmiley(":left:","arrow_left.png");
 $bbcode->AddSmiley(":up:","arrow_up.png");
 $bbcode->AddSmiley(":down:","arrow_down.png");
 $bbcode->AddSmiley(":star:","star.png");
+$bbcode->AddSmiley(":sword:","sword.png"); $bbcode->AddSmiley(":knife:","sword.png"); $bbcode->AddSmiley(":dagger:","sword.png");
+
+$bbcode->AddSmiley(":heart:","heart.png"); $bbcode->AddSmiley(":pinkheart:","heart.png"); $bbcode->AddSmiley(":pink-heart:","heart.png");
+$bbcode->AddSmiley(":brokenheart:","broken_heart.png");
+$bbcode->AddSmiley(":redheart:","heart_red.png"); $bbcode->AddSmiley(":red-heart:","heart_red.png");
+$bbcode->AddSmiley(":orangeheart:","heart_orange.png"); $bbcode->AddSmiley(":orange-heart:","heart_orange.png");
+$bbcode->AddSmiley(":yellowheart:","heart_yellow.png"); $bbcode->AddSmiley(":yellow-heart:","heart_yellow.png");
+$bbcode->AddSmiley(":greenheart:","heart_green.png"); $bbcode->AddSmiley(":green-heart:","heart_green.png");
+$bbcode->AddSmiley(":blueheart:","heart_blue.png"); $bbcode->AddSmiley(":blue-heart:","heart_blue.png");
+$bbcode->AddSmiley(":purpleheart:","heart_purple.png"); $bbcode->AddSmiley(":purple-heart:","heart_purple.png");
+$bbcode->AddSmiley(":blackheart:","heart_black.png"); $bbcode->AddSmiley(":black-heart:","heart_black.png");
+$bbcode->AddSmiley(":whiteheart:","heart_white.png"); $bbcode->AddSmiley(":white-heart:","heart_white.png");
 
 $bbcode->AddSmiley(":smile:","kitty_happy.png"); $bbcode->AddSmiley(":happy:","kitty_happy.png"); $bbcode->AddSmiley(":smiley:","kitty_happy.png");
 $bbcode->AddSmiley(":sad:","kitty_sad.png");
