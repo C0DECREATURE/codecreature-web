@@ -22,7 +22,7 @@ $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
 //$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
-$nextOpen = $mailboxOpen ? "now" : (date("m") == 1 ? date("Y")."/02/01" : (date("Y")+1)."/02/01");
+$nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
 
 $feelings = [];
 $mutual_relationships = [];

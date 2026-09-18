@@ -55,8 +55,8 @@ require_once "functions.php";
 					<section id="info">
 						<header>mailboxes open <?php echo $nextOpen ?></header>
 						<p>there are two things all worms take seriously: <strong>COMPETITION</strong> and <strong>MAIL</strong>.</p>
-						<p>every february, worms send each other letters to determine what relationships they will have for the next year! worms are also very forgetful and indecisive, so they figure out their own feelings based on what kind of letter they sent the most.</p>
-						<p>you, their loving/hating fans, are invited send mail on their behalf to help them choose! they make their decision at <strong>9:00am EST</strong> on <strong>february 14th</strong>.</p>
+						<p>every february, worms send each other letters to determine what relationships they will have for the next year. worms are also very forgetful and indecisive, so they figure out their own feelings based on what kind of letter they sent the most. they even use letters to figure out how they feel about themselves!</p>
+						<p>you, their loving/hating fans, are invited send mail on their behalf to help them choose. they make their decision at <strong>9:00am EST</strong> on <strong>february 14th</strong>.</p>
 						
 						<p><strong>note:</strong> letters affect the sender's feelings <strong>more</strong> than the recipient's.</p>
 					</section>
