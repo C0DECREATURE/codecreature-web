@@ -21,8 +21,11 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-//$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
+$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
 $nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
+
+$possessive_pronouns = ["their","his","her","its"];
+$self_pronouns = ["themself","himself","herself","itself","wormself"];
 
 $feelings = [];
 $mutual_relationships = [];
@@ -52,7 +55,7 @@ $relationship_types = [
 		"mutual" => "worm1 and worm2 are friends!",
 		"one-sided" => "worm1 wants to be friends with worm2!",
 		"self" => "worm1 is their own best friend!",
-		"icon" => "kitty_happy.png",
+		"icon" => "star.png",
 	],
 	"rival" => [
 		"display_name" => "rivalry",
@@ -60,7 +63,7 @@ $relationship_types = [
 		"mutual" => "worm1 and worm2 are rivals!",
 		"one-sided" => "worm1 wants to be worm2's rival!",
 		"self" => "worm1 is their own biggest competition!",
-		"icon" => "arrow_up.png",
+		"icon" => "sword.png",
 	],
 	"queerplatonic" => [
 		"display_name" => "queerplatonic love",
@@ -68,7 +71,7 @@ $relationship_types = [
 		"mutual" => "worm1 and worm2 are in a QPR!",
 		"one-sided" => "worm1 wants to be QPPs with worm2!",
 		"self" => "worm1 is in a queerplatonic relationship with themself!",
-		"icon" => "star.png",
+		"icon" => "heart_green.png",
 	],
 	"business" => [
 		"display_name" => "business relationship",

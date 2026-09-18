@@ -15,7 +15,7 @@
 }
 
 .relationship-list {
-	flex-grow: 1;
+	flex-grow: 1; max-width: 500px;
 }
 #info header { font-size: 1.5em; font-weight: bold; text-transform: uppercase; }
 
@@ -56,3 +56,5 @@ p:last-child { margin-bottom: .15em; }
 	padding: .25em .75em;
 	color: var(--white);
 }
+
+#mail-form .name { font-family: 'Paint Hand', 'Comic Sans MS', 'Comic Sans', sans-serif; }

@@ -30,7 +30,7 @@ require_once "functions.php";
 		<link rel="icon" type="image/x-icon" href="favicon.png">
 		
 		<!--fonts-->
-		<script>fonts.load('YetR','Super Comic');</script>
+		<script>fonts.load('YetR','Super Comic','Paint Hand');</script>
 		
 		<!-- svg icons -->
 		<link href="/graphix/svg-icons/svg-icons-new.css?fileversion=20260725" rel="stylesheet" type="text/css"></link>
@@ -67,14 +67,14 @@ require_once "functions.php";
 							<h3>from:</h3>
 							<?php foreach ($worms as $w) { ?>
 							<input type="radio" name="sender" value="<?php echo $w["id"]; ?>" id="sender-worm-<?php echo $w["id"]; ?>"></input>
-							<label for="sender-worm-<?php echo $w["id"]; ?>" style="color:var(--<?php echo $w["color_dark"]; ?>"><?php echo $w["name"]; ?></label>
+							<label class="name" for="sender-worm-<?php echo $w["id"]; ?>" style="color:var(--<?php echo $w["color_dark"]; ?>"><?php echo $w["name"]; ?></label>
 							<?php } ?>
 						</div>
 						<div>
 							<h3>to:</h3>
 							<?php foreach ($worms as $w) { ?>
 							<input type="radio" name="recipient" value="<?php echo $w["id"]; ?>" id="recipient-worm-<?php echo $w["id"]; ?>"></input>
-							<label for="recipient-worm-<?php echo $w["id"]; ?>" style="color:var(--<?php echo $w["color_dark"]; ?>"><?php echo $w["name"]; ?></label>
+							<label class="name" for="recipient-worm-<?php echo $w["id"]; ?>" style="color:var(--<?php echo $w["color_dark"]; ?>"><?php echo $w["name"]; ?></label>
 							<?php } ?>
 						</div>
 						<div>
@@ -208,7 +208,9 @@ require_once "functions.php";
 									$icon = getRelationshipIcon($r[2]);
 									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
 									$img1 = getWormIcon($r[0]);
-									$rText = str_replace("worm1",$w1,$relationship_types[$r[2]]["self"]);
+									$self_pronoun = $self_pronouns[array_rand($self_pronouns)];
+									$pos_pronoun = $possessive_pronouns[array_rand($possessive_pronouns)];
+									$rText = str_replace("worm1",$w1,str_replace("themself",$self_pronoun,str_replace("their",$pos_pronoun,$relationship_types[$r[2]]["self"])));
 									$arrow = "<img src='/graphix/emojis/arrow_right.png' alt=''>";
 									echo "<img src='$img1' alt=''> <img src='$icon' alt=''> $rText<br>";
 								} } else echo "none!";
