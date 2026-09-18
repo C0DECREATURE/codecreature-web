@@ -96,7 +96,7 @@ if ( $result = mysqli_query($worm_conn,$sql) ) {
 		// get how this worm feels about each other worm
 		$arr = [];
 		foreach ($row as $worm => $value) {
-			$arr[(int)str_replace("worm_","",$worm)] = $value;
+			$arr[(int)str_replace("worm_","",$worm)] = $value == "neutral" ? "" : $value;
 		}
 		// add that worm's feelings
 		$feelings[(int)$row["worm_id"]] = $arr;

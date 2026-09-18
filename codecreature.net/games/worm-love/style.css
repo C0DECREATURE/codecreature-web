@@ -4,12 +4,14 @@
 
 .ship-table table, .relationship-list, #info, #mail-form {
 	background: var(--white);
-	padding: min(1.5vw,calc(var(--menu-border) * 2));
 	border: var(--dd-blue) var(--menu-border) solid;
 	border-radius: calc(var(--menu-border) * 3);
 	
 	color: var(--pink);
 	strong, b, header, h3 { color: var(--d-pink); }
+}
+.relationship-list, #info, #mail-form {
+	padding: min(2vw,calc(var(--menu-border) * 4));
 }
 
 .relationship-list {
@@ -17,8 +19,10 @@
 }
 #info header { font-size: 1.5em; font-weight: bold; text-transform: uppercase; }
 
+.ship-table table { padding: min(1.5vw,calc(var(--menu-border) * 2)); }
 .ship-table th, .ship-table td { padding: min(1vw,.25em); text-align: center; max-width: 68vw; }
-.ship-table th:first-child { text-align: right; }
+.ship-table th:first-child { text-align: right; padding-left: 0; }
+.ship-table tr:first-child th { padding-top: 0; }
 
 .ship-table td:nth-child(2) { background: var(--l-pink); }
 .ship-table td:nth-child(3) { background: var(--orange); }
@@ -42,6 +46,7 @@
 h3 { margin-bottom: .25em; margin-top: .5em; }
 h2 { margin-bottom: .25em; }
 h2:first-child, #current h3:first-child { margin-top: 0px; }
+p:last-child { margin-bottom: .15em; }
 
 #mail-form { margin-bottom: 0px; }
 #mail-form button[type=submit] {
