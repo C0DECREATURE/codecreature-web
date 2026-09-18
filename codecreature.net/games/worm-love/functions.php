@@ -21,7 +21,7 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
+//$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
 $nextOpen = $mailboxOpen ? "now" : (date("m") == 1 ? date("Y")."/02/01" : (date("Y")+1)."/02/01");
 
 $feelings = [];
