@@ -64,10 +64,7 @@
 								<label for="<?php echo $cur_item["name"]; ?>-input" class="item"
 									style="
 										background-image:url('<?php echo $cur_item["icon"]; ?>');
-										background-color: var(--<?php
-											if ($cur_item["name"] == "cake") echo $worms[$birthday_worm]["color"];
-											else echo $cur_item["background"];
-										?>);
+										background-color: var(--<?php echo $cur_item["background"]; ?>);
 									">
 								</label>
 							</div>

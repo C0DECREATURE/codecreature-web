@@ -264,8 +264,11 @@ function getItemData() {
 			else $row["active_today"] = false;
 			// set icon image path
 			if ($row["name"] == "cake" && $row["active_today"]) {
-				$row["display_name"] = $worms[$birthday_worm]["name"]."'s ".$row["display_name"];
+				$wName = $worms[$birthday_worm]["name"];
+				$possessive = str_ends_with($wName,"s") ? "'" : "'s";
+				$row["display_name"] = "$wName$possessive ".$row["display_name"];
 				$row["icon"] = $image_path."birthday/".$row["name"].$birthday_worm.".png";
+				$row["background"] = $worms[$birthday_worm]["color_medium"];
 			} else {
 				$row["icon"] = $image_path."items/".$row["name"].".png";
 			}
