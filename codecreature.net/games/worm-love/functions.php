@@ -21,7 +21,10 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-//$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
+if (!empty($_SESSION["id"]) && ($_SESSION["user_authorization"] == "admin" || $_SESSION["user_authorization"] == "mod")) {
+	$mailboxOpen = true;
+	$testMode = true;
+}
 $nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
 
 $possessive_pronouns = ["their","his","her","its"];
@@ -41,13 +44,13 @@ $relationship_types = [
 		"self" => "worm1 is in love with themself!",
 		"icon" => "heart.png",
 	],
-	"hate" => [
-		"display_name" => "hatred",
-		"letter_name" => "hate letter",
-		"mutual" => "worm1 and worm2 hate each other!",
-		"one-sided" => "worm1 hates worm2!",
-		"self" => "worm1 hates themself!",
-		"icon" => "broken_heart.png",
+	"queerplatonic" => [
+		"display_name" => "queerplatonic love",
+		"letter_name" => "declaration of queerplatonic affection",
+		"mutual" => "worm1 and worm2 are in a QPR!",
+		"one-sided" => "worm1 wants to be QPPs with worm2!",
+		"self" => "worm1 is in a queerplatonic relationship with themself!",
+		"icon" => "heart_green.png",
 	],
 	"friend" => [
 		"display_name" => "friendship",
@@ -57,6 +60,14 @@ $relationship_types = [
 		"self" => "worm1 is their own best friend!",
 		"icon" => "star.png",
 	],
+	"hate" => [
+		"display_name" => "hatred",
+		"letter_name" => "hate letter",
+		"mutual" => "worm1 and worm2 hate each other!",
+		"one-sided" => "worm1 hates worm2!",
+		"self" => "worm1 hates themself!",
+		"icon" => "broken_heart.png",
+	],
 	"rival" => [
 		"display_name" => "rivalry",
 		"letter_name" => "RIVALentine",
@@ -65,16 +76,8 @@ $relationship_types = [
 		"self" => "worm1 is their own biggest competition!",
 		"icon" => "sword.png",
 	],
-	"queerplatonic" => [
-		"display_name" => "queerplatonic love",
-		"letter_name" => "declaration of queerplatonic affection",
-		"mutual" => "worm1 and worm2 are in a QPR!",
-		"one-sided" => "worm1 wants to be QPPs with worm2!",
-		"self" => "worm1 is in a queerplatonic relationship with themself!",
-		"icon" => "heart_green.png",
-	],
 	"business" => [
-		"display_name" => "business relationship",
+		"display_name" => "business",
 		"letter_name" => "business proposal",
 		"mutual" => "worm1 and worm2 are doing business together!",
 		"one-sided" => "worm1 wants to do business with worm2!",

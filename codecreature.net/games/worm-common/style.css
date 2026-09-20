@@ -37,6 +37,16 @@ body {
 	display: flex;
 	@media screen and (width < 1000px) { flex-direction: column; }
 }
+body.valentines {
+	background-color: var(--ll-pink);
+	background-image: url('/games/worm-race/images/valentines/bg.png');
+}
+body.halloween {
+	background-color: var(--m-purple);
+	background-image: url('/games/worm-race/images/halloween/bg.png');
+	background-blend-mode: initial;
+	color: var(--purple);
+}
 
 /* default keyboard focus style */
 :focus-visible { outline-color: var(--dd-blue); }
@@ -84,48 +94,44 @@ body {
 	/* menu cast shadows */
 	@media screen and (width < 1000px) { box-shadow: 0px var(--menu-border) rgb(var(--blue-rgb),0.4); }
 	@media screen and (width >= 1000px) { box-shadow: var(--menu-border) 0px rgb(var(--blue-rgb),0.4); }
-	
-	> header {
-		width: 100%;
-		padding: .25em;
-		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-		background: var(--blue);
-		font-family: 'Super Comic', sans-serif;
-		letter-spacing: 0.1em;
-		color: var(--white);
-		text-shadow: .08em .08em var(--dd-blue);
-		h1, h2, h3 {
-			font-size: inherit;
-			margin: 0;
-		}
-		a { display: block; margin: 0; }
+}
+#menu	> header {
+	width: 100%;
+	padding: .25em;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	background: var(--blue);
+	font-family: 'Super Comic', sans-serif;
+	letter-spacing: 0.1em;
+	color: var(--white);
+	text-shadow: .08em .08em var(--dd-blue);
+	h1, h2, h3 {
+		font-size: inherit;
+		margin: 0;
 	}
+	a { display: block; margin: 0; }
+}
 	
-	@media screen and (width < 1000px) {
+#menu	nav {
+	overflow-y: auto;
+	flex-grow: 1; flex-shrink: 1;
+	
+	display: flex;
+	flex-direction: column;
+	gap: .2em;
+	padding: .4em .6em;
+}
+/* navigation buttons */
+#menu nav a, #menu nav button {
+	color: inherit;
+	text-transform: uppercase;
+	&:hover, &:focus-visible { color: var(--d-blue); }
+	&:focus-visible {
+		outline: 2px var(--blue) solid;
+		background: var(--white);
+		border-radius: 1em;
 	}
-	
-	nav {
-		overflow-y: auto;
-		flex-grow: 1; flex-shrink: 1;
-		
-		display: flex;
-		flex-direction: column;
-		gap: .2em;
-		padding: .4em .6em;
-		
-		/* navigation buttons */
-		a, button {
-			color: inherit;
-			text-transform: uppercase;
-			&:hover, &:focus-visible { color: var(--d-blue); }
-			&:focus-visible {
-				outline: 2px var(--blue) solid;
-				background: var(--white);
-				border-radius: 1em;
-			}
-		}
-	}
-	
+}
+#menu {
 	@media screen and (width >= 1000px) {
 		border-right-style: solid;
 		.toggle-menu { display: none; }
@@ -179,6 +185,41 @@ body {
 	}
 }
 
+.valentines {
+	#menu {
+		background-color: var(--ll-pink);
+		color: var(--d-pink);
+	}
+	#menu	> header { background-color: var(--d-pink); }
+	#menu nav a, .halloween #menu nav button {
+		&:hover { color: var(--pink); }
+		&:focus-visible {
+			color: var(--d-pink);
+			outline: 2px var(--pink) solid;
+		}
+	}
+	/* menu cast shadows */
+	#menu { @media screen and (width < 1000px) { box-shadow: 0px var(--menu-border) var(--l-pink); } }
+	#menu { @media screen and (width >= 1000px) { box-shadow: var(--menu-border) 0px var(--l-pink); } }
+}
+
+.halloween #menu {
+	background-color: var(--dd-blue);
+	color: var(--green);
+	border-color: var(--d-purple);
+}
+.halloween #menu	> header { background-color: var(--d-orange); }
+.halloween #menu nav a, .halloween #menu nav button {
+	&:hover { color: var(--l-green); }
+	&:focus-visible {
+		color: var(--d-purple);
+		outline: 2px var(--green) solid;
+	}
+}
+/* menu cast shadows */
+.halloween #menu { @media screen and (width < 1000px) { box-shadow: 0px var(--menu-border) var(--purple); } }
+.halloween #menu { @media screen and (width >= 1000px) { box-shadow: var(--menu-border) 0px var(--purple); } }
+
 /******************************************************************************************
 	MAIN CONTENT
 ******************************************************************************************/
@@ -219,14 +260,39 @@ body {
 	@media screen and (width >= 1000px) { box-shadow: inset var(--menu-border) 0px rgb(var(--d-blue-rgb),0.5); }
 	padding: .3em 1em .4em .5em;
 	text-align: right;
-	> a, a:link, > a:visited, > button {
-		color: var(--white);
-		text-transform: uppercase;
-		text-shadow: .08em .08em var(--dd-blue);
-	}
-	> a:hover, > button:hover { color: var(--l-blue); }
 }
+#main-footer > a, #main-footer a:link, #main-footer > a:visited, #main-footer > button {
+	color: var(--white);
+	text-transform: uppercase;
+	text-shadow: .08em .08em var(--dd-blue);
+}
+#main-footer > a:hover, #main-footer > button:hover { color: var(--l-blue); }
 
+.valentines {
+	#main-footer {
+		background-color: var(--d-pink);
+		/* menu cast shadow */
+		@media screen and (width >= 1000px) { box-shadow: inset var(--menu-border) 0px var(--d-pink); }
+	}
+	#main-footer > a, #main-footer a:link, #main-footer > a:visited, #main-footer > button {
+		text-shadow: .08em .08em var(--d-pink);
+	}
+	#main-footer > a:hover, #main-footer > button:hover { color: var(--ll-pink); }
+}
+.halloween {
+	#main-footer {
+		background-color: var(--dd-blue);
+		border-color: var(--d-purple);
+		color: var(--green);
+		/* menu cast shadow */
+		@media screen and (width >= 1000px) { box-shadow: inset var(--menu-border) 0px var(--d-purple); }
+	}
+	#main-footer > a, #main-footer a:link, #main-footer > a:visited, #main-footer > button {
+		color: var(--green);
+		text-shadow: .08em .08em var(--d-purple);
+	}
+	#main-footer > a:hover, #main-footer > button:hover { color: var(--l-green); }
+}
 
 /******************************************************************************************
 	CHATBOX
@@ -271,6 +337,22 @@ body {
 		font-size: 1.75em;
 	}
 }
+.valentines #chatbox {
+	background: var(--ll-pink);
+	header { background: var(--white); }
+	header, header button { color: var(--d-pink); }
+	header button:hover { color: var(--purple); }
+	
+	.iframe-load-preview { color: var(--d-pink); }
+}
+.halloween #chatbox {
+	background: var(--l-green);
+	header { background: var(--orange); }
+	header, header button { color: var(--dd-blue); }
+	header button:hover { color: var(--purple); }
+	
+	.iframe-load-preview { color: var(--dd-blue); }
+}
 
 /******************************************************************************************
 	INFO BOX SHARED
@@ -283,6 +365,16 @@ body {
 	--border-radius-sm: calc(var(--border-radius) - var(--menu-border));
 	--border: calc(var(--menu-border) * 1.15) var(--dd-blue) solid;
 	height: auto;
+}
+.halloween .info-box {
+	--color: var(--d-purple);
+	--color-dark: var(--d-orange);
+	--color-light: var(--orange);
+}
+.valentines .info-box {
+	--color: var(--purple);
+	--color-dark: var(--d-pink);
+	--color-light: var(--pink);
 }
 .info-box:not(.worm-details) {
 	@media screen and (width >= 1000px) { max-width: min(78%,700px); }

@@ -15,6 +15,14 @@
 		updateCSS.type = 'text/css';
 		updateCSS.media = 'all';
 		
+		<?php if (!empty($cur_holiday) && $cur_holiday != "none") { ?>
+		let holidayUpdateCSS = document.createElement('link');
+		<?php echo "holidayUpdateCSS.href = '/games/worm-race/updates-".$cur_holiday.".css?fileversion=5';"; ?>
+		holidayUpdateCSS.rel = 'stylesheet';
+		holidayUpdateCSS.type = 'text/css';
+		holidayUpdateCSS.media = 'all';
+		<?php } ?>
+		
 		let updateFonts = document.createElement('link');
 		updateFonts.href = '/fonts/YetR/stylesheet.css?fileversion=5';
 		updateFonts.rel = 'stylesheet';
@@ -26,6 +34,7 @@
 		iFrame.onload = function() {
 			document.querySelector('.updates').querySelector('.loading').style.display = 'none';
 			iFrame.contentDocument.head.appendChild(updateCSS);
+			iFrame.contentDocument.head.appendChild(holidayUpdateCSS);
 			iFrame.contentDocument.head.appendChild(updateFonts);
 			iFrame.style.visibility = 'visible'; // show once loaded
 		}

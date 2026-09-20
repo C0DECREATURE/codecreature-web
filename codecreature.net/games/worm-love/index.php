@@ -22,9 +22,9 @@ require_once "functions.php";
 		<script>var showMainWarnings = false;</script>
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260725"></script>
+		<script src="/codefiles/required.js?fileversion=20260920"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260725" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260920" rel="stylesheet" type="text/css"></link>
 		
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="favicon.png">
@@ -33,16 +33,16 @@ require_once "functions.php";
 		<script>fonts.load('YetR','Super Comic');</script>
 		
 		<!-- svg icons -->
-		<link href="/graphix/svg-icons/svg-icons-new.css?fileversion=20260725" rel="stylesheet" type="text/css"></link>
+		<link href="/graphix/svg-icons/svg-icons-new.css?fileversion=20260920" rel="stylesheet" type="text/css"></link>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260725" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260920" rel="stylesheet" type="text/css" media="all">
 		<!--worms common stylesheet-->
-		<link href="/games/worm-common/style.css?fileversion=20260725" rel="stylesheet" type="text/css" media="all">
+		<link href="/games/worm-common/style.css?fileversion=20260920" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260725" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260920" rel="stylesheet" type="text/css" media="all">
 	</head>
-	<body>
+	<body class="holiday valentines">
 		<!--main page footer-->
 		<?php include $_SERVER['DOCUMENT_ROOT'].'/games/worm-race/menu.php'; ?>
 		
@@ -51,6 +51,8 @@ require_once "functions.php";
 			
 			<main id="content">
 				<div class="main">
+				
+					<?php if (isset($testMode) && $testMode) { ?><div class="developer"><h2>welcome to moderator test mode!</h2></div><?php } ?>
 					
 					<section id="mail" class="<?php echo $mailboxOpen ? "" : "hidden" ?>">
 						<div id="letter-display">
