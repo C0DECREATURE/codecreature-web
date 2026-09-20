@@ -6,17 +6,15 @@
 	background: var(--white);
 	border: var(--dd-blue) var(--menu-border) solid;
 	border-radius: calc(var(--menu-border) * 3);
-	
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 	color: var(--pink);
-	strong, b, header, h3 { color: var(--d-pink); }
+	strong, b, header, h3 { color: var(--purple); }
 }
 .relationship-list, #info, #mail-form {
 	padding: min(2vw,calc(var(--menu-border) * 4));
 }
 
-.relationship-list {
-	flex-grow: 1; max-width: 500px;
-}
+.relationship-list { flex-grow: 1; }
 #info header { font-size: 1.5em; font-weight: bold; text-transform: uppercase; }
 
 .ship-table table { padding: min(1.5vw,calc(var(--menu-border) * 2)); }
@@ -48,7 +46,40 @@ h2 { margin-bottom: .25em; }
 h2:first-child, #current h3:first-child { margin-top: 0px; }
 p:last-child { margin-bottom: .15em; }
 
-#mail-form { margin-bottom: 0px; }
+#mail {
+	display: flex;
+	gap: 1em;
+	@media screen and (width <= 700px) { flex-wrap: wrap; justify-content: center; }
+	@media screen and (width > 700px) { flex-wrap: no-wrap; justify-content: space-between; align-items: center; }
+}
+
+#mail-form {
+	margin-bottom: 0px;
+	flex-shrink: 1;
+}
+#mail-form .button-list {
+	display: flex; flex-wrap: wrap;
+}
+#mail-form .name {
+	position: relative;
+	display: block;
+	color: var(--white);
+	padding: .15em .5em;
+	border-radius: .75em;
+	border: var(--menu-border) var(--white) solid;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	flex-grow: 1; max-width: 50%;
+	text-align: center;
+}
+#mail-form .name:has(input:checked) {
+	border-color: var(--dd-blue);
+}
+#mail-form .name input[type=radio] {
+	position: absolute;
+	left: 0; top: 0;
+	opacity: 0; margin: 0;
+	width: 100%; height: 100%;
+}
 #mail-form button[type=submit] {
 	margin-top: .5em;
 	background: var(--pink);
@@ -57,4 +88,11 @@ p:last-child { margin-bottom: .15em; }
 	color: var(--white);
 }
 
-#mail-form .name { font-family: 'Paint Hand', 'Comic Sans MS', 'Comic Sans', sans-serif; }
+#letter-display {
+	position: relative;
+	width: min(90%,max(200px,min(60%,500px)));
+	aspect-ratio: 1;
+	flex-shrink: 0;
+}
+#letter-display img:not(.type) { position: absolute; top: 0; left: 0; }
+#letter-display img { max-width: 100%; user-select: none; pointer-events: none; }

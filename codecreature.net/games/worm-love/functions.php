@@ -21,7 +21,7 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
+//$mailboxOpen = true; // TEMP VALUE FOR DEVELOPMENT
 $nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
 
 $possessive_pronouns = ["their","his","her","its"];
