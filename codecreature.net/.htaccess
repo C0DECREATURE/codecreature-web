@@ -26,6 +26,7 @@ Redirect 301 /toybox /games/toybox
 Redirect 301 /games/wormrace /games/worm-race
 Redirect 301 /wormrace /games/worm-race
 Redirect 301 /worm-race /games/worm-race
+Redirect 301 /games/worm-race/love /games/worm-love
 
 ################################
 # URL REWRITING
