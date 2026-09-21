@@ -177,7 +177,7 @@
 								</div>
 								
 								<div class="award">
-									<img src="../images/awards/award_biggest_clown.png" alt="">
+									<img src="../images/awards/award_silliest_worm.png" alt="">
 									<div class="name matilda">April Fool's</div>
 									<div class="description">
 										april 1st - 7th

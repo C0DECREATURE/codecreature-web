@@ -21,7 +21,6 @@ getAllData();
 			<a href="#worm-stats">jump to worm stats</a>
 			<a href="#bottom-text">jump to bottom text</a>
 		</div>
-						
 		
 		<div id="race-content" class="race-content">		
 			<div class="wrapper">
@@ -71,12 +70,13 @@ getAllData();
 							$css_percent = $percent*75;
 							$css_time = $percent * 3;
 							$css_bounce = 1-(.8*$percent);
+							$racer_worm = $image_path.($cur_holiday == "fools" ? "fools/" : $cur_worm["color"]."_")."racer.png";
 							echo '
 								<div id="'.$cur_worm["color"].'-racer" class="race-row'.$winner.'"
 								style="--percent:'.$css_percent.'%; --time:'.$css_time.'s;--bounce:'.$css_bounce.'s;">
 									<div class="dots" style="border-color: var(--'.$cur_worm["color"].');"></div>
 									<div class="wrapper">
-										<img src="'.$image_path.$cur_worm["color"].'_racer.png" alt="">
+										<img src="'.$racer_worm.'" alt="">
 									</div>
 								</div>
 							';

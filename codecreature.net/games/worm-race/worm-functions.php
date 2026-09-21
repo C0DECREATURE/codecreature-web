@@ -26,7 +26,7 @@ $loading = $load_err = "";
 // special event variables
 $yesterday = (new DateTime('yesterday'))->format('m-d');
 $tomorrow = (new DateTime('tomorrow'))->format('m-d');
-$cur_holiday = "none";
+$cur_holiday = "fools";
 $birthday_worm = "";
 
 // start = first day of event
@@ -274,6 +274,9 @@ function getItemData() {
 			}
 			// add item to array
 			$items[$row["name"]] = $row;
+			if ($cur_holiday == "fools" && $row["name"] == "dirt") {
+				$items["dirt2"] = $row; $items["dirt3"] = $row; $items["dirt4"] = $row;
+			}
 		}
 	} else {
 		$load_err = "Could not fetch item data. Try again later.";

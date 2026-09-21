@@ -115,11 +115,15 @@
 					$overall = $cur_worm["overall_trophy"];
 					
 					$type = $overall < 4 ? "trophy" : "ribbon";
+					
+					$trophy_worm_image = $cur_holiday == "fools" ?
+																	"images/fools/".$type."_base.png" :
+																	"images/".$type."_base_".$cur_worm["color"].".png";
 				?>
 					<div class="average-trophy<?php echo $type == "ribbon" ? " ribbon" : ""; ?>">
 						<img src="images/<?php echo $type; ?>_base_<?php echo $overall; ?>.png"
 							alt="<?php echo $trophy_nums[$overall - 1]; ?> place">
-						<img src="images/<?php echo $type; ?>_base_<?php echo $cur_worm["color"]; ?>.png" alt="">
+						<img src="<?php echo $trophy_worm_image; ?>" alt="">
 					</div>
 				<div class="wrapper">
 					<?php
