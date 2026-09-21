@@ -19,14 +19,151 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
 // worm data arrays
 $worms = [];
-$items = [];
 $feed_log = [];
 $loading = $load_err = "";
+
+// items
+$items = [
+	"apple" => [
+		"display_order" => 0,
+		"display_name" => "Golden Apple",
+		"flavor_text" => "room and board for one",
+		"background" => "l-green",
+		"effect_icon" => "progress-1",
+		"cooldown" => 10,
+		"progress" => 4,
+		"health" => 0,
+		"holidays" => ["none","birthday","valentines"],
+		"progress_effect" => [.75,1,1,1.25,1.25],
+		"health_effect" => [0,1,1,1,1],
+	],
+	"drink" => [
+		"display_order" => 1,
+		"display_name" => "Battery Juice",
+		"flavor_text" => "is it healthy? no! but does it taste good? also no",
+		"background" => "l-blue",
+		"effect_icon" => "progress-2",
+		"cooldown" => 300,
+		"progress" => 50,
+		"health" => -1,
+		"holidays" => ["none","valentines"],
+		"progress_effect" => [.4,.6,.8,.9,1],
+		"health_effect" => [0,1,1,1,1],
+	],
+	"heal" => [
+		"display_order" => 2,
+		"display_name" => "Heart Potion",
+		"flavor_text" => "love is good for u, 4/5 worms agree",
+		"background" => "l-pink",
+		"effect_icon" => "health-pos",
+		"cooldown" => 240,
+		"progress" => 0,
+		"health" => 1,
+		"holidays" => ["none","birthday","valentines"],
+		"holiday_effects" => ["valentines"=>["cooldown"=>120]],
+		"progress_effect" => [1,1,1,1,1],
+		"health_effect" => [1,1,1,1,0],
+	],
+	"poison" => [
+		"display_order" => 3,
+		"display_name" => "Poison",
+		"flavor_text" => "pesticide for ur least favorite worm",
+		"background" => "green",
+		"effect_icon" => "health-neg",
+		"cooldown" => 180,
+		"progress" => -5,
+		"health" => -1,
+		"holidays" => ["none","birthday","valentines"],
+		"progress_effect" => [10,1,1,1,1],
+		"health_effect" => [0,1,1,1,1],
+	],
+	// BIRTHDAY
+	"cake" => [
+		"display_order" => 1,
+		"display_name" => "Cake",
+		"flavor_text" => "a special birthday treat!",
+		"background" => "",
+		"effect_icon" => "progress-2",
+		"cooldown" => 240,
+		"progress" => 75,
+		"health" => 0,
+		"holidays" => ["birthday"],
+		"progress_effect" => [1,1,1,1,1],
+		"health_effect" => [1,1,1,1,1],
+	],
+	// HALLOWEEN
+	"halloween_apple" => [
+		"display_order" => 0,
+		"display_name" => "Caramel Apple",
+		"flavor_text" => "keeps doctors away, not dentists",
+		"background" => "yellow",
+		"effect_icon" => "progress-1",
+		"cooldown" => 10,
+		"progress" => 8,
+		"health" => 0,
+		"holidays" => ["halloween"],
+		"progress_effect" => [.75,.75,.75,1,1],
+		"health_effect" => [1,1,1,1,1],
+	],
+	"halloween_drink" => [
+		"display_order" => 1,
+		"display_name" => "Pumpkin Spice Latte",
+		"flavor_text" => "0% pumpkin, 100% spice",
+		"background" => "orange",
+		"effect_icon" => "progress-2",
+		"cooldown" => 120,
+		"progress" => 40,
+		"health" => 0,
+		"holidays" => ["halloween"],
+		"progress_effect" => [1,1,1,1,1],
+		"health_effect" => [1,1,1,1,1],
+	],
+	"brew" => [
+		"display_order" => 2,
+		"display_name" => "Witch's Brew",
+		"flavor_text" => "a strange brew for the living dead",
+		"background" => "green",
+		"effect_icon" => "mystery",
+		"cooldown" => 180,
+		"progress" => 10,
+		"health" => 1,
+		"holidays" => ["halloween"],
+		"progress_effect" => [10,7,3,1,1],
+		"health_effect" => [1,1,1,1,0],
+	],
+	"halloween_poison" => [
+		"display_order" => 3,
+		"display_name" => "Ghost Potion",
+		"flavor_text" => "join the undead in 4 sips or less",
+		"background" => "l-purple",
+		"effect_icon" => "health-neg",
+		"cooldown" => 180,
+		"progress" => 0,
+		"health" => -1,
+		"holidays" => ["halloween"],
+		"progress_effect" => [1,1,1,1,1],
+		"health_effect" => [0,1,1,1,1],
+	],
+	// APRIL FOOLS
+	"dirt" => [
+		"display_order" => 0,
+		"display_name" => "Dirt",
+		"flavor_text" => "it's dirt",
+		"background" => "green",
+		"effect_icon" => "",
+		"cooldown" => 15,
+		"progress" => 15,
+		"health" => 1,
+		"holidays" => ["fools"],
+		"progress_effect" => [1,1,1,1,1],
+		"health_effect" => [1,1,1,1,0],
+	],
+];
 
 // special event variables
 $yesterday = (new DateTime('yesterday'))->format('m-d');
 $tomorrow = (new DateTime('tomorrow'))->format('m-d');
-$cur_holiday = "none";
+$cur_holiday = "valentines";
 $birthday_worm = "";
 
 // start = first day of event
@@ -249,37 +386,38 @@ function getWormAwards() {
 
 // get all item data, insert into $items array
 function getItemData() {
-	global $worm_conn; global $items; global $loading; global $load_err; global $image_path;
+	global $items; global $image_path;
 	global $worms; global $cur_holiday; global $birthday_worm;
 	
-	// get all worm data
-	$sql = "SELECT * FROM items ORDER BY display_order";
-	if ( $result = mysqli_query($worm_conn,$sql) ) {
-		// go through each worm row, assign to variables
-		while($row = mysqli_fetch_object($result)) {
-			$row = get_object_vars($row);
-			// find out if this item is active today based on current holiday
-			$row["holidays"] = json_decode($row["holidays"],true);
-			if (in_array($cur_holiday,$row["holidays"])) $row["active_today"] = true;
-			else $row["active_today"] = false;
-			// set icon image path
-			if ($row["name"] == "cake" && $row["active_today"]) {
-				$wName = $worms[$birthday_worm]["name"];
-				$possessive = str_ends_with($wName,"s") ? "'" : "'s";
-				$row["display_name"] = "$wName$possessive ".$row["display_name"];
-				$row["icon"] = $image_path."birthday/".$row["name"].$birthday_worm.".png";
-				$row["background"] = $worms[$birthday_worm]["color_medium"];
-			} else {
-				$row["icon"] = $image_path."items/".$row["name"].".png";
-			}
-			// add item to array
-			$items[$row["name"]] = $row;
-			if ($cur_holiday == "fools" && $row["name"] == "dirt") {
-				$items["dirt2"] = $row; $items["dirt3"] = $row; $items["dirt4"] = $row;
-			}
+	// sort items list by display_order
+	function itemDisplayOrderSort($a, $b) { return $a["display_order"] < $b["display_order"] ? -1 : 1; }
+	uasort($items, "itemDisplayOrderSort");
+	
+	// run necessary adjustments
+	foreach ($items as $name => $item) {
+		$item["name"] = $name;
+		// find out if this item is active today based on current holiday
+		$item["active_today"] = in_array($cur_holiday,$item["holidays"]);
+		// set icon image path
+		if ($name == "cake" && $item["active_today"]) {
+			$wName = $worms[$birthday_worm]["name"];
+			$possessive = str_ends_with($wName,"s") ? "'" : "'s";
+			$item["display_name"] = "$wName$possessive ".$item["display_name"];
+			$item["icon"] = $image_path."birthday/".$name.$birthday_worm.".png";
+			$item["background"] = $worms[$birthday_worm]["color_medium"];
+		} else {
+			$item["icon"] = $image_path."items/".$name.".png";
 		}
-	} else {
-		$load_err = "Could not fetch item data. Try again later.";
+		// adjust items for holiday
+		if (!empty($item["holiday_effects"]) && !empty($item["holiday_effects"][$cur_holiday])) {
+			foreach ($item["holiday_effects"][$cur_holiday] as $key => $value) { $item[$key] = $value; }
+		}
+		// replace item in main array with the updated one
+		$items[$name] = $item;
+		// duplicate dirt on april fool's
+		if ($cur_holiday == "fools" && $name == "dirt") {
+			$items["dirt2"] = $item; $items["dirt3"] = $item; $items["dirt4"] = $item;
+		}
 	}
 }
 

@@ -39,10 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$feed_err = 'Item name "'.trim($_POST["item"]).'" not recognized.';
 	} else if (!in_array($cur_holiday,$items[trim($_POST["item"])]["holidays"])) {
 		$feed_err = $items[trim($_POST["item"])]["display_name"].' is not available during the current holiday!';
-	} else{
-		$item_name = trim($_POST["item"]);
+	} else {
 		// get data for submitted worm as an array
-		$item = $items[$item_name];
+		$item = $items[trim($_POST["item"])];
 	}
 	
 	// Check if worm ID is empty or invalid
@@ -91,11 +90,11 @@ function feedWormInSeason($season,$worm_id,$item) {
 	// current worm data array for the season
 	$worm = $season["worms"][$worm_id];
 	// progress change of the given Item
-	$progress_amount = $item["progress"] * $item["progress_effect_".$worm["health"]];
+	$progress_amount = $item["progress"] * $item["progress_effect"][$worm["health"]];
 	// worm data array for the season after the feeding is completed
 	$w = [];
 	$w["progress"] = max($worm["progress"] + $progress_amount, 0);
-	$w["health"] = max($worm["health"] + ( $item["health"] * $item["health_effect_".$worm["health"]] ), 0);
+	$w["health"] = max($worm["health"] + ( $item["health"] * $item["health_effect"][$worm["health"]] ), 0);
 	foreach ($items as $i) {
 		$count_col = $i["name"]."_count";
 		$w[$count_col] = !empty($worm[$count_col]) ? $worm[$count_col] : 0;

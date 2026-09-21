@@ -43,8 +43,8 @@
 			<div class="buttons">
 				<?php foreach ($items as $cur_item) {
 					if ($cur_item["active_today"]) {
-						$adjusted_progress = $cur_item["progress"] * $cur_item["progress_effect_".$cur_worm["health"]];
-						$adjusted_health = $cur_item["health"] * $cur_item["health_effect_".$cur_worm["health"]];?>
+						$adjusted_progress = $cur_item["progress"] * $cur_item["progress_effect"][$cur_worm["health"]];
+						$adjusted_health = $cur_item["health"] * $cur_item["health_effect"][$cur_worm["health"]];?>
 						<div class="item-wrapper">
 							<div class="item-content">
 								<input type="radio" id="<?php echo $cur_item["name"]; ?>-input" class="item-input"

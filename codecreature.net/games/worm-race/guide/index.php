@@ -172,7 +172,7 @@
 									<img src="../images/awards/award_sexiest_worm_alive.png" alt="">
 									<div class="name jeremy">Valentine's Day</div>
 									<div class="description">
-										february 8th - 14th
+										february 1st - 14th
 									</div>
 								</div>
 								
@@ -180,10 +180,10 @@
 									<img src="../images/awards/award_silliest_worm.png" alt="">
 									<div class="name matilda">April Fool's</div>
 									<div class="description">
-										april 1st - 7th
+										april 1st - 3rd
 									</div>
 								</div>
-								
+								<!--
 								<div class="award">
 									<img src="../images/awards/award_summer.png" alt="">
 									<div class="name stringcheese">Summer Solstice</div>
@@ -199,7 +199,7 @@
 										august 10th - 16th
 									</div>
 								</div>
-								
+								-->
 								<div class="award">
 									<img src="../images/awards/award_pumpkin_king.png" alt="">
 									<div class="name pretzel">Halloween</div>
@@ -207,7 +207,7 @@
 										october 25th - 31st
 									</div>
 								</div>
-								
+								<!--
 								<div class="award">
 									<img src="../images/awards/award_ice_queen.png" alt="">
 									<div class="name poolnoodle">Winter Solstice</div>
@@ -215,7 +215,7 @@
 										december 16th - 22nd
 									</div>
 								</div>
-								
+								-->
 							</div>
 						</div>
 					</div>
