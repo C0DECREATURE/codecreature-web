@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-09-21T00:17'),
+		authors: ['emery','prax'],
+		tags: ['games','worm race'],
+		summary: `
+			setting up some worm <a href="/games/worm-race/guide#holidays">holidays</a>
+		`,
+		details: `
+			<p>halloween is all ready to go, valentine's is <strong>Big</strong> but a little more than halfway done, april fool's also mostly finished. i'm so excited about these, can't believe i have to wait to show them to everyone. preview what's coming for valentine's <a href="/games/worm-love">here</a> if you want.</p>
+			<p>on that note, if you witnessed the accidental pushing of a weird update for 2 hours yesterday.... ignore that.</p>
+			<p>finally, this means nothing to anybody else, but the item data has been moved to php! i had to keep them in the sql database for security purposes when everything was html/javascript, but now that's unnecessary and annoying. hopefully i didn't break anything in the process.</p>
+		`
+	},
+	{
 		date: new Date('2026-09-13T15:31'),
 		authors: ['emery'],
 		tags: ['games','worm race'],
