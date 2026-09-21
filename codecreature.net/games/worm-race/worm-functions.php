@@ -26,7 +26,7 @@ $loading = $load_err = "";
 // special event variables
 $yesterday = (new DateTime('yesterday'))->format('m-d');
 $tomorrow = (new DateTime('tomorrow'))->format('m-d');
-$cur_holiday = "fools";
+$cur_holiday = "none";
 $birthday_worm = "";
 
 // start = first day of event
