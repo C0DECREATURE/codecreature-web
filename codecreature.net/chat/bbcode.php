@@ -7,13 +7,18 @@ $bbcode = new BBCode;
 // set the directory to find smileys
 $bbcode->ClearSmileys();
 $bbcode->SetSmileyURL("/graphix/emojis");
+
+// symbols
 $bbcode->AddSmiley(":right:","arrow_right.png");
 $bbcode->AddSmiley(":left:","arrow_left.png");
 $bbcode->AddSmiley(":up:","arrow_up.png");
 $bbcode->AddSmiley(":down:","arrow_down.png");
 $bbcode->AddSmiley(":star:","star.png");
+
+// items
 $bbcode->AddSmiley(":sword:","sword.png"); $bbcode->AddSmiley(":knife:","sword.png"); $bbcode->AddSmiley(":dagger:","sword.png");
 
+// hearts
 $bbcode->AddSmiley(":heart:","heart.png"); $bbcode->AddSmiley(":pinkheart:","heart.png"); $bbcode->AddSmiley(":pink-heart:","heart.png");
 $bbcode->AddSmiley(":brokenheart:","broken_heart.png");
 $bbcode->AddSmiley(":redheart:","heart_red.png"); $bbcode->AddSmiley(":red-heart:","heart_red.png");
@@ -25,12 +30,16 @@ $bbcode->AddSmiley(":purpleheart:","heart_purple.png"); $bbcode->AddSmiley(":pur
 $bbcode->AddSmiley(":blackheart:","heart_black.png"); $bbcode->AddSmiley(":black-heart:","heart_black.png");
 $bbcode->AddSmiley(":whiteheart:","heart_white.png"); $bbcode->AddSmiley(":white-heart:","heart_white.png");
 
+// kitty faces
 $bbcode->AddSmiley(":smile:","kitty_happy.png"); $bbcode->AddSmiley(":happy:","kitty_happy.png"); $bbcode->AddSmiley(":smiley:","kitty_happy.png");
+$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.png"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.png"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.png");
+$bbcode->AddSmiley(":laugh:","kitty_laugh.png"); $bbcode->AddSmiley(":crylaugh:","kitty_laugh.png");
 $bbcode->AddSmiley(":sad:","kitty_sad.png");
 $bbcode->AddSmiley(":cry:","kitty_cry.png"); $bbcode->AddSmiley(":crying:","kitty_cry.png");
 $bbcode->AddSmiley(":hearteyes:","kitty_heart_eyes.png"); $bbcode->AddSmiley(":heart_eyes:","kitty_heart_eyes.png");
 $bbcode->AddSmiley(":cool:","kitty_cool.png"); $bbcode->AddSmiley(":sunglasses:","kitty_sunglasses.png");
 
+// worms
 $bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");
 $bbcode->AddSmiley(":pretzel:","worm_orange.png"); $bbcode->AddSmiley(":Pretzel:","worm_orange.png");
 $bbcode->AddSmiley(":stringcheese:","worm_yellow.png"); $bbcode->AddSmiley(":StringCheese:","worm_yellow.png"); $bbcode->AddSmiley(":string_cheese:","worm_yellow.png"); $bbcode->AddSmiley(":string-cheese:","worm_yellow.png");
@@ -66,7 +75,7 @@ $bbcode->AddSmiley(":microplasticstail:","long_worm_purple_1.png"); $bbcode->Add
 $bbcode->SetDetectURLs(true);
 $bbcode->SetURLPattern('<a href="/url?redirect={$url/h}">{$text/h}</a>');
 
-// remove default rules I don't want included in chat messages
+// custom rules for alt text and emoticons
 $bbcode->AddRule('alt',[
 		'mode' => BBCode::BBCODE_MODE_ENHANCED,
 		'template' => '<span class="tq" data-a="{$_default}">{$_content}</span>',
