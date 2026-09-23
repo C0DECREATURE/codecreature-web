@@ -22,10 +22,10 @@
 }
 
 .bbcode_smiley {
-	max-height: 1em;
-	margin: 0 -.1em -.1em -.1em;
+	max-height: 1.15em;
+	margin: 0 -.1em -.2em -.25em;
 }
-img + .bbcode_smiley { margin-left: 0; }
+.bbcode_smiley:first-child, img + .bbcode_smiley, br + .bbcode_smiley { margin-left: 0; }
 .bbcode_smiley:has(+ img) { margin-right: 0; }
 
 .bbcode_list { margin: 0; }

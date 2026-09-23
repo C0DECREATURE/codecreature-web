@@ -88,7 +88,11 @@ while ($message = mysqli_fetch_array($result)) {
 		<div class="bubble">
 			<header>
 				<a class="username" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?>
-					target="_top"><?php echo $message_user['username']; ?></a>
+					target="_top">
+						<span<?php echo ctype_lower($message_user['username']) ? " class='lowercase'" : ""; ?>>
+							<?php echo $message_user['username']; ?>
+						</span>
+				</a>
 				<?php
 				$pronouns = $message_user["pronouns"];
 				if (!empty($pronouns)) { ?>

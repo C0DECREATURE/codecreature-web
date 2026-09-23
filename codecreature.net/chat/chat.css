@@ -288,6 +288,8 @@ body, html {
 	width: .85em;
 	aspect-ratio: 1;
 	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
 	margin-right: .1em;
 }}
 .message.admin, .message.moderator { .username:before { margin-right: .1em; }}
@@ -297,7 +299,9 @@ body, html {
 	font-weight: bold;
 	font-size: 1.25em;
 	color: var(--username);
+	display: flex;
 }
+.message .username .lowercase { margin-top: -.04em; }
 
 .message.pink { .username, .pronouns { color: var(--pink); }}
 .message.orange { .username, .pronouns { color: var(--d-orange); }}
