@@ -189,6 +189,8 @@ function replaceEmojis($str) {
 	$str = str_replace("⬅️",":left:",$str);
 	$str = str_replace("➡️",":right:",$str);
 	$str = str_replace("🗡️",":sword:",$str);
+	$str = str_replace("🎃",":jackolantern:",$str);
+	$str = str_replace("🎃️",":jackolantern:",$str); // these are separate...
 	return $str;
 }
 

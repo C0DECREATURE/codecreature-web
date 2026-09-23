@@ -26,6 +26,6 @@
 	margin: 0 -.1em -.2em -.25em;
 }
 .bbcode_smiley:first-child, img + .bbcode_smiley, br + .bbcode_smiley { margin-left: 0; }
-.bbcode_smiley:has(+ img) { margin-right: 0; }
+.bbcode_smiley:has(+ img) { margin-right: 0.05em; }
 
 .bbcode_list { margin: 0; }

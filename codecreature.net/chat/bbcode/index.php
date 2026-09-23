@@ -183,16 +183,12 @@
 						$emojis = [
 							[ // kitty emojis
 								[":happy: or :smile:","kitty_happy.svg"],
-								[":bigsmile:","kitty_big_smile.svg"],
+								[":bigsmile: or :grin:","kitty_big_smile.svg"],
 								[":laugh:","kitty_laugh.svg"],
 								[":hearteyes:","kitty_heart_eyes.svg"],
 								[":cool: or :sunglasses:","kitty_cool.svg"],
 								[":sad:","kitty_sad.svg"],
 								[":cry:","kitty_cry.svg"],
-							],
-							[ // objects
-								[":star:","star.svg"],
-								[":sword:","sword.svg"],
 							],
 							[ // hearts
 								[":heart:","heart.svg"],
@@ -205,6 +201,11 @@
 								[":purpleheart:","heart_purple.svg"],
 								[":blackheart:","heart_black.svg"],
 								[":whiteheart:","heart_white.svg"],
+							],
+							[ // objects
+								[":star:","star.svg"],
+								[":sword:","sword.svg"],
+								[":jackolantern: or :pumpkin:","jack_o_lantern.svg"],
 							],
 							[ // arrows
 								[":up:","arrow_up.svg"],

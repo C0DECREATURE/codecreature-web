@@ -1,0 +1,32 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient4">
+   <stop stop-color="#ff8e00" offset="0"/>
+   <stop stop-color="#f95200" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2">
+   <stop stop-color="#f95200" offset="0"/>
+   <stop stop-color="#c1025c" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient3" x1="3.546" x2="3.546" y1="1.2649" y2="8.3569" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2"/>
+  <linearGradient id="linearGradient5" x1="3.546" x2="3.546" y1="1.2649" y2="8.3569" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient4"/>
+  <linearGradient id="linearGradient8" x1="3.546" x2="3.546" y1="1.2649" y2="8.3569" gradientTransform="matrix(1 0 0 .99061 .24101 .032355)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient2"/>
+  <linearGradient id="linearGradient14" x1="5.5222" x2="3.5844" y1="1.3608" y2="1.4301" gradientTransform="rotate(-49.945 4.3208 1.667)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00c93e" stop-opacity=".98039" offset="0"/>
+   <stop stop-color="#008e40" offset=".7"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <g transform="matrix(1 0 0 1.0135 0 -.10736)" stroke-miterlimit="7" stroke-width=".99333">
+   <path d="m4.2333 2.0047c-0.53224 0-0.92552 0.11474-0.92552 0.11474-0.45724-0.68381-0.91003-1.2072-1.3154-1.0721-0.40534 0.13515-0.70456 0.7317-0.86504 1.865-0.48487 0.44672-0.73057 1.0859-0.73053 2.0899 0.046372 3.2319 2.2801 2.5353 2.2801 2.5353s0.68483 0.43311 1.5564 0.43332m0-5.9662c0.53224 0 0.92552 0.11474 0.92552 0.11474 0.45724-0.68381 0.91003-1.2072 1.3154-1.0721 0.40534 0.13515 0.70456 0.7317 0.86504 1.865 0.48487 0.44672 0.73057 1.0859 0.73053 2.0899-0.046372 3.2319-2.2801 2.5353-2.2801 2.5353s-0.68483 0.43311-1.5564 0.43332" fill="url(#linearGradient5)" fill-opacity=".98039" stroke="url(#linearGradient3)" stroke-linecap="round" stroke-miterlimit="7" stroke-width=".78846" style="paint-order:fill markers stroke"/>
+   <path d="m3.0233 7.4956s-1.1167-0.91131-1.1167-2.6975c0-0.89964 0.81647-2.1202 1.3009-2.4355m2.2357 5.133s1.1167-0.91131 1.1167-2.6975c0-0.89964-0.81647-2.1202-1.3009-2.4355" fill="none" stroke="url(#linearGradient8)" stroke-linecap="round" stroke-miterlimit="7" stroke-width=".39423" style="paint-order:fill markers stroke"/>
+   <g fill="#90002c">
+    <path d="m1.2896 4.6024c-0.22418-0.88877 0.77044-1.7489 1.0013-1.7206 0.56398 0.069205 1.4732 1.2495 0.77746 1.257-1.458 0.015639-1.6605 0.93278-1.7788 0.46359zm5.8874 0c0.22418-0.88877-0.77044-1.7489-1.0013-1.7206-0.56398 0.069205-1.4732 1.2495-0.77746 1.257 1.458 0.015639 1.6605 0.93278 1.7788 0.46359z" style="paint-order:fill markers stroke"/>
+    <path d="m4.2333 4.4375s-0.1978 1.0464-1.1904 0.7239c-0.12786 0.46039-0.50958 0.827-0.50958 0.827-0.2609-0.1889-0.40699-0.63029-0.4148-0.98167 0 0-0.70633-0.12261-0.75059 0.1248-0.045341 0.25345 0.36816 1.3143 1.2037 1.498 0.15519-0.32857 0.47839-0.54521 0.68598-0.6806l0.15075 0.84079s0.41858 0.14496 0.82496 0.14496m0-2.4972s0.1978 1.0464 1.1904 0.7239c0.12786 0.46039 0.50958 0.827 0.50958 0.827 0.2609-0.1889 0.40699-0.63029 0.4148-0.98167 0 0 0.70633-0.12261 0.75059 0.1248 0.045341 0.25345-0.36816 1.3143-1.2037 1.498-0.15519-0.32857-0.47839-0.54521-0.68598-0.6806l-0.15075 0.84079s-0.41858 0.14496-0.82496 0.14496" style="paint-order:fill markers stroke"/>
+    <path d="m4.2333 4.7303c-0.53747-0.13109-0.67046-0.60304-0.61681-0.80325 0.040105-0.14967 0.61681 0.12462 0.61681 0.12462m0 0.67863c0.53747-0.13109 0.67046-0.60304 0.61681-0.80325-0.040105-0.14967-0.61681 0.12462-0.61681 0.12462" style="paint-order:fill markers stroke"/>
+   </g>
+  </g>
+  <path d="m5.2765 0.32008c-1.6509-0.15062-1.5743 0.82497-1.5682 1.416 0.50258 0.24535 1.1431 0.10908 1.226-1.113e-4 0.14203-0.18711-0.42997-0.53547 0.34217-1.4159z" fill="url(#linearGradient14)" fill-opacity=".98039" stroke="#008e40" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" stroke-width=".60854" style="paint-order:fill markers stroke"/>
+ </g>
+</svg>

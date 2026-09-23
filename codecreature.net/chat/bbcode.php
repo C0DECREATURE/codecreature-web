@@ -17,6 +17,7 @@ $bbcode->AddSmiley(":star:","star.svg");
 
 // items
 $bbcode->AddSmiley(":sword:","sword.svg"); $bbcode->AddSmiley(":knife:","sword.svg"); $bbcode->AddSmiley(":dagger:","sword.svg");
+$bbcode->AddSmiley(":jackolantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":jack-o-lantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":pumpkin:","jack_o_lantern.svg");
 
 // hearts
 $bbcode->AddSmiley(":heart:","heart.svg"); $bbcode->AddSmiley(":pinkheart:","heart.svg"); $bbcode->AddSmiley(":pink-heart:","heart.svg");
@@ -32,7 +33,7 @@ $bbcode->AddSmiley(":whiteheart:","heart_white.svg"); $bbcode->AddSmiley(":white
 
 // kitty faces
 $bbcode->AddSmiley(":smile:","kitty_happy.svg"); $bbcode->AddSmiley(":happy:","kitty_happy.svg"); $bbcode->AddSmiley(":smiley:","kitty_happy.svg");
-$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.png");
+$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.png"); $bbcode->AddSmiley(":grin:","kitty_big_smile.png");
 $bbcode->AddSmiley(":laugh:","kitty_laugh.svg"); $bbcode->AddSmiley(":crylaugh:","kitty_laugh.svg");
 $bbcode->AddSmiley(":sad:","kitty_sad.svg");
 $bbcode->AddSmiley(":cry:","kitty_cry.svg"); $bbcode->AddSmiley(":crying:","kitty_cry.svg");
