@@ -2,7 +2,7 @@
 	--white: #FFFFFF;
 	--black: #0C0022;
 	--orange: #FF8E00;
-	--d-orange: rgb(249, 82, 0);
+	--d-orange: rgb(249, 82, 0); /* #f95200 */
 	--yellow: #ffe612;
 	--l-green: #E7FF43;
 	--l-green-rgb: 232, 255, 66;
@@ -16,7 +16,7 @@
 	--d-blue: #4F3DFC;
 	--d-blue-rgb: 79, 61, 252;
 	--dd-blue: #5911B4;
-	--ll-pink: rgb(255,189,226);
+	--ll-pink: rgb(255,189,226); /* #ffbde2 */
 	--l-pink: #FF84C8;
 	--pink: #f95ea3;
 	--d-pink: #bb009f;
@@ -25,8 +25,8 @@
 	--l-purple: #d289f6;
 	--m-purple: #9d55d0;
 	--purple: #BB68E1;
-	--d-purple: rgb(62,0,111);
-	--dd-purple: rgb(36,0,77);	
+	--d-purple: rgb(62,0,111); /* #3e006f */
+	--dd-purple: rgb(36,0,77); /* #24004d */
 }
 
 body {
