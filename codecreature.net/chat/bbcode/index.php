@@ -178,62 +178,90 @@
 					<div class="format">:name:</div>
 					<div class="description">
 						type a supported emoji name to insert it!
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_happy.png" alt=""> :happy: or :smile:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_big_smile.png" alt=""> :bigsmile:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_laugh.png" alt=""> :laugh:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_heart_eyes.png" alt=""> :hearteyes:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_cool.png" alt=""> :cool: or :sunglasses:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_sad.png" alt=""> :sad:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/kitty_cry.png" alt=""> :cry:
 						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/star.png" alt=""> :star:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/sword.png" alt=""> :sword:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/heart.png" alt=""> :heart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/broken_heart.png" alt=""> :brokenheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_red.png" alt=""> :redheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_orange.png" alt=""> :orangeheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_yellow.png" alt=""> :yellowheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_green.png" alt=""> :greenheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_blue.png" alt=""> :blueheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_purple.png" alt=""> :purpleheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_black.png" alt=""> :blackheart:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/heart_white.png" alt=""> :whiteheart:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/arrow_up.png" alt=""> :up:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_down.png" alt=""> :down:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_left.png" alt=""> :left:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/arrow_right.png" alt=""> :right:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_pink.png" alt=""> :jeremy:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_pink_1.png" alt=""> :jeremytail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_pink_2.png" alt=""> :jeremybody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_pink_3.png" alt=""> :jeremyhead:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_orange.png" alt=""> :pretzel:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_orange_1.png" alt=""> :pretzeltail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_orange_2.png" alt=""> :pretzelbody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_orange_3.png" alt=""> :pretzelhead:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_yellow.png" alt=""> :stringcheese:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_yellow_1.png" alt=""> :stringcheesetail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_yellow_2.png" alt=""> :stringcheesebody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_yellow_3.png" alt=""> :stringcheesehead:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_green.png" alt=""> :matilda:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_green_1.png" alt=""> :matildatail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_green_2.png" alt=""> :matildabody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_green_3.png" alt=""> :matildahead:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_blue.png" alt=""> :poolnoodle:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_blue_1.png" alt=""> :poolnoodletail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_blue_2.png" alt=""> :poolnoodlebody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_blue_3.png" alt=""> :poolnoodlehead:
-						<hr>
-						<img class="bbcode_smiley" src="/graphix/emojis/worm_purple.png" alt=""> :microplastics:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_purple_1.png" alt=""> :microplasticstail:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_purple_2.png" alt=""> :microplasticsbody:
-						<br><img class="bbcode_smiley" src="/graphix/emojis/long_worm_purple_3.png" alt=""> :microplasticshead:
+						<?php
+						$emojis = [
+							[ // kitty emojis
+								[":happy: or :smile:","kitty_happy.svg"],
+								[":bigsmile:","kitty_big_smile.svg"],
+								[":laugh:","kitty_laugh.svg"],
+								[":hearteyes:","kitty_heart_eyes.svg"],
+								[":cool: or :sunglasses:","kitty_cool.svg"],
+								[":sad:","kitty_sad.svg"],
+								[":cry:","kitty_cry.svg"],
+							],
+							[ // objects
+								[":star:","star.svg"],
+								[":sword:","sword.svg"],
+							],
+							[ // hearts
+								[":heart:","heart.svg"],
+								[":brokenheart:","broken_heart.svg"],
+								[":redheart:","heart_red.svg"],
+								[":orangeheart:","heart_orange.svg"],
+								[":yellowheart:","heart_yellow.svg"],
+								[":greenheart:","heart_green.svg"],
+								[":blueheart:","heart_blue.svg"],
+								[":purpleheart:","heart_purple.svg"],
+								[":blackheart:","heart_black.svg"],
+								[":whiteheart:","heart_white.svg"],
+							],
+							[ // arrows
+								[":up:","arrow_up.svg"],
+								[":down:","arrow_down.svg"],
+								[":left:","arrow_left.svg"],
+								[":right:","arrow_right.svg"],
+							],
+							[ // jeremy
+								[":jeremy:","worm_pink.png"],
+								[":jeremytail:","long_worm_pink_1.png"],
+								[":jeremybody:","long_worm_pink_2.png"],
+								[":jeremyhead:","long_worm_pink_3.png"],
+							],
+							[ // pretzel
+								[":pretzel:","worm_orange.png"],
+								[":pretzeltail:","long_worm_orange_1.png"],
+								[":pretzelbody:","long_worm_orange_2.png"],
+								[":pretzelhead:","long_worm_orange_3.png"],
+							],
+							[ // string cheese
+								[":stringcheese:","worm_yellow.png"],
+								[":stringcheesetail:","long_worm_yellow_1.png"],
+								[":stringcheesebody:","long_worm_yellow_2.png"],
+								[":stringcheesehead:","long_worm_yellow_3.png"],
+							],
+							[ // matilda
+								[":matilda:","worm_green.png"],
+								[":matildatail:","long_worm_green_1.png"],
+								[":matildabody:","long_worm_green_2.png"],
+								[":matildahead:","long_worm_green_3.png"],
+							],
+							[ // pool noodle
+								[":poolnoodle:","worm_blue.png"],
+								[":poolnoodletail:","long_worm_blue_1.png"],
+								[":poolnoodlebody:","long_worm_blue_2.png"],
+								[":poolnoodlehead:","long_worm_blue_3.png"],
+							],
+							[ // microplastics
+								[":microplastics:","worm_purple.png"],
+								[":microplasticstail:","long_worm_purple_1.png"],
+								[":microplasticsbody:","long_worm_purple_2.png"],
+								[":microplasticshead:","long_worm_purple_3.png"],
+							],
+						];
+						for ($i = 0; $i < count($emojis); $i++) {
+							for ($j = 0; $j < count($emojis[$i]); $j++) {
+								$e = $emojis[$i][$j];
+								$code = $e[0];
+								$img = "/graphix/emojis/".$e[1];
+								if ($j != 0) { ?><br><?php }
+								?>
+								<img class="bbcode_smiley" src="<?php echo $img; ?>" alt=""> <?php echo $code; ?>
+								<?php
+							}
+							if ($i != count($emojis) - 1) { ?><hr><?php }
+						}
+						?>
 					</div>
 				</div>
 			</section>

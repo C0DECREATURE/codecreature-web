@@ -21,9 +21,8 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-if (!empty($_SESSION["id"]) && ($_SESSION["user_authorization"] == "admin" || $_SESSION["user_authorization"] == "mod")) {
+if (!empty($_SESSION["id"]) && ($_SESSION["user_authorization"] == "admin" || $_SESSION["user_authorization"] == "mod") && !empty($_GET["preview"])) {
 	$mailboxOpen = true;
-	$testMode = true;
 }
 $nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
 
@@ -37,28 +36,30 @@ $self_relationships = [];
 
 $relationship_types = [
 	"love" => [
-		"display_name" => "romantic love",
+		"display_name" => "romantic",
 		"letter_name" => "Valentine",
 		"mutual" => "worm1 and worm2 are in love!",
-		"one-sided" => "worm1 has an unrequited crush on worm2!",
+		"one-sided" => "worm1 has a crush on worm2!",
 		"self" => "worm1 is in love with themself!",
-		"icon" => "heart.png",
+		"icon" => "heart.svg",
 	],
+	/*
 	"queerplatonic" => [
-		"display_name" => "queerplatonic love",
+		"display_name" => "queerplatonic",
 		"letter_name" => "declaration of queerplatonic affection",
 		"mutual" => "worm1 and worm2 are in a QPR!",
 		"one-sided" => "worm1 wants to be QPPs with worm2!",
 		"self" => "worm1 is in a queerplatonic relationship with themself!",
-		"icon" => "heart_green.png",
+		"icon" => "heart_green.svg",
 	],
+	*/
 	"friend" => [
 		"display_name" => "friendship",
 		"letter_name" => "PALentine",
 		"mutual" => "worm1 and worm2 are friends!",
 		"one-sided" => "worm1 wants to be friends with worm2!",
 		"self" => "worm1 is their own best friend!",
-		"icon" => "star.png",
+		"icon" => "star.svg",
 	],
 	"hate" => [
 		"display_name" => "hatred",
@@ -66,33 +67,39 @@ $relationship_types = [
 		"mutual" => "worm1 and worm2 hate each other!",
 		"one-sided" => "worm1 hates worm2!",
 		"self" => "worm1 hates themself!",
-		"icon" => "broken_heart.png",
+		"icon" => "broken_heart.svg",
 	],
+	/*
 	"rival" => [
 		"display_name" => "rivalry",
 		"letter_name" => "RIVALentine",
 		"mutual" => "worm1 and worm2 are rivals!",
 		"one-sided" => "worm1 wants to be worm2's rival!",
 		"self" => "worm1 is their own biggest competition!",
-		"icon" => "sword.png",
+		"icon" => "sword.svg",
 	],
+	*/
 	"business" => [
 		"display_name" => "business",
 		"letter_name" => "business proposal",
-		"mutual" => "worm1 and worm2 are doing business together!",
+		"mutual" => "worm1 and worm2 are business partners!",
 		"one-sided" => "worm1 wants to do business with worm2!",
 		"self" => "worm1 is self-employed!",
-		"icon" => "kitty_cool.png",
+		"icon" => "kitty_cool.svg",
 	],
+	/*
 	"neutral" => [
 		"display_name" => "apathy",
 		"letter_name" => "boring letter",
 		"mutual" => "worm1 and worm2 feel nothing about each other!",
 		"one-sided" => "worm1 feels nothing about worm2!",
 		"self" => "worm1 feels nothing about themself!",
-		"icon" => "",
+		"icon" => "heart_white.svg",
 	],
+	*/
 ];
+
+$mail_received = [];
 
 $sql = "SELECT * FROM relationships;";
 if ( $result = mysqli_query($worm_conn,$sql) ) {
@@ -200,4 +207,32 @@ function getMailLogData() {
 	}
 }
 
+// log counts of mail sent this year, if needed close mailbox and update relationships
+function countMail() {
+	global $worm_conn; global $worms; global $relationship_types; global $mail_received;
+	
+	foreach ($worms as $w) {
+		$mail_received[$w["id"]] = [];
+		foreach ($relationship_types as $rName => $r) {
+			$mail_received[$w["id"]][$rName] = 0;
+		}
+	}
+	// get all rows
+	$sql = "SELECT * FROM valentines_letters";
+	if ( $result = mysqli_query($worm_conn,$sql) ) {
+		// go through each row, assign to variables
+		while($row = mysqli_fetch_object($result)) {
+			$row = get_object_vars($row);
+			
+			$sender = substr($row["pairing"],0,1);
+			$recipient = substr($row["pairing"],-1);
+			
+			foreach ($row as $type => $count) {
+				if (array_key_exists($type,$relationship_types)) $mail_received[$recipient][$type] += $count;
+			}
+		}
+	}
+}
+
+countMail();
 ?>

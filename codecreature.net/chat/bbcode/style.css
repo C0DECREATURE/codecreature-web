@@ -88,3 +88,8 @@ main {
 	border-radius: 50%;
 	margin: .1em 0;
 }
+
+.bbcode_smiley {
+	max-height: 1.25em;
+	margin-bottom: -.25em;
+}

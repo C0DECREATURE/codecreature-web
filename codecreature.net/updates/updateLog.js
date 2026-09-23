@@ -227,7 +227,7 @@ const updateLog = [
 			<a href="/games/worm-race">worm race</a> award adjustments, poison effect increase
 		`,
 		details: `
-			<p>Poison now does -50 progress on worms with zero health, equivalent to one Battery Juice at full health. Hate is as strong as love <img src="/graphix/emojis/broken_heart.png" class="mini no-full-view" alt="broken heart"></p>
+			<p>Poison now does -50 progress on worms with zero health, equivalent to one Battery Juice at full health. Hate is as strong as love <img src="/graphix/emojis/broken_heart.svg" class="mini no-full-view" alt="broken heart"></p>
 			<figure>
 				<img src="/games/worm-race/images/awards/award_reigning_champion.png" alt="Round gold crown stamp in red and yellow.">
 				<img src="/games/worm-race/images/awards/award_sprint_master.png" alt="Round arrow award in green and white.">

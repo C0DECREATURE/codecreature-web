@@ -1,0 +1,13 @@
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient6" x1="9.1801" x2="9.1801" y1="8.9211" y2="37.763" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ffe612" offset=".43747"/>
+   <stop stop-color="#ffac1b" offset=".79292"/>
+  </linearGradient>
+  <linearGradient id="linearGradient8" x1="9.1801" x2="9.1801" y1="8.9211" y2="37.763" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#FF8E00" offset=".33"/>
+   <stop stop-color="#f95200" offset=".67"/>
+  </linearGradient>
+ </defs>
+ <path transform="matrix(1.1097 0 0 1.1097 5.8067 -10.783)" d="m9.2051 11.561c-1.333-0.097777-3.5669 4.1602-4.709 6.543-0.94022 0.13314-2.1412 0.32451-3.3086 0.57617-2.0349 0.43431-3.9767 1.0413-4.293 1.8164-0.50492 1.2376 2.8543 4.6794 4.7676 6.502-0.16391 0.93534-0.35271 2.135-0.47461 3.3223-0.21571 2.0693-0.23701 4.1043 0.40234 4.6445 1.021 0.86264 5.3317-1.267 7.6563-2.5234 0.83831 0.44461 1.9217 0.99153 3.0156 1.4785 1.9008 0.8442 3.8299 1.4918 4.541 1.0508 1.1359-0.70444 0.43949-5.4615-0.03711-8.0605 0.68239-0.66036 1.5406-1.5208 2.3379-2.4102 1.391-1.5474 2.604-3.1812 2.4043-3.9941-0.31894-1.298-5.0586-2.1072-7.6777-2.457-0.41697-0.85265-0.97182-1.9343-1.5703-2.9688-1.0417-1.8005-2.2201-3.4583-3.0547-3.5195z" fill="url(#linearGradient6)" stroke="url(#linearGradient8)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" stroke-width="2.7034" style="paint-order:fill markers stroke"/>
+</svg>

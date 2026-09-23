@@ -51,9 +51,6 @@ require_once "functions.php";
 			
 			<main id="content">
 				<div class="main">
-				
-					<?php if (isset($testMode) && $testMode) { ?><div class="developer"><h2>welcome to moderator test mode!</h2></div><?php } ?>
-					
 					<section id="mail" class="<?php echo $mailboxOpen ? "" : "hidden" ?>">
 						<div id="letter-display">
 							<img class="type" src="" alt="">
@@ -64,7 +61,7 @@ require_once "functions.php";
 								let lDisplay = document.getElementById("letter-display");
 								let lFrom = "";
 								let lTo = "";
-								let lType = "love";
+								let lType = "";
 								function updateLetter(params) {
 									if (params.to) lTo = params.to.replaceAll(' ','_');
 									if (params.from) lFrom = params.from.replaceAll(' ','_');
@@ -148,9 +145,10 @@ require_once "functions.php";
 										// handle response
 										.then(data => {
 											if (data.sent) {
-												// reset form
-												form.reset();
-												document.getElementById('form-response').innerHTML = `Sent a ${data.type} from ${data.sender} to ${data.recipient}!`;
+												// show sent message
+												document.getElementById('form-response').innerHTML = `Sent a ${data.typeText} from ${data.sender} to ${data.recipient}!`;
+												// update inbox count
+												document.getElementById(`${data.recipient}-${data.type}-count`).innerHTML = data.newCount;
 											} else if (data.error) { 
 												document.getElementById('form-response').innerHTML = data.error; 											
 											} else {
@@ -167,16 +165,82 @@ require_once "functions.php";
 						<!-- end form section -->
 					</section>
 					
-					<section id="info">
-						<header>mailboxes open <?php echo $nextOpen ?></header>
-						<p>there are two things all worms take seriously: <strong>COMPETITION</strong> and <strong>MAIL</strong>.</p>
-						<p>every february, worms send each other letters to determine what relationships they will have for the next year. worms are also very forgetful and indecisive, so they figure out their own feelings based on what kind of letter they sent the most. they even use letters to discover how they feel about themselves!</p>
-						<p>you, their loving/hating fans, are invited send mail on their behalf to help them choose. they make their decision at <strong>9:00am EST</strong> on <strong>february 14th</strong>.</p>
+					<div id="middle">
+						<section id="inbox" class="<?php echo $mailboxOpen ? "" : "hidden" ?>">
+							<?php
+								foreach ($mail_received as $id => $arr) {
+									$w = $worms[$id];
+									?>
+									<div class='box' style="background-color:var(--<?php echo $w["color_dark"]; ?>);">
+										<h4 class="title"><?php echo $w["name"]; ?></h4>
+										<?php foreach ($arr as $type => $count) { ?>
+											<div class="wrapper">
+												<img class="icon" src="<?php echo getRelationshipIcon($type); ?>" alt="<?php echo $type; ?>">
+												<br><span id="<?php echo $w["name"]; ?>-<?php echo $type; ?>-count" class="count"><?php echo $count; ?></span>
+											</div>
+										<?php } ?>
+									</div>
+								<?php
+								}
+							?>
+						</section>
 						
-						<p><strong>note:</strong> letters affect the sender's feelings <strong>more</strong> than the recipient's.</p>
-					</section>
+						<section id="info">
+							<header>mailboxes open <?php echo $nextOpen ?></header>
+							<p>there are two things all worms take seriously: <strong>COMPETITION</strong> and <strong>MAIL</strong>.</p>
+							<p>every february, worms send each other letters to determine what relationships they will have for the next year. worms are also very forgetful and indecisive, so they figure out their own feelings based on what kind of letter they sent the most. they even use letters to discover how they feel about themselves!</p>
+							<p>you, their loving/hating fans, are invited send mail on their behalf to help them choose. they make their decision at <strong>9:00am EST</strong> on <strong>february 14th</strong>.</p>
+							
+							<p><strong>note:</strong> letters affect the sender's feelings <strong>more</strong> than the recipient's.</p>
+						</section>
+					</div>
 					
 					<div id="current">
+						<section class="relationship-list">
+							<header><h2><?php echo $mailboxOpen ? "last year's" : "current" ?> status</h2></header>
+							<h3>mutual</h3>
+							<?php
+								// get the mutual relationships
+								if (count($mutual_relationships) > 0) { foreach ($mutual_relationships as $r) {
+									$icon = getRelationshipIcon($r[2]);
+									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
+									$img1 = getWormIcon($r[0]);
+									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
+									$img2 = getWormIcon($r[1]);
+									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["mutual"]));
+									echo "<img src='$img1' alt=''><img src='$icon' alt=''><img src='$img2' alt=''> $rText<br>";
+								} } else echo "none!";
+							?>
+							<h3>one-sided</h3>
+							<?php
+								// get the one-sided relationships
+								if (count($one_sided_relationships) > 0) { foreach ($one_sided_relationships as $r) {
+									$icon = getRelationshipIcon($r[2]);
+									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
+									$img1 = getWormIcon($r[0]);
+									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
+									$img2 = getWormIcon($r[1]);
+									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["one-sided"]));
+									$arrow = "<img src='/graphix/emojis/arrow_right.svg' alt=''>";
+									echo "<img src='$img1' alt=''><img src='$icon' alt=''>$arrow<img src='$img2' alt=''> $rText<br>";
+								} } else echo "none!";
+							?>
+							<h3>internal</h3>
+							<?php
+								// get the relationships with themselves
+								if (count($self_relationships) > 0) { foreach ($self_relationships as $r) {
+									$icon = getRelationshipIcon($r[2]);
+									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
+									$img1 = getWormIcon($r[0]);
+									$self_pronoun = $self_pronouns[array_rand($self_pronouns)];
+									$pos_pronoun = $possessive_pronouns[array_rand($possessive_pronouns)];
+									$rText = str_replace("worm1",$w1,str_replace("themself",$self_pronoun,str_replace("their",$pos_pronoun,$relationship_types[$r[2]]["self"])));
+									$arrow = "<img src='/graphix/emojis/arrow_right.svg' alt=''>";
+									echo "<img src='$img1' alt=''><img src='$icon' alt=''> $rText<br>";
+								} } else echo "none!";
+							?>
+						</section>
+						
 						<section class="ship-table"><table>
 							<tr>
 								<th></th>
@@ -209,51 +273,6 @@ require_once "functions.php";
 								}
 							?>
 						</table></section>
-						
-						<section class="relationship-list">
-							<header><h2>current status</h2></header>
-							<h3>mutual</h3>
-							<?php
-								// get the mutual relationships
-								if (count($mutual_relationships) > 0) { foreach ($mutual_relationships as $r) {
-									$icon = getRelationshipIcon($r[2]);
-									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
-									$img1 = getWormIcon($r[0]);
-									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
-									$img2 = getWormIcon($r[1]);
-									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["mutual"]));
-									echo "<img src='$img1' alt=''><img src='$icon' alt=''><img src='$img2' alt=''> $rText<br>";
-								} } else echo "none!";
-							?>
-							<h3>one-sided</h3>
-							<?php
-								// get the one-sided relationships
-								if (count($one_sided_relationships) > 0) { foreach ($one_sided_relationships as $r) {
-									$icon = getRelationshipIcon($r[2]);
-									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
-									$img1 = getWormIcon($r[0]);
-									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
-									$img2 = getWormIcon($r[1]);
-									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["one-sided"]));
-									$arrow = "<img src='/graphix/emojis/arrow_right.png' alt=''>";
-									echo "<img src='$img1' alt=''><img src='$icon' alt=''>$arrow<img src='$img2' alt=''> $rText<br>";
-								} } else echo "none!";
-							?>
-							<h3>internal</h3>
-							<?php
-								// get the relationships with themselves
-								if (count($self_relationships) > 0) { foreach ($self_relationships as $r) {
-									$icon = getRelationshipIcon($r[2]);
-									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
-									$img1 = getWormIcon($r[0]);
-									$self_pronoun = $self_pronouns[array_rand($self_pronouns)];
-									$pos_pronoun = $possessive_pronouns[array_rand($possessive_pronouns)];
-									$rText = str_replace("worm1",$w1,str_replace("themself",$self_pronoun,str_replace("their",$pos_pronoun,$relationship_types[$r[2]]["self"])));
-									$arrow = "<img src='/graphix/emojis/arrow_right.png' alt=''>";
-									echo "<img src='$img1' alt=''><img src='$icon' alt=''> $rText<br>";
-								} } else echo "none!";
-							?>
-						</section>
 					</div>
 					<!-- end current -->
 					

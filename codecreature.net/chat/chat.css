@@ -280,8 +280,8 @@ body, html {
 .message.admin .bubble { border: 4px var(--admin-border) solid; }
 .message.moderator .username { color: var(--mod); }
 .message.moderator .bubble { border: 4px var(--mod-border) solid; }
-.message.admin { .username:before, .username:after { background: url('/graphix/emojis/star.png'); }}
-.message.moderator { .username:before, .username:after { background: url('/graphix/emojis/heart.png'); }}
+.message.admin { .username:before, .username:after { background: url('/graphix/emojis/star.svg'); }}
+.message.moderator { .username:before, .username:after { background: url('/graphix/emojis/heart.svg'); }}
 .message.admin, .message.moderator { .username:before, .username:after {
 	content: '';
 	display: inline-block;

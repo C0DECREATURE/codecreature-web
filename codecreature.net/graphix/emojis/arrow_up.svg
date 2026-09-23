@@ -1,0 +1,19 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient7" x1="203.86" x2="172.82" y1="156.68" y2="156.68" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00b03f" offset=".3313"/>
+   <stop stop-color="#008e40" offset=".69313"/>
+  </linearGradient>
+  <linearGradient id="linearGradient9" x1="202.37" x2="174.32" y1="156.68" y2="156.68" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#e7ff43" offset=".33"/>
+   <stop stop-color="#8df01f" offset=".67"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-171.88 -140.4)">
+  <g transform="rotate(-90 187.72 156.53)">
+   <path d="m174.32 156.68v6.1271l11.858-0.0479 0.12784 8.4155 16.064-14.495m-28.049-3e-3v-6.1271l11.858 0.0479 0.12784-8.4155 16.064 14.495" fill="url(#linearGradient9)" style="paint-order:fill markers stroke"/>
+   <path d="m185.71 140.81c-0.53913 0.23507-0.89116 0.7635-0.90039 1.3516l-0.10547 6.9336-10.375-0.043c-0.83068-3e-3 -1.5058 0.66931-1.5059 1.5v12.258c8e-5 0.83069 0.67518 1.5032 1.5059 1.5l10.375-0.041 0.10547 6.9316c0.0197 1.288 1.5467 1.9539 2.5039 1.0918l16.064-14.496s0.48761-0.38223 0.48232-1.1153c-5e-3 -0.71773-0.48246-1.1153-0.48246-1.1153l-16.064-14.494c-0.43691-0.39419-1.0639-0.49653-1.6035-0.26172zm2.0488 4.7031 12.377 11.168-12.377 11.168v-6.5449h-11.936v-9.2462h11.936z" fill="url(#linearGradient7)" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+</svg>
