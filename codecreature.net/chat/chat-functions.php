@@ -159,19 +159,36 @@ function cleanMessageText($str) {
 
 function replaceEmojis($str) {
 	$str = str_replace("🙂",":smile:",$str);
+	$str = str_replace("😺",":smile:",$str);
+	$str = str_replace("😄",":bigsmile:",$str);
+	$str = str_replace("😁",":bigsmile:",$str);
+	$str = str_replace("😸",":bigsmile:",$str);
+	$str = str_replace("😂",":laugh:",$str);
+	$str = str_replace("😹",":laugh:",$str);
 	$str = str_replace("🙁",":sad:",$str);
 	$str = str_replace("☹️",":sad:",$str);
 	$str = str_replace("😭",":cry:",$str);
+	$str = str_replace("😿",":cry:",$str);
 	$str = str_replace("😎",":cool:",$str);
 	$str = str_replace("😍",":hearteyes:",$str);
 	$str = str_replace("😻",":hearteyes:",$str);
 	$str = str_replace("⭐️",":star:",$str);
 	$str = str_replace("🩷",":heart:",$str);
+	$str = str_replace("❤️",":redheart:",$str);
+	$str = str_replace("🧡",":orangeheart:",$str);
+	$str = str_replace("💛",":yellowheart:",$str);
+	$str = str_replace("💚",":greenheart:",$str);
+	$str = str_replace("💙",":blueheart:",$str);
+	$str = str_replace("🩵",":blueheart:",$str);
+	$str = str_replace("💜",":purpleheart:",$str);
+	$str = str_replace("🤍",":whiteheart:",$str);
+	$str = str_replace("🖤",":blackheart:",$str);
 	$str = str_replace("💔",":brokenheart:",$str);
 	$str = str_replace("⬆️",":up:",$str);
 	$str = str_replace("⬇️",":down:",$str);
 	$str = str_replace("⬅️",":left:",$str);
 	$str = str_replace("➡️",":right:",$str);
+	$str = str_replace("🗡️",":sword:",$str);
 	return $str;
 }
 
