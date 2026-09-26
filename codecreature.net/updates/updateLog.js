@@ -26,6 +26,47 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-09-26T05:41'),
+		authors: ['emery'],
+		tags: ['chat'],
+		summary: `
+			fresh vector <a href="/chat/bbcode#emoji">emojis</a>
+		`,
+		details: `
+			<p>bunch of new <a href="/chat/bbcode#emoji">emojis</a> added over the last week! also vectorized most of the existing ones.</p>
+			<p>
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_happy.svg" alt="smiling kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_big_smile.svg" alt="grinning kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_laugh.svg" alt="laughing kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_heart_eyes.svg" alt="heart eyes kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_sad.svg" alt="sad kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_cry.svg" alt="crying kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/kitty_cool.svg" alt="sunglasses kitty">
+				<br>
+				<img class="mini no-full-view" src="/graphix/emojis/dp_happy.svg" alt="orange and green smiling kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/dp_big_smile.svg" alt="orange and green grinning kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/dp_laugh.svg" alt="orange and green laughing kitty">
+				<img class="mini no-full-view" src="/graphix/emojis/dp_cool.svg" alt="orange and green sunglasses kitty">
+				<br>
+				<img class="mini no-full-view" src="/graphix/emojis/heart_red.svg" alt="red heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_orange.svg" alt="orange heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_yellow.svg" alt="yellow heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_green.svg" alt="green heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_blue.svg" alt="blue heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_purple.svg" alt="purple heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_black.svg" alt="black heart">
+				<img class="mini no-full-view" src="/graphix/emojis/heart_white.svg" alt="white heart">
+				<br>
+				<img class="mini no-full-view" src="/graphix/emojis/apple.svg" alt="apple">
+				<img class="mini no-full-view" src="/graphix/emojis/poison.svg" alt="poison">
+				<img class="mini no-full-view" src="/graphix/emojis/ghost.svg" alt="poison">
+				<img class="mini no-full-view" src="/graphix/emojis/jack_o_lantern.svg" alt="jack-o-lantern">
+				<br>
+				<img class="mini no-full-view" src="/graphix/emojis/nepeta.svg" alt="nepeta leijon from homestuck">
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-09-21T00:17'),
 		authors: ['emery','prax'],
 		tags: ['games','worm race'],
