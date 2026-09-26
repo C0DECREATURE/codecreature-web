@@ -49,6 +49,12 @@ $bbcode->AddSmiley(":dpbigsmile:","dp_big_smile.svg"); $bbcode->AddSmiley(":big_
 $bbcode->AddSmiley(":dplaugh:","dp_laugh.svg"); $bbcode->AddSmiley(":dpcrylaugh:","dp_laugh.svg");
 $bbcode->AddSmiley(":dpcool:","dp_cool.svg"); $bbcode->AddSmiley(":dpsunglasses:","dp_cool.svg");
 
+// animals
+$bbcode->AddSmiley(":redpanda:","red_panda.svg"); $bbcode->AddSmiley(":red_panda:","red_panda.svg"); $bbcode->AddSmiley(":red-panda:","red_panda.svg");
+
+// ocs
+$bbcode->AddSmiley(":junk:","junk.svg");
+
 // nepeta
 $bbcode->AddSmiley(":nepeta:","nepeta.svg"); $bbcode->AddSmiley(":nepetasmile:","nepeta.svg"); $bbcode->AddSmiley(":nepetahappy:","nepeta.svg");
 

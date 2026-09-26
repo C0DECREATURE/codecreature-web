@@ -208,6 +208,9 @@
 								[":blackheart:","heart_black.svg"],
 								[":whiteheart:","heart_white.svg"],
 							],
+							[ // animals
+								[":redpanda:","red_panda.svg"],
+							],
 							[ // objects
 								[":star:","star.svg"],
 								[":apple:","apple.svg"],
@@ -258,8 +261,9 @@
 								[":microplasticsbody:","long_worm_purple_2.png"],
 								[":microplasticshead:","long_worm_purple_3.png"],
 							],
-							[ // homestuck emojis
+							[ // characters
 								[":nepeta:","nepeta.svg"],
+								[":junk:","junk.svg"],
 							],
 						];
 						for ($i = 0; $i < count($emojis); $i++) {

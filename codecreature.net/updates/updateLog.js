@@ -62,7 +62,9 @@ const updateLog = [
 				<img class="mini no-full-view" src="/graphix/emojis/ghost.svg" alt="poison">
 				<img class="mini no-full-view" src="/graphix/emojis/jack_o_lantern.svg" alt="jack-o-lantern">
 				<br>
+				<img class="mini no-full-view" src="/graphix/emojis/red_panda.svg" alt="smiling red panda">
 				<img class="mini no-full-view" src="/graphix/emojis/nepeta.svg" alt="nepeta leijon from homestuck">
+				<img class="mini no-full-view" src="/graphix/emojis/junk.svg" alt="green and brown racoon dingo OC">
 			</p>
 		`
 	},
