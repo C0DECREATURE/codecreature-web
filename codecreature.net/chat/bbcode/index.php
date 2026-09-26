@@ -204,7 +204,10 @@
 							],
 							[ // objects
 								[":star:","star.svg"],
+								[":apple:","apple.svg"],
+								//[":poison:","poison.svg"], // not totally pleased with this one yet
 								[":sword:","sword.svg"],
+								[":ghost:","ghost.svg"],
 								[":jackolantern: or :pumpkin:","jack_o_lantern.svg"],
 							],
 							[ // arrows

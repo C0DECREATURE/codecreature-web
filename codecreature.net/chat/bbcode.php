@@ -16,7 +16,10 @@ $bbcode->AddSmiley(":down:","arrow_down.svg");
 $bbcode->AddSmiley(":star:","star.svg");
 
 // items
+$bbcode->AddSmiley(":apple:","apple.svg"); $bbcode->AddSmiley(":goldenapple:","apple.svg");
+$bbcode->AddSmiley(":poison:","poison.svg");
 $bbcode->AddSmiley(":sword:","sword.svg"); $bbcode->AddSmiley(":knife:","sword.svg"); $bbcode->AddSmiley(":dagger:","sword.svg");
+$bbcode->AddSmiley(":ghost:","ghost.svg");
 $bbcode->AddSmiley(":jackolantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":jack-o-lantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":pumpkin:","jack_o_lantern.svg");
 
 // hearts

@@ -1,0 +1,27 @@
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient11" x1="3.9196" x2="28.924" y1="10.962" y2="28.47" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff5701" offset="0"/>
+   <stop stop-color="#f60455" offset=".22151"/>
+  </linearGradient>
+  <linearGradient id="linearGradient6" x1="7.8872" x2="24.956" y1="7.063" y2="32.369" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff8e00" offset=".36467"/>
+   <stop stop-color="#ffe612" offset=".87805"/>
+  </linearGradient>
+  <linearGradient id="linearGradient8" x1="14.45" x2="23.408" y1="11.317" y2="2.6661" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#94fb51" offset=".3056"/>
+   <stop stop-color="#ebff5a" offset="1"/>
+  </linearGradient>
+ </defs>
+ <path d="m20.723 8.9684c3.7855-0.34534 10.933 1.9104 9.2133 11.054-1.2145 6.4582-7.9033 10.477-10.436 10.477-2.2671 0-2.341-1-3.5-1-1.3211 0-1.4165 1-3.5 1-2.2617 0-7.7677-3.2565-9.5586-10.312-1.6059-6.3265 3.9971-12.613 9.4318-10.146" fill="url(#linearGradient6)" stroke="url(#linearGradient11)" stroke-linecap="round" stroke-miterlimit="2" stroke-width="3" style="paint-order:fill markers stroke"/>
+ <path d="m13.998 12.336c10.419-3.6434 11.158-10.227 11.158-10.227s-17.23-3.7712-11.158 10.227z" fill="url(#linearGradient8)" style="paint-order:fill markers stroke"/>
+ <g fill="none" stroke-linecap="round" stroke-miterlimit="2">
+  <path d="m16.633 9.3559c-0.15077-2.9103 1.9661-3.5254 1.9661-3.5254" stroke="#00d53f" stroke-linejoin="round" stroke-width="2.6" style="paint-order:fill markers stroke"/>
+  <g stroke-width="3">
+   <path d="m13.826 12.697c-2.7028-3.8755-1.8617-7.5574 0.27573-9.5335 3.2419-2.9972 10.621-1.3559 10.621-1.3559" stroke="#00d53f" stroke-linejoin="round" style="paint-order:fill markers stroke"/>
+   <path d="m14.147 14.237c1.411-1.6642 2.3968-2.9414 3.3836-3.8244" stroke="#f60455" style="paint-order:fill markers stroke"/>
+   <path d="m24.723 1.8079c0.06018 4.937-2.2882 9.4613-7.8867 7.6791" stroke="#008e40" stroke-linejoin="round" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+ <ellipse transform="matrix(.96908 .24673 -.27988 .96004 0 0)" cx="13.361" cy="13.854" rx="2.9779" ry="3.2718" fill="#ebff5a" style="paint-order:fill markers stroke"/>
+</svg>

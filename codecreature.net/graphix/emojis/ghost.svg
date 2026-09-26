@@ -1,0 +1,29 @@
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient6">
+   <stop stop-color="#4f3dfc" offset=".34926"/>
+   <stop stop-color="#0f87ff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient7" x1="11.682" x2="13.536" y1="7.7126" y2="11.688" gradientTransform="translate(1.1364 .015667)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient6"/>
+  <linearGradient id="linearGradient9" x1="11.682" x2="13.536" y1="7.7126" y2="11.688" gradientTransform="matrix(.89729 0 0 .78119 .81125 13.925)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient6"/>
+  <linearGradient id="linearGradient11" x1="6.2176" x2="25.452" y1="8.7508" y2="23.245" gradientTransform="translate(.52047)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#0f87ff" offset=".22155"/>
+   <stop stop-color="#4f3dfc" offset=".73328"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13" x1="3.6216" x2="29.51" y1="7.5915" y2="24.404" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset=".36577"/>
+   <stop stop-color="#8efcff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient15" x1="4.261" x2="25.046" y1="12.369" y2="29.755" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" offset=".22415"/>
+   <stop stop-color="#b9fdff" offset=".76542"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-.56586)">
+  <path d="m21.422 25.642c-1.2145-3.3238 3.132-3.5795 4.6661-1.598 1.3327 1.7214-0.06263 6.4558-6.3919 6.4558-5.2008 0-9.2995-3.8636-11.896-9.1754-3.9932-2.0416-5.6141-3.7068-5.0866-6.3733 0.27214-1.3757 2.1865-2.4496 3.6787-2.0414-0.49158-6.1939 3.7076-11.604 10.304-11.41 9.4633 0.27833 10.933 8.365 10.039 12.072 2.5448-0.29581 3.5774 0.44472 3.7391 1.8217 0.36243 3.0878-2.9808 5.7214-7.2109 5.9156-1.9453 2.067-1.687 2.2084-1.687 2.2084" fill="url(#linearGradient13)" stroke="url(#linearGradient11)" stroke-linecap="round" stroke-miterlimit="3" stroke-width="3" style="paint-order:fill markers stroke"/>
+  <path d="m13.231 24.098c2.7079 4.0831 9.0078 5.6742 10.58 3.205 1.3991-2.1979-0.61139-3.032-0.61139-3.032" fill="none" stroke="url(#linearGradient15)" stroke-linecap="round" stroke-miterlimit="3" stroke-width="2.6" style="paint-order:fill markers stroke"/>
+  <ellipse id="ellipse3" transform="matrix(.9951 .098847 -.14261 .98978 0 0)" cx="13.745" cy="9.7159" rx="2.1931" ry="4.0863" fill="url(#linearGradient7)" style="paint-order:fill markers stroke"/>
+  <ellipse transform="matrix(.98334 -.1818 .15191 .98839 0 0)" cx="12.125" cy="21.503" rx="1.9679" ry="3.1922" fill="url(#linearGradient9)" style="paint-order:fill markers stroke"/>
+  <use transform="translate(6.5085 1.1751)" xlink:href="#ellipse3"/>
+ </g>
+</svg>
