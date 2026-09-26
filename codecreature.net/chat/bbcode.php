@@ -36,12 +36,21 @@ $bbcode->AddSmiley(":whiteheart:","heart_white.svg"); $bbcode->AddSmiley(":white
 
 // kitty faces
 $bbcode->AddSmiley(":smile:","kitty_happy.svg"); $bbcode->AddSmiley(":happy:","kitty_happy.svg"); $bbcode->AddSmiley(":smiley:","kitty_happy.svg");
-$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.png"); $bbcode->AddSmiley(":grin:","kitty_big_smile.png");
+$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":grin:","kitty_big_smile.svg");
 $bbcode->AddSmiley(":laugh:","kitty_laugh.svg"); $bbcode->AddSmiley(":crylaugh:","kitty_laugh.svg");
 $bbcode->AddSmiley(":sad:","kitty_sad.svg");
 $bbcode->AddSmiley(":cry:","kitty_cry.svg"); $bbcode->AddSmiley(":crying:","kitty_cry.svg");
 $bbcode->AddSmiley(":hearteyes:","kitty_heart_eyes.svg"); $bbcode->AddSmiley(":heart_eyes:","kitty_heart_eyes.svg");
-$bbcode->AddSmiley(":cool:","kitty_cool.svg"); $bbcode->AddSmiley(":sunglasses:","kitty_sunglasses.svg");
+$bbcode->AddSmiley(":cool:","kitty_cool.svg"); $bbcode->AddSmiley(":sunglasses:","kitty_cool.svg");
+
+// davepeta kitty faces
+$bbcode->AddSmiley(":dpsmile:","dp_happy.svg"); $bbcode->AddSmiley(":dphappy:","dp_happy.svg"); $bbcode->AddSmiley(":dpsmiley:","dp_happy.svg");
+$bbcode->AddSmiley(":dpbigsmile:","dp_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","dp_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","dp_big_smile.svg"); $bbcode->AddSmiley(":dpgrin:","dp_big_smile.svg");
+$bbcode->AddSmiley(":dplaugh:","dp_laugh.svg"); $bbcode->AddSmiley(":dpcrylaugh:","dp_laugh.svg");
+$bbcode->AddSmiley(":dpcool:","dp_cool.svg"); $bbcode->AddSmiley(":dpsunglasses:","dp_cool.svg");
+
+// nepeta
+$bbcode->AddSmiley(":nepeta:","nepeta.svg"); $bbcode->AddSmiley(":nepetasmile:","nepeta.svg"); $bbcode->AddSmiley(":nepetahappy:","nepeta.svg");
 
 // worms
 $bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");

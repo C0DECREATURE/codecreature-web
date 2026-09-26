@@ -1,0 +1,21 @@
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg version="1.1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient2" x1="9.1717" x2="9.1717" y1="8.3762" y2="25.033" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#f95200" offset=".2"/>
+   <stop stop-color="#c40d56" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="matrix(.94118 0 0 .94118 .94108 .94106)">
+  <g>
+   <g transform="translate(-.91243 -.7124)">
+    <path transform="translate(1 .30977)" d="m15.912 8.8632-2.4259-3.99e-4s-3.257-5.7398-5.7281-5.7398c-2.4711 0-5.158 5.2804-5.0188 9.4071 0 0-3.0826 8.4963 1.2239 13.792 2.2252 2.7365 6.1749 3.3597 11.949 3.3597m0-20.819 2.4259-3.99e-4s3.257-5.7398 5.7281-5.7398c2.4711 0 5.158 5.2804 5.0188 9.4071 0 0 3.0826 8.4963-1.2239 13.792-2.2252 2.7365-6.1749 3.3597-11.949 3.3597" fill="#fff" stroke="url(#linearGradient2)" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" stroke-width="2.7" style="paint-order:fill markers stroke"/>
+   </g>
+   <g transform="translate(-1 -.71243)">
+    <path transform="matrix(.99805 .062344 -.078878 .99688 0 0)" d="m12.667 19.022c0 1.4301-1.2997 2.5894-2.9029 2.5894-1.6033 0-2.9029-1.1593-2.9029-2.5894s1.2997-2.5894 2.9029-2.5894c1.6033 0 2.9029 1.1593 2.9029 2.5894zm11.68-0.73047c0.22493 1.416 1.6942 2.4022 3.2817 2.2026s2.692-1.5092 2.4671-2.9253c-0.22493-1.416-1.6942-2.4022-3.2817-2.2026s-2.692 1.5092-2.4671 2.9253z" fill="#8df01f" style="paint-order:fill markers stroke"/>
+    <path d="m10.805 22.282c1.613 3.4406 4.9178 2.1084 6.1073 0.04802m6.2825-0.04802c-1.613 3.4406-4.9178 2.1084-6.1073 0.04802" fill="none" stroke="#c1025c" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="2" stroke-width="2.7" style="paint-order:fill markers stroke"/>
+    <path transform="matrix(.64315 .76574 -.8013 .59826 1 .55962)" d="m21.239 3.3745c0 1.3771-1.0606 2.4935-2.3688 2.4935s-2.3688-1.1164-2.3688-2.4935c0-1.3771 1.0606-2.4935 2.3688-2.4935s2.3688 1.1164 2.3688 2.4935zm6.0455-7.7378c1.3225-0.31561 2.1515-1.6178 1.8517-2.9085-0.29984-1.2907-1.615-2.0812-2.9375-1.7656-1.3225 0.31561-2.1515 1.6178-1.8517 2.9085 0.29984 1.2907 1.615 2.0812 2.9375 1.7656z" fill="#c1025c" style="paint-order:fill markers stroke"/>
+   </g>
+  </g>
+ </g>
+</svg>

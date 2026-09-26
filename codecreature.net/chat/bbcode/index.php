@@ -175,20 +175,26 @@
 				
 				<div class="style" id="emoji">
 					<h4>emoji</h4>
-					<div class="format">:name:</div>
+					<div class="format">:name: or standard emoji</div>
 					<div class="description">
-						type a supported emoji name to insert it!
+						type a supported emoji name to insert it, or use a standard emoji from your keyboard! some have multiple code options
 						<hr>
 						<?php
 						$emojis = [
 							[ // kitty emojis
-								[":happy: or :smile:","kitty_happy.svg"],
-								[":bigsmile: or :grin:","kitty_big_smile.svg"],
+								[":happy: :smile:","kitty_happy.svg"],
+								[":bigsmile: :grin:","kitty_big_smile.svg"],
 								[":laugh:","kitty_laugh.svg"],
 								[":hearteyes:","kitty_heart_eyes.svg"],
-								[":cool: or :sunglasses:","kitty_cool.svg"],
+								[":cool: :sunglasses:","kitty_cool.svg"],
 								[":sad:","kitty_sad.svg"],
 								[":cry:","kitty_cry.svg"],
+							],
+							[ // davepeta emojis
+								[":dphappy: or :dpsmile:","dp_happy.svg"],
+								[":dpgrin:","dp_big_smile.svg"],
+								[":dplaugh:","dp_laugh.svg"],
+								[":dpcool: or :dpsunglasses:","dp_cool.svg"],
 							],
 							[ // hearts
 								[":heart:","heart.svg"],
@@ -205,7 +211,7 @@
 							[ // objects
 								[":star:","star.svg"],
 								[":apple:","apple.svg"],
-								//[":poison:","poison.svg"], // not totally pleased with this one yet
+								[":poison:","poison.svg"],
 								[":sword:","sword.svg"],
 								[":ghost:","ghost.svg"],
 								[":jackolantern: or :pumpkin:","jack_o_lantern.svg"],
@@ -251,6 +257,9 @@
 								[":microplasticstail:","long_worm_purple_1.png"],
 								[":microplasticsbody:","long_worm_purple_2.png"],
 								[":microplasticshead:","long_worm_purple_3.png"],
+							],
+							[ // homestuck emojis
+								[":nepeta:","nepeta.svg"],
 							],
 						];
 						for ($i = 0; $i < count($emojis); $i++) {
