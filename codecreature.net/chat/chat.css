@@ -250,6 +250,7 @@ body, html {
 }
 
 .message .bubble > .content {
+	line-height: 1.15;
 	a, a:link { color: var(--purple); }
 	a:hover { color: var(--d-blue); }
 }
