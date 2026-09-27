@@ -265,7 +265,7 @@
 							],
 							[ // characters
 								[":nepeta:","nepeta.svg"],
-								[":junk:","junk.svg"],
+								[":ringodingo:","junk.svg"],
 							],
 						];
 						for ($i = 0; $i < count($emojis); $i++) {

@@ -55,7 +55,7 @@ $bbcode->AddSmiley(":dpcool:","dp_cool.svg"); $bbcode->AddSmiley(":dpsunglasses:
 $bbcode->AddSmiley(":redpanda:","red_panda.svg"); $bbcode->AddSmiley(":red_panda:","red_panda.svg"); $bbcode->AddSmiley(":red-panda:","red_panda.svg");
 
 // ocs
-$bbcode->AddSmiley(":junk:","junk.svg");
+$bbcode->AddSmiley(":ringodingo:","junk.svg"); $bbcode->AddSmiley(":junk:","junk.svg");
 
 // nepeta
 $bbcode->AddSmiley(":nepeta:","nepeta.svg"); $bbcode->AddSmiley(":nepetasmile:","nepeta.svg"); $bbcode->AddSmiley(":nepetahappy:","nepeta.svg");
