@@ -213,11 +213,13 @@
 							],
 							[ // objects
 								[":star:","star.svg"],
+								[":mapleleaf:","maple_leaf.svg"],
+								[":autumnleaf:","falling_leaves.svg"],
 								[":apple:","apple.svg"],
 								[":poison:","poison.svg"],
 								[":sword:","sword.svg"],
 								[":ghost:","ghost.svg"],
-								[":jackolantern: or :pumpkin:","jack_o_lantern.svg"],
+								[":jackolantern:","jack_o_lantern.svg"],
 							],
 							[ // arrows
 								[":up:","arrow_up.svg"],

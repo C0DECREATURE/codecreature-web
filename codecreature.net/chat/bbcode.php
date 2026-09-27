@@ -16,11 +16,13 @@ $bbcode->AddSmiley(":down:","arrow_down.svg");
 $bbcode->AddSmiley(":star:","star.svg");
 
 // items
+$bbcode->AddSmiley(":mapleleaf:","maple_leaf.svg"); $bbcode->AddSmiley(":maple_leaf:","maple_leaf.svg");
+$bbcode->AddSmiley(":autumnleaf:","falling_leaves.svg"); $bbcode->AddSmiley(":fallleaf:","falling_leaves.svg"); $bbcode->AddSmiley(":fallleaves:","falling_leaves.svg"); $bbcode->AddSmiley(":autumnleaves:","falling_leaves.svg"); $bbcode->AddSmiley(":fallingleaves:","falling_leaves.svg");
 $bbcode->AddSmiley(":apple:","apple.svg"); $bbcode->AddSmiley(":goldenapple:","apple.svg");
 $bbcode->AddSmiley(":poison:","poison.svg");
 $bbcode->AddSmiley(":sword:","sword.svg"); $bbcode->AddSmiley(":knife:","sword.svg"); $bbcode->AddSmiley(":dagger:","sword.svg");
 $bbcode->AddSmiley(":ghost:","ghost.svg");
-$bbcode->AddSmiley(":jackolantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":jack-o-lantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":pumpkin:","jack_o_lantern.svg");
+$bbcode->AddSmiley(":jackolantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":jack-o-lantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":halloween:","jack_o_lantern.svg");
 
 // hearts
 $bbcode->AddSmiley(":heart:","heart.svg"); $bbcode->AddSmiley(":pinkheart:","heart.svg"); $bbcode->AddSmiley(":pink-heart:","heart.svg");
