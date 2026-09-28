@@ -62,8 +62,8 @@ $user_auth = getAuthorization($user_id);
 				echo 'const oldestMessageId = '. getOldestMessageId($chat_table) .';';
 			?>
 		</script>
-    <script src="/chat/liveChat.js"></script>
-    <script src="/chat/chatFunctions.js"></script>
+    <script src="/chat/liveChat.js?fileversion=20260928"></script>
+    <script src="/chat/chatFunctions.js?fileversion=20260928"></script>
 		
 		<base target="_top">
 </head>
