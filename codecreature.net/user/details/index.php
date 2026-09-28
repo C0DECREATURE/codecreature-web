@@ -78,7 +78,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 				})();
 			</script>
 			
-			<p>user features are currently integrated into the <a href="/games/worm-race">worm games</a> and <a href="/chat">chat rooms</a>!</p>
+			<p>user features are currently integrated into the <a href="/games/worm-race" target="_top">worm games</a> and <a href="/chat" target="_top">chat rooms</a>!</p>
 			
 			<section id="user-settings">
 				
@@ -102,7 +102,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 								<span class="value <?php echo htmlspecialchars($user["authorization"]); ?>"><?php echo htmlspecialchars($user["authorization"]); ?></span>
 							</div>
 							<div>
-								<a href="/u/<?php echo htmlspecialchars($user["username"]); ?>">view profile</a>
+								<a href="/u/<?php echo htmlspecialchars($user["username"]); ?>" target="_top">view profile</a>
 							</div>
 						</div>
 					</div>
