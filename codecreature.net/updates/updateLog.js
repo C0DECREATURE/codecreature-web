@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-09-28T15:08'),
+		authors: ['emery'],
+		tags: ['chat','minor'],
+		summary: `
+			replies in <a href="/chat">chat</a>
+		`,
+		details: `
+			<p>added a basic message reply system! reply link only jumps to messages if they're already loaded on the page, probably need to fix that eventually.</p>
+		`
+	},
+	{
 		date: new Date('2026-09-26T05:41'),
 		authors: ['emery'],
 		tags: ['chat'],

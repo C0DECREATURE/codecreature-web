@@ -57,8 +57,9 @@ $bbcode->AddSmiley(":redpanda:","red_panda.svg"); $bbcode->AddSmiley(":red_panda
 // ocs
 $bbcode->AddSmiley(":ringodingo:","junk.svg"); $bbcode->AddSmiley(":junk:","junk.svg");
 
-// nepeta
+// external characters
 $bbcode->AddSmiley(":nepeta:","nepeta.svg"); $bbcode->AddSmiley(":nepetasmile:","nepeta.svg"); $bbcode->AddSmiley(":nepetahappy:","nepeta.svg");
+$bbcode->AddSmiley(":garfield:","garfield.svg"); $bbcode->AddSmiley(":garf:","garfield.svg");
 
 // worms
 $bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");
@@ -110,6 +111,13 @@ $bbcode->AddRule('e',[
 		'class' => 'inline',
 		'content' => 'BBCODE_REQUIRED',
 		'allow_in' => ['listitem', 'block', 'columns', 'inline', 'link']
+]);
+$bbcode->AddRule('reply',[
+		'mode' => BBCode::BBCODE_MODE_ENHANCED,
+		'template' => '<div class="bbcode_reply"><a href="#message-{$message}">Reply</a> to @{$user}:</div>{$_content}',
+		'class' => 'inline',
+		'content' => 'BBCODE_REQUIRED',
+		'allow_in' => ['listitem', 'block', 'columns'],
 ]);
 
 // remove default rules I don't want included in chat messages

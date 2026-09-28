@@ -714,6 +714,13 @@ class BBCodeLibrary {
      * [quote name="Tom" date="July 4, 1776 3:48 PM" url="http://www.constitution.gov"]...[/quote]
      * ```
      *
+     * CODECREATURE CUSTOM:
+		 * You can also add a message="" parameter to link to an original chat message being quoted
+     * Example:
+     * ```
+     * [quote name="@codecreature" message="1"]...[/quote]
+     * ```
+     *
      * The URL only allows http, https, mailto, gopher, ftp, and feed protocols for safety.
      *
      * @param BBCode $bbcode The {@link BBCode} object doing the parsing.
@@ -730,11 +737,12 @@ class BBCodeLibrary {
         }
 
         if (isset($params['name'])) {
-            $title = htmlspecialchars(trim($params['name']), ENT_QUOTES)." wrote";
+						$title = htmlspecialchars(trim($params['name']), ENT_QUOTES)." wrote";
             if (isset($params['date'])) {
                 $title .= " on ".htmlspecialchars(trim($params['date']), ENT_QUOTES);
             }
             $title .= ":";
+            if (!empty($params['message'])) $title .= " (<a href='#message-".trim($params['message'])."'>original</a>)";
             if (isset($params['url'])) {
                 $url = trim($params['url']);
                 if ($bbcode->isValidURL($url)) {

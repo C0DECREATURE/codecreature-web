@@ -30,27 +30,27 @@ $user_auth = getAuthorization($user_id);
 		<meta name="author" content="codecreature">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260923"></script>
+		<script src="/codefiles/required.js?fileversion=20260928"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260923" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260928" rel="stylesheet" type="text/css"></link>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260923"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260928"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260923"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260928"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('Yet R','Super Comic')</script>
 		
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260923" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260928" id="svg-icons-js"></script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260923" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
 		<!--bbcode stylesheet-->
-		<link href="/chat/bbcode.css?fileversion=20260923" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/bbcode.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
-		<link href="/chat/chat.css?fileversion=20260923" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/chat.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -121,6 +121,16 @@ $user_auth = getAuthorization($user_id);
 			
 			<!--right click message edit menu-->
 			<div id="right-click-menu" class="right-click-menu hidden">
+				<!--reply-->
+				<button id="right-click-reply" 
+				onclick="replyToMessage(this.parentNode.dataset.messageId);">
+					Reply
+				</button>
+				<!--quote-->
+				<button id="right-click-quote" 
+				onclick="quoteReplyMessage(this.parentNode.dataset.messageId);">
+					Quote Reply
+				</button>
 				<!--copy-->
 				<button id="right-click-copy" 
 				onclick="copyMessage(this.parentNode.dataset.messageId);">

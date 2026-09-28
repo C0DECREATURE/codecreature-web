@@ -215,6 +215,10 @@ body, html {
 }
 .message.self { flex-direction: row-reverse; margin-left: auto; }
 
+.message:target .bubble { /* message that is targeted by the url hash (e.g. /chat/general/#message-1) */
+	outline: 5px var(--yellow) solid;
+}
+
 .deleted {
 	display: block;
 	padding-left: var(--icon-height); padding-right: var(--icon-height);

@@ -7,16 +7,22 @@
 
 /* quotes */
 .bbcode_quote {
-	margin: .25em 0;
+	margin: .5em 0;
 }
-.bbcode_quote_head {
-	background: var(--l-blue);
+.bbcode_quote_head, .bbcode_reply {
+	background: rgba(var(--l-blue-rgb), .5);
 	padding: .25em .5em;
 	border-radius: .5em .5em 0 0;
+	a, a:link, a:visited { color: var(--d-blue) !important; }
+	a:hover { color: var(--dd-blue) !important; }
+}
+.bbcode_reply {
+	border-radius: .5em .5em;
+	margin: .5em 0 .25em 0;
 }
 .bbcode_quote_body {
 	padding: .3em .5em;
-	border: 2px var(--l-blue) solid;
+	border: 2px rgba(var(--l-blue-rgb), .5) solid;
 	border-top: none;
 	border-radius: 0 0 .5em .5em;
 }
@@ -26,6 +32,6 @@
 	margin: 0 -.1em -.2em -.25em;
 }
 .bbcode_smiley:first-child, img + .bbcode_smiley, br + .bbcode_smiley, hr + .bbcode_smiley { margin-left: 0; }
-.bbcode_smiley:has(+ img) { margin-right: 0.05em; }
+.bbcode_smiley:has(+ img) { margin-right: 0; }
 
 .bbcode_list { margin: 0; }

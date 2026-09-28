@@ -54,6 +54,8 @@ function sendMessage(message) {
 						document.getElementById('new-message-submit').disabled = false;
 						// load new messages
 						loadChat(false);
+						// scroll to bottom
+						document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
 					}
 				} else {
 					alert("Something went wrong! Try again later.");
@@ -90,6 +92,28 @@ function copyMessage(id) {
 function copyMessageBbcode(id) {
 	let msg = document.getElementById(`message-${id}`);
 	if (msg) navigator.clipboard.writeText(msg.dataset.rawBbcode);
+}
+
+// reply to message with given id
+function replyToMessage(id) {
+	let msg = document.getElementById(`message-${id}`);
+	if (msg) {
+		let username = msg.querySelector('.username').innerText.trim();
+		let inputEl = document.getElementById('message-input');
+		inputEl.value = `[reply message=${id} user=${username}][/reply] ${inputEl.value}`;
+		inputEl.focus();
+	}
+}
+
+// quote message with given id
+function quoteReplyMessage(id) {
+	let msg = document.getElementById(`message-${id}`);
+	if (msg) {
+		let username = msg.querySelector('.username').innerText.trim();
+		let inputEl = document.getElementById('message-input');
+		inputEl.value = `[quote name=@${username} message=${id}]${msg.dataset.rawBbcode}[/quote] `;
+		inputEl.focus();
+	}
 }
 
 // array of message ids currently being modified

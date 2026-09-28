@@ -182,8 +182,8 @@
 						<?php
 						$emojis = [
 							[ // kitty emojis
-								[":happy: :smile:","kitty_happy.svg"],
-								[":bigsmile: :grin:","kitty_big_smile.svg"],
+								[":happy: or :smile:","kitty_happy.svg"],
+								[":bigsmile: or :grin:","kitty_big_smile.svg"],
 								[":laugh:","kitty_laugh.svg"],
 								[":hearteyes:","kitty_heart_eyes.svg"],
 								[":cool: :sunglasses:","kitty_cool.svg"],
@@ -264,6 +264,7 @@
 								[":microplasticshead:","long_worm_purple_3.png"],
 							],
 							[ // characters
+								//[":garfield:","garfield.svg"],
 								[":nepeta:","nepeta.svg"],
 								[":ringodingo:","junk.svg"],
 							],

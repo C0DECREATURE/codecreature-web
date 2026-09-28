@@ -5,6 +5,7 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 
 // SETTINGS
 $max_message_length = 400;
+$username_pattern = '/@(?!Anonymous)([a-z0-9_])([a-z0-9_]*)/i';
 
 // Include chat database connection file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/connect.php";
@@ -199,9 +200,9 @@ function replaceEmojis($str) {
 }
 
 function addUserLinks($str) {
-	$pattern = '/@([a-z0-9_]*)/i';
-	$replacement = '[url=/u/${1}]@${1}[/url]';
-	return preg_replace($pattern,$replacement,$str);
+	global $username_pattern;
+	$replacement = '<a href=/u/${1}${2}>@${1}${2}</a>';
+	return preg_replace($username_pattern,$replacement,$str);
 }
 
 ?>
