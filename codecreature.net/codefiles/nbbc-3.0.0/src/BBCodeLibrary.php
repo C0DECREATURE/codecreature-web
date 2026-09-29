@@ -742,7 +742,7 @@ class BBCodeLibrary {
                 $title .= " on ".htmlspecialchars(trim($params['date']), ENT_QUOTES);
             }
             $title .= ":";
-            if (!empty($params['message'])) $title .= " (<a href='#message-".trim($params['message'])."'>original</a>)";
+            if (!empty($params['message'])) $title .= " (<a href='#message-".trim($params['message'])."' target='_self'>original</a>)";
             if (isset($params['url'])) {
                 $url = trim($params['url']);
                 if ($bbcode->isValidURL($url)) {

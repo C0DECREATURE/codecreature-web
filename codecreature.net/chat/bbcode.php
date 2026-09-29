@@ -114,7 +114,7 @@ $bbcode->AddRule('e',[
 ]);
 $bbcode->AddRule('reply',[
 		'mode' => BBCode::BBCODE_MODE_ENHANCED,
-		'template' => '<div class="bbcode_reply"><a href="#message-{$message}">Reply</a> to @{$user}:</div>{$_content}',
+		'template' => '<div class="bbcode_reply"><a href="#message-{$message}" target="_self">Reply</a> to @{$user}:</div>{$_content}',
 		'class' => 'inline',
 		'content' => 'BBCODE_REQUIRED',
 		'allow_in' => ['listitem', 'block', 'columns'],
