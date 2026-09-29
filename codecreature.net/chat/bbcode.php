@@ -64,6 +64,7 @@ $bbcode->AddSmiley(":ringodingo:","junk.svg"); $bbcode->AddSmiley(":junk:","junk
 // external characters
 $bbcode->AddSmiley(":nepeta:","nepeta.svg"); $bbcode->AddSmiley(":nepetasmile:","nepeta.svg"); $bbcode->AddSmiley(":nepetahappy:","nepeta.svg");
 $bbcode->AddSmiley(":garfield:","garfield.svg"); $bbcode->AddSmiley(":garf:","garfield.svg");
+$bbcode->AddSmiley(":falfal:","falfal.svg");
 
 // worms
 $bbcode->AddSmiley(":jeremy:","worm_pink.png"); $bbcode->AddSmiley(":Jeremy:","worm_pink.png");

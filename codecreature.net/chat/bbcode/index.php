@@ -186,7 +186,8 @@
 								[":bigsmile: or :grin:","kitty_big_smile.svg"],
 								[":laugh:","kitty_laugh.svg"],
 								[":hearteyes:","kitty_heart_eyes.svg"],
-								[":cool: :sunglasses:","kitty_cool.svg"],
+								[":cool: or :sunglasses:","kitty_cool.svg"],
+								[":pleading:","kitty_plead.svg"],
 								[":sad:","kitty_sad.svg"],
 								[":cry:","kitty_cry.svg"],
 							],
@@ -264,8 +265,9 @@
 								[":microplasticshead:","long_worm_purple_3.png"],
 							],
 							[ // characters
-								//[":garfield:","garfield.svg"],
+								[":garfield:","garfield.svg"],
 								[":nepeta:","nepeta.svg"],
+								[":falfal:","falfal.svg"],
 								[":ringodingo:","junk.svg"],
 							],
 						];
