@@ -193,8 +193,10 @@ $user = getPublicUserData($_SESSION['id'],true);
 									$genderFlags = [
 										["flag"=>"agender"],
 										["flag"=>"autigender-blank"],
+										["flag"=>"bigender"],
 										["flag"=>"boygirl"],
 										["flag"=>"catgender-blank"],
+										["flag"=>"genderfluid"],
 										["flag"=>"genderqueer"],
 										["flag"=>"nonbinary"],
 										["flag"=>"transgender"],
@@ -232,13 +234,13 @@ $user = getPublicUserData($_SESSION['id'],true);
 									function insertFlagCheckbox($f) {
 										global $user_flaglist;
 										$value = json_encode($f);
-										$flag = $f["flag"];
+										$image = $f["flag"].".".(empty($f["file"]) ? "svg" : $f["file"]);
 										$text = getFlagText($f);
 										$checked = in_array($text,$user_flaglist) ? " checked" : "";
 										echo "
 											<button class='option-wrapper' type='button' onclick=this.querySelector('input').click();>
 												<input type='checkbox' id='flags-$text' name='flags[]' value='$value'$checked></input>
-												<label for='flags-$text' style=background-image:url('/graphix/flags/$flag.png');>
+												<label for='flags-$text' style=\"background-image:url('/graphix/flags/$image');\">
 													$text
 												</label>
 											</button>

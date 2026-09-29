@@ -231,18 +231,18 @@ button.open-page-settings svg { fill: var(--d-blue); stroke: var(--d-blue); }
 .right .ribbon::after, .left .ribbon::before { rotate: 45deg; }
 
 /* specific ribbon backgrounds */
-.autigender-ribbon > .wrapper, .autigender-ribbon.text { background-image: url('/graphix/flags/autigender-blank.png'); }
-.catgender-ribbon > .wrapper { background-image: url('/graphix/flags/catgender-blank.png'); }
-.agender-ribbon > .wrapper { background-image: url('/graphix/flags/agender.png'); }
-.boygirl-ribbon > .wrapper { background-image: url('/graphix/flags/boygirl.png'); }
-.trans-ribbon > .wrapper { background-image: url('/graphix/flags/transgender.png'); }
-.transmasc-ribbon > .wrapper { background-image: url('/graphix/flags/transmasculine.png'); }
+.autigender-ribbon > .wrapper, .autigender-ribbon.text { background-image: url('/graphix/flags/autigender-blank.svg'); }
+.catgender-ribbon > .wrapper { background-image: url('/graphix/flags/catgender-blank.svg'); }
+.agender-ribbon > .wrapper { background-image: url('/graphix/flags/agender.svg'); }
+.boygirl-ribbon > .wrapper { background-image: url('/graphix/flags/boygirl.svg'); }
+.trans-ribbon > .wrapper { background-image: url('/graphix/flags/transgender.svg'); }
+.transmasc-ribbon > .wrapper { background-image: url('/graphix/flags/transmasculine.svg'); }
 
-.aroace-ribbon > .wrapper { background-image: url('/graphix/flags/aroace.png'); }
-.asexual-ribbon > .wrapper { background-image: url('/graphix/flags/asexual.png'); }
-.aromantic-ribbon > .wrapper { background-image: url('/graphix/flags/aromantic.png'); }
-.mlm-ribbon > .wrapper { background-image: url('/graphix/flags/vincian.png'); }
-.queer-ribbon > .wrapper { background-image: url('/graphix/flags/queer.png'); }
-.polyam-ribbon > .wrapper { background-image: url('/graphix/flags/polyamorous-blank.png'); }
+.aroace-ribbon > .wrapper { background-image: url('/graphix/flags/aroace.svg'); }
+.asexual-ribbon > .wrapper { background-image: url('/graphix/flags/asexual.svg'); }
+.aromantic-ribbon > .wrapper { background-image: url('/graphix/flags/aromantic.svg'); }
+.mlm-ribbon > .wrapper { background-image: url('/graphix/flags/vincian.svg'); }
+.queer-ribbon > .wrapper { background-image: url('/graphix/flags/queer.svg'); }
+.polyam-ribbon > .wrapper { background-image: url('/graphix/flags/polyamorous-blank.svg'); }
 
-.system-ribbon > .wrapper { background-image: url('/graphix/flags/system.png'); }
+.system-ribbon > .wrapper { background-image: url('/graphix/flags/system.svg'); }

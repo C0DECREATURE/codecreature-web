@@ -73,6 +73,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 				$genderFlags = [];
 				$otherFlags = [];
 				foreach($user["flags"] as $f) {
+					if (empty($f["file"])) $f["file"] = "svg";
 					if (!empty($f["type"]) && $f["type"] == "gender") $genderFlags[] = $f;
 					else $otherFlags[] = $f;
 				}
@@ -83,7 +84,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 						foreach($genderFlags as $f) {
 							$flag = $f["flag"];
 							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
-							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag.png');><div class='wrapper'><span>$text</span></div></button>";
+							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag.".$f["file"]."');><div class='wrapper'><span>$text</span></div></button>";
 						}
 					?>
 				</section>
@@ -92,7 +93,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 						foreach($otherFlags as $f) {
 							$flag = $f["flag"];
 							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
-							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag.png');><div class='wrapper'><span>$text</span></div></button>";
+							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag.".$f["file"]."');><div class='wrapper'><span>$text</span></div></button>";
 						}
 					?>
 				</section>
