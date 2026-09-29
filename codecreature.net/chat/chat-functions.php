@@ -5,7 +5,6 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 
 // SETTINGS
 $max_message_length = 400;
-$username_pattern = '/@(?!Anonymous)([a-z0-9_])([a-z0-9_]*)/i';
 
 // Include chat database connection file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/connect.php";
@@ -156,53 +155,6 @@ function cleanMessageText($str) {
 	$str = htmlspecialchars($str);
 	// return modified message
 	return $str;
-}
-
-function replaceEmojis($str) {
-	$str = str_replace("🙂",":smile:",$str);
-	$str = str_replace("😺",":smile:",$str);
-	$str = str_replace("😄",":bigsmile:",$str);
-	$str = str_replace("😁",":bigsmile:",$str);
-	$str = str_replace("😸",":bigsmile:",$str);
-	$str = str_replace("😂",":laugh:",$str);
-	$str = str_replace("😹",":laugh:",$str);
-	$str = str_replace("🙁",":sad:",$str);
-	$str = str_replace("☹️",":sad:",$str);
-	$str = str_replace("😭",":cry:",$str);
-	$str = str_replace("😿",":cry:",$str);
-	$str = str_replace("😎",":cool:",$str);
-	$str = str_replace("😍",":hearteyes:",$str);
-	$str = str_replace("😻",":hearteyes:",$str);
-	$str = str_replace("⭐️",":star:",$str);
-	$str = str_replace("🩷",":heart:",$str);
-	$str = str_replace("❤️",":redheart:",$str);
-	$str = str_replace("🧡",":orangeheart:",$str);
-	$str = str_replace("💛",":yellowheart:",$str);
-	$str = str_replace("💚",":greenheart:",$str);
-	$str = str_replace("💙",":blueheart:",$str);
-	$str = str_replace("🩵",":blueheart:",$str);
-	$str = str_replace("💜",":purpleheart:",$str);
-	$str = str_replace("🤍",":whiteheart:",$str);
-	$str = str_replace("🖤",":blackheart:",$str);
-	$str = str_replace("💔",":brokenheart:",$str);
-	$str = str_replace("⬆️",":up:",$str);
-	$str = str_replace("⬇️",":down:",$str);
-	$str = str_replace("⬅️",":left:",$str);
-	$str = str_replace("➡️",":right:",$str);
-	$str = str_replace("🍁",":mapleleaf:",$str);
-	$str = str_replace("🍂",":fallingleaves:",$str);
-	$str = str_replace("🍎️",":apple:",$str);
-	$str = str_replace("🗡️",":sword:",$str);
-	$str = str_replace("👻️",":ghost:",$str);
-	$str = str_replace("🎃",":jackolantern:",$str);
-	$str = str_replace("🎃️",":jackolantern:",$str); // these are separate...
-	return $str;
-}
-
-function addUserLinks($str) {
-	global $username_pattern;
-	$replacement = '<a href=/u/${1}${2}>@${1}${2}</a>';
-	return preg_replace($username_pattern,$replacement,$str);
 }
 
 ?>

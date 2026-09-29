@@ -109,7 +109,7 @@ while ($message = mysqli_fetch_array($result)) {
 				</span>
 			</header>
 			<div class="content"><?php
-				echo htmlspecialchars_decode(addUserLinks($bbcode->Parse(replaceEmojis($message['message']))));
+				echo getPolishedBbcode($message['message']);
 			?></div>
 		</div>
 		<script>

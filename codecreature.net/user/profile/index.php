@@ -104,7 +104,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<section class="<?php echo empty($user["summary"]) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
 			<div class="text">
-				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : $bbcode->Parse($user["summary"]); ?>
+				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : getPolishedBbcode($user["summary"]); ?>
 			</div>
 			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>

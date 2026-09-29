@@ -1,4 +1,7 @@
 <?php
+
+$username_pattern = '/@(?!Anonymous)([a-z0-9_])([a-z0-9_]*)/i';
+
 /* BBCODE PARSER */
 require_once $_SERVER['DOCUMENT_ROOT'].'/codefiles/nbbc-3.0.0/Loader.php';
 use Nbbc\BBCode;
@@ -40,6 +43,7 @@ $bbcode->AddSmiley(":whiteheart:","heart_white.svg"); $bbcode->AddSmiley(":white
 $bbcode->AddSmiley(":smile:","kitty_happy.svg"); $bbcode->AddSmiley(":happy:","kitty_happy.svg"); $bbcode->AddSmiley(":smiley:","kitty_happy.svg");
 $bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":grin:","kitty_big_smile.svg");
 $bbcode->AddSmiley(":laugh:","kitty_laugh.svg"); $bbcode->AddSmiley(":crylaugh:","kitty_laugh.svg");
+$bbcode->AddSmiley(":plead:","kitty_plead.svg"); $bbcode->AddSmiley(":pleading:","kitty_plead.svg");
 $bbcode->AddSmiley(":sad:","kitty_sad.svg");
 $bbcode->AddSmiley(":cry:","kitty_cry.svg"); $bbcode->AddSmiley(":crying:","kitty_cry.svg");
 $bbcode->AddSmiley(":hearteyes:","kitty_heart_eyes.svg"); $bbcode->AddSmiley(":heart_eyes:","kitty_heart_eyes.svg");
@@ -127,4 +131,57 @@ $bbcode->RemoveRule('code');
 $bbcode->RemoveRule('email');
 $bbcode->RemoveRule('wiki');
 $bbcode->RemoveRule('columns');
+
+function replaceEmojis($str) {
+	$str = str_replace("🙂",":smile:",$str);
+	$str = str_replace("😺",":smile:",$str);
+	$str = str_replace("😄",":bigsmile:",$str);
+	$str = str_replace("😁",":bigsmile:",$str);
+	$str = str_replace("😸",":bigsmile:",$str);
+	$str = str_replace("😂",":laugh:",$str);
+	$str = str_replace("😹",":laugh:",$str);
+	$str = str_replace("🙁",":sad:",$str);
+	$str = str_replace("☹️",":sad:",$str);
+	$str = str_replace("😭",":cry:",$str);
+	$str = str_replace("😿",":cry:",$str);
+	$str = str_replace("😎",":cool:",$str);
+	$str = str_replace("😍",":hearteyes:",$str);
+	$str = str_replace("😻",":hearteyes:",$str);
+	$str = str_replace("🥺",":plead:",$str);
+	$str = str_replace("⭐️",":star:",$str);
+	$str = str_replace("🩷",":heart:",$str);
+	$str = str_replace("❤️",":redheart:",$str);
+	$str = str_replace("🧡",":orangeheart:",$str);
+	$str = str_replace("💛",":yellowheart:",$str);
+	$str = str_replace("💚",":greenheart:",$str);
+	$str = str_replace("💙",":blueheart:",$str);
+	$str = str_replace("🩵",":blueheart:",$str);
+	$str = str_replace("💜",":purpleheart:",$str);
+	$str = str_replace("🤍",":whiteheart:",$str);
+	$str = str_replace("🖤",":blackheart:",$str);
+	$str = str_replace("💔",":brokenheart:",$str);
+	$str = str_replace("⬆️",":up:",$str);
+	$str = str_replace("⬇️",":down:",$str);
+	$str = str_replace("⬅️",":left:",$str);
+	$str = str_replace("➡️",":right:",$str);
+	$str = str_replace("🍁",":mapleleaf:",$str);
+	$str = str_replace("🍂",":fallingleaves:",$str);
+	$str = str_replace("🍎️",":apple:",$str);
+	$str = str_replace("🗡️",":sword:",$str);
+	$str = str_replace("👻️",":ghost:",$str);
+	$str = str_replace("🎃",":jackolantern:",$str);
+	$str = str_replace("🎃️",":jackolantern:",$str); // these jack-o-lanterns are separate characters...
+	return $str;
+}
+
+function addUserLinks($str) {
+	global $username_pattern;
+	$replacement = '<a href=/u/${1}${2}>@${1}${2}</a>';
+	return preg_replace($username_pattern,$replacement,$str);
+}
+
+function getPolishedBbcode($str) {
+	global $bbcode;
+	return htmlspecialchars_decode(addUserLinks($bbcode->Parse(replaceEmojis($str))));
+}
 ?>
