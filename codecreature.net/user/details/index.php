@@ -36,29 +36,29 @@ $user = getPublicUserData($_SESSION['id'],true);
 		<title>user settings</title>
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<script src="/codefiles/required.js?fileversion=20260930"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20260930" rel="stylesheet" type="text/css"></link>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20260930"></script>
 		
 		<!-- fonts -->
 		<script>fonts.load('ComicSansMS','SuperComic','Yet R');</script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/typing-quirks.min.js?fileversion=20260930"></script>
 		<!-- svg icons -->
-		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
+		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260930" id="svg-icons-js"></script>
 		
 		<!--user common stylesheet-->
-		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user["color"]; ?>">
 		<nav>
@@ -201,7 +201,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 										$name = $f["name"];
 										$checked = in_array($name,$user["flags"]) ? " checked" : "";
 										echo "
-											<button class='option-wrapper' type='button' onclick=this.querySelector('input').click();>
+											<button class='option-wrapper' type='button'>
 												<input type='checkbox' id='flags-$name' name='flags[]' value='$name'$checked></input>
 												<label for='flags-$name' style=\"background-image:url('/graphix/flags/$image');\">
 													$name

@@ -214,8 +214,15 @@ option[value=purple], #color-select:has(option[value=purple]:checked) { backgrou
 	padding: .25em;
 	width: min(100%,max(10em,min(49%, 50vw)));
 	margin: .1em 0;
+	position: relative;
 }
-.flags .option-wrapper input { display: none; }
+.flags .option-wrapper input {
+	position: absolute;
+	opacity: 0;
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	margin: 0;
+}
 .flags .option-wrapper:not(:has(input:checked),:hover,:focus-visible) {
 	opacity: .6;
 }

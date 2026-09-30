@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-09-30T04:05'),
+		authors: ['emery'],
+		tags: ['general','minor'],
+		summary: `
+			user fixes
+		`,
+		details: `
+			<p>tested userpages and <a href="/user">user settings</a> on chrome for the first time, found a few issues that should hopefully be fixed! if you're a chrome user and something still isn't working right, let me know</p>
+			<p>few new flags added to the profile options, also made the system much less annoying for myself behind the scenes. i did have to manually correct everybody's profiles, so if you notice a flag missing just go into your settings and re-add it. shouldn't happen again %E%:)%</p>
+			<p>in other news, new emojis: <img class="mini no-full-view" src="/graphix/emojis/kitty_plead.svg" alt="wide-eyed pleading kitty face emoji"> <img class="mini no-full-view" src="/graphix/emojis/maple_leaf.svg" alt="red maple leaf emoji"> <img class="mini no-full-view" src="/graphix/emojis/falling_leaves.svg" alt="orange and yellow falling leaves emoji"> <img class="mini no-full-view" src="/graphix/emojis/garfield.svg" alt="garfield the cat emoji"> <img class="mini no-full-view" src="/graphix/emojis/falfal.svg" alt="falfal emoji from the 'welcome to demon school iruma-kun' anime">
+		`
+	},
+	{
 		date: new Date('2026-09-28T15:08'),
 		authors: ['emery'],
 		tags: ['chat','minor'],
