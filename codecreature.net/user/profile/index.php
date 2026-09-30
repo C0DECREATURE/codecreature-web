@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/user/flags.php";
 
 // Initialize the session if not already started
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
@@ -69,13 +70,16 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<?php
 			if (!empty($user["flags"])) {
-				// sort flags by category
+				// get flag data and sort by category
 				$genderFlags = [];
 				$otherFlags = [];
-				foreach($user["flags"] as $f) {
-					if (empty($f["file"])) $f["file"] = "svg";
-					if (!empty($f["type"]) && $f["type"] == "gender") $genderFlags[] = $f;
-					else $otherFlags[] = $f;
+				foreach($user["flags"] as $name) {
+					// if flag recognized
+					if (array_key_exists($name,$flagData)) {
+						$f = $flagData[$name];
+						if (!empty($f["type"]) && $f["type"] == "gender") $genderFlags[] = $f;
+						else $otherFlags[] = $f;
+					}
 				}
 			?>
 			<section id="ribbons" aria-label="identity ribbons">
@@ -83,8 +87,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 					<?php
 						foreach($genderFlags as $f) {
 							$flag = $f["flag"];
-							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
-							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag.".$f["file"]."');><div class='wrapper'><span>$text</span></div></button>";
+							$name = $f["name"];
+							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag');><div class='wrapper'><span>$name</span></div></button>";
 						}
 					?>
 				</section>
@@ -92,8 +96,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 					<?php
 						foreach($otherFlags as $f) {
 							$flag = $f["flag"];
-							$text = !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$flag);
-							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag.".$f["file"]."');><div class='wrapper'><span>$text</span></div></button>";
+							$name = $f["name"];
+							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag');><div class='wrapper'><span>$name</span></div></button>";
 						}
 					?>
 				</section>

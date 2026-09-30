@@ -122,10 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	if (isset($_POST["pronouns"])) updatePronouns($_POST["pronouns"]);
 	
 	$flags = "[]";
-	if (!empty($_POST["flags"])) {
-		for($i = 0; $i < count($_POST["flags"]); $i++) $_POST["flags"][$i] = json_decode($_POST["flags"][$i],true);
-		$flags = json_encode($_POST["flags"]);
-	}
+	if (!empty($_POST["flags"])) $flags = json_encode($_POST["flags"]);
 	updateFlags($flags);
 	
 	$private = isset($_POST["game-privacy"]) ? $_POST["game-privacy"] : "off";

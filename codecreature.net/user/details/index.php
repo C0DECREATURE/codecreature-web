@@ -9,6 +9,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 	exit;
 }
 
+// Include flag info file
+require_once "../flags.php";
+
 // Include user database functions file
 require_once "../database.php";
 
@@ -190,58 +193,18 @@ $user = getPublicUserData($_SESSION['id'],true);
 							<!-- user pronouns -->
 							<div id="flags" class="form-section flags">
 								<?php
-									$genderFlags = [
-										["flag"=>"agender"],
-										["flag"=>"autigender-blank"],
-										["flag"=>"bigender"],
-										["flag"=>"boygirl"],
-										["flag"=>"catgender-blank"],
-										["flag"=>"genderfluid"],
-										["flag"=>"genderqueer"],
-										["flag"=>"nonbinary"],
-										["flag"=>"transgender"],
-										["flag"=>"transfeminine","text"=>"transfem"],
-										["flag"=>"transgender","text"=>"trans woman"],
-										["flag"=>"transmasculine","text"=>"transmasc"],
-										["flag"=>"transgender","text"=>"trans man"],
-									];
-									for($i = 0; $i < count($genderFlags); $i++) $genderFlags[$i]["type"] = "gender";
-									$otherFlags = [
-										["flag"=>"aroace"],
-										["flag"=>"aromantic"],
-										["flag"=>"asexual"],
-										["flag"=>"demisexual"],
-										["flag"=>"bi"],
-										["flag"=>"gay"],
-										["flag"=>"lesbian"],
-										["flag"=>"vincian","text"=>"mlm"],
-										["flag"=>"pan"],
-										["flag"=>"polyamorous-blank"],
-										["flag"=>"queer"],
-										["flag"=>"sapphic-blank"],
-										["flag"=>"system"],
-									];
-									function getFlagText($f) {
-										return !empty($f["text"]) ? $f["text"] : str_replace("-blank","",$f["flag"]);
-									}
-									// get the user's current flags
-									$user_flaglist = [];
-									if (!empty($user["flags"])) {
-										foreach($user["flags"] as $f) { $user_flaglist[] = getFlagText($f); }
-									}
 									// create checkbox for given flag
 									// check the checkbox if flag in user's current flags
 									function insertFlagCheckbox($f) {
-										global $user_flaglist;
-										$value = json_encode($f);
-										$image = $f["flag"].".".(empty($f["file"]) ? "svg" : $f["file"]);
-										$text = getFlagText($f);
-										$checked = in_array($text,$user_flaglist) ? " checked" : "";
+										global $user;
+										$image = $f["flag"];
+										$name = $f["name"];
+										$checked = in_array($name,$user["flags"]) ? " checked" : "";
 										echo "
 											<button class='option-wrapper' type='button' onclick=this.querySelector('input').click();>
-												<input type='checkbox' id='flags-$text' name='flags[]' value='$value'$checked></input>
-												<label for='flags-$text' style=\"background-image:url('/graphix/flags/$image');\">
-													$text
+												<input type='checkbox' id='flags-$name' name='flags[]' value='$name'$checked></input>
+												<label for='flags-$name' style=\"background-image:url('/graphix/flags/$image');\">
+													$name
 												</label>
 											</button>
 										";
@@ -251,14 +214,14 @@ $user = getPublicUserData($_SESSION['id'],true);
 									<legend>gender flags</legend>
 									<?php
 										// create gender flag checkboxes
-										foreach($genderFlags as $f) { insertFlagCheckbox($f); }
+										foreach($flagData as $f) { if ($f["type"] == "gender") insertFlagCheckbox($f); }
 									?>
 								</fieldset>
 								<fieldset>
 									<legend>other flags</legend>
 									<?php
 										// create other flag checkboxes
-										foreach($otherFlags as $f) { insertFlagCheckbox($f); }
+										foreach($flagData as $f) { if ($f["type"] == "other") insertFlagCheckbox($f); }
 									?>
 								</fieldset>  
 							</div>
