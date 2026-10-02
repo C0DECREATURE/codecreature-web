@@ -30,8 +30,8 @@ function dragElement(elmnt) {
 			e = e || window.event;
 			e.preventDefault();
 			// get the mouse cursor position at startup:
-			mouseX = (e.clientX || e.targetTouches[0].pageX);
-			mouseY = (e.clientY || e.targetTouches[0].pageY);
+			mouseX = e.targetTouches ? e.targetTouches[0].pageX : e.clientX;
+			mouseY = e.targetTouches ? e.targetTouches[0].pageY : e.clientY;
 			document.ontouchend = closeDragElement;
 			document.onmouseup = closeDragElement;
 			// call a function whenever the cursor moves:
@@ -45,10 +45,12 @@ function dragElement(elmnt) {
 			e = e || window.event;
 			e.preventDefault();
 			// calculate the new cursor position:
-			dx = mouseX - (e.clientX || e.targetTouches[0].pageX);
-			dy = mouseY - (e.clientY || e.targetTouches[0].pageY);
-			mouseX = (e.clientX || e.targetTouches[0].pageX);
-			mouseY = (e.clientY || e.targetTouches[0].pageY);
+			newX = e.targetTouches ? e.targetTouches[0].pageX : e.clientX;
+			newY = e.targetTouches ? e.targetTouches[0].pageY : e.clientY;
+			dx = mouseX - newX;
+			dy = mouseY - newY;
+			mouseX = newX;
+			mouseY = newY;
 			dragElementBy(dx,dy);
 		}
 	}
