@@ -75,6 +75,7 @@
 #inbox .box > .wrapper {
 	display: inline-block;
 }
+#inbox .box .icon { height: 1.5rem; }
 #inbox .box .item-stat {
 	max-width: max(2em, min(25%, 8vh));
 	aspect-ratio: 1;
