@@ -352,6 +352,8 @@
 					date = new Date();
 					hours = date.getHours();
 					minutes = date.getMinutes();
+					// add zero to single digit minute values
+					if (minutes < 10) minutes = "0" + minutes;
 					// adjust for am/pm and midnight
 					let adjustedHours = hours > 12 ? hours - 12 : hours;
 					adjustedHours = hours == 0 ? 12 : adjustedHours;
