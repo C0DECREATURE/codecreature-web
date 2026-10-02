@@ -1,13 +1,13 @@
 :root {
-	--page-width: 2320px;
-	--page-height: 1900px;
+	--page-width: 1920px;
+	--page-height: 1080px;
 	--text: #47341a;
 	--link-text: #32556a;
 	--link-hover: #131745;
 	--shadow: drop-shadow(4px 4px 3px #21120c88);
 	--paper-color: #dfd4ac;
-	--cursor: url("cursor_arrow.png"), auto;
-	--cursor-pointer: url("cursor_pointer.png"), auto;
+	--cursor: url("/graphix/cursors/victorian_arrow.png"), auto;
+	--cursor-pointer: url("/graphix/cursors/victorian_hand.png"), pointer;
 }
 
 body, html {
@@ -18,8 +18,8 @@ body, html {
 body { overflow: hidden; }
 
 body:not(.defaultCursor) {
-	cursor: url("/graphix/cursors/victorian_arrow.png"), auto;
-	a, label, input, button { cursor: url("/graphix/cursors/victorian_hand.png"), pointer; }
+	cursor: var(--cursor);
+	a, label, input, button, .interactive, .clipped:after { cursor: var(--cursor-pointer); }
 }
 
 .passthrough, .corner { pointer-events: none; }
@@ -189,6 +189,9 @@ main {
 	position: absolute;
 	width: var(--page-width);
 	height: var(--page-height);
+	top: 0;
+	left: 0;
+	@media screen and ((width < 600px) or (height < 500px)) { zoom: .85; }
 }
 
 .repositioner { position: relative; }
@@ -245,3 +248,4 @@ main {
 	transform: translate(-50%,-50%);
 	filter: var(--shadow);
 }
+#load-screen > .wrapper img { max-width: 90vw; }

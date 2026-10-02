@@ -1,3 +1,10 @@
+:root {
+	--page-width: 2320px;
+	--page-height: 2100px;
+	--top-extra: 100px;
+	--left-extra: 400px;
+}
+
 body {
 	background: #593824;
 }
@@ -17,11 +24,14 @@ body:before {
 }
 
 #drag-wrapper {
-	top: -100px; left: -400px;
+	top: calc(-1 * var(--top-extra));
+	left: calc(-1 * var(--left-extra));
+	width: calc(var(--page-width) + var(--left-extra));
+	height: calc(var(--page-height) + var(--top-extra) + 112px);
 }
 .repositioner {
-	top: 100px;
-	left: 400px;
+	top: var(--top-extra);
+	left: var(--left-extra);
 }
 
 .page-settings {
@@ -339,4 +349,22 @@ body:before {
 }
 #egg-doll:after {
 	clip-path: polygon(55% 1%, 74% 2%, 100% 42%, 89% 75%, 65% 100%, 59% 95%, 64% 63%, 26% 73%, 0% 56%, 4% 48%, 37% 55%, 22% 28%);
+}
+
+#lobster-box { position: relative; pointer-events: none; }
+#lobster-box .top, #lobster-box .top .interactive-area {
+	position: absolute;
+	top: 0; left: 0;
+}
+#lobster-box .top img {
+	position: relative;
+	transition: transform .5s;
+}
+#lobster-box .top .interactive-area {
+	pointer-events: initial;
+	width: 100%; height: 100%;
+	clip-path: polygon(70% 23%, 80% 43%, 45% 85%, 27% 81%, 43% 42%);
+}
+#lobster-box .top:has(.interactive-area:hover) img, #lobster-box .top:focus-visible img {
+	transform: translate(-20%, -20%);
 }

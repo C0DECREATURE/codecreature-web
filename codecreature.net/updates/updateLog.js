@@ -26,6 +26,30 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-10-02T00:29'),
+		authors: ['emery'],
+		tags: ['trinkets','minor'],
+		summary: `
+			some new <a href="/trinkets">trinkets</a>
+		`,
+		details: `
+			<p>edits:<ul>
+				<li>more space at the bottom! now i need even more stuff to fill it...</li>
+				<li>cut-worms illustration links to worm race</li>
+				<li>waiting room loading image shrinks to fit small screens</li>
+				<li>cleaned transparency edges on crochet star rug</li>
+				<li>fixed error when attempting to click and drag from the edge of the screen</li>
+			</ul></p>
+			<p>new items:<ul>
+				<li>opening brass lobster box, left side (need to decide what to put in it...)</li>
+				<li>gilded shell charm, left side</li>
+				<li>illustration of hand surrounded by angel wings, top left</li>
+				<li>gold bar chain, top center</li>
+				<li>royal lion puppet, bottom center</li>
+			</ul></p>
+		`
+	},
+	{
 		date: new Date('2026-09-30T04:05'),
 		authors: ['emery'],
 		tags: ['general','minor'],
