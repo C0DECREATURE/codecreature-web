@@ -146,7 +146,7 @@ require_once "functions.php";
 										.then(data => {
 											if (data.sent) {
 												// show sent message
-												document.getElementById('form-response').innerHTML = `Sent a ${data.typeText} from ${data.sender} to ${data.recipient}!`;
+												document.getElementById('form-response').innerHTML = `Sent a ${data.typeText} to ${data.recipient} from ${data.sender}!`;
 												// update inbox count
 												document.getElementById(`${data.recipient}-${data.type}-count`).innerHTML = data.newCount;
 											} else if (data.error) { 
