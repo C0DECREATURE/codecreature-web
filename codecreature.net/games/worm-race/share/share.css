@@ -37,3 +37,11 @@
 #posters .img-wrapper img { max-width: 100%; }
 #posters .poster-section { width: 40%; }
 .poster-section textarea { width: 0px; min-width: 100%; }
+.poster-section .credit {
+	background: var(--blue);
+	color: var(--white);
+	text-align: center;
+	padding: .15em .5em;
+	a, a:link, a:visited { color: var(--l-blue); }
+	a:hover { color: var(--white); }
+}

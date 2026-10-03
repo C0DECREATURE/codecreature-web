@@ -101,6 +101,7 @@
 								<div class="poster-section">
 									<div class="img-wrapper"><img src="/fridge/art/B_nice_to_wormZ_noodle_poster.png" alt=""></div>
 									<textarea rows="2" cols="60" name="vote pool noodle poster"><a href="https://codecreature.net/games/worm-race/#blue" aria-label="vote pool noodle"><img src="https://i.postimg.cc/DwQ8G2tX/poolnoode_poster.png" alt=""></a></textarea>
+									<div class="credit">by <a href="/u/B_nice_to_wormZ/">@B_nice_to_wormZ</a></div>
 								</div>
 							</div>
 						</div>
