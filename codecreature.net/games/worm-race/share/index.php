@@ -58,37 +58,50 @@
 					</header>
 					<div class="main-container">
 						<div class="details">
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/MTr3Rh4d/button_flash.gif" alt=""></span>
-								<textarea rows="2" cols="60" name="flashing worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.postimg.cc/MTr3Rh4d/button_flash.gif" alt=""></a></textarea>
+							<div class="nav">
+								<a class="btn" href="#buttons">buttons</a> <a class="btn" href="#posters">posters</a>
 							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></span>
-								<textarea rows="2" cols="60" name="static worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></a></textarea>
+							
+							<div id="buttons">
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/MTr3Rh4d/button_flash.gif" alt=""></div>
+									<textarea rows="2" cols="60" name="flashing worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.postimg.cc/MTr3Rh4d/button_flash.gif" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></div>
+									<textarea rows="2" cols="60" name="static worm race button code"><a href="https://codecreature.net/games/worm-race" aria-label="worm race"><img src="https://i.postimg.cc/bJFVbKML/button.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/631bRDSr/button_pink.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote pink button code"><a href="https://codecreature.net/games/worm-race/#pink" aria-label="worm race - vote pink"><img src="https://i.postimg.cc/631bRDSr/button_pink.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/85Cn71yX/button_orange.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote orange button code"><a href="https://codecreature.net/games/worm-race/#orange" aria-label="worm race - vote orange"><img src="https://i.postimg.cc/85Cn71yX/button_orange.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/RFbpfj8d/button_yellow.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote yellow button code"><a href="https://codecreature.net/games/worm-race/#yellow" aria-label="worm race - vote yellow"><img src="https://i.postimg.cc/RFbpfj8d/button_yellow.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/tTgmsXrr/button_green.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote green button code"><a href="https://codecreature.net/games/worm-race/#green" aria-label="worm race - vote green"><img src="https://i.postimg.cc/tTgmsXrr/button_green.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/d1SNdzX5/button_blue.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote blue button code"><a href="https://codecreature.net/games/worm-race/#blue" aria-label="worm race - vote blue"><img src="https://i.postimg.cc/d1SNdzX5/button_blue.png" alt=""></a></textarea>
+								</div>
+								<div class="share-btn-section">
+									<div class="img-wrapper"><img src="https://i.postimg.cc/DZYpstDQ/button_purple.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote purple button code"><a href="https://codecreature.net/games/worm-race/#purple" aria-label="worm race - vote purple"><img src="https://i.postimg.cc/DZYpstDQ/button_purple.png" alt=""></a></textarea>
+								</div>
 							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/631bRDSr/button_pink.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote pink button code"><a href="https://codecreature.net/games/worm-race/#pink" aria-label="worm race - vote pink"><img src="https://i.postimg.cc/631bRDSr/button_pink.png" alt=""></a></textarea>
-							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/85Cn71yX/button_orange.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote orange button code"><a href="https://codecreature.net/games/worm-race/#orange" aria-label="worm race - vote orange"><img src="https://i.postimg.cc/85Cn71yX/button_orange.png" alt=""></a></textarea>
-							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/RFbpfj8d/button_yellow.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote yellow button code"><a href="https://codecreature.net/games/worm-race/#yellow" aria-label="worm race - vote yellow"><img src="https://i.postimg.cc/RFbpfj8d/button_yellow.png" alt=""></a></textarea>
-							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/tTgmsXrr/button_green.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote green button code"><a href="https://codecreature.net/games/worm-race/#green" aria-label="worm race - vote green"><img src="https://i.postimg.cc/tTgmsXrr/button_green.png" alt=""></a></textarea>
-							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/d1SNdzX5/button_blue.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote blue button code"><a href="https://codecreature.net/games/worm-race/#blue" aria-label="worm race - vote blue"><img src="https://i.postimg.cc/d1SNdzX5/button_blue.png" alt=""></a></textarea>
-							</div>
-							<div class="share-btn-section">
-								<span><img src="https://i.postimg.cc/DZYpstDQ/button_purple.png" alt=""></span>
-								<textarea rows="2" cols="60" name="vote purple button code"><a href="https://codecreature.net/games/worm-race/#purple" aria-label="worm race - vote purple"><img src="https://i.postimg.cc/DZYpstDQ/button_purple.png" alt=""></a></textarea>
+							
+							<div id="posters">
+								<div class="poster-section">
+									<div class="img-wrapper"><img src="/fridge/art/B_nice_to_wormZ_noodle_poster.png" alt=""></div>
+									<textarea rows="2" cols="60" name="vote pool noodle poster"><a href="https://codecreature.net/games/worm-race/#blue" aria-label="vote pool noodle"><img src="https://i.postimg.cc/DwQ8G2tX/poolnoode_poster.png" alt=""></a></textarea>
+								</div>
 							</div>
 						</div>
 					</div>

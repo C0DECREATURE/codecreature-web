@@ -1,15 +1,10 @@
-/******************************************************************************************
-	SHARE BOX MAIN CONTENT
-******************************************************************************************/
-.share-btn-section {
-	width: 100%;
-	display: flex;
-	align-content: center; justify-content: center;
+#propaganda .details {
+	max-height: 50vh;
+	overflow-y: auto;
+	display: flex; flex-direction: column; gap: 1em;
 }
-/* .share-btn-section children */
-#propaganda .share-btn-section > * { margin-bottom: calc(var(--cw) / 65); margin-right: calc(var(--cw) * .01); }
-.share-btn-section:last-child > * { margin-bottom: 0; }
-.share-btn-section > :last-child { margin-right: 0; }
+
+.nav { text-align: center; }
 
 #propaganda textarea, #propaganda textarea:focus {
 	resize: none; overflow: hidden; word-break: break-all;
@@ -23,3 +18,22 @@
 .share-btn-section button { font-size: max(25px, calc(var(--cw) / 30)); }
 .share-btn-section .tooltiptext { width: 4em; }
 .share-btn-section button:hover { color: var(--l-blue); }
+
+/** BUTTONS **/
+#buttons {
+	display: flex; flex-direction: column;
+	gap: .5em;
+}
+.share-btn-section {
+	width: 100%;
+	display: flex;
+	align-content: center; justify-content: center;
+	gap: .5em;
+}
+.share-btn-section textarea { flex-grow: 1; }
+
+/** POSTERS **/
+#posters { display: flex; flex-wrap: wrap; }
+#posters .img-wrapper img { max-width: 100%; }
+#posters .poster-section { width: 40%; }
+.poster-section textarea { width: 0px; min-width: 100%; }
