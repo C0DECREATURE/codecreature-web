@@ -62,15 +62,30 @@ body {
 	filter: drop-shadow(1px 1px 2px #21120c77);
 }
 
-.water-blob {
+.blob {
 	position: absolute;
-	width: 900px; height: 900px;
+	aspect-ratio: 1;
+}
+#water-blob {
+	width: 900px;
 	background-image: url('/graphix/bg/water.jpg'),
 										url('/graphix/bg/pool_tiles.jpg'),
 										none;
 	background-blend-mode: hard-light;
 	background-size: 300px, 400px;
 	mask: url('clip-paths/water-blob.svg');
+}
+#perler-blob {
+	width: 700px;
+	background-image: url('/graphix/bg/perler_smiles_green.png');
+	background-size: 300px;
+	mask: url('clip-paths/perler-blob.svg');
+}
+#mats-blob {
+	width: 1000px;
+	background-image: url('/graphix/bg/fauxfur_white.jpg');
+	background-size: 300px;
+	mask: url('clip-paths/mats_blob.svg');
 }
 
 #garfield:hover img, #garfield:focus img, #garfield:focus-visible img { scale: 1.1; }
