@@ -162,6 +162,9 @@
 							<u class="tq" data-a="generates">gener8s</u> <u class="tq" data-a="pixelated">pixel8d</u> rounded corners <u class="tq">4</u>
 							css elements
 							
+							<a href="https://www.blobmaker.app/" target="_blank">blobmaker</a>
+							random svg blob <u class="tq" data-a="generator">gener8r</u>
+							
 							<a href="https://foolishdeveloper.com/animated-eyes-follow-mouse-cursor-in-javascript/">following eyes</a>
 							javascript tutorial <u class="tq">4</u> making eyes that follow the cursor
 						</div>
