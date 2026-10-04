@@ -246,12 +246,12 @@ body:before {
 .pot {
 	position: absolute;
 	width: fit-content;
-	.front { border-radius: 46%; width: 80%; left: 12%; }
-	.front img { left: -15%; }
+	pointer-events: none;
+	.front { pointer-events: initial; border-radius: 46%; width: 80%; left: 12%; }
+	.front img { pointer-events: none; left: -15%; }
 	.front, .front img { position: relative; }
 	.contents {
 		position: absolute;
-		pointer-events: none;
 		width: 62%;
 		left: 21%;
 		bottom: 55%;
@@ -264,9 +264,9 @@ body:before {
 	transform: translateY(100%);
 	bottom: -1%;
 	transition: transform 1s;
-	img { position: relative; pointer-events: none;}
+	img { position: relative; }
 }
-.pot:has(.front:hover, .front:focus-visible, .front:active) .content-wrapper { transform: translateY(0%); }
+.pot:has(.front:hover, .front:focus-visible, .front:active, .content-wrapper:hover) .content-wrapper { transform: translateY(0%); }
 
 .dice-box {
 	position: absolute;
@@ -344,12 +344,17 @@ body:before {
 #insect-lamp .light { top: 10%; }
 #insect-lamp:after { clip-path: polygon(32% 5%, 63% 5%, 100% 60%, 100% 65%, 54% 66%, 80% 95%, 68% 100%, 23% 100%, 16% 94%, 42% 66%, 0% 67%, 0% 62%); }
 
+/* clipped elements */
 #hey-hand:after {
 	clip-path: polygon(26% 1%, 71% 0%, 100% 23%, 100% 32%, 85% 57%, 79% 100%, 38% 100%, 38% 83%, 0% 57%, 0% 50%, 32% 50%);
 }
 #egg-doll:after {
 	clip-path: polygon(55% 1%, 74% 2%, 100% 42%, 89% 75%, 65% 100%, 59% 95%, 64% 63%, 26% 73%, 0% 56%, 4% 48%, 37% 55%, 22% 28%);
 }
+#bug-pearls:after {
+	clip-path: polygon(6% 34%, 20% 35%, 50% 80%, 80% 35%, 91% 35%, 96% 49%, 64% 61%, 56% 100%, 43% 100%, 36% 60%, 5% 48%);
+}
+
 
 #lobster-box { position: relative; pointer-events: none; }
 #lobster-box .top, #lobster-box .top .interactive-area {
@@ -368,3 +373,33 @@ body:before {
 #lobster-box .top:has(.interactive-area:hover) img, #lobster-box .top:focus-visible img {
 	transform: translate(-20%, -20%);
 }
+
+body.iSpy:not(.defaultCursor) {
+	.findable[data-found=false], .findable[data-found=false].clipped:after { cursor: var(--magnifier-pointer); }
+}
+body.iSpy.defaultCursor {
+	.findable[data-found=false], .findable[data-found=false].clipped:after { cursor: zoom-in; }
+}
+#findables {
+	position: fixed;
+	bottom: 0; left: 0;
+	z-index: 1000;
+	pointer-events: none;
+}
+#findables > * { pointer-events: initial; }
+#findables > button { position: relative; left: -5px; bottom: -8px; }
+#findables > button .paper-popout { left: 64%; z-index: -1; }
+#findables .details {
+	background: var(--paper-color);
+	width: min(15em,100%);
+	box-sizing: border-box;
+}
+#findables .details.closed { height: 0px; }
+#findables .details > .wrapper {
+	padding: 1em 1.5em;
+}
+#findables ol {
+	padding: 0; padding-left: .5em;
+	margin: 0; margin-top: .5em;
+}
+.findable { position: absolute; }

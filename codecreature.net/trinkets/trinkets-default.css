@@ -8,6 +8,7 @@
 	--paper-color: #dfd4ac;
 	--cursor: url("/graphix/cursors/victorian_arrow.png"), auto;
 	--cursor-pointer: url("/graphix/cursors/victorian_hand.png"), pointer;
+	--magnifier-pointer: url("/graphix/cursors/victorian_magnifier.png"), zoom-in;
 }
 
 body, html {
@@ -19,7 +20,10 @@ body { overflow: hidden; }
 
 body:not(.defaultCursor) {
 	cursor: var(--cursor);
-	a, label, input, button, .interactive, .clipped:after { cursor: var(--cursor-pointer); }
+	a, label, input, button, .interactive { cursor: var(--cursor-pointer); }
+}
+body.defaultCursor {
+	a, label, input, button, .interactive { cursor: pointer; }
 }
 
 .passthrough, .corner { pointer-events: none; }

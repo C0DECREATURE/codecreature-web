@@ -26,6 +26,17 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-10-04T05:36'),
+		authors: ['emery'],
+		tags: ['trinkets'],
+		summary: `
+			<a href="/trinkets">trinkets</a> i spy
+		`,
+		details: `
+			<p>set up a basic i spy feature for the trinkets page! still deciding what all to include, just a couple in there for now. click the magnifying glass at the bottom left corner to start</p>
+		`
+	},
+	{
 		date: new Date('2026-10-02T00:29'),
 		authors: ['emery'],
 		tags: ['trinkets','minor'],

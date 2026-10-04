@@ -13,22 +13,22 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="favicon_apple_touch.png">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20260410"></script>
+		<script src="/codefiles/required.js?fileversion=20261004"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20261004" rel="stylesheet" type="text/css"></link>
 		
 		<script>fonts.load('Victorian Parlor','Paint Hand');</script>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20261004"></script>
 		
 		<!--this page's stylesheets-->
-		<link href="trinkets-default.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		<link href="my-stuff.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		<link href="book.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="trinkets-default.css?fileversion=20261004" rel="stylesheet" type="text/css" media="all">
+		<link href="my-stuff.css?fileversion=20261004" rel="stylesheet" type="text/css" media="all">
+		<link href="book.css?fileversion=20261004" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's scripts -->
-		<script src="magnifying-glass.js?fileversion=20260410"></script>
-		<script src="loading.js?fileversion=20260410"></script>
+		<script src="magnifying-glass.js?fileversion=20261004"></script>
+		<script src="loading.js?fileversion=20261004"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -56,6 +56,71 @@
 			<br>Loading...
 		</div></div>
 		
+		<div id="findables">
+			<button class="navbutton" onclick="document.getElementById('findables').querySelector('.details').classList.toggle('closed');findables.startISpy();">
+				<div class="paper-popout"><span>I Spy</span></div>
+				<img class="icon" src="images/magnifying_glass_charm.png" alt="I Spy">
+			</button>
+			<div class="details closed"><div class="wrapper">
+				Find and click these objects! Undiscovered objects will display a magnifier cursor when hovered.
+				<ol id="findables-list"></ol>
+			</div></div>
+			<script>
+				let findables = {
+					iSpy: false, // whether I Spy mode has been started
+					displayNames: {
+						"bug": "Things with Bugs",
+						"moon": "Crescent Moons",
+						"key": "Keys",
+						"humanimal": "Human-Faced Animals",
+					},
+					total: {},
+					foundCount: {},
+					found: (el)=>{
+						if (el.dataset.found != "true") {
+							let type = el.dataset.findableType;
+							el.dataset.found = "true";
+							findables.foundCount[type] += 1;
+							document.getElementById('findable-'+type).querySelector('.count').innerHTML = findables.foundCount[type];
+						}
+					},
+					startISpy: ()=>{
+						document.body.classList.add("iSpy");
+						findables.iSpy = true;
+					},
+					initElements: ()=>{
+						let fEls = document.getElementsByClassName('findable');
+						for (let i = 0; i < fEls.length; i++) {
+							fEls[i].dataset.found = "false";
+							fEls[i].addEventListener("click",(e)=>{
+								if (findables.iSpy && fEls[i].dataset.found != "true") {
+									e.preventDefault();
+									findables.found(fEls[i]);
+								}
+							});
+							let type = fEls[i].dataset.findableType;
+							if (typeof(findables.total[type]) == "undefined") findables.total[type] = 1;
+							else findables.total[type] += 1;
+						};
+						for (const [key, value] of Object.entries(findables.total)) {
+							// set found count of findable to zero
+							findables.foundCount[key] = 0;
+							// create a counter display for the findable type
+							let counterEl = document.createElement("li");
+							counterEl.id = "findable-"+key;
+							let name = typeof(findables.displayNames[key]) == "undefined" ? key : findables.displayNames[key];
+							counterEl.innerHTML = `<span class="name">${name}:</span> <span class="count">0</span>/${value}`;
+							document.getElementById("findables-list").appendChild(counterEl);
+							// log type total count
+							console.log(`total ${key} findables: ${value}`);
+						}
+					},
+				};
+			</script>
+		</div>
+		
+		<?php include "credits.php"; ?>
+		
 		<main><div id="drag-wrapper" class="hidden"> <!-- hidden until images load -->
 			<img id="top-left-marker" class="corner" src="images/corner.png" alt="">
 			<img id="top-right-marker" class="corner" src="images/corner.png" alt="">
@@ -79,104 +144,11 @@
 					<div class="paper-popout"><span>Credits</span></div>
 					<img src="images/wax_c.png">
 				</button>
-				<div popover id="credits"><div class="wrapper">
-					<h2>Credits</h2>
-					
-					<h4>Transparent PNG Blogs</h4>
-					These are some of my favorites for sourcing things!
-					<ul>
-						<li><a href="https://snailspng.tumblr.com/">snailspng</a></li>
-						<li><a href="https://oldjewelryfeed.tumblr.com/">oldjewelryfeed</a></li>
-						<li><a href="https://www.tumblr.com/lupineshieldmaiden">lupineshieldmaiden</a></li>
-					</ul>
-					
-					<h4>Books</h4>
-					<ul>
-						<li>Pokémon cover: <a href="https://www.stollart.com/poknatomy">PokéNatomy</a> by Christopher Stoll</li>
-						<li>Pokémon interior: <a href="https://bulbapedia.bulbagarden.net/wiki/After_the_Rain_With_You">After the Rain With You</a>, illustrations by Kihara Misaki</li>
-						<li>"De La Sphere" illustrations from <a href="https://archive.org/details/descriptiondelun01mall">Description de l'Univers</a> by Allain Manesson Mallet, 1683</li>
-						<li><a href="https://archive.org/details/ChroniclesOfThePhotographsOfSpiritualBeings">Chronicles of Spirit Photography</a> by Georgiana Houghton, 1882</li>
-					</ul>
-					
-					<h4>Illustrations & Photography</h4>
-					<ul>
-						<li>Insect illustrations by <a href="https://www.biodiversitylibrary.org/item/38683#page/172/mode/1up">Daniel Carter Beard</a>, 1915: "Leg Plan of the Baby" caterpillar, "cut-worms," caged beetle</li>
-						<li>"Can I Kill That Fly?" illustration by Ivor Cutler for the <a href="https://archive.org/details/InternationalTimes1966/IT_1966-11-28_B-IT-Volume-1_Iss-4">International Times</a>, Nov 1966</li>
-						<li>Hand with thorns and flower from <a href="https://www.sothebys.com/en/buy/auction/2023/contemporary-curated-4/despues-de-todo-solo-estamos-aqui-una-vez-iii">painting by Felipe Baeza</a>, 2023, in support of the <a href="https://www.aliforneycenter.org/">Ali Forney Center</a> for queer youth</li>
-						<li>Anthill illustration by <a href="https://snailspng.tumblr.com/post/749142717930586112">snailspng</a> from the British Library's manuscript collection</li>
-						<li>Row of gold bugs on pink background by <a href="https://www.instagram.com/snighilarium">snighilarium</a></li>
-						<li>Toad with human face from cover of <a href="https://www.abebooks.com/Witchcraft-England-Hole-Christina-Batsford-1947/31230000754/bd">Witchcraft in England</a></li>
-						<li><a href="https://discardingimages.tumblr.com/post/132951782198">Cygnus the Swan constellation</a> from 1447 Italian manuscript</li>
-						<li>Pair of night sky rooftop photos by <a href="https://www.janasojka.art/">Janja Sojka</a></li>
-						<li>Snailfish illustration from <a href="https://www.semanticscholar.org/paper/Pseudoliparis-swirei-sp.-nov.%3A-A-newly-discovered-Gerringer-Linley/65db5d619bf5d5816bbafde17e9140ce98ea9612#extracted?utm_source=direct_link">Pseudoliparis swirei</a> description paper, drawn by Thomas D. Linley, <a href="https://wallpapers.com/png/vintage-blank-paper-texture-jmlfjlkexmkwxuub.html">paper texture</a> by by slomr2 from Wallpapers.com</li>
-						<li>Palette preview <a href="https://www.1stdibs.com/art/paintings/animal-paintings/le-roy-jules-gustave-cats-interior/id-a_13892732/">cat painting</a> by Jules Gustave Le Roy, c. 1890</li>
-						<!-- 
-						<li>Diagram of human figure with overlaid constellations from <a href="https://archive.org/details/solarbiologyscie00butliala">Solar Biology</a> by Hiram Erastus Butler, 1921. Image sourced from <A href="https://www.rawpixel.com/image/3276618/illustration-image-art-black">rawpixel</a></li>
-						-->
-					</ul>
-					
-					<h4>Objects</h4>
-					<ul>
-						<li>"Hey" bronze hand with face by <a href="https://kenlittle.com/">Ken Little</a>, 1996</li>
-						<li>Glass <a href="https://animus-inviolabilis.tumblr.com/post/118391779252">star pendant with lock</a> by Raymond Roussel, 1923. Contains a star-shaped cookie.</li>
-						<li>Royal lion puppet by <a href="https://www.catjohnston.com/">Cat Johnston</a></li>
-						<li>Blue and gold celestial shapes from mirror by <a href="https://www.1stdibs.com/furniture/mirrors/sunburst-mirrors/mid-modern-century-mirror-atelier-mithe-espelt/id-f_30910182/">atelier Mithe Espelt</a></li>
-						<li><a href="https://www.1stdibs.com/furniture/mirrors/wall-mirrors/medieval-inspired-sunburst-mirror-polychrome-carved-wood/id-f_34436452/">Medieval-style carved circle</a> from 1950s-60s</li>
-						<li>Cast iron owl incense burner from Japan, 1950s</li>
-						<li>Folded hands gold daguerreotype pin from the 1850s, <a href="https://vintagenewsdaily.com/abolitionist-button-ca-1850s/">possibly abolitionist</a></li>
-						<li>Glass eye by <a href="https://jarisheese.blogspot.com/2010/09/eye-button.html">Jari Sheese</a>, 2010</li>
-						<li>Emerald salamander brooch from <a href="https://www.thejewelleryeditor.com/images/cheapsidehoardexhibition17/">The Jewellery Editor</a>, originally 16th-17th century</li>
-						<li>Gold ship pendant by <a href="https://www.metmuseum.org/art/collection/search/197151">Alfred André</a>, late 19th century</li>
-						<li>Coffin doily by <a href="https://www.etsy.com/se-en/listing/1096629893">CreativeWorksByAnnie</a> (you can make one!)</li>
-						<li>Glass shark egg with dried flowers by <a href="https://www.andreaspencerglass.com/">Andrea Spencer Glass</a></li>
-						<li>Brass <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/animal-sculptures/very-large-antique-victorian-brass-lobster-form-box/id-f_30319362/">lobster box</a>, late 1800s</li>
-						<li>Stained glass insect lamp by <a href="https://www.instagram.com/p/DB1caqyuGHp/">cady_the_creator</a></li>
-						<!-- Not yet added --
-						<li>Red-brown ceramic cat from the Zsolnay Workshop, c. 1908, sold on <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/animal-sculptures/symbolist-cat/id-f_34435752/">1stDibs</a></li>
-						<li>Butterflies under glass dome by Hasharat, 21st century, sold on <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/natural-specimens/hasharat-summer-garden-butterfly-specimen-display-19th-century-glass-dome/id-f_52191102/">1stDibs</a></li>
-						<li>Pointy welded bronze cat sculpture by James Bearden, sold on <a href="https://www.1stdibs.com/furniture/decorative-objects/sculptures/animal-sculptures/james-bearden-1960s-style-welded-bronze-black-painted-brutalist-cat-sculpture/id-f_28717402/#galleryModalOpen">1stDibs</a></li>
-						-->
-					</ul>
-					
-					<h4>Tapestries</h4>
-					<ul>
-						<li>Large <a href="https://www.1stdibs.com/furniture/wall-decorations/tapestry/large-belgium-tapestry/id-f_14025072/">background tapestry</a> from Belgium, 1920s</li>
-						<li>Lady and the Unicorn tapestry by <a href="https://www.walltapestry.com/Lady-and-the-Unicorn-A-Mon-Seul-Desir-I-French-Wall-Tapestry">WallTapestry.com</a> based on A Mon Seul Desir I, originally woven 1511</li>
-						<li><a href="https://www.walltapestry.com/Tree-of-Life-Blue-William-Morris-Belgian-Wall-Tapestry">Bird tree tapestry</a> and <a href="https://www.walltapestry.com/Tree-of-Life-Red-William-Morris-Horizontal-Belgian-Wall-Tapestry">red tree tapestry</a> by WallTapestry.com based on William Morris designs from 1879</li>
-					</ul>
-					
-					<h4>Misc</h4>
-					<ul>
-						<li>Load screen <a href="https://www.1stdibs.com/furniture/folk-art/signs/early-timber-iron-general-waiting-room-railway-sign/id-f_35573692/">'Waiting Room' railway sign</a>, 1920s</li>
-						<li>Brown paper tape from <a href="https://www.hiclipart.com/free-transparent-background-png-clipart-qbxrv">HiClipart</a></li>
-						<li>Paint swipes on palette buttons from <a href="https://www.onlygfx.com/?s=Paint+Brush+Stroke">OnlyGFX</a></li>
-						<li>Arrow cursor image from an <a href="https://www.1stdibs.com/jewelry/necklaces/pendant-necklaces/antique-diamond-arrow-pendant-14k-gold/id-j_26000222/">antique diamond arrow pendant</a>, early 20th century</li>
-						<li>Hand cursor image from charm by <a href="https://licensedtocharm.com/products/frida-kahlo-silver-pointing-hand-charm">Licensed to Charm</a></li>
-						<li>Black wing from <a href="https://www.pngarts.com/explore/70962/download/70961">PNG Arts</a></li>
-					</ul>
-					
-					<h4>My Images</h4>
-					Photos I took myself. Free to use for non-commercial purposes. Credit appreciated but not required.
-					<ul>
-						<li>Koi fish charm</li>
-						<li>Antique spoons</li>
-						<li>Gold-wrapped shell charm</li>
-						<li>Dark green stone orb</li>
-						<li>Hedgehog salt shaker</li>
-					</ul>
-					
-					<h4>Other Notes</h4>
-					<ul>
-						<li>Ammonite with carved snake head is an English <a href="https://www.realyorkshireblog.com/post/whitby-s-snakestones-and-the-legend-of-st-hilda">snakestone</a>, based on the legend of St. Hilda</li>
-					</ul>
-					
-					<br><button class="close" popovertarget="credits">Close</button>
-				</div></div>
-				<!-- end credits -->
 				
 				<button id="palette-button" popovertarget="palettes" class="container glow-focus link" style="left: 73px; top: 245px;">
 					<div class="paper-popout"><span>Palettes</span></div>
 					<img src="images/moon_inkpot.png" alt="" style="width:124px;">
+					<div class="findable" data-findable-type="moon" style="width: 50px; height: 50px; left:36px; top: 82px;">
 				</button>
 				<div popover id="palettes"><div class="wrapper">
 					<h2 class="sr-only">Palettes</h2>
@@ -211,7 +183,6 @@
 									document.body.classList.remove(curPalette);
 									curPalette = 'color-' + buttons[i].dataset.name;
 									document.body.classList.add(curPalette);
-								
 								});
 							}
 						})();
@@ -233,6 +204,7 @@
 				
 				<div id="shadow-box" class="img-magnifier-container">
 					<img id="shadow-box-img" src="images/shadow_box.png" alt="" width="457" height="1041">
+					<div class="findable" data-findable-type="moon" style="width: 50px; height: 50px; left: 125px; top: 30px;"></div>
 				</div>
 				
 				<img src="images/coffin_doily.png" alt="" style="rotate: -11deg; left: 1534px; top: 645px; scale: .800;">
@@ -244,17 +216,17 @@
 					<img src="images/sun_window.png" alt="">
 				</div></div>
 				
-				<img src="images/bug_pearls.png" alt="" style="top: 594px; left: 461px;">
+				<img id="bug-pearls" class="clipped container" src="images/bug_pearls.png" alt="" style="top: 594px; left: 461px;">
 				
 				<img src="images/fish_fossil.png" alt="" style="rotate: 18deg; left: 532px; top: -125px; scale: 0.800;">
 				<img src="images/leg_plan_of_the_baby.png" alt="" style="rotate: -8deg; left: 327px; top: 338px;">
 				<img src="images/ant_hill.png" alt="" style="rotate: 3deg; left: 1129px; top: 61px;">
-				<img src="images/thorn_hand.png" alt="" style="left: 817px; top: 149px;">
-				<img src="images/toad_freak.png" alt="" style="left: 855px; top: 539px;">
+				<img src="images/thorn_hand.png" class="passthrough" alt="" style="left: 817px; top: 149px;">
+				<img src="images/toad_freak.png" class="findable" data-findable-type="humanimal" alt="" style="left: 855px; top: 539px;">
 				<img src="images/bug_paper_dolls.png" alt="" style="left: 992px; top: 1900px;">
 				<img src="images/kill_that_fly.png" alt="" style="left: 675px; top: 780px;">
 				<img src="images/unicorn_shield.png" alt="" style="left: 648px; top: 149px;">
-				<img src="images/medieval_harpy.png" alt="" style="left: 1395px; top: 39px;">
+				<img src="images/medieval_harpy.png" class="findable" data-findable-type="humanimal" alt="" style="left: 1395px; top: 39px;">
 				<img src="images/felt_cat.png" alt="" style="left: 1489px; top: 120px;">
 				<img src="images/magnus_spider.png" alt="" style="left: 1638px; top: -98px; rotate: 16deg; scale: 0.800;">
 				<img src="images/mirror_blue_star.png" alt="" style="top: 295px; left: 1272px;">
@@ -272,17 +244,23 @@
 				
 				<img src="images/night_photo.jpg" alt="" style="rotate: -12deg; left: 1925px; top: 1318px;">
 				
-				<img src="images/nebra_disc.png" alt="" style="left: -278px; top: 491px; scale:.800;">
+				<div class="container" style="left: -278px; top: 491px; scale:.800;">
+					<img src="images/nebra_disc.png" alt="">
+					<div class="findable" data-findable-type="moon" style="width: 91px; height: 177px; left: 255px; top: 106px; rotate: 14deg;"></div>
+				</div>
 				<!-- SMILING FACE CERAMIC HAND -->
 				<button id="hey-hand" class="clipped interactive container" style="left: 57px; top: 348px; scale: .800;">
 					<img src="images/face_hand_smile.png" alt="">
 					<img class="hover-hide" src="images/face_hand.png" alt="">
 				</button>
 				<img src="images/etoile.png" class="passthrough" alt="" style="left: 11px; top: 510px; rotate: -20deg; scale: .800;">
-				<img src="images/key_bird.png" alt="" style="rotate: -78deg; left: -3px; top: 345px;">
+				<img class="findable" data-findable-type="key" src="images/key_bird.png" alt="" style="rotate: -78deg; left: -3px; top: 345px;">
 				
 				<img src="images/secret_teachings_of_all_ages.png" alt="" style="left: -128px; top: -274px; rotate: 11deg; scale: .800;">
-				<img src="images/wilhelm_pantomime.png" alt="" style="left: -381px; top: -163px; scale: .7;">
+				<div class="container" style="left: -381px; top: -163px; scale: .7;">
+					<img src="images/wilhelm_pantomime.png" alt="" >
+					<div class="findable" data-findable-type="moon" style="width: 100px; height: 108px; left: 237px; top: -8px;"></div>
+				</div>
 				<!-- CELESTIAL BOOK -->
 				<button class="book interactive container" style="width: 220px; height: 310px; rotate: -11deg; left: -171px; top: 74px;">
 					<div class="back"><img src="images/books/astronomy_observation.png" alt=""></div>
@@ -310,7 +288,7 @@
 				</div></div>
 				
 				<img src="images/bead_red_swirl.png" alt="" style="left: 754px; top: 464px;">
-				<img src="images/key_star.png" alt="" style="rotate: -50deg; left: 732px; top: 1337px; scale:.800;">
+				<img class="findable" data-findable-type="key" src="images/key_star.png" alt="" style="rotate: -50deg; left: 732px; top: 1337px; scale:.800;">
 				
 				<!----------------- LEFT SIDE ------------------>
 				<img src="images/shark_egg.png" alt="" style="rotate: -24deg; left: -420px; top: 506px; scale: .800;">
@@ -338,7 +316,8 @@
 				<img src="images/swan_bead.png" alt="" style="rotate: 20deg; left: 213px; top: 1645px;">
 				<img src="images/louisville_bottle.png" alt="" style="left: 175px; top: 1795px; scale: .800;">
 				<img src="images/fat_ant.png" alt="" style="left: 133px; top: 2044px; rotate: 130deg;">
-				<div id="insect-lamp" class="container clipped" onclick="this.querySelector('.light').classList.toggle('hidden');" style="left: -193px; top: 1461px; scale: .800">
+				<div id="insect-lamp" class="container clipped"
+				onclick="this.querySelector('.light').classList.toggle('hidden');" style="left: -193px; top: 1461px; scale: .800">
 					<div class="light hidden"></div>
 					<img src="images/insect_lamp.png" alt="">
 				</div>
@@ -408,7 +387,7 @@
 				
 				<img src="images/mirror_blue_star_sm.png" alt="" style="top: 548px; left: 303px;">
 				<img src="images/mirror_blue_sun.png" alt="" style="top: 538px; left: 712px;">
-				<img src="images/mirror_silver_moon.png" alt="" style="top: 975px; left: 634px;">
+				<img src="images/mirror_silver_moon.png" class="findable" data-findable-type="moon" alt="" style="top: 975px; left: 634px;">
 				
 				<a id="jack-box" href="toys" target="_self" class="container" style="left: 1966px; top: 499px;">
 					<div class="paper-popout left"><span>Toy Trinkets</span></div>
@@ -422,7 +401,7 @@
 					<div class="contents"><div class="content-wrapper">
 						<img src="images/taxidermy_rat.png" alt="">
 					</div></div>
-					<button class="front" onclick="console.log(click);"><img src="images/finger_pot_front.png" alt=""></button>
+					<button class="front"><img src="images/finger_pot_front.png" alt=""></button>
 				</div>
 				
 				<img src="images/lion_puppet.png" class="passthrough" alt="" style="left: 547px; top: 1777px; scale: .800;">
@@ -470,13 +449,15 @@
 					<img class="top" src="images/eye_bead_top.png" alt="">
 				</div>
 				<!-- following eye script -->
-				<script src="follow-eye.js?fileversion=20260410"></script>
+				<script src="follow-eye.js?fileversion=20261004"></script>
 				
 				<!-- MEDIEVAL SPINNING WINDOW -->
 				<div class="wrapper" style="left: -50px; top: 930px; border-radius: 50%;"><div class="window window-50 window-round" style="overflow: hidden;">
 					<div class="window-scene"></div>
-					<img class="outer" id="medieval-frame-rotate" src="images/medieval_frame_outer.png" alt=""
-						style="pointer-events: initial; transform: rotate(0deg);">
+					<div class="outer container" id="medieval-frame-rotate" style="pointer-events: initial; transform: rotate(0deg);">
+						<img src="images/medieval_frame_outer.png" alt="">
+						<div class="findable" data-findable-type="moon" style="left: 30px; top: 194px; width: 80px; height: 62px;"></div>
+					</div>
 					<img class="inner" src="images/medieval_frame_inner.png" alt="">
 				</div></div>
 				<!-- rotate medieval frame outer part on hover -->
@@ -501,8 +482,11 @@
 	</body>
 	<!--------------END BODY------------->
 	
+	<!-- script to update findable counts -->
+	<script>findables.initElements();</script>
+	
 	<!-- script to enable the dragging movement -->
-	<script src="trinkets-draggable.js?fileversion=20260410"></script>
+	<script src="trinkets-draggable.js?fileversion=20261004"></script>
 	<!-- script for book behavior -->
-	<script src="book.js?fileversion=20260410"></script>
+	<script src="book.js?fileversion=20261004"></script>
 </html>
