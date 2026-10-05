@@ -109,7 +109,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<section class="<?php echo empty($user["summary"]) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
 			<div class="text">
-				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : getPolishedBbcode($user["summary"]); ?>
+				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : getPolishedBbcode(htmlspecialchars($user["summary"])); ?>
 			</div>
 			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>
@@ -124,9 +124,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 			</script>
 		</section>
 		
+		<?php if(isset($_SESSION["id"]) && $_SESSION["id"] == $user["id"]) { ?>
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
-			<textarea id="edit-summary" name="new-summary" value="" maxlength="2000"><?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : $user["summary"]; ?></textarea>
+			<textarea id="edit-summary" name="new-summary" value="" maxlength="2500"><?php echo htmlspecialchars_decode($user["summary"]); ?></textarea>
 			<div class="links">
 				<a href="/chat/bbcode">BBCode Guide</a>
 				| <a href="/user/details">User Settings</a>
@@ -136,6 +137,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 				<button type="submit" class="btn btn-green">update</button>
 			</div>
 		</form>
+		<?php } ?>
 		
 		<nav>
 			<a class="btn btn-default" href="/">home</a>

@@ -177,7 +177,7 @@ $user_auth = getAuthorization($user_id);
 						form.dataset.messageId = messageId;
 						
 						// put message contents in editor text area
-						textArea.value = msgEl.dataset.rawBbcode.replaceAll("[br]","\n");
+						textArea.value = decodeURI(msgEl.dataset.rawBbcode.replaceAll("[br]","\n"));
 						
 						textArea.focus();
 					}

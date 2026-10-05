@@ -80,7 +80,7 @@ while ($message = mysqli_fetch_array($result)) {
 		id="message-<?php echo $message['id']; ?>"
 		data-uid="<?php echo $message['user_id']; ?>"
 		data-timestamp="<?php echo $message['date']; ?>"
-		data-raw-bbcode="<?php echo htmlspecialchars_decode($message['message']); ?>">
+		data-raw-bbcode="<?php echo str_replace("\"","%22",$message['message']); ?>">
 		<a class="icon" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?> target="_top">
 			<img src="<?php echo $message_user['icon']; ?>" alt="">
 		</a>
