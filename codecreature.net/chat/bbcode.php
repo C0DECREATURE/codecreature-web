@@ -11,21 +11,55 @@ $bbcode = new BBCode;
 $bbcode->ClearSmileys();
 $bbcode->SetSmileyURL("/graphix/emojis");
 
-// symbols
-$bbcode->AddSmiley(":right:","arrow_right.svg");
-$bbcode->AddSmiley(":left:","arrow_left.svg");
-$bbcode->AddSmiley(":up:","arrow_up.svg");
-$bbcode->AddSmiley(":down:","arrow_down.svg");
-$bbcode->AddSmiley(":star:","star.svg");
+$bbcodeSmileyList = [
+	//["image"=>"","codes"=>[""]],
+	
+	// symbols
+	["image"=>"star.svg","codes"=>["star"]],
+	["image"=>"arrow_right.svg","codes"=>["right","right arrow"]],
+	["image"=>"arrow_left.svg","codes"=>["left","left arrow"]],
+	["image"=>"arrow_up.svg","codes"=>["up","up arrow"]],
+	["image"=>"arrow_down.svg","codes"=>["down","down arrow"]],
+	
+	// hearts
+	["image"=>"trans_heart.svg","codes"=>["trans heart","transgender heart"]],
+	
+	// items
+	["image"=>"maple_leaf.svg","codes"=>["maple leaf"]],
+	["image"=>"falling_leaves.svg","codes"=>["falling leaves","autumn leaf","fall leaf"]],
+	["image"=>"apple.svg","codes"=>["apple","golden apple"]],
+	["image"=>"poison.svg","codes"=>["poison"]],
+	["image"=>"sword.svg","codes"=>["sword","dagger"]],
+	["image"=>"dollar.svg","codes"=>["cash","dollar","dollar bill"]],
+	["image"=>"ghost.svg","codes"=>["ghost"]],
+	["image"=>"jack_o_lantern.svg","codes"=>["jack o lantern","halloween"]],
+	
+	// kitty faces
+	["image"=>"kitty_happy.svg","codes"=>["smile","happy","smiley","kitty"]],
+	["image"=>"kitty_big_smile.svg","codes"=>["big smile","grin"]],
+	["image"=>"kitty_laugh.svg","codes"=>["laugh","cry laugh"]],
+	["image"=>"kitty_plead.svg","codes"=>["pleading","plead"]],
+	["image"=>"kitty_sad.svg","codes"=>["sad"]],
+	["image"=>"kitty_cry.svg","codes"=>["cry","crying"]],
+	["image"=>"kitty_heart_eyes.svg","codes"=>["heart eyes"]],
+	["image"=>"kitty_cool.svg","codes"=>["cool","sunglasses"]],
+];
 
-// items
-$bbcode->AddSmiley(":mapleleaf:","maple_leaf.svg"); $bbcode->AddSmiley(":maple_leaf:","maple_leaf.svg");
-$bbcode->AddSmiley(":autumnleaf:","falling_leaves.svg"); $bbcode->AddSmiley(":fallleaf:","falling_leaves.svg"); $bbcode->AddSmiley(":fallleaves:","falling_leaves.svg"); $bbcode->AddSmiley(":autumnleaves:","falling_leaves.svg"); $bbcode->AddSmiley(":fallingleaves:","falling_leaves.svg");
-$bbcode->AddSmiley(":apple:","apple.svg"); $bbcode->AddSmiley(":goldenapple:","apple.svg");
-$bbcode->AddSmiley(":poison:","poison.svg");
-$bbcode->AddSmiley(":sword:","sword.svg"); $bbcode->AddSmiley(":knife:","sword.svg"); $bbcode->AddSmiley(":dagger:","sword.svg");
-$bbcode->AddSmiley(":ghost:","ghost.svg");
-$bbcode->AddSmiley(":jackolantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":jack-o-lantern:","jack_o_lantern.svg"); $bbcode->AddSmiley(":halloween:","jack_o_lantern.svg");
+foreach ($bbcodeSmileyList as $key => $arr) {
+	foreach ($arr["codes"] as $code) {
+		// if the code contains spaces,
+		// add a version with no spaces, underscores, and hyphens
+		if (str_contains($code," ")) {
+			$splitCodes = [
+				str_replace(" ","",$code),
+				str_replace(" ","_",$code),
+				str_replace(" ","-",$code),
+			];
+			foreach ($splitCodes as $str) { $bbcode->AddSmiley(":$str:",$arr["image"]); }
+		// if the code contains no spaces, add it
+		} else { $bbcode->AddSmiley(":$code:",$arr["image"]); }
+	}
+}
 
 // hearts
 $bbcode->AddSmiley(":heart:","heart.svg"); $bbcode->AddSmiley(":pinkheart:","heart.svg"); $bbcode->AddSmiley(":pink-heart:","heart.svg");
@@ -38,16 +72,6 @@ $bbcode->AddSmiley(":blueheart:","heart_blue.svg"); $bbcode->AddSmiley(":blue-he
 $bbcode->AddSmiley(":purpleheart:","heart_purple.svg"); $bbcode->AddSmiley(":purple-heart:","heart_purple.svg");
 $bbcode->AddSmiley(":blackheart:","heart_black.svg"); $bbcode->AddSmiley(":black-heart:","heart_black.svg");
 $bbcode->AddSmiley(":whiteheart:","heart_white.svg"); $bbcode->AddSmiley(":white-heart:","heart_white.svg");
-
-// kitty faces
-$bbcode->AddSmiley(":smile:","kitty_happy.svg"); $bbcode->AddSmiley(":happy:","kitty_happy.svg"); $bbcode->AddSmiley(":smiley:","kitty_happy.svg");
-$bbcode->AddSmiley(":bigsmile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big_smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":big-smile:","kitty_big_smile.svg"); $bbcode->AddSmiley(":grin:","kitty_big_smile.svg");
-$bbcode->AddSmiley(":laugh:","kitty_laugh.svg"); $bbcode->AddSmiley(":crylaugh:","kitty_laugh.svg");
-$bbcode->AddSmiley(":plead:","kitty_plead.svg"); $bbcode->AddSmiley(":pleading:","kitty_plead.svg");
-$bbcode->AddSmiley(":sad:","kitty_sad.svg");
-$bbcode->AddSmiley(":cry:","kitty_cry.svg"); $bbcode->AddSmiley(":crying:","kitty_cry.svg");
-$bbcode->AddSmiley(":hearteyes:","kitty_heart_eyes.svg"); $bbcode->AddSmiley(":heart_eyes:","kitty_heart_eyes.svg");
-$bbcode->AddSmiley(":cool:","kitty_cool.svg"); $bbcode->AddSmiley(":sunglasses:","kitty_cool.svg");
 
 // davepeta kitty faces
 $bbcode->AddSmiley(":dpsmile:","dp_happy.svg"); $bbcode->AddSmiley(":dphappy:","dp_happy.svg"); $bbcode->AddSmiley(":dpsmiley:","dp_happy.svg");

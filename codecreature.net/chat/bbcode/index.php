@@ -208,6 +208,7 @@
 								[":purpleheart:","heart_purple.svg"],
 								[":blackheart:","heart_black.svg"],
 								[":whiteheart:","heart_white.svg"],
+								[":transheart:","trans_heart.svg"],
 							],
 							[ // animals
 								[":redpanda:","red_panda.svg"],
@@ -219,6 +220,7 @@
 								[":apple:","apple.svg"],
 								[":poison:","poison.svg"],
 								[":sword:","sword.svg"],
+								[":dollar:","dollar.svg"],
 								[":ghost:","ghost.svg"],
 								[":jackolantern:","jack_o_lantern.svg"],
 							],
