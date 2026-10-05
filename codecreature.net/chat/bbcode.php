@@ -49,7 +49,7 @@ foreach ($bbcodeSmileyList as $key => $arr) {
 	foreach ($arr["codes"] as $code) {
 		// if the code contains spaces,
 		// add a version with no spaces, underscores, and hyphens
-		if (str_contains($code," ")) {
+		if (preg_match("/ /",$code)) {
 			$splitCodes = [
 				str_replace(" ","",$code),
 				str_replace(" ","_",$code),
