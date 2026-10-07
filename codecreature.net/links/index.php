@@ -138,8 +138,11 @@
 					</section>
 					
 					<section>
-						<header><h3>neocities</h3></header>
+						<header><h3>neocities & hosting</h3></header>
 						<div class="body">
+							<a href="https://heliohost.org/">heliohost</a>
+							this non-profit is codecreature's current host. they have a solid free option or a $1/month plan. recommend checking them out if <u class="tq">u</u> want <u class="tq">2</u> try building a dynamic site (php, databases, etc!)
+							
 							<a href="https://neocities.org">neocities</a>
 							free static web host! super easy <u class="tq">2</u> get started if <u class="tq">u</u> wanna try making a site
 							
@@ -324,57 +327,33 @@
 				</header>
 				<div class="marquee-wrapper">
 					<div class="marquee-track">
-						<!-- phortie -->
-						<a href="https://phortie.neocities.org" class="button" target="_blank">
-							<img src="/graphix/site-buttons/phortie.gif" alt="phortie"></a>
-						<!-- oliveen -->
-						<a href="https://olliveen.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/oliveen.gif" alt="oliveen"></a>
-						<!-- lordofscreens -->
-						<a href="https://lordofscreens.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/lordofscreens.gif" alt="lord of screens"></a>
-						<!-- sinproexe -->
-						<a href="https://sinproexe.net/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/sinproexe.gif" alt="SPE web"></a>
-						<!-- purplestarship -->
-						<a href="https://purplestarship.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/purplestarship.gif" alt="purple starship"></a>
-						<!-- roguepebble -->
-						<a href="https://roguepebble.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/roguepebble.gif" alt="rogue pebble"></a>
-						<!--mylifeinheaven-->
-						<a href="https://mylifeinheaven.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/mylifeinheaven.gif" alt="my life in heaven"></a>
-						<!-- alexthefish -->
-						<a href="https://alexthefish.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/alexthefish.jpg" alt="alex the fish"></a>
-						<!-- bonesorangels -->
-						<a href="https://bonesorangels.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/bonesorangels.jpg" alt="bones or angels"></a>
-						<!-- chaoticsystem -->
-						<a href="https://chaoticsystem.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/chaoticsystem.gif" alt="chaotic system"></a>
-						<!-- urmel1 -->
-						<a href="https://urmel1.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/urmel1.png" alt="urmel1"></a>
-						<!-- astersarchive -->
-						<a href="https://astersarchive.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/astersarchive.gif" alt="Aster's Archive"></a>
-						<!-- ttaxyy -->
-						<a href="https://ttaxyy.neocities.org" class="button" target="_blank">
-							<img src="/graphix/site-buttons/ttaxyy.gif" alt="ttaxyy"></a>
-						<!-- honeyedcharlatan -->
-						<a href="https://honeyedcharlatan.neocities.org" class="button" target="_blank">
-							<img src="/graphix/site-buttons/honeyedcharlatan.gif" alt="honeyed charlatan"></a>
-						<!-- underwhite -->
-						<a href="https://underwhite.neocities.org" class="button" target="_blank">
-							<img src="/graphix/site-buttons/underwhite.gif" alt="under white"></a>
-						<!-- center-stain -->
-						<a href="https://center-stain.neocities.org/" class="button" target="_blank">
-							<img src="/graphix/site-buttons/center-stain.gif" alt="center-stain"></a>
-						<!-- manulzone -->
-						<a href="https://manulzone.neocities.org/main" class="button" target="_blank">
-							<img src="/graphix/site-buttons/manulzone.png" alt="manul zone"></a>
+						<?php
+						$neighbors = [
+							["alt"=>"probably moldy","link"=>"probablymoldy.net","img"=>"png"],
+							["alt"=>"phortie","link"=>"phortie.neocities.org","img"=>"gif"],
+							["alt"=>"olliveen","link"=>"olliveen.neocities.org","img"=>"gif"],
+							["alt"=>"lord of screens","link"=>"lordofscreens.neocities.org/","img"=>"gif"],
+							["alt"=>"sinproexe","link"=>"sinproexe.net/","img"=>"gif"],
+							["alt"=>"purple starship","link"=>"purplestarship.neocities.org","img"=>"gif"],
+							["alt"=>"rogue pebble","link"=>"roguepebble.neocities.org/","img"=>"gif"],
+							["alt"=>"my life in heaven","link"=>"mylifeinheaven.neocities.org","img"=>"gif"],
+							["alt"=>"alex the fish","link"=>"alexthefish.neocities.org/","img"=>"jpg"],
+							["alt"=>"bones or angels","link"=>"bonesorangels.neocities.org/","img"=>"jpg"],
+							["alt"=>"chaotic system","link"=>"chaoticsystem.neocities.org/","img"=>"gif"],
+							["alt"=>"urmel1","link"=>"urmel1.neocities.org/","img"=>"png"],
+							["alt"=>"Aster's Archive","link"=>"astersarchive.neocities.org/","img"=>"gif"],
+							["alt"=>"ttaxyy","link"=>"ttaxyy.neocities.org","img"=>"gif"],
+							["alt"=>"honeyed charlatan","link"=>"honeyedcharlatan.neocities.org","img"=>"gif"],
+							["alt"=>"under white","link"=>"underwhite.neocities.org","img"=>"gif"],
+							["alt"=>"center-stain","link"=>"center-stain.neocities.org/","img"=>"gif"],
+							["alt"=>"manul zone","link"=>"manulzone.neocities.org/main","img"=>"png"],
+							//["alt"=>"","link"=>"","img"=>""],
+						];
+						shuffle($neighbors);
+						foreach ($neighbors as $n) { ?>
+							<a href="https://<?php echo $n["link"]; ?>" class="button" target="_blank">
+								<img src="/graphix/site-buttons/<?php echo strtolower(str_replace([" ","'"],"",$n["alt"])).".".$n["img"]; ?>" alt="<?php echo $n["alt"]; ?>"></a>
+						<?php } ?>
 					</div>
 					<div class="marquee-track-2"></div>
 				</div>
