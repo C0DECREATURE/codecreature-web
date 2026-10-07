@@ -8,11 +8,12 @@
 	--paper-color: #fff;
 	--cursor: url("cursor_arrow.png"), auto;
 	--cursor-pointer: url("cursor_pointer.png"), auto;
+	--font-halogen: 'Halogen', 'Comic Sans MS', 'Comic Sans', sans-serif;
 }
 
 body {
 	background: #000;
-	font-family: 'Halogen', 'Comic Sans MS', 'Comic Sans', sans-serif;
+	font-family: var(--font-halogen);
 }
 
 /* color adjustment layers */
@@ -44,6 +45,23 @@ body {
 	label { font-weight: bold; }
 	button { color: var(--link-text); }
 	button:hover { color: var(--link-hover); }
+}
+
+.paper-popout {
+	span {
+		display: flex;
+		background-image: url('images/polkadot_ribbon.png');
+		font-family: var(--font-halogen);
+		font-weight: bold;
+		user-select: none;
+		padding-top: none; padding-bottom: none;
+	}
+	&:not(.left) span {
+		clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
+	}
+	&.left span {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 10% 50%);
+	}
 }
 
 #intro {
