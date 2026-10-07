@@ -6,8 +6,8 @@
 	--link-hover: #131745;
 	--shadow: drop-shadow(4px 4px 3px #21120c88);
 	--paper-color: #fff;
-	--cursor: url("cursor_arrow.png"), auto;
-	--cursor-pointer: url("cursor_pointer.png"), auto;
+	--cursor: url("/graphix/cursors/toy_arrow_red.png"), auto;
+	--cursor-pointer: url("/graphix/cursors/toy_arrow_blue.png"), auto;
 	--font-halogen: 'Halogen', 'Comic Sans MS', 'Comic Sans', sans-serif;
 }
 
