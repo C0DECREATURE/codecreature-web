@@ -13,6 +13,7 @@
 
 body {
 	background: #000;
+	background-image: url('/graphix/bg/cool_star_flash.gif');
 	font-family: var(--font-halogen);
 }
 
