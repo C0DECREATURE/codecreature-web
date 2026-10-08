@@ -375,6 +375,12 @@
 					<header>
 						<h3>bumper stickers</h3>
 					</header>
+					<header>
+						<h3>bumper stickers</h3>
+						<p>want more? try these:<br>
+							<a href="https://www.internetbumperstickers.com/" target="_blank">internet bumper stickers</a>
+						</p>
+					</header>
 					<div class="gallery block-grid">
 						<img src="/graphix/bumperstickers/can-open.gif" alt="'can open, worms everywhere' in green 3D text on pink background">
 						<img src="/graphix/bumperstickers/stress-based-life-form.gif" alt="'stress based life form' in pink and green text on blue background">
