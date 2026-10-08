@@ -25,6 +25,7 @@
 		<!--this page's stylesheets-->
 		<link href="../trinkets-default.css?fileversion=20261008" rel="stylesheet" type="text/css" media="all">
 		<link href="style.css?fileversion=20261008" rel="stylesheet" type="text/css" media="all">
+		<link href="aquarium.css?fileversion=20261008" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's scripts -->
 		<script src="../loading.js?fileversion=20261008"></script>
 	</head>
@@ -123,7 +124,7 @@
 				<img src="images/whale_shark.png" alt="" style="left: 625px; top: 611px; rotate: -9deg; scale: 0.800">
 				<img class="sticker" src="/graphix/stickers/sandylion-fuzzy-hat-1.png" alt="" style="left: 595px; top: 568px; scale: -.6 .6; rotate: -36deg;">
 				
-				<img src="images/hungry_caterpillar.png" alt="" style="left: 442px; top: 882px; scale: 0.800">
+				<img src="images/hungry_caterpillar.png" alt="" style="left: 710px; top: 882px; scale: 0.800">
 				
 				<img src="images/orange_peel_dog.png" alt="" style="left: 1349px; top: 28px; scale: 0.800;">
 				<img src="images/occlupanid.png" alt="" style="left: 972px; top: 454px; rotate: 36deg; scale: 0.800;">
@@ -139,8 +140,41 @@
 				<img class="sticker" src="/graphix/stickers/sandylion-clown-2.png" alt="" style="left: 991px; top: 681px; scale: 0.800;">
 				<img src="images/block_tower.png" alt="" style="left: 1386px; top: 407px; scale: 0.800;">
 				<img class="sticker" src="/graphix/stickers/sandylion-bubble-bunny-1.png" alt="" style="left: 1316px; top: 781px; scale: 0.800;">
-				<img src="images/sea_angel_globe.png" alt="" style="left: 1030px; top: 854px; scale: 0.800;">
-			
+				
+				<?php $aquariumCount = 20; ?>
+				<div id="aquarium" class="aquarium" style="left: 538px; top: 1073px;">
+					<img class="back" src="images/aquarium/back.png" alt="">
+					<div class="carousel">
+						<div class="layer">
+							<?php $i = 0; while ($i < $aquariumCount) { $i += 1; ?>
+							<div class="section" style="
+								background-position: <?php echo (100 / $aquariumCount) * $i; ?>% 0;
+								animation-delay: -<?php echo (20 / $aquariumCount) * $i; ?>s;"></div>
+							<?php } ?>
+						</div>
+						<div class="layer">
+							<?php $i = 0; while ($i < $aquariumCount) { $i += 1; ?>
+							<div class="section" style="
+								background-position: <?php echo (100 / $aquariumCount) * $i; ?>% 0;
+								animation-delay: -<?php echo (15 / $aquariumCount) * $i; ?>s;"></div>
+							<?php } ?>
+						</div>
+					</div>
+					<img class="front" src="images/aquarium/front.png" alt="">
+					<button class="switch" data-on="true"><img src="images/aquarium/switch_on.png"></button>
+					<script>
+						(()=>{
+							let aquarium = document.getElementById('aquarium');
+							let btn = aquarium.querySelector('.switch');
+							btn.addEventListener('click',()=>{
+								aquarium.classList.toggle("off");
+								switchOn = aquarium.classList.contains("off");
+								btn.querySelector('img').src = "images/aquarium/switch_" + (aquarium.classList.contains("off") ? "off" : "on") + ".png";
+							});
+						})();
+					</script>
+				</div>
+				<img src="images/sea_angel_globe.png" alt="" style="left: 405px; top: 1184px; scale: 0.800;">
 			</div>
 		</div></main>
 	</body>

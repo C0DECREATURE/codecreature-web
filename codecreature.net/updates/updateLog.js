@@ -26,6 +26,18 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-10-08T16:24'),
+		authors: ['emery','prax'],
+		tags: ['trinkets'],
+		summary: `
+			<a href="/trinkets/toys">toy trinkets</a> aquarium lamp
+		`,
+		details: `
+			<p>few new things on the toy trinkets page, including a little working aquarium lamp %E%:33c%</p>
+			<p>there's a few things left %%2% clean up but %A%it's\\its% fine %%4% now</p>
+		`
+	},
+	{
 		date: new Date('2026-10-04T05:36'),
 		authors: ['emery','prax'],
 		tags: ['trinkets'],
