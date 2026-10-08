@@ -30,6 +30,7 @@ body.defaultCursor {
 
 .container { position: absolute; }
 .container img:first-of-type { position: relative; }
+.container.stack img { position: relative; display: block; }
 
 img { user-select: none; }
 main img, #credit-button, .navbutton { position: absolute; }

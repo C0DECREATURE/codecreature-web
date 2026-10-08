@@ -13,20 +13,20 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="../favicon_apple_touch.png">
 		
 		<!-- universal base javascript -->
-		<script src="/codefiles/required.js?fileversion=20261007"></script>
+		<script src="/codefiles/required.js?fileversion=20261008"></script>
 		<!-- universal base css -->
-		<link href="/codefiles/required.css?fileversion=20261007" rel="stylesheet" type="text/css"></link>
+		<link href="/codefiles/required.css?fileversion=20261008" rel="stylesheet" type="text/css"></link>
 		
 		<script>fonts.load('Halogen');</script>
 		
 		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20261007"></script>
+		<script src="/codefiles/page-settings.min.js?fileversion=20261008"></script>
 		
 		<!--this page's stylesheets-->
-		<link href="../trinkets-default.css?fileversion=20261007" rel="stylesheet" type="text/css" media="all">
-		<link href="style.css?fileversion=20261007" rel="stylesheet" type="text/css" media="all">
+		<link href="../trinkets-default.css?fileversion=20261008" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261008" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's scripts -->
-		<script src="../loading.js?fileversion=20261007"></script>
+		<script src="../loading.js?fileversion=20261008"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -90,7 +90,15 @@
 				</div></div>
 				<!-- end credits -->
 				
-				<div id="mats-blob" class="blob" style="left: 943px; top: 330px;"></div>
+				<div class="container stack" style="left: 1455px; top: 25px; rotate: 5deg; scale: -0.7 0.7;">
+					<img src="images/rainbow_cats_patch_tiling_top.png" alt="">
+					<img src="images/rainbow_cats_patch_tiling.png" alt="">
+					<img src="images/rainbow_cats_patch_tiling_middle.png" alt="">
+					<img src="images/rainbow_cats_patch_tiling.png" alt="">
+					<img src="images/rainbow_cats_patch_tiling_bottom.png" alt="">
+				</div>
+				
+				<div id="fur-blob" class="blob" style="left: 943px; top: 330px;"></div>
 				
 				<img src="images/collage_stars.png" alt="" style="left: 770px; top: 499px; scale: 0.800; rotate: -23deg;">
 				
@@ -139,5 +147,5 @@
 	<!--------------END BODY------------->
 	
 	<!-- script to enable the dragging movement -->
-	<script src="../trinkets-draggable.js?fileversion=20261007"></script>
+	<script src="../trinkets-draggable.js?fileversion=20261008"></script>
 </html>
