@@ -5,7 +5,14 @@
 	position: absolute;
 }
 
-.aquarium .front, .aquarium .back { position: absolute; left: 0; top: 0; width: 100%; }
+.aquarium .front, .aquarium .back, .aquarium .carousel .overlay, .aquarium .carousel .glow {
+	position: absolute;
+	left: 0; top: 0;
+	width: 100%; height: 100%;
+	background-size: 100% 100%;
+}
+.aquarium .back { background-image: url('images/aquarium/back.png'); }
+.aquarium .front { background-image: url('images/aquarium/front.png'); }
 
 .aquarium .carousel {
 	position: relative;
@@ -13,6 +20,20 @@
 	width: 360px;
   height: 200px;
 }
+.aquarium .carousel .overlay {
+	opacity: .7;
+	background: linear-gradient(90deg, white 0%, rgba(0,0,0,0) 4%, rgba(0,0,0,0) 96%, white 100%),
+							linear-gradient(0deg, #1b1c1d 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 90%, #1b1c1d 100%);
+}
+.aquarium .carousel .glow {
+	opacity: .2;
+	scale: .6;
+	border-radius: 50%;
+	background: aquamarine;
+	filter: blur(60px);
+	mix-blend-mode: plus-lighter;
+}
+.aquarium.off .carousel .glow { opacity: 0; }
 
 .aquarium .layer {
   width: 100%;

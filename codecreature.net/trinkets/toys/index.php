@@ -143,7 +143,7 @@
 				
 				<?php $aquariumCount = 20; ?>
 				<div id="aquarium" class="aquarium" style="left: 538px; top: 1073px;">
-					<img class="back" src="images/aquarium/back.png" alt="">
+					<div class="back"></div>
 					<div class="carousel">
 						<div class="layer">
 							<?php $i = 0; while ($i < $aquariumCount) { $i += 1; ?>
@@ -159,8 +159,10 @@
 								animation-delay: -<?php echo (15 / $aquariumCount) * $i; ?>s;"></div>
 							<?php } ?>
 						</div>
+						<div class="overlay"></div>
+						<div class="glow"></div>
 					</div>
-					<img class="front" src="images/aquarium/front.png" alt="">
+					<div class="front"></div>
 					<button class="switch" data-on="true"><img src="images/aquarium/switch_on.png"></button>
 					<script>
 						(()=>{
