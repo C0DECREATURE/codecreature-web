@@ -137,6 +137,11 @@
 				</a>
 				<img class="sticker" src="/graphix/stickers/sandylion-fuzzy-hat-3.png" alt="" style="left: 1374px; top: -22px; scale: .5;">
 				
+				<img src="/graphix/pinbacks/friend.png" alt="" style="left: 1434px; top: 313px; rotate: -10deg; scale: .6">
+				<img src="/graphix/pinbacks/little_treat.png" alt="" style="left: 1591px; top: 29px; rotate: 2deg; scale: .5">
+				<img src="/graphix/pinbacks/glad.png" alt="" style="left: 1753px; top: 85px; rotate: 13deg; scale: .6">
+				<img src="/graphix/pinbacks/bugs_scream.png" alt="" style="left: 1651px; top: 129px; rotate: -10deg; scale: .6">
+				
 				<img class="sticker" src="/graphix/stickers/sandylion-clown-2.png" alt="" style="left: 991px; top: 681px; scale: 0.800;">
 				<img src="images/block_tower.png" alt="" style="left: 1386px; top: 407px; scale: 0.800;">
 				<img class="sticker" src="/graphix/stickers/sandylion-bubble-bunny-1.png" alt="" style="left: 1316px; top: 781px; scale: 0.800;">
