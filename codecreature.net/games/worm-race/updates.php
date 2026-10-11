@@ -34,8 +34,8 @@
 		iFrame.onload = function() {
 			document.querySelector('.updates').querySelector('.loading').style.display = 'none';
 			iFrame.contentDocument.head.appendChild(updateCSS);
-			iFrame.contentDocument.head.appendChild(holidayUpdateCSS);
 			iFrame.contentDocument.head.appendChild(updateFonts);
+			if (typeof(holidayUpdateCSS) != "undefined") iFrame.contentDocument.head.appendChild(holidayUpdateCSS);
 			iFrame.style.visibility = 'visible'; // show once loaded
 		}
 	</script>
