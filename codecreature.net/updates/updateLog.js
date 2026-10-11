@@ -26,6 +26,19 @@ const updateLog = [
 		`
 	},*/
 	{
+		date: new Date('2026-10-11T16:40'),
+		authors: ['emery'],
+		tags: ['chat','worm race'],
+		summary: `
+			new message notifications for <a href="/chat">chat</a>
+		`,
+		details: `
+			<p>if there are new messages while a chat window is not focused (like if you're in another tab,) the page title will show an unread message count.</p>
+			<p><a href="/games/worm-race">worm game</a> pages also have a little notification bubble at the bottom of the page if new messages come in after you've closed the popup!</p>
+			<p>currently doesn't remember which messages you've read or not once you refresh the page, but that's something i want to do eventually. might add an opt-in setting to play a sound as well</p>
+		`
+	},
+	{
 		date: new Date('2026-10-08T16:24'),
 		authors: ['emery','prax'],
 		tags: ['trinkets'],
@@ -34,7 +47,6 @@ const updateLog = [
 		`,
 		details: `
 			<p>few new things on the toy trinkets page, including a little working aquarium lamp %E%:33c%</p>
-			<p>there's a few things left %%2% clean up but %A%it's\\its% fine %%4% now</p>
 		`
 	},
 	{

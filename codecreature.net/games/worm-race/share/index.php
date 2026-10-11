@@ -33,7 +33,7 @@
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
 		<!--worms common stylesheet-->
-		<link href="/games/worm-common/style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
+		<link href="/games/worm-common/style.css?fileversion=20261011" rel="stylesheet" type="text/css" media="all">
 		<!--worm race game stylesheet-->
 		<link href="../style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->

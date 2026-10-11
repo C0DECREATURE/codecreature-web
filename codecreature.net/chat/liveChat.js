@@ -24,6 +24,9 @@ function getOldestLoadedMessage() {
 	return oldestMsg;
 }
 
+// default title of HTML page
+var defaultPageTitle = document.title;
+var unreadMessages = 0;
 // whether an initial set of messages has already been loaded on the page
 var initialLoaded = false;
 // whether a new set of messages is currently being loaded
@@ -35,18 +38,30 @@ function loadChat(repeat){
 	if ((typeof sendingMessage == 'undefined' || sendingMessage == false) && chatIsLoading == false) {
 		chatIsLoading = true;
 		
+		// get the id of the latest loaded message
 		let messages = document.getElementsByClassName('message','deleted');
 		let latestMsgId = 0;
 		if (messages.length > 0) latestMsgId = Number(messages[0].id.replaceAll('message-',''));
 		
+		// load messages newer than the latest loaded message
 		let getVars = "chat_table=" + chatTableName + "&from=" + latestMsgId + "&timezone-offset=" + timezoneOffset;
-		var content;
-		$.get("/chat/loader.php?" + getVars, function(data){
-				content = data;
+		$.get("/chat/loader.php?" + getVars, function(content){
+			if (content != "") {
+				// add the new loaded messages
 				$('#messages').prepend(content);
+				// update the "load older" button
 				updateLoadOlder();
-				// flag that loading is complete
-				chatIsLoading = false;
+				// notify user about new messages if needed
+				if (initialLoaded && unreadMessages != 0) {
+					window.top.postMessage(`{"type":"newMessage","unread":${unreadMessages}}`, '*');
+					// if the window isn't open/focused, update title to reflect unread messages
+					if (!document.hasFocus()) document.title = unreadMessages + " new message" + (unreadMessages == 1 ? "" : "s");
+				}
+			}
+			// flag that loading is complete
+			chatIsLoading = false;
+			// flag that initial message set has loaded
+			initialLoaded = true;
 		});
 		
 		if (initialLoaded) {
@@ -73,14 +88,21 @@ function loadChat(repeat){
 			xhr.send(`from=${getOldestLoadedMessage()}&since=${lastEditCheck}&chat-table=${chatTableName}`);
 			// log the new last edit check time
 			lastEditCheck = (Date.now() / 1000) - 5; // 5 seconds of extra just in case of lag
-		} else {
-			// flag that loading is complete
-			chatIsLoading = false;
-			// flag that initial message set has loaded
-			initialLoaded = true;
 		}
 	}
 	if (repeat !== false) setTimeout(loadChat, 4000);
+}
+
+// reset unread count & display
+function resetUnreadCount() {
+	unreadMessages = 0;
+	document.title = defaultPageTitle;
+}
+// reset unread when window opened/focused
+window.addEventListener("focus",resetUnreadCount);
+// reset unread count when asked by another page
+window.onmessage = function(e) {
+	if (e.data == 'resetUnread') { resetUnreadCount(); }
 }
 
 function loadOlderChat() {

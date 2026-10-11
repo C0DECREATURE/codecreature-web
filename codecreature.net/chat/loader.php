@@ -115,9 +115,10 @@ while ($message = mysqli_fetch_array($result)) {
 		<script>
 			(()=>{
 				<?php
-					$own_message_txt = $own_message ? 'true' : 'false';
-					echo "messageSetup(".$message['id'].")";
+					echo "ownMessage = ".($own_message ? 'true' : 'false').";";
+					echo "messageSetup(".$message['id'].");";
 				?>
+				if (unreadMessages !== "undefined" && !ownMessage && !document.hasFocus()) unreadMessages += 1;
 			})();
 		</script>
 	</div>

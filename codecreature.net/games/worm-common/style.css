@@ -298,6 +298,25 @@ body.halloween {
 	CHATBOX
 ******************************************************************************************/
 
+#chat-notification {
+	position: absolute;
+	bottom: calc(100% + .2em); right: .5em;
+	background: var(--red);
+	border-radius: 1em;
+	padding: .25em .6em;
+	user-select: none;
+	pointer-events: none;
+}
+/* arrow at bottom */
+#chat-notification::after {
+	content: "";
+	position: absolute;
+	top: 90%; left: 50%; transform: translate(-50%, 0);
+	border-width: .5em;
+	border-style: solid;
+	border-color: var(--red) transparent transparent transparent;
+}
+
 #chatbox {
 	position: absolute;
 	z-index: 1000;
