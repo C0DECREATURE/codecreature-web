@@ -37,7 +37,7 @@
 		<!--worm race game stylesheet-->
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="guide.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="guide.css?fileversion=20261012" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js"></script>
@@ -218,8 +218,72 @@
 								-->
 							</div>
 						</div>
-					</div>
 					
+						<div class="subheader" id="faq">
+							<h3>FAQ</h3>
+						</div>
+						
+						<div class="details">
+							<p>semi-official answers to worm questions! don't take this too seriously, all headcanons are still valid.</p>
+							<hr>
+							<div class="faq-questions">
+								<div class="wrapper">
+									<div class="question">what are the worms' genders and pronouns?</div>
+									<div class="answer">their gender is maybe. they use any pronouns.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">do the worms have relationships with each other?</div>
+									<div class="answer">sometimes! it changes annually. view their current status <a href="/games/worm-love">here</a>.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">can i create fan content about the worms?</div>
+									<div class="answer">yes! if you share it with me i will put it up on the <a href="/fridge">fridge</a>.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">how old are the worms?</div>
+									<div class="answer">they are adults in worm years.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">do they live in the human world?</div>
+									<div class="answer">yes.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">what's up with microplastics' legs?</div>
+									<div class="answer">they didn't start out that way. their diet is very abnormal.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">do the worms consider poison to be cheating?</div>
+									<div class="answer">no. worms do not believe in rules of any kind.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">what jobs would they have if they weren't racing?</div>
+									<div class="answer">matilda would do well in a research library. jeremy has a fake law degree and a stock portfolio, so they'd do more of that. pretzel would like to be a baker. pool noodle has worked as a lifeguard, and hopes to be scouted for a cooler sport than racing someday.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">pool noodle is small and limbless, how do they play sports?</div>
+									<div class="answer">badly.</div>
+								</div>
+								
+								<div class="wrapper">
+									<div class="question">are there any other worms?</div>
+									<div class="answer">
+										yes. a few notable npcs:
+										<br><strong><a href="/games/worm-common/npcs/honk_honk.png" target="_blank">Honk Honk</a></strong> - clown, works at the racetrack (by <a href="/u/Fan1_Jeremy" target="_blank">@Fan1_Jeremy</a>)
+										<br><strong>Barry Wormenfielde</strong> - bookie, collects bets on the race (by <a href="/u/FalseEternal" target="_blank">@FalseEternal</a>)
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						
 					<footer>
 						<div class="wrapper">
 							<a href="../">

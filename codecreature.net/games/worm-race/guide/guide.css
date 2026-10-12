@@ -130,4 +130,8 @@
 	#holiday-details .poolnoodle a.info { background: var(--blue); }
 	#holiday-details .microplastics { color: var(--purple); }
 	#holiday-details .microplastics a.info { background: var(--purple); }
+	
+	.faq-questions { display: flex; flex-direction: column; gap: .5em; }
+	.faq-questions .question { font-weight: bold; color: var(--d-blue); }
+	.faq-questions .answer { font-size: .9em; }
 }
