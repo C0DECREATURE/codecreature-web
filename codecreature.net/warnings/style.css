@@ -330,7 +330,7 @@ button.simple:hover, button.simple:focus-visible {
 	--border: var(--border-width) var(--d-blue) solid;
 	--border-radius: 5px;
 	position: relative;
-	--width: min(100%, max(10rem, min(13rem, 50%)));
+	--width: min(100%, max(6rem, min(8rem, 50%)));
 	width: var(--width);
 	padding-left: calc(var(--width) * .05);
 	padding-right: calc(var(--width) * .05);
