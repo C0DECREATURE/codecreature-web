@@ -43,7 +43,7 @@
 		<!--worm race game stylesheet-->
 		<link href="../style.css?fileversion=20260915" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="racetrack.css?fileversion=20260915" rel="stylesheet" type="text/css" media="all">
+		<link href="racetrack.css?fileversion=20261011" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js"></script>
