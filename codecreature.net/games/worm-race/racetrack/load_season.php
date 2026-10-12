@@ -67,7 +67,7 @@ getAllData();
 							$cur_worm = $worms[$i];
 							$winner = (int)$cur_worm["progress"] == $max_progress ? " winner" : "";
 							$percent = $max_progress == 0 ? 0 : (int)$cur_worm["progress"] / $max_progress;
-							$css_percent = $percent*75;
+							$css_percent = $percent*76;
 							$css_time = $percent * 3;
 							$css_bounce = 1-(.8*$percent);
 							$racer_worm = $image_path.($cur_holiday == "fools" ? "fools/" : $cur_worm["color"]."_")."racer.png";

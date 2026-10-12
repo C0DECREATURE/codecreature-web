@@ -206,7 +206,7 @@ option {
 	display: inline-block;
 	position: relative;
 	height: 100%;
-	width: 25%;
+	width: 23%;
 	margin-left: -.5em;
 	animation-name: bounce;
 	animation-duration: var(--bounce);
