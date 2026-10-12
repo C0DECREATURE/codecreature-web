@@ -199,7 +199,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 										global $user;
 										$image = $f["flag"];
 										$name = $f["name"];
-										$checked = in_array($name,$user["flags"]) ? " checked" : "";
+										$checked = !empty($user["flags"]) && in_array($name,$user["flags"]) ? " checked" : "";
 										echo "
 											<button class='option-wrapper' type='button'>
 												<input type='checkbox' id='flags-$name' name='flags[]' value='$name'$checked></input>
