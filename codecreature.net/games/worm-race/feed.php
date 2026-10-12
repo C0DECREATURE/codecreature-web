@@ -19,18 +19,16 @@ $feed_err = $maintenance_mode ? "Worm race is currently down for maintenance!<br
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$item = $worm = $worm_id = "";
 	
-	$can_feed_err = $reference = $type ="";
 	// check if user is authorized to feed yet
 	if ($logged_in) {
-		$reference = $_SESSION["id"];
-		$type = "user_id";
-		$can_feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
+		if (!userCanFeed($_SESSION["id"],"user_id")) {
+			$feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
+		}
 	} else {
-		$reference = $_SERVER['REMOTE_ADDR'];
-		$type = "IP_address";
-		$can_feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
+		if (!userCanFeed($_SERVER['REMOTE_ADDR'],"IP_address")) {
+			$feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
+		}
 	}
-	if (!userCanFeed($reference,$type)) { $feed_err = $can_feed_err; }
 	
 	// Check if item name is empty or invalid
 	if( empty(trim($_POST["item"])) ){

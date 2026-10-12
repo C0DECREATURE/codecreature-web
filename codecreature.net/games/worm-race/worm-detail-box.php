@@ -234,5 +234,10 @@
 				form.querySelector(".info").querySelector(".subtitle").innerHTML = itemInputs[i].dataset.flavorText;
 			});
 		};
+		
+		// prevent double form submission
+		form.addEventListener("submit",()=>{
+			form.addEventListener("submit",()=>{return false;});
+		});
 	})();
 </script>

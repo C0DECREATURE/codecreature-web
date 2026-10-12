@@ -25,8 +25,9 @@ const updateLog = [
 			<p>i think i managed to get it working so devices can remember user login if you ask them to. basic functionality!</p>
 		`
 	},
+	*/
 	{
-		date: new Date('2026-10-12T05:07'),
+		date: new Date('2026-10-12T06:08'),
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],
 		summary: `
@@ -34,13 +35,15 @@ const updateLog = [
 		`,
 		details: `
 			<p>
+				changes to hopefully reduce exploits!
 				<ul>
-					<li>slightly reduced cooldown limits on accounts and IP addresses</li>
-					<li></li>
+					<li>slightly stricter cooldown restrictions on accounts and IP addresses</li>
+					<li>prevent double form submission using javascript</li>
+					<li>just in case, also prevent feedings less than 5 seconds apart on the backend</li>
 				</ul>
 			</p>
 		`
-	},*/
+	},
 	{
 		date: new Date('2026-10-12T05:13'),
 		authors: ['emery'],

@@ -504,8 +504,10 @@ function getSeasonFansDisplay($season) {
 function userCanFeed($reference,$type) {
 	global $items; global $feed_log;
 	
-	$max_users = 1.25; // maximum users for this user type
-	if ($type == "IP_address") { $max_users = 2; }
+	$can_feed = true;
+	
+	$max_users = 1.2; // maximum users for this user type
+	if ($type == "IP_address") { $max_users = 1.5; }
 	
 	// get all feed log data if not already fetched
 	if ( count($feed_log) == 0 ) { getFeedLogData(); }
@@ -523,15 +525,20 @@ function userCanFeed($reference,$type) {
 			$row[$type] == $reference &&
 			($type == "user_id" || $row["user_id"] == NULL)
 		) {
-			if ( $row['date'] > (time() - $time_period) ) {
+			// if less than 5 seconds since last feeding, don't feed
+			if (time() - $row['date'] < 5) {
+				$can_feed = false;
+				break;
+			// otherwise add this to the user's total cooldown if it's within the time period to check
+			} else if ($row['date'] > (time() - $time_period)) {
 				$cooldown_accumulated += (int)$items[$row["item"]]["cooldown"];
 			} else {
 				break; // if we have reached results older than the time period, break for loop
 			}
 		}
 	}
-	if ($cooldown_accumulated > ($time_period * $max_users)) { return false;
-	} else { return true; }
+	if ($cooldown_accumulated > ($time_period * $max_users)) { $can_feed = false; }
+	return $can_feed;
 }
 
 // fetch the leaderboard for worm with id = $worm
