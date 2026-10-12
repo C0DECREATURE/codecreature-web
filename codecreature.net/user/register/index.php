@@ -223,6 +223,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
 			</div>
 			<div class="form-group">
+				<input type="checkbox" id="verify_age" name="verify_age" class="form-control" required>
+				<label for="verify_age">I am at least 13 years old.</label>
+			</div>
+			<div class="form-group">
+				<input type="checkbox" id="accept_rules" name="accept_rules" class="form-control" required>
+				<label for="accept_rules">I have read and understood the <a href="/chat/rules">chat rules</a>.</label>
+			</div>
+			<div class="form-group">
 				<input type="submit" class="btn btn-green" value="Submit">
 			</div>
 			<p>Already have an account? <a href="../login/">Login here</a>.</p>

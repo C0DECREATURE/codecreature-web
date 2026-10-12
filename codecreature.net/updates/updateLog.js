@@ -24,7 +24,42 @@ const updateLog = [
 		details: `
 			<p>i think i managed to get it working so devices can remember user login if you ask them to. basic functionality!</p>
 		`
+	},
+	{
+		date: new Date('2026-10-12T05:07'),
+		authors: ['emery'],
+		tags: ['games','worm race','minor'],
+		summary: `
+			<a href="/games/worm-race">worm race</a> exploit fixes
+		`,
+		details: `
+			<p>
+				<ul>
+					<li>slightly reduced cooldown limits on accounts and IP addresses</li>
+					<li></li>
+				</ul>
+			</p>
+		`
 	},*/
+	{
+		date: new Date('2026-10-12T05:13'),
+		authors: ['emery'],
+		tags: ['users','general','worm race','minor'],
+		summary: `
+			new <a href="/chat/rules">chat/account rules</a>: no multi-accounting, minimum age
+		`,
+		details: `
+			<p><strong>new rule #1</strong><br>
+				only one account per person, please! if you already have more than one account, please contact me via <a href="/chat">chat</a> or email admin@codecreature.net to let me know so i can merge them.</p>
+			<p><strong>why?</strong><br>
+				a couple reasons! i have storage limitations and every user takes up a certain chunk of space. it also makes things unfair to other users for games, like the worm races. i know some people may want to change usernames, i am working on adding that as an option soon so please just be patient! you can also contact me to have it changed manually for now.</p>
+			<p><strong>new rule #2</strong><br>
+				must be over 13 years old to have an account.</p>
+			<p><strong>why?</strong><br>
+				i am not equipped to moderate a safe space for very young users. this site is currently intended to be around PG-13, including potential swearing and mature themes.
+			</p>
+		`
+	},
 	{
 		date: new Date('2026-10-11T16:40'),
 		authors: ['emery'],
