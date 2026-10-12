@@ -86,8 +86,8 @@ require_once "functions.php";
 							<div class="button-list">
 								<?php foreach ($worms as $w) { ?>
 								<div class="name" style="background:var(--<?php echo $w["color_dark"]; ?>">
-									<input type="radio" name="recipient" value="<?php echo $w["id"]; ?>" id="recipient-worm-<?php echo $w["id"]; ?>" onchange="updateLetter({to:'<?php echo $w["name"]; ?>'});"></input>
-									<label for="recipient-worm-<?php echo $w["id"]; ?>"><?php echo $w["name"]; ?></label>
+									<input type="radio" name="recipient" value="<?php echo $w["id"]; ?>" id="recipient-worm-<?php echo $w["id"]; ?>" onchange="updateLetter({to:'<?php echo strtolower($w["name"]); ?>'});"></input>
+									<label for="recipient-worm-<?php echo $w["id"]; ?>"><?php echo strtolower($w["name"]); ?></label>
 								</div>
 								<?php } ?>
 							</div>
@@ -96,8 +96,8 @@ require_once "functions.php";
 							<div class="button-list">
 								<?php foreach ($worms as $w) { ?>
 								<div class="name" style="background:var(--<?php echo $w["color_dark"]; ?>">
-									<input type="radio" name="sender" value="<?php echo $w["id"]; ?>" id="sender-worm-<?php echo $w["id"]; ?>" onchange="updateLetter({from:'<?php echo $w["name"]; ?>'});"></input>
-									<label for="sender-worm-<?php echo $w["id"]; ?>"><?php echo $w["name"]; ?></label>
+									<input type="radio" name="sender" value="<?php echo $w["id"]; ?>" id="sender-worm-<?php echo $w["id"]; ?>" onchange="updateLetter({from:'<?php echo strtolower($w["name"]); ?>'});"></input>
+									<label for="sender-worm-<?php echo $w["id"]; ?>"><?php echo strtolower($w["name"]); ?></label>
 								</div>
 								<?php } ?>
 							</div>
