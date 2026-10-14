@@ -163,7 +163,7 @@ $items = [
 // special event variables
 $yesterday = (new DateTime('yesterday'))->format('m-d');
 $tomorrow = (new DateTime('tomorrow'))->format('m-d');
-$cur_holiday = "none";
+$cur_holiday = "";
 $birthday_worm = "";
 
 // start = first day of event
@@ -268,7 +268,9 @@ function getWormData() {
 			} else $worms[$i]["is_birthday"] = false;
 			// get worm image
 			if ($cur_holiday != "none" && $cur_holiday != "birthday") $holiday_path = "$cur_holiday/";
-			$worms[$i]["image"] = $image_path.$holiday_path.$worms[$i]["color"].".png";
+			$worms[$i]["special_status"] = $cur_holiday == "halloween" && $worms[$i]["health"] == 0 ? "ghost" : "";
+			$modifier = !empty($worms[$i]["special_status"]) ? "_".$worms[$i]["special_status"] : "";
+			$worms[$i]["image"] = "$image_path$holiday_path".$worms[$i]["color"]."$modifier.png";
 			//if (!file_exists($_SERVER['DOCUMENT_ROOT'].$worms[$i]["image"])) $worms[$i]["image"] = $image_path.$worms[$i]["color"].".png";
 		}
 		

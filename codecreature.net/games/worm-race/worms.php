@@ -2,8 +2,8 @@
 	<?php
 		for ($i = 0; $i < count($worms); $i++) {
 			?>
-			<button onclick="openDetailBox('<?php echo $worms[$i]["color"]; ?>')">
-				<img class="worm" src="<?php echo $worms[$i]["image"] ?>">
+			<button onclick="openDetailBox('<?php echo $worms[$i]["color"]; ?>')" style="--color: var(--<?php echo $worms[$i]["color_medium"] ?>);">
+				<img class="worm <?php echo $worms[$i]["special_status"]; ?>" src="<?php echo $worms[$i]["image"] ?>">
 			</button>
 			<?php
 		}

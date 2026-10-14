@@ -10,7 +10,7 @@
 				<i class="svg-icon i-caret-left"></i>
 			</button>
 			
-			<img src="<?php echo $cur_worm["image"] ?>" alt="">
+			<img src="<?php echo $cur_worm["image"] ?>" class="<?php echo $cur_worm["special_status"] ?>" alt="">
 			
 			<button type="button" onclick="openDetailBox('<?php echo $next_worm["color"] ?>')">
 				<i class="svg-icon i-caret-right"></i>
