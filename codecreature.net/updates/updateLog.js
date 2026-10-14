@@ -27,6 +27,19 @@ const updateLog = [
 	},
 	*/
 	{
+		date: new Date('2026-10-14T00:03'),
+		authors: ['emery'],
+		tags: ['games','worm race','minor'],
+		summary: `
+			weaker <a href="/games/worm-race">worm</a> poison
+		`,
+		details: `
+			<p>
+				realized i overdid it, poisons have been watered down (less progress effect at zero health)
+			</p>
+		`
+	},
+	{
 		date: new Date('2026-10-12T06:08'),
 		authors: ['emery'],
 		tags: ['games','worm race','minor'],

@@ -74,7 +74,7 @@ $items = [
 		"progress" => -5,
 		"health" => -1,
 		"holidays" => ["none","birthday","valentines"],
-		"progress_effect" => [10,1,1,1,1],
+		"progress_effect" => [4,1,1,1,1],
 		"health_effect" => [0,1,1,1,1],
 	],
 	// BIRTHDAY
