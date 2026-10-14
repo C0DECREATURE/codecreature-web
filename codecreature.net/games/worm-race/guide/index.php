@@ -275,9 +275,7 @@
 								<div class="wrapper">
 									<div class="question">are there any other worms?</div>
 									<div class="answer">
-										yes. a few notable npcs:
-										<br><strong><a href="/games/worm-common/npcs/honk_honk.png" target="_blank">Honk Honk</a></strong> - clown, works at the racetrack (by <a href="/u/Fan1_Jeremy" target="_blank">@Fan1_Jeremy</a>)
-										<br><strong>Barry Wormenfielde</strong> - bookie, collects bets on the race (by <a href="/u/FalseEternal" target="_blank">@FalseEternal</a>)
+										none that are official, but feel free to share worm ocs in chat!
 									</div>
 								</div>
 							</div>
