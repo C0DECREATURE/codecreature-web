@@ -10,7 +10,7 @@
 	<iframe title="updates" id="updates" src="/updates/?full=false&includeTags=worm+race,worms,general&count=3"></iframe>
 	<script>
 		let updateCSS = document.createElement('link');
-		updateCSS.href = '/games/worm-race/updates.css?fileversion=5';
+		updateCSS.href = '/games/worm-race/updates.css?fileversion=20261015';
 		updateCSS.rel = 'stylesheet';
 		updateCSS.type = 'text/css';
 		updateCSS.media = 'all';
