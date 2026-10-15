@@ -50,6 +50,9 @@
 				<img class="art full-viewable" src="art/Fan1_Jeremy_plastic_munch.png" alt="" style="top:48%;left:56%;rotate:3deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#purple'>microplastics</a> snacking">
+				<img class="art wide full-viewable" src="art/LAMINATORR_WORMIES_TOGETHER.png" alt="" style="top:60%;left:56%;rotate:-3deg;"
+					data-credit="/u/LAMINATORR" data-credit-label="LAMINATORR"
+					data-caption="<a href='/games/worm-race'>the worms</a>!! delightful">
 			</div>
 		</main>
 	</body>
