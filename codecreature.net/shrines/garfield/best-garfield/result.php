@@ -65,7 +65,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		<!--this page's stylesheet-->
 		<link href="/shrines/garfield/style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
 		<link href="/shrines/garfield/best-garfield/style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
+		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20261015" rel="stylesheet" type="text/css" media="all">
 		
 		<?php if (!empty($error)) {
 			echo "<script>alert('ERROR: $error');</script>";
@@ -189,6 +189,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 						if ($voted) { ?>
 							<p class="directions">Replace "PATH" with your image link.</p>
 							<textarea readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+							<p><a href="/best-garfield" class="yellowbutton">Go Back</a></p>
 						<?php } else { // if not voted ?>
 							<p><a href="/best-garfield" class="yellowbutton">Vote now!</a></p>
 						<?php } // end if/else statement ?>
