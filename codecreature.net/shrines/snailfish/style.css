@@ -187,14 +187,14 @@ iframe.yt-video { border: var(--border); width: 100%; aspect-ratio: 5/3; }
 .button-wrapper:has(#aquarium-snailfish) {
   position: absolute;
   z-index: 3;
-  top: 39%;
+  top: 44%;
   left: 53%;
   transform: translate(-50%,-50%);
   width: 80%;
 }
 #aquarium-snailfish {
-	pointer-events: initial;
-	animation: 1.5s alternate ease-in-out infinite fish;
+	pointer-events: none;
+	animation: 1.75s alternate ease-in-out infinite fish;
 }
 @keyframes fish {
 	from { transform: translateY(2%) }

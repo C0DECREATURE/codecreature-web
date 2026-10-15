@@ -21,7 +21,7 @@
 		<!--base stylesheet-->
 		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261015" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js"></script>
@@ -33,7 +33,7 @@
 	<body>
 		<img id="preview-guide" src="images/preview.png">
 		
-		<main class="full-page">
+		<main id="main" class="full-page">
 			<section id="aquarium-section">
 				<header><h1><img src="images/title.png" alt="SNAILFISH"></h1></header>
 				
