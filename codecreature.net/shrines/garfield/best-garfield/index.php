@@ -43,7 +43,7 @@
 				<div class="container">
 					
 					<div id="content"><!-- anchor for keyboard nav -->
-						<form id="form" action="/best-garfield/vote.php">
+						<form id="form" action="/shrines/garfield/best-garfield/vote.php">
 							<h2>which garfield is best?</h2>
 							<div class="options-container">
 							<?php
@@ -80,14 +80,6 @@
 							</div>
 							<button class="yellowbutton" type="submit">Vote!</button>
 							<a class="yellowbutton" type="button" href="/best-garfield/results">Results</a>
-							<script>
-								let form = document.getElementById('form');
-								form.addEventListener('submit',(e)=>{
-									//e.preventDefault();
-									//data = new FormData(form);
-									//window.location = "/best-garfield/result.php?name=" + encodeURI(data.get('name')));
-								});
-							</script>
 						</form>
 					</div>
 				</div>
