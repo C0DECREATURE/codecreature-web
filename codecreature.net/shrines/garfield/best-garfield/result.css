@@ -74,13 +74,16 @@
 }
 .share > textarea {
 	width: 100%;
-	height: 7em;
+	height: 8.5em;
 	resize: none;
 	font-family: inherit;
   font-size: .7em;
 	letter-spacing: .1em;
 	margin-bottom: 2em;
+	padding: .5em;
+	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
 }
+.share > textarea:focus { outline: none; }
 
 .share > #canvas {
 	filter: drop-shadow(-2px 4px 0 var(--black));

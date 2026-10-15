@@ -188,7 +188,19 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 						}
 						if ($voted) { ?>
 							<p class="directions">Replace "PATH" with your image link.</p>
-							<textarea readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+							<textarea id="share-code" readonly><a href="https://codecreature.net/best-garfield"><img src="PATH" alt="My favorite Garfield is <?php echo $name; ?>! Whats yours?"></a></textarea>
+							<script>(()=>{
+								var textBox = document.getElementById("share-code");
+								textBox.onfocus = function() {
+										textBox.select();
+										// chrome workaround
+										textBox.onmouseup = function() {
+											textBox.onmouseup = null;
+											return false;
+										};
+								};
+							})();</script>
+							
 							<p><a href="/best-garfield" class="yellowbutton">Go Back</a></p>
 						<?php } else { // if not voted ?>
 							<p><a href="/best-garfield" class="yellowbutton">Vote now!</a></p>

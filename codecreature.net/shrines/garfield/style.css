@@ -91,6 +91,11 @@ a:hover { color: var(--orange); }
 
 img { max-width: 100%; }
 
+::-moz-selection, ::selection {
+  color: var(--white);
+  background: var(--sidebar-color);
+}
+
 a.skip-to-content {
 	background: var(--yellow);
 	color: var(--black);
