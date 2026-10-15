@@ -25,10 +25,6 @@
 		
 		<!-- load jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260715"></script>
-		<!-- load navigation -->
-		<script> $(function(){ $("#nav-wrapper").load("/shrines/garfield/nav.txt"); }); </script> 
-		<!-- load right bar -->
-		<script> $(function(){ $("#right-bar-wrapper").load("/shrines/garfield/right.txt"); }); </script> 
 		
 		<!--this page's stylesheet-->
 		<link href="/shrines/garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
@@ -41,8 +37,7 @@
 		<a class="skip-to-content" href="#content">skip to content</a>
 		
 		<main>
-			<div id="nav-wrapper" class="left">
-			</div>
+			<div id="nav-wrapper" class="left"><?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/nav.txt"; ?></div>
 			
 			<div class="center">
 				<div class="container">
@@ -98,8 +93,7 @@
 				</div>
 			</div>
 			
-			<div id="right-bar-wrapper" class="right">
-			</div>
+			<div id="right-bar-wrapper" class="right"><?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/right.txt"; ?></div>
 		</main>
 		
 	</body>

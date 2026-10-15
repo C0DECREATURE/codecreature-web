@@ -13,7 +13,7 @@ $voted = false;
 $votedFor = !empty($_COOKIE["bestGarfieldVoted"]) ? json_decode($_COOKIE["bestGarfieldVoted"],true) : [];
 // Check if name is empty or invalid
 if (!empty($_GET["name"])) {
-	$name = str_replace("-"," ",trim($_GET["name"]));
+	$name = str_replace("/","",str_replace("-"," ",trim($_GET["name"])));
 	// if this is a valid garf
 	if (!in_array($name, $garfields)) {
 		$error = "Invalid Garfield selection!";
