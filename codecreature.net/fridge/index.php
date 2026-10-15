@@ -19,7 +19,7 @@
 		<script>fonts.load('');</script>
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260514" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261015" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
 	<!-----------BODY------------------->
