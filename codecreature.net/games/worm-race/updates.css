@@ -3,17 +3,17 @@ body { font-family: "Yet R", sans-serif; }
 a, a:link, a:visited { color: var(--d-orange); }
 a:hover { color: var(--red); }
 
-.iframe .main-container { padding-top: 0; padding-bottom: 0; font-size: min(10vw, 1.125rem); }
+.main-container { padding-top: 0; padding-bottom: 0; font-size: min(10vw, 1.125rem); }
 
-.iframe .title { display: none; }
-.iframe .subtitle { color: var(--orange); }
-.iframe .subtitle:hover { color: var(--d-orange); }
+.title { display: none; }
+.subtitle { color: var(--orange); }
+.subtitle:hover { color: var(--d-orange); }
 
-.iframe .update .date, .iframe .update .date a { color: var(--d-orange); }
-.iframe .update .date a:hover { color: var(--red); }
-.iframe .update .summary { color: var(--orange); padding-left: 1em; }
+.post .date, .post .date a { color: var(--d-orange); }
+.post .date a:hover { color: var(--red); }
+.summaries-only .post .summary { color: var(--orange); padding-left: 1em; }
 
-.iframe .update:before { display: none; }
+.post:before { display: none !important; }
 
 /******************************************************************************************
 	SCROLLBAR

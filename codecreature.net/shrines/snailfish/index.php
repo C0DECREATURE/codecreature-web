@@ -10,6 +10,8 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
+		<base href="/shrines/snailfish/">
+		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
 		
@@ -84,7 +86,7 @@
 				</section>
 				
 				<section class="main">
-					<p>Most snailfish have a specially adapted suction cup disc on the underside of their heads, formed from modified pelvic fins. This allows them to attach to the bottom of their environment.</p>
+					<p>Snailfish, or <i>Liparidae</i>, are a wide-spread family of marine fish. Their bodies are tadpole-shaped with gelatinous, scaleless skin. Most snailfish have a specially adapted suction cup disc on the underside of their heads, formed from modified pelvic fins. This allows them to attach to the bottom of their environment.</p>
 					
 					<div>
 						<div class="polaroid"><div class="wrapper">

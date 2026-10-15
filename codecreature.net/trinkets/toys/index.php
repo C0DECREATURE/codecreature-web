@@ -131,7 +131,7 @@
 				<img class="sticker" src="/graphix/stickers/dbgci_cat_butterfly.png" alt="" style="left: 1295px; top: 187px; rotate: 9deg; scale: -1 1;">
 				<img src="images/citrus_kitty.png" alt="" style="left: 1114px; top: 224px;">
 				<img src="images/beads_meow.png" alt="" style="left: 1140px; top: 123px; rotate: 20deg;">
-				<a id="garfield" href="/shrines/garfield/merch" class="container glow-focus" style="left: 1285px; top: 407px;">
+				<a id="garfield" href="/garfield/merch" class="container glow-focus" style="left: 1285px; top: 407px;">
 					<div class="paper-popout left" style="right: calc(92% - 10px);"><span>Garfield</span></div>
 					<img src="/shrines/garfield/images/merch/vinyl_smile.png" alt="" style="width:160px;">
 				</a>

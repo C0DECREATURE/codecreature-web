@@ -1063,7 +1063,7 @@
 						data-credit-label="tbh-1138"></div>
 					<!-- GARF -->
 					<div class="bg-image"><img src="/graphix/bg/garf_camouflage.png" alt="Tiling pattern of Garfield the cat's orange and black fur, with a Garfield camouflaged between the stripes."
-						data-caption="tiling pattern by me. original art by Jim Davis (<a href='/shrines/garfield/comics/?year=1981&num=130'>May 11th, 1981</a>)"></div>
+						data-caption="tiling pattern by me. original art by Jim Davis (<a href='/garfield/comics/?year=1981&num=130'>May 11th, 1981</a>)"></div>
 					<!-- ANIMAL CROSSING -->
 					<div class="bg-image"><img src="/graphix/bg/ac_spring_2x.png" alt="Spring green triangular grass pattern from Animal Crossing"
 						data-credit=""

@@ -2,11 +2,11 @@
 
 <nav>
 	<div class="sr-only">Navigation</div>
-	<a class="yellowbutton" href="/shrines/garfield">Garfield</a>
-	<a class="yellowbutton" href="/shrines/garfield/comics">Archive</a>
-	<a class="yellowbutton" href="/shrines/garfield/merch">Merch</a>
-	<a class="yellowbutton hidden" href="/shrines/garfield/posters">Posters</a>
-	<a class="yellowbutton" href="/shrines/garfield/games">Games</a>
+	<a class="yellowbutton" href="/garfield">Garfield</a>
+	<a class="yellowbutton" href="/garfield/comics">Archive</a>
+	<a class="yellowbutton" href="/garfield/merch">Merch</a>
+	<a class="yellowbutton hidden" href="/garfield/posters">Posters</a>
+	<a class="yellowbutton" href="/garfield/games">Games</a>
 	<a class="yellowbutton" href="/shrines">Shrines</a>
 	<a class="yellowbutton" href="/">Home</a>
 </nav>

@@ -7,7 +7,9 @@
 		
 		<title>best garfield</title>
 		<!-- favicon -->
-		<link rel="icon" type="image/x-icon" href="/shrines/garfield/favicon.gif">
+		<link rel="icon" type="image/x-icon" href="../favicon.gif">
+		
+		<base href="/shrines/garfield/best-garfield/">
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260715"></script>
@@ -27,9 +29,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260715"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="/shrines/garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/poll.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
+		<link href="poll.css?fileversion=20260715" rel="stylesheet" type="text/css" media="all">
 	</head>
 	
 	<!-----------BODY------------------->
@@ -37,17 +39,17 @@
 		<a class="skip-to-content" href="#content">skip to content</a>
 		
 		<main>
-			<div id="nav-wrapper" class="left"><?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/nav.txt"; ?></div>
+			<div id="nav-wrapper" class="left"><?php include "../nav.txt"; ?></div>
 			
 			<div class="center">
 				<div class="container">
 					
 					<div id="content"><!-- anchor for keyboard nav -->
-						<form id="form" action="/shrines/garfield/best-garfield/vote.php">
+						<form id="form" action="vote.php">
 							<h2>which garfield is best?</h2>
 							<div class="options-container">
 							<?php
-							require_once $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/best-garfield/options.php";
+							require_once "options.php";
 							foreach ($garfield_types as $name => $list) {
 								?>
 								<section class="type">
@@ -85,7 +87,7 @@
 				</div>
 			</div>
 			
-			<div id="right-bar-wrapper" class="right"><?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/right.txt"; ?></div>
+			<div id="right-bar-wrapper" class="right"><?php include "../right.txt"; ?></div>
 		</main>
 		
 	</body>

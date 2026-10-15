@@ -8,6 +8,8 @@
 		<!-- favicon -->
 		<link rel="icon" type="image/x-icon" href="../favicon.gif">
 		
+		<base href="/shrines/garfield/games/">
+		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260707"></script>
 		<!-- universal base css -->
@@ -44,7 +46,7 @@
 			
 			<div class="center">
 				<header>
-					<h1><a href="/shrines/garfield"><img id="logo" src="../images/logo.png" alt="Garfield"><img id="hopping-garf" src="/graphix/deco/garf_hop.png" alt=""></a></h1>
+					<h1><a href="/garfield"><img id="logo" src="../images/logo.png" alt="Garfield"><img id="hopping-garf" src="/graphix/deco/garf_hop.png" alt=""></a></h1>
 				</header>
 				
 				<div class="container">

@@ -14,11 +14,9 @@ Redirect 301 /nepeta /shrines/homestuck/nepeta
 Redirect 301 /homestuck-ships /shrines/homestuck/shipping
 
 Redirect 301 /shrines/garf /garfield
-Redirect 301 /garfield /shrines/garfield
 
 Redirect 301 /teeth /shrines/teeth
 Redirect 301 /tangy /shrines/tangy
-Redirect 301 /snailfish /shrines/snailfish
 Redirect 301 /raptor-red /shrines/raptor-red
 
 Redirect 301 /toybox /games/toybox
@@ -62,6 +60,23 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 
 # /u/sampleUser actually displays /user/profile.php?username=sampleUser
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
+
+# /updates actually displays /blog/updates
+RewriteRule ^updates/? blog/updates [QSA]
+# /blog/tableName/new actually displays /blog-data/new-post.php?table=tableName
+RewriteRule ^blog/([^\/]*)/new/?$ blog-data/new-post.php?table=$1
+# /blog/tableName/edit/postNumber actually displays /blog-data/new-post.php?table=tableName&id=postNumber
+RewriteRule ^blog/([^\/]*)/edit/([0-9]*)/?$ blog-data/new-post.php?table=$1&id=$2
+# /blog/tableName?parameters actually displays /blog/list.php?table=tableName&parameters
+RewriteRule ^blog/([^\/]*)/?$ blog-data/list.php?table=$1 [QSA]
+# /blog/tableName/page/pageNumber actually displays /blog/list.php?table=tableName&page=pageNumber
+RewriteRule ^blog/([^\/]*)/page/([0-9]*) blog-data/list.php?table=$1&page=$2 [QSA]
+# /blog/tableName/post/postNumber actually displays /blog/list.php?table=tableName&id=postNumber
+RewriteRule ^blog/([^\/]*)/post/([0-9]*) blog-data/list.php?table=$1&id=$2 [QSA]
+
+# /shrines redirects
+RewriteRule ^snailfish/?(.*) /shrines/snailfish/$1
+RewriteRule ^garfield/?(.*) /shrines/garfield/$1
 
 # /best-garfield redirects to poll
 RewriteRule ^best-garfield/results/?(.*) /shrines/garfield/best-garfield/result.php?name=$1

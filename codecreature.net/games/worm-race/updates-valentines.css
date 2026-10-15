@@ -1,14 +1,14 @@
 a, a:link, a:visited { color: var(--d-pink); }
 a:hover { color: var(--pink); }
 
-.iframe .subtitle { color: var(--pink); }
-.iframe .subtitle:hover { color: var(--d-pink); }
+.subtitle { color: var(--pink); }
+.subtitle:hover { color: var(--d-pink); }
 
-.iframe .update .date, .iframe .update .date a { color: var(--d-pink); }
-.iframe .update .date a:hover { color: var(--pink); }
-.iframe .update .summary { color: var(--pink); padding-left: 1em; }
+.post .date, .post .date a { color: var(--d-pink); }
+.post .date a:hover { color: var(--pink); }
+.summaries-only .post .summary { color: var(--pink); padding-left: 1em; }
 
-.iframe .update:before { display: none; }
+.post:before { display: none !important; }
 
 /******************************************************************************************
 	SCROLLBAR

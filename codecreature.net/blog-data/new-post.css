@@ -1,0 +1,21 @@
+main > .subtitle {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+main > .subtitle .table-name { text-transform: uppercase; }
+
+form { display: flex; flex-direction: column; gap: 1em; }
+button { width: min(100%,8em); }
+.button-group { text-align: center; }
+.form-group:has(input[type=text]) { display: flex; gap: .5em; }
+.form-group input[type=text] { flex-grow: 1; }
+textarea, iframe { width: 100%; height: max(10em,40vh); }
+textarea { resize: none; }
+#preview {
+	background: var(--dd-purple);
+	width: min(1000px, 80%);
+	padding: 2em .75em .5em .75em;
+	border: 5px var(--purple) solid;
+}
+#preview .details { color: var(--l-blue); }
+.posts { margin-top: 1em; }

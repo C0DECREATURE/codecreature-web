@@ -3,7 +3,7 @@
 // include database connection file
 require_once $_SERVER['DOCUMENT_ROOT']."/codefiles/poll-connect.php";
 // include list of best garfield options
-require_once $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/best-garfield/options.php";
+require_once "options.php";
 
 $error = "";
 $name = "";
@@ -46,7 +46,9 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		
 		<title>best garfield</title>
 		<!-- favicon -->
-		<link rel="icon" type="image/x-icon" href="/shrines/garfield/favicon.gif">
+		<link rel="icon" type="image/x-icon" href="../favicon.gif">
+		
+		<base href="/shrines/garfield/best-garfield/">
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260719"></script>
@@ -63,9 +65,9 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		<script src="/codefiles/typing-quirks.min.js?fileversion=20260719"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="/shrines/garfield/style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
-		<link href="/shrines/garfield/best-garfield/result.css?fileversion=20261015" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20260719" rel="stylesheet" type="text/css" media="all">
+		<link href="result.css?fileversion=20261015" rel="stylesheet" type="text/css" media="all">
 		
 		<?php if (!empty($error)) {
 			echo "<script>alert('ERROR: $error');</script>";
@@ -79,7 +81,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 		
 		<main>
 			<div id="nav-wrapper" class="left">
-				<?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/nav.txt"; ?>
+				<?php include "../nav.txt"; ?>
 			</div>
 			
 			<div class="center">
@@ -211,7 +213,7 @@ if ($result = mysqli_query($poll_conn,$sql)) {
 			</div>
 			
 			<div id="right-bar-wrapper" class="right">
-				<?php include $_SERVER['DOCUMENT_ROOT']."/shrines/garfield/right.txt"; ?>
+				<?php include "../right.txt"; ?>
 			</div>
 		</main>
 		
