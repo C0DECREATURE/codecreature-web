@@ -16,6 +16,8 @@ textarea { resize: none; }
 	width: min(1000px, 80%);
 	padding: 2em .75em .5em .75em;
 	border: 5px var(--purple) solid;
+	max-height: 90vh;
+	overflow-y: auto;
 }
 #preview .details { color: var(--l-blue); }
 .posts { margin-top: 1em; }
