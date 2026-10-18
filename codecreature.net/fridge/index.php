@@ -32,24 +32,39 @@
 		<main id="content">
 			<div id="fridge">
 				<img class="bg" src="fridge.jpg" alt="">
+				
 				<img class="art full-viewable" src="art/Fan1_Jeremy_business.png" alt="" style="top:11%;left:34%;rotate:-3deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#pink'>jeremy</a> doing important business! i love the little cell phone so so much">
+				
+				<img class="art full-viewable" src="art/Garf_sauce_microplastics_real.jpg" alt="" style="top:29%;left:42%;rotate:-8deg;"
+					data-credit="/u/Garf_sauce" data-credit-label="Garf_sauce"
+					data-caption="<a href='/games/worm-race#purple'>microplastics</a> real!! ft tamagotchi friend">
+				
 				<img class="art full-viewable" src="art/B_nice_to_wormZ_noodle_poster.png" alt="" style="top:14%;left:57%;rotate:5deg;"
 					data-credit="/u/B_nice_to_wormZ" data-credit-label="B_nice_to_wormZ"
 					data-caption="<a href='/games/worm-race#blue'>pool noodle</a> propaganda! incredibly dynamic and cool little sports creature">
-				<img class="art full-viewable" src="art/skagguts_wet_cheese.png" alt="" style="top:20%;left:71%;rotate:-3deg;"
-					data-credit="/u/skagguts" data-credit-label="skagguts"
-					data-caption="<a href='/games/worm-love'>wet cheese</a> real love (<a href='https://youtu.be/YC62L35SdMI'>speedpaint</a>)">
+				
+				<img class="art narrow full-viewable" src="art/LAMINATORR_microplastics_cursor.png" alt="" style="top:6%;left:50%;rotate:-8deg;"
+					data-credit="/u/LAMINATORR" data-credit-label="LAMINATORR"
+					data-caption="scruffing <a href='/games/worm-race#purple'>microplastics</a>...">
+				
 				<img class="art full-viewable" src="art/Fan1_Jeremy_minijeremi.png" alt="" style="top:8%;left:72%;rotate:2deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#pink'>jeremy</a> real">
+				
+				<img class="art full-viewable" src="art/skagguts_wet_cheese.png" alt="" style="top:20%;left:71%;rotate:-3deg;"
+					data-credit="/u/skagguts" data-credit-label="skagguts"
+					data-caption="<a href='/games/worm-love'>wet cheese</a> real love (<a href='https://youtu.be/YC62L35SdMI'>speedpaint</a>)">
+				
 				<img class="art full-viewable" src="art/Fan1_Jeremy_cheese_munch.png" alt="" style="top:55%;left:41%;rotate:-2deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#yellow'>string cheese</a> consumes">
+				
 				<img class="art full-viewable" src="art/Fan1_Jeremy_plastic_munch.png" alt="" style="top:48%;left:56%;rotate:3deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#purple'>microplastics</a> snacking">
+				
 				<img class="art wide full-viewable" src="art/LAMINATORR_WORMIES_TOGETHER.png" alt="" style="top:61%;left:50%;rotate:-8deg;"
 					data-credit="/u/LAMINATORR" data-credit-label="LAMINATORR"
 					data-caption="<a href='/games/worm-race'>the worms</a>!! delightful">

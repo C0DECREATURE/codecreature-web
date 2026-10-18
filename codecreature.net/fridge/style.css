@@ -28,6 +28,7 @@ nav {
 	filter: drop-shadow(-1px 3px 1px rgba(0,0,0,.35));
 }
 #fridge .art.wide { max-width: 40%; }
+#fridge .art.narrow { max-width: 15%; }
 #fridge .art:hover, #fridge .art:focus-visible {
 	scale: 1.1;
 }
