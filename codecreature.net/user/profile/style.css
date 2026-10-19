@@ -70,10 +70,8 @@ h1 {
 	font-size: 2em;
 	margin: 0;
 }
-#pronouns {
-	font-style: italic;
-	margin-top: -.2em;
-}
+.username-header { line-height: 1; }
+#pronouns { font-style: italic; }
 
 nav {
 	padding: .5em 0;

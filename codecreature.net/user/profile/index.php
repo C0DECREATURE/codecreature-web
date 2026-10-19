@@ -10,6 +10,7 @@ $param_username = urldecode($_GET['username']);
 $id = getIdByUsername($param_username,true);
 // get user's public data array
 $user = getPublicUserData($id);
+$auth = $user['authorization'];
 $username = $user['username'];
 $pronouns = $user['pronouns'];
 $icon = $user['icon'];
@@ -54,17 +55,22 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<!--identity ribbons stylesheet-->
 		<link href="/user/profile/ribbons.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="/user/profile/style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/style.css?fileversion=20261019" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user['color']; ?>">
 	<div class="main-container">
-		<header class="username-header">
-			<img id="icon" src="<?php echo $icon; ?>">
-			<div class="text">
-				<h1 id="username"><?php echo $username; ?></h1>
-				<?php if (!empty($user["pronouns"])) {
-					echo "<div id='pronouns'>$pronouns</div>";
-				} ?>
+		<header>
+			<div class="username-header">
+				<img id="icon" src="<?php echo $icon; ?>">
+				<div class="text">
+					<h1 id="username"><?php echo $username; ?></h1>
+					<?php if ($auth != "user") { ?>
+						<div class="auth"><?php echo $auth; ?></div>
+					<?php } ?>
+					<?php if (!empty($pronouns)) { ?>
+						<div id="pronouns"><?php echo $pronouns; ?></div>
+					<?php } ?>
+				</div>
 			</div>
 		</header>
 		
