@@ -3,9 +3,38 @@ function hideRightClickMenus() {
 	for (let i = 0; i < menus.length; i++) { menus[i].classList.add("hidden"); }
 }
 
-function messageRightClick(e,id,ownMessage) {
+// open right click menu with id = id using contextmenu event = e
+function openRightClickMenu(e,id,dataParams={}) {
+	// prevent default right click menu opening
 	e.preventDefault();
-	hideRightClickMenus();
+	// display the menu at the click location
+	let menu = document.getElementById(id);
+	menu.classList.remove('hidden');
+	// if the menu would clip off right edge, show it left of the cursor
+	// otherwise show it on right
+	let w = $(menu).outerWidth(true);
+	if (e.pageX > window.innerWidth - w) {
+		menu.classList.add("leftOfCursor");
+		menu.style.left = (e.pageX - w) + "px";
+	} else {
+		menu.classList.remove("leftOfCursor");
+		menu.style.left = e.pageX + "px";
+	}
+	//menu.style.left = Math.min(e.pageX, window.innerWidth - $(menu).outerWidth(true)) + "px";
+	// if the menu would clip off bottom edge, show it above the cursor
+	// otherwise show it below
+	if (e.pageY > window.innerHeight - $(menu).outerHeight(true)) {
+		menu.classList.add("aboveCursor");
+		menu.style.top = (e.pageY - $(menu).outerHeight(true)) + "px";
+	} else {
+		menu.classList.remove("aboveCursor");
+		menu.style.top = e.pageY + "px";
+	}
+	// assign any dataset values to the menu
+	for (let key in dataParams) menu.dataset[key] = dataParams[key];
+}
+
+function messageRightClick(e,id,ownMessage) {
 	// show/hide the message edit option
 	let canEdit = ownMessage && loggedIn;
 	let editOpt = document.getElementById("right-click-edit");
@@ -23,11 +52,23 @@ function messageRightClick(e,id,ownMessage) {
 	let banOpt = document.getElementById("right-click-ban");
 	if (canBan) banOpt.classList.remove('hidden'); else banOpt.classList.add('hidden');
 	// display the right click menu
-	let menu = document.getElementById("right-click-menu");
-	menu.classList.remove('hidden');
-	menu.style.left = Math.min(e.pageX, window.innerWidth - $(menu).outerWidth(true)) + "px";
-	menu.style.top = Math.min(e.pageY, window.innerHeight - $(menu).outerHeight(true)) + "px";
-	menu.dataset.messageId = id;
+	openRightClickMenu(e,"right-click-menu",{messageId:id})
+}
+
+function linkRightClick(e,url,text) {
+	// set link address for "open in new tab" button
+	document.getElementById("right-click-link-newTab").href = url;
+	// check if there is link text to copy
+	let copyTextOpt = document.getElementById("right-click-link-copyText");
+	if (text == "") copyTextOpt.classList.add("hidden");
+	else copyTextOpt.classList.remove("hidden");
+	// display the right click menu
+	openRightClickMenu(e,"right-click-menu-link",{url:url,text:text})
+}
+
+async function writeClipboardText(text) {
+  try { await navigator.clipboard.writeText(text);
+  } catch (error) { console.error(error.message); }
 }
 
 // whether a message is currently being sent
@@ -82,7 +123,7 @@ function copyMessage(id) {
 		let hiddenContent = el.getElementsByClassName('sr-only');
 		for (let i = 0; i < hiddenContent.length; i++) { hiddenContent[i].remove(); }
 		// copy the modified display text of the temporary copy
-		navigator.clipboard.writeText(el.innerText);
+		writeClipboardText(el.innerText);
 		// delete the copy
 		el.remove();
 	}
@@ -91,7 +132,7 @@ function copyMessage(id) {
 // copy message text with given id
 function copyMessageBbcode(id) {
 	let msg = document.getElementById(`message-${id}`);
-	if (msg) navigator.clipboard.writeText(msg.dataset.rawBbcode);
+	if (msg) writeClipboardText(msg.dataset.rawBbcode);
 }
 
 // reply to message with given id
@@ -263,14 +304,26 @@ function refreshMessage(id) {
 
 function messageSetup(id) {
 	let message = document.getElementById(`message-${id}`);
+	// if a valid message with id exists
 	if (message && !message.classList.contains('deleted')) {
 		message.querySelector('.date-text').innerHTML = formatMessageDisplayDate(message.dataset.timestamp);
 		// assign text and alt text for all typing quirk elements in the message that was just loaded
 		tqAlts(message);
-		// open special message right click menu on right clicking message
-		message.querySelector('.bubble').addEventListener("contextmenu",(e)=>{
-			messageRightClick(e,id,message.classList.contains('self'));
-		});
+		// open special message right click menu on right clicking message body or link
+		function contextMenuEvent(e) {
+			let linkEl = e.target.tagName.toLowerCase() == "a" ? e.target : e.target.closest("a");
+			if (linkEl) linkRightClick(e,linkEl.href,linkEl.innerText);
+			else messageRightClick(e,id,message.classList.contains('self'));
+		}
+		message.querySelector('.bubble').addEventListener("contextmenu",contextMenuEvent);
+		message.querySelector('.icon').addEventListener("contextmenu",contextMenuEvent);
+		// open images in new tab when clicked
+		let bbcodeImages = message.getElementsByClassName('bbcode_img');
+		for (let i = 0; i < bbcodeImages.length; i++) {
+			bbcodeImages[i].addEventListener("click",(e)=>{
+				window.open(bbcodeImages[i].src, '_blank').focus();
+			});
+		}
 		// check if this message is part of a stack by a single user
 		updateMessageStackStatus(id);
 	} else if (!message) {

@@ -37,8 +37,10 @@ function getOldestMessageId($table_name) {
 		// get id of oldest message in database
 		$sql = mysqli_prepare($chat_conn, "SELECT id FROM ".$table_name." WHERE date IS NOT NULL ORDER BY date LIMIT 1;");
 		mysqli_stmt_execute($sql);
-		mysqli_stmt_bind_result($sql, $oldest_message_id);
-		while (mysqli_stmt_fetch($sql)) { return $oldest_message_id; }
+		mysqli_stmt_bind_result($sql, $id);
+		$oldest_message_id = 0;
+		while (mysqli_stmt_fetch($sql)) { $oldest_message_id = $id; }
+		return $oldest_message_id;
 	}
 }
 

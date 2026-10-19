@@ -50,7 +50,7 @@ $user_auth = getAuthorization($user_id);
 		<!--bbcode stylesheet-->
 		<link href="/chat/bbcode.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
-		<link href="/chat/chat.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/chat.css?fileversion=20261019" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -63,7 +63,7 @@ $user_auth = getAuthorization($user_id);
 			?>
 		</script>
     <script src="/chat/liveChat.js?fileversion=20261011"></script>
-    <script src="/chat/chatFunctions.js?fileversion=20260928"></script>
+    <script src="/chat/chatFunctions.js?fileversion=20261019"></script>
 		
 		<base target="_top">
 </head>
@@ -134,7 +134,7 @@ $user_auth = getAuthorization($user_id);
 				<!--copy-->
 				<button id="right-click-copy" 
 				onclick="copyMessage(this.parentNode.dataset.messageId);">
-					Copy
+					Copy Message
 				</button>
 				<!--copy-->
 				<button id="right-click-copy" 
@@ -153,7 +153,20 @@ $user_auth = getAuthorization($user_id);
 				<!--delete-->
 				<button id="right-click-delete" class="txt-red" onclick="deleteMessage(this.parentNode.dataset.messageId);">Delete</button>
 			</div>
-			<script>document.addEventListener("click",hideRightClickMenus);</script>
+			<!--right click link menu-->
+			<div id="right-click-menu-link" class="right-click-menu hidden">
+				<!--open in new tab-->
+				<a id="right-click-link-newTab" target="_blank">Open Link in New Tab</a>
+				<!--copy address-->
+				<button id="right-click-link-copy" onclick="writeClipboardText(this.parentNode.dataset.url)">
+					Copy Link Address
+				</button>
+				<!--copy inner text-->
+				<button id="right-click-link-copyText" onclick="writeClipboardText(this.parentNode.dataset.text)">
+					Copy Link Text
+				</button>
+			</div>
+			<script>document.addEventListener("mouseup",hideRightClickMenus);</script>
 			
 			<?php if ($logged_in) { ?>
 				<!--message edit popup-->

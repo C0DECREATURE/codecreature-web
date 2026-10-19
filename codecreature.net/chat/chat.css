@@ -26,6 +26,8 @@ body, html {
 	--send: var(--d-blue);
 	--send-hover: var(--white);
 	--font: 'Yet R', sans-serif;
+	--select-bg: var(--blue);
+	--select-text: var(--white);
 }
 
 /***** scrollbar *****/
@@ -44,6 +46,8 @@ body, html {
 	border-radius: 9px;
 }
 /***** end scrollbar *****/
+
+::selection, ::-moz-selection { background-color: var(--select-bg); color: var(--select-text); }
 
 .chatbox {
 	background: var(--bg);
@@ -123,11 +127,16 @@ body, html {
 	box-shadow: 4px 6px var(--blue);
 	border-radius: 0 1rem 1rem 1rem;
 	border: 3px var(--blue) solid;
-	button:hover { color: var(--d-blue); }
 }
-.customCursor .right-click-menu {
-	margin-top: 15px;
-	margin-left: 20px;
+.right-click-menu.aboveCursor { border-radius: 1rem 1rem 1rem 0; margin-left: -10px; }
+.right-click-menu.leftOfCursor { border-radius: 1rem 0 1rem 1rem; margin-top: 0px; }
+.right-click-menu.aboveCursor.leftOfCursor { border-radius: 1rem 1rem 0 1rem; }
+.right-click-menu a { color: inherit; }
+.right-click-menu button:hover, .right-click-menu a:hover { color: var(--d-blue); }
+.customCursor {
+	.right-click-menu { margin-top: 15px; margin-left: 20px; }
+	.right-click-menu.aboveCursor { margin-left: 0px; }
+	.right-click-menu.leftOfCursor { margin-top: 0px; }
 }
 
 [popover] {
@@ -203,7 +212,7 @@ body, html {
 #load-older { order: 1000; }
 
 .message {
-	--icon-height: 3rem;
+	--icon-height: max(2rem,min(3rem,12vw));
 	display: flex;
 	align-items: flex-end;
 	--gap: .5rem;
@@ -388,3 +397,5 @@ body, html {
 .message.stack:not(.stack-top) + .message.stack {
 	.icon { visibility: hidden; height: 1px; }
 }
+
+.message .bbcode_quote .bbcode_img { max-width: min(100%,150px); }
