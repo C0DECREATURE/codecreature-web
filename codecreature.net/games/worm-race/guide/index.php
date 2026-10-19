@@ -263,11 +263,6 @@
 								</div>
 								
 								<div class="wrapper">
-									<div class="question">what jobs would they have if they weren't racing?</div>
-									<div class="answer">matilda would do well in a research library. jeremy has a fake law degree and a stock portfolio, so they'd do more of that. pretzel would like to be a baker. pool noodle has worked as a lifeguard, and hopes to be scouted for a cooler sport than racing someday.</div>
-								</div>
-								
-								<div class="wrapper">
 									<div class="question">pool noodle is small and limbless, how do they play sports?</div>
 									<div class="answer">badly.</div>
 								</div>
