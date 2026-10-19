@@ -61,11 +61,15 @@
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#yellow'>string cheese</a> consumes">
 				
+				<img class="art full-viewable" src="art/LAMINATORR_microplastics_trophies.png" alt="" style="top:52%;left:69%;rotate:10deg;"
+					data-credit="/u/LAMINATORR" data-credit-label="LAMINATORR"
+					data-caption="<a href='/games/worm-race#purple'>microplastics</a> with their trophies">
+				
 				<img class="art full-viewable" src="art/Fan1_Jeremy_plastic_munch.png" alt="" style="top:48%;left:56%;rotate:3deg;"
 					data-credit="/u/Fan1_Jeremy" data-credit-label="Fan1_Jeremy"
 					data-caption="<a href='/games/worm-race#purple'>microplastics</a> snacking">
 				
-				<img class="art wide full-viewable" src="art/LAMINATORR_WORMIES_TOGETHER.png" alt="" style="top:61%;left:50%;rotate:-8deg;"
+				<img class="art wide full-viewable" src="art/LAMINATORR_WORMIES_TOGETHER.png" alt="" style="top:81%;left:43%;rotate:-10deg;"
 					data-credit="/u/LAMINATORR" data-credit-label="LAMINATORR"
 					data-caption="<a href='/games/worm-race'>the worms</a>!! delightful">
 			</div>
