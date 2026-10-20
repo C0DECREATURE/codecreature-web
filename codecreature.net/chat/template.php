@@ -166,7 +166,7 @@ $user_auth = getAuthorization($user_id);
 					Copy Link Text
 				</button>
 			</div>
-			<script>document.addEventListener("mouseup",hideRightClickMenus);</script>
+			<script>document.addEventListener("click",hideRightClickMenus);</script>
 			
 			<?php if ($logged_in) { ?>
 				<!--message edit popup-->
