@@ -12,7 +12,7 @@
 	
 	<div id="chatbox" class="hidden">
 		<header>
-			Worm Chat
+			<span id="chat-title">Worm Chat</span>
 			<button id="chat-button">—</button>
 		</header>
 		<iframe id="chat-iframe" class="hidden"></iframe>
@@ -77,6 +77,8 @@
 						unreadMessages = data.unread;
 						document.title = unreadMessages + " new message" + (unreadMessages == 1 ? "" : "s");
 					}
+				} else if (data.type == 'newChatroom') {
+					document.getElementById('chat-title').innerHTML = data.name + " Chat";
 				}
 			};
 			// on window focus, reset page title

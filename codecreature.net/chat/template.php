@@ -58,9 +58,11 @@ $user_auth = getAuthorization($user_id);
 		<script>
 			<?php
 				echo 'const chatTableName = "'.$chat_table.'";';
+				echo 'const chatroomName = "'.$chatroom_name.'";';
 				echo 'const userAuth = "'. getAuthorization($user_id) .'";';
 				echo 'const oldestMessageId = '. getOldestMessageId($chat_table) .';';
 			?>
+			window.top.postMessage(`{"type":"newChatroom","name":"${chatroomName}"}`, '*');
 		</script>
     <script src="/chat/liveChat.js?fileversion=20261011"></script>
     <script src="/chat/chatFunctions.js?fileversion=20261019"></script>
@@ -70,7 +72,7 @@ $user_auth = getAuthorization($user_id);
 <body>
 	<main class="chatbox">
 		<header>
-			<a href="/chat" target="_self">chat</a>
+			<a href="/chat" target="_self">menu</a>
 			<div class="wrapper">
 				<button onclick="
 					let user = document.getElementById('user');
