@@ -7,15 +7,15 @@ if(!isset($_SESSION)){session_start();}
 $redirect_path = "/user/details";
 if (!empty($_GET['redirect'])) { $redirect_path = $_GET['redirect']; }
 
+// Include database connection file
+require_once "../connect.php";
+
 // Check if the user is already logged in, if yes then redirect to user details page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 	echo "Already logged in!";
 	header("location: ".$redirect_path);
 	exit;
 }
-
-// Include database connection file
-require_once "../connect.php";
 
 // Include user data storage file
 require_once "store-user.php";
@@ -52,9 +52,9 @@ function rememberUser($user_id, $remember_token) {
 	$expires_at = date('Y-m-d H:i:s', strtotime('+60 days'));
 	
 	$sql = "INSERT INTO remember_tokens (user_id, token_hash, expires_at) VALUES (?, ?, ?)";
-	if($stmt = mysqli_prepare($users_conn, $sql)){
+	if ($stmt = mysqli_prepare($users_conn, $sql)) {
 		mysqli_stmt_bind_param($stmt, "iss", $user_id, $token_hash, $expires_at);
-		if(mysqli_stmt_execute($stmt)){
+		if (mysqli_stmt_execute($stmt)) {
 			setcookie('remember_token', $remember_token, time() + (30 * 24 * 60 * 60), '/', '', true, true);
 		}
 	}
@@ -101,17 +101,17 @@ function loginUser($id, $username, $authorization, $pronouns, $icon, $last_login
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter username.";
-    } else{
-        $username = trim($_POST["username"]);
+    if (empty(trim($_POST["username"]))) {
+			$username_err = "Please enter username.";
+    } else {
+			$username = trim($_POST["username"]);
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
-        $password_err = "Please enter your password.";
-    } else{
-        $password = trim($_POST["password"]);
+    if (empty(trim($_POST["password"]))) {
+			$password_err = "Please enter your password.";
+    } else {
+			$password = trim($_POST["password"]);
     }
 		
 		// CHECK IF USERNAME HAS TOO MANY FAILED PASSWORD ATTEMPTS
@@ -290,7 +290,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 						class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
 					<span class="invalid-feedback"><?php echo $password_err; ?></span>
 				</div>
-				<div class="form-group hidden"> <!--DEBUG - hiding while not working-->
+				<div class="form-group">
 					<input type="checkbox" id="rememberme" name="rememberme">
 					<label for="rememberme">Remember me on this device.</label>
 				</div>
