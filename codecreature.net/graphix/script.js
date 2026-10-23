@@ -1,18 +1,24 @@
 var dontAutoInitFIV = true;
 
-/* DEBUG - would need to fix the way freezeframe breaks the masonry layout
+/* DEBUG - would need to fix the way freezeframe breaks the masonry layout */
 // freezeframe object
 var ff;
 // use freezeframe to pause/unpause gifs
+function toggleFreezeframe() {
+	if (document.body.classList.contains('pausedGifs')) playGifs();
+	else pauseGifs();
+}
 function pauseGifs() {
-	ff.release();
+	if (typeof(ff) == "undefined") ff = new freezeframe().freeze();
+	else ff.release();
 	document.body.classList.add('pausedGifs');
+	document.getElementById('freezeframe-button').innerHTML = "play";
 }
 function playGifs() {
 	ff.trigger();
 	document.body.classList.remove('pausedGifs');
+	document.getElementById('freezeframe-button').innerHTML = "pause";
 }
-*/
 
 function graphixPageInit() {
 	// add full-viewable class to all gallery images
@@ -27,14 +33,12 @@ function graphixPageInit() {
 	// run full image setup code
 	fullImageView.init();
 	
-	/* DEBUG - freezeframe issue described above
 	// set up freezeframe for gifs
-	var allGifs = document.querySelectorAll('img[src$=".gif"]');
+	var allGifs = document.querySelectorAll('img[src$=".gif"]','img[src$=".webp"]');
 	for (let i = 0; i < allGifs.length; i++) {
-		allGifs[i].classList.add('freezeframe');
+		// for all gifs NOT in masonry layout
+		if (!allGifs[i].classList.contains("m-item")) allGifs[i].classList.add('freezeframe');
 	}
-	ff = new freezeframe().freeze();
-	*/
 	
 	// set up background image samples
 	backgrounds = document.getElementsByClassName('bg-image');

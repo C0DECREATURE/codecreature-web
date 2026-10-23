@@ -54,15 +54,14 @@
 		<!--hexagon stamps css-->
 		<link href="/graphix/stamps/hexagon/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
-		<!-- freezeframe.js -- DEBUG - issue described in script.js
+		<!-- freezeframe.js -->
 		<link rel="stylesheet" href="https://unpkg.com/freezeframe@3.0.10/build/css/freezeframe_styles.min.css">
 		<script type="text/javascript" src="https://unpkg.com/freezeframe@3.0.10/build/js/freezeframe.pkgd.min.js"></script>
-		-->
 		
 		<!-- this page's stylesheet -->
-		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261023" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's javascript -->
-		<script src="script.js?fileversion=20260410"></script>
+		<script src="script.js?fileversion=20261023"></script>
 	</head>
 	
 	<!-----------BODY------------------->
@@ -77,6 +76,7 @@
 				graphix collection
 				<img src="/graphix/deco/spinning-disc.gif" alt="">
 			</h1>
+			
 			<nav class="nav">
 				<button class="btn-strip dropdown-btn">navigation</button>
 				<div class="navlinks">
@@ -84,7 +84,10 @@
 					<a href="#summary">top</a>
 				</div>
 			</nav>
+			
+			<button id="freezeframe-button" class="hidden" onclick="toggleFreezeframe();">pause</button>
 		</header>
+		
 		
 		<div class="summary tq-format" id="summary">
 			
@@ -118,14 +121,34 @@
 				</ol>
 			</div>
 			
-			<!-- DEBUG - issue described in script.js
-			<div id="pause-gifs">
-				<button id="pause-gifs-button" onclick="pauseGifs();">pause gifs</button>
-				<button id="play-gifs-button" onclick="playGifs();">play gifs</button>
-			</div>
-			-->
-			
 		</div>
+		
+		<?php
+		// replace quotes in string with html safe character
+		function replaceQuotes($str) { return str_replace('"',"&quot;",$str); }
+		
+		/* image array format:
+		["path"=>"",
+			"credLink"=>"","credLabel"=>"",
+			"alt"=>"",
+			"caption"=>"",
+			"wrapper"=>[],],
+		*/
+		
+		// insert image based on given type string and image data array
+		function insertImage($type,$img) {
+			if (isset($img["wrapper"])) {
+				?><div class="img-wrapper<?php foreach ($img["wrapper"] as $class) { echo " $class"; } ?>"><?php
+			}
+			?><img src="/graphix/<?php echo "$type/".$img["path"]; ?>"
+				alt="<?php echo replaceQuotes($img["alt"]); ?>"<?php
+				if (!empty($img["credLink"])) echo " data-credit=\"".replaceQuotes($img["credLink"])."\"";
+				if (!empty($img["credLabel"])) echo " data-credit-label=\"".replaceQuotes($img["credLabel"])."\"";
+				if (!empty($img["caption"])) echo " data-caption=\"".replaceQuotes($img["caption"])."\"";
+			?>><?php
+			if (isset($img["wrapper"])) { ?></div><?php }
+		}
+		?>
 		
 		<!-- main content container -->
 		<div class="main-container">
@@ -139,19 +162,32 @@
 					</header>
 					<button class="btn scale-btn" onclick="sectionScale2x(this);">2x</button>
 					<div class="gallery block-grid">
-						<img src="/graphix/stamps/autistic_endeavors.gif" alt="'Good luck in your autistic endeavors' stamp in black text on wood grain background.">
-						<img src="/graphix/stamps/borgor.gif" class="freezeframe" alt="Stamp of a tiny shark randomly moving around a burger in dark blue water. Small text above reads 'borgor' (sic).">
-						<img src="/graphix/stamps/cat_pupils.gif" alt="stamp of a black cat with its pupils expanding and contracting">
-						<img src="/graphix/stamps/cat_typist.gif" alt="Animated stamp of a photorealistic tabby cat ina tie typing on an old computer.">
-						<img src="/graphix/stamps/fury_devils.png" alt="misspelled stamp that says 'furys are the devels pets' (furries are the devil's pets) in black and red text with upside-down crosses">
-						<div class="img-wrapper center">
-							<img src="/graphix/stamps/game_over.gif" alt="Stamp of a PC error window that glitches rapidly and then says 'game over' in red text on black background.">
-						</div>
-						<img src="/graphix/stamps/internet_cool.png" alt="'The Internet is cool because' stamp with the end of the sentence trailing off the edge. It has a black background and rainbow border.">
-						<img src="/graphix/stamps/make_bad_art.gif" alt="'make bad art' stamp in a fun font with a smiley face. every part of the stamp is flashing different neon colors">
-						<img src="/graphix/stamps/beads.png" alt="rainbow pony beads stamp"
-							data-credit="https://www.deviantart.com/crypticgoth/art/059-696478286"
-							data-credit-label="crypticgoth">
+						<?php
+						$stamps_arr = [
+							["path"=>"autistic_endeavors.gif",
+								"alt"=>"\"Good luck in your autistic endeavors\" stamp in black text on wood grain background.",],
+							["path"=>"borgor.gif",
+								"alt"=>"Stamp of a tiny shark randomly moving around a burger in dark blue water. Small text above reads \"borgor\" (sic).",],
+							["path"=>"cat_pupils.gif",
+								"alt"=>"Stamp of a black cat with its pupils expanding and contracting.",],
+							["path"=>"cat_typist.gif",
+								"alt"=>"Animated stamp of a photorealistic tabby cat ina tie typing on an old computer.",],
+							["path"=>"fury_devils.png",
+								"alt"=>"Misspelled stamp reading \"furys are the devels pets\" (furries are the devil's pets) in black and red text with upside-down crosses.",],
+							["path"=>"game_over.gif",
+								"alt"=>"Stamp of a PC error window that glitches rapidly and then says \"game over\" in red text on black background.",
+								"wrapper"=>["center"]],
+							["path"=>"internet_cool.png",
+								"alt"=>"\"The Internet is cool because\" stamp with the end of the sentence trailing off the edge. It has a black background and rainbow border.",],
+							["path"=>"make_bad_art.gif",
+								"alt"=>"\"make bad art\" stamp in a fun font with a smiley face. Every part of the stamp is flashing different neon colors.",],
+							["path"=>"beads.png",
+								"credLink"=>"https://www.deviantart.com/crypticgoth/art/059-696478286","credLabel"=>"crypticgoth",
+								"alt"=>"Rainbow pony beads stamp.",
+								"caption"=>""],
+						];
+						foreach ($stamps_arr as $stamp) { insertImage("stamps",$stamp); }
+						?>
 						<img src="/graphix/stamps/blue-red-squiggles.png" alt="blue and red squiggle pattern stamp"
 							data-credit="https://www.deviantart.com/bunsona/art/5-599984670"
 							data-credit-label="bunsona">
@@ -374,19 +410,76 @@
 				<section class="section" id="bumper stickers">
 					<header>
 						<h3>bumper stickers</h3>
-					</header>
-					<header>
-						<h3>bumper stickers</h3>
 						<p>want more? try these:<br>
 							<a href="https://www.internetbumperstickers.com/" target="_blank">internet bumper stickers</a>
 						</p>
 					</header>
 					<div class="gallery block-grid">
-						<img src="/graphix/bumperstickers/can-open.gif" alt="'can open, worms everywhere' in green 3D text on pink background">
-						<img src="/graphix/bumperstickers/stress-based-life-form.gif" alt="'stress based life form' in pink and green text on blue background">
-						<img src="/graphix/bumperstickers/tested-on-animals.gif" alt="'this website tested on laboratory animals' on yellow background">
-						<img src="/graphix/bumperstickers/warning-hazardous.gif" alt="'warning: may be hazardous to humans and domestic animals' on light yellow background">
-						<img src="/graphix/bumperstickers/aroma_of_trouble.png" alt="'the aroma of trouble has entered the vicinity' in green text on purple background">
+						<?php
+						$bumperstickers_arr = [
+							["path"=>"can-open.gif",
+								"alt"=>"\"Can open, worms everywhere\" in green 3D text on pink background.",],
+							["path"=>"stress-based-life-form.gif",
+								"alt"=>"\"Stress based life form\" in pink and green text on blue background.",],
+							["path"=>"tested-on-animals.gif",
+								"alt"=>"\"This website tested on laboratory animals\" on yellow background.",],
+							["path"=>"warning-hazardous.gif",
+								"alt"=>"\"Warning: may be hazardous to humans and domestic animals\" on pale yellow background.",],
+							["path"=>"aroma_of_trouble.png",
+								"alt"=>"\"the aroma of trouble has entered the vicinity\" in green text on purple background.",],
+							["path"=>"no_electronics.png",
+								"alt"=>"\"Do not operate any electronic equipment while accessing this website\" in white text on blue background.",],
+							["path"=>"ignore_this.gif",
+								"alt"=>"\"Ignore this\" in bold, uppercase font on dark blue background.",],
+							["path"=>"all_panic_no_disco.png",
+								"alt"=>"\"All panic, no disco\" in multicolored text on swirling red background.",],
+							["path"=>"authorized_by_god.png",
+								"alt"=>"\"This message has been authorized by God\" in glowing text on purple background.",],
+							["path"=>"not_verified.png",
+								"alt"=>"Warning label reading \"The information above has not been verified, but it seems right.\"",],
+							["path"=>"charged_particles.gif",
+								"alt"=>"\"Notice: This web site contains minute electrically charged particles moving at velocities in excess of five hundred million miles per hour.\" on yellow background.",],
+							["path"=>"consult_the_oracle.webp",
+								"alt"=>"\"I think it's time to consult the oracle\" on dithered magenta background.",],
+							["path"=>"dolphin_safe.gif",
+								"alt"=>"\"This Website is Dolphin Safe\" with the circular U.S. Department of Commerce \"dolphin safe\" label",],
+							["path"=>"internet_cat.gif",
+								"alt"=>"\"On the internet no one knows you're a cat\" in wobbly handwritten font with grayscale tabby cat face.",],
+							["path"=>"lifes_details.gif",
+								"alt"=>"\"I'm starting to think it was a poor decision to share my life's most intimate details with the entire internet\" on dark blue background.",],
+							["path"=>"no_food.gif",
+								"alt"=>"\"Please do not bring food or beverages into the website\" sign in black text on white background.",],
+							["path"=>"panic_room.png",
+								"alt"=>"\"Any room can be a panic room if I'm in it\" in poorly compressed yellow text on red background.",],
+							["path"=>"share_with_5.gif",
+								"alt"=>"\"Share this with 5 people\" with the subtext \"Absolutely nothing at all will happen. Try it - it works!\" on green and blue background.",],
+							["path"=>"website_hum.gif",
+								"alt"=>"\"If this web site begins to hum or emit smoke, leave the vicinity imediately\" in bold yellow text on black background.",],
+							["path"=>"wishful_thinking.png",
+								"alt"=>"\"Need things to change? Try... Wishful Thinking! It's easy!\" in curving purple text on light pink background.",],
+							["path"=>"scratch_sticker.png",
+								"alt"=>"\"Scratch off this sticker to reveal secret message\" in 3D white and green text on light blue background.",],
+							["path"=>"one_nightmare.png",
+								"alt"=>"\"Living life one nightmare at a time\" in curving white and pink text on orange background.",],
+							["path"=>"exceed_expectations.gif",
+								"alt"=>"\"This web site will meet or exceed your expectations\" in green block letters followed by \"...or it will not!\" in angled red cursive.",],
+							["path"=>"website_restroom.gif",
+								"alt"=>"\"Restroom for website customers only\" sign with black male/female bathroom symbol on blue background.",],
+							["path"=>"cheer_up.gif",
+								"alt"=>"\"Cheer up! Things aren't as bad as they're gonna be\" in bright yellow-green text on orange background.",],
+							["path"=>"raised_by_humans.gif",
+								"alt"=>"\"Raised by Humans\" in distorted pale blue text on mottled green background.",],
+							["path"=>"stress_high.png",
+								"alt"=>"\"High on Stress\" in warped yellow text on bright neon color splotches.",],
+							["path"=>"blank.gif",
+								"alt"=>"\"This space left intentionally blank\" in small black letters on white background.",],
+							["path"=>"not_under_construction.gif",
+								"alt"=>"\"This website is not under construction, you're looking at my best shot\" in red and black text on construction tape background.",],
+							["path"=>"untamed_peeves.gif",
+								"alt"=>"\"I don't have pet peeves, mine are wild and untamed peeves\" in chunky green and orange font on purple background.",],
+						];
+						foreach ($bumperstickers_arr as $bps) { insertImage("bumperstickers",$bps); }
+						?>
 					</div>
 					
 					<h4>extra tall</h4>
@@ -1103,18 +1196,19 @@
 			<section class="section" id="deco">
 				<header>
 					<h3>decor</h3>
+					<p>want more cool images? try these:<br>
+						<a href="https://pixelsea.neocities.org/" target="_blank">pixelsea</a> /
+						<a href="https://web.archive.org/web/19980711000616/http://www.baywell.or.jp/users/niiro/art.html" target="_blank">baywell art folders</a>
+					</p>
 				</header>
 				<div class="gallery img-grid">
-					<div class="m-item">
+					<div class="m-item wrapper">
 						<img src="/graphix/deco/smiley-spin-yellow.gif" alt="spinning yellow smiley face"
-							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
-							style="width: 70px">
+							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360">
 						<img src="/graphix/deco/smiley-spin-green.gif" alt="spinning green smiley face"
-							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
-							style="width: 70px"></a>
+							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"></a>
 						<img src="/graphix/deco/smiley-spin-pink.gif" alt="spinning pink smiley face"
-							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"
-							style="width: 70px">
+							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360">
 					</div>
 					<img class="m-item" src="/graphix/deco/new-cat.gif" alt="tuxedo cat with 'new' flashing over its head">
 					<img class="m-item dark" src="/graphix/deco/tiny-cat.webp" alt="tiny low poly anthropomorphic cat">
@@ -1477,15 +1571,6 @@
 				</div>
 			</section>
 			<!-- end of stickers -->
-			
-			<section class="section" id="links">
-				<header>
-					<h3>links</h3>
-				</header>
-				<a href="https://ascii.co.uk/" target="_blank">ASCII art</a>
-				<br>
-				<a href="https://web.archive.org/web/19980711000616/http://www.baywell.or.jp/users/niiro/art.html" target="_blank">baywell art folders</a>
-			</section>
 		
 		</div>
 		
