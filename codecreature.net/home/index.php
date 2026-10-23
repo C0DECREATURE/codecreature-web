@@ -24,7 +24,7 @@
 		<script>fonts.load('Super Comic','Comic Sans MS')</script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
@@ -44,9 +44,9 @@
 		<script src="/codefiles/image-takeover.js?fileversion=20260410"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="/home/style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="/home/style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's script -->
-		<script src="/home/home.js?fileversion=20260410"></script>
+		<script src="/home/home.js?fileversion=20261022"></script>
 	</head>
 	
 	<!-----------BODY------------------->
