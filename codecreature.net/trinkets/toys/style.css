@@ -87,7 +87,7 @@ body {
 }
 #water-blob {
 	width: 900px;
-	background-image: url('/graphix/bg/water.jpg'),
+	background-image: url('/graphix/bg/water.png'),
 										url('/graphix/bg/pool_tiles.jpg'),
 										none;
 	background-blend-mode: hard-light;

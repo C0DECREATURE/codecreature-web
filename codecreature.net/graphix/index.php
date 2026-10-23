@@ -1110,9 +1110,10 @@
 						data-caption="<a href='https://alexibeeart.tumblr.com/post/700655496524398592'>tumblr post</a>"></div>
 					<div class="bg-image"><img src="/graphix/bg/pink_green_stars.gif" alt="Pink and green five-pointed stars on black background."></div>
 					<!-- WATER -->
-					<div class="bg-image"><img src="/graphix/bg/water.jpg" alt="Tiling water texture."
+					<div class="bg-image"><img src="/graphix/bg/water.png" alt="Tiling water texture."
 						data-credit="https://www.deviantart.com/berserkitty/art/Seamless-Cartoon-styled-Water-Texture-743787929"
-						data-credit-label="Berserkitty"></div>
+						data-credit-label="Berserkitty"
+						data-caption="edited for cleaner tiling and artifact removal by me"></div>
 					<div class="bg-image"><img src="/graphix/bg/pool_tiles.jpg" alt=""
 						data-caption="Tiling edit by me"></div>
 					
