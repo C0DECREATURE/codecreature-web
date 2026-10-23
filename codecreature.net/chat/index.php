@@ -26,14 +26,18 @@
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
 		<!--chat shared stylesheet-->
-		<link href="chat.css?fileversion=20261019" rel="stylesheet" type="text/css" media="all">
+		<link href="chat.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="chatbox">
 	
 	<header>
-		<a href="/">home</a>
+		<a id="home-link" href="/" target="_top">home</a>
+		<script>
+			// if not in an iframe, show home button
+			if( top !== self ) document.getElementById("home-link").style.visibility = "hidden";
+		</script>
 		
 		<button id="page-settings-button" class="open-page-settings" aria-label="page settings">
 			<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">

@@ -1,7 +1,3 @@
-.chatbox > header {
-	justify-content: space-between;
-}
-
 .messages {
 	flex-direction: column;
 	gap: .5em;
