@@ -4,10 +4,10 @@
 		<i class="svg-icon i-x"></i>
 	</button>
 	<header>
-		<a class="title" href="/updates?includeTags=worm+race,worms,general">Latest Updates</a>
+		<a class="title" href="/updates?includeTags=worm+race,worms,general,users">Latest Updates</a>
 	</header>
 	<p class="loading">loading...</p>
-	<iframe title="updates" id="updates" src="/updates/?full=false&includeTags=worm+race,worms,general&count=3"></iframe>
+	<iframe title="updates" id="updates" src="/updates/?full=false&includeTags=worm+race,worms,general,users&count=3"></iframe>
 	<script>
 		let updateCSS = document.createElement('link');
 		updateCSS.href = '/games/worm-race/updates.css?fileversion=20261015';
