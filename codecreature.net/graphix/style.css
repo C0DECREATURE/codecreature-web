@@ -279,6 +279,7 @@ img.dark {
 	padding: 5px;
 }
 .img-grid .m-item.wrapper { display: flex; gap: 10px; }
+.img-grid .m-item.wrapper img { width: 1%; flex-grow: 1; }
 
 /* for galleries with images stacked on top of each other */
 .img-stack { display: flex; flex-direction: column; gap: 10px; align-items: center; }

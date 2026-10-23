@@ -1206,7 +1206,7 @@
 						<img src="/graphix/deco/smiley-spin-yellow.gif" alt="spinning yellow smiley face"
 							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360">
 						<img src="/graphix/deco/smiley-spin-green.gif" alt="spinning green smiley face"
-							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360"></a>
+							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360">
 						<img src="/graphix/deco/smiley-spin-pink.gif" alt="spinning pink smiley face"
 							data-credit="https://animatedglittergraphics-n-more.tumblr.com/post/732750787181199360">
 					</div>
