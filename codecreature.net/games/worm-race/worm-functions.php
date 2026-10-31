@@ -194,8 +194,8 @@ function checkHolidays() {
 	$year = date('Y');
 	// check each holiday
 	foreach ($holidays as $h) {
-		$start = strtotime($year."-".$h["start"]." 00:00:00");
-		$end = strtotime($year."-".$h["end"]."11:59:59.999");
+		$start = strtotime($year."-".$h["start"]);
+		$end = strtotime($year."-".$h["end"]);
 		// if the current time is within the holiday, register that it is current and start in database if needed
 		if ($time > $start && $time < $end) {
 			$cur_holiday = $h["name"];
