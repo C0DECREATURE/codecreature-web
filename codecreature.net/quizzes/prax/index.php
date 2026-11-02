@@ -77,6 +77,8 @@
 					
 					<a href="https://www.dragonflycave.com/quizzes/what-type-are-you/bug/"><img src="https://www.dragonflycave.com/typequiz/bug.png" alt="Bug" title="I am a Bug-type!"></a>
 					
+					<a href="https://michael-murder.neocities.org/home/fun/quizzes/dark_pokemon/"><img src="weavile.png" alt="I am a Weavile!"></a>
+					
 				</div>
 			</div>
 		</section>
