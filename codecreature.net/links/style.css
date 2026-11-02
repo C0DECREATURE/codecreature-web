@@ -174,9 +174,10 @@ main > .sidebar {
 	margin-top: .25em;
 	align-items: flex-end;
 }
+#pixel-clubs .pixel-club-images { justify-content: flex-end; }
 .pixel-club-images a { transition: scale .2s; }
 .pixel-club-images a:hover { scale: 2; z-index: 2; image-rendering: pixelated; }
-#pixel-club-pockettown { gap: 0px; }
+#pixel-club-pockettown, #pixel-club-togetherforever { gap: 0px; }
 #pixel-club-mixtapes { gap: .25em; }
 
 #my-button .content { text-align: center; }

@@ -65,6 +65,19 @@
 		]
 	},
 	{
+		"name":"together forever",
+		"link":"chaoticgoode.com/cliques/togetherforever",
+		"joined":true,
+		"adopted":[
+			{"img":"lexicon.gif", "link":"codecreature.net", "alt":"mine!"},
+			{"img":"chaoticgoode.gif", "link":"chaoticgoode.com/cliques/togetherforever", "alt":"Chaotic Goode", "style":"margin-bottom: -3px;"},
+			{"img":"keepdolling.gif", "link":"https://keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
+			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"yanyan"},
+			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px;"},
+			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":""}
+		]
+	},
+	{
 		"name":"RPG club",
 		"link":"sweetcharm.net/.CuteDesktop/Website/RPGClub/",
 		"joined":false,
