@@ -31,7 +31,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		
 		<script>
-			if (!window.location.hash) window.location.hash = "#groups";
+			if (!window.location.hash) window.location.hash = "#clubs";
 		</script>
 	</head>
 	
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<nav class="container-box" aria-label="navigation">
-					<a href="#groups">webrings & clubs</a>
+					<a href="#clubs">webrings & clubs</a>
 					<a href="#coding-resources">coding resources</a>
 					<a href="#art-resources">art & images</a>
 					<a href="#other-sites">indie websites</a>
@@ -61,7 +61,7 @@
 			</div>
 			
 			<!-- WEBRINGS & CLUBS -->
-			<div class="main-container container-box" id="groups">
+			<div class="main-container container-box" id="clubs">
 				<header><h2>webrings & clubs</h2></header>
 				<div class="content">
 						<!--
