@@ -1,0 +1,55 @@
+[
+	{
+		"name":"pocket town",
+		"link":"divergentrays.com/pocket",
+		"joined":false,
+		"adopted":[
+			{"img":"dollarchive.gif", "link":"dollarchive.neocities.org", "alt":"The Doll Archive"},
+			{"img":"antikrist.gif", "link":"antikrist.lol", "alt":"Antikrist", "style":"margin-bottom: -2px;"},
+			{"img":"hillhouse.png", "link":"hillhouse.neocities.org/cliques", "alt":"The Doll Archive"},
+			{"img":"lotus-cube.png", "link":"lotus-cube.neocities.org", "alt":"Moth"}
+		]
+	},
+	{
+		"name":"lava lounge",
+		"link":"lavalounge.neocities.org",
+		"joined":false,
+		"adopted":[
+			{"img":"solaria.gif", "link":"solaria.neocities.org", "alt":"Solaria"},
+			{"img":"mossforestdollz.gif", "link":"mossforestdollz.neocities.org", "alt":"Nemo"},
+			{"img":"peachlantern.gif", "link":"peachlantern.neocities.org", "alt":"PeachLantern"},
+			{"img":"dollarchive.gif", "link":"dollarchive.neocities.org", "alt":"The Doll Archive"},
+			{"img":"solaria2.png", "link":"solaria.neocities.org", "alt":"Solaria"},
+			{"img":"reallyreallybored.gif", "link":"reallyreallybored.neocities.org", "alt":"really really bored"},
+			{"img":"st4rshore.png", "link":"st4rshore.neocities.org", "alt":"st4rshore"},
+			{"img":"solaria3.gif", "link":"solaria.neocities.org", "alt":"Solaria"},
+			{"img":"overthetopstories.gif", "link":"overthetopstories.neocities.org", "alt":"Over the Top Stories"}
+		]
+	},
+	{
+		"name":"squishmallows",
+		"link":"peachlantern.neocities.org/squishmallow",
+		"joined":false,
+		"adopted":[
+			{"img":"autumn.png", "link":"sakuradreams.neocities.org", "alt":"Autumn"},
+			{"img":"mog.gif", "link":"lavenderclavat.neocities.org/cliques", "alt":"Mog"},
+			{"img":"bobbix.png", "link":"peachnuts.neocities.org", "alt":"Bobbix"},
+			{"img":"jones.gif", "link":"artwork.neocities.org/toybox", "alt":"Jones"}
+		]
+	},
+	{
+		"name":"mixtapes",
+		"link":"chaoticgoode.com/cassettes",
+		"joined":false,
+		"adopted":[
+			{"img":"peachlantern.png", "link":"peachlantern.neocities.org", "alt":"PeachLantern"},
+			{"img":"fishblob.png", "link":"fishblob.neocities.org", "alt":"Adelina"},
+			{"img":"zabnikinthevoid.png", "link":"zabnikinthevoid.neocities.org/", "alt":"zabnikinthevoid"},
+			{"img":"overthemoon.png", "link":"overthemoonaromas.neocities.org/", "alt":"Over the Moon"},
+			{"img":"casper-valentine.png", "link":"casper-valentine.gay", "alt":"Casper Valentine"},
+			{"img":"otgw.gif", "link":"artwork.neocities.org/toybox", "alt":"Artwork"},
+			{"img":"tma.png", "link":"cozyghostly.neocities.org/club", "alt":"Ghostly"},
+			{"img":"deaddove.png", "link":"chaoticgoode.com/cassettes", "alt":"Chaotic Goode"}
+		]
+	}
+]

@@ -31,7 +31,7 @@
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		
 		<script>
-			if (!window.location.hash) window.location.hash = "#coding-resources";
+			if (!window.location.hash) window.location.hash = "#groups";
 		</script>
 	</head>
 	
@@ -50,15 +50,82 @@
 					</div>
 				</div>
 				<nav class="container-box" aria-label="navigation">
+					<a href="#groups">webrings & clubs</a>
 					<a href="#coding-resources">coding resources</a>
 					<a href="#art-resources">art & images</a>
 					<a href="#other-sites">indie websites</a>
-					<a href="#groups">webrings & clubs</a>
 					<a href="#other">other links</a>
 					<a href="/games">games hub</a>
 					<a href="/home">home</a>
 				</nav>
 			</div>
+			
+			<!-- WEBRINGS & CLUBS -->
+			<div class="main-container container-box" id="groups">
+				<header><h2>webrings & clubs</h2></header>
+				<div class="content">
+						<!--
+						<header><h3>webrings</h3></header>
+						<div id="transring" class="hidden">
+							<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
+							<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
+							<script type="text/javascript" src="/links/webrings/transring-catgender.js"></script>
+						</div>-->
+					<section id="webrings">
+						<header><h3>webrings</h3></header>
+						<div class="body">
+							<script src="https://transring.neocities.org/ring.js"></script>
+						</div>
+					</section>
+					<section id="pixel-clubs">
+						<?php
+						function fullLink($str) {
+							if (!str_starts_with($str,"http")) $str = "https://".$str;
+							return $str;
+						}
+						
+						function insertPixelClub($c) {
+							$n = strtolower(str_replace([" ","'"],"",$c["name"]));
+							?>
+							<h4><a href="<?php echo fullLink($c["link"]); ?>" target="_blank"><?php echo $c["name"]; ?></a></h4>
+							<div id="pixel-club-<?php echo $n; ?>" class="pixel-club-images">
+								<?php
+								foreach ($c["adopted"] as $i) { ?>
+								<a href="<?php echo fullLink($i["link"]); ?>" target="_blank"
+									style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
+									title="<?php echo $i["alt"]; ?>">
+									<img src="/graphix/clubs/<?php echo $n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
+								</a>
+								<?php } ?>
+							</div><?php
+						}
+						$clubs = json_decode(file_get_contents('clubs.json'),true);
+						?>
+						
+						<header><h3>pixel cliques</h3></header>
+						<div class="body">
+							<div id="ministrife-wrapper"></div>
+							<?php foreach ($clubs as $club) { if ($club["joined"]) insertPixelClub($club); } ?>
+						</div>
+					</section>
+					<section id="clubs-to-join">
+						<header><h3>adoptions only</h3></header>
+						<div class="body">
+							i haven't made my own contributions <u class="tq">2</u> these yet!
+							<?php foreach ($clubs as $club) { if (!$club["joined"]) insertPixelClub($club); } ?>
+						</div>
+					</section>
+					<section id="other-pixel-clubs">
+						<header><h3>other clique collections</h3></header>
+						<div class="body">
+							<a href="https://lostletters.neocities.org/pixel-clubs/" target="_blank">lost letters</a>
+							<a href="https://lavenderclavat.neocities.org/cliques" target="_blank">lavender clavat</a>
+							<a href="https://artwork.neocities.org/cliques" target="_blank">artwork</a>
+						</div>
+					</section>
+				</div>
+			</div>
+			<!-- end webrings container -->
 			
 			<!-- CODING RESOURCES -->
 			<div class="main-container container-box" id="coding-resources">
@@ -286,28 +353,6 @@
 			</div>
 			<!-- end other links container -->
 			
-			<!-- WEBRINGS & CLUBS -->
-			<div class="main-container container-box" id="groups">
-				<header><h2>webrings & clubs</h2></header>
-				<div class="content">
-						<!--
-						<header><h3>webrings</h3></header>
-						<div id="transring" class="hidden">
-							<script type="text/javascript" src="https://transring.neocities.org/onionring-variables.js"></script>
-							<script type="text/javascript" src="https://transring.neocities.org/onionring-widget.js"></script>
-							<script type="text/javascript" src="/links/webrings/transring-catgender.js"></script>
-						</div>-->
-					<section id="pixel-clubs">
-						<header><h3>pixel clubs</h3></header>
-						<div id="ministrife-wrapper"></div>
-						
-						<h4>other pixel club collections</h4>
-						<a href="https://lostletters.neocities.org/pixel-clubs/" target="_blank">lost letters</a>
-					</section>
-				</div>
-			</div>
-			<!-- end webrings container -->
-			
 			<!-- SITE BUTTONS -->
 			<div class="main-container container-box" id="other-sites">
 				<header><h2>site buttons</h2></header>
@@ -320,35 +365,15 @@
 			<!-- end other sites container -->
 		</main>
 			
+			<?php $neighbors = json_decode(file_get_contents('neighbors.json'),true); ?>
 			<section id="neighbors">
 				<header>
 					<h3>neighbors</h3>
 					<a onclick="randomNeighbor();" href="">[random]</a>
 				</header>
-				<div class="marquee-wrapper">
+				<div class="marquee-wrapper" style="--speed:<?php echo 10 + (count($neighbors) / 2); ?>s;">
 					<div class="marquee-track">
 						<?php
-						$neighbors = [
-							["alt"=>"probably moldy","link"=>"probablymoldy.net","img"=>"png"],
-							["alt"=>"phortie","link"=>"phortie.neocities.org","img"=>"gif"],
-							["alt"=>"olliveen","link"=>"olliveen.neocities.org","img"=>"gif"],
-							["alt"=>"lord of screens","link"=>"lordofscreens.neocities.org/","img"=>"gif"],
-							["alt"=>"sinproexe","link"=>"sinproexe.net/","img"=>"gif"],
-							["alt"=>"purple starship","link"=>"purplestarship.neocities.org","img"=>"gif"],
-							["alt"=>"rogue pebble","link"=>"roguepebble.neocities.org/","img"=>"gif"],
-							["alt"=>"my life in heaven","link"=>"mylifeinheaven.neocities.org","img"=>"gif"],
-							["alt"=>"alex the fish","link"=>"alexthefish.neocities.org/","img"=>"jpg"],
-							["alt"=>"bones or angels","link"=>"bonesorangels.neocities.org/","img"=>"jpg"],
-							["alt"=>"chaotic system","link"=>"chaoticsystem.neocities.org/","img"=>"gif"],
-							["alt"=>"urmel1","link"=>"urmel1.neocities.org/","img"=>"png"],
-							["alt"=>"Aster's Archive","link"=>"astersarchive.neocities.org/","img"=>"gif"],
-							["alt"=>"ttaxyy","link"=>"ttaxyy.neocities.org","img"=>"gif"],
-							["alt"=>"honeyed charlatan","link"=>"honeyedcharlatan.neocities.org","img"=>"gif"],
-							["alt"=>"under white","link"=>"underwhite.neocities.org","img"=>"gif"],
-							["alt"=>"center-stain","link"=>"center-stain.neocities.org/","img"=>"gif"],
-							["alt"=>"manul zone","link"=>"manulzone.neocities.org/main","img"=>"png"],
-							//["alt"=>"","link"=>"","img"=>""],
-						];
 						shuffle($neighbors);
 						foreach ($neighbors as $n) { ?>
 							<a href="https://<?php echo $n["link"]; ?>" class="button" target="_blank">

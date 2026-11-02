@@ -165,30 +165,41 @@ main > .sidebar {
 	}
 }
 
+#webrings .body { text-align: center; }
+
+#clubs-to-join .body { margin-bottom: .5em; }
+.pixel-club-images {
+	display: flex; flex-wrap: wrap;
+	gap: .5em;
+	margin-top: .25em;
+	align-items: flex-end;
+}
+.pixel-club-images a:hover { scale: 2; image-rendering: pixelated; }
+#pixel-club-pockettown { gap: 0px; }
+#pixel-club-mixtapes { gap: .25em; }
+
 #my-button .content { text-align: center; }
 
 #other-sites > section:nth-of-type(even) .site { flex-direction: row-reverse; }
 
-#coding-resources, #art-resources, #other {
-	a:not(.inline) {
-		display: block;
-		&:not(:first-child, .mt-0) { margin-top: .75rem; }
-	}
+#other-pixel-clubs a:not(.inline), #coding-resources a:not(.inline), #art-resources a:not(.inline), #other a:not(.inline) {
+	display: block;
+	&:not(:first-child, .mt-0) { margin-top: .75rem; }
 }
 
 nav {
 	margin-top: .5rem;
 	border: 5px black solid;
 	border-radius: .5rem;
-	a:not(.inline) {
-		display: block;
-		background: var(--d-blue);
-		padding: .25em .5rem;
-		border-bottom: 2px var(--black) solid;
-	}
-	a:last-child { border-bottom: none; }
-	a, a:link, a:visited { color: var(--l-green); }
 }
+nav a:not(.inline) {
+	display: block;
+	background: var(--d-blue);
+	padding: .25em .5rem;
+	border-bottom: 2px var(--black) solid;
+}
+nav a:last-child { border-bottom: none; }
+nav a, nav a:link, nav a:visited { color: var(--l-green); }
 
 #neighbors {
 	width: 100%;
@@ -219,6 +230,7 @@ nav {
 }
 
 .marquee-wrapper {
+	--speed: 15s; /* default animation speed */
 	width: 100%;
 	height: 31px;
   position: relative;
@@ -240,10 +252,10 @@ nav {
   position: absolute;
   white-space: nowrap;
   will-change: transform;
-  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee 15s linear infinite; }
+  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee var(--speed) linear infinite; }
 }
 .marquee-track-2 {
-  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee2 15s linear infinite; }
+  @media screen and (prefers-reduced-motion: no-preference) { animation: marquee2 var(--speed) linear infinite; }
   @media screen and (prefers-reduced-motion: reduce) { display: none; }
 }
 @keyframes marquee {
