@@ -15,9 +15,9 @@
 		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- load jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260410"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20261101"></script>
 		<!-- load ministrife club -->
-		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="/links/ministrife-club/style.css?fileversion=20261101" rel="stylesheet" type="text/css" media="all">
 		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.html"); }); </script> 
 		
 		<!-- page settings -->

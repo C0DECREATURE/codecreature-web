@@ -12,7 +12,7 @@
 	
 	.sprites {
 		background: var(--yellow);
-		background-image: url('/shrines/homestuck/nepeta/images/lolcat.png');
+		background-image: url('/graphix/clubs/ministrife/lolcat.png');
 		background-position: bottom;
 		background-size: cover;
 		border: 3px var(--yellow) solid;
