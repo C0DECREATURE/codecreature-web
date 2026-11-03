@@ -19,18 +19,57 @@ nav {
 	min-height: 90%;
 }
 
+.art {
+	position: absolute;
+	max-width: 30%;
+	filter: drop-shadow(-1px 3px 1px rgba(0,0,0,.35));
+	transition: scale .1s;
+}
+.art.wide { max-width: 60%; }
+.art.narrow { max-width: 20%; }
+.art:hover, .art:focus-visible {
+	scale: 1.15;
+	filter: drop-shadow(-1px 3px 2px rgba(0,0,0,.35));
+}
+.cube-face-left .art { max-width: 50%; }
+.cube-face-left .art.wide { max-width: 75%; }
+.cube-face-left .art.narrow { max-width: 35%; }
+
+.bg-top { position: absolute; top: 0; left: 0; pointer-events: none; user-select: none; z-index: 999; }
+
 #fridge {
 	position: relative;
+  perspective: 1000px;
+  perspective-origin: 0% 38%;
 }
-#fridge .art {
-	position: absolute;
-	max-width: 20%;
-	filter: drop-shadow(-1px 3px 1px rgba(0,0,0,.35));
+
+.cube {
+  position: absolute;
+  --width: 100px;
+  --height: 100px;
+	--depth: 100px;
+	width: var(--width);
+	height: var(--height);
+  transform-style: preserve-3d;
 }
-#fridge .art.wide { max-width: 40%; }
-#fridge .art.narrow { max-width: 15%; }
-#fridge .art:hover, #fridge .art:focus-visible {
-	scale: 1.1;
+.cube .cube-face {
+  position: absolute;
+	width: 100%; height: 100%;
+}
+.cube .cube-face-front { transform: translateZ(calc(var(--depth) / 2)); }
+.cube .cube-face-right { width: var(--depth); transform: rotateY(90deg) translateZ(calc(var(--depth) / 2)); }
+.cube .cube-face-left { width: var(--depth); transform: rotateY(-90deg) translateZ(calc(var(--depth) / 2)); }
+.cube .cube-face-top { transform: rotateX(90deg) translateZ(calc(var(--depth) / 2)); }
+
+.cube .wrapper { width: 100%; height: 100%; position: relative; }
+
+#fridge .cube {
+	top: 7%;
+	left: 13%;
+  --width: 270px;
+  --height: 530px;
+	--depth: 210px;
+  transform: rotateX(-6deg) rotateY(21deg) rotateZ(-1deg);
 }
 
 .full-image-view {

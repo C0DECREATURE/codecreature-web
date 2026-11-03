@@ -33,7 +33,7 @@
 .share-btn-section textarea { flex-grow: 1; }
 
 /** POSTERS **/
-#posters { display: flex; flex-wrap: wrap; }
+#posters { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 1em; }
 #posters .img-wrapper img { max-width: 100%; }
 #posters .poster-section { width: 40%; }
 .poster-section textarea { width: 0px; min-width: 100%; }
