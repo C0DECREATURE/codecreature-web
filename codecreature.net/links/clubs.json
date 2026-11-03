@@ -33,7 +33,10 @@
 		"joined":false,
 		"adopted":[
 			{"img":"hillhouse.gif", "link":"hillhouse.neocities.org/cliques", "alt":"hill house"},
+			{"img":"dreambubble_skitty.png", "link":"dreambubble.neocities.org/", "alt":"dreambubble"},
 			{"img":"freaksaint.gif", "link":"freaksaint.neocities.org/pixels", "alt":"Harvey"},
+			{"img":"lina.gif", "link":"amalinalai.github.io/precipice/toybox/?z=cliques", "alt":"Lina"},
+			{"img":"kuup.gif", "link":"kuupzone.neocities.org", "alt":"Kuup"},
 			{"img":"solaria.png", "link":"solaria.neocities.org", "alt":"Solaria"},
 			{"img":"sweetcharm.gif", "link":"sweetcharm.net/.CuteDesktop/Website/cliques/cliques.html", "alt":"sweetcharm", "style": "margin-bottom: -3px;"}
 		]
