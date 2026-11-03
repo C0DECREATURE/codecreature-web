@@ -98,24 +98,15 @@
 							</div>
 							
 							<div id="posters">
-								<div class="poster-section">
-									<div class="img-wrapper"><img src="/fridge/art/Ssaviorsfanon_worms_poster.png" alt=""></div>
-									<textarea rows="2" cols="60" name="worm race poster"><a href="https://codecreature.net/games/worm-race" aria-label="worm race poster"><img src="https://i.postimg.cc/PxnYp5g1/Ssaviorsfanon-worms-poster.png" alt=""></a></textarea>
-									<div class="credit">by <a href="/u/Ssaviorsfanon/">@Ssaviorsfanon</a></div>
-								</div>
-								
-								<div class="poster-section">
-									<div class="img-wrapper"><img src="/fridge/art/B_nice_to_wormZ_noodle_poster.png" alt=""></div>
-									<textarea rows="2" cols="60" name="vote pool noodle poster"><a href="https://codecreature.net/games/worm-race/#blue" aria-label="vote pool noodle"><img src="https://i.postimg.cc/DwQ8G2tX/poolnoode_poster.png" alt=""></a></textarea>
-									<div class="credit">by <a href="/u/B_nice_to_wormZ/">@B_nice_to_wormZ</a></div>
-								</div>
-								
-								<div class="poster-section">
-									<div class="img-wrapper"><img src="/fridge/art/Ssaviorsfanon_cheese_poster.png" alt=""></div>
-									<textarea rows="2" cols="60" name="vote string cheese poster"><a href="https://codecreature.net/games/worm-race/#yellow" aria-label="vote string cheese"><img src="https://i.postimg.cc/SsbC2xBW/Ssaviorsfanon-cheese-poster.png" alt=""></a></textarea>
-									<div class="credit">by <a href="/u/Ssaviorsfanon/">@Ssaviorsfanon</a></div>
-								</div>
-								
+								<?php
+								$posters = json_decode(file_get_contents('posters.json'),true);
+								foreach ($posters as $p) { ?>
+									<div class="poster-section">
+										<div class="img-wrapper"><img src="/fridge/art/<?php echo $p["img"]; ?>" alt="<?php echo $p["alt"]; ?>"></div>
+										<textarea rows="2" cols="60" name="HTML code"><a href="https://codecreature.net/games/worm-race"><img src="<?php echo $p["hotlink"]; ?>" alt="<?php echo $p["alt"]; ?>"></a></textarea>
+										<div class="credit">by <a href="/u/<?php echo $p["user"]; ?>/">@<?php echo $p["user"]; ?></a></div>
+									</div>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
