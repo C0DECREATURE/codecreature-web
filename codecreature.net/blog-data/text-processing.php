@@ -19,8 +19,8 @@ function parseCondensedTqs($str) {
 }
 function parseLocalSources($str) {
 	global $basePath; global $table;
-	$str = preg_replace("/src=\"([^\/][^https:])/","src=\"/blog-data/$table/$1",$str);
-	$str = preg_replace("/href=\"([^\/])/","href=\"$basePath/$1",$str);
+	$str = preg_replace("/src=\"([^\/][^http])/","src=\"/blog-data/$table/$1",$str);
+	$str = preg_replace("/href=\"([^\/][^http])/","href=\"$basePath/$1",$str);
 	return $str;
 }
 function parsePostText($str) {
