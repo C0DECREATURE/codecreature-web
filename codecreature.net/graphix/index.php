@@ -82,6 +82,7 @@
 				<div class="navlinks">
 					<a href="/home">home</a>
 					<a href="#summary">top</a>
+					<a href="/links/#clubs">cliques</a>
 				</div>
 			</nav>
 			
