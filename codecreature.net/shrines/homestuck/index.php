@@ -13,11 +13,8 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
-		<!-- load jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260410"></script>
-		<!-- ministrife club setup -->
+		<!-- ministrife club styling -->
 		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
-		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.html"); }); </script> 
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>
@@ -78,7 +75,7 @@
 			
 			<section class="ministrife">
 				<h4><span class="prompt">strife!</span></h4>
-				<div id="ministrife-wrapper"></div>
+				<?php include $_SERVER['DOCUMENT_ROOT']."/links/ministrife-club/insert.php"; ?>
 			</section>
 
 		</main>

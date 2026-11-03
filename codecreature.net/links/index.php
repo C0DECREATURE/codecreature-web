@@ -14,11 +14,8 @@
 		<!--base stylesheet-->
 		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
 		
-		<!-- load jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20261101"></script>
-		<!-- load ministrife club -->
-		<link href="/links/ministrife-club/style.css?fileversion=20261101" rel="stylesheet" type="text/css" media="all">
-		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.html"); }); </script> 
+		<!-- ministrife club styling -->
+		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
@@ -104,7 +101,7 @@
 						
 						<header><h3>pixel cliques</h3></header>
 						<div class="body">
-							<div id="ministrife-wrapper"></div>
+							<?php include $_SERVER['DOCUMENT_ROOT']."/links/ministrife-club/insert.php"; ?>
 							<?php foreach ($clubs as $club) { if ($club["joined"]) insertPixelClub($club); } ?>
 						</div>
 					</section>
