@@ -17,10 +17,7 @@
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
 		
 		<!-- fonts -->
-		<link href="/fonts/CrimesTimesSix/stylesheet.css" rel="stylesheet" type="text/css">
-		<link href="/fonts/MyImaginaryFriend/stylesheet.css" rel="stylesheet" type="text/css">
-		<link href="/fonts/GhoulishFright/stylesheet.css" rel="stylesheet" type="text/css">
-		<link href="/fonts/Halogen/stylesheet.css" rel="stylesheet" type="text/css">
+		<script>fonts.load("Crimes Times Six","My Imaginary Friend","Ghoulish Fright","Halogen");</script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js"></script>
@@ -41,7 +38,7 @@
 		<main>
 			<section id="about">
 				<header>
-					<h1>VEX</h1>
+					<h1>Vex</h1>
 					<p class="subheader-mini">the</p>
 					<p class="subheader">vampire clown</p>
 				</header>
@@ -61,21 +58,21 @@
 					<h3>personality</h3>
 					<ul>
 						<li>silly in a slightly sinister way</li>
-						<li>likes %%2% play up classic vampire tropes</li>
+						<li>likes <u class="tq">2</u> play up classic vampire tropes</li>
 						<li>chaotic neutral</li>
-						<li>%A%hasn't\\hasnt% killed anybody on purpose (yet)</li>
+						<li><u class="tq" data-a="hasn't">hasnt</u> killed anybody on purpose (yet)</li>
 					</ul>
 					
 					<h3>vampire traits</h3>
-					<p>trickster god of sorts. not undead, just immortal and impossible %%2% kill</p>
+					<p>trickster god of sorts. not undead, just immortal and impossible <u class="tq">2</u> kill</p>
 					<ul>
 						<li>only consumes blood</li>
 						<li>sleeps in a coffin</li>
-						<li>can turn %A%into\\in2% a bat</li>
+						<li>can turn <u class="tq" data-a="into">in2</u> a bat</li>
 						<li>hypnotic abilities</li>
 						<li>burns in the sun</li>
-						<li>%A%can't\\cant% make other vampires</li>
-						<li>has been alive a long time but %A%forgets\\4gets% things quickly</li>
+						<li><u class="tq" data-a="can't">cant</u> make other vampires</li>
+						<li>has been alive a long time but <u class="tq" data-a="forgets">4gets</u> things quickly</li>
 					</ul>
 				</div> <!-- end .content -->
 				
@@ -120,7 +117,7 @@
 					<section id="gallery-images">
 						<div class="img-container">
 							<img src="/ocs/vex/images/fullbody-01.png"
-								alt="a well-dressed vampire clown. its catlike face is painted white with red teardrops on each cheek. its clothing is a blend of jester and classic vampire themes with bat wing shapes, and it is wearing a blood drop pendant."
+								alt="a well-dressed vampire clown. its catlike face is painted white with red teardrops on each cheek. its clothing is a blend of jester and classic vampire themes with bat wing shapes and a blood drop pendant."
 								data-caption="art by me">
 						</div>
 						<div class="img-container">
