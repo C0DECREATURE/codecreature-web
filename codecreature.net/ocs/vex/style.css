@@ -13,10 +13,10 @@
 	--box-border: 4px var(--black) solid;
 }
 
+body, html { height: 100%; }
 body {
 	background-color: var(--ddd-red);
-	width: calc(100vw - (100vw - 100%)); /* width = 100% view width minus scrollbar width */
-	height: 100vh;
+	overflow-x: hidden;
 	margin: 0px;
 	color: var(--red);
 	font-size: 1.1rem;
@@ -50,7 +50,7 @@ li { padding-left: .5em; }
 li::marker { color: var(--yellow); }
 
 main {
-	width: 100%; height: 100%;
+	height: 100%;
 	display: flex;
 }
 main > * > header {
@@ -69,7 +69,7 @@ main > * > header {
 	
 	@media (prefers-reduced-motion: no-preference) {
 		margin-bottom: 5px;
-	box-shadow: 0 0 15px var(--black);
+		box-shadow: 0 0 15px var(--black);
 		&::after {
 			content: '';
 			position: absolute;
@@ -81,21 +81,19 @@ main > * > header {
 		}
 	}
 }
-@media screen and (max-width: 800px) {
-	body { height: auto; min-height: 100vh; }
+@media screen and (width < 800px) {
+	body { height: auto; min-height: 100%; }
 	
-	main {
-		flex-direction: column; /* stack vertically on small screens */
-		/* main area flex children */
-		> * { max-width: 100%; }
-	}
+	/* stack vertically on small screens */
+	main { flex-direction: column; }
+	main > * { max-width: 100%; }
 	
 	/* show main image in center on large screens */
 	#main-image { order: 1; }
 	#about { order: 2; }
 	#gallery { order: 3 }
 }
-@media screen and (min-width: 800px) {
+@media screen and (width >= 800px) {
 	body { overflow: hidden; }
 	/* main area flex children */
 	main > * { width: calc(100%/3); max-height: 100%; }
@@ -106,7 +104,7 @@ main > * > header {
 
 #main-image {
 	position: relative; z-index: 2;
-	display: flex; flex-direction: column; align-content: space-between;
+	display: flex; flex-direction: column;
 	background: var(--red);
 	background-image: url('images/red-diamonds.png');
 	background-size: 15%;
@@ -114,10 +112,10 @@ main > * > header {
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
 	border-top:none; border-bottom: none;
 }
+#main-image .image-wrapper { height: 100%; flex-grow: 1; flex-shrink: 1; }
 #main-image button#coffin { pointer-events: auto; }
 #main-image img {
 	pointer-events: none;
-	user-select: none;
 	max-width: 170%; max-height: 70vh;
 	position: relative;
 	left: 50%; transform: translate(-50%,0); /* center horizontally */
@@ -279,12 +277,9 @@ nav {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	
-	a {
-		color: var(--yellow); font-size: 1.4em;
-		&:hover, &:focus-visible { color: var(--red); }
-	}
 }
+#gallery a { color: var(--yellow); font-size: 1.4em; }
+#gallery a:hover, #gallery a:focus-visible { color: var(--red); }
 
 /* container for things that aren't the header/footer */
 #gallery .content {
@@ -308,13 +303,13 @@ nav {
 #balloon-animal img { max-height: 100%; max-width: 100%; }
 
 #gallery-images {
-	padding: 1em;
+	padding: 1em; gap: 1em;
 	background: var(--dd-red);
 	display: flex; flex-wrap: wrap; justify-content: center;
 	border-bottom: var(--box-border);
 }
-#gallery-images footer { width: 100%; }
-#gallery-images .img-container { width: calc(100%/2); height: max(20vh,100px); display: block; align-content: center; }
+#gallery-images footer { width: 100%; margin-top: -1em; }
+#gallery-images .img-container { max-width: 50%; height: max(20vh,100px); display: block; align-content: center; }
 #gallery-images .img-container img { max-width: 100%; max-height: 100%; } 
 
 #gallery .bottom-area {

@@ -79,7 +79,7 @@
 			</section>
 			
 			<section id="main-image">
-				<div>
+				<div class="image-wrapper">
 					<button id="coffin">
 						<img id="coffin-img" src="images/coffin-closed.png" alt="a dark coffin, wrapped in gold chain and locked with a padlock">
 					</button>
@@ -106,7 +106,7 @@
 			<section id="gallery">
 				<header>
 					<h2>gallery</h2>
-					<a id="balloon-animal" href="https://www.youtube.com/watch?v=GKnk13xkubU">
+					<a id="balloon-animal" href="https://www.youtube.com/watch?v=GKnk13xkubU" target="_blank">
 						<img src="images/balloon-animal-red.png" alt="balloon cat tutorial"
 							onmouseover="this.src='images/balloon-animal-yellow.png'" onmouseout="this.src='images/balloon-animal-red.png'">
 					</a>
@@ -159,12 +159,6 @@
 		<script>
 			// add full-viewable class to all gallery images
 			let images = document.getElementById('gallery-images').getElementsByTagName('img');
-			for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
-			
-			images = document.getElementById('blinkies').getElementsByTagName('img');
-			for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
-			
-			images = document.getElementById('stamps').getElementsByTagName('img');
 			for (let i = 0; i < images.length; i++) { images[i].classList.add('full-viewable'); }
 		</script>
 	</body>
