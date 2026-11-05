@@ -536,6 +536,7 @@
 						data-credit="https://lonelycoconut.net/my%20graphics"
 						data-credit-label="Lonely Coconut"
 						data-caption="F2U without credit">
+					<img src="/graphix/blinkies/loading_rainbow.gif" alt="&quot;Loading...&quot; blinkie in rainbow text on black.">
 					<img src="/graphix/blinkies/crayon_parade.gif" alt="blinkie with crayon tops arranged in rainbow order scrolling horizontally forever"
 						data-credit="https://lonelycoconut.net/my%20graphics"
 						data-credit-label="Lonely Coconut"
