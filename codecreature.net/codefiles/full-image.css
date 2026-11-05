@@ -45,6 +45,10 @@
 		align-items: center;
 		justify-content: center;
 		
+		/* click through to background */
+		pointer-events: none;
+		> * { pointer-events: initial; }
+		
 		div:has(.image) {
 			min-height: 0;
 			flex-grow: 0;
