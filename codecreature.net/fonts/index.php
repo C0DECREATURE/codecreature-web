@@ -18,8 +18,6 @@ $fonts = [
 				"link"=>"https://www.1001fonts.com/letteromatic-font.html"],
 		["name"=>"Mabook", "credit"=>"Khurasan",
 				"link"=>"https://www.dafont.com/mabook.font"],
-		["name"=>"Seconda Round", "credit"=>"",
-				"link"=>""],
 	],
 	"decorative"=>[
 		["name"=>"Super Comic", "credit"=>"singlelinestudio",
