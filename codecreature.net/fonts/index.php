@@ -1,7 +1,7 @@
 <?php
 $fonts = [
 	"body fonts"=>[
-		["name"=>"Comic Sans MS", "credit"=>"microsoft"],
+		["name"=>"Comic Sans MS", "credit"=>"Microsoft"],
 		["name"=>"Yet R", "credit"=>"human computers inc",
 				"link"=>"https://old.ufonts.com/download/yet-r.html"],
 		["name"=>"Janda Closer To Free", "credit"=>"kimberly geswein",
