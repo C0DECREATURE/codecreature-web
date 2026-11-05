@@ -10,51 +10,51 @@
 	--d-gray: #3B3637;
 	--yellow: #FFFB00;
 	
-	--box-border: 4px var(--black) solid;
+	/* TEMPLATE VALUES */
+	
+	--text: var(--red);
+	--text-accent: var(--yellow);
+	--text-link: var(--yellow);
+	--text-link-hover: var(--red);
+	
+	--text-header: var(--yellow);
+	--text-subheader: var(--red); /* OPTIONAL */
+	--text-subheader-mini: var(--gray);
+	
+	--nav-link: var(--red); /* OPTIONAL */
+	--nav-link-hover: var(--yellow); /* OPTIONAL */
+	
+	--bg-section: var(--ddd-red);
+	--bg-header: var(--black);
+	--bg-gallery: var(--dd-red);
+	--bg-image: var(--red);
+	
+	--bullet-point: '\002726'; /* OPTIONAL */
+	--bullet-point-color: var(--yellow); /* OPTIONAL */
+	
+	--box-border: 4px var(--black) solid; /* OPTIONAL */
 }
 
 body, html { height: 100%; }
 body {
-	background-color: var(--ddd-red);
-	overflow-x: hidden;
-	margin: 0px;
-	color: var(--red);
-	font-size: 1.1rem;
 	font-family: "Halogen", sans-serif;
 }
 
+h1 { font-family: 'Crimes Times Six', sans-serif; }
+.subheader { font-family: 'My Imaginary Friend', sans-serif; }
+.subheader-mini { font-family: 'My Imaginary Friend', sans-serif; }
 h2 { font-weight: normal; }
 h3 {
-	margin-bottom: .25em;
-	font-family: 'Ghoulish Fright', sans-serif;
-	font-size: 1.4em; letter-spacing: 1px;
-	color: var(--yellow);
+	text-transform: uppercase;
+	margin-top: .85em;
+	font-size: 1.3em;
 }
-p { margin: .35em 0; }
 
-body a { font-family: 'Ghoulish Fright', sans-serif; letter-spacing: 1px; color: var(--yellow); }
-body a:is(:hover,:focus-visible) { color: var(--l-gray); }
+h3, nav a, nav button, #gallery a { font-family: 'Ghoulish Fright', sans-serif; letter-spacing: 2px; }
 
 ::selection { background: var(--yellow); color: var(--black); }
-img {
-	user-drag: none;
-	-webkit-user-drag: none;
-	user-select: none;
-	-moz-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-}
 
-ul { margin: 0px; list-style-type: '\002726'; }
-li { padding-left: .5em; }
-li::marker { color: var(--yellow); }
-
-main {
-	height: 100%;
-	display: flex;
-}
 main > * > header {
-	position: relative;
 	font-family: 'Crimes Times Six', sans-serif;
 	background:
 		linear-gradient(rgba(var(--ddd-red-rgb),.8),rgba(var(--ddd-red-rgb),.8)),
@@ -63,7 +63,7 @@ main > * > header {
 	background-blend-mode: hard-light;
 	line-height: 0.1em;
 	text-align: center;
-	background-color: var(--black);
+	background-color: var(--bg-header);
 	padding: .4em;
 	font-size: 2em;
 	
@@ -81,38 +81,14 @@ main > * > header {
 		}
 	}
 }
-@media screen and (width < 800px) {
-	body { height: auto; min-height: 100%; }
-	
-	/* stack vertically on small screens */
-	main { flex-direction: column; }
-	main > * { max-width: 100%; }
-	
-	/* show main image in center on large screens */
-	#main-image { order: 1; }
-	#about { order: 2; }
-	#gallery { order: 3 }
-}
-@media screen and (width >= 800px) {
-	body { overflow: hidden; }
-	/* main area flex children */
-	main > * { width: calc(100%/3); max-height: 100%; }
-	#main-image { flex-grow: 1; /* expand to fill remaining horizontal space */ }
-}
 
 /************** MAIN IMAGE SECTION **************/
 
 #main-image {
-	position: relative; z-index: 2;
-	display: flex; flex-direction: column;
-	background: var(--red);
 	background-image: url('images/red-diamonds.png');
 	background-size: 15%;
-	border: var(--box-border);
-	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
-	border-top:none; border-bottom: none;
+	z-index: 1;
 }
-#main-image .image-wrapper { height: 100%; flex-grow: 1; flex-shrink: 1; }
 #main-image button#coffin { pointer-events: auto; }
 #main-image img {
 	pointer-events: none;
@@ -182,114 +158,14 @@ body.hasKey, body.hasKey * {
 	cursor: url(images/cursor-coffin-key.png), auto !important;
 }
 
-/******** NAVIGATION ********/
-nav {
-	position: relative;
-	display: flex; flex-wrap: wrap; justify-content: center; align-content: center;
-	padding: .25em; gap: .55em;
-	background: var(--black);
-	font-size: max(1rem,min(15vw,2.25em));
-	/* to top on small screens */
-	@media screen and (max-width: 800px) { order: -1; }
-	
-	a, button {
-		display: block;
-		font-size: inherit;
-		color: var(--red);
-		text-align: center;
-		&:is(:hover,:focus-visible) { color: var(--yellow); }
-	}
-}
-#page-settings, #page-settings-contents {
-	--open-button-fill: var(--red);
-	--open-button-background: none;
-	--open-button-border: none;
-	--background: var(--dd-red);
-	--border: var(--box-border);
-	--outline: 0px;
-	--color: var(--red);
-	--accent: var(--yellow);
-}
-/* page settings icon button */
-#page-settings-button {
-	font-size: .8em; margin-top: -.2em; padding: 0px;
-	&:hover { --open-button-fill: var(--yellow); }
-}
-#page-settings-contents {
-	font-size: 1.25rem;
-	position: absolute;
-	left: 50%; transform: translate(-50%,0);
-	z-index: 1000;
-	padding: 1em 1.25em 1em 0.75em;
-	border-radius: 0px;
-	min-width: 90%;
-	flex-direction: column; gap: 0.5em; align-items: flex-end; 
-	text-align: right;
-}
-@media screen and (min-width: 800px) { #page-settings-contents { bottom: 100%; } }
-@media screen and (max-width: 800px) { #page-settings-contents { top: 120%; } }
-#page-settings-close-button { display: inline-block; }
-
-/************** ABOUT SECTION **************/
-
-#about {
-	display: flex;
-	flex-direction: column;
-	@media screen and (min-width: 800px) { overflow: auto; }
-}
-
-/* name and species */
-#about header {
-	font-size: 2.5em;
-	line-height: 0.8em;
-	
-	h1, .subheader, .subheader-mini { margin: 0px; }
-	h1 {
-		font-family: 'Crimes Times Six', sans-serif;
-		line-height: 0.85em;
-		color: var(--yellow);
-	}
-	.subheader {
-		font-family: 'My Imaginary Friend', sans-serif;
-		font-size: .9em;
-		color: var(--red);
-	}
-	.subheader-mini {
-		font-family: 'My Imaginary Friend', sans-serif;
-		font-weight: normal;
-		font-size: .75em;
-		color: var(--gray);
-	}
-}
-
-#about .content {
-	overflow: auto;
-	padding: 1em 2em;
-	flex-grow: 1; /* fill remaining vertical space */
-}
-
-@media screen and (min-width: 800px) { #about { overflow: auto; } }
-
 /************** GALLERY SECTION **************/
-
-#gallery {
-	position: relative;
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-}
-#gallery a { color: var(--yellow); font-size: 1.4em; }
-#gallery a:hover, #gallery a:focus-visible { color: var(--red); }
 
 /* container for things that aren't the header/footer */
 #gallery .content {
-	overflow-y: auto;
-	flex-grow: 1;
-	min-height: 0;
 	background:
 		linear-gradient(rgba(var(--ddd-red-rgb),.8),rgba(var(--ddd-red-rgb),.8)),
 		url('/graphix/bg/crosses.jpg');
-	background-color: var(--ddd-red);
+	background-color: var(--bg-section);
 	background-size: 150px;
 	background-repeat: repeat;
 	background-blend-mode: overlay;
@@ -302,33 +178,9 @@ nav {
 }
 #balloon-animal img { max-height: 100%; max-width: 100%; }
 
-#gallery-images {
-	padding: 1em; gap: 1em;
-	background: var(--dd-red);
-	display: flex; flex-wrap: wrap; justify-content: center;
-	border-bottom: var(--box-border);
-}
-#gallery-images footer { width: 100%; margin-top: -1em; }
-#gallery-images .img-container { max-width: 50%; height: max(20vh,100px); display: block; align-content: center; }
-#gallery-images .img-container img { max-width: 100%; max-height: 100%; } 
-
-#gallery .bottom-area {
-	padding: 1em;
-	display: flex; flex-wrap: wrap; justify-content: center; gap: .5em;
-}
-#blinkies, #stamps {
-	background: var(--black);
-	padding: .5em;
-	display: flex; flex-direction: column; gap: .25em;
-	justify-content: center; /* vertically center contents */
-}
-#blinkies img, #stamps img { margin-left: auto; margin-right: auto; }
-
 /************** SCROLLBAR **************/
 /* Firefox settings */
 * { scrollbar-color: var(--red) var(--black); }
-/* width */
-::-webkit-scrollbar { width: 15px; }
 /* Track */
 ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px var(--black);

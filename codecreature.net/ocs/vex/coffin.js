@@ -5,13 +5,8 @@ const coffin = {
 		coffin.btn.addEventListener('click',()=>{ coffin.click(); });
 		coffin.key = document.getElementById("coffin-key");
 		coffin.key.addEventListener('click',()=>{ coffin.getKey(); });
-		// if user has already unlocked coffin in the past
-		if (localStorage.getItem('vexCoffinLocked') == "false") {
-			document.getElementById('coffin-key').remove();
-			coffin.unlock();
-		} else {
-			coffin.lock();
-		}
+		// start locked
+		coffin.lock();
 	},
 	// called when coffin clicked
 	click: ()=>{
@@ -43,13 +38,11 @@ const coffin = {
 	lock: ()=>{
 		console.log("locking coffin");
 		coffin.isLocked = true;
-		localStorage.setItem('vexCoffinLocked',coffin.isLocked);
 	},
 	// unlock the coffin
 	unlock: ()=>{
 		console.log("unlocking coffin");
 		coffin.isLocked = false;
-		localStorage.setItem('vexCoffinLocked',coffin.isLocked);
 		coffin.useKey();
 		coffin.btn.querySelector('img').src = "images/coffin-closed-unlocked.png";
 	},
@@ -68,3 +61,6 @@ const coffin = {
 		document.querySelector('body').classList.remove('hasKey');
 	}
 };
+
+// initiate when loaded
+coffin.init();

@@ -6,4 +6,4 @@
 .txt-unown { font-family: "Unown", sans-serif; text-transform: uppercase; letter-spacing: .1em; }
 
 @font-face { font-family: "Unown Light"; font-display: swap; src: local('Unown'), url('/fonts/Unown/UnownLight.ttf'); }
-.txt-unown-light { font-family: "Unown Light", sans-serif; text-transform: uppercase; }
+.txt-unownlight { font-family: "Unown Light", sans-serif; text-transform: uppercase; }

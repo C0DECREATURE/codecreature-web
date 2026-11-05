@@ -1,0 +1,34 @@
+{
+	"gallery": [
+		{
+			"img":"fullbody-01.png",
+			"alt":"",
+			"caption":"art by me"
+		},
+		{
+			"img":"ref-sheet.png",
+			"alt":"character reference sheet",
+			"caption":"art by me"
+		},
+		{
+			"img":"chibi_01.png",
+			"alt":"",
+			"caption":"art by me"
+		}
+	],
+	"blinkies": [
+		{"img":"brand-new-species.gif", "alt":"brand new species"},
+		{"img":"gay-vampire-rights.gif", "alt":"gay vampire rights"},
+		{"img":"i-bite-bat.gif", "alt":"I bite"},
+		{"img":"red-eyes.webp"},
+		{"img":"deadly-kitty.gif", "alt":"deadly kitty"},
+		{"img":"moon-bat.gif"},
+		{"img":"cant-sleep-clowns.gif", "alt":"can't sleep clowns will eat me"},
+		{"img":"night-owl.gif", "alt":"night owl"},
+		{"img":"blood-teeth.gif", "credit":"https://cardinalphlox.tumblr.com/post/758300367650947072/"}
+	],
+	"stamps": [
+		{"img":"vampires-will-never-hurt-you.png", "alt":"vampires will never hurt you"},
+		{"img":"gay-clown.png", "alt":"gay clown"}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"name": "Lexicon",
+	"species": "Android",
+	
+	"template": "bars",
+	"fonts": ["Alphabet_01"],
+	"customSections": [],
+	
+	"warnings": [],
+	
+	"description": "<p>robot riddled with code rot</p>",
+	"identity": {
+		"pronouns": "he/she/any",
+		"gender": "confused",
+		"orientation": "pan aro"
+	},
+	"stats": {
+		"personality": ["stressed out", "glitchy"]
+	},
+	
+	"toyhouse": "https://toyhou.se/15716152.lexicon",
+	
+	"mainImage": "fullbody.png",
+	"icon": "icon.png",
+	"favicon": "icon.png"
+}

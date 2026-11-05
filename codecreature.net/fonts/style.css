@@ -2,10 +2,6 @@
 button.open-page-settings :is(i,svg) { fill: var(--l-green); stroke: var(--l-green); }
 
 body {
-	width: min(800px, 100%);
-	margin-left: auto;
-	margin-right: auto;
-	padding: 3rem 0 3em 0;
 	background-color: var(--black);
 	color: var(--green);
 	font-family: "Courier New", serif;
@@ -24,28 +20,55 @@ body {
 }
 
 main {
+	padding: 1rem 0;
+	width: min(800px, 100%);
+	margin: 0 auto; 
 	font-size: max(1em,min(2rem,3.5vw));
 }
 
-h2 { font-weight: normal; margin-bottom: 0.4em; }
-h2 img { height: auto; max-height: .8em; margin-bottom: -.02em; }
+h2 {
+	font-family: 'DS Digital', sans-serif;
+	text-transform: uppercase;
+	margin: .5em 0 .4em 0;
+	display: flex;
+	align-items: center; justify-content: center;
+	gap: .15em;
+}
+h2 img { max-height: .8em; }
 
-h3.fontname { color: var(--l-green); margin: .5em; }
-.fontname:hover { color: var(--l-blue); }
-a:hover .fontname { color: var(--l-blue); }
+.font {
+	display: block;
+	margin: 0 auto 1em auto;
+	width: fit-content;
+}
+
+.fontname { color: var(--l-green); }
+.font a:hover .fontname .display { color: var(--l-blue); }
+
+.fontname { position: relative; }
+.fontname .tooltip {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%,-50%);
+	width: 100%;
+	font-weight: bold;
+	user-select: none;
+	pointer-events: none;
+}
+.font:not(:hover) .tooltip { display: none; }
+.font:has(.tooltip):hover .display { opacity: .3; }
 
 p.credit {
 	display: block;
 	font-size: 1.5rem;
 	color: var(--green);
 	line-height: 1em;
-	margin: 0px; margin-bottom: 1.5em;
+	margin: 0;
 }
 a:hover p.credit { color: var(--blue); }
 
-.txt-alternian { font-size: 3rem; }
-.txt-alternian:hover { font-size: 2.5rem; line-height: 165%; }
-
-.txt-unown:hover, .txt-unown-light:hover  { font-family: sans-serif; }
-.txt-unown:hover { font-size:1.2em; }
-.txt-unown-light:hover { font-size:.9em; }
+.txt-pokemonclassic { font-size: .8em; }
+.txt-hiveswapalternian { font-size: 1.4em; }
+.txt-dsdigital { font-size: 1.25em; }
+.txt-ghoulishfright { font-size: 1.25em; }
+.txt-victorianparlor { font-size: 1.25em; }

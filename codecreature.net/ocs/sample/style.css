@@ -1,0 +1,32 @@
+:root {
+	--black: black;
+	--white: white;
+	--red: red;
+	--yellow: yellow;
+	--gray: gray;
+	--dgray: #333;
+	
+	/* TEMPLATE VALUES */
+	
+	--text: var(--black);
+	--text-accent: var(--yellow);
+	--text-link: var(--red);
+	--text-link-hover: var(--yellow);
+	
+	--text-header: var(--white);
+	--text-subheader: var(--text-accent); /* OPTIONAL */
+	--text-subheader-mini: var(--gray);
+	
+	--nav-link: var(--white); /* OPTIONAL */
+	--nav-link-hover: var(--yellow); /* OPTIONAL */
+	
+	--bg-section: var(--gray);
+	--bg-header: var(--black);
+	--bg-gallery: var(--dgray);
+	--bg-image: var(--white);
+	
+	--bullet-point: '\002726'; /* OPTIONAL */
+	--bullet-point-color: var(--yellow); /* OPTIONAL */
+	
+	--box-border: 4px var(--black) solid; /* OPTIONAL */
+}

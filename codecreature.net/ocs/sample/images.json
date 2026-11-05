@@ -1,0 +1,25 @@
+{
+	"gallery": [
+		{
+			"img":"fullbody.png",
+			"alt":"",
+			"caption":"art by me"
+		},
+		{
+			"img":"reference.png",
+			"alt":"character reference sheet",
+			"caption":"art by me"
+		},
+		{
+			"img":"icon.png",
+			"alt":"",
+			"caption":"art by me"
+		}
+	],
+	"blinkies": [
+		{"img":"bad-website-design.gif", "alt":"bad website design"}
+	],
+	"stamps": [
+		{"img":"stuff_on_computer.png", "alt":"I love to do stuff on the computer"}
+	]
+}

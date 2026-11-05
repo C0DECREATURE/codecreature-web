@@ -1,6 +1,2 @@
-/*
-<link href="/fonts/MaturaRegular/stylesheet.css?fileversion=20260410" rel="stylesheet" type="text/css">
-*/
-
-@font-face { font-family: "Matura Regular"; font-display: swap; src: url('/fonts/MaturaRegular/Matura MT Std Regular.otf'); }
+@font-face { font-family: "Matura Regular"; font-display: swap; src: url('/fonts/MaturaRegular/MaturaRegular.otf'); }
 .txt-maturaregular { font-family: "Matura Regular", sans-serif; }

@@ -1,0 +1,30 @@
+body {
+	background-color:#000;
+	text-align:center;
+}
+.container {
+	margin-top:50px;
+}
+h1 {
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	margin-bottom: 25px;
+}
+
+.characters {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1em;
+}
+.characters > a {
+	background: var(--dd-purple);
+	padding: .5em;
+	color: var(--white);
+}
+.characters > a:hover {
+	color: var(--purple);
+	background: var(--d-purple);
+}
+.characters .icon { max-width: 150px; max-height: 150px; }
+.characters .name { text-transform: uppercase; }

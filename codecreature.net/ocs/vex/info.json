@@ -1,0 +1,43 @@
+{
+	"name": "Vex",
+	"species": "vampire clown",
+	
+	"template": "bars",
+	"fonts": ["Crimes Times Six","My Imaginary Friend","Ghoulish Fright","Halogen"],
+	"customSections": ["gallery header","main image"],
+	
+	"warnings": ["flashing","gore"],
+	
+	"description": "<p>carnival worker</p><p>actual vampire, questionable clown</p>",
+	"identity": {
+		"pronouns": "he/it",
+		"gender": "agender",
+		"orientation": "gay"
+	},
+	"stats": {
+		"personality": [
+			"silly in a slightly sinister way",
+			"likes <u class=\"tq\">2</u> play up classic vampire tropes",
+			"chaotic neutral",
+			"<u class=\"tq\" data-a=\"hasn't\">hasnt</u> killed anybody on purpose (yet)"
+		],
+		"vampire traits": {
+			"info": "trickster god of sorts. not undead, just immortal and impossible <u class=\"tq\">2</u> kill",
+			"list": [
+				"only consumes blood",
+				"sleeps in a coffin",
+				"can turn <u class=\"tq\" data-a=\"into\">in2</u> a bat",
+				"hypnotic abilities",
+				"burns in the sun",
+				"<u class=\"tq\" data-a=\"can't\">cant</u> make other vampires",
+				"has been alive a long time but <u class=\"tq\" data-a=\"forgets\">4gets</u> things quickly"
+			]
+		}
+	},
+	
+	"toyhouse": "https://toyhou.se/22284867.vex/gallery",
+	
+	"mainImage": "fullbody-01.png",
+	"icon": "icon.png",
+	"favicon": "favicon.png"
+}

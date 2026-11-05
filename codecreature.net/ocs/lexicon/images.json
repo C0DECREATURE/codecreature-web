@@ -1,0 +1,30 @@
+{
+	"gallery": [
+		{
+			"img":"fullbody.png",
+			"alt":"",
+			"caption":"art by me"
+		},
+		{
+			"img":"reference.png",
+			"alt":"character reference sheet",
+			"caption":"art by me"
+		},
+		{
+			"img":"togetherforever.gif",
+			"alt":"",
+			"caption":"base from the <a href=&quot;https://chaoticgoode.com/cliques/togetherforever/&quot;>together forever clique</a>, art by me"
+		}
+	],
+	"blinkies": [
+		{"img":"rainbow_emoticons.webp"},
+		{"img":"ascii_rainbow.gif"},
+		{"img":"demon-core-apologist.gif"}
+	],
+	"stamps": [
+		{"img":"queer_swirls.png", "alt":"queer"},
+		{"img":"glitchy.png"},
+		{"img":"beads.png"},
+		{"img":"neon_glitch_swirls.png"}
+	]
+}

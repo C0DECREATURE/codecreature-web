@@ -1,0 +1,52 @@
+:root {
+	--white: #ece4eb;
+	--gray: #255984;
+	--d-gray: #2d3659;
+	--black: #13133d;
+	--purple: #686aff;
+	--red: #ff2468;
+	--orange: #ff8823;
+	--yellow: #ffe426;
+	--green: #00c13e;
+	--teal: #05d37a;
+	--blue: #0eeed5;
+	
+	/* TEMPLATE VALUES */
+	
+	--text: var(--blue);
+	--text-accent: var(--yellow);
+	--text-link: var(--yellow);
+	--text-link-hover: var(--teal);
+	
+	--text-header: var(--white);
+	--text-subheader: var(--teal); /* OPTIONAL */
+	--text-subheader-mini: var(--gray);
+	
+	--nav-link: var(--yellow); /* OPTIONAL */
+	--nav-link-hover: var(--blue); /* OPTIONAL */
+	
+	--bg-section: var(--d-gray);
+	--bg-header: var(--black);
+	--bg-gallery: var(--gray);
+	--bg-image: var(--red);
+	
+	--bullet-point: '\002726'; /* OPTIONAL */
+	--bullet-point-color: var(--teal); /* OPTIONAL */
+	
+	--box-border: 4px var(--black) solid; /* OPTIONAL */
+}
+
+span.multicolor > span:nth-of-type(1n) { color: var(--red); }
+span.multicolor > span:nth-of-type(2n) { color: var(--orange); }
+span.multicolor > span:nth-of-type(3n) { color: var(--yellow); }
+span.multicolor > span:nth-of-type(4n) { color: var(--green); }
+span.multicolor > span:nth-of-type(5n) { color: var(--blue); }
+span.multicolor > span:nth-of-type(6n) { color: var(--purple); }
+
+body { font-family: sans-serif; }
+
+h1, h2, .subheader, nav a, nav button, #gallery a {
+	text-transform: uppercase;
+	font-family: "Alphabet_01",sans-serif;
+}
+h1 { letter-spacing: -1px; font-size: min(2em, 25vw); }

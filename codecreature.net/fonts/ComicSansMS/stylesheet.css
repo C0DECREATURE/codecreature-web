@@ -3,4 +3,4 @@
 */
 
 @font-face { font-family: "Comic Sans MS"; font-display: swap; src: local('Comic Sans MS'), local('Comic Sans'), url('/fonts/ComicSansMS/ComicSansMS.ttf'); }
-.txt-comicsans { font-family: "Comic Sans MS", "Comic Sans", 'Chalkboard SE', 'Comic Neue', sans-serif; }
+.txt-comicsansms { font-family: "Comic Sans MS", "Comic Sans", 'Chalkboard SE', 'Comic Neue', sans-serif; }

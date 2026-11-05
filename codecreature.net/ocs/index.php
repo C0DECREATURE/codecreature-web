@@ -1,10 +1,19 @@
+<?php
+require_once "functions.php";
+
+$characters = ["vex","lexicon"];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<title>creature containment</title>
+		<meta name="description" content="Codecreature's original character stash.">
+		<meta name="keywords" content="characters, ocs">
+		<meta name="author" content="codecreature">
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
@@ -23,20 +32,6 @@
 		<!--this page's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		
-		<style>
-			body {
-				background-color:#000;
-				text-align:center;
-			}
-			.container {
-				margin-top:50px;
-			}
-			.header {
-				letter-spacing: .1em;
-				margin-bottom: 25px;
-			}
-		</style>
-		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="/codefiles/jquery.lettering.js"></script>
 		<script>
@@ -49,18 +44,27 @@
 	<!-----------BODY------------------->
 	<body>
 		<div class="container">
-			<h1 class="header txt-rainbow">
-				CONTAINMENT FACILITY
+			<h1 class="txt-rainbow">
+				Containment Facility
 			</h1>
-			this is where i store my creatures!!
-			<br>
-			<br>
-			<a class="txt-red" href="/ocs/vex">vex &#8605;</a>
-			<br>
-			<br>
-			full oc list and galleries on <a href="https://toyhou.se/praxis/characters">toyhou.se</a>
-			<br>
-			<br>
+			<p>this is where i store my creatures!!</p>
+			
+			<div class="characters">
+				<?php
+				foreach ($characters as $name) {
+					$oc = characterData($name);
+					?>
+					<a href="<?php echo $name; ?>">
+						<img class="icon" src="<?php echo $oc["path"]."images/".$oc["icon"]; ?>" alt="">
+						<div class="name"><?php echo $oc["name"]; ?></div>
+					</a>
+					<?php
+				}
+				?>
+			</div>
+			
+			<p>full character list and galleries on <a href="https://toyhou.se/praxis/characters">toyhou.se</a></p>
+			
 			<a class="btn btn-green" href="/home">home</a>
 		</div>
 	</body>

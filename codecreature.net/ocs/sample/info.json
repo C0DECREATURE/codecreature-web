@@ -1,0 +1,24 @@
+{
+	"name": "Name",
+	"species": "species",
+	
+	"template": "",
+	"fonts": [],
+	
+	"warnings": [],
+	
+	"description": "<p>lorem ipsum or whatever</p>",
+	"identity": {
+		"pronouns": "???",
+		"gender": "???"
+	},
+	"stats": {
+		"personality": ["unique","special"]
+	},
+	
+	"toyhouse": "https://toyhou.se/",
+	
+	"mainImage": "fullbody.png",
+	"icon": "icon.png",
+	"favicon": "icon.png"
+}

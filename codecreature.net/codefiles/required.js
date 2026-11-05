@@ -262,6 +262,7 @@ new fonts.Font('Ad Lib',['ttf']);
 new fonts.Font('Comic Sans MS',['ttf']);
 new fonts.Font('Crimes Times Six',['ttf']);
 new fonts.Font('DS Digital',['ttf'],['Bold','Italic','BoldItalic']);
+new fonts.Font('Letter-O-Matic',['ttf'],['Bold','Italic']);
 /*
 new fonts.Font('Garfield',['ttf']);
 new fonts.Font('Ghoulish Fright',['ttf']);
