@@ -14,7 +14,7 @@
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
 		<!-- ministrife club styling -->
-		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="/links/ministrife-club/style.css?fileversion=20261106" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260410" id="svg-icons-js"></script>

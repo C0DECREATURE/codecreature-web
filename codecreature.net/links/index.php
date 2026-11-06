@@ -15,7 +15,7 @@
 		<link href="/style.css" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- ministrife club styling -->
-		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="/links/ministrife-club/style.css?fileversion=20261106" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- page settings -->
 		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
