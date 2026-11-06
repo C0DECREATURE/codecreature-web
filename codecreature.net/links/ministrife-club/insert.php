@@ -1,14 +1,3 @@
-<!--
-insert this in body:
-<div id="ministrife-wrapper"></div>
-
-insert this in head:
-		<!-- load jQuery --
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js?fileversion=20260410"></script>
-		<!-- load ministrife club --
-		<link href="/links/ministrife-club/style.css" rel="stylesheet" type="text/css" media="all">
-		<script> $(function(){ $("#ministrife-wrapper").load("/links/ministrife-club/insert.php"); }); </script> 
--->
 <?php
 
 // run self-executing function to insert ministrife club
@@ -23,11 +12,12 @@ insert this in head:
 		<div class="sprites">
 			<?php
 			foreach ($ministrifeClubSprites as $spr) {?>
-				<a href="<?php echo $spr["link"]; ?>"
+				<a href="<?php echo (!str_starts_with($spr["link"],"http") ? "https://" : "").$spr["link"]; ?>"
 					title="<?php echo $spr["name"]; ?>"
 					<?php if (!str_starts_with($spr["link"],"/")) echo "target='_blank'"; ?>
 				>
 					<img src="<?php echo fullImg($spr["img"]); ?>" alt="<?php echo $spr["name"]; ?>">
+					<div class="tooltip" aria-hidden="true"><?php echo $spr["name"]; ?></div>
 				</a>
 			<?php
 			}

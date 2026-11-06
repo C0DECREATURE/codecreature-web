@@ -5,40 +5,70 @@
 	
 	a.ministrife-button {
 		display: inline-block;
-		margin-bottom: 0;
-		margin-top: 0;
 		line-height: 0;
 	}
-	
-	.sprites {
-		background: var(--yellow);
-		background-image: url('/graphix/clubs/ministrife/lolcat.png');
-		background-position: bottom;
-		background-size: cover;
-		border: 3px var(--yellow) solid;
-		margin-bottom: 6px;
-		padding: 5px 25px 0 25px;
-		height: 110px;
-		display: flex;
-		justify-content: space-around;
-		align-items: flex-end;
-		
-		a {
-			position: relative;
-			display: inline-block;
-			margin: 0; margin-bottom: 15px;
-			img { transition: transform .2s, filter .2s; }
-			&:hover, &:focus-visible {
-				img { transform: scale(2); }
-				z-index: 100;
-				outline-width: 0px !important;
-				box-shadow: none !important;
-			}
-		}
-		a:not(:hover,:focus-visible) img {
-			image-rendering: pixelated;
-			-webkit-filter: drop-shadow(1px 1px 0px black);
-			filter: drop-shadow(1px 1px 0px black);
-		}
-	}
+}
+#ministrife-club .sprites {
+	background: var(--yellow);
+	background-image: url('/graphix/clubs/ministrife/lolcat.png');
+	background-position: bottom;
+	background-size: cover;
+	border: 3px var(--yellow) solid;
+	margin-bottom: 6px;
+	padding: 5px 25px 0 25px;
+	height: 110px;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+}
+#ministrife-club .sprites a {
+	position: relative;
+	display: inline-block;
+	transition: scale .2s;
+	margin: 0; margin-bottom: 15px;
+}
+#ministrife-club .sprites a:is(:hover,:focus-visible) {
+	z-index: 100;
+	outline: none;
+	scale: 2;
+}
+#ministrife-club .sprites a img {
+	image-rendering: pixelated;
+	transition: filter .2s;
+	-webkit-filter: drop-shadow(1px 1px 0px rgba(0,0,0,.5));
+	filter: drop-shadow(1px 1px 0px rgba(0,0,0,.5));
+}
+#ministrife-club .sprites a:is(:hover,:focus-visible) img {
+	-webkit-filter: none;
+	filter: none;
+}
+#ministrife-club .sprites a .tooltip {
+	position: absolute;
+	bottom: calc(100% + 5px);
+	left: 50%;
+	transform: translateX(-50%);
+	background: black;
+	font-family: 'Courier New','Courier',serif;
+	font-weight: bold;
+	color: white;
+	font-size: 10px;
+	padding: .15em .4em;
+	transition: font-size .2s, opacity .2s;
+}
+#ministrife-club .sprites a .tooltip:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 6px;
+	aspect-ratio: 1;
+	background: black;
+	top: calc(100% - 1px);
+	left: 50%;
+	transform: translateX(-50%);
+	rotate: 45deg;
+	z-index: -1;
+}
+#ministrife-club .sprites a:not(:hover,:focus-visible) .tooltip {
+	font-size: 0px;
+	opacity: 0;
 }
