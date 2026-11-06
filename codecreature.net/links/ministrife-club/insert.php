@@ -13,7 +13,6 @@
 			<?php
 			foreach ($ministrifeClubSprites as $spr) {?>
 				<a href="<?php echo (!str_starts_with($spr["link"],"http") ? "https://" : "").$spr["link"]; ?>"
-					title="<?php echo $spr["name"]; ?>"
 					<?php if (!str_starts_with($spr["link"],"/")) echo "target='_blank'"; ?>
 				>
 					<img src="<?php echo fullImg($spr["img"]); ?>" alt="<?php echo $spr["name"]; ?>">
