@@ -84,17 +84,25 @@
 						function insertPixelClub($c) {
 							$n = strtolower(str_replace([" ","'"],"",$c["name"]));
 							?>
-							<h4><a href="<?php echo fullLink($c["link"]); ?>" target="_blank"><?php echo $c["name"]; ?></a></h4>
+							<hr>
+							<h4><a href="<?php echo fullLink($c["link"]); ?>" target="_blank">
+								<?php if (!empty($c["button"])) { ?>
+								<img class="button" src="/graphix/clubs/<?php echo $n."/button.".$c["button"]; ?>" alt="<?php echo $c["name"]; ?>">
+								<?php } else echo $c["name"]; ?>
+							</a></h4>
 							<div id="pixel-club-<?php echo $n; ?>" class="pixel-club-images">
 								<?php
 								foreach ($c["adopted"] as $i) { ?>
 								<a href="<?php echo fullLink($i["link"]); ?>" target="_blank"
+									class="wrapper"
 									style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
 									title="<?php echo $i["alt"]; ?>">
 									<img src="/graphix/clubs/<?php echo $n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
+									<div class="tooltip" aria-hidden="true"><?php echo $i["alt"]; ?></div>
 								</a>
 								<?php } ?>
-							</div><?php
+							</div>
+							<?php
 						}
 						$clubs = json_decode(file_get_contents('clubs.json'),true);
 						?>

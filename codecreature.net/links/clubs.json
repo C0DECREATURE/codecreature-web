@@ -2,6 +2,7 @@
 	{
 		"name":"pocket town",
 		"link":"divergentrays.com/pocket",
+		"button": "png",
 		"joined":false,
 		"adopted":[
 			{"img":"dollarchive.gif", "link":"dollarchive.neocities.org", "alt":"The Doll Archive"},
@@ -13,6 +14,7 @@
 	{
 		"name":"lava lounge",
 		"link":"lavalounge.neocities.org",
+		"button": "gif",
 		"joined":false,
 		"adopted":[
 			{"img":"solaria.gif", "link":"solaria.neocities.org", "alt":"Solaria"},
@@ -30,6 +32,7 @@
 	{
 		"name":"kitty friends",
 		"link":"divergentrays.com/kitty",
+		"button": "gif",
 		"joined":false,
 		"adopted":[
 			{"img":"hillhouse.gif", "link":"hillhouse.neocities.org/cliques", "alt":"hill house"},
@@ -38,29 +41,31 @@
 			{"img":"lina.gif", "link":"amalinalai.github.io/precipice/toybox/?z=cliques", "alt":"Lina"},
 			{"img":"kuup.gif", "link":"kuupzone.neocities.org", "alt":"Kuup"},
 			{"img":"solaria.png", "link":"solaria.neocities.org", "alt":"Solaria"},
-			{"img":"sweetcharm.gif", "link":"sweetcharm.net/.CuteDesktop/Website/cliques/cliques.html", "alt":"sweetcharm", "style": "margin-bottom: -3px;"}
+			{"img":"sweetcharm.gif", "link":"sweetcharm.net/.CuteDesktop/Website/cliques/cliques.html", "alt":"sweetcharm", "style": "margin-bottom: -4px; margin-top: -8px;"}
 		]
 	},
 	{
 		"name":"squishmallows",
 		"link":"peachlantern.neocities.org/squishmallow",
+		"button": "gif",
 		"joined":false,
 		"adopted":[
-			{"img":"autumn.png", "link":"sakuradreams.neocities.org", "alt":"Autumn"},
-			{"img":"mog.gif", "link":"lavenderclavat.neocities.org/cliques", "alt":"Mog"},
-			{"img":"bobbix.png", "link":"peachnuts.neocities.org", "alt":"Bobbix"},
-			{"img":"jones.gif", "link":"artwork.neocities.org/toybox", "alt":"Jones"}
+			{"img":"autumn.png", "link":"sakuradreams.neocities.org", "alt":"Autumn by Sakura"},
+			{"img":"mog.gif", "link":"lavenderclavat.neocities.org/cliques", "alt":"Mog by LAV", "style": "margin-bottom: -4px; margin-top: -8px; text-wrap: nowrap;"},
+			{"img":"bobbix.png", "link":"peachnuts.neocities.org", "alt":"Bobbix by peachnuts"},
+			{"img":"jones.gif", "link":"artwork.neocities.org/toybox", "alt":"Jones by artwork"}
 		]
 	},
 	{
 		"name":"mixtapes",
 		"link":"chaoticgoode.com/cassettes",
+		"button": "png",
 		"joined":false,
 		"adopted":[
 			{"img":"peachlantern.png", "link":"peachlantern.neocities.org", "alt":"PeachLantern"},
 			{"img":"fishblob.png", "link":"fishblob.neocities.org", "alt":"Adelina"},
 			{"img":"zabnikinthevoid.png", "link":"zabnikinthevoid.neocities.org/", "alt":"zabnikinthevoid"},
-			{"img":"overthemoon.png", "link":"overthemoonaromas.neocities.org/", "alt":"Over the Moon"},
+			{"img":"overthemoon.png", "link":"overthemoonaromas.neocities.org/", "alt":"Over the Moon", "style": "text-wrap: nowrap;"},
 			{"img":"casper-valentine.png", "link":"casper-valentine.gay", "alt":"Casper Valentine"},
 			{"img":"otgw.gif", "link":"artwork.neocities.org/toybox", "alt":"Artwork"},
 			{"img":"tma.png", "link":"cozyghostly.neocities.org/club", "alt":"Ghostly"},
@@ -70,19 +75,21 @@
 	{
 		"name":"together forever",
 		"link":"chaoticgoode.com/cliques/togetherforever",
+		"button": "gif",
 		"joined":true,
 		"adopted":[
 			{"img":"lexicon.gif", "link":"codecreature.net/ocs/lexicon", "alt":"Lexicon (mine)"},
 			{"img":"chaoticgoode.gif", "link":"chaoticgoode.com/cliques/togetherforever", "alt":"Chaotic Goode", "style":"margin-bottom: -3px;"},
 			{"img":"keepdolling.gif", "link":"https://keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
 			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"yanyan"},
-			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px;"},
-			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":""}
+			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px; text-wrap: nowrap;"},
+			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":"Pixel-Dollz"}
 		]
 	},
 	{
 		"name":"RPG club",
 		"link":"sweetcharm.net/.CuteDesktop/Website/RPGClub/",
+		"button": "gif",
 		"joined":false,
 		"adopted":[
 		]
@@ -90,6 +97,7 @@
 	{
 		"name":"angelical",
 		"link":"butteroncookies.neocities.org/angelical",
+		"button": "gif",
 		"joined":false,
 		"adopted":[
 		]

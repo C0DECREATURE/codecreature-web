@@ -12,7 +12,9 @@ body {
 	flex-direction: column;
 }
 
-img {image-rendering: pixelated;}
+img { image-rendering: pixelated; }
+
+hr { border: 1px var(--green) solid; }
 
 main {
 	display: flex;
@@ -173,12 +175,46 @@ main > .sidebar {
 	gap: .5em;
 	margin-top: .25em;
 	align-items: flex-end;
+	justify-content: center;
 }
-#pixel-clubs .pixel-club-images { justify-content: flex-end; }
-.pixel-club-images a { transition: scale .2s; }
+.pixel-club-images a { transition: scale .2s; text-align: center; }
 .pixel-club-images a:hover { scale: 2; z-index: 2; image-rendering: pixelated; }
 #pixel-club-pockettown, #pixel-club-togetherforever { gap: 0px; }
 #pixel-club-mixtapes { gap: .25em; }
+
+#pixel-clubs .body a.wrapper, #clubs-to-join .body a.wrapper { position: relative; }
+#pixel-clubs h4, #clubs-to-join h4 { text-align: center; }
+#pixel-clubs .tooltip, #clubs-to-join .tooltip {
+	position: absolute;
+	bottom: calc(100% + 5px);
+	left: 50%;
+	transform: translateX(-50%);
+	background: black;
+	font-family: 'Courier New','Courier',serif;
+	font-weight: bold;
+	color: white;
+	font-size: 8px;
+	padding: .2em .6em;
+	transition: font-size .2s, opacity .2s;
+	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+}
+#pixel-clubs .tooltip:after, #clubs-to-join .tooltip:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 6px;
+	aspect-ratio: 1;
+	background: black;
+	top: calc(100% - 1px);
+	left: 50%;
+	transform: translateX(-50%);
+	rotate: 45deg;
+	z-index: -1;
+}
+#pixel-clubs a:not(:hover,:focus-visible) .tooltip, #clubs-to-join a:not(:hover,:focus-visible) .tooltip {
+	font-size: 0px;
+	opacity: 0;
+}
 
 #my-button .content { text-align: center; }
 
@@ -186,6 +222,7 @@ main > .sidebar {
 
 #other-pixel-clubs a:not(.inline), #coding-resources a:not(.inline), #art-resources a:not(.inline), #other a:not(.inline) {
 	display: block;
+	width: fit-content;
 	&:not(:first-child, .mt-0) { margin-top: .75rem; }
 }
 
