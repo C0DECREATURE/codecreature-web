@@ -267,6 +267,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 									<span class="invalid-feedback"><?php echo $new_password_err; ?></span>
 								</div>
 								<div class="form-group">
+									<div class="info"><strong>warning:</strong> your current username will become available to other users. you might not be able to get it back!</div>
 									<input type="submit" class="btn btn-small" value="Change Username">
 								</div>
 							</form>
@@ -306,6 +307,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 									<span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
 								</div>
 								<div class="form-group">
+									<div class="info">for security, use a password you don't use anywhere else!</div>
 									<input type="submit" class="btn btn-small" value="Update Password">
 								</div>
 							</form>
