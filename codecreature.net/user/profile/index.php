@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/flags.php";
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
 
 // get user parameters from url
-if (isset($param_username)) $id = getIdByUsername(urldecode($_GET['username']),true);
+if (isset($_GET['username'])) $id = getIdByUsername(urldecode($_GET['username']),true);
 if (!isset($id) && isset($_GET['id'])) $id = (int)$_GET['id'];
 // get user's public data array
 $user = getPublicUserData($id);
