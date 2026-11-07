@@ -3,6 +3,8 @@
 require_once "../connect.php";
 // Include password functions file
 require_once "../password-functions.php";
+// Include username functions file
+require_once "../username-functions.php";
 
 // Initialize the session
 session_start();
@@ -14,8 +16,8 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 }
  
 // Define variables and initialize with empty values
-$email = $username = "";
-$email_err = $username_err = "";
+$email = "";
+$email_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -56,44 +58,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 		
     // Validate username
-		$u = trim($_POST["username"]);
-		$username_length = 16;
-    if(empty($u)){
-        $username_err = "Please enter a username.";
-    } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', $u)){
-        $username_err = "Username can only contain letters, numbers, and underscores.";
-    } elseif(preg_match('/.*c.*[o0*].*d.*[e3].*c.*r.*[e3].*[a@].*t.*u.*r.*[e3].*|.*[a@]dm[i1l]n.*|.*m[o0]d[e3]r[a@]t[o0]r.*|.*w.*[e3].*b.*m.*[a@].*s.*t.*[e3].*r.*|anonymous|someone/i', $u)){
-        $username_err = "Please choose a different username.";
-    } elseif (strlen($u) > $username_length) {
-				$username_err = "Username must have less than ".$username_length." characters.";
-		} else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($users_conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
-            $param_username = trim($_POST["username"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $username_err = "This username is already taken.";
-                } else{
-                    $username = trim($_POST["username"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
+    if(!empty($_POST["username"])) $new_username = trim($_POST["username"]);
+		$username_err = getUsernameErr($new_username);
+    
+		if(empty($username_err)) {
+			// Prepare a select statement
+			$sql = "SELECT id FROM users WHERE username = ?";
+			
+			if($stmt = mysqli_prepare($users_conn, $sql)){
+				// Bind variables to the prepared statement as parameters
+				mysqli_stmt_bind_param($stmt, "s", $param_username);
+				
+				// Set parameters
+				$param_username = $new_username;
+				
+				// Attempt to execute the prepared statement
+				if(mysqli_stmt_execute($stmt)){
+					/* store result */
+					mysqli_stmt_store_result($stmt);
+					
+					if(mysqli_stmt_num_rows($stmt) == 1){
+						$username_err = "This username is already taken.";
+					}
+				} else{
+					echo "Oops! Something went wrong. Please try again later.";
+				}
 
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+				// Close statement
+				mysqli_stmt_close($stmt);
+			}
     }
 		
     // Validate password
@@ -112,30 +105,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Check input errors before inserting in database
     if(empty($email_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err)){
-        
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (email, username, password) VALUES (?, ?, ?)";
-         
-        if($stmt = mysqli_prepare($users_conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sss", $param_email, $param_username, $param_password);
-            
-            // Set parameters
-            $param_email = $email;
-            $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Redirect to login page
-                header("location: ../login/");
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+			
+			// Prepare an insert statement
+			$sql = "INSERT INTO users (email, username, password) VALUES (?, ?, ?)";
+			 
+			if($stmt = mysqli_prepare($users_conn, $sql)){
+				// Bind variables to the prepared statement as parameters
+				mysqli_stmt_bind_param($stmt, "sss", $param_email, $param_username, $param_password);
+				
+				// Set parameters
+				$param_email = $email;
+				$param_username = $new_username;
+				$param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+				
+				// Attempt to execute the prepared statement
+				if(mysqli_stmt_execute($stmt)){
+					// Redirect to login page
+					header("location: ../login/");
+				} else{
+					echo "Oops! Something went wrong. Please try again later.";
+				}
+				
+				// Close statement
+				mysqli_stmt_close($stmt);
+			}
     }
     
     // Close connection
@@ -198,7 +191,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					minlength="3"
 					maxlength="<?php echo $username_length; ?>"
 					class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
-					value="<?php echo $username; ?>">
+					value="<?php echo $new_username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
 			</div>
 			<span class="txt-orange">Please choose a password you don't use on other sites!</span>

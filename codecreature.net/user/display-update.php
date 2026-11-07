@@ -118,7 +118,7 @@ function updateFlags($flags) {
 }
 
 // update icon when form posts to this page
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST" && (isset($_POST["pronouns"]) || !empty($_POST["flags"]) || !empty($_POST["color"]))) {
 	if (isset($_POST["pronouns"])) updatePronouns($_POST["pronouns"]);
 	
 	$flags = "[]";

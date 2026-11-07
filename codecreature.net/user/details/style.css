@@ -17,47 +17,6 @@ main {
 	margin: 0 auto;
 }
 
-.pink {
-	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-pink); }
-	label, legend { color: var(--l-pink); }
-	h1, .form-section .info {
-		color: var(--pink);
-		strong { color: var(--l-pink); }
-	}
-}
-.orange {
-	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-orange); }
-	label, legend { color: var(--orange); }
-	h1, .form-section .info {
-		color: var(--d-orange);
-		strong { color: var(--orange); }
-	}
-}
-.green {
-	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-green); }
-	label, legend { color: var(--green); }
-	h1, .form-section .info {
-		color: var(--d-green);
-		strong { color: var(--l-green); }
-	}
-}
-.blue {
-	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-blue); }
-	label, legend { color: var(--l-blue); }
-	h1, .form-section .info {
-		color: var(--blue);
-		strong { color: var(--l-blue); }
-	}
-}
-.purple {
-	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--m-purple); }
-	label, legend { color: var(--l-purple); }
-	h1, .form-section .info {
-		color: var(--d-blue);
-		strong { color: var(--purple); }
-	}
-}
-
 #user-settings {
 	display: flex;
 	flex-direction: column;
@@ -257,4 +216,46 @@ option[value=purple], #color-select:has(option[value=purple]:checked) { backgrou
 		-2px -2px 0 var(--text-shadow-color), 2px -2px 0 var(--text-shadow-color), -2px 2px 0 var(--text-shadow-color), 2px 2px 0 var(--text-shadow-color);
 	color: white;
 	text-shadow: var(--text-shadow-2px);
+}
+
+/* COLOR STYLES */
+.pink {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-pink); }
+	#details .username .value, label, legend { color: var(--l-pink); }
+	h1, .form-section .info {
+		color: var(--pink);
+		strong { color: var(--l-pink); }
+	}
+}
+.orange {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-orange); }
+	#details .username .value, label, legend { color: var(--orange); }
+	h1, .form-section .info {
+		color: var(--d-orange);
+		strong { color: var(--orange); }
+	}
+}
+.green {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-green); }
+	#details .username .value, label, legend { color: var(--green); }
+	h1, .form-section .info {
+		color: var(--d-green);
+		strong { color: var(--l-green); }
+	}
+}
+.blue {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--d-blue); }
+	#details .username .value, label, legend { color: var(--l-blue); }
+	h1, .form-section .info {
+		color: var(--blue);
+		strong { color: var(--l-blue); }
+	}
+}
+.purple {
+	fieldset, .form-section:not(:is(:last-of-type)) { border-color: var(--m-purple); }
+	#details .username .value, label, legend { color: var(--l-purple); }
+	h1, .form-section .info {
+		color: var(--d-blue);
+		strong { color: var(--purple); }
+	}
 }

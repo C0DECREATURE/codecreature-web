@@ -2,7 +2,7 @@
 
 // empty shared variables for storing data if needed
 $password = $new_password = $confirm_password = "";
-$password_err = $new_password_err = $confirm_password_err = "";
+$password_err = $cur_password_err = $new_password_err = $confirm_password_err = "";
 
 // required password length
 $password_length = 8;
@@ -28,6 +28,43 @@ function getPasswordErr($p) {
 		$password_err = "Please choose a less common password.";
 	}
 	return $password_err;
+}
+
+// Check if given password is empty or incorrect
+function isCorrectPassword($p) {
+	global $users_conn;
+	
+	if(empty($p)){
+		$cur_password_err = "Please enter your current password.";
+	} else {
+		// prepare statement to get current hashed password
+		$sql = "SELECT password FROM users WHERE id = ?";
+		
+		if($stmt = mysqli_prepare($users_conn, $sql)){
+			// bind variables to prepared statement
+			mysqli_stmt_bind_param($stmt, "i", $param_id);
+			$param_id = intval($_SESSION["id"]);
+			// attempt to execute
+			if(mysqli_stmt_execute($stmt)){
+				// store result
+				mysqli_stmt_store_result($stmt);
+				// verify user exists, if yes then verify password
+				if(mysqli_stmt_num_rows($stmt) == 1){                    
+					// bind result variables
+					mysqli_stmt_bind_result($stmt, $hashed_password);
+					if(mysqli_stmt_fetch($stmt)){
+						if(!password_verify($p, $hashed_password)){
+							$cur_password_err = "Incorrect current password.";
+						}
+					}
+				} else { $cur_password_err = "Error: Failed to locate user entry. Please try again later."; }
+			} else{
+				$cur_password_err = "Error: Failed to execute prepared statement. Please try again later.";
+			}
+			// Close statement
+			mysqli_stmt_close($stmt);
+		}
+	}
 }
 
 ?>

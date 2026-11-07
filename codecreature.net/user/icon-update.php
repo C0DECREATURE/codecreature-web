@@ -59,6 +59,6 @@ function updateIcon($new_icon) {
 }
 
 // update icon when form posts to this page
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST["new-icon"])) {
 	updateIcon($_POST["new-icon"]);
 }

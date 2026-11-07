@@ -9,14 +9,13 @@ if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_N
 if (isset($_GET['username'])) $id = getIdByUsername(urldecode($_GET['username']),true);
 if (!isset($id) && isset($_GET['id'])) $id = (int)$_GET['id'];
 // get user's public data array
-$user = getPublicUserData($id);
-$auth = $user['authorization'];
-$username = $user['username'];
-$pronouns = $user['pronouns'];
-$icon = $user['icon'];
-
-if (empty($id) || $id == 0) {
-	header("location: /user/profile/not-found");
+if (!empty($id)) {
+	$user = getPublicUserData($id);
+	$auth = $user['authorization'];
+	$username = $user['username'];
+	$pronouns = $user['pronouns'];
+	$icon = $user['icon'];
+	$summary = $user['summary'];
 }
 
 // Include chat bbcode settings file
@@ -25,9 +24,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="widateh=device-widateh, initial-scale=1.0">
-    <title><?php echo $user["username"]; ?>'s profile</title>
-		<meta name="description" content="<?php echo $user["username"]; ?>'s user profile.">
-		<meta name="keywords" content="user,profile,userpage,<?php echo $user["username"]; ?>">
+    <title><?php echo empty($id) ? "user not found" : $username."'s profile"; ?></title>
+		<meta name="description" content="<?php echo $username; ?>'s user profile.">
+		<meta name="keywords" content="user,profile,userpage,<?php echo $username; ?>">
 		<meta name="author" content="codecreature">
 		
 		<!-- favicon -->
@@ -61,6 +60,11 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 	<div class="main-container">
 		<header>
 			<div class="username-header">
+				<?php if (empty($id)) { ?>
+				<div class="text">
+					<h1 id="username">user not found</h1>
+				</div>
+				<?php } else { ?>
 				<img id="icon" src="<?php echo $icon; ?>">
 				<div class="text">
 					<h1 id="username"><?php echo $username; ?></h1>
@@ -71,11 +75,12 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 						<div id="pronouns"><?php echo $pronouns; ?></div>
 					<?php } ?>
 				</div>
+				<?php } ?>
 			</div>
 		</header>
 		
 		<?php
-			if (!empty($user["flags"])) {
+			if (!empty($user) && !empty($user["flags"])) {
 				// get flag data and sort by category
 				$genderFlags = [];
 				$otherFlags = [];
@@ -113,9 +118,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		?>
 		
 		
-		<section class="<?php echo empty($user["summary"]) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
+		<section class="<?php echo empty($summary) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
 			<div class="text">
-				<?php echo empty($user["summary"]) ? "This user hasn't written a summary!" : getPolishedBbcode(htmlspecialchars($user["summary"])); ?>
+				<?php echo empty($id) ? "Did you make a typo? Check the url!" : (empty($summary) ? "This user hasn't written a summary!" : getPolishedBbcode(htmlspecialchars($summary))); ?>
 			</div>
 			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>
@@ -130,10 +135,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 			</script>
 		</section>
 		
-		<?php if(isset($_SESSION["id"]) && $_SESSION["id"] == $user["id"]) { ?>
+		<?php if(!empty($id) && isset($_SESSION["id"]) && $_SESSION["id"] == $user["id"]) { ?>
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
-			<textarea id="edit-summary" name="new-summary" value="" maxlength="2500"><?php echo htmlspecialchars_decode($user["summary"]); ?></textarea>
+			<textarea id="edit-summary" name="new-summary" value="" maxlength="2500"><?php echo htmlspecialchars_decode($summary); ?></textarea>
 			<div class="links">
 				<a href="/chat/bbcode">BBCode Guide</a>
 				| <a href="/user/details">User Settings</a>

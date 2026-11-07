@@ -17,6 +17,8 @@ require_once "../database.php";
 
 // Include password functions file
 require_once "../password-functions.php";
+// Include username functions file
+require_once "../username-functions.php";
 // Include icon update functions file
 require_once "../icon-update.php";
 // Include display update functions file
@@ -44,7 +46,7 @@ $user = getPublicUserData($_SESSION['id'],true);
 		<script src="/codefiles/page-settings.min.js?fileversion=20260930"></script>
 		
 		<!-- fonts -->
-		<script>fonts.load('ComicSansMS','SuperComic','Yet R');</script>
+		<script>fonts.load('Comic Sans MS','Super Comic','Yet R');</script>
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
@@ -239,15 +241,45 @@ $user = getPublicUserData($_SESSION['id'],true);
 					
 					
 					<div class="content-wrapper">
+						<!--change username form-->
+						<section id="change-username" class="form-section">
+							<form name="change-username" action="../change-username.php" method="POST">
+								<input type="hidden" name="form" value="change-username"></input>
+								<div class="form-group">
+									<label for="new_username">new username: </label>
+									<input
+										id="new_username" name="new_username"
+										required
+										class="form-control <?php echo (!empty($username_err)) ? "is-invalid" : ""; ?>"
+										>
+									<span class="invalid-feedback"><?php echo (!empty($username_err)) ? $username_err : ""; ?></span>
+								</div>
+								<?php echo $username_err; ?>
+								<div class="form-group">
+									<label for="cur_password">current password: </label>
+									<input
+										type="password"
+										id="cur_password" name="cur_password"
+										required
+										minlength="<?php echo $password_length; ?>"
+										class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+										value="<?php echo $new_password; ?>">
+									<span class="invalid-feedback"><?php echo $new_password_err; ?></span>
+								</div>
+								<div class="form-group">
+									<input type="submit" class="btn btn-small" value="Change Username">
+								</div>
+							</form>
+						</section>
 						<!--reset password form-->
 						<section id="reset-password" class="form-section">
 							<form name="reset-password" action="../password-reset.php" method="POST">
 								<input type="hidden" name="form" value="reset-password"></input>
 								<div class="form-group">
-									<label for="old_password">current password: </label>
+									<label for="cur_password">current password: </label>
 									<input
 										type="password"
-										id="old_password" name="password"
+										id="cur_password" name="password"
 										required
 										class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
 									<span class="invalid-feedback"><?php echo $password_err; ?></span>
