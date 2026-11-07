@@ -59,7 +59,9 @@ RewriteRule ^(.*)\.(gif|jpg|jpeg|bmp|zip|rar|mp3|flv|swf|xml|png|avif|svg|webp|p
 #############
 
 # /u/sampleUser actually displays /user/profile.php?username=sampleUser
+# /uid/number actually displays /user/profile.php?id=number
 RewriteRule ^u/([^\/]*)/? user/profile/index.php?username=$1
+RewriteRule ^uid/([0-9]*)/? user/profile/index.php?id=$1
 
 # /updates actually displays /blog/updates
 RewriteRule ^updates/? blog/updates [QSA]

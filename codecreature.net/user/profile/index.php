@@ -5,9 +5,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/user/flags.php";
 // Initialize the session if not already started
 if(session_id() == '' || !isset($_SESSION) || session_status() === PHP_SESSION_NONE) { session_start(); }
 
-$param_username = urldecode($_GET['username']);
-// get array of user details, including profile info
-$id = getIdByUsername($param_username,true);
+// get user parameters from url
+if (isset($param_username)) $id = getIdByUsername(urldecode($_GET['username']),true);
+if (!isset($id) && isset($_GET['id'])) $id = (int)$_GET['id'];
 // get user's public data array
 $user = getPublicUserData($id);
 $auth = $user['authorization'];

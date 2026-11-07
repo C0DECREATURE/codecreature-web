@@ -94,6 +94,10 @@ $user = getPublicUserData($_SESSION['id'],true);
 								username:
 								<span class="value"><?php echo htmlspecialchars($user["username"]); ?></span>
 							</div>
+							<div class="id">
+								id:
+								<span class="value">#<?php echo htmlspecialchars($user["id"]); ?></span>
+							</div>
 							<div class="pronouns">
 								pronouns:
 								<span class="value"><?php
