@@ -1,0 +1,60 @@
+:root {
+	--white: #fbf2d8;
+	--red: #ef0000;
+	--m-red: #fe3121;
+	--orange: #ff9006;
+	--l-orange: #ffb931;
+	--d-orange: #ff6010;
+	--yellow: #fffa72;
+	--green: #6df700;
+	--l-green: #e1ff00;
+	--d-green: #1a9000;
+	--m-green: #27d700;
+	
+	/* TEMPLATE VALUES */
+	
+	--text: var(--d-orange);
+	--text-accent: var(--m-green);
+	--text-link: var(--red);
+	--text-link-hover: var(--orange);
+	
+	--text-header: var(--white);
+	--text-subheader: var(--l-green); /* OPTIONAL */
+	--text-subheader-mini: var(--white);
+	
+	--nav-link: var(--yellow); /* OPTIONAL */
+	--nav-link-hover: var(--l-green); /* OPTIONAL */
+	
+	--bg-section: var(--yellow);
+	--bg-header: var(--m-green);
+	--bg-gallery: var(--l-orange);
+	--bg-image: var(--m-red);
+	
+	--bullet-point: '\002726'; /* OPTIONAL */
+	--bullet-point-color: var(--green); /* OPTIONAL */
+	
+	--box-border: 4px var(--m-red) solid; /* OPTIONAL */
+}
+
+span.multicolor > span:nth-of-type(1n) { color: var(--yellow); }
+span.multicolor > span:nth-of-type(2n) { color: var(--l-green); }
+
+body {
+	font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+}
+
+h1, h2, .subheader, nav a, nav button, #gallery a {
+	text-transform: uppercase;
+	font-family: "Kaiju Monster",sans-serif;
+}
+h1 { letter-spacing: -1px; font-size: min(2em, 25vw); }
+
+#about .content { font-weight: bold; }
+
+#main-image img {
+	width: 130%;
+  max-width: 95vw;
+	flex-shrink: 0;
+}
+
+#blinkies, #stamps { background: var(--red); }

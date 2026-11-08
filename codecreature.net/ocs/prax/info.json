@@ -1,0 +1,29 @@
+{
+	"name": "Prax",
+	"species": "alien catbird",
+	
+	"template": "bars",
+	"fonts": ["Kaiju Monster","Comic Sans MS"],
+	"customSections": [],
+	
+	"warnings": ["flashing"],
+	
+	"description": "<p><a href='/uid/2'>prax</a>'s humanoid sona!</p>",
+	"identity": {
+		"pronouns": "they/it/cat neos",
+		"gender": "agender",
+		"orientation": "aroace"
+	},
+	"stats": {
+		"info": [
+			"alternate universe davepeta",
+			"shapes and colors enjoyer"
+		]
+	},
+	
+	"toyhouse": "",
+	
+	"mainImage": "fullbody_01.png",
+	"icon": "icon.png",
+	"favicon": "favicon.png"
+}

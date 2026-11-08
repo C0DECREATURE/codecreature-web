@@ -1,0 +1,34 @@
+{
+	"gallery": [
+		{
+			"img":"angelical.gif",
+			"alt":"",
+			"caption":"base from the <a href=&quot;https://butteroncookies.neocities.org/angelical&quot;>angelical clique</a>, edit by me"
+		},
+		{
+			"img":"fullbody_01.png",
+			"alt":"",
+			"caption":"art by me"
+		},
+		{
+			"img":"ministrife.png",
+			"alt":"",
+			"caption":"base by <a href=&quot;https://feastings-old.tumblr.com/&quot;>feastings</a>, edit by me"
+		}
+	],
+	"blinkies": [
+		{"img":"homestuck_disease.webp", "alt":"homestuck disease"},
+		{"img":"be_cool.webp", "alt":"be cool"},
+		{"img":"catnip.gif", "alt":"oooh... catnip!"},
+		{"img":"rowr.gif", "alt":"rowr"},
+		{"img":"radioactive.gif", "alt":"radioactive"},
+		{"img":"rabies_suspect.gif", "alt":"rabies suspect"},
+		{"img":"autistic_alien.gif", "alt":"autistic alien"},
+		{"img":"davepetasprite.gif", "alt":"davepetasprite"}
+	],
+	"stamps": [
+		{"img":"owo-red-green.png"},
+		{"img":"tubular.gif"},
+		{"img":"gnarp.png"}
+	]
+}
