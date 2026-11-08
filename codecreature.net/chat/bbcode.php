@@ -155,7 +155,6 @@ $bbcode->RemoveRule('font');
 $bbcode->RemoveRule('code');
 $bbcode->RemoveRule('email');
 $bbcode->RemoveRule('wiki');
-$bbcode->RemoveRule('columns');
 
 function replaceEmojis($str) {
 	$str = str_replace("🙂",":smile:",$str);

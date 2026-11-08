@@ -16,6 +16,8 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/user/database.php';
 
 // Include chat bbcode settings file
 require_once "bbcode.php";
+// don't allow columns in chat messages
+$bbcode->RemoveRule('columns');
 
 /*************************************/
 /* SETTINGS */
