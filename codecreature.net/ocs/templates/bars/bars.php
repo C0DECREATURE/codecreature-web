@@ -49,7 +49,7 @@ function multicolorText($str) {
 		<script src="/codefiles/typing-quirks.min.js?fileversion=4"></script>
 		
 		<!--template's stylesheet-->
-		<link href="<?php echo $templatePath; ?>style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="<?php echo $templatePath; ?>style.css?fileversion=20261108" rel="stylesheet" type="text/css" media="all">
 		<!--oc's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 	</head>
@@ -126,9 +126,12 @@ function multicolorText($str) {
 								<div class="img-container"><?php echoImage($img); ?></div>
 							<?php } ?>
 						</div>
-						<footer>
-							<a href="<?php echo $oc["toyhouse"]; ?>">more art on toyhouse...</a>
-						</footer>
+						<?php // load fonts if specified
+						if (!empty($oc["toyhouse"])) { ?>
+							<footer>
+								<a href="<?php echo $oc["toyhouse"]; ?>">more art on toyhouse...</a>
+							</footer>
+						<?php } ?>
 						<script>
 							// add full-viewable class to all gallery images
 							let images = document.getElementById('gallery-images').getElementsByTagName('img');

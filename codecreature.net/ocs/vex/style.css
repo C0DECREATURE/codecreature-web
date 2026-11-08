@@ -87,7 +87,6 @@ main > * > header {
 #main-image {
 	background-image: url('images/red-diamonds.png');
 	background-size: 15%;
-	z-index: 1;
 }
 #main-image button#coffin { pointer-events: auto; }
 #main-image img {
