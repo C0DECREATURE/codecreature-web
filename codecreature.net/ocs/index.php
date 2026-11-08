@@ -1,7 +1,7 @@
 <?php
 require_once "functions.php";
 
-$characters = ["vex","lexicon"];
+$characters = ["prax","vex","lexicon"];
 ?>
 
 <!DOCTYPE html>
