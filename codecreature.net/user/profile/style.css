@@ -18,7 +18,7 @@ a:hover { color: var(--purple); }
 .main-container {
 	width: min(100%, 500px);
 	margin: 0 auto;
-	background: var(--white);
+	background: var(--l-green);
 	color: var(--blue);
 	height: 100%;
 	display: flex;
