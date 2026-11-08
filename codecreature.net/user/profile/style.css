@@ -107,10 +107,11 @@ nav {
 	border: none;
 	resize: none;
 	height: auto;
-	color: var(--d-blue);
+	color: var(--blue);
 	font-size: inherit;
+	border: 3px var(--white) solid;
 }
-#edit-summary:focus, #edit-summary:active { outline: 3px var(--d-blue) solid; }
+#edit-summary:focus, #edit-summary:active { border-color: var(--d-blue); outline: none; }
 #summary, #edit-summary-form {
 	.btn { margin-top: 10px; }
 }
