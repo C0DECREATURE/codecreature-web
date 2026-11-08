@@ -220,6 +220,13 @@ main > .sidebar {
 
 #other-sites > section:nth-of-type(even) .site { flex-direction: row-reverse; }
 
+#other-pixel-clubs:nth-of-type(even) a:not(.inline),
+#coding-resources section:has(h3):nth-of-type(even) a:not(.inline),
+#art-resources section:has(h3):nth-of-type(even) a:not(.inline),
+#other section:has(h3):nth-of-type(even) a:not(.inline)
+{
+	margin-left: auto;
+}
 #other-pixel-clubs a:not(.inline), #coding-resources a:not(.inline), #art-resources a:not(.inline), #other a:not(.inline) {
 	display: block;
 	width: fit-content;

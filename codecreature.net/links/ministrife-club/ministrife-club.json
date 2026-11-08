@@ -1,7 +1,7 @@
 [
-	{"name":"Prax (mine)", "link":"/u/purraxis", "img":"/graphix/prax/prax_ministrife.png"},
-	{"name":"Chirel (mine)", "link":"www.codecreature.net", "img":"/ocs/chirel/images/ministrife.png"},
-	{"name":"Netoma (mine)", "link":"www.codecreature.net", "img":"/ocs/netoma/images/ministrife.png"},
+	{"name":"Prax (mine)", "link":"codecreature.net/u/purraxis", "img":"/graphix/prax/prax_ministrife.png"},
+	{"name":"Chirel (mine)", "link":"codecreature.net", "img":"/ocs/chirel/images/ministrife.png"},
+	{"name":"Netoma (mine)", "link":"codecreature.net", "img":"/ocs/netoma/images/ministrife.png"},
 	{"name":"Haarka", "link":"www.keysklubhouse.com", "img":"haarka.png"},
 	{"name":"Serebi", "link":"honeyedcharlatan.neocities.org", "img":"serebi.png"},
 	{"name":"Lanwei", "link":"honeyedcharlatan.neocities.org/LOCK_KEY/index.html", "img":"lanwei.png"},

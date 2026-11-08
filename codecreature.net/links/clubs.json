@@ -1,5 +1,34 @@
 [
 	{
+		"name":"angelical",
+		"link":"butteroncookies.neocities.org/angelical",
+		"button": "gif",
+		"joined":true,
+		"adopted":[
+			{"img":"prax.gif", "link":"", "alt":"Prax by me"},
+			{"img":"sweetcharm.gif", "link":"sweetcharm.net/.CuteDesktop/Website/cliques/cliques.html", "alt":"sweetcharm"},
+			{"img":"butteroncookies.gif", "link":"butteroncookies.neocities.org/angelical", "alt":"Altair"},
+			{"img":"butteroncookies_2.gif", "link":"butteroncookies.neocities.org/angelical", "alt":"Altair"},
+			{"img":"cr34t0r.png", "link":"cr34t0r.neocities.org/pixelclubs", "alt":"cr34t0r"},
+			{"img":"lunabelle.png", "link":"lunabelle.neocities.org/pixels", "alt":"lunabelle"},
+			{"img":"twinkleribbon.gif", "link":"twinkle-ribbon.neocities.org/angelical", "alt":"Altair"}
+		]
+	},
+	{
+		"name":"together forever",
+		"link":"chaoticgoode.com/cliques/togetherforever",
+		"button": "gif",
+		"joined":true,
+		"adopted":[
+			{"img":"lexicon.gif", "link":"codecreature.net/ocs/lexicon", "alt":"Lexicon by me"},
+			{"img":"chaoticgoode.gif", "link":"chaoticgoode.com/cliques/togetherforever", "alt":"Chaotic Goode", "style":"margin-bottom: -3px;"},
+			{"img":"keepdolling.gif", "link":"https://keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
+			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"yanyan"},
+			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px; text-wrap: nowrap;"},
+			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":"Pixel-Dollz"}
+		]
+	},
+	{
 		"name":"pocket town",
 		"link":"divergentrays.com/pocket",
 		"button": "png",
@@ -73,30 +102,8 @@
 		]
 	},
 	{
-		"name":"together forever",
-		"link":"chaoticgoode.com/cliques/togetherforever",
-		"button": "gif",
-		"joined":true,
-		"adopted":[
-			{"img":"lexicon.gif", "link":"codecreature.net/ocs/lexicon", "alt":"Lexicon (mine)"},
-			{"img":"chaoticgoode.gif", "link":"chaoticgoode.com/cliques/togetherforever", "alt":"Chaotic Goode", "style":"margin-bottom: -3px;"},
-			{"img":"keepdolling.gif", "link":"https://keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
-			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"yanyan"},
-			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px; text-wrap: nowrap;"},
-			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":"Pixel-Dollz"}
-		]
-	},
-	{
 		"name":"RPG club",
 		"link":"sweetcharm.net/.CuteDesktop/Website/RPGClub/",
-		"button": "gif",
-		"joined":false,
-		"adopted":[
-		]
-	},
-	{
-		"name":"angelical",
-		"link":"butteroncookies.neocities.org/angelical",
 		"button": "gif",
 		"joined":false,
 		"adopted":[

@@ -25,7 +25,7 @@
 		<script src="/codefiles/typing-quirks.min.js"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261107" rel="stylesheet" type="text/css" media="all">
 		
 		<script>
 			if (!window.location.hash) window.location.hash = "#clubs";
@@ -98,26 +98,31 @@
 									style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
 									title="<?php echo $i["alt"]; ?>">
 									<img src="/graphix/clubs/<?php echo $n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
-									<div class="tooltip" aria-hidden="true"><?php echo $i["alt"]; ?></div>
+									<div class="tooltip" aria-hidden="true">
+										<?php echo str_contains($i["alt"]," by ") ? $i["alt"] : "by ".$i["alt"]; ?>
+									</div>
 								</a>
 								<?php } ?>
 							</div>
 							<?php
 						}
 						$clubs = json_decode(file_get_contents('clubs.json'),true);
+						function joinedClub($c) {
+							return !isset($c["joined"]) || $c["joined"];
+						}
 						?>
 						
 						<header><h3>pixel cliques</h3></header>
 						<div class="body">
 							<?php include $_SERVER['DOCUMENT_ROOT']."/links/ministrife-club/insert.php"; ?>
-							<?php foreach ($clubs as $club) { if ($club["joined"]) insertPixelClub($club); } ?>
+							<?php foreach ($clubs as $club) { if (joinedClub($club)) insertPixelClub($club); } ?>
 						</div>
 					</section>
 					<section id="clubs-to-join">
 						<header><h3>adoptions only</h3></header>
 						<div class="body">
 							i haven't made my own contributions <u class="tq">2</u> these yet!
-							<?php foreach ($clubs as $club) { if (!$club["joined"]) insertPixelClub($club); } ?>
+							<?php foreach ($clubs as $club) { if (!joinedClub($club)) insertPixelClub($club); } ?>
 						</div>
 					</section>
 					<section id="other-pixel-clubs">
