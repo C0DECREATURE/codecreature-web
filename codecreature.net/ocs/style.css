@@ -26,5 +26,5 @@ h1 {
 	color: var(--purple);
 	background: var(--d-purple);
 }
-.characters .icon { max-width: 150px; max-height: 150px; }
+.characters .icon { width: 150px; aspect-ratio: 1; }
 .characters .name { text-transform: uppercase; }
