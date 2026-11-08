@@ -97,7 +97,7 @@
 									class="wrapper"
 									style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
 									title="<?php echo $i["alt"]; ?>">
-									<img src="/graphix/clubs/<?php echo $n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
+									<img src="<?php echo str_starts_with($i["img"],"/") ? $i["img"] : "/graphix/clubs/".$n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
 									<div class="tooltip" aria-hidden="true">
 										<?php echo str_contains($i["alt"]," by ") ? $i["alt"] : "by ".$i["alt"]; ?>
 									</div>
