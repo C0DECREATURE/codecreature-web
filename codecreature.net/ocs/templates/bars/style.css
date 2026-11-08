@@ -120,7 +120,7 @@ main > * > header {
 #main-image img {
 	pointer-events: none;
 	user-select: none;
-	max-width: 100%; max-height: 100%;
+	max-width: 95%; max-height: 95%;
 }
 @media screen and (max-width: 800px) {
 	#main-image .image-wrapper { height: auto; }
@@ -176,9 +176,13 @@ nav a, nav a:link, nav a:visited, nav button {
 	min-width: 90%;
 	flex-direction: column; gap: 0.5em; align-items: flex-end; 
 	text-align: right;
+	
+	@media screen and (min-width: 800px) { bottom: 100%; }
+	@media screen and (max-width: 800px) {
+		top: calc(100% + 1em);
+		border-top: none;
+	}
 }
-@media screen and (min-width: 800px) { #page-settings-contents { bottom: 100%; } }
-@media screen and (max-width: 800px) { #page-settings-contents { top: 120%; } }
 #page-settings-close-button { display: inline-block; }
 
 /************** ABOUT SECTION **************/

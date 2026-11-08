@@ -22,7 +22,8 @@ function multicolorText($str) {
 		<meta name="author" content="codecreature">
 		
 		<?php // favicon
-		if (!empty($oc["icon"])) { echo '<link rel="icon" type="image/x-icon" href="images/'.$oc["icon"].'">'; }
+		$favicon = !empty($oc["favicon"]) ? $oc["favicon"] : (!empty($oc["icon"]) ? $oc["icon"] : "");
+		if (!empty($favicon)) { echo '<link rel="icon" type="image/x-icon" href="images/'.$favicon.'">'; }
 		?>
 		
 		<base href="<?php echo $oc["path"] ?>" src="<?php echo $oc["path"] ?>">
