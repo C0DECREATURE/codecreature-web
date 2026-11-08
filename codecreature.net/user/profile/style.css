@@ -18,7 +18,7 @@ a:hover { color: var(--purple); }
 .main-container {
 	width: min(100%, 500px);
 	margin: 0 auto;
-	background: var(--l-green);
+	background: var(--white);
 	color: var(--blue);
 	height: 100%;
 	display: flex;
@@ -37,26 +37,6 @@ a:hover { color: var(--purple); }
 	color: var(--white);
 }
 
-.pink {
-	.username-header, .btn-default { background: var(--pink); }
-	.btn-default:hover { background: var(--l-pink); }
-}
-.orange {
-	.username-header, .btn-default { background: var(--d-orange); }
-	.btn-default:hover { background: var(--orange); }
-}
-.green {
-	.username-header, .btn-default { background: var(--d-green); }
-	.btn-default:hover { background: var(--green); }
-}
-.blue {
-	.username-header, .btn-default { background: var(--blue); }
-	.btn-default:hover { background: var(--l-blue); }
-}
-.purple {
-	.username-header, .btn-default { background: var(--purple); }
-	.btn-default:hover { background: var(--l-purple); }
-}
 .username-header #icon {
 	height: 4em;
 	max-width: 4em;
@@ -71,7 +51,8 @@ h1 {
 	margin: 0;
 }
 .username-header { line-height: 1; }
-#pronouns { font-style: italic; }
+.username-header .uid { font-size: .85em; margin-top: .15em; }
+.username-header .pronouns { font-style: italic; }
 
 nav {
 	padding: .5em 0;
@@ -145,4 +126,45 @@ nav {
 		text-decoration: underline;
 	}
 	margin-top: .5em;
+}
+
+/***** scrollbar *****/
+/* Firefox settings */
+* { scrollbar-color: var(--blue) var(--l-green); }
+/***** end scrollbar *****/
+
+.pink {
+	.username-header, nav { background: var(--pink); }
+	.btn-default { background: var(--l-pink); }
+	.btn-default:hover { background: var(--ll-pink); }
+	.username-header .uid { color: var(--white); opacity: .85; }
+	* { scrollbar-color: var(--pink) var(--l-green); }
+}
+.orange {
+	.username-header, nav { background: var(--d-orange); }
+	.btn-default { background: var(--orange); }
+	.btn-default:hover { background: var(--yellow); }
+	.username-header .uid { color: var(--yellow); }
+	* { scrollbar-color: var(--orange) var(--l-green); }
+}
+.green {
+	.username-header, nav { background: var(--d-green); }
+	.btn-default { background: var(--green); }
+	.btn-default:hover { background: var(--l-green); }
+	.username-header .uid { color: var(--l-green); opacity: .9; }
+	* { scrollbar-color: var(--green) var(--l-green); }
+}
+.blue {
+	.username-header, nav { background: var(--blue); }
+	.btn-default { background: var(--l-blue); }
+	.btn-default:hover { background: var(--ll-blue); }
+	.username-header .uid { color: var(--l-blue); }
+	* { scrollbar-color: var(--blue) var(--l-green); }
+}
+.purple {
+	.username-header, nav, nav { background: var(--purple); }
+	.btn-default { background: var(--l-purple); }
+	.btn-default:hover { background: var(--l-pink); }
+	.username-header .uid { color: var(--ll-pink); }
+	* { scrollbar-color: var(--purple) var(--l-green); }
 }

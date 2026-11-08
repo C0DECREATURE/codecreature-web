@@ -68,12 +68,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 				<img id="icon" src="<?php echo $icon; ?>">
 				<div class="text">
 					<h1 id="username"><?php echo $username; ?></h1>
-					<?php if ($auth != "user") { ?>
-						<div class="auth"><?php echo $auth; ?></div>
-					<?php } ?>
 					<?php if (!empty($pronouns)) { ?>
-						<div id="pronouns"><?php echo $pronouns; ?></div>
+						<div id="pronouns" class="pronouns"><?php echo $pronouns; ?></div>
 					<?php } ?>
+					<div class="uid"><?php echo ($auth != "user" ? "$auth, " : "")."user #".$id; ?></div>
 				</div>
 				<?php } ?>
 			</div>
@@ -119,10 +117,10 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		
 		<section class="<?php echo empty($summary) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
+			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();" tabindex="1">✏️</button>' : ''; ?>
 			<div class="text">
 				<?php echo empty($id) ? "Did you make a typo? Check the url!" : (empty($summary) ? "This user hasn't written a summary!" : getPolishedBbcode(htmlspecialchars($summary))); ?>
 			</div>
-			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();">✏️</button>' : ''; ?>
 			<script>
 				function toggleEdit() {
 					document.getElementById('summary').classList.toggle('hidden');
