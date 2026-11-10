@@ -339,6 +339,14 @@
 					<div class="front"><img src="images/books/pokemon_cover.png" alt=""></div>
 				</a>
 				
+				
+				<div id="grandfather-clock" class="container" style="left: 175px; top: 1955px; scale: .850;">
+					<?php require_once $_SERVER["DOCUMENT_ROOT"]."/codefiles/moonphase/moonphase.php"; ?>
+					<img src="images/grandfather_clock/face.png" alt="">
+					<img src="images/grandfather_clock/moondial.png" alt="" style="left: 20.5%; top: 8.3%; z-index: -1;
+						rotate: <?php echo ($MoonPhasePercent/100) * 180; ?>deg">
+				</div>
+				
 				<!----------------- BOTTOM RIGHT ------------------>
 				<!-- GOLD RECTANGLE WINDOW -->
 				<div class="wrapper" style="left: 1536px; top: 1239px;"><div class="window window-80">
