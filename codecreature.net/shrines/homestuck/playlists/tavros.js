@@ -49,7 +49,7 @@ const tavrosPlaylist = {
 		{
 			title: `Fine`,
 			artist: `Mal Blum`,
-			url: 'https://www.youtube.com/watch?v=Cdi9GkkGmec'
+			url: 'https://www.youtube.com/watch?v=bbLukULBTbU'
 		},
 		{
 			title: `Flying`,
