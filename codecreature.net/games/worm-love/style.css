@@ -23,7 +23,7 @@
 }
 .relationship-list, #info, .ship-table, #mail-form, #letter-display, #inbox .box { filter: drop-shadow(3px 5px var(--l-pink)); }
 
-.relationship-list { flex-grow: 1; }
+.relationship-list { width: min(100%,30em); flex-grow: 1; }
 
 /* middle section */
 #middle {
@@ -101,9 +101,14 @@
 .ship-table td:nth-child(6) { background: var(--l-blue); }
 .ship-table td:nth-child(7) { background: var(--l-purple); }
 
-.ship-table img { max-width: 100%; filter: drop-shadow(0 0 2px white) drop-shadow(0 0 4px white); }
+.ship-table .wrapper { filter: drop-shadow(0 0 2px white) drop-shadow(0 0 4px white); }
+
+.ship-table img { max-width: 100%; }
 
 .emoji, .relationship-list img { height: 1em; margin-bottom: -.15em; }
+
+.ship-table .icons-2 img:last-child { max-width: 55%; margin: 0 -6% -9% -22%; }
+.ship-table .icons-2 img:first-child { max-width: 85%; margin: -14% -16% 0 -4%; }
 
 #current {
 	display: flex;

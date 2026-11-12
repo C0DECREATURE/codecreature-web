@@ -196,37 +196,66 @@ require_once "functions.php";
 					</div>
 					
 					<div id="current">
+						<?php
+							function getListRIcons($r) {
+								$icons = [];
+								foreach ($r as $f) { $icons[] = getRelationshipIcon($f); }
+								$rIcons = ""; // display icon
+								foreach ($icons as $icon) $rIcons .= "<img src='$icon' alt=''>";
+								return $rIcons;
+							}
+							function getListName($worm_id) {
+								global $worms;
+								return "<strong>".$worms[$worm_id]["name"]."</strong>";
+							}
+						?>
 						<section class="relationship-list">
 							<header><h2><?php echo $mailboxOpen ? "last year's" : "current" ?> status</h2></header>
 							<h3>mutual</h3>
 							<?php
 								// get the mutual relationships
 								if (count($mutual_relationships) > 0) { foreach ($mutual_relationships as $r) {
-									$icon = getRelationshipIcon($r[2]);
-									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
+									$feeling_name = implode(" ",$r[2]);
+									// get the icon(s) representing the relationship
+									$rIcons = getListRIcons($r[2]);
+									// worm info
+									$w1 = getListName($r[0]);
 									$img1 = getWormIcon($r[0]);
-									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
+									$w2 = getListName($r[1]);
 									$img2 = getWormIcon($r[1]);
-									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["mutual"]));
-									echo "<img src='$img1' alt=''><img src='$icon' alt=''><img src='$img2' alt=''> $rText<br>";
+									// relationship text output
+									$rText = !empty($mutual_relationship_text[$r[2][0]][$r[2][1]]) ?
+															$mutual_relationship_text[$r[2][0]][$r[2][1]]
+															: $mutual_relationship_text[$r[2][1]][$r[2][0]];
+									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$rText));
+									echo "<img src='$img1' alt=''>$rIcons<img src='$img2' alt=''> $rText<br>";
 								} } else echo "none!";
 							?>
 							<h3>one-sided</h3>
 							<?php
 								// get the one-sided relationships
 								if (count($one_sided_relationships) > 0) { foreach ($one_sided_relationships as $r) {
-									$icon = getRelationshipIcon($r[2]);
-									$w1 = "<strong>".$worms[$r[0]]["name"]."</strong>";
+									// get the icon(s) representing the relationship;
+									$rIcons = getListRIcons($r[2]);
+									// worm info
+									$w1 = getListName($r[0]);
 									$img1 = getWormIcon($r[0]);
-									$w2 = "<strong>".$worms[$r[1]]["name"]."</strong>";
+									$w2 = getListName($r[1]);
 									$img2 = getWormIcon($r[1]);
-									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$relationship_types[$r[2]]["one-sided"]));
+									// relationship text output
+									$rText = !empty($one_sided_text[$r[0]]) && !empty($one_sided_text[$r[0]][$r[2][0].",".$r[2][1]]) ?
+															$one_sided_text[$r[0]][$r[2][0].",".$r[2][1]] :
+															(!empty($one_sided_text[$r[2][0]][$r[2][1]]) ?
+																$one_sided_text[$r[2][0]][$r[2][1]]
+																: $one_sided_text[$r[2][1]][$r[2][0]]
+															);
+									$rText = str_replace("worm1",$w1,str_replace("worm2",$w2,$rText));
 									$arrow = "<img src='/graphix/emojis/arrow_right.svg' alt=''>";
-									echo "<img src='$img1' alt=''><img src='$icon' alt=''>$arrow<img src='$img2' alt=''> $rText<br>";
+									echo "<img src='$img1' alt=''>$rIcons$arrow<img src='$img2' alt=''> $rText<br>";
 								} } else echo "none!";
 							?>
 							<h3>internal</h3>
-							<?php
+							<?php /*
 								// get the relationships with themselves
 								if (count($self_relationships) > 0) { foreach ($self_relationships as $r) {
 									$icon = getRelationshipIcon($r[2]);
@@ -237,13 +266,13 @@ require_once "functions.php";
 									$rText = str_replace("worm1",$w1,str_replace("themself",$self_pronoun,str_replace("their",$pos_pronoun,$relationship_types[$r[2]]["self"])));
 									$arrow = "<img src='/graphix/emojis/arrow_right.svg' alt=''>";
 									echo "<img src='$img1' alt=''><img src='$icon' alt=''> $rText<br>";
-								} } else echo "none!";
+								} } else echo "none!"; */
 							?>
 						</section>
 						
 						<section class="ship-table"><table>
 							<tr>
-								<th></th>
+								<th><img class="worm-image" src="/graphix/emojis/arrow_right.svg" alt=""></th>
 								<?php
 								foreach ($worms as $w) {
 									?>
@@ -259,13 +288,17 @@ require_once "functions.php";
 										<th><img class="worm-image" src="/graphix/emojis/worm_<?php echo $w["color"]; ?>.png" alt="<?php echo $w["name"]; ?>"></th>
 										<?php
 										// display the worm's relationships
-										foreach ($feelings[$w["id"]] as $worm => $relationship) {
-											echo "<td>";
-											$icon = getRelationshipIcon($relationship);
-											if (!empty($icon)) {
-												echo "<img src='$icon' alt='$relationship'>";
+										foreach ($feelings[$w["id"]] as $worm => $relationships) {
+											echo "<td class='icons-".count($relationships)."'><div class='wrapper'>";
+											if (gettype($relationships) == "array") {
+												foreach ($relationships as $r) {
+													$icon = getRelationshipIcon($r);
+													if (!empty($icon)) {
+														echo "<img src='$icon' alt='$r'>";
+													}
+												}
 											}
-											echo "</td>";
+											echo "</div></td>";
 										}
 										?>
 									</td>
