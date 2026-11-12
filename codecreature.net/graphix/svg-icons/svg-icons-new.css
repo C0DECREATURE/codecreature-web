@@ -3,7 +3,7 @@ i.svg-icon {
 	height: .9em;
 	margin-bottom: -.05em;
 	display: inline-block;
-	background: black;
+	fill: black;
 }
 
 .svg-icon.i-menu-bars {

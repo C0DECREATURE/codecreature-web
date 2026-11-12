@@ -70,16 +70,20 @@ const defaultSvgIcons = {
 		console.log('loading svg icons');
 		if (!el) el = document.body;
 		el.querySelectorAll('.svg-icon').forEach((i) => {
-			let icon = svgIcons[i.dataset.icon.replaceAll('-','')];
-			// if the data-icon is a valid icon
-			if (icon) {
-				i.innerHTML = icon;
-				// set svg fill and stroke colors to text color
-				i.style.fill = window.getComputedStyle(i).color;
-				i.style.stroke = window.getComputedStyle(i).color;
-				if (window.getComputedStyle(i).fontWeight == 'bold') i.classList.add('svg-icon-bold');
-			} // if the data-icon is not valid
-			else console.error('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
+			if (i.dataset.icon) {
+				let icon = svgIcons[i.dataset.icon.replaceAll('-','')];
+				// if the data-icon is a valid icon
+				if (icon) {
+					i.innerHTML = icon;
+					// set svg fill and stroke colors to text color
+					i.style.fill = window.getComputedStyle(i).color;
+					i.style.stroke = window.getComputedStyle(i).color;
+					if (window.getComputedStyle(i).fontWeight == 'bold') i.classList.add('svg-icon-bold');
+				} // if the data-icon is not valid
+				else console.error('Could not locate svg icon "' + i.dataset.icon + '" in svgIcons');
+			} else {
+				console.log("Missing data-icon property in svg icon with classList = "+i.classList);
+			}
 		});
 		this.loaded = true;
 	},
