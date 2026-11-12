@@ -92,3 +92,10 @@ RewriteRule ^games/worm-race/chat/?$ /chat/worms/index.php
 
 # redirect /preview /preview/ or /preview.html to that preview's parent directory
 RewriteRule ^(.*)/preview(\.html)?/? /$1/ [R=301,L]
+
+# /games/fan-worms redirects
+RewriteRule ^fan-worms/?(.*) /games/worm-race/npcs/$1
+RewriteRule ^/games/worm-race/npcs/worm/([0-9]*)/image/([0-9*]) /games/worm-race/npcs/edit-image.php?id=$1&imageId=$2
+RewriteRule ^/games/worm-race/npcs/worm/([0-9]*)/edit /games/worm-race/npcs/edit.php?id=$1
+RewriteRule ^/games/worm-race/npcs/new /games/worm-race/npcs/edit.php
+RewriteRule ^/games/worm-race/npcs/worm/([0-9]*) /games/worm-race/npcs/profile.php/?id=$1

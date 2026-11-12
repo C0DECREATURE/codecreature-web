@@ -1,0 +1,27 @@
+#content {
+	align-items: flex-start;
+}
+
+#fan-worms {
+	width: min(90%, 900px);
+	max-width: initial;
+	margin-bottom: 1.5rem;
+}
+
+#fan-worms a, #fan-worms a:link, #fan-worms a:visited { color: var(--d-blue); }
+#fan-worms a:hover { color: var(--purple); }
+
+.worm-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1em;
+	padding: 1em;
+}
+.worm-container .worm {
+	width: min(100%,max(150px,min(300px,30%)));
+	aspect-ratio: 1;
+	text-align: center;
+	align-content: center;
+}
+.worm-container .worm a, .worm-container .worm img { max-width: 100%; max-height: 100%; aspect-ratio: 1; }

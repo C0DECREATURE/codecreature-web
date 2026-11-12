@@ -1,0 +1,19 @@
+.gallery {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.gallery > .wrapper {
+	width: min(100%,150px);
+	aspect-ratio: 1;
+	position: relative;
+	border-radius: 10%;
+	overflow: hidden;
+}
+.gallery img {
+	position: absolute;
+	width: 100%;
+	left: 0; top: 0;
+}

@@ -1,0 +1,102 @@
+#content {
+	align-items: flex-start;
+	padding-bottom: 1em;
+}
+
+.forms-wrapper {
+	width: 100%;
+	text-align: center;
+}
+#info-form, #image-form {
+	display: flex;
+	flex-direction: column;
+	gap: .25em;
+}
+form .form-section {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .25em;
+}
+form .form-section input[type=text] {
+	flex-grow: 1;
+}
+form .form-section .error {
+	color: var(--red);
+	width: 100%;
+	font-size: .85em;
+	font-style: italic;
+}
+
+form .buttons {
+	margin-top: .5em;
+	display: flex; flex-wrap: wrap;
+}
+form .buttons > * {
+	flex-grow: 1;
+}
+
+.forms-wrapper h3, .forms-wrapper h4 {
+	margin-bottom: 0;
+	margin-top: .5em;
+	padding: .3em .5em .2em .5em;
+	border-radius: 1em 1em 0 0;
+	background: var(--dd-blue);
+	color: var(--white);
+}
+.forms-wrapper h3:first-child, .forms-wrapper h4:first-child { margin-top: 0; }
+.forms-wrapper h3 { font-family: "Super Comic", "Yet R", sans-serif; }
+
+input[type=text] {
+	font-family: inherit;
+	color: var(--d-blue);
+	border: 1px var(--blue) solid;
+	border-radius: 5px;
+}
+input[type=text]:focus {
+	background-color: rgba(var(--l-blue-rgb),.2);
+	border-color: var(--d-blue);
+	outline: 2px var(--d-blue) solid;
+}
+
+.gallery {
+	gap: .5em;
+	margin-top: .5em;
+}
+.gallery .wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 2%;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	position: relative;
+}
+.gallery .empty {
+	background: var(--blue);
+	color: var(--white);
+	font-size: 2rem;
+	aspect-ratio: 1;
+	user-select: none;
+}
+.gallery .empty:hover {
+	background: var(--d-blue);
+}
+.gallery .wrapper img {
+	position: absolute;
+	top: 0; left: 0;
+	pointer-events: none;
+}
+.gallery .wrapper .button {
+	display: block;
+	background: var(--green);
+	color: var(--dd-green);
+	padding: .2em .5em;
+	font-size: 1.5em;
+  border-radius: .4em;
+	z-index: 1;
+}
+.gallery .wrapper .button.delete { background: var(--red); color: var(--white); display: none; /*DEBUG: hide until functioning*/ }
+/* if device is capable of hovering, hide gallery image buttons until hover */
+@media (hover: hover) {
+	.gallery .wrapper:not(:hover) .button:not(:focus-visible) { opacity: 0; }
+}
