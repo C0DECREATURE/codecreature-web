@@ -18,11 +18,11 @@
 		<base src="<?php echo $baseLink; ?>" href="<?php echo $baseLink; ?>">
 		
 <?php
+// include string validation limits and regex
+require_once "regex.php";
+
 // load the worm data into $worm
 require_once "get-worm.php";
-
-$image_formats = ["png","gif","jpg","webp"];
-$image_regex = "/(.*)\.(".implode("|",$image_formats).")\/?$/i";
 
 $link_err = $username_err = "";
 $artist_id = "";
@@ -30,7 +30,9 @@ $artist_id = "";
 if($_SERVER["REQUEST_METHOD"] == "POST" && $worm["canEdit"]){
 	// check for image link errors
 	if (empty($_POST["imageLink"])) $link_err = "Must submit an image link.";
-	else if (!preg_match($image_regex,$_POST["imageLink"])) {
+	else if (!preg_match("/$link_protocol_regex/",$_POST["imageLink"])) $link_err = "Link must start with http:// or https://";
+	else if (!preg_match("/$link_regex/",$_POST["imageLink"])) $link_err = "Invalid link url.";
+	else if (!preg_match("/$image_regex/i",$_POST["imageLink"])) {
 		$link_err = "Image link must end with one of the following: ".implode(", ",$image_formats);
 	}
 	// check for username errors

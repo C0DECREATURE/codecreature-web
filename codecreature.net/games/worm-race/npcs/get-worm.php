@@ -1,5 +1,8 @@
 <?php
 
+// maximum worms per user
+$max_worms = 3;
+
 $worm_id = !empty($_GET["id"]) ? (int)$_GET["id"] : NULL;
 $worm = [];
 
@@ -14,14 +17,31 @@ if (!empty($worm_id)) {
 	if (!empty($worm)) {
 		$worm["gallery"] = empty($worm["gallery"]) ? [] : json_decode($worm["gallery"],true);
 		$worm["ownerName"] = getUsername($worm["owner"]);
-
-		$worm["canEdit"] = (isset($_SESSION["id"]) && $_SESSION["id"] == $worm["owner"]) || (isset($_SESSION["id"]) && getAuthorization($_SESSION["id"]) == "admin");
+		
+		if (!isset($_SESSION["id"])) $edit_err = "<a href='/user'>Log in</a> and try again.";
+		else if (getAuthorization($_SESSION["id"]) == "admin") $worm["canEdit"] = true;
+		else if ($_SESSION["id"] != $worm["owner"]) $edit_err = "This worm doesn't belong to you.";
+		else $worm["canEdit"] = true;
 	}
 }
 // if worm data wasn't loaded, load an empty worm
 if (empty($worm)) {
 	$worm = ["id"=>NULL, "name"=>NULL, "icon"=>NULL, "length"=>NULL, "likes"=>NULL, "color"=>NULL, "text_color"=>NULL, "website"=>NULL];
-	$worm["canEdit"] = isset($_SESSION["id"]) && !empty(getUsername($_SESSION["id"]));
+	
+	// check if user can edit
+	$worm["canEdit"] = false;
+	if (!isset($_SESSION["id"])) $edit_err = "<a href='/user'>Log in</a> and try again.";
+	// if logged in
+	else if (!empty(getUsername($_SESSION["id"]))) {
+		// make sure user doesn't have too many worms
+		$uid = (int)$_SESSION["id"];
+		$sql = "SELECT id FROM fan_worms WHERE owner = $uid ;";
+		if ($result = mysqli_query($worm_conn, $sql)) {
+			$rowcount = mysqli_num_rows( $result );
+			if ($rowcount < $max_worms) $worm["canEdit"] = true;
+			else $edit_err = "Limit of $max_worms fan worms per account at this time.";
+		}
+	}
 }
 
 function setCssColor($name,$color) {

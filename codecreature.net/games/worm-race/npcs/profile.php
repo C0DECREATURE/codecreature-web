@@ -138,7 +138,7 @@
 								<i class="svg-icon i-caret-left"></i> <span>back</span>
 							</a>
 						</div>
-						<?php if (!empty($worm["id"]) && $worm["canEdit"]) { ?>
+						<?php if (!empty($worm["id"]) && !empty($worm["canEdit"]) && $worm["canEdit"]) { ?>
 						<div class="wrapper">
 							<a href="/fan-worms/worm/<?php echo $worm["id"]; ?>/edit">
 								<span>edit</span> <i class="svg-icon i-caret-right"></i>

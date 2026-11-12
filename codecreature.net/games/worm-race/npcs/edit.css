@@ -20,12 +20,13 @@ form .form-section {
 form .form-section input[type=text] {
 	flex-grow: 1;
 }
-form .form-section .error {
-	color: var(--red);
+form .error, form .success {
 	width: 100%;
 	font-size: .85em;
 	font-style: italic;
 }
+form .error { color: var(--red); }
+form .success { color: var(--d-green); }
 
 form .buttons {
 	margin-top: .5em;
@@ -100,3 +101,6 @@ input[type=text]:focus {
 @media (hover: hover) {
 	.gallery .wrapper:not(:hover) .button:not(:focus-visible) { opacity: 0; }
 }
+
+a, a:link, a:visited { color: var(--d-blue); }
+a:hover { color: var(--purple); }

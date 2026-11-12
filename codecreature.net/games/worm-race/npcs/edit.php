@@ -8,21 +8,6 @@
 	require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
 	// include get username by id function
 	require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
-	
-	$image_formats = ["png","gif","jpg","webp"];
-	$image_regex = "(.*)\.(".implode("|",$image_formats).")\/?$";
-	
-	// character limits
-	$name_limit = 15;
-	$link_limit = 150;
-	$length_limit = 4;
-	$likes_limit = 50;
-	$color_limit = 25;
-	// regex validation
-	$name_regex = "[ 0-9A-Za-z\-]+";
-	$length_regex = "[0-9\.]+";
-	$color_regex = "#[0-9A-Za-z]{6}|#[0-9A-Za-z]{3}|rgba?\([0-9]+, ?[0-9]+, ?[0-9]+(, ?[0-9\.]+)?\)";
-	$link_regex = "^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,63}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$";
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,13 +18,16 @@
 		<base src="<?php echo $baseLink; ?>" href="<?php echo $baseLink; ?>">
 		
 		<?php
+		// include string validation limits and regex
+		require_once "regex.php";
+		
+		$icon_err = $name_err = $length_err = $likes_err = $color_err = $text_color_err = $website_err = $update_err = $edit_err = $update_success = "";
+
 		$worm = [];
 		// load the worm data into $worm
 		include "get-worm.php";
 	
 		$wormLink = "/fan-worms/worm/".$worm["id"]."/";
-		
-		$icon_err = $name_err = $length_err = $likes_err = $color_err = $text_color_err = $website_err = "";
 		// proces when form is submitted
 		if($_SERVER["REQUEST_METHOD"] == "POST" && $worm["canEdit"]){
 			// validate worm name
@@ -54,48 +42,48 @@
 			if (empty($_POST["icon"])) $icon_err = "Must submit an image link.";
 			else {
 				$icon = trim($_POST["icon"]);
-				if (!str_starts_with($icon,"http")) $icon_err = "Must start with http:// or https://";
+				if (!preg_match("/$link_protocol_regex/",$icon)) $icon_err = "Must start with http:// or https://";
 				else if (!preg_match("/$link_regex/",$icon)) $icon_err = "Invalid link url.";
 				else if (!preg_match("/$image_regex/i",$icon)) $icon_err = "Image link must end with one of these: ".implode(", ",$image_formats);
 				else if (strlen($icon) > $link_limit) $icon_err = "Must be under $link_limit characters long.";
-				else $worm["icon"] = $icon;
+				$worm["icon"] = $icon;
 			}
 			// validate worm length
 			if (!empty($_POST["length"])) {
 				$length = trim($_POST["length"]);
 				if (strlen($length) > $length_limit) $length_err = "Must be less than $name_limit characters.";
 				else if (!preg_match("/$length_regex/",$length)) $length_err = "May only contain numbers and periods.";
-				else $worm["length"] = $length;
+				$worm["length"] = $length;
 			}
 			// validate worm likes
 			if (!empty($_POST["likes"])) {
 				$likes = trim($_POST["likes"]);
 				if (strlen($length) > $length_limit) $likeserr = "Must be under $name_limit numbers long.";
-				else $worm["likes"] = htmlspecialchars($likes);
+				$worm["likes"] = htmlspecialchars($likes);
 			}
 			// validate main color
 			if (!empty($_POST["color"])) {
 				$color = trim($_POST["color"]);
 				if (strlen($color) > $color_limit) $color_err = "Must be under $color_limit characters.";
 				else if (!preg_match("/$color_regex/",$color)) $color_err = "Must be a valid rgb or hexadecimal color.";
-				else $worm["color"] = $color;
+				$worm["color"] = $color;
 			}
 			// validate text color
 			if (!empty($_POST["textColor"])) {
 				$color = trim($_POST["textColor"]);
 				if (strlen($color) > $color_limit) $text_color_err = "Must be under $color_limit characters.";
 				else if (!preg_match("/$color_regex/",$color)) $text_color_err = "Must be a valid rgb or hexadecimal color.";
-				else $worm["text_color"] = $color;
+				$worm["text_color"] = $color;
 			}
 			// validate worm site link
 			if (!empty($_POST["website"])) {
 				$website = trim($_POST["website"]);
 				if (strlen($website) > $link_limit) $website_err = "Must be less than $name_limit characters long.";
 				else if (!preg_match("/$link_regex/",$website)) {
-					if (!str_starts_with($website,"http")) $website_err = "Must start with http:// or https://";
+					if (!preg_match("/$link_protocol_regex/",$website)) $website_err = "Must start with http:// or https://";
 					else $website_err = "Invalid url link.";
 				}
-				else $worm["website"] = $website;
+				$worm["website"] = $website;
 			}
 			// if no errors, update worm
 			if (empty($icon_err) && empty($name_err) && empty($length_err) && empty($likes_err) && empty($color_err) && empty($text_color_err)) {
@@ -105,7 +93,8 @@
 				if($stmt = mysqli_prepare($worm_conn, $sql)){
 					mysqli_stmt_bind_param($stmt, "iisssssss", $worm["id"], $_SESSION["id"], $worm["name"], $worm["icon"], $worm["length"],
 																						$worm["likes"], $worm["color"], $worm["text_color"], $worm["link"]);
-					if(!mysqli_stmt_execute($stmt)) echo "Oops! Something went wrong. Please try again later.";
+					if(!mysqli_stmt_execute($stmt)) $update_err = "Something went wrong. Please try again later.";
+					else $update_success = "Updated worm!";
 					mysqli_stmt_close($stmt);
 				}
 			}
@@ -120,10 +109,9 @@
 						$row = mysqli_fetch_assoc($result);
 						$_GET["id"] = $row["id"];
 						include "get-worm.php";
-					} else echo "Something went wrong. Please try again later.";
+					} else $update_err = "Something went wrong. Please try again later.";
 					mysqli_stmt_close($stmt);
 				}
-				//include "get-worm.php";
 			}
 		}
 		?>
@@ -258,6 +246,8 @@
 								>back</a>
 								<button class="btn" type="submit"><?php echo empty($worm["id"]) ? "post" : "update"; ?></button>
 							</div>
+							<?php echo !empty($update_success) ? "<div class='success'>$update_success</div>" : "" ; ?>
+							<?php echo !empty($update_err) ? "<div class='error'>$update_err</div>" : "" ; ?>
 						</form>
 						
 						<?php if (!empty($worm["id"])) { ?>
@@ -293,7 +283,7 @@
 						<?php } else { // if not canEdit ?>
 						<div class="unauthorized">
 							<p>You don't have permission to <?php echo empty($worm["id"]) ? "post a worm!" : "edit this worm!"; ?>
-							<?php if (empty($_SESSION["id"])) { echo "<br><a href='/user'>Log in</a> and try again."; } ?>
+							<?php echo !empty($edit_err) ? "<br>$edit_err" : ""; ?>
 							</p>
 							<p><a class="btn" href="<?php echo !empty($worm["id"]) ? $wormLink : "/fan-worms"; ?>">back</a></p>
 						</div>
