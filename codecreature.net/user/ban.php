@@ -77,7 +77,6 @@ if (empty($error)) {
 			$sql = "INSERT INTO ban_list
 									( reporter_id, user_id, reason, expiration $activity_cols )
 							VALUES ( ? , ? , ? , ? $activity_vals );";
-			echo "<br>$sql";
 			if($stmt = mysqli_prepare($users_conn, $sql)){
 				mysqli_stmt_bind_param($stmt, "iisi", $_SESSION["id"], $ban_user_id, $ban_reason, $ban_expiration);
 				if(!mysqli_stmt_execute($stmt)){ $error = "User ban execution failed. Please try again later."; }
