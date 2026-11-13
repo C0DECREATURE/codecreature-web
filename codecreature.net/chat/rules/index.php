@@ -24,11 +24,11 @@
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260629" id="svg-icons-js"></script>
 		
 		<!--base stylesheet-->
-		<link href="/style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
+		<link href="/style.css?fileversion=20261112" rel="stylesheet" type="text/css" media="all">
 		<!--chatbox stylesheet-->
-		<link href="../chat.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
+		<link href="../chat.css?fileversion=20261112" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261112" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="chatbox">
 	
@@ -110,7 +110,7 @@
 			</ol>
 			
 			<h2>Consequences</h2>
-			<p>For reasonable mistakes, you'll get a warning in chat and/or via email. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned.</p>
+			<p>For reasonable mistakes, you'll get a warning in chat and/or via email. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned temporarily <strong>or</strong> permanently.</p>
 			<p>If enough bad behavior is coming from the same IP address, you may receive a blanket IP ban.</p>
 			<p>Don't make me do this lol.</p>
 			
