@@ -1,10 +1,16 @@
 body {
 	background: var(--black);
+	color: var(--l-blue);
 }
+a, a:link, a:visited {  }
+
+h1 { color: var(--yellow); }
 
 .invalid-feedback, .alert-danger {
 	color: var(--red);
 }
+.invalid-feedback a, .alert-danger a { color: var(--orange); }
+.invalid-feedback a:hover, .alert-danger a:hover { color: var(--yellow); }
 
 .invalid-feedback {
 	font-style: italic;

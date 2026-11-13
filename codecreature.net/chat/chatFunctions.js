@@ -265,10 +265,9 @@ function reportMessage(id) {
 
 
 // report message with given id
-function banMessageAuthor(id,reason,duration,includeIP) {
-	console.log('Banning author of message #' + id + '...'); // DEBUG temp
-	
-	if (typeof reason == "undefined") { reason = "None given." }
+function banMessageAuthor(props) {
+	if (typeof props["ban-reason"] == "undefined") { props["ban-reason"] = "Unspecified." }
+	props["chat-table"] = chatTableName;
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", "/chat/ban-message.php", true);
@@ -281,8 +280,9 @@ function banMessageAuthor(id,reason,duration,includeIP) {
 			else alert('Error: No response. Try again later.');
 		}
 	};
+	params = new URLSearchParams(props).toString();
 	// send the variables
-	xhr.send(`message-id=${id}&chat-table=${chatTableName}&ban-reason=${reason}&ban-duration=${duration}&include-IP=${includeIP}`);
+	xhr.send(params);
 }
 
 function refreshMessage(id) {

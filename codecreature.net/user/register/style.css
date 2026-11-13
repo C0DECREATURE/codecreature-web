@@ -1,3 +1,8 @@
 .warning {
 	color: var(--red);
 }
+
+.ban-info {
+	margin-top: 1em;
+}
+.accent { color: var(--yellow); font-weight: bold; }

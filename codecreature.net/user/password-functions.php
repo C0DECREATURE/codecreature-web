@@ -9,10 +9,12 @@ $password_length = 8;
 
 // gets the password error for the given password
 // if password passes validation, return empty string
-function getPasswordErr($p) {
+function getPasswordErr($p,$username="",$email="") {
 	global $password_length;
 	// Error to display if password validation fails
 	$password_err = "";
+	// get just the first part of email
+	$email = substr($email,0,strpos($email,"@"));
 	// Validate password
 	if ( empty(trim($p)) ) {
 		$password_err = "Please enter a password.";     
@@ -22,10 +24,16 @@ function getPasswordErr($p) {
 		$password_err = "Password must contain at least one number.";
 	} elseif ( !preg_match('/(?=.*[a-zA-Z]).+/', trim($p)) ) {
 		$password_err = "Password must contain at least one letter.";
+	} elseif ( !empty($username) && str_contains(trim($p),$username) ) {
+		$password_err = "Password may not contain your username.";
+	} elseif ( !empty($email) && str_contains(trim($p),$email) ) {
+		$password_err = "Password may not contain your email.";
 	} elseif(preg_match('/(.)\1{3}/', trim($p))){
-		$password_err = "Password may not have more than 3 repeating characters.";
-	} elseif ( preg_match('/(?=.*(?=(\w+)\1{2}|p[a@*][s\$][s\$]|w[o0*]rd|user|login|access|qwerty|q2w3e|uiop|asdf|monkey|letmein|dragon|hello|batman|shadow|loveme|lovely|mynoob|donald|charlie|ashley|hottie|flower|abc|xyz|012|123|345|456|567|678|789|890|1122|2233|4455|5566|6677|8899|9900)).+/i', trim($p)) ) {
-		$password_err = "Please choose a less common password.";
+		$password_err = "Password may not have more than 3 repeating characters in a row.";
+	} elseif ( preg_match('/123qwe|qwerty|uiop|asdf|zxcv|!@#$%^|abc123|123abc|abc|wxyz|123|2345|3456|4567|5678|6789|7890|112233|223344|445566|556677|667788|778899|qazwsx|zaq1zaq1|1qaz2wsx|3rjs1la|18atcskd/i', trim($p)) ) {
+		$password_err = "Password may not contain patterns like 123, abc, or qwerty";
+	} elseif ( preg_match('/p[a@*][s\$][s\$]|^.?.?.?.?(pass@123|q2w3e|iloveyou|loveme|access|hello|login|letmein|princess|mynoob|monkey|shadow|charlie|football|starwars|trustno1|superman|welcome|sunshine|freedom|whatever|baseball|mustang|michael|ashley|bailey|master|c[o0*]d[e3]cr[e3][a4]tur[e3]|w[o0]rmr[a4]c[e3]|microplastics|matilda|jeremy|pretzel|poolnoodle|stringcheese).?.?.?.?$/i', trim($p)) ) {
+		$password_err = "Contains a <a href='https://en.wikipedia.org/wiki/List_of_the_most_common_passwords' target='_blank'>common</a> or easily guessed word. Please choose something else.";
 	}
 	return $password_err;
 }

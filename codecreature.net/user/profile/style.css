@@ -129,6 +129,15 @@ nav {
 	margin-top: .5em;
 }
 
+#edit-summary-form .edit-ban {
+	text-align: center;
+	padding: 0 1em;
+}
+#edit-summary-form .edit-ban .label {
+	font-weight: bold;
+	color: var(--d-blue);
+}
+
 /***** scrollbar *****/
 /* Firefox settings */
 * { scrollbar-color: var(--blue) var(--l-green); }

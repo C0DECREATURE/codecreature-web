@@ -325,38 +325,46 @@ function isBannedUser($id) {
 function getBanInfo($type, $value) {
 	global $users_conn;
 	
-	// delete expired bans from the table
-	$del_sql = "DELETE FROM ban_list WHERE expiration <= ". time() .";";
+	// delete expired bans older than 180 days
+	$del_sql = "DELETE FROM ban_list WHERE expiration <= ". (time() - 15552000) .";";
 	if (mysqli_query($users_conn, $del_sql)) {}
 	
-	$banInfo = $highest_expiration = $highest_reason = "";
+	$banInfo = [];
+	$highest_expiration = $top_row = "";
 	
-	// get expiration date of any ban list rows for given user ID
-	$sql = "SELECT expiration, reason FROM ban_list WHERE $type = ? ;";
+	// get expiration date of any ban list rows for given user & type
+	$sql = "SELECT expiration, reason, anon_only, new_account, chat, custom_content, games FROM ban_list WHERE $type = ? ;";
 	if($stmt = mysqli_prepare($users_conn, $sql)){
 		$param_type = $type == "user_id" ? "i" : "s";
 		mysqli_stmt_bind_param($stmt, $param_type, $value);
 		
 		if(mysqli_stmt_execute($stmt)){
-			mysqli_stmt_bind_result($stmt, $expiration, $reason);
-			while (mysqli_stmt_fetch($stmt)) {
-				// if ban expires in the future or has no expiration, this IP is banned
-				if (empty($expiration)) {
+			$result = mysqli_stmt_get_result($stmt); // get the mysqli result
+			while ($row = mysqli_fetch_assoc($result)) {
+				// if ban expires in the future or has no expiration, user is banned
+				if (empty($row["expiration"])) {
 					$highest_expiration = "forever";
-					$highest_reason = $reason;
+					$top_row = $row;
 					break;
-				} else if ($expiration > time() && $expiration > $highest_expiration) {
-					$highest_expiration = $expiration;
-					$highest_reason = $reason;
+				} else if ($row["expiration"] > time() && $row["expiration"] > $highest_expiration) {
+					$highest_expiration = $row["expiration"];
+					$top_row = $row;
 				}
 			}
 		}
 		mysqli_stmt_close($stmt);
 	}
 	if (!empty($highest_expiration)) {
-		$banInfo = [];
 		$banInfo["type_text"] = $type == "user_id" ? "account" : "IP address";
-		$banInfo["reason"] = $highest_reason;
+		$banInfo["reason"] = $top_row["reason"];
+		$banInfo["anon_only"] = $top_row["anon_only"];
+		// get booleans for activities the user is banned from
+		$banInfo["activities"] = [
+			"new_account"=>$top_row["new_account"],
+			"chat"=>$top_row["chat"],
+			"custom_content"=>$top_row["custom_content"],
+			"games"=>$top_row["games"],
+		];
 		// get text describing ban duration
 		if ($highest_expiration == "forever") { $banInfo["expire_text"] = "forever";
 		} else {
@@ -370,7 +378,7 @@ function getBanInfo($type, $value) {
 			$banInfo["expire_text"] = "$time $time_unit";
 		}
 	}
-	return $banInfo;
+	return !empty($banInfo) ? $banInfo : NULL;
 	
 }
 

@@ -41,14 +41,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	date_default_timezone_set('America/New_York'); // EST
 	$date = time();
 	
-	// if user is logged in, check if they're banned
 	$ban = "";
-	if ($logged_in) { $ban = getBanInfo("user_id",$user_id); 
-	// if user is logged out, check if IP is banned
-	} else if (!$logged_in) { $ban = getBanInfo("IP_address",$user_IP); }
+	// check for IP ban
+	$ban = getBanInfo("IP_address",$user_IP);
+	// if user is logged in, check if they're banned
+	if ($logged_in) {
+		// if an anon-only IP ban was detected, clear it
+		if (!empty($ban) && $ban["anon_only"]) $ban = "";
+		$user_ban = getBanInfo("user_id",$user_id);
+		if (!empty($user_ban)) $ban = $user_ban;
+	}
+	
 	// if user is banned, send error message
-	if (!empty($ban)) {
-		$error_text = "Your ". $ban["type_text"] ." is banned from sending messages."
+	if (!empty($ban) && $ban["activities"]["chat"] == true) {
+		if ($ban["anon_only"]) $error_text = "Anonymous users from your IP address are";
+		else if ($logged_in && !$ban["anon_only"]) $error_text = "Your IP address is";
+		else $error_text = "Your ".$ban["type_text"]." is";
+		
+		$error_text .= " banned from sending messages."
 			."\nTime remaining: ". $ban["expire_text"]
 			."\nReason: ". $ban["reason"] .
 			"\n\nEmail admin@codecreature.net if you believe this is an error.";

@@ -5,6 +5,8 @@ require_once "../connect.php";
 require_once "../password-functions.php";
 // Include username functions file
 require_once "../username-functions.php";
+// Include user database functions
+require_once "../database.php";
 
 // Initialize the session
 session_start();
@@ -18,10 +20,12 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 // Define variables and initialize with empty values
 $email = "";
 $email_err = "";
- 
+
+// check for IP ban
+$ban = getBanInfo("IP_address",$_SERVER['REMOTE_ADDR']);
+$canMakeAccount = empty($ban) || empty($ban["new_account"]) || $ban["new_account"] != true;
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-		
+if($_SERVER["REQUEST_METHOD"] == "POST" && $canMakeAccount){
 		// Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter an email.";
@@ -90,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 		
     // Validate password
-	$password_err = getPasswordErr(trim($_POST["password"]));
+	$password_err = getPasswordErr(trim($_POST["password"]),trim($_POST["username"]),trim($_POST["email"]));
 	if(empty($password_err)) { $password = trim($_POST["password"]); }
     
     // Validate confirm password
@@ -167,24 +171,35 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
 </head>
 <body>
 	<main>
 		<header>
 			<h1>Sign Up</h1>
 		</header>
+		<?php // if banned, send error message
+		if (!$canMakeAccount) { ?>
+			<p>Signing up is blocked from your IP address.</p>
+			<div class="ban-info">
+				<div><span class="accent">Time remaining:</span> <?php echo $ban["expire_text"]; ?></div>
+				<div><span class="accent">Reason:</span> <?php echo $ban["reason"]; ?></div>
+			</div>
+			<p>Email <a href="mailto:admin@codecreature.net">admin@codecreature.net</a> if you believe this is an error.</p>
+			<p class="accent">Already have an account? <a href="../login/">Log in here</a>.</p>
+		<?php } else { ?>
 		<p>
-			Complete this form to create an account!
+			<span class="accent">Complete this form to create an account!</span>
+			<br>Already have an account? <a href="../login/">Log in here</a>.
 		</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="form-group">
-				<label for="email">email: </label>
+				<label for="email" class="accent">email: </label>
 				<input type="email" id="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
 				<span class="invalid-feedback"><?php echo $email_err; ?></span>
 			</div>
 			<div class="form-group">
-				<label for="username">username: </label>
+				<label for="username" class="accent">username: </label>
 				<input
 					type="text"
 					id="username" name="username"
@@ -194,9 +209,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					value="<?php echo $new_username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
 			</div>
-			<span class="txt-orange">Please choose a password you don't use on other sites!</span>
+			<span>For your safety, choose a password you don't use on other sites!</span>
 			<div class="form-group">
-				<label for="password">password: </label>
+				<label for="password" class="accent">password: </label>
 				<input
 					type="password"
 					id="password" name="password"
@@ -206,7 +221,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<span class="invalid-feedback"><?php echo $password_err; ?></span>
 			</div>
 			<div class="form-group">
-				<label for="confirm_password">confirm password: </label>
+				<label for="confirm_password" class="accent">confirm password: </label>
 				<input
 					type="password"
 					id="confirm_password" name="confirm_password"
@@ -221,13 +236,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 			</div>
 			<div class="form-group">
 				<input type="checkbox" id="accept_rules" name="accept_rules" class="form-control" required>
-				<label for="accept_rules">I have read and understood the <a href="/chat/rules">chat rules</a>.</label>
+				<label for="accept_rules">I have read and understood the <a href="/chat/rules" target="_blank">chat rules</a>.</label>
 			</div>
 			<div class="form-group">
 				<input type="submit" class="btn btn-green" value="Submit">
 			</div>
-			<p>Already have an account? <a href="../login/">Login here</a>.</p>
 		</form>
+		<?php } ?>
+		<p><a href="/home"><< return home</a></p>
 	</main>    
 </body>
 </html>

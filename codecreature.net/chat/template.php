@@ -65,7 +65,7 @@ $user_auth = getAuthorization($user_id);
 			window.top.postMessage(`{"type":"newChatroom","name":"${chatroomName}"}`, '*');
 		</script>
     <script src="/chat/liveChat.js?fileversion=20261011"></script>
-    <script src="/chat/chatFunctions.js?fileversion=20261019"></script>
+    <script src="/chat/chatFunctions.js?fileversion=20261113"></script>
 		
 		<base target="_top">
 </head>
@@ -233,11 +233,58 @@ $user_auth = getAuthorization($user_id);
 				<div class="content">
 					<div class="form-section">
 						Reason:
-						<input type="text" id="ban-reason" name="reason" maxlength="100" placeholder="Type a short explanation"></input>
+						<input type="text" id="ban-reason" name="ban-reason" maxlength="100" placeholder="Type a short explanation"></input>
 					</div>
 					<div class="form-section" id="ban-IP-section">
 						<input type="checkbox" id="ban-IP" name="include-IP"></input>
-						<label for="ban-IP">Also ban anonymous users from this address</label>
+						<label for="ban-IP">Include IP address in ban</label>
+						<script>
+							(()=>{
+								let input = document.getElementById("ban-IP");
+								input.addEventListener("change",(e)=>{
+									if (!input.checked) document.getElementById("ban-new-account").checked = false;
+								});
+							})();
+						</script>
+					</div>
+					<div class="form-section" id="ban-anon-only-section">
+						<input type="checkbox" id="ban-anon-only" name="not-ban-anon-only"></input>
+						<label for="ban-anon-only">Ban logged in users from this address</label>
+						<script>
+							(()=>{
+								let input = document.getElementById("ban-anon-only");
+								input.addEventListener("change",(e)=>{
+									if (input.checked) document.getElementById("ban-IP").checked = true;
+								});
+							})();
+						</script>
+					</div>
+					<div class="form-section">
+						Include in ban:
+						<div>
+							<input type="checkbox" name="ban-chat" id="ban-chat" checked></input>
+							<label for="ban-chat">Chat messages</label>
+						</div>
+						<div>
+							<input type="checkbox" name="ban-custom-content" id="ban-custom-content"></input>
+							<label for="ban-custom-content">Custom content (e.g. profiles)</label>
+						</div>
+						<div>
+							<input type="checkbox" name="ban-games" id="ban-multiplayer"></input>
+							<label for="ban-multiplayer">Multiplayer gameplay</label>
+						</div>
+						<div>
+							<input type="checkbox" name="ban-new-account" id="ban-new-account"></input>
+							<label for="ban-new-account">Making new accounts</label>
+							<script>
+								(()=>{
+									let input = document.getElementById("ban-new-account");
+									input.addEventListener("change",(e)=>{
+										if (input.checked) document.getElementById("ban-IP").checked = true;
+									});
+								})();
+							</script>
+						</div>
 					</div>
 					<div class="form-section">
 						Ban Duration:
@@ -271,8 +318,11 @@ $user_auth = getAuthorization($user_id);
 					
 					form.showPopover();
 					form.dataset.messageId = messageId;
-					if (msgEl.dataset.uid == "0") { document.getElementById('ban-IP-section').classList.add('hidden');
-					} else { document.getElementById('ban-IP-section').classList.remove('hidden'); }
+					if (msgEl.dataset.uid == "0") {
+						document.getElementById('ban-IP-section').classList.add('hidden');
+					} else {
+						document.getElementById('ban-IP-section').classList.remove('hidden');
+					}
 					form.reset();
 					// put username in menu
 					form.querySelector('.name').innerHTML = msgEl.querySelector(".username").innerHTML;
@@ -287,8 +337,8 @@ $user_auth = getAuthorization($user_id);
 					form.addEventListener("submit", function(e){
 						e.preventDefault();
 						let formProps = Object.fromEntries(new FormData(form));
-						console.log(formProps["include-IP"]);
-						banMessageAuthor(form.dataset.messageId,formProps["reason"],formProps["duration"],formProps["include-IP"]);
+						formProps["message-id"] = form.dataset.messageId;
+						banMessageAuthor(formProps);
 						form.hidePopover();
 					});
 				})();

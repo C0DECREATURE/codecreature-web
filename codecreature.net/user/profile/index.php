@@ -18,6 +18,13 @@ if (!empty($id)) {
 	$summary = $user['summary'];
 }
 
+// check for profile display ban
+$ban = getBanInfo("user_id",$_SESSION['id']);
+$canShow = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
+// check for profile edit ban
+if ($canShow) $ban = getBanInfo("IP_address",$_SERVER['REMOTE_ADDR']);
+$canEdit = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
+
 // Include chat bbcode settings file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 ?>
@@ -54,7 +61,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<!--identity ribbons stylesheet-->
 		<link href="/user/profile/ribbons.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="/user/profile/style.css?fileversion=20261108" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/style.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user['color']; ?>">
 	<div class="main-container">
@@ -119,7 +126,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<section class="<?php echo empty($summary) ? "empty" : ""; ?>" id="summary" aria-label="user summary">
 			<?php echo (!empty($_SESSION["id"]) && $id == $_SESSION["id"]) ? '<button id="edit-summary-button" onclick="toggleEdit();" tabindex="1">✏️</button>' : ''; ?>
 			<div class="text">
-				<?php echo empty($id) ? "Did you make a typo? Check the url!" : (empty($summary) ? "This user hasn't written a summary!" : getPolishedBbcode(htmlspecialchars($summary))); ?>
+				<?php echo empty($id) ? "Did you make a typo? Check the url!" : (empty($summary) ? "This user hasn't written a summary!" : (!$canShow ? "This user's summary is currently unavailable!" : getPolishedBbcode(htmlspecialchars($summary)))); ?>
 			</div>
 			<script>
 				function toggleEdit() {
@@ -135,15 +142,25 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<?php if(!empty($id) && isset($_SESSION["id"]) && $_SESSION["id"] == $user["id"]) { ?>
 		<form id="edit-summary-form" class="hidden" action="/user/profile/update.php" method="POST">
+			<?php if ($canEdit) { ?>
 			<input type="hidden" name="user_id" value="<?php echo $id; ?>"></input>
 			<textarea id="edit-summary" name="new-summary" value="" maxlength="2500"><?php echo htmlspecialchars_decode($summary); ?></textarea>
 			<div class="links">
 				<a href="/chat/bbcode">BBCode Guide</a>
 				| <a href="/user/details">User Settings</a>
 			</div>
+			<?php } else { ?>
+			<div class="edit-ban">
+				<p>Sorry, your <?php echo $ban["type_text"]; ?> is not allowed to submit custom content.</p>
+				<p>
+					<span class="label">Time remaining:</span> <?php echo $ban["expire_text"]; ?>
+					<br><span class="label">Reason:</span> <?php echo $ban["reason"]; ?>
+				</p>
+			</div>
+			<?php } ?>
 			<div class="buttons">
 				<button type="button" class="btn btn-red" onclick="toggleEdit();">cancel</button>
-				<button type="submit" class="btn btn-green">update</button>
+				<?php if ($canEdit) { ?><button type="submit" class="btn btn-green">update</button><?php } ?>
 			</div>
 		</form>
 		<?php } ?>
