@@ -107,6 +107,25 @@
 		"button": "gif",
 		"joined":false,
 		"adopted":[
+			{"img":"razzpixel.gif", "link":"razzpixel.neocities.org", "alt":"RazzPixel"},
+			{"img":"treflemefle.gif", "link":"https://treflemefle.nekoweb.org", "alt":"Mefle"},
+			{"img":"qrunchysnaq.gif", "link":"https://qrunchysnaq.neocities.org", "alt":"Lila by QRUNCHYSNAQ"},
+			{"img":"nogginzmart.png", "link":"https://nogginzmart.neocities.org", "alt":"lee_nogginzmart"},
+			{"img":"jugproductions.gif", "link":"https://jugproductions.neocities.org", "alt":"Jug Productions"},
+			{"img":"valentinely.gif", "link":"https://www.valentinely.cc/", "alt":"Charlotte by Valentinely"},
+			{"img":"fishblob.gif", "link":"fishblob.neocities.org", "alt":"Fish Blob"},
+			{"img":"sweetcharm.gif", "link":"https://sweetcharm.net/", "alt":"Clover by SweetCharm"},
+			{"img":"vivarism.gif", "link":"https://vivarism.net/", "alt":"Vivarism"},
+			{"img":"starlingharley.gif", "link":"https://starlingharley.neocities.org/", "alt":"Starling Harley"},
+			{"img":"lazerbunny.gif", "link":"https://lazer-bunny.neocities.org/", "alt":"Lazer"},
+			{"img":"mudflower.gif", "link":"https://mudflower.earth/", "alt":"Mudflower"},
+			{"img":"leyworthy.png", "link":"https://leyworthy.neocities.org/", "alt":"Juki"},
+			{"img":"jelliheart.gif", "link":"https://jelli-heart.neocities.org/", "alt":"Jelli"},
+			{"img":"lycheestar.gif", "link":"https://everskies.com/user/lycheestar-1945062/posts", "alt":"lycheestar"},
+			{"img":"saraaous.png", "link":"https://www.deviantart.com/saraaous", "alt":"Saraaous"},
+			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"monamies"},
+			{"img":"scarydog.gif", "link":"https://scary.dog/", "alt":"Scary Dog"},
+			{"img":"hillhouse.gif", "link":"https://hillhouse.neocities.org/", "alt":"Rosie"}
 		]
 	},
 	{
