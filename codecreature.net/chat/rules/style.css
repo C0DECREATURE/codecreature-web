@@ -4,6 +4,9 @@ body, body.chatbox { font-family: "Yet R", serif; background: var(--white); }
 	justify-content: space-between;
 }
 
+a, a:link, a:visited { color: var(--d-blue); }
+a:hover { color: var(--purple); }
+
 .page-content {
 	padding: 1rem 1.25rem;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
