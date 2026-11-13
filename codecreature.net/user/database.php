@@ -279,11 +279,13 @@ function isBannedIP($IP) {
 	if (mysqli_query($users_conn, $del_sql)) {}
 	
 	$isBanned = false;
-	$IP = trim($IP);
 	// get expiration date of any ban list rows for given IP address
-	$sql = "SELECT id, expiration FROM ban_list WHERE IP_address = ? ;";
+	$sql = "SELECT id, expiration FROM ban_list WHERE IP_address LIKE ? ;";
 	if($stmt = mysqli_prepare($users_conn, $sql)){
-		mysqli_stmt_bind_param($stmt, "s", $IP);
+		
+		$IP = trim($IP);
+		$likeIP = substr($IP,0,strrpos($IP,".")+1)."%";
+		mysqli_stmt_bind_param($stmt, "s", $likeIP);
 		
 		if(mysqli_stmt_execute($stmt)){
 			mysqli_stmt_bind_result($stmt, $id, $expiration);
@@ -291,7 +293,7 @@ function isBannedIP($IP) {
 				// if ban expires in the future or has no expiration, this IP is banned
 				if (empty($expiration) || $expiration > time()) { $isBanned = true; }
 			}
-		}
+		} else $isBanned = mysqli_stmt_error($stmt);
 		mysqli_stmt_close($stmt);
 	}
 	
@@ -333,9 +335,10 @@ function getBanInfo($type, $value) {
 	$highest_expiration = $top_row = "";
 	
 	// get expiration date of any ban list rows for given user & type
-	$sql = "SELECT expiration, reason, anon_only, new_account, chat, custom_content, games FROM ban_list WHERE $type = ? ;";
+	$sql = "SELECT expiration, reason, anon_only, new_account, chat, custom_content, games FROM ban_list WHERE $type LIKE ? ;";
 	if($stmt = mysqli_prepare($users_conn, $sql)){
 		$param_type = $type == "user_id" ? "i" : "s";
+		if ($type == "IP_address") $value = substr($value,0,strrpos($value,".")+1)."%";
 		mysqli_stmt_bind_param($stmt, $param_type, $value);
 		
 		if(mysqli_stmt_execute($stmt)){
