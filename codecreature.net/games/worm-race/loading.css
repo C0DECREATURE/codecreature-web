@@ -9,8 +9,11 @@
 }
 
 .load-area .subtitle {
-	font-size: .8em;
+	font-size: max(12px,.8em);
+	max-width: 680px;
+	margin: 0 auto;
 }
+.load-area .subtitle .small { font-size: .8em; margin-top: .5em; }
 
 .load-area a {
 	color: var(--blue);

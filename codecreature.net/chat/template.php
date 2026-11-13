@@ -93,12 +93,7 @@ $user_auth = getAuthorization($user_id);
 						</svg>
 					</i>
 				</button>
-				<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
-					<!--page settings go here--
-					<span><a href="/chat/rules" target="_self">Chatroom Rules</a></span>
-					<span><a href="/chat/bbcode" target="_self">BBCode Style Guide</a></span>
-					-->
-				</div>
+				<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings"></div>
 			</div>
 		</header>
 		
@@ -289,19 +284,19 @@ $user_auth = getAuthorization($user_id);
 					<div class="form-section">
 						Ban Duration:
 						<div>
-							<input type="radio" name="duration" value="1d" id="duration-1"></input>
+							<input type="radio" name="ban-duration" value="1d" id="duration-1"></input>
 							<label for="duration-1">1 day</label>
 						</div>
 						<div>
-							<input type="radio" name="duration" value="7d" id="duration-7"></input>
+							<input type="radio" name="ban-duration" value="7d" id="duration-7"></input>
 							<label for="duration-7">7 days</label>
 						</div>
 						<div>
-							<input type="radio" name="duration" value="30d" id="duration-30"></input>
+							<input type="radio" name="ban-duration" value="30d" id="duration-30"></input>
 							<label for="duration-30">30 days</label>
 						</div>
 						<div>
-							<input type="radio" name="duration" value="" id="duration-forever" checked></input>
+							<input type="radio" name="ban-duration" value="" id="duration-forever" checked></input>
 							<label for="duration-forever">Forever</label>
 						</div>
 					</div>

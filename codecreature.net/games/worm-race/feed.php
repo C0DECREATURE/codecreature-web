@@ -19,63 +19,84 @@ $feed_err = $maintenance_mode ? "Worm race is currently down for maintenance!<br
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	$item = $worm = $worm_id = "";
 	
-	// check if user is authorized to feed yet
+	// check for ban
+	$ban = "";
+	// check for IP ban
+	$ban = getBanInfo("IP_address",$_SERVER['REMOTE_ADDR']);
+	// if user is logged in, check if they're banned
 	if ($logged_in) {
-		if (!userCanFeed($_SESSION["id"],"user_id")) {
-			$feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
-		}
-	} else {
-		if (!userCanFeed($_SERVER['REMOTE_ADDR'],"IP_address")) {
-			$feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
-		}
+		// if an anon-only IP ban was detected, clear it
+		if (!empty($ban) && $ban["anon_only"]) $ban = "";
+		$user_ban = getBanInfo("user_id",$_SESSION["id"]);
+		if (!empty($user_ban)) $ban = $user_ban;
+	}
+	if (!empty($ban) && !empty($ban["activities"]["games"]) && $ban["activities"]["games"] != false) {
+		if ($ban["anon_only"]) $feed_err = "Anonymous users on your IP address are";
+		else $feed_err = "Your ".$ban["type_text"]." is";
+		$feed_err .= " banned from multiplayer games.
+										<div class='small'><strong>Time remaining:</strong> ".$ban["expire_text"]."
+										<br><strong>Reason:</strong> ".$ban["reason"]."</div>";
 	}
 	
-	// Check if item name is empty or invalid
-	if( empty(trim($_POST["item"])) ){
-		$feed_err = "No item name submitted.";
-	} else if ( !array_key_exists(trim($_POST["item"]), $items)) {
-		$feed_err = 'Item name "'.trim($_POST["item"]).'" not recognized.';
-	} else if (!in_array($cur_holiday,$items[trim($_POST["item"])]["holidays"])) {
-		$feed_err = $items[trim($_POST["item"])]["display_name"].' is not available during the current holiday!';
-	} else {
-		// get data for submitted worm as an array
-		$item = $items[trim($_POST["item"])];
-	}
-	
-	// Check if worm ID is empty or invalid
-	$worm_id = trim($_POST["worm-id"]);
-	if( !isset($worm_id) ) {
-		$feed_err = "No worm ID provided.";
-	} else if ( !array_key_exists((int)$_POST["worm-id"], $worms)) {
-		$feed_err = 'Worm ID "'.(int)$_POST["worm-id"].'"not recognized.';
-	} else {
-		$worm_id = (int)$_POST["worm-id"];
-		// get data for submitted worm as an array
-		$worm = $worms[$worm_id];
-	}
-	if ($item["name"] == "poison" && $worm["id"] == $birthday_worm) {
-		$feed_err = "No poisoning " . $worm["name"] . " during their birthday party!";
-	}
-	
-	// if no errors, feed the worm
-	if(empty($feed_err)){
-		// feed the worm in all ongoing seasons
-		$sql = "SELECT * FROM race WHERE ongoing = true;";
-		if ( $result = mysqli_query($worm_conn,$sql) ) {
-			while($row = mysqli_fetch_object($result)) {
-				$row = get_object_vars($row);
-				// get the season's info, end it if it shouldn't still be ongoing
-				$season = getSeason($row["name"]);
-				// if the season has been validated, feed the worm in that season
-				if ($season["ongoing"] == 'true') feedWormInSeason($season,$worm_id,$item);
+	if (empty($feed_err)) {
+		// check if user is authorized to feed yet
+		if ($logged_in) {
+			if (!userCanFeed($_SESSION["id"],"user_id")) {
+				$feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
 			}
-			$_SESSION["last_feed"] = time();
-			$_SESSION["last_cooldown"] = $item["cooldown"];
-			logFeeding($worm_id,$item["name"]);
-			// redirect to racetrack page
-			if (empty($feed_err)) header("location: ".$worm_race_path."racetrack");
 		} else {
-			$feed_err = "Could not fetch race data. Try again later.";
+			if (!userCanFeed($_SERVER['REMOTE_ADDR'],"IP_address")) {
+				$feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
+			}
+		}
+		
+		// Check if item name is empty or invalid
+		if( empty(trim($_POST["item"])) ){
+			$feed_err = "No item name submitted.";
+		} else if ( !array_key_exists(trim($_POST["item"]), $items)) {
+			$feed_err = 'Item name "'.trim($_POST["item"]).'" not recognized.';
+		} else if (!in_array($cur_holiday,$items[trim($_POST["item"])]["holidays"])) {
+			$feed_err = $items[trim($_POST["item"])]["display_name"].' is not available during the current holiday!';
+		} else {
+			// get data for submitted worm as an array
+			$item = $items[trim($_POST["item"])];
+		}
+		
+		// Check if worm ID is empty or invalid
+		$worm_id = trim($_POST["worm-id"]);
+		if( !isset($worm_id) ) {
+			$feed_err = "No worm ID provided.";
+		} else if ( !array_key_exists((int)$_POST["worm-id"], $worms)) {
+			$feed_err = 'Worm ID "'.(int)$_POST["worm-id"].'"not recognized.';
+		} else {
+			$worm_id = (int)$_POST["worm-id"];
+			// get data for submitted worm as an array
+			$worm = $worms[$worm_id];
+		}
+		if ($item["name"] == "poison" && $worm["id"] == $birthday_worm) {
+			$feed_err = "No poisoning " . $worm["name"] . " during their birthday party!";
+		}
+		
+		// if no errors, feed the worm
+		if(empty($feed_err)){
+			// feed the worm in all ongoing seasons
+			$sql = "SELECT * FROM race WHERE ongoing = true;";
+			if ( $result = mysqli_query($worm_conn,$sql) ) {
+				while($row = mysqli_fetch_object($result)) {
+					$row = get_object_vars($row);
+					// get the season's info, end it if it shouldn't still be ongoing
+					$season = getSeason($row["name"]);
+					// if the season has been validated, feed the worm in that season
+					if ($season["ongoing"] == 'true') feedWormInSeason($season,$worm_id,$item);
+				}
+				$_SESSION["last_feed"] = time();
+				$_SESSION["last_cooldown"] = $item["cooldown"];
+				logFeeding($worm_id,$item["name"]);
+				// redirect to racetrack page
+				if (empty($feed_err)) header("location: ".$worm_race_path."racetrack");
+			} else {
+				$feed_err = "Could not fetch race data. Try again later.";
+			}
 		}
 	}
 }
@@ -305,7 +326,7 @@ if (!empty($feed_err)) $feed_err = "<strong>Error</strong>: ".$feed_err;
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>feeding <?php echo strtolower($worm["name"]); ?>...</title>
+		<title>feeding<?php echo !empty($worm) && !empty($worm["name"]) ? strtolower($worm["name"]) : ""; ?>...</title>
 		
 		<!-- prevent warnings popup on this page -->
 		<script>var showMainWarnings = false;</script>
