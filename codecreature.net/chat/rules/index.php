@@ -73,7 +73,7 @@
 				</li>
 				<li>
 					<h4>No hyper-explicit sexual content.</h4>
-					Includes images, roleplay, or detailed discussion. Absolutely no sexual comments directed at other users. Vague references, mild jokes or innuendo, or standard curse words are fine. 
+					Includes erotic images, roleplay, detailed descriptions, or content regarding your personal sex life. Absolutely no sexual comments directed at other users. Occasional vague references or mild jokes are fine. Discussion of the non-sexual aspects of media that contains sex scenes (e.g. a rated R movie) is also allowed.
 				</li>
 				<li>
 					<h4>Respect anonymity.</h4>
@@ -110,7 +110,7 @@
 			</ol>
 			
 			<h2>Consequences</h2>
-			<p>For reasonable mistakes, you'll get a warning in chat and/or via email. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned temporarily <strong>or</strong> permanently.</p>
+			<p>For reasonable mistakes, you'll get a warning in chat and/or via email, or a 24 hour ban. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned permanently.</p>
 			<p>If enough bad behavior is coming from the same IP address, you may receive a blanket IP ban.</p>
 			<p>Don't make me do this lol.</p>
 			
