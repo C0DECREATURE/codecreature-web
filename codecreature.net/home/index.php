@@ -115,7 +115,7 @@
 		</div>
 		
 		<!-- bottom right fixed -->
-		<a aria-label="fursona" class="bottom-right-fixed" href="https://toyhou.se/3048217.praxis">
+		<a aria-label="fursona" class="bottom-right-fixed" href="/ocs">
 			<img name="furryhell" src="/home/furry-hell-1.png" alt="a smiling purple red panda wearing sunglasses with a rainbow behind it">
 			<svg
 				viewBox="0 0 98 68.6"
