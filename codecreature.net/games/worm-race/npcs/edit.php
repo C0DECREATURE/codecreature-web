@@ -107,7 +107,7 @@
 					if(mysqli_stmt_execute($stmt)) {
 						$result = mysqli_stmt_get_result($stmt);
 						$row = mysqli_fetch_assoc($result);
-						$_GET["id"] = $row["id"];
+						if (isset($row["id"])) $_GET["id"] = $row["id"];
 						include "get-worm.php";
 					} else $update_err = "Something went wrong. Please try again later.";
 					mysqli_stmt_close($stmt);
