@@ -92,7 +92,7 @@
 									ON DUPLICATE KEY UPDATE owner=VALUES(owner), name=VALUES(name), icon=VALUES(icon), length=VALUES(length), likes=VALUES(likes), color=VALUES(color), text_color=VALUES(text_color), website=VALUES(website);";
 				if($stmt = mysqli_prepare($worm_conn, $sql)){
 					mysqli_stmt_bind_param($stmt, "iisssssss", $worm["id"], $_SESSION["id"], $worm["name"], $worm["icon"], $worm["length"],
-																						$worm["likes"], $worm["color"], $worm["text_color"], $worm["link"]);
+																						$worm["likes"], $worm["color"], $worm["text_color"], $worm["website"]);
 					if(!mysqli_stmt_execute($stmt)) $update_err = "Something went wrong. Please try again later.";
 					else $update_success = "Updated worm!";
 					mysqli_stmt_close($stmt);
