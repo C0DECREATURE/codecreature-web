@@ -149,7 +149,7 @@
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--profile stylesheet-->
 		<link href="gallery.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		<link href="edit.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="edit.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js?fileversion=20260920"></script>
@@ -268,7 +268,7 @@
 											"
 										>
 										<a class="edit button" type="button" href="<?php echo $wormLink; ?>image/<?php echo $i; ?>">edit</a>
-										<button class="delete button" type="button">delete</button>
+										<a class="delete button" href="delete-image.php?<?php echo "id=".$worm["id"]."&image=".$i; ?>">delete</a>
 									</div>
 									<?php
 									} else { ?>

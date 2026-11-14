@@ -96,7 +96,7 @@ input[type=text]:focus {
   border-radius: .4em;
 	z-index: 1;
 }
-.gallery .wrapper .button.delete { background: var(--red); color: var(--white); display: none; /*DEBUG: hide until functioning*/ }
+.gallery .wrapper .button.delete { background: var(--red); color: var(--white); }
 /* if device is capable of hovering, hide gallery image buttons until hover */
 @media (hover: hover) {
 	.gallery .wrapper:not(:hover) .button:not(:focus-visible) { opacity: 0; }

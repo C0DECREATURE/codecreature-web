@@ -1,5 +1,13 @@
 <?php
 
+// include worm functions file
+require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-race/worm-functions.php";
+
+// include users connection data
+require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
+// include get username by id function
+require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
+
 // maximum worms per user
 $max_worms = 3;
 

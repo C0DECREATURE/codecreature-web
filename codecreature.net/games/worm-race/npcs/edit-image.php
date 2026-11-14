@@ -71,6 +71,9 @@ else if (!empty($worm["gallery"][$_GET["imageId"]])) {
 		$image["thumbBox"][1] = ($image["thumbBox"][1] * $image["thumbBox"][2]) / -100;
 	}
 }
+
+// load the image deletion function
+require_once "delete-image.php";
 ?>
 		
 		<title>ultimate worm sport</title>
@@ -185,6 +188,8 @@ else if (!empty($worm["gallery"][$_GET["imageId"]])) {
 								</script>
 								
 								<button type="submit" class="btn">Update</button>
+								<a href="delete-image.php?<?php echo "id=".$worm["id"]."&image=".$_GET["imageId"]; ?>"
+									class="btn btn-red">Delete</a>
 							</form>
 							<?php } else { ?>
 							<div class="unauthorized">You don't have permission to edit this image!</div>
