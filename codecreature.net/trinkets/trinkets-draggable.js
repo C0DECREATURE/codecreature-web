@@ -80,7 +80,7 @@ function dragElement(elmnt) {
 		elmnt.style.top = top + "px";
 		elmnt.style.left = left + "px";
 		
-		let defaultScale = .07;
+		let defaultScale = .1;
 		let parallaxElements = document.querySelectorAll('.parallax,.window-scene');
 		for (let i = 0; i < parallaxElements.length; i++) {
 			let el = parallaxElements[i];

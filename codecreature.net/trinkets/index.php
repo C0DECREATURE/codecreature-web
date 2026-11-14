@@ -494,7 +494,7 @@
 	<script>findables.initElements();</script>
 	
 	<!-- script to enable the dragging movement -->
-	<script src="trinkets-draggable.js?fileversion=20261004"></script>
+	<script src="trinkets-draggable.js?fileversion=20261114"></script>
 	<!-- script for book behavior -->
 	<script src="book.js?fileversion=20261004"></script>
 </html>
