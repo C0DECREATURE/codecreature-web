@@ -25,7 +25,7 @@
 		<script src="/codefiles/typing-quirks.min.js"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20261107" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
 		
 		<script>
 			if (!window.location.hash) window.location.hash = "#clubs";
@@ -99,7 +99,7 @@
 									title="<?php echo $i["alt"]; ?>">
 									<img src="<?php echo str_starts_with($i["img"],"/") ? $i["img"] : "/graphix/clubs/".$n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
 									<div class="tooltip" aria-hidden="true">
-										<?php echo str_contains($i["alt"]," by ") ? $i["alt"] : "by ".$i["alt"]; ?>
+										<?php echo str_contains($i["alt"]," by ") || !empty($i["nocred"]) ? $i["alt"] : "by ".$i["alt"]; ?>
 									</div>
 								</a>
 								<?php } ?>

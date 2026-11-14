@@ -179,8 +179,8 @@ main > .sidebar {
 }
 .pixel-club-images a { transition: scale .2s; text-align: center; }
 .pixel-club-images a:hover { scale: 2; z-index: 2; image-rendering: pixelated; }
-#pixel-club-pockettown, #pixel-club-togetherforever { gap: 0px; }
-#pixel-club-mixtapes { gap: .25em; }
+#pixel-club-pockettown, #pixel-club-togetherforever, #pixel-club-isopals { gap: 0px; }
+#pixel-club-mixtapes, #pixel-club-rpgclub { gap: .25em; }
 
 #pixel-clubs .body a.wrapper, #clubs-to-join .body a.wrapper { position: relative; }
 #pixel-clubs h4, #clubs-to-join h4 { text-align: center; }

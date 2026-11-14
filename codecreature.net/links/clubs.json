@@ -15,6 +15,23 @@
 		]
 	},
 	{
+		"name":"isopals",
+		"link":"isopals.therift.vip/",
+		"button": "png",
+		"joined":true,
+		"adopted":[
+			{"img":"blisterfire.png", "link":"", "alt":"Blister Fire Isopod by me"},
+			{"img":"gianthalo.png", "link":"", "alt":"Gestroi \"Halo\" by me"},
+			{"img":"therift1.png", "link":"https://therift.vip/pages/network/cliques/isopals.html", "alt":"Rubber Ducky by Juette"},
+			{"img":"therift2.gif", "link":"https://therift.vip/pages/network/cliques/isopals.html", "alt":"Juette"},
+			{"img":"gloomygoose13.gif", "link":"https://gloomygoose13.neocities.org/", "alt":"Bean"},
+			{"img":"sisyphus.gif", "link":"https://sisyphus.nekoweb.org/", "alt":"elo"},
+			{"img":"suumelle.png", "link":"https://suumelle.nekoweb.org/trinkets", "alt":"Suumelle"},
+			{"img":"antikrist.gif", "link":"https://antikrist.lol/", "alt":"Kristin"},
+			{"img":"scribblecloud.png", "link":"https://scribblecloud.art/#linkslink", "alt":"Scrib"}
+		]
+	},
+	{
 		"name":"together forever",
 		"link":"chaoticgoode.com/cliques/togetherforever",
 		"button": "gif",
@@ -22,10 +39,10 @@
 		"adopted":[
 			{"img":"lexicon.gif", "link":"codecreature.net/ocs/lexicon", "alt":"Lexicon by me"},
 			{"img":"chaoticgoode.gif", "link":"chaoticgoode.com/cliques/togetherforever", "alt":"Chaotic Goode", "style":"margin-bottom: -3px;"},
-			{"img":"keepdolling.gif", "link":"https://keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
-			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"yanyan"},
-			{"img":"gikaayumi.gif", "link":"https://gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px; text-wrap: nowrap;"},
-			{"img":"pixel-dollz.gif", "link":"https://pixel-dollz.tumblr.com/", "alt":"Pixel-Dollz"}
+			{"img":"keepdolling.gif", "link":"keepdolling.necrophantasia.com/", "alt":"Bliss", "style":"margin-bottom: 2px;"},
+			{"img":"monamies.gif", "link":"monamies.neocities.org/", "alt":"yanyan"},
+			{"img":"gikaayumi.gif", "link":"gikaayumi.nekoweb.org/", "alt":"Gika Ayumi", "style":"margin-bottom: -2px; text-wrap: nowrap;"},
+			{"img":"pixel-dollz.gif", "link":"pixel-dollz.tumblr.com/", "alt":"Pixel-Dollz"}
 		]
 	},
 	{
@@ -108,24 +125,24 @@
 		"joined":false,
 		"adopted":[
 			{"img":"razzpixel.gif", "link":"razzpixel.neocities.org", "alt":"RazzPixel"},
-			{"img":"treflemefle.gif", "link":"https://treflemefle.nekoweb.org", "alt":"Mefle"},
-			{"img":"qrunchysnaq.gif", "link":"https://qrunchysnaq.neocities.org", "alt":"Lila by QRUNCHYSNAQ"},
-			{"img":"nogginzmart.png", "link":"https://nogginzmart.neocities.org", "alt":"lee_nogginzmart"},
-			{"img":"jugproductions.gif", "link":"https://jugproductions.neocities.org", "alt":"Jug Productions"},
-			{"img":"valentinely.gif", "link":"https://www.valentinely.cc/", "alt":"Charlotte by Valentinely"},
+			{"img":"treflemefle.gif", "link":"treflemefle.nekoweb.org", "alt":"Mefle"},
+			{"img":"qrunchysnaq.gif", "link":"qrunchysnaq.neocities.org", "alt":"Lila by QRUNCHYSNAQ"},
+			{"img":"nogginzmart.png", "link":"nogginzmart.neocities.org", "alt":"lee_nogginzmart"},
+			{"img":"jugproductions.gif", "link":"jugproductions.neocities.org", "alt":"Jug Productions"},
+			{"img":"valentinely.gif", "link":"www.valentinely.cc/", "alt":"Charlotte by Valentinely"},
 			{"img":"fishblob.gif", "link":"fishblob.neocities.org", "alt":"Fish Blob"},
-			{"img":"sweetcharm.gif", "link":"https://sweetcharm.net/", "alt":"Clover by SweetCharm"},
-			{"img":"vivarism.gif", "link":"https://vivarism.net/", "alt":"Vivarism"},
-			{"img":"starlingharley.gif", "link":"https://starlingharley.neocities.org/", "alt":"Starling Harley"},
-			{"img":"lazerbunny.gif", "link":"https://lazer-bunny.neocities.org/", "alt":"Lazer"},
-			{"img":"mudflower.gif", "link":"https://mudflower.earth/", "alt":"Mudflower"},
-			{"img":"leyworthy.png", "link":"https://leyworthy.neocities.org/", "alt":"Juki"},
-			{"img":"jelliheart.gif", "link":"https://jelli-heart.neocities.org/", "alt":"Jelli"},
-			{"img":"lycheestar.gif", "link":"https://everskies.com/user/lycheestar-1945062/posts", "alt":"lycheestar"},
-			{"img":"saraaous.png", "link":"https://www.deviantart.com/saraaous", "alt":"Saraaous"},
-			{"img":"monamies.gif", "link":"https://monamies.neocities.org/", "alt":"monamies"},
-			{"img":"scarydog.gif", "link":"https://scary.dog/", "alt":"Scary Dog"},
-			{"img":"hillhouse.gif", "link":"https://hillhouse.neocities.org/", "alt":"Rosie"}
+			{"img":"sweetcharm.gif", "link":"sweetcharm.net/", "alt":"Clover by SweetCharm"},
+			{"img":"vivarism.gif", "link":"vivarism.net/", "alt":"Vivarism"},
+			{"img":"starlingharley.gif", "link":"starlingharley.neocities.org/", "alt":"Starling Harley"},
+			{"img":"lazerbunny.gif", "link":"lazer-bunny.neocities.org/", "alt":"Lazer"},
+			{"img":"mudflower.gif", "link":"mudflower.earth/", "alt":"Mudflower"},
+			{"img":"leyworthy.png", "link":"leyworthy.neocities.org/", "alt":"Juki"},
+			{"img":"jelliheart.gif", "link":"jelli-heart.neocities.org/", "alt":"Jelli"},
+			{"img":"lycheestar.gif", "link":"everskies.com/user/lycheestar-1945062/posts", "alt":"lycheestar"},
+			{"img":"saraaous.png", "link":"www.deviantart.com/saraaous", "alt":"Saraaous"},
+			{"img":"monamies.gif", "link":"monamies.neocities.org/", "alt":"monamies"},
+			{"img":"scarydog.gif", "link":"scary.dog/", "alt":"Scary Dog"},
+			{"img":"hillhouse.gif", "link":"hillhouse.neocities.org/", "alt":"Rosie"}
 		]
 	},
 	{
