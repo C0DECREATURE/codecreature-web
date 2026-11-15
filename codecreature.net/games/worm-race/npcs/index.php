@@ -41,7 +41,7 @@
 		<!--worm race game stylesheet-->
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20261012" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261115" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js"></script>
@@ -81,7 +81,10 @@
 										<img src="<?php echo $worm["icon"] ?>" alt="<?php echo $worm["name"] ?>">
 									</a>
 								</div>
-								<?php } ?>
+								<?php }
+								// make quantity of flex items in worm-container always a multiple of 6
+								for ($i = 6 - (count($fanWorms) % 6); $i > 0; $i--) echo "<div class='spacer'></div>";
+								?>
 							</div>
 						</div>
 					</div>

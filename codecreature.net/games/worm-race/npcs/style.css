@@ -15,11 +15,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	gap: 1em;
-	padding: 1em;
+	--gap: 1em;
+	gap: var(--gap);
+	padding: 1em 0;
 }
+.worm-container .worm, .worm-container .spacer {
+	max-width: 300px;
+	width: min(100%, max(100px, calc(33% - ((var(--gap) * 2) / 3))));
+	flex-grow: 1;
+}
+.worm-container .spacer { margin-bottom: calc(-1 * var(--gap)); }
 .worm-container .worm {
-	width: min(100%,max(150px,min(300px,30%)));
 	aspect-ratio: 1;
 	text-align: center;
 	align-content: center;
