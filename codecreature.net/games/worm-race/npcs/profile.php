@@ -96,7 +96,7 @@
 						</div>
 						
 						<div class="gallery">
-							<?php for ($i = 0; $i < $gallery_limit; $i++) {
+							<?php for ($i = 0; $i < $fan_worm_settings["gallery_limit"]; $i++) {
 								if (!empty($worm["gallery"][$i])) {
 									$img = $worm["gallery"][$i];?>
 								<div class="wrapper">

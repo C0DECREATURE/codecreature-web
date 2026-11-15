@@ -1,0 +1,6 @@
+{
+	"max_worms": 5,
+	"gallery_limit": 4,
+	"image_formats": ["png","gif","jpg","jpeg","webp"],
+	"name_limit": 15
+}

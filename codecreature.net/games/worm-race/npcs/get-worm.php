@@ -8,8 +8,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/games/worm-common/users.php";
 // include get username by id function
 require_once $_SERVER['DOCUMENT_ROOT']."/user/database.php";
 
-// maximum worms per user
-$max_worms = 3;
+// settings
+$fan_worm_settings = json_decode(file_get_contents('settings.json'),true);
 
 $worm_id = !empty($_GET["id"]) ? (int)$_GET["id"] : NULL;
 $worm = [];
@@ -46,8 +46,8 @@ if (empty($worm)) {
 		$sql = "SELECT id FROM fan_worms WHERE owner = $uid ;";
 		if ($result = mysqli_query($worm_conn, $sql)) {
 			$rowcount = mysqli_num_rows( $result );
-			if ($rowcount < $max_worms) $worm["canEdit"] = true;
-			else $edit_err = "Limit of $max_worms fan worms per account at this time.";
+			if ($rowcount < $fan_worm_settings["max_worms"]) $worm["canEdit"] = true;
+			else $edit_err = "Limit of ".$fan_worm_settings["max_worms"]." fan worms per account at this time.";
 		}
 	}
 }
@@ -55,9 +55,6 @@ if (empty($worm)) {
 require_once "css-colors.php";
 
 setCssColor("Color",$worm["color"]);
-if (empty($worm["text_color"])) $worm["text_color"] = $worm["color"];
-setCssColor("TextColor",$worm["text_color"]);
-
-$gallery_limit = 4;
+setCssColor("TextColor",!empty($worm["text_color"]) ? $worm["text_color"] : $worm["color"]);
 
 ?>

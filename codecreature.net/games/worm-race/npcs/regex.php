@@ -1,10 +1,9 @@
 <?php
-
-$image_formats = ["png","gif","jpg","jpeg","webp"];
-$image_regex = "(.*)\.(".implode("|",$image_formats).")\/?$";
+$fan_worm_settings = json_decode(file_get_contents('settings.json'),true);
+$image_regex = "(.*)\.(".implode("|",$fan_worm_settings["image_formats"]).")\/?$";
 
 // character limits
-$name_limit = 15;
+$name_limit = $fan_worm_settings["name_limit"];
 $link_limit = 150;
 $length_limit = 4;
 $likes_limit = 50;

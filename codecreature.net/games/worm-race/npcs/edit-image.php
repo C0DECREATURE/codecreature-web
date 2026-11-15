@@ -33,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $worm["canEdit"]){
 	else if (!preg_match("/$link_protocol_regex/",$_POST["imageLink"])) $link_err = "Link must start with http:// or https://";
 	else if (!preg_match("/$link_regex/",$_POST["imageLink"])) $link_err = "Invalid link url.";
 	else if (!preg_match("/$image_regex/i",$_POST["imageLink"])) {
-		$link_err = "Image link must end with one of the following: ".implode(", ",$image_formats);
+		$link_err = "Image link must end with one of the following: ".implode(", ",$fan_worm_settings["image_formats"]);
 	}
 	// check for username errors
 	if (!empty($_POST["username"])) {
@@ -108,7 +108,7 @@ require_once "delete-image.php";
 		<!--worm race game stylesheet-->
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--profile stylesheet-->
-		<link href="edit.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
+		<link href="edit.css?fileversion=20261115" rel="stylesheet" type="text/css" media="all">
 		<link href="edit-image.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
@@ -153,19 +153,23 @@ require_once "delete-image.php";
 							</section>
 							
 							<form id="image-form" method="POST">
-								<h4>required</h4>
-								<div class="form-section">
-									<label for="input-image-link">image link:</label>
-									<input type="text" id="input-image-link" name="imageLink" value="<?php echo  !empty($_POST) && !empty($_POST["imageLink"]) ? $_POST["imageLink"] : (!empty($image) ? $image["img"] : ""); ?>" required></input>
-									<div class="error"><?php echo $link_err; ?></div>
-								</div>
+								<section class="required">
+									<h4>required</h4>
+									<div class="form-section">
+										<label for="input-image-link">image link:</label>
+										<input type="text" id="input-image-link" name="imageLink" value="<?php echo  !empty($_POST) && !empty($_POST["imageLink"]) ? $_POST["imageLink"] : (!empty($image) ? $image["img"] : ""); ?>" required></input>
+										<div class="error"><?php echo $link_err; ?></div>
+									</div>
+								</section>
 								
-								<h4>optional</h4>
-								<div class="form-section">
-									<label for="input-image-username">artist's username:</label>
-									<input type="text" id="input-image-username" name="username" value="<?php echo !empty($_POST) && !empty($_POST["username"]) ? $_POST["username"] : (!empty($image) && !empty($image["uid"]) ? getUsername($image["uid"]) : ""); ?>"></input>
-									<div class="error"><?php echo $username_err; ?></div>
-								</div>
+								<section class="optional">
+									<h4>optional</h4>
+									<div class="form-section">
+										<label for="input-image-username">artist's username:</label>
+										<input type="text" id="input-image-username" name="username" value="<?php echo !empty($_POST) && !empty($_POST["username"]) ? $_POST["username"] : (!empty($image) && !empty($image["uid"]) ? getUsername($image["uid"]) : ""); ?>"></input>
+										<div class="error"><?php echo $username_err; ?></div>
+									</div>
+								</section>
 								
 								<!-- hidden input for thumbnail values -->
 								<input type="hidden" id="input-thumbnail" name="thumb" value="<?php echo !empty($image) && !empty($image["thumb"]) ? $image["thumb"] : ""; ?>"></input>

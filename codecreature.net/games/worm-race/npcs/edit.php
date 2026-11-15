@@ -30,13 +30,14 @@
 		$wormLink = "/fan-worms/worm/".$worm["id"]."/";
 		// proces when form is submitted
 		if($_SERVER["REQUEST_METHOD"] == "POST" && $worm["canEdit"]){
+			$new_worm = $worm;
 			// validate worm name
-			if (empty($_POST["name"])) $name_err = "Your worm needs a name!";
+			if (empty($_POST["name"]) && $_POST["name"] != "0") $name_err = "Your worm needs a name!";
 			else {
 				$name = trim($_POST["name"]);
 				if (strlen($name) > $name_limit) $name_err = "Must be less than $name_limit characters long.";
 				else if (!preg_match("/$name_regex/i",$name)) $name_err = "May only contain letters, numbers, hyphens, and spaces.";
-				else $worm["name"] = htmlspecialchars($name);
+				else $new_worm["name"] = htmlspecialchars($name);
 			}
 			// validate worm icon
 			if (empty($_POST["icon"])) $icon_err = "Must submit an image link.";
@@ -44,58 +45,68 @@
 				$icon = trim($_POST["icon"]);
 				if (!preg_match("/$link_protocol_regex/",$icon)) $icon_err = "Must start with http:// or https://";
 				else if (!preg_match("/$link_regex/",$icon)) $icon_err = "Invalid link url.";
-				else if (!preg_match("/$image_regex/i",$icon)) $icon_err = "Image link must end with one of these: ".implode(", ",$image_formats);
+				else if (!preg_match("/$image_regex/i",$icon)) $icon_err = "Image link must end with one of these: ".implode(", ",$fan_worm_settings["image_formats"]);
 				else if (strlen($icon) > $link_limit) $icon_err = "Must be under $link_limit characters long.";
-				$worm["icon"] = $icon;
+				$new_worm["icon"] = $icon;
 			}
 			// validate worm length
-			if (!empty($_POST["length"])) {
+			if (isset($_POST["length"])) {
 				$length = trim($_POST["length"]);
-				if (strlen($length) > $length_limit) $length_err = "Must be less than $name_limit characters.";
-				else if (!preg_match("/$length_regex/",$length)) $length_err = "May only contain numbers and periods.";
-				$worm["length"] = $length;
+				if (strlen($length) > $length_limit) $length_err = "Must be less than $length_limit characters.";
+				else if (!empty($length) && !preg_match("/$length_regex/",$length)) $length_err = "May only contain numbers and periods.";
+				$new_worm["length"] = $length;
 			}
 			// validate worm likes
-			if (!empty($_POST["likes"])) {
+			if (isset($_POST["likes"])) {
 				$likes = trim($_POST["likes"]);
-				if (strlen($length) > $length_limit) $likeserr = "Must be under $name_limit numbers long.";
-				$worm["likes"] = htmlspecialchars($likes);
+				if (!empty($likes) && strlen($likes) > $likes_limit) $likeserr = "Must be under $likes_limit numbers long.";
+				$new_worm["likes"] = htmlspecialchars($likes);
 			}
 			// validate main color
-			if (!empty($_POST["color"])) {
+			if (isset($_POST["color"])) {
 				$color = trim($_POST["color"]);
 				if (strlen($color) > $color_limit) $color_err = "Must be under $color_limit characters.";
-				else if (!preg_match("/$color_regex/",$color)) $color_err = "Must be a valid rgb or hexadecimal color.";
-				$worm["color"] = $color;
+				else if (!empty($color) && !preg_match("/$color_regex/",$color)) $color_err = "Must be a valid rgb or hexadecimal color.";
+				$new_worm["color"] = $color;
 			}
 			// validate text color
-			if (!empty($_POST["textColor"])) {
+			if (isset($_POST["textColor"])) {
 				$color = trim($_POST["textColor"]);
-				if (strlen($color) > $color_limit) $text_color_err = "Must be under $color_limit characters.";
-				else if (!preg_match("/$color_regex/",$color)) $text_color_err = "Must be a valid rgb or hexadecimal color.";
-				$worm["text_color"] = $color;
+				if (!empty($color)) {
+					if (strlen($color) > $color_limit) $text_color_err = "Must be under $color_limit characters.";
+					else if (!preg_match("/$color_regex/",$color)) $text_color_err = "Must be a valid rgb or hexadecimal color.";
+				}
+				$new_worm["text_color"] = $color;
 			}
 			// validate worm site link
-			if (!empty($_POST["website"])) {
+			if (isset($_POST["website"])) {
 				$website = trim($_POST["website"]);
-				if (strlen($website) > $link_limit) $website_err = "Must be less than $name_limit characters long.";
-				else if (!preg_match("/$link_regex/",$website)) {
-					if (!preg_match("/$link_protocol_regex/",$website)) $website_err = "Must start with http:// or https://";
-					else $website_err = "Invalid url link.";
+				if (!empty($website)) {
+					if (strlen($website) > $link_limit) $website_err = "Must be less than $link_limit characters long.";
+					else if (!preg_match("/$link_regex/",$website)) {
+						if (!preg_match("/$link_protocol_regex/",$website)) $website_err = "Must start with http:// or https://";
+						else $website_err = "Invalid url link.";
+					}
 				}
-				$worm["website"] = $website;
+				$new_worm["website"] = $website;
 			}
+			// check whether the worm info was changed
+			$changed = $worm != $new_worm;
+			$worm = $new_worm;
 			// if no errors, update worm
-			if (empty($icon_err) && empty($name_err) && empty($length_err) && empty($likes_err) && empty($color_err) && empty($text_color_err)) {
-				$sql = "INSERT INTO fan_worms (id, owner, name, icon, length, likes, color, text_color, website)
-									VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? )
-									ON DUPLICATE KEY UPDATE owner=VALUES(owner), name=VALUES(name), icon=VALUES(icon), length=VALUES(length), likes=VALUES(likes), color=VALUES(color), text_color=VALUES(text_color), website=VALUES(website);";
-				if($stmt = mysqli_prepare($worm_conn, $sql)){
-					mysqli_stmt_bind_param($stmt, "iisssssss", $worm["id"], $_SESSION["id"], $worm["name"], $worm["icon"], $worm["length"],
-																						$worm["likes"], $worm["color"], $worm["text_color"], $worm["website"]);
-					if(!mysqli_stmt_execute($stmt)) $update_err = "Something went wrong. Please try again later.";
-					else $update_success = "Updated worm!";
-					mysqli_stmt_close($stmt);
+			if (empty($icon_err) && empty($name_err) && empty($length_err) && empty($likes_err) && empty($color_err) && empty($text_color_err) && empty($website_err)) {
+				if (!$changed) $update_success = "Updated worm! (no change)";
+				else {
+					$sql = "INSERT INTO fan_worms (id, owner, name, icon, length, likes, color, text_color, website)
+										VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? )
+										ON DUPLICATE KEY UPDATE owner=VALUES(owner), name=VALUES(name), icon=VALUES(icon), length=VALUES(length), likes=VALUES(likes), color=VALUES(color), text_color=VALUES(text_color), website=VALUES(website) , edited = NOW();";
+					if($stmt = mysqli_prepare($worm_conn, $sql)){
+						mysqli_stmt_bind_param($stmt, "iisssssss", $worm["id"], $_SESSION["id"], $worm["name"], $worm["icon"], $worm["length"],
+																							$worm["likes"], $worm["color"], $worm["text_color"], $worm["website"]);
+						if(!mysqli_stmt_execute($stmt)) $update_err = "Something went wrong. Please try again later.";
+						else $update_success = "Updated worm!";
+						mysqli_stmt_close($stmt);
+					}
 				}
 			}
 			
@@ -149,7 +160,7 @@
 		<link href="../style.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		<!--profile stylesheet-->
 		<link href="gallery.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
-		<link href="edit.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
+		<link href="edit.css?fileversion=20261115" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js?fileversion=20260920"></script>
@@ -172,71 +183,75 @@
 					<div class="main-container"><div class="details">
 						<?php if ($worm["canEdit"]) { ?>
 						<form id="info-form" method="POST">
-							<h4>required</h4>
-							<div class="form-section">
-								<label for="input-name">name:</label>
-								<input type="text" id="input-name" name="name" value="<?php echo $worm["name"]; ?>"
-									maxlength="<?php echo $name_limit; ?>"
-									pattern="<?php echo $name_regex; ?>"
-									title="Only letters, numbers, spaces, and hyphens"
-									required></input>
-								<div class="error"><?php echo $name_err; ?></div>
-							</div>
+							<section class="required">
+								<h4>required</h4>
+								<div class="form-section">
+									<label for="input-name">name:</label>
+									<input type="text" id="input-name" name="name" value="<?php echo $worm["name"]; ?>"
+										maxlength="<?php echo $name_limit; ?>"
+										pattern="<?php echo $name_regex; ?>"
+										title="Only letters, numbers, spaces, and hyphens"
+										required></input>
+									<div class="error"><?php echo $name_err; ?></div>
+								</div>
+								
+								<div class="form-section">
+									<label for="input-icon">main image (square):</label>
+									<input type="text" id="input-icon" name="icon" value="<?php echo $worm["icon"]; ?>"
+										maxlength="<?php echo $link_limit; ?>"
+										placeholder="link to a square image. transparent recommended!"
+										required></input>
+									<div class="error"><?php echo $icon_err; ?></div>
+								</div>
+							</section>
 							
-							<div class="form-section">
-								<label for="input-icon">main image (square):</label>
-								<input type="text" id="input-icon" name="icon" value="<?php echo $worm["icon"]; ?>"
-									maxlength="<?php echo $link_limit; ?>"
-									placeholder="link to a square image. transparent recommended!"
-									required></input>
-								<div class="error"><?php echo $icon_err; ?></div>
-							</div>
-							
-							<h4>optional</h4>
-							<div class="form-section">
-								<label for="input-length">length (inches):</label>
-								<input type="text" id="input-length" name="length" value="<?php echo $worm["length"]; ?>"
-									maxlength="<?php echo $length_limit; ?>"
-									pattern="<?php echo $length_regex; ?>"
-									title="Only numbers and periods"
-									placeholder="enter a number"></input>
-								<div class="error"><?php echo $length_err; ?></div>
-							</div>
-							
-							<div class="form-section">
-								<label for="input-likes">likes:</label>
-								<input type="text" id="input-likes" name="likes" value="<?php echo $worm["likes"]; ?>"
-									maxlength="<?php echo $likes_limit; ?>"></input>
-								<div class="error"><?php echo $likes_err; ?></div>
-							</div>
-							
-							<div class="form-section">
-								<label for="input-color">header color:</label>
-								<input type="text" id="input-color" name="color" value="<?php echo $worm["color"]; ?>"
-									maxlength="<?php echo $color_limit; ?>"
-									pattern="<?php echo $color_regex; ?>"
-									title="Hexadecimal or rgb format"
-									placeholder="hexadecimal or rgb"></input>
-								<div class="error"><?php echo $color_err; ?></div>
-							</div>
-							
-							<div class="form-section">
-								<label for="input-text-color">text color:</label>
-								<input type="text" id="input-text-color" name="textColor" value="<?php echo $worm["text_color"]; ?>"
-									maxlength="<?php echo $color_limit; ?>"
-									pattern="<?php echo $color_regex; ?>"
-									title="Hexadecimal or rgb format"
-									placeholder="hexadecimal or rgb"></input>
-								<div class="error"><?php echo $text_color_err; ?></div>
-							</div>
-							
-							<div class="form-section">
-								<label for="input-website">external webpage:</label>
-								<input type="text" id="input-website" name="website" value="<?php echo $worm["website"]; ?>"
-									maxlength="<?php echo $link_limit; ?>"
-									placeholder="link to page showing more about this character"></input>
-								<div class="error"><?php echo $website_err; ?></div>
-							</div>
+							<section class="optional">
+								<h4>optional</h4>
+								<div class="form-section">
+									<label for="input-length">length (inches):</label>
+									<input type="text" id="input-length" name="length" value="<?php echo $worm["length"]; ?>"
+										maxlength="<?php echo $length_limit; ?>"
+										pattern="<?php echo $length_regex; ?>"
+										title="Only numbers and periods"
+										placeholder="enter a number"></input>
+									<div class="error"><?php echo $length_err; ?></div>
+								</div>
+								
+								<div class="form-section">
+									<label for="input-likes">likes:</label>
+									<input type="text" id="input-likes" name="likes" value="<?php echo $worm["likes"]; ?>"
+										maxlength="<?php echo $likes_limit; ?>"></input>
+									<div class="error"><?php echo $likes_err; ?></div>
+								</div>
+								
+								<div class="form-section">
+									<label for="input-color">header color:</label>
+									<input type="text" id="input-color" name="color" value="<?php echo $worm["color"]; ?>"
+										maxlength="<?php echo $color_limit; ?>"
+										pattern="<?php echo $color_regex; ?>"
+										title="Hexadecimal or rgb format"
+										placeholder="hexadecimal or rgb"></input>
+									<div class="error"><?php echo $color_err; ?></div>
+								</div>
+								
+								<div class="form-section">
+									<label for="input-text-color">text color:</label>
+									<input type="text" id="input-text-color" name="textColor" value="<?php echo $worm["text_color"]; ?>"
+										maxlength="<?php echo $color_limit; ?>"
+										pattern="<?php echo $color_regex; ?>"
+										title="Hexadecimal or rgb format"
+										placeholder="hexadecimal or rgb"></input>
+									<div class="error"><?php echo $text_color_err; ?></div>
+								</div>
+								
+								<div class="form-section">
+									<label for="input-website">external webpage:</label>
+									<input type="text" id="input-website" name="website" value="<?php echo $worm["website"]; ?>"
+										maxlength="<?php echo $link_limit; ?>"
+										placeholder="link to page showing more about this character"></input>
+									<div class="error"><?php echo $website_err; ?></div>
+								</div>
+							</section>
 							
 							<input type="hidden" name="id" value="<?php echo $worm["id"]; ?>"></input>
 							
@@ -254,7 +269,7 @@
 						<section id="gallery" class="gallery-section">
 							<h3>gallery</h3>
 							<div class="gallery">
-								<?php for ($i = 0; $i < $gallery_limit; $i++) {
+								<?php for ($i = 0; $i < $fan_worm_settings["gallery_limit"]; $i++) {
 									if (!empty($worm["gallery"][$i])) {
 										$img = $worm["gallery"][$i];?>
 									<div class='wrapper'>
