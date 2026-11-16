@@ -53,6 +53,10 @@ function multicolorText($str) {
 		<link href="<?php echo $templatePath; ?>style.css?fileversion=20261108" rel="stylesheet" type="text/css" media="all">
 		<!--oc's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		
+		<?php if (hasCustom("head")) {
+			include $_SERVER["DOCUMENT_ROOT"].$oc["path"]."head.php";
+		} ?>
 	</head>
 	
 	<body>
