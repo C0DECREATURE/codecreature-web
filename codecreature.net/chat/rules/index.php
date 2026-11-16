@@ -110,9 +110,9 @@
 			</ol>
 			
 			<h2>Consequences</h2>
-			<p>For reasonable mistakes, you'll get a warning in chat and/or via email, or a 24 hour ban. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned permanently.</p>
-			<p>If enough bad behavior is coming from the same IP address, you may receive a blanket IP ban.</p>
-			<p>Don't make me do this lol.</p>
+			<p>For reasonable mistakes, you'll get a warning in chat and/or via email, or a temporary ban. For anything very obviously not okay (unambiguous bigotry, open harassment, etc) or for ignoring warnings, your account may be banned permanently.</p>
+			<p>If enough bad behavior is coming from the same network, you may receive a blanket IP ban.</p>
+			<p>Don't make me do this. Seriously.</p>
 			
 			<h2>Questions or Concerns?</h2>
 			<p>Contact <a href="mailto:admin@codecreature.net">admin@codecreature.net</a>.</p>
