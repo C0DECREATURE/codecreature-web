@@ -24,7 +24,7 @@ $mail_log = [];
 $mail_frequency = 300; // how often user can send a letter, in seconds
 
 $mailboxOpen = date("m") == 2 && (date("d") < 14 || (date("d") == 14 && date("H") < 9));
-if (!empty($_SESSION["id"]) && ($_SESSION["user_authorization"] == "admin" || $_SESSION["user_authorization"] == "mod") && !empty($_GET["preview"])) {
+if (!empty($_SESSION["id"]) && $_SESSION["user_authorization"] == "admin" && !empty($_GET["preview"])) {
 	$mailboxOpen = true;
 }
 $nextOpen = $mailboxOpen ? "now!" : (date("m") == 1 ? "February 1st, ".date("Y") : "February 1st, ".(date("Y")+1));
