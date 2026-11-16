@@ -235,12 +235,17 @@
 						<header><h3>fun stuff</h3></header>
 						<div class="body">
 							
+							<a href="https://codepen.io/sadness97/pen/mdOXzNW">falling items</a>
+							make a bunch of elements drift down the screen with css
+							
+							<a href="https://sweetcharm.net/.CuteDesktop/VisitorYou/WEBCODE/mouse/mouse_trail_maker.html">mouse trail maker</a>
+							generate mouse trail javascript with lots of options, by sweetcharm
+							
 							<a href="https://underwhite.neocities.org/tutorials/orbit">orbiting CSS</a>
-							tutorial <u class="tq">4</u> css orbiting effect by underwhite
+							tutorial <u class="tq">4</u> css orbiting effect, by underwhite
 							
 							<a href="https://pixelcorners.lukeb.co.uk/" target="_blank">pixelcorners</a>
-							<u class="tq" data-a="generates">gener8s</u> <u class="tq" data-a="pixelated">pixel8d</u> rounded corners <u class="tq">4</u>
-							css elements
+							<u class="tq" data-a="generates">gener8s</u> <u class="tq" data-a="pixelated">pixel8d</u> rounded corners <u class="tq">4</u> css elements
 							
 							<a href="https://www.blobmaker.app/" target="_blank">blobmaker</a>
 							random svg blob <u class="tq" data-a="generator">gener8r</u>
