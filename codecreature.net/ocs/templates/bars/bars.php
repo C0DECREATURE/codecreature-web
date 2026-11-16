@@ -50,7 +50,7 @@ function multicolorText($str) {
 		<script src="/codefiles/typing-quirks.min.js?fileversion=4"></script>
 		
 		<!--template's stylesheet-->
-		<link href="<?php echo $templatePath; ?>style.css?fileversion=20261108" rel="stylesheet" type="text/css" media="all">
+		<link href="<?php echo $templatePath; ?>style.css?fileversion=20261116" rel="stylesheet" type="text/css" media="all">
 		<!--oc's stylesheet-->
 		<link href="style.css" rel="stylesheet" type="text/css" media="all">
 		
@@ -99,8 +99,8 @@ function multicolorText($str) {
 				</div>
 				
 				<nav>
-					<a href="/home">home</a>
-					<a href="/ocs">ocs</a>
+					<a href="/home" class="button">home</a>
+					<a href="/ocs" class="button">ocs</a>
 					<button id="page-settings-button" class="open-page-settings" aria-label="page settings">
 						<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
 							<?php include $_SERVER["DOCUMENT_ROOT"]."/graphix/svg-icons/gear_solid.svg"; ?>
@@ -134,7 +134,7 @@ function multicolorText($str) {
 						<?php // load fonts if specified
 						if (!empty($oc["toyhouse"])) { ?>
 							<footer>
-								<a href="<?php echo $oc["toyhouse"]; ?>">more art on toyhouse...</a>
+								<a class="link" href="<?php echo $oc["toyhouse"]; ?>">more art on toyhouse...</a>
 							</footer>
 						<?php } ?>
 						<script>
@@ -147,18 +147,18 @@ function multicolorText($str) {
 					<div class="bottom-area">
 						<section id="blinkies">
 							<?php
-							foreach ($oc["images"]["blinkies"] as $img) {
+							if (!empty($oc["images"]["blinkies"])) { foreach ($oc["images"]["blinkies"] as $img) {
 								$img["img"] = "/graphix/blinkies/".$img["img"];
 								echoImage($img);
-							} ?>
+							} } ?>
 						</section>
 						
 						<section id="stamps">
 							<?php
-							foreach ($oc["images"]["stamps"] as $img) {
+							if (!empty($oc["images"]["stamps"])) { foreach ($oc["images"]["stamps"] as $img) {
 								$img["img"] = "/graphix/stamps/".$img["img"];
 								echoImage($img);
-							} ?>
+							} } ?>
 						</section>
 					</div>
 					

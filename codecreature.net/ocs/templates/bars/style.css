@@ -135,16 +135,8 @@ nav {
 	font-size: max(1rem,min(15vw,2.25em));
 	/* to top on small screens */
 	@media screen and (max-width: 800px) { order: -1; }
-	
-	a, button {
-		display: block;
-		font-size: inherit;
-		color: var(--nav-link);
-		text-align: center;
-		&:is(:hover,:focus-visible) { color: var(--nav-link-hover); }
-	}
 }
-nav a, nav a:link, nav a:visited, nav button {
+nav .button {
 	display: block;
 	font-size: inherit;
 	color: var(--nav-link);
@@ -219,7 +211,7 @@ nav a, nav a:link, nav a:visited, nav button {
 	flex-direction: column;
 }
 #gallery a { color: var(--text-link); font-size: 1.4em; }
-#gallery a:hover { color: var(--text-link-hover); font-size: 1.4em; }
+#gallery a:hover { color: var(--text-link-hover); }
 
 /* container for things that aren't the header/footer */
 #gallery .content {
