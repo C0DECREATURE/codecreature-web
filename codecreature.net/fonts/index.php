@@ -40,6 +40,8 @@ $fonts = [
 				"link"=>"https://www.fontspace.com/victorian-parlor-font-f23362"],
 		["name"=>"Matura Regular", "credit"=>"Imre Reiner",
 				"link"=>"https://ufonts.com/fonts/matura-mt-std-regular-opentype-1-136938.html"],
+		["name"=>"Tropi Land", "credit"=>"HansCo",
+				"link"=>"https://www.dafont.com/tropi-land.font"],
 	],
 	"media inspired"=>[
 		["name"=>"Hiveswap Alternian", "credit"=>"orangeypeels",
