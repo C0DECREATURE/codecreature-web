@@ -52,7 +52,9 @@
 		<h1>Chatroom Rules</h1>
 		
 		<main>
-			<p>This is a tiny personal website with a very small community, so I'm generally trusting you to behave yourselves! If you're unsure, here are some general guidelines.</p>
+			<p>This is a tiny personal website with a very small community, so I'm generally trusting you to behave yourselves!
+				<br>If you're unsure, here are some general guidelines.</p>
+			</p>Last update: 11/16/2026</p>
 			
 			<ol>
 				<li>
@@ -65,11 +67,11 @@
 				</li>
 				<li>
 					<h4>Be nice.</h4>
-					Don't harrass or insult people for any reason.
+					Don't harrass or insult people for any reason. Zero tolerance policy for slurs or hate speech of any kind.
 				</li>
 				<li>
-					<h4>No bigotry.</h4>
-					Zero tolerance policy for slurs or hate speech of any kind.
+					<h4>No spam.</h4>
+					It's annoying and a waste of data.
 				</li>
 				<li>
 					<h4>No hyper-explicit sexual content.</h4>
@@ -81,7 +83,7 @@
 				</li>
 				<li>
 					<h4>Avoid excessive serious or heavy discussion.</h4>
-					This isn't the place for political debates, excessive venting/complaining, serious mental health topics, etc.
+					This isn't the place for political debates, excessive venting/complaining, serious mental health topics, etc. A small amount of political content is fine, keeping in mind rule #11.
 				</li>
 				<li>
 					<h4>Keep the chat topic in mind.</h4>
@@ -103,7 +105,7 @@
 							<li>The right to free gender expression and transition.</li>
 							<li>Unrestricted reproductive freedoms.</li>
 							<li>Indigenous rights to land, language, culture, and self-governance. This includes Palestine.</li>
-							<li>Anti-fascism in any form.</li>
+							<li>Anti-fascism.</li>
 						</ul>
 					I do not look favorably on right-wing views.
 				</li>
