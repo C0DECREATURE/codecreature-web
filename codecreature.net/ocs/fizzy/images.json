@@ -1,0 +1,18 @@
+{
+	"gallery": [
+		{
+			"img":"reference.png",
+			"alt":"character reference sheet",
+			"caption":"art by me"
+		},
+		{
+			"img":"chibi.png",
+			"alt":"",
+			"caption":"art by me"
+		}
+	],
+	"blinkies": [
+	],
+	"stamps": [
+	]
+}

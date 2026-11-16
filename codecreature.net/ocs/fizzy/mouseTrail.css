@@ -1,0 +1,43 @@
+.mouse-trail {
+	position: fixed;
+	z-index: 99999;
+}
+.mouse-bubbles {
+	mix-blend-mode: hard-light;
+}
+.mouse-bubble {
+	--skew: 3deg;
+	--float: -250px;
+	--drift: 0px;
+	--wiggle: 7%;
+	
+	mix-blend-mode: screen;
+	position: fixed;
+	pointer-events: none;
+	user-drag: none;
+	user-select: none;
+	transition: all 2s linear, scale 2.75s linear;
+	animation: bubble-float 2s linear forwards;
+}
+.mouse-bubble.left { --drift: -40px; }
+.mouse-bubble.right { --drift: 40px; }
+.mouse-bubble img {
+	width: 100%;
+	transition: inherit;
+	animation: bubble-wiggle .3s ease-in-out infinite,
+							bubble-shrink 3s linear forwards;
+}
+@keyframes bubble-wiggle {
+  0% { margin-left: 0px; transform: skew(0deg, 0deg); }
+  25% { margin-left: calc(-1 * var(--wiggle)); transform: skew(var(--skew), var(--skew)); }
+  75% { margin-left: var(--wiggle); transform: skew(-var(--skew), -var(--skew)); }
+  100% { margin-left: 0px; transform: skew(0deg, 0deg); }
+}
+@keyframes bubble-float {
+  from { transform: translate(0px, 0px); opacity: 1; }
+  to { transform: translate(var(--drift), var(--float)); opacity: 0; }
+}
+@keyframes bubble-shrink {
+  from { scale: 1; }
+  to { scale: .5; }
+}

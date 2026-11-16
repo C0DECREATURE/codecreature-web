@@ -1,0 +1,66 @@
+:root {
+	--dd-green: #056d06;
+	--d-green: #2c9d18;
+	--green: #8cdb41;
+	--l-green: #ccea5e;
+	--yellow: #fae800;
+	--orange: #ff8600;
+	--d-red: #db151c;
+	--red: #ff6743;
+	--cream: #fbffbb;
+	--white: #fff;
+	
+	/* TEMPLATE VALUES */
+	
+	--text: var(--dd-green);
+	--text-accent: var(--d-green);
+	--text-link: var(--yellow);
+	--text-link-hover: var(--white);
+	
+	--text-header: var(--red);
+	--text-subheader: var(--orange); /* OPTIONAL */
+	--text-subheader-mini: var(--orange);
+	
+	--nav-link: var(--red); /* OPTIONAL */
+	--nav-link-hover: var(--d-red); /* OPTIONAL */
+	
+	--bg-section: var(--l-green);
+	--bg-header: var(--yellow);
+	--bg-gallery: var(--green);
+	--bg-image: var(--cream);
+	
+	--bullet-point: '\002726'; /* OPTIONAL */
+	--bullet-point-color: var(--orange); /* OPTIONAL */
+	
+	--box-border: 4px var(--green) solid; /* OPTIONAL */
+}
+
+body { font-family: "Halogen", sans-serif; font-size: 1.25rem; line-height: 1.15; }
+#about > header, #about .label, nav > .button, h2, h3, #gallery a,
+#page-settings-contents label, #page-settings-contents button {
+	font-family: "Tropi Land", sans-serif;
+}
+h3, #gallery .link { font-size: 1.75em; }
+nav > .button { text-transform: uppercase; }
+
+#about > header .subheader-mini { display: none; }
+#identity p { display: flex; align-items: center; gap: .25em; }
+#identity .label { font-size: 1.25em; }
+
+#page-settings-contents label { font-size: 1.25em; }
+#page-settings-contents button { font-size: 1.5em; text-transform: uppercase; padding: 0px; }
+#page-settings-contents button:hover { color: var(--green); }
+#page-settings-contents input[type=checkbox] {
+	position: relative;
+	height: 100%;
+	aspect-ratio: 1;
+}
+#page-settings-contents input[type=checkbox]:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0; left: 0;
+	width: 100%;
+	aspect-ratio: 1;
+	background: red;
+}

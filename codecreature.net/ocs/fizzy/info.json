@@ -1,0 +1,26 @@
+{
+	"name": "Fizzy",
+	"species": "grapefruit soda",
+	
+	"template": "bars",
+	"fonts": ["Tropi Land","Halogen"],
+	"customSections": ["head"],
+	
+	"warnings": [],
+	
+	"description": "<p>grapefruit flavor! based on my favorite soda</p>",
+	"identity": {
+		"pronouns": "they/them",
+		"gender": "soda"
+	},
+	"stats": {
+		"Personality": ["cheerful","not very bright"],
+		"Notes": ["consciousness is in the bottle","soda refills if emptied","floating parts are squishy","can also use \"fizzy\" label instead of \"squirt\""]
+	},
+	
+	"toyhouse": "https://toyhou.se/22485529.fizzy",
+	
+	"mainImage": "fullbody.png",
+	"icon": "icon.png",
+	"favicon": "favicon.png"
+}
