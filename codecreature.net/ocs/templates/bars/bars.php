@@ -145,21 +145,25 @@ function multicolorText($str) {
 					</section>
 					
 					<div class="bottom-area">
+						<?php if (!empty($oc["images"]["blinkies"])) { ?>
 						<section id="blinkies">
 							<?php
-							if (!empty($oc["images"]["blinkies"])) { foreach ($oc["images"]["blinkies"] as $img) {
+							foreach ($oc["images"]["blinkies"] as $img) {
 								$img["img"] = "/graphix/blinkies/".$img["img"];
 								echoImage($img);
-							} } ?>
+							} ?>
 						</section>
-						
+						<?php 
+						}
+						if (!empty($oc["images"]["stamps"])) { ?>
 						<section id="stamps">
 							<?php
-							if (!empty($oc["images"]["stamps"])) { foreach ($oc["images"]["stamps"] as $img) {
+							foreach ($oc["images"]["stamps"] as $img) {
 								$img["img"] = "/graphix/stamps/".$img["img"];
 								echoImage($img);
-							} } ?>
+							} ?>
 						</section>
+						<?php } ?>
 					</div>
 					
 				</div> <!-- end content div -->
