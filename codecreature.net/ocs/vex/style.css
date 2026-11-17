@@ -50,7 +50,8 @@ h3 {
 	font-size: 1.3em;
 }
 
-h3, nav a, nav button, #gallery a { font-family: 'Ghoulish Fright', sans-serif; letter-spacing: 2px; }
+h3, nav a, nav .button, #gallery a { font-family: 'Ghoulish Fright', sans-serif; letter-spacing: 2px; }
+nav .button { text-transform: uppercase; }
 
 ::selection { background: var(--yellow); color: var(--black); }
 

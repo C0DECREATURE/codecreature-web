@@ -95,7 +95,7 @@ const pageSettings = {
 	let psCss = document.createElement('link');
 	psCss.rel = 'stylesheet';
 	psCss.type = 'text/css';
-	psCss.href = '/codefiles/page-settings.css?fileversion=5'; /* make sure this links to the location of the css file! */
+	psCss.href = '/codefiles/page-settings-new.css?fileversion=20261117'; /* make sure this links to the location of the css file! */
 	document.querySelector('HEAD').prepend(psCss);
 	
 	// when page loads, set up menu

@@ -35,9 +35,6 @@ function multicolorText($str) {
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=4" rel="stylesheet" type="text/css"></link>
 		
-		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
-		
 		<?php // load fonts if specified
 		if (!empty($oc["fonts"])) {
 			echo "<script>fonts.load(".str_replace(["[","]"],"",json_encode($oc["fonts"])).");</script>";
@@ -47,12 +44,12 @@ function multicolorText($str) {
 		<script src="/codefiles/full-image.js"></script>
 		
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=4"></script>
+		<script src="/codefiles/typing-quirks-new.js?fileversion=4"></script>
 		
 		<!--template's stylesheet-->
 		<link href="<?php echo $templatePath; ?>style.css?fileversion=20261116" rel="stylesheet" type="text/css" media="all">
 		<!--oc's stylesheet-->
-		<link href="style.css" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261117" rel="stylesheet" type="text/css" media="all">
 		
 		<?php if (hasCustom("head")) {
 			include $_SERVER["DOCUMENT_ROOT"].$oc["path"]."head.php";
@@ -101,14 +98,7 @@ function multicolorText($str) {
 				<nav>
 					<a href="/home" class="button">home</a>
 					<a href="/ocs" class="button">ocs</a>
-					<button id="page-settings-button" class="open-page-settings" aria-label="page settings">
-						<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
-							<?php include $_SERVER["DOCUMENT_ROOT"]."/graphix/svg-icons/gear_solid.svg"; ?>
-						</i>
-					</button>
-					<div id="page-settings-contents" class="page-settings-contents hidden" ariaLabel="page settings">
-						<!--page settings go here-->
-					</div>
+					<?php $psType = "inline"; include $_SERVER["DOCUMENT_ROOT"]."/codefiles/page-settings.php"; ?>
 				</nav>
 			</section>
 			

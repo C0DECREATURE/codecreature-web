@@ -33,9 +33,13 @@
 	--bullet-point-color: var(--orange); /* OPTIONAL */
 	
 	--box-border: 4px var(--green) solid; /* OPTIONAL */
+	
+	--cursor: url("/ocs/fizzy/cursor.svg"), auto; /* OPTIONAL */
+	--cursor-pointer: pointer; /* OPTIONAL */
 }
 
 body { font-family: "Halogen", sans-serif; font-size: 1.25rem; line-height: 1.15; }
+
 #about > header, #about .label, nav > .button, h2, h3, #gallery a,
 #page-settings-contents label, #page-settings-contents button {
 	font-family: "Tropi Land", sans-serif;
@@ -43,24 +47,53 @@ body { font-family: "Halogen", sans-serif; font-size: 1.25rem; line-height: 1.15
 h3, #gallery .link { font-size: 1.75em; }
 nav > .button { text-transform: uppercase; }
 
+/* bouncing header letters */
+h1 .multicolor > * {
+	display: inline-block;
+	animation: letterBounce .5s linear;
+	--delay: .1s;
+	transition: all .25s linear;
+}
+h1 .multicolor > *:hover { scale: 1.1; transform: translateY(-.05em); }
+h1 .multicolor > :nth-child(2) { animation-delay: calc(var(--delay)); }
+h1 .multicolor > :nth-child(3) { animation-delay: calc(var(--delay) * 2); }
+h1 .multicolor > :nth-child(4) { animation-delay: calc(var(--delay) * 3); }
+h1 .multicolor > :nth-child(5) { animation-delay: calc(var(--delay) * 4); }
+@keyframes letterBounce {
+	0% { scale: 1; transform: translateY(0em); }
+	50% { scale: 1.08; transform: translateY(-.05em); }
+	100% { scale: 1; transform: translateY(0em); }
+}
+/**********/
+
 #about > header .subheader-mini { display: none; }
 #identity p { display: flex; align-items: center; gap: .25em; }
 #identity .label { font-size: 1.25em; }
 
+@media screen and (min-width: 800px) {
+	#page-settings-contents {
+		border-radius: 1em 1em 0 0;
+	}
+}
+@media screen and (max-width: 800px) {
+	#page-settings-contents {
+		border-radius: 0 0 1em 1em;
+	}
+}
 #page-settings-contents label { font-size: 1.25em; }
 #page-settings-contents button { font-size: 1.5em; text-transform: uppercase; padding: 0px; }
 #page-settings-contents button:hover { color: var(--green); }
-#page-settings-contents input[type=checkbox] {
-	position: relative;
-	height: 100%;
-	aspect-ratio: 1;
+#page-settings-contents .checkbox-wrapper {
+	border-radius: .3em;
+  border-width: 2px;
+  background: var(--cream);
 }
-#page-settings-contents input[type=checkbox]:after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0; left: 0;
-	width: 100%;
-	aspect-ratio: 1;
-	background: red;
+#page-settings-contents .checkbox-wrapper:before {
+	top: -13%;
+	font-size: 1.1em;
+	color: var(--red);
+}
+#page-settings-button, #page-settings-contents {
+	--color: var(--dd-green);
+	--accent: var(--text-accent);
 }

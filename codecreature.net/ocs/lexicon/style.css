@@ -1,5 +1,6 @@
 :root {
 	--white: #ece4eb;
+	--l-gray: #d4c5d3;
 	--gray: #255984;
 	--d-gray: #2d3659;
 	--black: #13133d;
@@ -34,6 +35,9 @@
 	--bullet-point-color: var(--teal); /* OPTIONAL */
 	
 	--box-border: 4px var(--black) solid; /* OPTIONAL */
+	
+	--cursor: url("/ocs/lexicon/cursor.svg"), auto; /* OPTIONAL */
+	--cursor-pointer: pointer; /* OPTIONAL */
 }
 
 span.multicolor > span:nth-of-type(1n) { color: var(--red); }
@@ -50,3 +54,29 @@ h1, h2, .subheader, nav a, nav button, #gallery a {
 	font-family: "Alphabet_01",sans-serif;
 }
 h1 { letter-spacing: -1px; font-size: min(2em, 25vw); }
+
+@media screen and (min-width: 800px) {
+	#about, #gallery, #main-image { flex-grow: 1; }
+	#main-image { width: 30vh; }
+}
+#main-image {
+	background-image: url('images/checkers.png');
+	background-size: min(72px, 20vw);
+}
+#main-image .image-wrapper { position: relative; }
+#main-image .image-wrapper:before {
+	--edge: min(35px, 10vw);
+	content: '';
+	position: absolute;
+	display: block;
+	width: calc(100% - (var(--edge) * 2));
+	height: calc(100% - (var(--edge) * 2));
+	top: var(--edge); left: var(--edge);
+	background: linear-gradient(180deg, #58a6ff, var(--purple));
+	border: var(--box-border);
+	z-index: -1;
+}
+#main-image img {
+	max-width: 110%;
+	margin-left: min(24%, 5vw);
+}

@@ -1,0 +1,130 @@
+/* section to copy if you want to change the settings appearance on another page */
+.page-settings {
+	--open-button-fill: var(--white);
+	--open-button-background: var(--black);
+	--open-button-border: none;
+	--background: var(--black);
+	--border: none;
+	--outline: 0px;
+	--color: var(--green);
+	--accent: var(--white);
+}
+
+/* the settings area */
+#page-settings {
+	z-index: 1000;
+	text-align: right;
+	font-family: 'Courier New', serif;
+	color: var(--color);
+}
+#page-settings.fixed {
+	position: fixed;
+	top: 0; right: 0;
+}
+/* if the page is in an iframe */
+.iframe #page-settings { display: none; }
+
+/* button that opens the settings */
+#page-settings.fixed #page-settings-button {
+	top: 5px; right: 5px;
+}
+#page-settings-button {
+	position: relative;
+	color: var(--open-button-fill); background: var(--open-button-background);
+	border: var(--open-button-border);
+	padding: 0.3em;
+	font-size: 2rem; line-height: 0;
+	border-radius: 50%;
+	/* svg icon */
+	svg { fill: var(--open-button-fill); stroke: var(--open-button-fill); }
+}
+
+#page-settings-contents {
+	color: var(--color);
+	position: relative;
+	z-index: -1;
+	background: var(--background);
+	padding: 1em 1.25em 1em 0.75em;
+	margin: -1em 1em 0 0;
+	border: var(--border);
+	outline: var(--outline);
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
+	border-radius: 0.5em;
+	max-width: min(90vw, 16em);
+	flex-direction: column; gap: 0.5em; align-items: flex-end; 
+}
+/* small screens */
+@media screen and (width < 350px) {
+	/* settings contents fill width of screen */
+	#page-settings-contents {
+		width: 100vw;
+		max-width: 100vw;
+		max-height: 90vh;
+		overflow-y: scroll;
+		margin-right: 0px;
+		margin-top: -.5em;
+	}
+}
+#page-settings-contents h3 {
+	margin: 0 0 .25em 0;
+}
+
+/* close button */
+#page-settings-close-button {
+	padding: .25em;
+	font-size: 1.1em; font-weight: bold; font-family: inherit;
+	svg {
+		&:hover, &:focus-visible {
+			fill: var(--accent); stroke: var(--accent);
+		}
+	}
+}
+
+#page-settings-contents .label-wrapper {
+	display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* buttons inside the settings */
+#page-settings-contents .label-wrapper, #page-settings-contents button { color: var(--accent); }
+#page-settings-contents button:hover { color: var(--color); }
+/* description for setting */
+#page-settings-contents span {
+	display: block;
+	width: 100%;
+	margin-bottom: .8em;
+}
+
+#page-settings-contents .label-wrapper {
+	display: flex; gap: .5em;
+	margin-bottom: .25em;
+}
+
+#page-settings-contents .checkbox-wrapper {
+	background: none;
+	border: 1px var(--accent) solid;
+	height: 1em; width: 1em;
+	position: relative;
+	flex-shrink: 0;
+}
+#page-settings-contents .checkbox-wrapper:has(:checked), #page-settings-contents .checkbox-wrapper:hover {
+	border-color: var(--color);
+}
+#page-settings-contents .checkbox-wrapper:before {
+	font-family: sans-serif;
+	font-weight: bold;
+  text-align: center;
+	display: block;
+	position: absolute;
+	top: -21%; left: 0;
+	width: 100%; height: 100%;
+	user-select: none;
+}
+#page-settings-contents .checkbox-wrapper:has(:checked):before {
+	content: '✔';
+}
+#page-settings-contents .checkbox-wrapper input {
+	width: 100%; height: 100%;
+	margin: 0;
+	opacity: 0;
+}
