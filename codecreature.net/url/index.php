@@ -1,22 +1,26 @@
+<?php
+$redirect = "";
+
+// if no redirect specified, go back
+if (empty($_GET["redirect"])) echo "<script>history.back()</script>";
+else {
+	// decode the redirect url
+	$redirect = urldecode(trim($_GET["redirect"]));
+	// if this is a local link, just go straight there
+	if (preg_match("/^\/|^https?:\/\/codecreature.net|^codecreature.net/",$redirect)) { 
+		header("Location: $redirect");
+	}
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
-		<script>
-			// url parameters
-			const urlParams = new URL(window.location.toLocaleString()).searchParams;
-			// page to redirect to
-			let redirectUrl;
-			if ( urlParams.has('redirect') ) { redirectUrl = urlParams.get('redirect');
-			// if no redirect page given, go to site home
-			} else { window.location = "/"; }
-			// if redirect page is an internal link, go there without warning
-			if (!redirectUrl.startsWith('http')) window.location = redirectUrl;
-		</script>
-		
-		<title>leaving codecreature</title>
+		<title>leaving codecreature!</title>
 		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
@@ -46,14 +50,13 @@
 			You are about to leave codecreature.net.
 			<br>The safety of this link has not been verified.
 		</p>
-		<p>Do you want to open <strong id="redirect-url-display">the link</strong>?</p>
+		<p>Do you want to open <strong id="redirect-url-display"><?php echo $redirect; ?></strong>?</p>
 		<script>document.getElementById('redirect-url-display').innerHTML = redirectUrl;</script>
 		
 		<div id="proceed-options">
 			<a class="btn btn-red" href="javascript:void(0);" onclick="history.back()">Go Back</button>
 			
-			<a class="btn btn-green" id="continue">Open Link</a>
-			<script>document.getElementById('continue').href = redirectUrl;</script>
+			<a class="btn btn-green" id="continue" href="<?php echo $redirect; ?>">Open Link</a>
 		</div>
 
 	</body>

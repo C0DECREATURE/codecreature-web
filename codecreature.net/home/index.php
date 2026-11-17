@@ -17,11 +17,8 @@
 		<!-- universal base css -->
 		<link href="/codefiles/required.css?fileversion=20260410" rel="stylesheet" type="text/css"></link>
 		
-		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260410"></script>
-		
 		<!-- fonts -->
-		<script>fonts.load('Super Comic','Comic Sans MS')</script>
+		<script>fonts.load('Super Comic','Comic Sans MS','Paint Hand')</script>
 		
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
@@ -37,14 +34,11 @@
 			});
 		</script>
 		
-		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260410"></script>
-		
 		<!-- image takeover -->
 		<script src="/codefiles/image-takeover.js?fileversion=20260410"></script>
 		
 		<!--this page's stylesheet-->
-		<link href="/home/style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
+		<link href="/home/style.css?fileversion=20261117" rel="stylesheet" type="text/css" media="all">
 		<!-- this page's script -->
 		<script src="/home/home.js?fileversion=20261022"></script>
 	</head>
@@ -63,8 +57,8 @@
 					<img src="/graphix/dividers/construction-tape.gif" alt="">
 					<img src="/graphix/dividers/construction-tape.gif" alt="">
 				</div>
-				<div class="subtitle">
-					UNDER CONSTRUCTION
+				<div class="subtitle construction-banner">
+					Under construction
 				</div>
 				<div class="divider">
 					<img src="/graphix/dividers/construction-tape.gif" alt="">
@@ -72,6 +66,8 @@
 					<img src="/graphix/dividers/construction-tape.gif" alt="">
 				</div>
 			</div>
+			
+			<?php include $_SERVER["DOCUMENT_ROOT"]."/codefiles/page-settings.php"; ?>
 			
 			<main id="main">
 				<section id="updates">
@@ -92,18 +88,18 @@
 			</main>
 			
 			<nav class="links">
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/map';">site map</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/games/worm-race';">worm race</button>
-				<button class="btn btn-orange" type="button" onclick="window.location.href='/shrines';">shrines</button>
-				<button class="btn btn-green" type="button" onclick="window.location.href='/trinkets';">trinkets</button>
-				<button class="btn btn-blue" type="button" onclick="window.location.href='/404';">404 error</button>
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/graphix';">graphix</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/ocs';">characters</button>
-				<button class="btn btn-orange" type="button" onclick="window.location.href='/about'">about</button>
-				<button class="btn btn-green" type="button" onclick="window.location.href='https://neocities.org/site/codecreature';">neocities</button>
-				<button class="btn btn-blue" type="button" onclick="window.location.href='/links';">links</button>
-				<button class="btn btn-purple" type="button" onclick="window.location.href='/fonts';">fonts</button>
-				<button class="btn btn-red" type="button" onclick="window.location.href='/warnings';">warnings</button>
+				<a class="btn btn-purple" type="button" href="/map">site map</a>
+				<a class="btn btn-red" type="button" href="/games/worm-race">worm race</a>
+				<a class="btn btn-orange" type="button" href="/shrines">shrines</a>
+				<a class="btn btn-green" type="button" href="/trinkets">trinkets</a>
+				<a class="btn btn-blue" type="button" href="/404">404 error</a>
+				<a class="btn btn-purple" type="button" href="/graphix">graphix</a>
+				<a class="btn btn-red" type="button" href="/ocs">characters</a>
+				<a class="btn btn-orange" type="button" onclick="window.location.href='/about'">about</a>
+				<a class="btn btn-green" type="button" onclick="window.location.href='https://neocities.org/site/codecreature';">neocities</a>
+				<a class="btn btn-blue" type="button" href="/links">links</a>
+				<a class="btn btn-purple" type="button" href="/fonts">fonts</a>
+				<a class="btn btn-red" type="button" href="/warnings">warnings</a>
 			</nav>
 			
 			<section id="site-button">
@@ -134,6 +130,9 @@
 					onmousedown="document.furryhell.src='/home/furry-hell-2.png';"
 					onmouseout="document.furryhell.src='/home/furry-hell-1.png';"/></g></svg>
 		</a>
+		
+		<!-- typing quirk alt text -->
+		<script src="/codefiles/typing-quirks-new.js?fileversion=20260410"></script>
 	</body>
 	<!--------------END BODY------------->
 </html>
