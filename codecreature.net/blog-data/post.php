@@ -26,9 +26,12 @@
 	<script>
 		(()=>{
 			<?php echo "let id = $id;"; ?>
-			let images = document.getElementById("post-"+id).querySelector(".details").getElementsByTagName("img");
-			for (let i = 0; i < images.length; i++) {
-				if (!images[i].classList.contains('no-full-view') && !images[i].classList.contains('mini') && !images[i].classList.contains('bbcode_smiley')) images[i].classList.add('full-viewable');
+			let details = document.getElementById("post-"+id).querySelector(".details");
+			if (details) {
+				let images = details.getElementsByTagName("img");
+				for (let i = 0; i < images.length; i++) {
+					if (!images[i].classList.contains('no-full-view') && !images[i].classList.contains('mini') && !images[i].classList.contains('bbcode_smiley')) images[i].classList.add('full-viewable');
+				}
 			}
 		})();
 	</script>
