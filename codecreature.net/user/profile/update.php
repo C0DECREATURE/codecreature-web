@@ -11,6 +11,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 // Include database connection file
 require_once "../connect.php";
 
+// Include user functions file
+require_once "../database.php";
+
 function updateSummary($summary) {
 	// check for ban
 	$ban = getBanInfo("user_id",$_SESSION['id']);
