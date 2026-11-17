@@ -37,6 +37,7 @@ img { max-width: 100% }
 img.tall { max-height: max(300px,min(90vh,500px)); }
 img.mini { max-height: 1em; }
 img.bbcode_smiley { margin-left: 0px; }
+img.pixel-art { image-rendering: pixelated; }
 
 figure { text-align: center; }
 
