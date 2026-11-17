@@ -75,12 +75,11 @@ body.halloween {
 @media screen and (width < 1000px) {
 	body:has(#menu.open) > *:not(#menu) { display: none; }
 }
+
 #menu {
 	position: relative;
-	display: flex;
-	flex-direction: column;
 	
-	font-size: min(9vh, min(2em, 3vw));
+	font-size: min(8vh, min(2em, 3vw));
 	text-align: center;
 	width: min(23vw, 300px);
 	flex-shrink: 0;
@@ -110,15 +109,15 @@ body.halloween {
 	}
 	a { display: block; margin: 0; }
 }
-	
-#menu	nav {
-	overflow-y: auto;
+
+#menu	nav { width: 100%; }	
+#menu	nav, #menu .menu-popout .box {
 	flex-grow: 1; flex-shrink: 1;
-	
 	display: flex;
 	flex-direction: column;
 	gap: .2em;
-	padding: .4em .6em;
+	padding: .4em 0;
+	align-items: center;
 }
 /* navigation buttons */
 #menu nav a, #menu nav button {
@@ -131,58 +130,115 @@ body.halloween {
 		border-radius: 1em;
 	}
 }
+#menu nav > a, #menu nav > button {
+	width: 100%;
+}
 #menu {
 	@media screen and (width >= 1000px) {
 		border-right-style: solid;
 		.toggle-menu { display: none; }
 	}
-	@media screen and (width < 1000px) {
+}
+
+#menu .menu-popout {
+	position: relative;
+}
+#menu .menu-popout:is(:hover,:focus-visible) .box,
+#menu .menu-popout:has(:hover,:focus-visible) .box
+{
+	color: var(--blue);
+}
+@media screen and (width >= 1000px) {
+	#menu .menu-popout .box {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 100%;
+		transform: translateY(-50%);
+		background: var(--l-green);
+		border: var(--menu-border) var(--dd-blue) solid;
+		border-left: var(--menu-border) var(--d-green) solid;
+		border-radius: 0 calc(var(--menu-border) * 5) calc(var(--menu-border) * 5) 0;
+		padding: .5em .7em .5em .5em;
+		z-index: 900;
+		font-size: .85em;
+		align-items: flex-start;
+		box-shadow: 0px var(--menu-border) rgb(var(--blue-rgb),0.4);
+	}
+	#menu .menu-popout .box a, #menu .menu-popout .box button { text-wrap: nowrap; }
+	#menu .menu-popout:is(:hover,:focus-visible) .box,
+	#menu .menu-popout:has(:hover,:focus-visible) .box
+	{
+		display: flex;
+	}
+	.valentines #menu .menu-popout .box {
+		background: var(--white);
+		border: var(--menu-border) var(--dd-blue) solid;
+		border-left: var(--menu-border) var(--pink) solid;
+	}
+}
+@media screen and (width < 1000px) {
+	#menu {
 		z-index: 1000;
 		width: 100%;
 		font-size: max(1rem, min(2rem, 3vh));
-		
-		> header {
-			text-align: left;
-			h2 { display: none; }
-			border-bottom: var(--menu-border) var(--dd-blue) solid;
-		}
-		
-		&:not(.open) > header {
-			/* background lines */
-			--bg-strength: 0.15;
-			background: inherit;
-			background-color: inherit;
-			background-blend-mode: inherit;
-		}
-		
-		.toggle-menu { height: max(1em,1rem); aspect-ratio: 1; }
-			/* bars menu icon */
-		.toggle-menu .open {
-			background: var(--dd-blue);
-			mask: url('/graphix/svg-icons/menu.svg');
-			mask-size: 100%;
-		}
-		.toggle-menu:hover .open { background: var(--blue); }
-			/* X menu icon */
-		.toggle-menu .close {
-			background: var(--white);
-			mask: url('/graphix/svg-icons/x.svg');
-			mask-size: 100%;
-		}
-		.toggle-menu:hover .close { background: var(--l-blue); }
-		
-		&:not(.open) {
-			#menu-buttons { display: none; }
-			/* hide the "close menu" button when menu is already closed */
-			.toggle-menu .close { display: none; }
-		}
-		&.open {
-			position: fixed;
-			width: 100%; height: 100%;
-			/* hide the "open menu" button when menu is already open */
-			.toggle-menu .open { display: none; }
-		}
 	}
+	#menu nav {
+		font-size: max(1rem, min(2rem, 4vh));
+	}
+	#menu:not(.open) {
+		#menu-buttons { display: none; }
+		/* hide the "close menu" button when menu is already closed */
+		.toggle-menu .close { display: none; }
+	}
+	#menu.open {
+		position: fixed;
+		width: 100%; height: 100%;
+		/* hide the "open menu" button when menu is already open */
+		.toggle-menu .open { display: none; }
+	}
+	
+	#menu nav a, #menu nav button {
+		width: fit-content;
+	}
+	
+	#menu header {
+		text-align: left;
+		h2 { display: none; }
+		border-bottom: var(--menu-border) var(--dd-blue) solid;
+	}
+	
+	#menu:not(.open) > header {
+		/* background lines */
+		--bg-strength: 0.15;
+		background: inherit;
+		background-color: inherit;
+		background-blend-mode: inherit;
+	}
+	
+	#menu .toggle-menu { height: max(1em,1rem); aspect-ratio: 1; }
+		/* bars menu icon */
+	#menu .toggle-menu .open {
+		background: var(--dd-blue);
+		mask: url('/graphix/svg-icons/menu.svg');
+		mask-size: 100%;
+	}
+	#menu .toggle-menu:hover .open { background: var(--blue); }
+		/* X menu icon */
+	#menu .toggle-menu .close {
+		background: var(--white);
+		mask: url('/graphix/svg-icons/x.svg');
+		mask-size: 100%;
+	}
+	#menu .toggle-menu:hover .close { background: var(--l-blue); }
+	
+	.valentines #menu .toggle-menu .open { background: var(--white); }
+	.valentines #menu .toggle-menu:hover .open, .valentines #menu .toggle-menu:hover .close { background: var(--ll-pink); }
+	
+	#menu .menu-popout { padding: .5em 0; order: 2; }
+	#menu .menu-popout:has(+ .menu-popout) { padding-bottom: 0; }
+	#menu .menu-popout .label { color: var(--d-blue); padding-bottom: .25em; }
+	#menu .menu-popout .box { padding: 0px; }
 }
 
 .valentines {
@@ -201,6 +257,12 @@ body.halloween {
 	/* menu cast shadows */
 	#menu { @media screen and (width < 1000px) { box-shadow: 0px var(--menu-border) var(--l-pink); } }
 	#menu { @media screen and (width >= 1000px) { box-shadow: var(--menu-border) 0px var(--l-pink); } }
+	
+	#menu .menu-popout:is(:hover,:focus-visible) .box,
+	#menu .menu-popout:has(:hover,:focus-visible) .box
+	{
+		color: var(--d-pink);
+	}
 }
 
 .halloween #menu {

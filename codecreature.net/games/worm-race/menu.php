@@ -11,9 +11,22 @@
 		<a href="<?php echo $worm_race_path ?>">feed worms</a>
 		<a href="<?php echo $worm_race_path ?>racetrack">racetrack</a>
 		<a href="<?php echo $worm_race_path ?>guide">guide</a>
-		<a href="<?php echo $worm_race_path ?>share">propaganda</a>
-		<a href="/games/worm-stocks">stocks</a>
-		<a href="/games/worm-fishing">fishing</a>
+		<button class="menu-popout">
+			<span class="label">minigames</span>
+			<div class="box">
+				<a href="/games/worm-stocks">stock market</a>
+				<a href="/games/worm-fishing">unfishing</a>
+			</div>
+		</button>
+		<button class="menu-popout">
+			<span class="label">more</span>
+			<div class="box">
+				<a href="<?php echo $worm_race_path ?>share">propaganda</a>
+				<a href="/games/worm-love">shipping</a>
+				<a href="/fan-worms">fan worms</a>
+				<a href="/fridge">fanart</a>
+			</div>
+		</button>
 		<button id="open-updates" onclick="">
 			updates
 		</button>
