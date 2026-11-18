@@ -207,7 +207,11 @@ const fullImageView = {
 			if ( creditLabel ) txt = `credit: ${txt}${creditLabel}</a>`;
 			else txt += 'credit</a>';
 			fullImageView.credit.innerHTML = txt;
-		} else fullImageView.credit.innerHTML = '';
+			fullImageView.credit.classList.remove('hidden');
+		} else {
+			fullImageView.credit.classList.add('hidden');
+			fullImageView.credit.innerHTML = '';
+		}
 		// if caption was provided
 		var caption = img.dataset.caption;
 		if ( caption ) fullImageView.caption.innerHTML = caption;
