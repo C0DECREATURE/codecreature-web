@@ -48,21 +48,23 @@ h3, #gallery .link { font-size: 1.75em; }
 nav > .button { text-transform: uppercase; }
 
 /* bouncing header letters */
-h1 .multicolor > * {
-	display: inline-block;
-	animation: letterBounce .5s linear;
-	--delay: .1s;
-	transition: all .25s linear;
-}
-h1 .multicolor > *:hover { scale: 1.1; transform: translateY(-.05em); }
-h1 .multicolor > :nth-child(2) { animation-delay: calc(var(--delay)); }
-h1 .multicolor > :nth-child(3) { animation-delay: calc(var(--delay) * 2); }
-h1 .multicolor > :nth-child(4) { animation-delay: calc(var(--delay) * 3); }
-h1 .multicolor > :nth-child(5) { animation-delay: calc(var(--delay) * 4); }
-@keyframes letterBounce {
-	0% { scale: 1; transform: translateY(0em); }
-	50% { scale: 1.08; transform: translateY(-.05em); }
-	100% { scale: 1; transform: translateY(0em); }
+@media (prefers-reduced-motion: no-preference) {
+	h1 .multicolor > * {
+		display: inline-block;
+		animation: letterBounce .5s linear;
+		--delay: .1s;
+		transition: all .25s linear;
+	}
+	h1 .multicolor > *:hover { scale: 1.1; transform: translateY(-.05em); }
+	h1 .multicolor > :nth-child(2) { animation-delay: calc(var(--delay)); }
+	h1 .multicolor > :nth-child(3) { animation-delay: calc(var(--delay) * 2); }
+	h1 .multicolor > :nth-child(4) { animation-delay: calc(var(--delay) * 3); }
+	h1 .multicolor > :nth-child(5) { animation-delay: calc(var(--delay) * 4); }
+	@keyframes letterBounce {
+		0% { scale: 1; transform: translateY(0em); }
+		50% { scale: 1.08; transform: translateY(-.05em); }
+		100% { scale: 1; transform: translateY(0em); }
+	}
 }
 /**********/
 
