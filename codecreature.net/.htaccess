@@ -79,6 +79,7 @@ RewriteRule ^blog/([^\/]*)/post/([0-9]*) blog-data/list.php?table=$1&id=$2 [QSA]
 # /shrines redirects
 RewriteRule ^snailfish/?(.*) /shrines/snailfish/$1
 RewriteRule ^garfield/?(.*) /shrines/garfield/$1
+RewriteRule ^pokemon/?(.*) /shrines/pokemon/$1
 
 # /best-garfield redirects to poll
 RewriteRule ^best-garfield/results/?(.*) /shrines/garfield/best-garfield/result.php?name=$1

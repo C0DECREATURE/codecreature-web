@@ -6,6 +6,8 @@
 		
 		<title>pokémon!!</title>
 		
+		<base href="/shrines/pokemon/" src="/shrines/pokemon/">
+		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
 		<!-- universal base css -->

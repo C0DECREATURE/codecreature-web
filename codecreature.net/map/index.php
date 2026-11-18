@@ -54,11 +54,22 @@
 				<li><a href="/updates" class="page" data-traits="wip">updates</a></li>
 			</ul>
 			
-			<h3>games & interactive</h3>
+			<h3>worm games</h3>
 			<ul>
-				<li><a href="/games/worm-race" class="page" data-traits="">worm race</a></li>
+				<li><a href="/games/worm-race" class="page" data-traits="">worm race</a>
+					<ul>						
+						<li><a href="/games/worm-race/racetrack" class="page" data-traits="">racetrack</a></li>
+						<li><a href="/games/worm-race/guide" class="page" data-traits="">guide</a></li>
+						<li><a href="/games/worm-race/share" class="page" data-traits="">propaganda/sharing</a></li>
+					</ul>
+				</li>
 				<li><a href="/games/worm-stocks" class="page" data-traits="wip">jeremy's stock market</a></li>
 				<li><a href="/games/worm-fishing" class="page" data-traits="wip no-mobile">worm unfishing</a></li>
+				<li><a href="/fan-worms" class="page" data-traits="wip">fan worms</a></li>
+				<li><a href="/games/worm-love" class="page" data-traits="wip">worm relationships</a></li>
+			
+			<h3>games & interactive</h3>
+			<ul>
 				<li><a href="/trinkets" class="page" data-traits="">trinkets i spy</a></li>
 				<li><a href="/404" class="page" data-traits="eyestrain">404 error</a></li>
 				<li><a href="/drawbox" class="page" data-traits="wip no-mobile">drawbox</a></li>
@@ -108,9 +119,9 @@
 						<li><a href="/shrines/homestuck/playlists" class="page" data-traits="wip">playlists</a></li>
 					</ul>
 				</li>
-				<li><a href="/shrines/pokemon" class="page" data-traits="wip">pokemon</a>
+				<li><a href="/pokemon" class="page" data-traits="wip">pokemon</a>
 					<ul>
-						<li><a href="/shrines/pokemon/cards" class="page" data-traits="wip">cards</a></li>
+						<li><a href="/pokemon/cards" class="page" data-traits="wip">cards</a></li>
 					</ul>
 				</li>
 				<li><a href="/snailfish" class="page" data-traits="wip">snailfish</a></li>
@@ -133,6 +144,9 @@
 			<h3>characters</h3>
 			<ul>
 				<li><a href="/ocs/vex" class="page" data-traits="wip gore">vex</a></li>
+				<li><a href="/ocs/prax" class="page" data-traits="wip flashing">prax</a></li>
+				<li><a href="/ocs/lexicon" class="page" data-traits="wip">lexicon</a></li>
+				<li><a href="/ocs/fizzy" class="page" data-traits="wip">fizzy</a></li>
 			</ul>
 			
 			<h3>other</h3>

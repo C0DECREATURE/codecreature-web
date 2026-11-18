@@ -6,6 +6,8 @@
 		
 		<title>pokémon tcg collection</title>
 		
+		<base href="/shrines/pokemon/cards/" src="/shrines/pokemon/cards/">
+		
 		<!-- universal base javascript -->
 		<script src="/codefiles/required.js?fileversion=20260410"></script>
 		<!-- universal base css -->
@@ -29,7 +31,7 @@
 	
 <body><div class="main-container">
 	<nav>
-		<a href="/shrines/pokemon">pokémon</a>
+		<a href="/pokemon">pokémon</a>
 		<img src="../images/sprites/sm/pokeball_crop.webp" alt="">
 		<a href="/">home</a>
 	</nav>
@@ -40,23 +42,14 @@
 		</header>
 		
 		<p>
-			this is every snorunt card ever printed (not including holo versions)
-			<br>i still need physical copies of the faded cards!
+			this is every snorunt card ever printed!
+			<br>i still need physical copies of the faded cards
 		</p>
 		
 		<div class="cardset">
 			<?php
 			
 			$cards = [
-				/*
-				[
-					"img"=>"",
-					"num"=>"",
-					"owned"=>false,
-					"alt"=>"",
-					"flavor"=>"",
-				],
-				*/
 				[
 					"img"=>"arceus.webp",
 					"num"=>"Platinum Arceus 75/99",
@@ -80,9 +73,9 @@
 				],
 				[
 					"img"=>"paradox_rift_illustration.webp",
-					"num"=>"Paradox Rift 037/182 (Full Art)",
+					"num"=>"Paradox Rift 037/182 Illustrated",
 					"owned"=>false,
-					"alt"=>"Card with a Snorunt happily rolling through the snow in a forest. There is a triangular Snorunt-shaped depression in the snow nearby and several pinecones scattered around its footsteps.",
+					"alt"=>"Full art card with a Snorunt happily rolling through the snow in a forest. There is a triangular Snorunt-shaped depression in the snow nearby and several pinecones scattered around its footsteps.",
 					"flavor"=>"It is said that several Snorunt gather under giant leaves and live together in harmony.",
 				],
 				[
@@ -148,46 +141,78 @@
 					"alt"=>"Card with a Snorunt gazing up at a cool-toned aurora in the night sky, the blue glow highlighting its face. It is standing on a snow-covered rocky ledge.",
 					"flavor"=>"In some snowy lands, certain folklore says a house will prosper if a Snorunt lives there.",
 				],
+				[
+					"img"=>"ex_emerald.webp",
+					"num"=>"EX Emerald 64/106",
+					"owned"=>true,
+					"alt"=>"Card with a close-up Snorunt on a clear, snowy day in a forest. The illustration style and colors are soft and warm.",
+				],
+				[
+					"img"=>"hidden_legends.webp",
+					"num"=>"EX Hidden Legends 73/101",
+					"owned"=>true,
+					"alt"=>"Card with a Snorunt huddled in front of a mirror-like wall of ice.",
+				],
+				[
+					"img"=>"ascended_heroes_illustration.webp",
+					"num"=>"Ascended Heroes 227/217 Illustrated",
+					"owned"=>false,
+					"alt"=>"Full art card with a Snorunt standing on a tree stump breaking through the snow in a pine forest field. It is reaching towards a small icicle-covered branch. The colors are pale and cool-toned.",
+					"flavor"=>"In some snowy lands, certain folklore says a house will prosper if a Snorunt lives there.",
+				],
+				[
+					"img"=>"plasma_blast.webp",
+					"num"=>"Plasma Blast 21/101",
+					"owned"=>true,
+					"alt"=>"Card with a close-up Snorunt jumping up from the bottom corner of the frame. It is in a rocky cave with large ice crystals, vines, and flowering moss. The art is lined with minimal shading.",
+					"flavor"=>"It is said that several Snorunt gather under giant leaves and live together in harmony.",
+				],
+				[
+					"img"=>"crown_zenith.webp",
+					"num"=>"Crown Zenith 034/159",
+					"owned"=>false,
+					"alt"=>"A card with a Snorunt standing intensely in center frame, surrounded by shards of swirling ice. The horizon line is dramatically tilted, with vivid colors and intense lighting.",
+					"flavor"=>"It can only survive in cold areas. It bounces happily around, even in environments as cold as −150 degrees Fahrenheit.",
+				],
+				[
+					"img"=>"twilight_masquerade.webp",
+					"num"=>"Twilight Masquerade 051/167",
+					"owned"=>false,
+					"alt"=>"Card with a tiny Snorunt smiling with closed eyes in a snow igloo surrounded by gray, leafless trees. The art is cartoonish with minimal shading.",
+					"flavor"=>"It is said that a home visited by a Snorunt will prosper. It can withstand cold of −150 degrees Fahrenheit.",
+				],
+				[
+					"img"=>"power_keepers.webp",
+					"num"=>"EX Power Keepers 64/108",
+					"owned"=>false,
+					"alt"=>"Card with a Snorunt hovering just above the ground in a snowy forest, a faint glow around its body. The Snorunt is drawn in the traditional Pokemon style atop a photo background.",
+				],
+				[
+					"img"=>"ex_dragon.webp",
+					"num"=>"EX Dragon 44/97",
+					"owned"=>true,
+					"alt"=>"Card with a Snorunt peeking up from behind a pile of ice boulders surrounded by blue and purple glacial ice. The foreground is drawn in thick, pencil-textured lines while the background is lineless and unshaded.",
+				],
+				/*
+				[
+					"img"=>"",
+					"num"=>"",
+					"owned"=>false,
+					"alt"=>"",
+					"flavor"=>"",
+				],
+				*/
 			];
 			
 			foreach ($cards as $c) { ?>
 				<div class="card <?php echo $c["owned"] ? "owned" : ""; ?>">
 					<img src="../images/cards/snorunt/<?php echo $c["img"]; ?>" alt="<?php echo $c["alt"]; ?>"
-						data-caption="<?php echo $c["num"]; ?><hr>&quot;<?php echo $c["flavor"]; ?>&quot;">
+						data-caption="<?php
+							echo $c["num"];
+							if (!empty($c["flavor"])) echo "<hr>&quot;".$c["flavor"]."&quot;";
+						?>">
 				</div>
 			<?php } ?>
-			
-			<div class="card owned">
-				<img src="../images/cards/snorunt/ex_emerald.webp" alt="">
-			</div>
-			
-			<div class="card owned">
-				<img src="../images/cards/snorunt/hidden_legends.webp" alt="">
-			</div>
-			
-			<div class="card">
-				<img src="../images/cards/snorunt/ascended_heroes_illustration.webp" alt="">
-			</div>
-			
-			<div class="card owned">
-				<img src="../images/cards/snorunt/plasma_blast.webp" alt="">
-			</div>
-			
-			<div class="card">
-				<img src="../images/cards/snorunt/crown_zenith.webp" alt="">
-			</div>
-			
-			<div class="card">
-				<img src="../images/cards/snorunt/twilight_masquerade.webp" alt="">
-			</div>
-			
-			<div class="card">
-				<img src="../images/cards/snorunt/power_keepers.webp" alt="">
-			</div>
-		
-			<div class="card owned">
-				<img src="../images/cards/snorunt/ex_dragon.webp" alt="">
-			</div>
 		
 		</div>
 		
