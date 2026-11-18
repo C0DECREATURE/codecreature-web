@@ -96,7 +96,7 @@
 					"img"=>"guardians_rising.webp",
 					"num"=>"Guardians Rising 31/145",
 					"owned"=>true,
-					"alt"=>"Card with a Snorunt jumping cheerfully out of a refrigerator in a beach house with palm trees visible outside. Below, the top of another Snorunt peeks out of the ice cube bin, while another Snorunt naps on top of the fridge.",
+					"alt"=>"Card with a Snorunt jumping cheerfully out of a refrigerator in a beach house with palm trees visible outside. Below, the top of another Snorunt peeks out of the ice cube bin, while a third Snorunt naps on top of the fridge.",
 					"flavor"=>"Their numbers seem to have rapidly increased in Alola. Custom has it that houses where Snorunt live will be prosperous for generations to come.",
 				],
 				[
