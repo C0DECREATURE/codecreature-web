@@ -344,7 +344,7 @@
 					<?php require_once $_SERVER["DOCUMENT_ROOT"]."/codefiles/moonphase/moonphase.php"; ?>
 					<img src="images/grandfather_clock/face.png" alt="">
 					<img src="images/grandfather_clock/moondial.png" alt="" style="left: 20.5%; top: 8.3%; z-index: -1;
-						rotate: <?php echo ($MoonPhasePercent/100) * 180; ?>deg">
+						rotate: <?php echo ($MoonPhasePercent/100) * 90; ?>deg">
 				</div>
 				
 				<!----------------- BOTTOM RIGHT ------------------>
