@@ -33,19 +33,27 @@ window.addEventListener("load",()=>{
 			// start glitch animation
 			element.classList.add("glitch-text","animate");
 			// change the value
-			setTimeout(()=>{ element.innerHTML = values[i]; }, 150);
+			element.dataset.text = values[i];
+			setTimeout(()=>{ element.innerHTML = values[i]; }, 200);
 			// stop glitch animation
-			setTimeout(()=>{ element.classList.remove("glitch-text","animate"); }, 400);
+			setTimeout(()=>{ element.classList.remove("animate"); }, 400);
 		}
 		
 		let pronouns = ["▒t/its","she/██▒","INVALID_QU▒RY_LOCATOR▒FORMAT","404: NOT FO▒N█","ERROR_OU▒▒OFM█▒▒ORY"];
-		setInterval(()=>{cycleValues(prnEl,pronouns)}, 2600);
+		setTimeout(()=>{
+			cycleValues(prnEl,pronouns);
+			setInterval(()=>{cycleValues(prnEl,pronouns)}, 2600);
+		}, 1600);
 		
 		let species = ["glitch cat","???▒▒█??▒","▒RROR_DEV_NOT_E██ST","glitch dog"];
-		setInterval(()=>{
+		function cycleSpecies() {
 			cycleValues(speciesEl,species);
 			setTimeout(()=>{ document.title = "Virus the "+speciesEl.innerText; }, 200);
-		}, 3800);
+		}
+		setTimeout(()=>{
+			cycleSpecies();
+			setInterval(cycleSpecies, 3800);
+		}, 1000);
 	} else {
 		prnEl.innerText = "▒t/its, she/██▒";
 	}
