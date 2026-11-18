@@ -89,9 +89,10 @@
 #page-settings-contents .label-wrapper, #page-settings-contents button { color: var(--accent); }
 #page-settings-contents button:hover { color: var(--color); }
 /* description for setting */
-#page-settings-contents span {
+#page-settings-contents > span {
 	display: block;
 	width: 100%;
+  box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
 	margin-bottom: .8em;
 }
 

@@ -1,0 +1,72 @@
+.glitch-text {
+  position: relative;
+  box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+.glitch-text:hover, .glitch-text.animate {
+  text-shadow: 0.05em 0 0 var(--red), -0.025em -0.05em 0 var(--blue),
+    0.025em 0.05em 0 var(--green);
+    color: rgba(0, 194, 203, 0.2);
+}
+.glitch-text:before,
+.glitch-text:after {
+  content: attr(data-text);
+  position: absolute;
+	display: block;
+  top: 0;
+  left: 50%; top: 50%;
+	opacity: 0.8;
+	mix-blend-mode: plus-lighter;
+	width: 100%;
+	scale: 1.1;
+}
+.button.glitch-text:before,
+.button.glitch-text:after {
+	mix-blend-mode: hard-light;
+}
+.glitch-text:not(:hover,.animate):before,
+.glitch-text:not(:hover,.animate):after {
+  display: none;
+}
+.glitch-text:hover::before, .glitch-text.animate::before {
+	@media (prefers-reduced-motion: no-preference) { animation: glitch 650ms infinite; }
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translate(calc(-45% - 0.025em), calc(-45% - 0.0125em));
+}
+.glitch-text:hover::after, .glitch-text.animate::after {
+	@media (prefers-reduced-motion: no-preference) { animation: glitch 375ms infinite; }
+  clip-path: polygon(0 65%, 100% 20%, 100% 100%, 0 70%);
+  transform: translate(calc(-40% - 0.0125em), calc(-40% + 0.025em));
+}
+@keyframes glitch {
+  0% {
+    color: rgba(236, 34, 37, 0.2);
+    text-shadow: 0.05em 0 0 #ec2225, -0.025em -0.05em 0 #313f97,
+      0.025em 0.05em 0 #50c878;
+  }
+  14% {
+    text-shadow: 0.05em 0 0 #ec2225, -0.025em -0.05em 0 #313f97,
+      0.025em 0.05em 0 #50c878;
+  }
+  15% {
+    color: #50c878;
+    text-shadow: -0.05em -0.025em 0 #ec2225, 0.025em -0.025em 0 #313f97,
+      -0.05em -0.05em 0 #50c878;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #ec2225, 0.025em -0.025em 0 #313f97,
+      -0.05em -0.05em 0 #50c878;
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 #ec2225, -0.025em 0.05em 0 #313f97,
+      0 -0.05em 0 #50c878;
+  }
+  99% {
+    color: #313f97;
+    text-shadow: 0.025em 0.05em 0 #ec2225, -0.025em 0.05em 0 #313f97,
+      0 -0.05em 0 #50c878;
+  }
+  100% {
+    text-shadow: -0.025em 0 0 #ec2225, -0.025em -0.025em 0 #313f97,
+      -0.025em -0.05em 0 #50c878;
+  }
+}

@@ -6,7 +6,7 @@
 			</i>
 		</button>
 	<div class="page-settings-contents hidden" id="page-settings-contents">
-		<button id="page-settings-close-button" onclick="pageSettings.close();">close</button>
+		<button id="page-settings-close-button" onclick="pageSettings.close();"><span>close</span></button>
 	</div>
-	<script src="/codefiles/page-settings-new.js?fileversion=20261117"></script>
+	<script src="/codefiles/page-settings-new.js?fileversion=20261118"></script>
 </div>

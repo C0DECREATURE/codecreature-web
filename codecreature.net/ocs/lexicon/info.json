@@ -5,6 +5,7 @@
 	"template": "bars",
 	"fonts": ["Alphabet_01"],
 	"customSections": [],
+	"multicolorHeaders": true,
 	
 	"warnings": [],
 	

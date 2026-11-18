@@ -1,0 +1,25 @@
+{
+	"name": "Virus",
+	"species": "glitch dog",
+	
+	"template": "bars",
+	"fonts": [],
+	"customSections": ["head"],
+	"multicolorHeaders": false,
+	
+	"warnings": ["flashing"],
+	
+	"description": "<p>featured on the <a href='/404'>404 error page</a></p>",
+	"identity": {
+		"pronouns": "Loading..."
+	},
+	"stats": {
+		"personality": ["??"]
+	},
+	
+	"toyhouse": "https://toyhou.se/22560224",
+	
+	"mainImage": "virus.png",
+	"icon": "icon.png",
+	"favicon": "icon.png"
+}

@@ -1,6 +1,6 @@
 Options +Indexes
 
-ErrorDocument 404 /not_found.html
+ErrorDocument 404 /not_found.php
 
 ################################
 # REDIRECTS

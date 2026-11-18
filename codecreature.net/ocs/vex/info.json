@@ -5,6 +5,7 @@
 	"template": "bars",
 	"fonts": ["Crimes Times Six","My Imaginary Friend","Ghoulish Fright","Halogen"],
 	"customSections": ["gallery header","main image"],
+	"multicolorHeaders": false,
 	
 	"warnings": ["flashing","gore"],
 	

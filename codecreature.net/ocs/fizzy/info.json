@@ -5,6 +5,7 @@
 	"template": "bars",
 	"fonts": ["Tropi Land","Halogen"],
 	"customSections": ["head"],
+	"multicolorHeaders": true,
 	
 	"warnings": [],
 	

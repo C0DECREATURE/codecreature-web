@@ -235,6 +235,9 @@
 						<header><h3>fun stuff</h3></header>
 						<div class="body">
 							
+							<a href="https://codepen.io/oscar-jite/pen/yLwoeLE">CSS glitch text</a>
+							text element glitches out on hover
+							
 							<a href="https://codepen.io/sadness97/pen/mdOXzNW">falling items</a>
 							make a bunch of elements drift down the screen with css
 							

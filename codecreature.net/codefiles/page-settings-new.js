@@ -42,7 +42,7 @@ const pageSettings = {
 			let labelWrapper = document.createElement('div');
 			labelWrapper.classList.add("label-wrapper");
 			let labelEl = document.createElement('label');
-			labelEl.for = input.id;
+			labelEl.htmlFor = input.id;
 			labelEl.innerHTML = label;
 			// checkbox
 			let inputWrapper = document.createElement('div');

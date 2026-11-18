@@ -39,15 +39,8 @@ body {
 	width: 100%;
 	pointer-events: none;
 }
-.leftimg a.credit, .leftimg a.credit:visited {
-	z-index: 10;
-	position: absolute; bottom:10%; left: 18%;
-	display: block;
-	color: #000;
-	font-weight: bold;
-	font-size: min(35px, 6vw);
-	text-decoration: none;
-}
+.glitch-click-wrapper { pointer-events: none; }
+.glitch-click-wrapper path { pointer-events: initial; }
 
 .backimg {
 	z-index: -3;

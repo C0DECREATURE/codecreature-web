@@ -1,13 +1,19 @@
 <?php
-// returns the given text in multicolored letter format
-function multicolorText($str) {
-	$i = 0;
-	echo "<span class='sr-only'>$str</span><span class='multicolor' aria-hidden=true>";
-	foreach (str_split($str) as $char) {
-		if ($char == " ") echo " ";
-		else echo "<span>$char</span>";
+$galleryTitle = "Gallery";
+
+if (!empty($oc["multicolorHeaders"]) && $oc["multicolorHeaders"]) {
+	// returns the given text in multicolored letter format
+	function multicolorText($str) {
+		$output = "<span class='sr-only'>$str</span><span class='multicolor' aria-hidden=true>";
+		foreach (str_split($str) as $char) {
+			if ($char == " ") $output .= " ";
+			else $output .= "<span>$char</span>";
+		}
+		$output .= "</span>";
+		return $output;
 	}
-	echo "</span>";
+	$oc["name"] = multicolorText($oc["name"]);
+	$galleryTitle = multicolorText($galleryTitle);
 }
 ?>
 <!DOCTYPE html>
@@ -59,17 +65,22 @@ function multicolorText($str) {
 	<body>
 		<main>
 			<section id="about">
+			
 				<header>
-					<h1><?php echo multicolorText($oc["name"]); ?></h1>
+					<?php if (hasCustom("about header")) {
+						include $_SERVER["DOCUMENT_ROOT"].$oc["path"]."about-header.php";
+					} else { ?>
+					<h1><?php echo $oc["name"]; ?></h1>
 					<p class="subheader-mini">the</p>
 					<p class="subheader"><?php echo $oc["species"]; ?></p>
+					<?php } ?>
 				</header>
 				
 				<div class="content tq-format">
 					<section id="basics"><?php echo $oc["description"]; ?></section>
 					
 					<section id="identity">
-						<?php foreach ($oc["identity"] as $name => $value) { echo "<p><span class='label'>$name:</span> $value</p>"; } ?>
+						<?php foreach ($oc["identity"] as $name => $value) { echo "<p id='identity-$name'><span class='label'>$name:</span> <span class='value'>$value</span></p>"; } ?>
 					</section>
 					
 					<?php foreach ($oc["stats"] as $title => $array) {
@@ -96,8 +107,8 @@ function multicolorText($str) {
 				</div>
 				
 				<nav>
-					<a href="/home" class="button">home</a>
-					<a href="/ocs" class="button">ocs</a>
+					<a href="/home" class="button"><span>home</span></a>
+					<a href="/ocs" class="button"><span>ocs</span></a>
 					<?php $psType = "inline"; include $_SERVER["DOCUMENT_ROOT"]."/codefiles/page-settings.php"; ?>
 				</nav>
 			</section>
@@ -107,7 +118,7 @@ function multicolorText($str) {
 					<?php if (hasCustom("gallery header")) {
 						include $_SERVER["DOCUMENT_ROOT"].$oc["path"]."gallery-header.php";
 					} else { ?>
-						<h2><?php echo multicolorText("Gallery"); ?></h2>
+						<h2><?php echo $galleryTitle; ?></h2>
 					<?php } ?>
 				</header>
 				
@@ -124,7 +135,7 @@ function multicolorText($str) {
 						<?php // load fonts if specified
 						if (!empty($oc["toyhouse"])) { ?>
 							<footer>
-								<a class="link" href="<?php echo $oc["toyhouse"]; ?>">more art on toyhouse...</a>
+								<a class="link" href="<?php echo $oc["toyhouse"]; ?>"><span>more art on toyhouse...</span></a>
 							</footer>
 						<?php } ?>
 						<script>

@@ -18,7 +18,7 @@
 		<link href="/not_found.css?fileversion=20260410" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- draggable elements -->
-		<script src="/codefiles/draggable.js?fileversion=20260410"></script>
+		<script src="/codefiles/draggable.js?fileversion=20261118"></script>
 		<!-- this page's scripts -->
 		<script src="/not_found.min.js?fileversion=20260410"></script>
 	</head>
@@ -36,7 +36,7 @@
 			<div class="leftimg">
 				<img name="leftimg" src="/ocs/virus/images/virus.png">
 				
-				<svg
+				<a class="glitch-click-wrapper" href="/ocs/virus"><svg
 				viewBox="0 0 152 184"
 				version="1.1"
 				id="virus-svg"
@@ -50,10 +50,7 @@
 						id="virus-path"
 						onmouseover="if(!isReducedMotion){document.leftimg.src='/ocs/virus/images/glitch-animation.png';}"
 						onmouseout="document.leftimg.src='/ocs/virus/images/virus.png';" />
-				</svg>
-				
-				<!--art credit-->
-				<a class="credit" href="https://artfight.net/~Opossum_Sushi" title="character art by Opossum_Sushi">&#169;</a>
+				</svg></a>
 			</div>
 			
 			<!-- DEFAULT DRAGBOX STYLES -->

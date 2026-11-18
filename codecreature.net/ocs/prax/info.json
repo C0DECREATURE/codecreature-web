@@ -5,6 +5,7 @@
 	"template": "bars",
 	"fonts": ["Kaiju Monster","Comic Sans MS"],
 	"customSections": [],
+	"multicolorHeaders": true,
 	
 	"warnings": ["flashing"],
 	
