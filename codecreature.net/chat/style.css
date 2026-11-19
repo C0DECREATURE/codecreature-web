@@ -4,6 +4,13 @@
 	align-items: center;
 }
 
+.message {
+	width: min(90%, 25rem);
+}
+.message-wrapper {
+	width: 100%;
+}
+
 h1, h2 {
 	font-family: "Super Comic", sans-serif;
 	color: var(--d-blue);
@@ -14,11 +21,12 @@ h2 { font-size: min(2rem, 10vw); }
 
 a.child-page {
 	color: inherit;
-	font-weight: bold;
-	font-size: 1.15em;
 }
 a.child-page .bubble {
 	border: 4px var(--bubble-bg) solid;
+	font-weight: bold;
+	font-size: min(1.5rem,8vw);
+	text-wrap: nowrap;
 }
 a.child-page .bubble:hover {
 	color: var(--d-green);

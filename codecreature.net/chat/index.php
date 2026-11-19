@@ -26,9 +26,9 @@
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260629" rel="stylesheet" type="text/css" media="all">
 		<!--chat shared stylesheet-->
-		<link href="chat.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
+		<link href="chat.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="chatbox">
 	
@@ -53,12 +53,23 @@
 	
 	<div class="messages">
 		<h1>Chatrooms</h1>
-		<a class="child-page message" href="general"><span class="bubble">General Chat<span></a>
-		<a class="child-page message" href="worms"><span class="bubble">Worm Games<span></a>
+		<?php
+		function pageLink($link,$label) {
+			?>
+			<a class="child-page message" href="<?php echo $link; ?>"><div class="message-wrapper"><span class="bubble"><?php echo $label; ?><span></div></a>
+			<?php
+		}
+		?>
+		<?php
+		echo pageLink("general","General Chat");
+		echo pageLink("worms","Worm Games");
+		?>
 		
 		<h2>Info Pages</h2>
-		<a class="child-page message" href="bbcode"><span class="bubble">BBCode Guide<span></a>
-		<a class="child-page message" href="rules"><span class="bubble">Chat Rules<span></a>
+		<?php
+		echo pageLink("bbcode","BBCode Guide");
+		echo pageLink("rules","Chat Rules");
+		?>
 	<div class="page-content">
 </body>
 </html>
