@@ -40,8 +40,11 @@ if (isset($_GET['message_id'])) {
 	$from = isset($_GET['from']) ? intval($_GET['from']) : 0;
 	// if $_GET['to'] parameter given, only loads messages older than $_GET['to']
 	$sql_to = isset($_GET['to']) ? " AND id < ". intval($_GET['to']) : "";
+	// if $_GET['limit'] parameter given, load up to that many messages
+	// otherwise load up to default limit
+	$sql_limit = isset($_GET['limit']) ? trim($_GET['limit']) : $load_limit;
 	// statement to get messages
-	$sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$load_limit.";";
+	$sql = "SELECT * FROM ".$chat_table." WHERE id > ".$from.$sql_to." ORDER BY id DESC LIMIT ".$sql_limit.";";
 }
 
 $result = mysqli_query($chat_conn, $sql);
@@ -74,6 +77,7 @@ while ($message = mysqli_fetch_array($result)) {
 		} else {
 			$prev_deleted = 0;
 ?>
+	<div class="message-wrapper">
 	<div class="message<?php
 			echo $own_message ? ' self' : '';
 			echo !empty($message_user['color']) ? " ".$message_user['color'] : "";
@@ -123,6 +127,7 @@ while ($message = mysqli_fetch_array($result)) {
 				if (unreadMessages !== "undefined" && !ownMessage && !document.hasFocus()) unreadMessages += 1;
 			})();
 		</script>
+	</div>
 	</div>
 <?php
 		}

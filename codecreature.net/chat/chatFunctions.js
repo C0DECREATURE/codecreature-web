@@ -333,31 +333,33 @@ function messageSetup(id) {
 
 // updates whether the message is in a stack of messages by the same user
 function updateMessageStackStatus(id,updateSiblings) {
-	if (typeof id == 'string') id = id.replaceAll('message-','');
-	let message = document.getElementById(`message-${id}`);
-	
-	if (message) {
-		// update its siblings
-		if (updateSiblings !== false) {
-			if (message.nextElementSibling) updateMessageStackStatus(message.nextElementSibling.id,false);
-			if (message.previousElementSibling) updateMessageStackStatus(message.previousElementSibling.id,false);
-		}
-		if (!message.classList.contains('deleted')) {
-			let nSS = newerStackSibling(message);
-			let oSS = olderStackSibling(message);
-			// if it's in a stack
-			if (nSS || oSS) {
-				message.classList.add('stack');
-				// if it's at the top of a stack
-				if (nSS) { message.classList.add('stack-top'); }
-				// if it's not at the top of a stack
-				if (oSS) { message.classList.remove('stack-top'); }
-			} else {
-				message.classList.remove('stack','stack-top');
+	if (id != "load-older") {
+		if (typeof id == 'string') id = id.replaceAll('message-','');
+		let message = document.getElementById(`message-${id}`);
+		
+		if (message) {
+			// update its siblings
+			if (updateSiblings !== false) {
+				if (message.nextElementSibling) updateMessageStackStatus(message.nextElementSibling.id,false);
+				if (message.previousElementSibling) updateMessageStackStatus(message.previousElementSibling.id,false);
 			}
+			if (!message.classList.contains('deleted')) {
+				let nSS = newerStackSibling(message);
+				let oSS = olderStackSibling(message);
+				// if it's in a stack
+				if (nSS || oSS) {
+					message.classList.add('stack');
+					// if it's at the top of a stack
+					if (nSS) { message.classList.add('stack-top'); }
+					// if it's not at the top of a stack
+					if (oSS) { message.classList.remove('stack-top'); }
+				} else {
+					message.classList.remove('stack','stack-top');
+				}
+			}
+		} else {
+			console.error(`Could not locate message with id = ${id} in the DOM`);
 		}
-	} else {
-		console.error(`Could not locate message with id = ${id} in the DOM`);
 	}
 }
 

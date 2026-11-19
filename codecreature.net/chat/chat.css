@@ -28,6 +28,12 @@ body, html {
 	--font: 'Yet R', sans-serif;
 	--select-bg: var(--blue);
 	--select-text: var(--white);
+	
+	/* variables for popup boxes (optional) */
+	--popup-radius: 1rem;
+	--popup-bg: var(--bubble-bg);
+	--popup-border: 4px var(--borders) solid;
+	--popup-header: var(--header);
 }
 
 /***** scrollbar *****/
@@ -148,20 +154,20 @@ body, html {
 	color: var(--blue);
 }
 [popover] > * {
-	border: 4px var(--blue) solid;
+	border: var(--popup-border);
 }
 [popover] > header {
-	background: var(--green);
+	background: var(--popup-header);
 	padding: .5rem;
 	border-bottom: none;
-	border-radius: 1rem 1rem 0 0;
+	border-radius: var(--popup-radius) var(--popup-radius) 0 0;
 	h3 { margin: 0; }
 }
 [popover] > .content {
-	background: var(--white);
+	background: var(--popup-bg);
 	border-top: none;
 	padding: .5rem;
-	border-radius: 0 0 1rem 1rem;
+	border-radius: 0 0 var(--popup-radius) var(--popup-radius);
 }
 #edit-message .content { display: flex; flex-direction: column; }
 #edit-message textarea {
@@ -205,13 +211,38 @@ body, html {
 	flex-grow: 1;
 	overflow-y: auto;
 	gap: .75rem;
-	padding: 1rem .75rem;
+	--messages-padding: .75rem;
+	padding: 1rem var(--messages-padding);
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 	color: var(--bubble-text);
 }
 
 /* put the load older messages button at top of page */
-#load-older { order: 1000; }
+#load-older { order: 1000; user-select: none; }
+#load-older:disabled { opacity: 0.5; }
+#loading-older-popup {
+	background: var(--popup-bg);
+  border: var(--popup-border);
+  border-radius: var(--popup-radius);
+  padding: 1em 1.5em;
+	width: 10em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25em;
+	box-shadow: 2px 4px var(--bubble-shadow);
+	z-index: 100;
+}
+#loading-older-popup .dots:after {
+	content: '.';
+	animation: loading-dots 1.5s steps(3) infinite;
+}
+@keyframes loading-dots {
+	0% { content: '.'; }
+	33% { content: '..'; }
+	66% { content: '...'; }
+}
 
 .message {
 	--icon-height: max(2rem,min(3rem,12vw));
@@ -223,11 +254,21 @@ body, html {
 	font-size: 1rem;
 	margin-bottom: 4px;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
+	position: relative;
+	z-index: 1;
 }
 .message.self { flex-direction: row-reverse; margin-left: auto; }
 
-.message:target .bubble { /* message that is targeted by the url hash (e.g. /chat/general/#message-1) */
-	outline: 5px var(--yellow) solid;
+.message-wrapper { position: relative; }
+.message-wrapper:before {
+	content: '';
+	display: block;
+	position: absolute;
+	height: calc(100% + 20px); width: calc(100% + (var(--messages-padding) * 2));
+	top: -10px; left: calc(var(--messages-padding) * -1);
+}
+.message-wrapper:has(:target):before { /* message that is targeted by the url hash (e.g. /chat/general/#message-1) */
+	background: var(--bubble-shadow);
 }
 
 .deleted {

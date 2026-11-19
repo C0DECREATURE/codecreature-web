@@ -48,9 +48,9 @@ $user_auth = getAuthorization($user_id);
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
 		<!--bbcode stylesheet-->
-		<link href="/chat/bbcode.css?fileversion=20260928" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/bbcode.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
-		<link href="/chat/chat.css?fileversion=20261022" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/chat.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -64,8 +64,8 @@ $user_auth = getAuthorization($user_id);
 			?>
 			window.top.postMessage(`{"type":"newChatroom","name":"${chatroomName}"}`, '*');
 		</script>
-    <script src="/chat/liveChat.js?fileversion=20261011"></script>
-    <script src="/chat/chatFunctions.js?fileversion=20261113"></script>
+    <script src="/chat/liveChat.js?fileversion=20261119"></script>
+    <script src="/chat/chatFunctions.js?fileversion=20261119"></script>
 		
 		<base target="_top">
 </head>
@@ -348,31 +348,35 @@ $user_auth = getAuthorization($user_id);
 			<button id="new-message-submit" type="submit" name="submit"><span>send</span></button>
 		</form>
 		<script>
-				(()=>{
-					let form = document.getElementById('new-message');
-					
-					// send on enter key
-					// don't send if shift+enter
-					document.getElementById("message-input").addEventListener("keypress", (e)=>{
-						if (e.key === "Enter" && !e.shiftKey) {
-							if (!sendingMessage) {
-								e.preventDefault();
-								document.getElementById('new-message-submit').click();
-							}
-						}
-					});
-					
-					// submit form without refreshing page
-					form.addEventListener("submit", function(e){
+			(()=>{
+				let form = document.getElementById('new-message');
+				
+				// send on enter key
+				// don't send if shift+enter
+				document.getElementById("message-input").addEventListener("keypress", (e)=>{
+					if (e.key === "Enter" && !e.shiftKey) {
 						if (!sendingMessage) {
-							document.getElementById('new-message-submit').disabled = true;
 							e.preventDefault();
-							let formProps = Object.fromEntries(new FormData(form));
-							sendMessage(formProps['message']);
+							document.getElementById('new-message-submit').click();
 						}
-					});
-				})();
-			</script>
+					}
+				});
+				
+				// submit form without refreshing page
+				form.addEventListener("submit", function(e){
+					if (!sendingMessage) {
+						document.getElementById('new-message-submit').disabled = true;
+						e.preventDefault();
+						let formProps = Object.fromEntries(new FormData(form));
+						sendMessage(formProps['message']);
+					}
+				});
+			})();
+		</script>
+		
+		<div class="hidden" id="loading-older-popup">
+			Loading messages<span class="dots"></span>
+		</div>
 	</main>
 		
 </body></html>

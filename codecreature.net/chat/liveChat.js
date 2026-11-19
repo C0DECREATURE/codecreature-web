@@ -105,22 +105,42 @@ window.onmessage = function(e) {
 	if (e.data == 'resetUnread') { resetUnreadCount(); }
 }
 
-function loadOlderChat() {
-	document.getElementById('load-older').classList.add('hidden');
+function loadOlderChat(seekMessage) {
+	//document.getElementById('load-older').disabled = true;
+	document.getElementById('loading-older-popup').classList.remove('hidden');
 	
 	let oldestMsg = getOldestLoadedMessage();
 	
-	$.get("/chat/loader.php?chat_table=" + chatTableName + "&to=" + oldestMsg + "&timezone-offset=" + timezoneOffset, function(data){
+	let query = "chat_table=" + chatTableName + "&to=" + oldestMsg + "&timezone-offset=" + timezoneOffset;
+	if (typeof(seekMessage) == "number") query += "&limit=200";
+	
+	$.get("/chat/loader.php?" + query, function(data){
 			content = data;
 			$('#messages').append(content);
+			document.getElementById('loading-older-popup').classList.add('hidden')
 			updateLoadOlder();
+			if (typeof(seekMessage) == "number") { jumpToMessage(seekMessage); }
 	});
-	
 }
 function updateLoadOlder() {
-	if (oldestMessageId < getOldestLoadedMessage()) {
+	if (oldestMessageId > getOldestLoadedMessage()) {
+		document.getElementById('load-older').disabled = false;
 		document.getElementById('load-older').classList.remove('hidden');
 	} else {
 		document.getElementById('load-older').classList.add('hidden');
+	}
+}
+
+function jumpToMessage(id) {
+	console.log("jumping");
+	window.location.hash = "";
+	let elId = "message-"+id;
+	console.log(elId);
+	if (document.getElementById(elId)) {
+		console.log("found message!");
+		window.location.hash = "#"+elId;
+	} else {
+		console.log("loading older to find message...");
+		loadOlderChat(id);
 	}
 }
