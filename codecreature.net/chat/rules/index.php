@@ -33,7 +33,7 @@
 <body class="chatbox">
 	
 	<header>
-		<a href="javascript:void(0);" onclick="history.back();">back</a>
+		<a href="/chat">back</a>
 		
 		<button id="page-settings-button" class="open-page-settings" aria-label="page settings">
 			<i class="svg-icon svg-icon-solid" data-icon="gear-solid" alt="">
