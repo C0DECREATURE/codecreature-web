@@ -123,7 +123,7 @@ function loadOlderChat(seekMessage) {
 	});
 }
 function updateLoadOlder() {
-	if (oldestMessageId > getOldestLoadedMessage()) {
+	if (oldestMessageId < getOldestLoadedMessage()) {
 		document.getElementById('load-older').disabled = false;
 		document.getElementById('load-older').classList.remove('hidden');
 	} else {
