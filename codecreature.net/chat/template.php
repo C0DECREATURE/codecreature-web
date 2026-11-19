@@ -50,7 +50,7 @@ $user_auth = getAuthorization($user_id);
 		<!--bbcode stylesheet-->
 		<link href="/chat/bbcode.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
 		<!--chat stylesheet-->
-		<link href="/chat/chat.css?fileversion=20261119" rel="stylesheet" type="text/css" media="all">
+		<link href="/chat/chat.css?fileversion=202611192" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -64,7 +64,7 @@ $user_auth = getAuthorization($user_id);
 			?>
 			window.top.postMessage(`{"type":"newChatroom","name":"${chatroomName}"}`, '*');
 		</script>
-    <script src="/chat/liveChat.js?fileversion=20261119"></script>
+    <script src="/chat/liveChat.js?fileversion=202611192"></script>
     <script src="/chat/chatFunctions.js?fileversion=20261119"></script>
 		
 		<base target="_top">

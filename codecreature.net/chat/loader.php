@@ -77,7 +77,6 @@ while ($message = mysqli_fetch_array($result)) {
 		} else {
 			$prev_deleted = 0;
 ?>
-	<div class="message-wrapper">
 	<div class="message<?php
 			echo $own_message ? ' self' : '';
 			echo !empty($message_user['color']) ? " ".$message_user['color'] : "";
@@ -87,6 +86,7 @@ while ($message = mysqli_fetch_array($result)) {
 		data-uid="<?php echo $message['user_id']; ?>"
 		data-timestamp="<?php echo $message['date']; ?>"
 		data-raw-bbcode="<?php echo str_replace("\"","%22",$message['message']); ?>">
+	<div class="message-wrapper">
 		<a class="icon" <?php if($message['user_id'] != "0") { echo "href='/u/".$message_user['username']."'"; } ?> target="_top">
 			<img src="<?php echo $message_user['icon']; ?>" alt="">
 		</a>

@@ -244,7 +244,7 @@ body, html {
 	66% { content: '..'; }
 }
 
-.message {
+.message-wrapper {
 	--icon-height: max(2rem,min(3rem,12vw));
 	display: flex;
 	align-items: flex-end;
@@ -257,17 +257,17 @@ body, html {
 	position: relative;
 	z-index: 1;
 }
-.message.self { flex-direction: row-reverse; margin-left: auto; }
+.message.self .message-wrapper { flex-direction: row-reverse; margin-left: auto; }
 
-.message-wrapper { position: relative; }
-.message-wrapper:before {
+.message { position: relative; }
+.message:before {
 	content: '';
 	display: block;
 	position: absolute;
 	height: calc(100% + 20px); width: calc(100% + (var(--messages-padding) * 2));
 	top: -10px; left: calc(var(--messages-padding) * -1);
 }
-.message-wrapper:has(:target):before { /* message that is targeted by the url hash (e.g. /chat/general/#message-1) */
+.message:target:before { /* message that is targeted by the url hash (e.g. /chat/general/#message-1) */
 	background: var(--bubble-shadow);
 }
 
@@ -280,7 +280,7 @@ body, html {
 .deleted { padding-left: var(--icon-height); }
 .deleted.self { padding-left: 0; padding-right: var(--icon-height); }
 
-.message > * { box-shadow: 4px 6px var(--bubble-shadow); }
+.message-wrapper > * { box-shadow: 4px 6px var(--bubble-shadow); }
 
 .message .bubble {
 	padding: .5em .85em .75em .75em;
