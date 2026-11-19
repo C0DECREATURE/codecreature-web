@@ -234,7 +234,7 @@ body, html {
 	box-shadow: 2px 4px var(--bubble-shadow);
 	z-index: 100;
 }
-#loading-older-popup .dots:after {
+#loading-older-popup:not(.hidden) .dots:after {
 	content: '...';
 	animation: loading-dots 1.5s steps(3) infinite;
 }
