@@ -225,14 +225,18 @@ function updateBestDay($worm_id,$progress) {
 function logFeeding($worm,$item) {
 	global $worm_conn; global $logged_in; global $items;
 	
-	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, NOW(), ?, ?)";
+	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, ?, ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
-		mysqli_stmt_bind_param($stmt, "isis", $param_user_id, $param_ip, $param_worm, $param_item);
+		mysqli_stmt_bind_param($stmt, "issis", $param_user_id, $param_ip, $param_date, $param_worm, $param_item);
 		$param_user_id = $logged_in ? $_SESSION["id"] : NULL;
 		$param_ip = $_SERVER['REMOTE_ADDR'];
 		$param_worm = $worm;
 		$param_item = $item;
+		
+		// get the current time in MySQL datetime format, in the preset default timezone
+		$date   = new DateTime();
+		$param_date = $date->format('Y-m-d H:i:s');
 		
 		// attempt to execute prepared statement
 		if(!mysqli_stmt_execute($stmt)){
