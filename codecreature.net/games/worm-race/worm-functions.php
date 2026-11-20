@@ -433,7 +433,7 @@ function getFeedLogData() {
 		while($row = mysqli_fetch_object($result)) {
 			$row = get_object_vars($row);
 			
-			if ( strtotime($row['new_date']) < (time() - 172800) ) {
+			if ( strtotime($row['date']) < (time() - 172800) ) {
 				// delete log data older than 48 hours
 				$del_sql = "DELETE FROM feed_log WHERE id=".$row['id'];
 				if ($worm_conn->query($del_sql) !== TRUE) {
@@ -528,11 +528,11 @@ function userCanFeed($reference,$type) {
 			($type == "user_id" || $row["user_id"] == NULL)
 		) {
 			// if less than 5 seconds since last feeding, don't feed
-			if (time() - strtotime($row['new_date']) < 5) {
+			if (time() - strtotime($row['date']) < 5) {
 				$can_feed = false;
 				break;
 			// otherwise add this to the user's total cooldown if it's within the time period to check
-			} else if (strtotime($row['new_date']) > (time() - $time_period)) {
+			} else if (strtotime($row['date']) > (time() - $time_period)) {
 				$cooldown_accumulated += (int)$items[$row["item"]]["cooldown"];
 			} else {
 				break; // if we have reached results older than the time period, break for loop

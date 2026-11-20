@@ -225,7 +225,7 @@ function updateBestDay($worm_id,$progress) {
 function logFeeding($worm,$item) {
 	global $worm_conn; global $logged_in; global $items;
 	
-	$sql = "INSERT INTO feed_log (user_id, IP_address, new_date, worm, item) VALUES (?, ?, NOW(), ?, ?)";
+	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, NOW(), ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
 		mysqli_stmt_bind_param($stmt, "isis", $param_user_id, $param_ip, $param_worm, $param_item);
