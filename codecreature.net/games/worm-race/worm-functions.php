@@ -508,38 +508,45 @@ function userCanFeed($reference,$type) {
 	
 	$can_feed = true;
 	
-	$max_users = 1.2; // maximum users for this user type
-	if ($type == "IP_address") { $max_users = 1.5; }
+	$max_users = 1.1; // maximum users
 	
 	// get all feed log data if not already fetched
 	if ( count($feed_log) == 0 ) { getFeedLogData(); }
 	
-	// time period to check, in seconds
-	$time_period = 300;
+	// time periods to check, in seconds
+	$time_periods = [15,60,180,300];
+	// array to store the cooldown accumulated for each checked time period
+	$cooldown_counts = [0,0,0,0];
 	// accumulated cooldown time in the last 10 minutes
 	$cooldown_accumulated = 0;
 	
-	for ($i = count($feed_log) - 1; $i >= 0; $i--) {
-		$row = $feed_log[$i];
+	foreach ($feed_log as $row) {
 		// if the row matches the user data provided
 		// if validating against IP address only, don't check IP of logged in users
 		if (
 			$row[$type] == $reference &&
 			($type == "user_id" || $row["user_id"] == NULL)
 		) {
-			// if less than 5 seconds since last feeding, don't feed
+			// if there is a feeding less than 5 seconds ago, don't feed
 			if (time() - strtotime($row['date']) < 5) {
 				$can_feed = false;
 				break;
 			// otherwise add this to the user's total cooldown if it's within the time period to check
-			} else if (strtotime($row['date']) > (time() - $time_period)) {
-				$cooldown_accumulated += (int)$items[$row["item"]]["cooldown"];
 			} else {
-				break; // if we have reached results older than the time period, break for loop
+				for ($i = 0; $i < count($time_periods); $i++) {
+					if (strtotime($row['date']) > (time() - $time_periods[$i])) {
+						$cooldown_counts[$i] += (int)$items[$row["item"]]["cooldown"];
+						if (($cooldown_counts[$i] * $max_users) > $time_periods[$i]) {
+							$can_feed = false;
+							break;
+						}
+					} else {
+						break; // if we have reached results older than the time period, break for loop
+					}
+				}
 			}
 		}
 	}
-	if ($cooldown_accumulated > ($time_period * $max_users)) { $can_feed = false; }
 	return $can_feed;
 }
 
