@@ -504,7 +504,7 @@ function getSeasonFansDisplay($season) {
 
 // returns boolean, whether user or ip is allowed to feed again
 function userCanFeed($reference,$type) {
-	global $items; global $feed_log;
+	global $items; global $feed_log; global $feed_err;
 	
 	$can_feed = true;
 	
@@ -517,15 +517,11 @@ function userCanFeed($reference,$type) {
 	$time_periods = [15,60,180,300];
 	// array to store the cooldown accumulated for each checked time period
 	$cooldown_counts = [0,0,0,0];
-	// accumulated cooldown time in the last 10 minutes
-	$cooldown_accumulated = 0;
 	
 	foreach ($feed_log as $row) {
 		// if the row matches the user data provided
-		// if validating against IP address only, don't check IP of logged in users
 		if (
-			$row[$type] == $reference &&
-			($type == "user_id" || $row["user_id"] == NULL)
+			$row[$type] == $reference
 		) {
 			// if there is a feeding less than 5 seconds ago, don't feed
 			if (time() - strtotime($row['date']) < 5) {
@@ -536,7 +532,7 @@ function userCanFeed($reference,$type) {
 				for ($i = 0; $i < count($time_periods); $i++) {
 					if (strtotime($row['date']) > (time() - $time_periods[$i])) {
 						$cooldown_counts[$i] += (int)$items[$row["item"]]["cooldown"];
-						if (($cooldown_counts[$i] * $max_users) > $time_periods[$i]) {
+						if ($cooldown_counts[$i] > ($time_periods[$i] * $max_users)) {
 							$can_feed = false;
 							break;
 						}

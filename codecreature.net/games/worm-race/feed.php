@@ -40,14 +40,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	
 	if (empty($feed_err)) {
 		// check if user is authorized to feed yet
-		if ($logged_in) {
-			if (!userCanFeed($_SESSION["id"],"user_id")) {
-				$feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
-			}
-		} else {
-			if (!userCanFeed($_SERVER['REMOTE_ADDR'],"IP_address")) {
-				$feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
-			}
+		if ($logged_in && !userCanFeed($_SESSION["id"],"user_id")) {
+			$feed_err = "Too many recent feed actions from your account!<br>Try again in a few minutes.";
+		} else if (!userCanFeed($_SERVER['REMOTE_ADDR'],"IP_address")) {
+			$feed_err = "Too many recent feed actions from your IP address!<br>Try again in a few minutes, or <a href='/user/login'>sign in</a>.";
 		}
 		
 		// Check if item name is empty or invalid
