@@ -10,7 +10,7 @@ getAllData();
 getFeedLogData();
 
 // whether race is in maintenance mode
-$maintenance_mode = false;
+$maintenance_mode = true;
 
 // error text for if feeding goes wrong
 $feed_err = $maintenance_mode ? "Worm race is currently down for maintenance!<br>Come back soon." : "";
@@ -225,13 +225,12 @@ function updateBestDay($worm_id,$progress) {
 function logFeeding($worm,$item) {
 	global $worm_conn; global $logged_in; global $items;
 	
-	$sql = "INSERT INTO feed_log (user_id, IP_address, date, worm, item) VALUES (?, ?, ?, ?, ?)";
+	$sql = "INSERT INTO feed_log (user_id, IP_address, new_date, worm, item) VALUES (?, ?, NOW(), ?, ?)";
 	if($stmt = mysqli_prepare($worm_conn, $sql)){
 		// bind variables to statement as parameters
-		mysqli_stmt_bind_param($stmt, "isiis", $param_user_id, $param_ip, $param_date, $param_worm, $param_item);
+		mysqli_stmt_bind_param($stmt, "isis", $param_user_id, $param_ip, $param_worm, $param_item);
 		$param_user_id = $logged_in ? $_SESSION["id"] : NULL;
 		$param_ip = $_SERVER['REMOTE_ADDR'];
-		$param_date = time();
 		$param_worm = $worm;
 		$param_item = $item;
 		
