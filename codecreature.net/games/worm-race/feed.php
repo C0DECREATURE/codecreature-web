@@ -329,7 +329,7 @@ if (!empty($feed_err)) $feed_err = "<strong>Error</strong>: ".$feed_err;
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<title>feeding<?php echo !empty($worm) && !empty($worm["name"]) ? strtolower($worm["name"]) : ""; ?>...</title>
+		<title>feeding<?php echo !empty($worm) && !empty($worm["name"]) ? " ".strtolower($worm["name"]) : ""; ?>...</title>
 		
 		<!-- prevent warnings popup on this page -->
 		<script>var showMainWarnings = false;</script>
