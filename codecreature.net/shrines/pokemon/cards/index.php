@@ -73,7 +73,7 @@
 				],
 				[
 					"img"=>"paradox_rift_illustration.webp",
-					"num"=>"Paradox Rift 037/182 Illustrated",
+					"num"=>"Paradox Rift188/182 Illustrated",
 					"owned"=>false,
 					"alt"=>"Full art card with a Snorunt happily rolling through the snow in a forest. There is a triangular Snorunt-shaped depression in the snow nearby and several pinecones scattered around its footsteps.",
 					"flavor"=>"It is said that several Snorunt gather under giant leaves and live together in harmony.",

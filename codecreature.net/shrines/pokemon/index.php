@@ -28,7 +28,7 @@
 	<!-----------BODY------------------->
 	<body><div class="main-container">
 		<nav>
-			<a href="cards">cards</a>
+			<a href="/pokemon/cards">cards</a>
 			<img src="images/sprites/sm/pokeball_crop.webp" alt="">
 			<a href="/">home</a>
 		</nav>
@@ -51,7 +51,7 @@
 				<li>
 					<img src="images/sprites/sm/snorunt.webp" alt="" title="starkist">
 					snorunt!!
-					<a href="cards"><img src="images/sprites/sm/card.webp" alt="cards"></a>
+					<a href="/pokemon/cards"><img src="images/sprites/sm/card.webp" alt="cards"></a>
 				</li>
 				<li><img src="images/sprites/sm/buizel.webp" alt="" title="chlorine"> buizel</li>
 				<li><img src="images/sprites/sm/tangela.webp" alt="" title="hairbrush"> tangela</li>
