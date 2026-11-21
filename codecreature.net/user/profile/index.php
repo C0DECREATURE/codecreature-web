@@ -57,9 +57,9 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		<!--bbcode stylesheet-->
 		<link href="/chat/bbcode.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
 		<!--identity ribbons stylesheet-->
-		<link href="/user/profile/ribbons.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/ribbons.css?fileversion=20161121" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="/user/profile/style.css?fileversion=20261113" rel="stylesheet" type="text/css" media="all">
+		<link href="/user/profile/style.css?fileversion=20161121" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user['color']; ?>">
 	<div class="main-container">

@@ -57,10 +57,10 @@ $user = getPublicUserData($_SESSION['id'],true);
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260930" id="svg-icons-js"></script>
 		
 		<!--user common stylesheet-->
-		<link href="../style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
+		<link href="../style.css?fileversion=20161121" rel="stylesheet" type="text/css" media="all">
 		
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20260930" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20161121" rel="stylesheet" type="text/css" media="all">
 </head>
 <body class="<?php echo $user["color"]; ?>">
 		<nav>
