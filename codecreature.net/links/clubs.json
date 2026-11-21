@@ -48,6 +48,16 @@
 		]
 	},
 	{
+		"name":"mantodea meadow",
+		"link":"",
+		"button": "",
+		"joined":true,
+		"adopted":[
+			{"img":"base.png", "link":"", "alt":"Mantis base by me"},
+			{"img":"orchid.png", "link":"", "alt":"Orchid mantis by me"}
+		]
+	},
+	{
 		"name":"pocket town",
 		"link":"divergentrays.com/pocket",
 		"button": "png",
