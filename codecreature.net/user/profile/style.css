@@ -1,3 +1,58 @@
+body {
+	--border-width: .25rem;
+	--border-color: var(--dd-purple);
+	
+	--btn-bg: var(--l-blue);
+	--btn-bg-hover: var(--ll-blue);
+	--header-bg: var(--blue);
+	--header-sub-color: var(--l-blue);
+	--header-sub-opacity: 1;
+	--scrollbar: var(--blue);
+}
+
+/* PALETTES */
+.pink * {
+	--btn-bg-hover: var(--ll-pink);
+	--header-bg: var(--pink);
+	--header-sub-color: var(--white);
+	--header-sub-opacity: .85;
+	--scrollbar: var(--pink);
+}
+.pink nav * { --btn-bg: var(--l-pink); }
+.orange * {
+	--btn-bg-hover: var(--red);
+	--header-bg: var(--d-orange);
+	--header-sub-color: var(--yellow);
+	--scrollbar: var(--orange);
+}
+.orange nav * { --btn-bg: var(--orange); }
+.green * {
+	--btn-bg-hover: var(--l-green);
+	--header-bg: var(--d-green);
+	--header-sub-color: var(--l-green);
+	--header-sub-opacity: .9;
+	--scrollbar: var(--green);
+}
+.green nav * { --btn-bg: var(--green); }
+.blue * {
+	--btn-bg-hover: var(--ll-blue);
+	--header-bg: var(--blue);
+	--header-sub-color: var(--l-blue);
+	--scrollbar: var(--blue);
+}
+.blue nav * { --btn-bg: var(--l-blue); }
+.purple * {
+	--btn-bg-hover: var(--l-pink);
+	--header-bg: var(--purple);
+	--header-sub-color: var(--ll-pink);
+	--scrollbar: var(--purple);
+}
+.purple nav * { --btn-bg: var(--l-purple); }
+
+.btn-default { background: var(--btn-bg); }
+.btn-default:hover { background: var(--btn-bg-hover); }
+.username-header .uid { color: var(--header-sub-color); opacity: var(--header-sub-opacity); }
+
 body, html {
 	width: 100%; height: 100%; margin: 0;
 	background: var(--d-purple);
@@ -8,15 +63,15 @@ body, html {
 body {
 	text-align: center;
 	font-family: 'Yet R', sans-serif;
-	--border-width: .25rem;
-	--border-color: var(--dd-purple);
 }
+
+* { scrollbar-color: var(--scrollbar) var(--l-green); }
 
 a, a:link, a:visited { color: var(--d-blue); }
 a:hover { color: var(--purple); }
 
 .main-container {
-	width: min(100%, 500px);
+	width: min(100%, 508px);
 	margin: 0 auto;
 	background: var(--l-green);
 	color: var(--blue);
@@ -25,15 +80,16 @@ a:hover { color: var(--purple); }
 	flex-direction: column;
 	border: var(--border-width) var(--border-color) solid;
 	border-top: none; border-bottom: none;
+	webkit-box-sizing: border-box; moz-box-sizing: border-box; box-sizing: border-box;
 }
 
+.username-header, nav { background: var(--header-bg); }
 .username-header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: .5rem;
 	padding: .5rem;
-	background: var(--blue);
 	color: var(--white);
 }
 
@@ -57,6 +113,50 @@ h1 {
 nav {
 	padding: .5em 0;
 	width: 100%;
+	position: relative;
+}
+
+#page-settings {
+	--open-button-background: var(--btn-bg);
+	--background: var(--white);
+	--border: var(--border-width) var(--header-bg) solid;
+	--color: inherit;
+	--accent: var(--d-blue);
+	font-family: inherit;
+	display: inline-block;
+}
+#page-settings-button {
+	--btn-shadow: var(--dd-blue);
+	--btn-shadow-size: .12em;
+	--btn-txt-shadow: var(--btn-shadow);
+	box-shadow: var(--btn-shadow-size) var(--btn-shadow-size) var(--btn-shadow);
+	position: relative;
+	bottom: calc(-1 * var(--btn-shadow-size));
+	color: var(--white);
+}
+#page-settings-button i {
+	filter: drop-shadow(-.07em -.03em var(--btn-shadow));
+}
+#page-settings-button:hover {
+	background: var(--btn-bg-hover);
+}
+#page-settings-button:active {
+	transform: translate(var(--btn-shadow-size), var(--btn-shadow-size));
+	box-shadow: none;
+}
+#page-settings-contents {
+	bottom: 100%; right: 0;
+	border-radius: .5em .5em 0 0;
+	border-bottom: none;
+	padding-bottom: .5em;
+}
+#page-settings-contents .label-wrapper {
+	gap: .25em;
+}
+#page-settings-contents .checkbox-wrapper {
+	border-width: 2px;
+	border-radius: 50%;
+	color: var(--header-bg);
 }
 
 #summary {
@@ -74,6 +174,8 @@ nav {
 #summary .text, #edit-summary {
 	width: 100%;
 	padding: .75em 1em;
+	/* FOR RIBBONS ON SMALL SCREEN */
+	@media screen and (width < 870px) { padding: .75em min(1.75em,max(8vw, .75em)); }
 	height: auto;
 }
 #summary, #edit-summary-form {
@@ -86,6 +188,7 @@ nav {
 }
 
 #edit-summary-button {
+	z-index: 900;
 	display: block;
 	position: absolute;
 	@media screen and (width >= 550px) { right: -20px; top: -10px; }
@@ -102,6 +205,9 @@ nav {
 	box-shadow: none;
 	transform: translate(var(--btn-shadow-size) var(--btn-shadow-size));
 }
+#edit-summary-form {
+	display: flex; flex-direction: column;
+}
 #edit-summary {
 	font-family: inherit;
 	border: none;
@@ -110,6 +216,7 @@ nav {
 	color: var(--blue);
 	font-size: inherit;
 	border: 3px var(--white) solid;
+	flex-grow: 1;
 }
 #edit-summary:focus, #edit-summary:active { border-color: var(--d-blue); outline: none; }
 #summary, #edit-summary-form {
@@ -136,45 +243,4 @@ nav {
 #edit-summary-form .edit-ban .label {
 	font-weight: bold;
 	color: var(--d-blue);
-}
-
-/***** scrollbar *****/
-/* Firefox settings */
-* { scrollbar-color: var(--blue) var(--l-green); }
-/***** end scrollbar *****/
-
-.pink {
-	.username-header, nav { background: var(--pink); }
-	.btn-default { background: var(--l-pink); }
-	.btn-default:hover { background: var(--ll-pink); }
-	.username-header .uid { color: var(--white); opacity: .85; }
-	* { scrollbar-color: var(--pink) var(--l-green); }
-}
-.orange {
-	.username-header, nav { background: var(--d-orange); }
-	.btn-default { background: var(--orange); }
-	.btn-default:hover { background: var(--yellow); }
-	.username-header .uid { color: var(--yellow); }
-	* { scrollbar-color: var(--orange) var(--l-green); }
-}
-.green {
-	.username-header, nav { background: var(--d-green); }
-	.btn-default { background: var(--green); }
-	.btn-default:hover { background: var(--l-green); }
-	.username-header .uid { color: var(--l-green); opacity: .9; }
-	* { scrollbar-color: var(--green) var(--l-green); }
-}
-.blue {
-	.username-header, nav { background: var(--blue); }
-	.btn-default { background: var(--l-blue); }
-	.btn-default:hover { background: var(--ll-blue); }
-	.username-header .uid { color: var(--l-blue); }
-	* { scrollbar-color: var(--blue) var(--l-green); }
-}
-.purple {
-	.username-header, nav, nav { background: var(--purple); }
-	.btn-default { background: var(--l-purple); }
-	.btn-default:hover { background: var(--l-pink); }
-	.username-header .uid { color: var(--ll-pink); }
-	* { scrollbar-color: var(--purple) var(--l-green); }
 }

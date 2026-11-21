@@ -203,13 +203,17 @@ $user = getPublicUserData($_SESSION['id'],true);
 									// check the checkbox if flag in user's current flags
 									function insertFlagCheckbox($f) {
 										global $user;
-										$image = $f["flag"];
+										$flag = $f["flag"];
+										$blankFlag = $f["blankFlag"];
 										$name = $f["name"];
 										$checked = !empty($user["flags"]) && in_array($name,$user["flags"]) ? " checked" : "";
 										echo "
 											<button class='option-wrapper' type='button'>
 												<input type='checkbox' id='flags-$name' name='flags[]' value='$name'$checked></input>
-												<label for='flags-$name' style=\"background-image:url('/graphix/flags/$image');\">
+												<label for='flags-$name' style=\"
+													--flag:url('/graphix/flags/$flag');
+													--blankFlag:url('/graphix/flags/$blankFlag');
+												\">
 													$name
 												</label>
 											</button>

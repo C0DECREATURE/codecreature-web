@@ -6,10 +6,10 @@ $flagData = [];
 	
 	$genderFlags = [
 		"agender" => [],
-		"autigender" => ["flag"=>"autigender-blank.svg"],
+		"autigender" => ["symbol"=>true,"bgX"=>"-11%"],
 		"bigender" => [],
 		"boygirl" => [],
-		"catgender" => ["flag"=>"catgender-blank.svg"],
+		"catgender" => ["symbol"=>true,"bgX"=>"-2%"],
 		"genderfluid" => [],
 		"genderqueer" => [],
 		"nonbinary" => [],
@@ -25,18 +25,20 @@ $flagData = [];
 		"aroace" => [],
 		"aromantic" => [],
 		"asexual" => [],
-		"demisexual" => [],
+		"demisexual" => ["symbol"=>true,"bgX"=>"100%"],
 		"bi" => [],
 		"gay" => [],
 		"lesbian" => [],
 		"mlm" => ["flag"=>"vincian.svg"],
 		"pan" => [],
-		"polyamorous" => ["flag"=>"polyamorous-blank.svg"],
+		"objectum" => ["symbol"=>true,"bgX"=>"-14%"],
+		"polyamorous" => ["symbol"=>true,"bgX"=>"100%"],
 		"queer" => [],
-		"sapphic" => ["flag"=>"sapphic-blank.svg"],
+		"sapphic" => ["symbol"=>true],
+		"straight" => ["symbol"=>true],
 		"system" => [],
 		"alterhuman" => [],
-		"therian" => ["flag"=>"alterhuman.svg"],
+		"therian" => ["symbol"=>true,"bgX"=>"-6%"],
 	];
 	foreach ($otherFlags as $name => $data) $otherFlags[$name]["type"] = "other";
 	
@@ -45,6 +47,12 @@ $flagData = [];
 	foreach ($flagData as $name => $data) {
 		if (empty($data["name"])) $flagData[$name]["name"] = $name;
 		if (empty($data["flag"])) $flagData[$name]["flag"] = "$name.svg";
+		if (empty($data["blankFlag"])) {
+			$flagData[$name]["blankFlag"] = $flagData[$name]["flag"];
+			if (!empty($data["symbol"])) {
+				$flagData[$name]["blankFlag"] = str_replace(".","-blank.",$flagData[$name]["blankFlag"]);
+			}
+		}
 	}
 })();
 ?>

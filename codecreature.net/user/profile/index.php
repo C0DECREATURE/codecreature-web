@@ -46,10 +46,8 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<script>fonts.load("Super Comic","Yet R");</script>
 		
-		<!-- page settings -->
-		<script src="/codefiles/page-settings.min.js?fileversion=20260930"></script>
 		<!-- typing quirk alt text -->
-		<script src="/codefiles/typing-quirks.min.js?fileversion=20260930"></script>
+		<script src="/codefiles/typing-quirks-new.js?fileversion=20260930"></script>
 		
 		<!-- svg icons -->
 		<script src="/graphix/svg-icons/svg-icons.js?fileversion=20260930" id="svg-icons-js"></script>
@@ -97,25 +95,23 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 						else $otherFlags[] = $f;
 					}
 				}
+				
+				function addFlag($f) {
+					$flag = $f["flag"];
+					$blankFlag = $f["blankFlag"];
+					$name = $f["name"];
+					$bgX = !empty($f["bgX"]) ? "--bgX: ".$f["bgX"].";" : "";
+					echo "<button class='ribbon $name' style='
+								--flag: url(/graphix/flags/$flag); --blankFlag: url(/graphix/flags/$blankFlag); $bgX
+								'><div class='wrapper'><span>$name</span></div></button>";
+				}
 			?>
 			<section id="ribbons" aria-label="identity ribbons">
 				<section id="ribbons-left" class="ribbons left" aria-label="gender identities">
-					<?php
-						foreach($genderFlags as $f) {
-							$flag = $f["flag"];
-							$name = $f["name"];
-							echo "<button class='ribbon left $flag' style=background-image:url('/graphix/flags/$flag');><div class='wrapper'><span>$name</span></div></button>";
-						}
-					?>
+					<?php foreach($genderFlags as $f) addFlag($f); ?>
 				</section>
 				<section id="ribbons-right" class="ribbons right" aria-label="other identities">
-					<?php
-						foreach($otherFlags as $f) {
-							$flag = $f["flag"];
-							$name = $f["name"];
-							echo "<button class='ribbon right $flag' style=background-image:url('/graphix/flags/$flag');><div class='wrapper'><span>$name</span></div></button>";
-						}
-					?>
+					<?php foreach($otherFlags as $f) addFlag($f); ?>
 				</section>
 			</section>
 			<?php
@@ -167,6 +163,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
 		
 		<nav>
 			<a class="btn btn-default" href="/">home</a>
+			<?php $psType = "inline"; include $_SERVER["DOCUMENT_ROOT"]."/codefiles/page-settings.php"; ?>
 		</nav>
 	</div>
 </body>

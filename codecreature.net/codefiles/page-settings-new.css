@@ -42,7 +42,6 @@
 #page-settings-contents {
 	color: var(--color);
 	position: relative;
-	z-index: -1;
 	background: var(--background);
 	padding: 1em 1.25em 1em 0.75em;
 	margin: -1em 1em 0 0;
@@ -50,19 +49,23 @@
 	outline: var(--outline);
 	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; /* put the border inside instead of outside */
 	border-radius: 0.5em;
-	max-width: min(90vw, 16em);
+	max-width: min(90vw, 17em);
 	flex-direction: column; gap: 0.5em; align-items: flex-end; 
 }
+#page-settings.fixed #page-settings-contents { position: relative; z-index: -1;}
+#page-settings.inline #page-settings-contents { position: absolute; }
 /* small screens */
 @media screen and (width < 350px) {
 	/* settings contents fill width of screen */
 	#page-settings-contents {
-		width: 100vw;
+		width: 100%;
 		max-width: 100vw;
 		max-height: 90vh;
 		overflow-y: scroll;
 		margin-right: 0px;
 		margin-top: -.5em;
+		border-left: none; border-right: none;
+		border-radius: 0;
 	}
 }
 #page-settings-contents h3 {
