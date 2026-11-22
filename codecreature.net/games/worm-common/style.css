@@ -310,6 +310,29 @@ body.halloween {
 	align-items: center;
 }
 
+.birthday #content-wrapper:before, .birthday #content-wrapper:after {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 100%; height: 100%;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	z-index: -1;
+}
+.birthday #content-wrapper:before {
+	background-image: url('/games/worm-race/images/birthday/bunting_left.png'),
+										url('/games/worm-race/images/birthday/bunting_right.png');
+	background-size: min(50%,max(400px,min(35%,700px))) auto;
+	background-position: top left, top right;
+}
+
+.birthday #content-wrapper:after {
+	background-image: url('/games/worm-race/images/birthday/balloons.png');
+	background-position: bottom right;
+	background-size: contain;
+	width: min(300px,28%); height: 63%; right: 0; bottom: 0;
+}
+
 /******************************************************************************************
 	FOOTER
 ******************************************************************************************/

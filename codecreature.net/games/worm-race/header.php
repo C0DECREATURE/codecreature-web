@@ -3,10 +3,12 @@
 	checkHolidays();
 	
 	$banner = "banner.svg";
-	if (isset($holidays) && array_key_exists($cur_holiday,$holidays)) {
-		echo "<script>document.body.classList.add('holiday','$cur_holiday');</script>";
-		$hBanner = $cur_holiday."/".$banner;
-		if (file_exists($_SERVER['DOCUMENT_ROOT'].$image_path.$hBanner)) $banner = $hBanner;
+	if (isset($holidays)) {
+		if (array_key_exists($cur_holiday,$holidays) || $cur_holiday == "birthday") {
+			echo "<script>document.body.classList.add('holiday','$cur_holiday');</script>";
+			$hBanner = $cur_holiday."/".$banner;
+			if (file_exists($_SERVER['DOCUMENT_ROOT'].$image_path.$hBanner)) $banner = $hBanner;
+		}
 	}
 ?>
 
