@@ -16,14 +16,18 @@ if (!empty($id)) {
 	$pronouns = $user['pronouns'];
 	$icon = $user['icon'];
 	$summary = $user['summary'];
+	// check for profile display ban
+	$ban = getBanInfo("user_id",$id);
+	$canShow = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
 }
 
-// check for profile display ban
-$ban = getBanInfo("user_id",$_SESSION['id']);
-$canShow = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
 // check for profile edit ban
-if ($canShow) $ban = getBanInfo("IP_address",$_SERVER['REMOTE_ADDR']);
-$canEdit = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
+$ban = $canEdit = "";
+if (isset($_SESSION['id']) && $_SESSION['id'] == $id) {
+	$ban = getBanInfo("user_id",$_SESSION['id']);
+	if (empty($ban)) $ban = getBanInfo("IP_address",$_SERVER['REMOTE_ADDR']);
+	$canEdit = empty($ban) || empty($ban["activities"]["custom_content"]) || $ban["activities"]["custom_content"] != true;
+}
 
 // Include chat bbcode settings file
 require_once $_SERVER['DOCUMENT_ROOT']."/chat/bbcode.php";
