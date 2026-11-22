@@ -36,9 +36,9 @@
 		<!--base stylesheet-->
 		<link href="/style.css?fileversion=20260920" rel="stylesheet" type="text/css" media="all">
 		<!--worms common stylesheet-->
-		<link href="/games/worm-common/style.css?fileversion=20261117" rel="stylesheet" type="text/css" media="all">
+		<link href="/games/worm-common/style.css?fileversion=20261122" rel="stylesheet" type="text/css" media="all">
 		<!--this page's stylesheet-->
-		<link href="style.css?fileversion=20261117" rel="stylesheet" type="text/css" media="all">
+		<link href="style.css?fileversion=20261122" rel="stylesheet" type="text/css" media="all">
 		
 		<!-- worm race functions -->
 		<script src="/games/worm-race/wormFunctions.js?fileversion=20260920"></script>
