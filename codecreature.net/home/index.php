@@ -95,8 +95,8 @@
 				<a class="btn btn-blue" type="button" href="/404">404 error</a>
 				<a class="btn btn-purple" type="button" href="/graphix">graphix</a>
 				<a class="btn btn-red" type="button" href="/ocs">characters</a>
-				<a class="btn btn-orange" type="button" onclick="window.location.href='/about'">about</a>
-				<a class="btn btn-green" type="button" onclick="window.location.href='https://neocities.org/site/codecreature';">neocities</a>
+				<a class="btn btn-orange" type="button" href="/about">about</a>
+				<a class="btn btn-green" type="button" href="https://neocities.org/site/codecreature">neocities</a>
 				<a class="btn btn-blue" type="button" href="/links">links</a>
 				<a class="btn btn-purple" type="button" href="/fonts">fonts</a>
 				<a class="btn btn-red" type="button" href="/warnings">warnings</a>
