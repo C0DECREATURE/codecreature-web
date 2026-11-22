@@ -53,8 +53,8 @@
 		"button": "",
 		"joined":true,
 		"adopted":[
-			{"img":"base.png", "link":"", "alt":"Mantis base by me"},
-			{"img":"orchid.png", "link":"", "alt":"Orchid mantis by me"}
+			{"img":"orchid.png", "link":"", "alt":"Orchid mantis by me"},
+			{"img":"european.png", "link":"", "alt":"European mantis by me"}
 		]
 	},
 	{
