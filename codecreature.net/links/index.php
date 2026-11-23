@@ -90,18 +90,14 @@
 								<img class="button" src="/graphix/clubs/<?php echo $n."/button.".$c["button"]; ?>" alt="<?php echo $c["name"]; ?>">
 								<?php } else echo $c["name"]; ?>
 							</a></h4>
-							<div id="pixel-club-<?php echo $n; ?>" class="pixel-club-images">
-								<?php
-								foreach ($c["adopted"] as $i) { ?>
-								<a href="<?php echo fullLink($i["link"]); ?>" target="_blank"
-									class="wrapper"
-									style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
-								>
-									<img src="<?php echo str_starts_with($i["img"],"/") ? $i["img"] : "/graphix/clubs/".$n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
-									<div class="tooltip" aria-hidden="true">
-										<?php echo str_contains($i["alt"]," by ") || !empty($i["nocred"]) ? $i["alt"] : "by ".$i["alt"]; ?>
+							<div id="pixel-club-<?php echo $n; ?>">
+								<div class="pixel-club-images">
+									<?php foreach ($c["adopted"] as $i) { insertClubEntry($n,$i); } ?>
+								</div>
+								<?php if (!empty($c["bases"])) { ?>
+									<div class="pixel-club-images">
+										<?php foreach ($c["bases"] as $i) { insertClubEntry($n,$i); } ?>
 									</div>
-								</a>
 								<?php } ?>
 							</div>
 							<?php
@@ -110,7 +106,18 @@
 						function joinedClub($c) {
 							return !isset($c["joined"]) || $c["joined"];
 						}
-						?>
+						
+						function insertClubEntry($n,$i) { ?>
+							<a href="<?php echo fullLink($i["link"]); ?>" target="_blank"
+								class="wrapper"
+								style="<?php if (!empty($i["style"])) echo $i["style"]; ?>"
+							>
+								<img src="<?php echo str_starts_with($i["img"],"/") ? $i["img"] : "/graphix/clubs/".$n."/".$i["img"]; ?>" alt="<?php echo $i["alt"]; ?>">
+								<div class="tooltip" aria-hidden="true">
+									<?php echo str_contains($i["alt"]," by ") || !empty($i["nocred"]) ? $i["alt"] : "by ".$i["alt"]; ?>
+								</div>
+							</a>
+						<?php } ?>
 						
 						<header><h3>pixel cliques</h3></header>
 						<div class="body">

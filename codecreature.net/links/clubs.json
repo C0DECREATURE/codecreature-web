@@ -50,11 +50,15 @@
 	{
 		"name":"mantodea meadow",
 		"link":"",
-		"button": "",
+		"button": "gif",
 		"joined":true,
 		"adopted":[
-			{"img":"orchid.png", "link":"", "alt":"Orchid mantis by me"},
-			{"img":"european.png", "link":"", "alt":"European mantis by me"}
+			{"img":"orchid.png", "link":"", "alt":"Orchid mantis by me", "style":"margin-left: -7px;"},
+			{"img":"european.png", "link":"", "alt":"European mantis by me", "style":"margin-left: -7px;"}
+		],
+		"bases":[
+			{"img":"base.png", "link":"", "alt":"Mantis base by me", "style":"margin-left: -7px;"},
+			{"img":"base_orchid.png", "link":"", "alt":"Orchid mantis base by me", "style":"margin-left: -7px;"}
 		]
 	},
 	{
