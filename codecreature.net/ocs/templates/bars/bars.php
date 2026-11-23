@@ -12,7 +12,7 @@ if (!empty($oc["multicolorHeaders"]) && $oc["multicolorHeaders"]) {
 		$output .= "</span>";
 		return $output;
 	}
-	$oc["name"] = multicolorText($oc["name"]);
+	$oc["mcName"] = multicolorText($oc["name"]);
 	$galleryTitle = multicolorText($galleryTitle);
 }
 ?>
@@ -70,7 +70,7 @@ if (!empty($oc["multicolorHeaders"]) && $oc["multicolorHeaders"]) {
 					<?php if (hasCustom("about header")) {
 						include $_SERVER["DOCUMENT_ROOT"].$oc["path"]."about-header.php";
 					} else { ?>
-					<h1><?php echo $oc["name"]; ?></h1>
+					<h1><?php echo $oc["mcName"]; ?></h1>
 					<p class="subheader-mini">the</p>
 					<p class="subheader"><?php echo $oc["species"]; ?></p>
 					<?php } ?>
