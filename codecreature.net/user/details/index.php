@@ -123,46 +123,36 @@ $user = getPublicUserData($_SESSION['id'],true);
 						<form name="icon" action="../icon-update.php" method="post">
 							<!--icon inputs-->
 							<div class="icon-selections">
-								<!--jeremy-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_pink" value="worm_pink" name="new-icon">
-									<label for="icon-worm_pink"><img class="icon-preview" src="/user/icons/worm_pink.png" alt="pink worm"></label>
-								</div>
-								<!--pretzel-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_orange" value="worm_orange" name="new-icon">
-									<label for="icon-worm_orange"><img class="icon-preview" src="/user/icons/worm_orange.png" alt="pink worm"></label>
-								</div>
-								<!--string cheese-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_yellow" value="worm_yellow" name="new-icon">
-									<label for="icon-worm_yellow"><img class="icon-preview" src="/user/icons/worm_yellow.png" alt="yellow worm"></label>
-								</div>
-								<!--matilda-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_green" value="worm_green" name="new-icon">
-									<label for="icon-worm_green"><img class="icon-preview" src="/user/icons/worm_green.png" alt="blue worm"></label>
-								</div>
-								<!--pool noodle-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_blue" value="worm_blue" name="new-icon">
-									<label for="icon-worm_blue"><img class="icon-preview" src="/user/icons/worm_blue.png" alt="blue worm">
-								</div>
-								<!--microplastics-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_purple" value="worm_purple" name="new-icon">
-									<label for="icon-worm_purple"><img class="icon-preview" src="/user/icons/worm_purple.png" alt="purple worm"></label>
-								</div>
-								<!--worm apple-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_apple" value="worm_apple" name="new-icon">
-									<label for="icon-worm_apple"><img class="icon-preview" src="/user/icons/worm_apple.png" alt="golden apple"></label>
-								</div>
-								<!--worm energy drink-->
-								<div class="wrapper">
-									<input type="radio" id="icon-worm_drink" value="worm_drink" name="new-icon">
-									<label for="icon-worm_drink"><img class="icon-preview" src="/user/icons/worm_drink.png" alt="golden apple"></label>
-								</div>
+								<?php
+								$iconOptions = [
+									["name"=>"worm_apple","alt"=>"Golden apple"],
+									["name"=>"worm_drink","alt"=>"Can of battery juice"],
+									["name"=>"fish","alt"=>"Can of battery juice"],
+									["name"=>"jeremy_head","alt"=>"Close-up Jeremy"],
+									["name"=>"jeremy","alt"=>"Jeremy"],
+									["name"=>"jeremy_halloween","alt"=>"Halloween costume Jeremy"],
+									["name"=>"pretzel","alt"=>"Pretzel"],
+									["name"=>"pretzel_halloween","alt"=>"Halloween costume Pretzel"],
+									["name"=>"string_cheese_head","alt"=>"Close-up String Cheese"],
+									["name"=>"string_cheese","alt"=>"String Cheese"],
+									["name"=>"string_cheese_halloween","alt"=>"Halloween costume String Cheese"],
+									["name"=>"matilda","alt"=>"Matilda"],
+									["name"=>"matilda_halloween","alt"=>"Halloween costume Matilda"],
+									["name"=>"pool_noodle","alt"=>"Pool Noodle"],
+									["name"=>"pool_noodle_halloween","alt"=>"Halloween costume Pool Noodle"],
+									["name"=>"microplastics_head","alt"=>"Close-up Microplastics"],
+									["name"=>"microplastics","alt"=>"Microplastics"],
+									["name"=>"microplastics_halloween","alt"=>"Halloween costume Microplastics"],
+									["name"=>"ship_wall_nepeta","alt"=>"Scribble Nepeta"],
+									["name"=>"tildeath","alt"=>"~ATH book cover"],
+								];
+								
+								foreach ($iconOptions as $i) { ?>
+									<div class="wrapper">
+										<input type="radio" id="icon-<?php echo $i["name"]; ?>" value="<?php echo $i["name"]; ?>" name="new-icon">
+										<label for="icon-<?php echo $i["name"]; ?>"><img class="icon-preview" src="/user/icons/<?php echo $i["name"]; ?>.png" alt="<?php echo $i["alt"]; ?>"></label>
+									</div>
+								<?php } ?>
 							</div>
 							<!--end of icon inputs-->
 							<input type="submit" class="btn btn-green" value="update">

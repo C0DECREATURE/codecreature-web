@@ -44,7 +44,7 @@ function updatePronouns($new_pronouns) {
 			// Attempt to execute the prepared statement
 			if(mysqli_stmt_execute($stmt)){                            
 				$_SESSION["user_pronouns"] = $pronouns;
-				$icon_success = "Updated pronouns to ".$_SESSION["user_pronouns"]."!";
+				$pronouns_success = "Updated pronouns to ".$_SESSION["user_pronouns"]."!";
 			} else{
 				echo "Oops! Something went wrong. Please try again later.";
 			}

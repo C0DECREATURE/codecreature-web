@@ -289,7 +289,7 @@ function getWormAwards() {
 		// get users with this worm as their icon
 		$sql = "SELECT COUNT(icon) as count
 							FROM users
-							WHERE icon = 'worm_". $worms[$i]["color"] ."';";
+							WHERE icon LIKE '".$worms[$i]["name"] ."%';";
 		if ( $result = mysqli_query($users_conn,$sql) ) {
 			// store the result in the worm objects
 			$row = $result->fetch_assoc();
