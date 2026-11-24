@@ -177,8 +177,12 @@ main > .sidebar {
 	align-items: flex-end;
 	justify-content: center;
 }
+.pixel-club-images a, .pixel-club-images img { image-rendering: pixelated; }
 .pixel-club-images a { transition: scale .2s; text-align: center; }
-.pixel-club-images a:hover { scale: 2; z-index: 2; image-rendering: pixelated; }
+.pixel-club-images a:hover, .pixel-club-images a:focus-visible {
+	scale: 2; z-index: 2;
+	outline: none;
+}
 
 #pixel-club-pockettown .pixel-club-images,
 #pixel-club-togetherforever .pixel-club-images,
@@ -200,16 +204,23 @@ main > .sidebar {
 	position: absolute;
 	bottom: calc(100% + 5px);
 	left: 50%;
-	transform: translateX(-50%);
+	transform-origin: bottom center;
+	transform: translateX(-50%) scale(0);
+	transition: transform .25s;
 	background: black;
 	font-family: 'Courier New','Courier',serif;
 	font-weight: bold;
 	color: white;
 	font-size: 8px;
 	padding: .2em .6em;
-	transition: font-size .2s, opacity .2s;
 	-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
 }
+/* display and animate on hover or keyboard focus */
+#pixel-clubs a:is(:hover,:focus-visible) .tooltip, #clubs-to-join a:is(:hover,:focus-visible) .tooltip {
+	display: block;
+	transform: translateX(-50%) scale(1);
+}
+/* tooltip bottom arrow point thing */
 #pixel-clubs .tooltip:after, #clubs-to-join .tooltip:after {
 	content: '';
 	display: block;
@@ -222,10 +233,6 @@ main > .sidebar {
 	transform: translateX(-50%);
 	rotate: 45deg;
 	z-index: -1;
-}
-#pixel-clubs a:not(:hover,:focus-visible) .tooltip, #clubs-to-join a:not(:hover,:focus-visible) .tooltip {
-	font-size: 0px;
-	opacity: 0;
 }
 
 #my-button .content { text-align: center; }

@@ -400,9 +400,15 @@
 					<div class="marquee-track">
 						<?php
 						shuffle($neighbors);
-						foreach ($neighbors as $n) { ?>
+						foreach ($neighbors as $n) {
+							// if a specific image file not provided, assume $n["img"] is a file type
+							// get the generic button. e.g. "site name" with img "png" => "sitename.png"
+							if (!str_starts_with($n["img"],"/") && !str_starts_with($n["img"],"http")) {
+								$n["img"] = "/graphix/site-buttons/".strtolower(str_replace([" ","'"],"",$n["alt"])).".".$n["img"];
+							}
+							?>
 							<a href="https://<?php echo $n["link"]; ?>" class="button" target="_blank">
-								<img src="/graphix/site-buttons/<?php echo strtolower(str_replace([" ","'"],"",$n["alt"])).".".$n["img"]; ?>" alt="<?php echo $n["alt"]; ?>"></a>
+								<img src="<?php echo $n["img"]; ?>" alt="<?php echo $n["alt"]; ?>"></a>
 						<?php } ?>
 					</div>
 					<div class="marquee-track-2"></div>
