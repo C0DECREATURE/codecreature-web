@@ -22,35 +22,48 @@
 <script>
 	if (typeof headerCooldownInterval == "undefined") {
 		function updateHeaderTime() {
-			let cooldown = Number(sessionStorage.getItem("cooldown")) - 1;
-			sessionStorage.setItem("cooldown", cooldown);
+			// get Unix timestamp when cooldown ends, in seconds
+			let cooldownEnds = Number(sessionStorage.getItem("cooldownEnds"));
+			// get current Unix timestamp, in seconds
+			let now = Math.floor(Date.now() / 1000);
 			
+			// text to display in the header
 			let displayText = "";
-			if (cooldown <= 0) {
+			
+			// if the cooldown ended in the past, clear the stored cooldown
+			if (cooldownEnds < now) {
 				canFeed = true;
 				updateFeedButtons();
 				clearInterval(headerCooldownInterval);
 				displayText = "Feed a Worm";
+			// if the cooldown ends in the future
 			} else {
 				canFeed = false;
+				// get the seconds until cooldown ends
+				let cooldown = cooldownEnds - now;
+				// convert into display text
 				displayText += "Feed again in ";
 				let minutes = Math.floor(cooldown / 60);
 				let seconds = cooldown - (minutes * 60);
 				if (seconds < 10) seconds = "0" + seconds;
 				displayText += minutes + ":" + seconds;
 			}
+			// set the header text
 			document.getElementById('banner-subtitle').innerHTML = displayText;
 		}
 		<?php
+			// if there is a user logged in, check that user's recent feed logsc
+			if (isset($_SESSION["id"])) userCanFeed($_SESSION["id"],"user_id");
+			// pass any PHP cooldown info to javascript
 			if ( isset($_SESSION["last_feed"]) && isset($_SESSION["last_cooldown"]) ) {
-				echo '
-					sessionStorage.setItem("cooldown",'.
-						max($_SESSION["last_feed"] + $_SESSION["last_cooldown"] - time(), 0)
-					.');
-					headerCooldownInterval = setInterval(updateHeaderTime, 1000);
-					updateHeaderTime();
-				';
+				$cooldown_end = $_SESSION["last_feed"] + $_SESSION["last_cooldown"];
+				// if cooldown ends in the future
+				if ($cooldown_end > time()) {
+					echo "sessionStorage.setItem('cooldownEnds',$cooldown_end);";
+				}
 			}
 		?>
+		headerCooldownInterval = setInterval(updateHeaderTime, 1000);
+		updateHeaderTime();
 	};
 </script>

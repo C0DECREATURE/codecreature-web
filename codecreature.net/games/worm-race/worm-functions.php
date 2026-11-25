@@ -508,7 +508,7 @@ function userCanFeed($reference,$type) {
 	
 	$can_feed = true;
 	
-	$max_users = 1.1; // maximum users
+	$max_users = 1.05; // maximum users
 	
 	// get all feed log data if not already fetched
 	if ( count($feed_log) == 0 ) { getFeedLogData(); }
@@ -519,19 +519,40 @@ function userCanFeed($reference,$type) {
 	$cooldown_counts = [0,0,0,0];
 	
 	foreach ($feed_log as $row) {
-		// if the row matches the user data provided
+		// if the log entry row matches the user data provided
 		if (
 			$row[$type] == $reference
 		) {
-			// if there is a feeding less than 5 seconds ago, don't feed
+			// get item cooldown and feed time for the log entry
+			$cooldown = (int)$items[$row["item"]]["cooldown"];
+			$feed_date = strtotime($row['date']);
+			// if the cooldown would end in the future
+			// and EITHER:
+			//		there is no locally stored cooldown,
+			//		or this feed log's cooldown ends after the local one
+			// store the feed log's cooldown locally
+			if (
+				$feed_date + $cooldown > time()
+				&&
+				(
+					empty($_SESSION["last_feed"])
+					||
+					empty($_SESSION["last_cooldown"])
+					||
+					$_SESSION["last_feed"] + $_SESSION["last_cooldown"] < $feed_date + $cooldown
+				)
+			) {
+				$_SESSION["last_feed"] = $feed_date;
+				$_SESSION["last_cooldown"] = $cooldown;
+			}
+			// if there is a feeding less than 5 seconds ago, can't feed
 			if (time() - strtotime($row['date']) < 5) {
 				$can_feed = false;
-				break;
-			// otherwise add this to the user's total cooldown if it's within the time period to check
+			// otherwise add this to the user's total cooldown, if it's within the time period to check
 			} else {
 				for ($i = 0; $i < count($time_periods); $i++) {
-					if (strtotime($row['date']) > (time() - $time_periods[$i])) {
-						$cooldown_counts[$i] += (int)$items[$row["item"]]["cooldown"];
+					if ($feed_date > (time() - $time_periods[$i])) {
+						$cooldown_counts[$i] += $cooldown;
 						if ($cooldown_counts[$i] > ($time_periods[$i] * $max_users)) {
 							$can_feed = false;
 							break;
