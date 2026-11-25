@@ -1,0 +1,10 @@
+[
+	{
+		"title":"Don't abuse exploits.",
+		"details":"Cooldowns apply to <em>you</em> as a person. Using any means to increase the amount you can feed a worm is not fair to other users. If you find something that might be an unintended exploit, please report it in <a href='/chat/worms'>worm chat</a> or email <a href='mailto:admin@codecreature.net'>admin@codecreature.net</a>!"
+	},
+	{
+		"title":"Follow user and chat rules.",
+		"details":"User accounts and chat participation are subject to their own rules, found <a href='/chat/rules'>here</a>."
+	}
+]

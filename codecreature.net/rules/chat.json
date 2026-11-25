@@ -1,0 +1,38 @@
+[
+	{
+		"title":"Be nice.",
+		"details":"Don't harrass or insult people for any reason. Zero tolerance policy for slurs or hate speech of any kind."
+	},
+	{
+		"title":"No spam.",
+		"details":"It's annoying and a waste of data."
+	},
+	{
+		"title":"No hyper-explicit sexual content.",
+		"details":"Includes erotic images, roleplay, detailed descriptions, or content regarding your personal sex life. Absolutely no sexual comments directed at other users. Occasional vague references or mild jokes are fine. Discussion of the non-sexual aspects of media that contains sex scenes (e.g. a rated R movie) is also allowed."
+	},
+	{
+		"title":"Respect anonymity.",
+		"details":"Do not press people for identity details, including age, name, location, or off-site contact information. It is up to each user what they choose to disclose. This includes anonymous users."
+	},
+	{
+		"title":"Avoid excessive serious or heavy discussion.",
+		"details":"This isn't the place for political debates, excessive venting/complaining, serious mental health topics, etc. A small amount of political content is fine, keeping in mind rule #11."
+	},
+	{
+		"title":"Keep the chat topic in mind.",
+		"details":"Small tangents are completely fine, but for extended off-topic discussion consider taking it to <a href='/chat/general'>general chat</a>. Also, this is a public group chat, and therefore not an appropriate place for inside jokes or private conversation with your off-site friends."
+	},
+	{
+		"title":"English only.",
+		"details":"I'm not fluent in any other languages, I need to understand messages to moderate effectively."
+	},
+	{
+		"title":"Keep it legal.",
+		"details":"This site is hosted in the USA. Don't post anything here that would get me, or you, in serious trouble with the government."
+	},
+	{
+		"title":"This is not a neutral space.",
+		"details":"You're allowed to have opinions I consider ethically wrong, but I don't have to let you share them.<br>I support...<ul><li>The right to free gender expression and transition.</li><li>Unrestricted reproductive freedoms.</li><li>Indigenous rights to land, language, culture, and self-governance. This includes Palestine.</li><li>Anti-fascism.</li></ul>I do not look favorably on right-wing views."
+	}
+]

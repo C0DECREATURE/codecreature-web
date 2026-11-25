@@ -1,0 +1,7 @@
+ol { margin: 0; margin-top: .25em; }
+h4, li::marker {
+	font-size: 1.15em;
+	color: var(--d-blue);
+}
+h4 { margin: .75em 0 .4em 0; }
+li:first-child h4 { margin-top: 0; }

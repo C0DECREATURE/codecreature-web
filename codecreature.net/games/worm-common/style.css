@@ -51,6 +51,9 @@ body.halloween {
 /* default keyboard focus style */
 :focus-visible { outline-color: var(--dd-blue); }
 
+a, a:link, a:visited { color: var(--d-blue); }
+a:hover { color: var(--purple); }
+
 /******************************************************************************************
 	SCROLLBAR
 ******************************************************************************************/

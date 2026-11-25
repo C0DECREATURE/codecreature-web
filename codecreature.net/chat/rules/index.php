@@ -57,58 +57,23 @@
 			</p>Last update: 11/16/2026</p>
 			
 			<ol>
+				<?php
+				function addRule($r) { ?>
 				<li>
-					<h4>Must be 13 or older.</h4>
-					Currently aiming for things to be PG-13 ish, subject to change. I am not equipped to create a safe environment for very young users.
+					<h4><?php echo $r["title"]; ?></h4>
+					<?php echo $r["details"]; ?>
 				</li>
-				<li>
-					<h4>One account per person.</h4>
-					Help me keep storage costs down and make games fair!
-				</li>
-				<li>
-					<h4>Be nice.</h4>
-					Don't harrass or insult people for any reason. Zero tolerance policy for slurs or hate speech of any kind.
-				</li>
-				<li>
-					<h4>No spam.</h4>
-					It's annoying and a waste of data.
-				</li>
-				<li>
-					<h4>No hyper-explicit sexual content.</h4>
-					Includes erotic images, roleplay, detailed descriptions, or content regarding your personal sex life. Absolutely no sexual comments directed at other users. Occasional vague references or mild jokes are fine. Discussion of the non-sexual aspects of media that contains sex scenes (e.g. a rated R movie) is also allowed.
-				</li>
-				<li>
-					<h4>Respect anonymity.</h4>
-					Do not press people for identity details, including age, name, location, or off-site contact information. It is up to each user what they choose to disclose. This includes anonymous users.
-				</li>
-				<li>
-					<h4>Avoid excessive serious or heavy discussion.</h4>
-					This isn't the place for political debates, excessive venting/complaining, serious mental health topics, etc. A small amount of political content is fine, keeping in mind rule #11.
-				</li>
-				<li>
-					<h4>Keep the chat topic in mind.</h4>
-					Small tangents are completely fine, but for extended off-topic discussion please take it to <a href="/chat/general">general chat</a>. Also, please remember that this is a group chat, and therefore not an appropriate place for inside jokes or private conversation with your off-site friends.
-				</li>
-				<li>
-					<h4>English only.</h4>
-					I'm not fluent in any other languages, I need to understand messages to moderate effectively.
-				</li>
-				<li>
-					<h4>Keep it legal.</h4>
-					This site is hosted in the USA. Don't post anything here that would get me, or you, in serious trouble with the government.
-				</li>
-				<li>
-					<h4>This is not a neutral space.</h4>
-					You're allowed to have opinions I consider ethically wrong, but I don't have to let you share them.
-					<br>I support...
-						<ul>
-							<li>The right to free gender expression and transition.</li>
-							<li>Unrestricted reproductive freedoms.</li>
-							<li>Indigenous rights to land, language, culture, and self-governance. This includes Palestine.</li>
-							<li>Anti-fascism.</li>
-						</ul>
-					I do not look favorably on right-wing views.
-				</li>
+				<?php }
+				
+				function loadRuleset($name) {
+					$rules = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"]."/rules/$name.json"),true);
+					foreach ($rules as $r) { addRule($r); }
+				}
+				
+				loadRuleset("global");
+				loadRuleset("user");
+				loadRuleset("chat");
+				?>
 			</ol>
 			
 			<h2>Consequences</h2>

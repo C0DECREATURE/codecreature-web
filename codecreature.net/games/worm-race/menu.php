@@ -25,6 +25,7 @@
 				<a href="/games/worm-love">shipping</a>
 				<a href="/fan-worms">fan worms</a>
 				<a href="/fridge">fanart</a>
+				<a href="<?php echo $worm_race_path ?>rules">rules</a>
 			</div>
 		</button>
 		<button id="open-updates" onclick="">

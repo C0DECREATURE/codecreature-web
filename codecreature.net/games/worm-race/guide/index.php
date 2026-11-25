@@ -58,6 +58,8 @@
 					</header>
 					<div class="main-container">
 						<div class="details">
+							<p>please check out the <a href="/games/worm-race/rules">rules</a> before playing!</p>
+							<hr>
 							<p>each worm has two stats: <span class="health caps">health</span> and <span class="movement caps">race progress</span>.</p>
 							<hr>
 							<p><span class="item apple">apples</span> increase <span class="movement">race progress</span> a little.</p>
@@ -258,8 +260,8 @@
 								</div>
 								
 								<div class="wrapper">
-									<div class="question">do the worms consider poison to be cheating?</div>
-									<div class="answer">no. worms do not believe in rules of any kind.</div>
+									<div class="question">do the worms consider poison unsportsmanlike?</div>
+									<div class="answer">no. worms do not believe in rules. users, on the other hand, are expected to follow the <a href="/games/worm-race/rules">race rules</a>.</div>
 								</div>
 								
 								<div class="wrapper">
