@@ -103,7 +103,7 @@
 						[
 							"title" => "Bean Me",
 							"year" => 2000,
-							"description" => "More of an interactive video. Referenced in the comic <a href='http://localhost/shrines/garfield/comics/?year=2000&num=250'>here</a>.",
+							"description" => "More of an interactive video. Referenced in the comic <a href='/garfield/comics/?year=2000&num=250'>here</a>.",
 							"src" => "https://flashmuseum.org/bean-me/",
 							"preview" => "../images/games/bean_me.png",
 						],
