@@ -27,38 +27,30 @@ $canMakeAccount = empty($ban) || empty($ban["new_account"]) || $ban["new_account
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST" && $canMakeAccount){
 		// Validate email
-    if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter an email.";
-    } elseif(!preg_match('/^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/', trim($_POST["email"]))){
-        $email_err = "Please enter a valid email.";
-    } else{
-        // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE email = ?";
-        
-        if($stmt = mysqli_prepare($users_conn, $sql)){
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "s", $param_email);
-            
-            // Set parameters
-            $param_email = trim($_POST["email"]);
-            
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-                
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $email_err = "This email has already been used.";
-                } else{
-                    $email = trim($_POST["email"]);
-                }
-            } else{
-                echo "Oops! Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
-        }
+    if(!empty(trim($_POST["email"]))){
+			$email = trim($_POST["email"]);
+			if(!preg_match('/^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/', $email)){
+				$email_err = "Invalid email address.";
+			} else{
+				// Prepare a select statement
+				$sql = "SELECT id FROM users WHERE email = ?";
+				
+				if($stmt = mysqli_prepare($users_conn, $sql)){
+					// Bind variables to the prepared statement as parameters
+					mysqli_stmt_bind_param($stmt, "s", $param_email);
+					$param_email = $email;
+					
+					if(mysqli_stmt_execute($stmt)){
+						mysqli_stmt_store_result($stmt);
+						if(mysqli_stmt_num_rows($stmt) == 1) $email_err = "This email has already been used.";
+					} else{
+						echo "Oops! Something went wrong. Please try again later.";
+					}
+					
+					// Close statement
+					mysqli_stmt_close($stmt);
+				}
+			}
     }
 		
     // Validate username
@@ -194,11 +186,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $canMakeAccount){
 		</p>
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<div class="form-group">
-				<label for="email" class="accent">email: </label>
-				<input type="email" id="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
-				<span class="invalid-feedback"><?php echo $email_err; ?></span>
-			</div>
-			<div class="form-group">
 				<label for="username" class="accent">username: </label>
 				<input
 					type="text"
@@ -209,8 +196,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $canMakeAccount){
 					value="<?php echo $new_username; ?>">
 				<span class="invalid-feedback"><?php echo $username_err; ?></span>
 			</div>
-			<span>For your safety, choose a password you don't use on other sites!</span>
 			<div class="form-group">
+				<div class="info">
+					Email is <strong>optional</strong>.
+					<br>Without an email, you may be unable to recover your account if your password is lost.
+				</div>
+				<label for="email" class="accent">email: </label>
+				<input type="text" id="email" name="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $email; ?>">
+				<span class="invalid-feedback"><?php echo $email_err; ?></span>
+			</div>
+			<div class="form-group">
+				<div class="info">
+					For your safety, choose a password you don't use on other sites!
+				</div>
 				<label for="password" class="accent">password: </label>
 				<input
 					type="password"
