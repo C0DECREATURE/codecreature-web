@@ -78,10 +78,5 @@
 		
 		<!--worm race updates-->
 		<?php include '../updates.php'; ?>
-		
-		<script>
-			// put the correct svg in each .svg-icon element
-			defaultSvgIcons.load();
-		</script>
 	</body>
 </html>
