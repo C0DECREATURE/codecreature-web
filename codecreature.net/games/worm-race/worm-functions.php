@@ -508,15 +508,15 @@ function userCanFeed($reference,$type) {
 	
 	$can_feed = true;
 	
-	$max_users = 1.05; // maximum users
+	$max_users = 1.1; // maximum users
 	
 	// get all feed log data if not already fetched
 	if ( count($feed_log) == 0 ) { getFeedLogData(); }
 	
 	// time periods to check, in seconds
-	$time_periods = [15,60,180,300];
+	$time_periods = [15,60,120,180,240,300];
 	// array to store the cooldown accumulated for each checked time period
-	$cooldown_counts = [0,0,0,0];
+	$cooldown_counts = [0,0,0,0,0,0];
 	
 	foreach ($feed_log as $row) {
 		// if the log entry row matches the user data provided
@@ -532,6 +532,8 @@ function userCanFeed($reference,$type) {
 			//		or this feed log's cooldown ends after the local one
 			// store the feed log's cooldown locally
 			if (
+				$type == "user_id"
+				&&
 				$feed_date + $cooldown > time()
 				&&
 				(
@@ -557,8 +559,6 @@ function userCanFeed($reference,$type) {
 							$can_feed = false;
 							break;
 						}
-					} else {
-						break; // if we have reached results older than the time period, break for loop
 					}
 				}
 			}
