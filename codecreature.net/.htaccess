@@ -5,6 +5,8 @@ ErrorDocument 404 /not_found.php
 ################################
 # REDIRECTS
 
+Redirect 301 /about /u/codecreature
+
 Redirect 301 /login /user/login
 Redirect 301 /register /user/register
 

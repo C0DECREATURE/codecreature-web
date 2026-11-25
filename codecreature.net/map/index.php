@@ -50,7 +50,7 @@
 				<li><a href="/home" class="page" data-traits="wip">home</a></li>
 				<li><a href="/warnings" class="page" data-traits="">warnings</a></li>
 				<li><a href="/map" class="page" data-traits="wip">site map</a></li>
-				<li><a href="/about" class="page" data-traits="wip">about</a></li>
+				<li><a href="/u/codecreature" class="page" data-traits="wip">about webmaster</a></li>
 				<li><a href="/updates" class="page" data-traits="wip">updates</a></li>
 			</ul>
 			
