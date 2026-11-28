@@ -64,7 +64,7 @@ $MoonGifImage[8] = "moon_0.gif";
 $MoonImage = round( $MoonAge, 0 );
 
 // Get Moon Illumination as percentage
-$MoonPhasePercent = round( $MoonIllum, 2 ) * 100;
+$MoonPhasePercent = round( ($MoonAge / 29.5), 2 ) * 100;
 
 // Determine Name of Current Moon Phase
 if ($MoonAge <  1.84566) $phaseText = 'New Moon';

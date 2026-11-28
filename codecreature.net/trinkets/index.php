@@ -341,10 +341,14 @@
 				
 				
 				<div id="grandfather-clock" class="container" style="left: 175px; top: 1955px; scale: .850;">
-					<?php require_once $_SERVER["DOCUMENT_ROOT"]."/codefiles/moonphase/moonphase.php"; ?>
+					<?php
+						require_once $_SERVER["DOCUMENT_ROOT"]."/codefiles/moonphase/moonphase.inc.php";
+						$moondata = phase();
+						$MoonAgeFraction	= round( ($moondata[2] / 29.5), 2 );
+					?>
 					<img src="images/grandfather_clock/face.png" alt="">
 					<img src="images/grandfather_clock/moondial.png" alt="" style="left: 20.5%; top: 8.3%; z-index: -1;
-						rotate: <?php echo ($MoonPhasePercent/100) * 90; ?>deg">
+						rotate: <?php echo ($MoonAgeFraction * 164) + 20; ?>deg">
 				</div>
 				
 				<!----------------- BOTTOM RIGHT ------------------>
