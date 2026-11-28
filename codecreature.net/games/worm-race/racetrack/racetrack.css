@@ -82,7 +82,7 @@
 
 .wrapper:has(> #race-tracks) {
 	@media screen and (width >= 933px) {
-		width: 55%;
+		width: 50%;
 		min-width: 600px;
 		max-width: min(100vh, 90vw);
 	}
@@ -323,7 +323,7 @@ option {
 	justify-content: center; align-items: center;
 	moz-box-sizing: border-box; webkit-box-sizing: border-box; box-sizing: border-box;
 	gap: var(--padding);
-	min-width: min(90%,max(40%, 400px));
+	min-width: min(90%,max(44%, 400px));
 	max-width: 90vw;
 }
 /* worm stat block */
@@ -336,9 +336,10 @@ option {
 	color: var(--white);
 	text-align: center;
 	font-size: max(.8rem, min(min(1rem, 3vw), 3vh));
-	width: max(48%, 9rem);
+	width: 45%;
+	min-width: 14em;
 	max-height: max(20vh, 12rem);
-	flex-shrink: 1; flex-grow: 1;
+	flex-shrink: 0; flex-grow: 1;
 	webkit-box-sizing: border-box; box-sizing: border-box;
 	background: var(--diagonal-stripes);
 	background-color: var(--bg);
