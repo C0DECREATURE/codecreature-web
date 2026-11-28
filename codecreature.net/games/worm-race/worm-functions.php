@@ -508,7 +508,7 @@ function userCanFeed($reference,$type) {
 	
 	$can_feed = true;
 	
-	$max_users = 1.1; // maximum users
+	$max_users = 1.5; // maximum users
 	
 	// get all feed log data if not already fetched
 	if ( count($feed_log) == 0 ) { getFeedLogData(); }
@@ -547,8 +547,8 @@ function userCanFeed($reference,$type) {
 				$_SESSION["last_feed"] = $feed_date;
 				$_SESSION["last_cooldown"] = $cooldown;
 			}
-			// if there is a feeding less than 5 seconds ago, can't feed
-			if (time() - strtotime($row['date']) < 5) {
+			// if there is a feeding less than 3 seconds ago, can't feed
+			if (time() - strtotime($row['date']) < 3) {
 				$can_feed = false;
 			// otherwise add this to the user's total cooldown, if it's within the time period to check
 			} else {
